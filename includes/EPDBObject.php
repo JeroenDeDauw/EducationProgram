@@ -939,7 +939,7 @@ abstract class EPDBObject {
 				$cond[1][] = implode( '=', $parts );
 			}
 
-			$conds[] = $cond;
+			$conds[$table] = $cond;
 		}
 
 		return $conds;

@@ -75,7 +75,7 @@ class SpecialTerm extends SpecialEPPage {
 					},
 					$term->getStudents( 'id' )
 				);
-				
+
 				if ( count( $studentIds ) > 0 ) {
 					$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-term-students' ) ) );
 					EPStudent::displayPager( $this->getContext(), array( 'id' => $studentIds ) );

@@ -146,11 +146,11 @@ class SpecialCourse extends SpecialEPPage {
 				$instList[] = $instructor->getUserLink() . $instructor->getToolLinks( $this->getContext(), $course );
 			}
 			
-			if ( count( $instructors ) == 1 ) {
+			if ( false ) { // count( $instructors ) == 1
 				return $instList[0];
 			}
 			else {
-				return '<ul><li>' . implode( '</li><li>', $instList ) . '</li></ul>';
+				return '<ul id="ep-course-instructors"><li>' . implode( '</li><li>', $instList ) . '</li></ul>';
 			}
 		}
 		else {

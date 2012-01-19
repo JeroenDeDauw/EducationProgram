@@ -37,9 +37,7 @@
 					$remove.remove();
 					$cancel.button( 'option', 'label', ep.msg( 'ep-instructor-close-button' ) );
 					$cancel.focus();
-
-					// TODO: update UI to reflect the addition
-					location.reload();
+					$this.closest( 'li' ).remove();
 				} ).fail( function() {
 					$remove.button( 'option', 'disabled', false );
 					$remove.button( 'option', 'label', ep.msg( 'ep-instructor-remove-retry' ) );
@@ -134,14 +132,15 @@
 						_this.getName(),
 						_this.courseName
 					) );
+
 					$add.remove();
 					$cancel.button( 'option', 'label', ep.msg( 'ep-instructor-add-close-button' ) );
 					$cancel.focus();
 
-					// TODO: update UI to reflect the addition
-					location.reload();
+					// TODO: link name to user page and show control links
+					$( '#ep-course-instructors' ).append( $( '<li>' ).text( _this.getName() ) )
 				} ).fail( function() {
-					// TODO: implement handling for fails caused by invalid user name
+					// TODO: implement nicer handling for fails caused by invalid user name
 
 					$add.button( 'option', 'disabled', false );
 					$add.button( 'option', 'label', ep.msg( 'ep-instructor-add-retry' ) );

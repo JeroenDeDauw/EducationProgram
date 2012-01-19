@@ -134,7 +134,7 @@ class EPTerm extends EPDBObject {
 			$conditions,
 			array(),
 			array(
-				'ep_students_per_term' => array( 'INNER JOIN', array( array( array( 'ep_students_per_term', 'term_id' ), array( 'ep_terms', 'id' ) ) ) ),
+				'ep_students_per_term' => array( 'INNER JOIN', array( array( array( 'ep_students_per_term', 'student_id' ), array( 'ep_students', 'id' ) ) ) ),
 				'ep_terms' => array( 'INNER JOIN', array( array( array( 'ep_students_per_term', 'term_id' ), array( 'ep_terms', 'id' ) ) ) )
 			)
 		);
