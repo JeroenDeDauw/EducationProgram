@@ -37,7 +37,14 @@
 					$remove.remove();
 					$cancel.button( 'option', 'label', ep.msg( 'ep-instructor-close-button' ) );
 					$cancel.focus();
-					$this.closest( 'li' ).remove();
+
+					$li = $this.closest( 'li' );
+					$ul = $li.closest( 'ul' );
+					$li.remove();
+
+					if ( $ul.find( 'li' ).length < 1 ) {
+						$ul.closest( 'div' ).text( mw.msg( 'ep-course-no-instructors' ) );
+					}
 				} ).fail( function() {
 					$remove.button( 'option', 'disabled', false );
 					$remove.button( 'option', 'label', ep.msg( 'ep-instructor-remove-retry' ) );
@@ -101,14 +108,16 @@
 				'type': 'text',
 				'size': 30,
 				'maxlength': 250,
-				'id': 'ep-instructor-nameinput'
+				'id': 'ep-instructor-nameinput',
+				'name': 'ep-instructor-nameinput'
 			} );
 			
 			this.summaryInput = $( '<input>' ).attr( {
 				'type': 'text',
 				'size': 60,
 				'maxlength': 250,
-				'id': 'ep-instructor-summaryinput'
+				'id': 'ep-instructor-summaryinput',
+				'name': 'ep-instructor-summaryinput'
 			} );
 
 			this.getName = function() {
@@ -138,7 +147,14 @@
 					$cancel.focus();
 
 					// TODO: link name to user page and show control links
-					$( '#ep-course-instructors' ).append( $( '<li>' ).text( _this.getName() ) )
+					$ul = $( '#ep-course-instructors' ).find( 'ul' );
+
+					if ( $ul.length < 1 ) {
+						$ul = $( '<ul>' );
+						$( '#ep-course-instructors' ).html( $ul );
+					}
+
+					$ul.append( $( '<li>' ).text( _this.getName() ) )
 				} ).fail( function() {
 					// TODO: implement nicer handling for fails caused by invalid user name
 

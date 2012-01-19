@@ -147,15 +147,21 @@ class SpecialCourse extends SpecialEPPage {
 			}
 			
 			if ( false ) { // count( $instructors ) == 1
-				return $instList[0];
+				$html = $instList[0];
 			}
 			else {
-				return '<ul id="ep-course-instructors"><li>' . implode( '</li><li>', $instList ) . '</li></ul>';
+				$html = '<ul><li>' . implode( '</li><li>', $instList ) . '</li></ul>';
 			}
 		}
 		else {
-			return wfMsgHtml( 'ep-course-no-instructors' );
+			$html = wfMsgHtml( 'ep-course-no-instructors' );
 		}
+
+		return Html::rawElement(
+			'div',
+			array( 'id' => 'ep-course-instructors' ),
+			$html
+		);
 	}
 
 	/**
