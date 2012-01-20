@@ -58,7 +58,9 @@ class SpecialTerm extends SpecialEPPage {
 				$links = array();
 
 				if ( $this->getUser()->isAllowed( 'ep-term' ) ) {
-					$links[wfMsg( 'ep-term-nav-edit' )] = SpecialPage::getTitleFor( 'EditTerm', $this->subPage );
+					$links[wfMsg( 'ep-term-nav-edit' )] =
+						array( SpecialPage::getTitleFor( 'EditTerm', $this->subPage ) )
+						+ Linker::tooltipAndAccesskeyAttribs( 'ep-edit-term' );
 				}
 
 				$this->displayNavigation( $links );

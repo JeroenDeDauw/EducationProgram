@@ -218,6 +218,7 @@ abstract class SpecialEPFormPage extends SpecialEPPage {
 
 		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
 		$form->setSubmitText( wfMsg( 'educationprogram-org-submit' ) );
+		$form->setSubmitTooltip( 'ep-form-save' );
 
 		$action = $this->isNew() ? 'add' : 'edit';
 		$form->setWrapperLegend( $this->msg( strtolower( $this->getName() ) . '-' . $action . '-legend' ) );
@@ -227,7 +228,7 @@ abstract class SpecialEPFormPage extends SpecialEPPage {
 			wfMsg( 'cancel' ),
 			'cancelEdit',
 			array(
-				'target-url' => SpecialPage::getTitleFor( $this->listPage )->getFullURL()
+				'target-url' => SpecialPage::getTitleFor( $this->listPage )->getFullURL(),
 			)
 		);
 

@@ -136,10 +136,20 @@ abstract class SpecialEPPage extends SpecialPage {
 		$links = array();
 		$items = array_merge( $this->getDefaultNavigationItems(), $items );
 
-		foreach ( $items as $label => $target ) {
+		foreach ( $items as $label => $data ) {
+			if ( is_array( $data ) ) {
+				$target = array_shift( $data );
+				$attribs = $data;
+			}
+			else {
+				$target = $data;
+				$attribs = array();
+			}
+
 			$links[] = Linker::linkKnown(
 				$target,
-				htmlspecialchars( $label )
+				htmlspecialchars( $label ),
+				$attribs
 			);
 		}
 

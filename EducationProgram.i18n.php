@@ -24,6 +24,18 @@ $messages['en'] = array(
 	'ep-item-summary' => 'Summary',
 	'ep-toplink' => 'My courses',
 
+	// Tooltips
+	'tooltip-ep-form-save' => 'Save',
+	'tooltip-ep-edit-institution' => 'Edit this institution',
+	'tooltip-ep-edit-course' => 'Edit this course',
+	'tooltip-ep-edit-term' => 'Edit this term',
+
+	// Access keys
+	'accesskey-ep-form-save' => 's', # do not translate or duplicate this message to other languages
+	'accesskey-ep-edit-institution' => 'e', # do not translate or duplicate this message to other languages
+	'accesskey-ep-edit-course' => 'e', # do not translate or duplicate this message to other languages
+	'accesskey-ep-edit-term' => 'e', # do not translate or duplicate this message to other languages
+
 	// Navigation links
 	'ep-nav-orgs' => 'Institution list',
 	'ep-nav-courses' => 'Courses list',
