@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Page listing all mentors in a pager with filter control.
+ * Page listing online ambassadors in a pager with filter control.
  *
  * @since 0.1
  *
- * @file SpecialAmbassadors.php
+ * @file SpecialOAs.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialAmbassadors extends SpecialEPPage {
+class SpecialOAs extends SpecialEPPage {
 
 	/**
 	 * Constructor.
@@ -19,7 +19,7 @@ class SpecialAmbassadors extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'Ambassadors' );
+		parent::__construct( 'OnlineAmbassadors' );
 	}
 
 	/**
@@ -34,7 +34,8 @@ class SpecialAmbassadors extends SpecialEPPage {
 
 		if ( $this->subPage === '' ) {
 			$this->displayNavigation();
-			EPMentor::displayPager( $this->getContext() );
+			// TODO
+			// EPMentor::displayPager( $this->getContext() );
 		}
 		else {
 			// TODO

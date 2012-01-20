@@ -9,7 +9,9 @@
  *
  * The source code makes use of a number of terms different from but corresponding to those in the UI:
  * * Org instead of Institution
- * * Mentor instead of Ambassador
+ * * MC for master course
+ * * CA for campus ambassador
+ * * OA for online ambassador
  *
  * @file EducationProgram.php
  * @ingroup EducationProgram
@@ -63,11 +65,11 @@ $wgAutoloadClasses['ApiRefreshEducation'] 			= dirname( __FILE__ ) . '/api/ApiRe
 
 $wgAutoloadClasses['EPCourse'] 						= dirname( __FILE__ ) . '/includes/EPCourse.php';
 $wgAutoloadClasses['EPCoursePager'] 				= dirname( __FILE__ ) . '/includes/EPCoursePager.php';
+$wgAutoloadClasses['EPMC'] 				    		= dirname( __FILE__ ) . '/includes/EPMC.php';
+$wgAutoloadClasses['EPMCPager'] 		    		= dirname( __FILE__ ) . '/includes/EPMCPager.php';
 $wgAutoloadClasses['EPDBObject'] 					= dirname( __FILE__ ) . '/includes/EPDBObject.php';
 $wgAutoloadClasses['EPInstructor'] 					= dirname( __FILE__ ) . '/includes/EPInstructor.php';
 $wgAutoloadClasses['EPLogFormatter'] 				= dirname( __FILE__ ) . '/includes/EPLogFormatter.php';
-$wgAutoloadClasses['EPMentor'] 						= dirname( __FILE__ ) . '/includes/EPMentor.php';
-$wgAutoloadClasses['EPMentorPager'] 				= dirname( __FILE__ ) . '/includes/EPMentorPager.php';
 $wgAutoloadClasses['EPOrg'] 						= dirname( __FILE__ ) . '/includes/EPOrg.php';
 $wgAutoloadClasses['EPOrgPager'] 					= dirname( __FILE__ ) . '/includes/EPOrgPager.php';
 $wgAutoloadClasses['EPPager'] 						= dirname( __FILE__ ) . '/includes/EPPager.php';
@@ -76,12 +78,16 @@ $wgAutoloadClasses['EPStudentPager'] 				= dirname( __FILE__ ) . '/includes/EPSt
 $wgAutoloadClasses['EPTerm'] 						= dirname( __FILE__ ) . '/includes/EPTerm.php';
 $wgAutoloadClasses['EPTermPager'] 					= dirname( __FILE__ ) . '/includes/EPTermPager.php';
 $wgAutoloadClasses['EPUtils'] 						= dirname( __FILE__ ) . '/includes/EPUtils.php';
+$wgAutoloadClasses['EPOA'] 						    = dirname( __FILE__ ) . '/includes/EPOA.php';
+$wgAutoloadClasses['EPOAPager'] 				    = dirname( __FILE__ ) . '/includes/EPOAPager.php';
+$wgAutoloadClasses['EPCA'] 				    	    = dirname( __FILE__ ) . '/includes/EPCA.php';
+$wgAutoloadClasses['EPCAPager'] 				    = dirname( __FILE__ ) . '/includes/EPCAPager.php';
 
 $wgAutoloadClasses['SpecialCourse'] 				= dirname( __FILE__ ) . '/specials/SpecialCourse.php';
 $wgAutoloadClasses['SpecialCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialCourses.php';
 $wgAutoloadClasses['SpecialEditCourse'] 			= dirname( __FILE__ ) . '/specials/SpecialEditCourse.php';
 $wgAutoloadClasses['SpecialEditInstitution'] 		= dirname( __FILE__ ) . '/specials/SpecialEditInstitution.php';
-$wgAutoloadClasses['SpecialEditTerm'] 				= dirname( __FILE__ ) . '/specials/SpecialEditTerm.php';
+$wgAutoloadClasses['SpecialEditMC'] 				= dirname( __FILE__ ) . '/specials/SpecialEditMC.php';
 $wgAutoloadClasses['SpecialEducationProgram'] 		= dirname( __FILE__ ) . '/specials/SpecialEducationProgram.php';
 $wgAutoloadClasses['SpecialEPFormPage'] 			= dirname( __FILE__ ) . '/specials/SpecialEPFormPage.php';
 $wgAutoloadClasses['SpecialEPPage'] 				= dirname( __FILE__ ) . '/specials/SpecialEPPage.php';
@@ -90,11 +96,13 @@ $wgAutoloadClasses['SpecialInstitutions'] 			= dirname( __FILE__ ) . '/specials/
 $wgAutoloadClasses['SpecialMyCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialMyCourses.php';
 $wgAutoloadClasses['SpecialStudent'] 				= dirname( __FILE__ ) . '/specials/SpecialStudent.php';
 $wgAutoloadClasses['SpecialStudents'] 				= dirname( __FILE__ ) . '/specials/SpecialStudents.php';
-$wgAutoloadClasses['SpecialTerm'] 					= dirname( __FILE__ ) . '/specials/SpecialTerm.php';
-$wgAutoloadClasses['SpecialTerms'] 					= dirname( __FILE__ ) . '/specials/SpecialTerms.php';
+$wgAutoloadClasses['SpecialMC'] 					= dirname( __FILE__ ) . '/specials/SpecialMC.php';
+$wgAutoloadClasses['SpecialMCs'] 					= dirname( __FILE__ ) . '/specials/SpecialMCs.php';
 $wgAutoloadClasses['SpecialEnroll'] 				= dirname( __FILE__ ) . '/specials/SpecialEnroll.php';
-$wgAutoloadClasses['SpecialAmbassadors'] 			= dirname( __FILE__ ) . '/specials/SpecialAmbassadors.php';
-$wgAutoloadClasses['SpecialAmbassador'] 			= dirname( __FILE__ ) . '/specials/SpecialAmbassador.php';
+$wgAutoloadClasses['SpecialCAs'] 			        = dirname( __FILE__ ) . '/specials/SpecialCAs.php';
+$wgAutoloadClasses['SpecialOAs'] 			        = dirname( __FILE__ ) . '/specials/SpecialOAs.php';
+$wgAutoloadClasses['SpecialCA'] 			        = dirname( __FILE__ ) . '/specials/SpecialCA.php';
+$wgAutoloadClasses['SpecialOA'] 			        = dirname( __FILE__ ) . '/specials/SpecialOA.php';
 
 // Special pages
 $wgSpecialPages['MyCourses'] 						= 'SpecialMyCourses';
@@ -104,15 +112,17 @@ $wgSpecialPages['Student'] 							= 'SpecialStudent';
 $wgSpecialPages['Students'] 						= 'SpecialStudents';
 $wgSpecialPages['Course'] 							= 'SpecialCourse';
 $wgSpecialPages['Courses'] 							= 'SpecialCourses';
-$wgSpecialPages['Term'] 							= 'SpecialTerm';
-$wgSpecialPages['Terms'] 							= 'SpecialTerms';
+$wgSpecialPages['MasterCourse'] 					= 'SpecialMC';
+$wgSpecialPages['MasterCourses'] 					= 'SpecialMCs';
 $wgSpecialPages['EducationProgram'] 				= 'SpecialEducationProgram';
 $wgSpecialPages['EditCourse'] 						= 'SpecialEditCourse';
 $wgSpecialPages['EditInstitution'] 					= 'SpecialEditInstitution';
-$wgSpecialPages['EditTerm'] 						= 'SpecialEditTerm';
+$wgSpecialPages['EditMC'] 						    = 'SpecialEditMC';
 $wgSpecialPages['Enroll'] 	    					= 'SpecialEnroll';
-$wgSpecialPages['Ambassadors'] 	    				= 'SpecialAmbassadors';
-$wgSpecialPages['Ambassador'] 	    				= 'SpecialAmbassador';
+$wgSpecialPages['CampusAmbassadors'] 	    		= 'SpecialCAs';
+$wgSpecialPages['OnlineAmbassadors'] 	    		= 'SpecialOAs';
+$wgSpecialPages['CampusAmbassador'] 	    		= 'SpecialCA';
+$wgSpecialPages['OnlineAmbassador'] 	    		= 'SpecialOA';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';
 $wgSpecialPageGroups['Institution'] 				= 'education';
@@ -121,21 +131,22 @@ $wgSpecialPageGroups['Student'] 					= 'education';
 $wgSpecialPageGroups['Students'] 					= 'education';
 $wgSpecialPageGroups['Course'] 						= 'education';
 $wgSpecialPageGroups['Courses'] 					= 'education';
-$wgSpecialPageGroups['Term'] 						= 'education';
-$wgSpecialPageGroups['Terms'] 						= 'education';
+$wgSpecialPageGroups['MasterCourse'] 				= 'education';
+$wgSpecialPageGroups['MasterCourses'] 				= 'education';
 $wgSpecialPageGroups['EducationProgram'] 			= 'education';
 $wgSpecialPageGroups['EditCourse'] 					= 'education';
 $wgSpecialPageGroups['EditInstitution'] 			= 'education';
-$wgSpecialPageGroups['EditTerm'] 					= 'education';
-$wgSpecialPageGroups['Ambassadors'] 				= 'education';
-$wgSpecialPageGroups['Ambassador'] 					= 'education';
+$wgSpecialPageGroups['EditMC'] 					    = 'education';
+$wgSpecialPageGroups['CampusAmbassadors'] 			= 'education';
+$wgSpecialPageGroups['OnlineAmbassadors'] 			= 'education';
+$wgSpecialPageGroups['CampusAmbassador'] 			= 'education';
+$wgSpecialPageGroups['OnlineAmbassador'] 			= 'education';
 
 // DB object classes
 $egEPDBObjects = array();
 $egEPDBObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
+$egEPDBObjects['EPMC'] = array( 'table' => 'ep_mcs', 'prefix' => 'mc_' );
 $egEPDBObjects['EPCourse'] = array( 'table' => 'ep_courses', 'prefix' => 'course_' );
-$egEPDBObjects['EPTerm'] = array( 'table' => 'ep_terms', 'prefix' => 'term_' );
-$egEPDBObjects['EPMentor'] = array( 'table' => 'ep_mentors', 'prefix' => 'mentor_' );
 $egEPDBObjects['EPStudent'] = array( 'table' => 'ep_students', 'prefix' => 'student_' );
 $egEPDBObjects[] = array( 'table' => 'ep_students_per_term', 'prefix' => 'spt_' );
 
