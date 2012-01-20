@@ -341,6 +341,10 @@ $wgResourceModules['ep.formpage'] = $moduleTemplate + array(
 	),
 );
 
+if ( array_key_exists( 'WikiEditorHooks', $GLOBALS['wgAutoloadClasses'] ) ) {
+	$wgResourceModules['ep.formpage']['dependencies'][] = 'ext.wikiEditor.toolbar';
+}
+
 $wgResourceModules['ep.instructor'] = $moduleTemplate + array(
 	'scripts' => array(
 		'ep.instructor.js',

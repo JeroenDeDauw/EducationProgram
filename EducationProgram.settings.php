@@ -28,7 +28,7 @@ class EPSettings {
 	 */
 	protected static function getDefaultSettings() {
 		return array(
-			'enableTopLink' => true
+			'enableTopLink' => true,
 		);
 	}
 

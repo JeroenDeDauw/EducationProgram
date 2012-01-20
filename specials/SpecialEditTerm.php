@@ -84,7 +84,8 @@ class SpecialEditTerm extends SpecialEPFormPage {
 			'validation-callback' => function ( $value, array $alldata = null ) {
 				return strlen( $value ) < 10 ? wfMsgExt( 'ep-term-invalid-description', 'parsemag', 10 ) : true;
 			} ,
-			'rows' => 10
+			'rows' => 10,
+			'id' => 'wpTextbox1',
 		);
 
 		return $this->processFormFields( $fields );

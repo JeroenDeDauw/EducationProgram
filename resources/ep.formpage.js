@@ -16,7 +16,7 @@
 			window.location = $( this ).attr( 'target-url' );
 			event.preventDefault();
 		} );
-		
+
 	} );
 	
 })( window.jQuery, window.mediaWiki );
