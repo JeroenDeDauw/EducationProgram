@@ -28,39 +28,6 @@ final class EPHooks {
 			'ep_orgs',
 			dirname( __FILE__ ) . '/sql/EducationProgram.sql'
 		);
-
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_orgs',
-			'org_courses',
-			dirname( __FILE__ ) . '/sql/AddExtraFields.sql',
-			true
-		) );
-
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_orgs',
-			'org_active',
-			dirname( __FILE__ ) . '/sql/AddStatusFields.sql',
-			true
-		) );
-		
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_courses',
-			'course_instructors',
-			dirname( __FILE__ ) . '/sql/AddMentorFields.sql',
-			true
-		) );
-		
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_terms',
-			'term_students',
-			dirname( __FILE__ ) . '/sql/AddStudentsField.sql',
-			true
-		) );
-
 		return true;
 	}
 
