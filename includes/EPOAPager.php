@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Mentor pager, primarily for Special:Mentors.
+ * Online ambassador pager.
  *
  * @since 0.1
  *
- * @file EPMentorPager.php
+ * @file EPOAPager.php
  * @ingroup EductaionProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPMentorPager extends EPPager {
+class EPOAPager extends EPPager {
 	/**
 	 * Constructor.
 	 *
@@ -20,9 +20,7 @@ class EPMentorPager extends EPPager {
 	 */
 	public function __construct( IContextSource $context, array $conds = array() ) {
 		$this->mDefaultDirection = true;
-
-		// when MW 1.19 becomes min, we want to pass an IContextSource $context here.
-		parent::__construct( $context, $conds, 'EPMentor' );
+		parent::__construct( $context, $conds, 'EPOA' );
 	}
 
 	/**
@@ -41,7 +39,7 @@ class EPMentorPager extends EPPager {
 	 * @see TablePager::getRowClass()
 	 */
 	function getRowClass( $row ) {
-		return 'ep-mentor-row';
+		return 'ep-oa-row';
 	}
 
 	/**
@@ -49,7 +47,7 @@ class EPMentorPager extends EPPager {
 	 * @see TablePager::getTableClass()
 	 */
 	public function getTableClass() {
-		return 'TablePager ep-mentors';
+		return 'TablePager ep-oas';
 	}
 
 	/**
