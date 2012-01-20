@@ -170,4 +170,35 @@ final class EPHooks {
 		return $message->inLanguage( $forUI === null ? $wgContLang : $wgLang )->text();
 	}
 
+	/**
+	 * Called on special pages after the special tab is added but before variants have been added.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation::SpecialPage
+	 *
+	 * @since 0.1
+	 *
+	 * @param SkinTemplate $sktemplate
+	 * @param array $links
+	 *
+	 * @return true
+	 */
+	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
+		$viewLinks = $links['views'];
+
+		$title = $sktemplate->getTitle();
+
+		switch ( $title->getBaseText() ) {
+			case 'Institution': case 'EditInstitution':
+				$editTitle = SpecialPage::getTitleFor( 'EditInstitution', $title->getSubpageText() );
+				$viewLinks['edit'] = array(
+					'class' => $title->getBaseText() == 'EditInstitution' ? 'selected' : false,
+					'text' => wfMsg( 'edit' ),
+					'href' => $editTitle->getLocalUrl()
+				);
+				break;
+			// TODO: test & add other links
+		}
+
+		$links['views'] = $viewLinks;
+	}
+
 }

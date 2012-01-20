@@ -140,15 +140,16 @@ $egEPDBObjects['EPStudent'] = array( 'table' => 'ep_students', 'prefix' => 'stud
 $egEPDBObjects[] = array( 'table' => 'ep_students_per_term', 'prefix' => 'spt_' );
 
 // API
-$wgAPIModules['deleteeducation'] 				= 'ApiDeleteEducation';
-$wgAPIModules['instructor'] 					= 'ApiInstructor';
-$wgAPIModules['refresheducation'] 				= 'ApiRefreshEducation';
+$wgAPIModules['deleteeducation'] 				    = 'ApiDeleteEducation';
+$wgAPIModules['instructor'] 				    	= 'ApiInstructor';
+$wgAPIModules['refresheducation'] 				    = 'ApiRefreshEducation';
 
 // Hooks
-$wgHooks['LoadExtensionSchemaUpdates'][] 		= 'EPHooks::onSchemaUpdate';
-$wgHooks['UnitTestsList'][] 					= 'EPHooks::registerUnitTests';
-$wgHooks['PersonalUrls'][] 						= 'EPHooks::onPersonalUrls';
-$wgHooks['GetPreferences'][] 					= 'EPHooks::onGetPreferences';
+$wgHooks['LoadExtensionSchemaUpdates'][] 		    = 'EPHooks::onSchemaUpdate';
+$wgHooks['UnitTestsList'][] 					    = 'EPHooks::registerUnitTests';
+$wgHooks['PersonalUrls'][] 						    = 'EPHooks::onPersonalUrls';
+$wgHooks['GetPreferences'][] 					    = 'EPHooks::onGetPreferences';
+$wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs';
 
 // Logging
 $wgLogTypes[] = 'institution';
