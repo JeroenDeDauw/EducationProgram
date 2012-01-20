@@ -2,14 +2,23 @@
 
 /**
  * Abstract base class for representing objects that are stored in some DB table.
+ * This is basically an ORM-like wrapper around rows in database tables that
+ * aims to be both simple and very flexible. It is centered around an associative
+ * array of fields and various methods to do common interaction with the database.
  *
  * These methods must be implemented in deriving classes:
- * * getDBTable
- * * getFieldPrefix
  * * getFieldTypes
  *
  * These methods are likely candidates for overriding:
  * * getDefaults
+ * * removeFromDB
+ * * insertIntoDB
+ * * updateInDB
+ * * loadSummaryFields
+ *
+ * Deriving classes must register their table and field prefix in $egEPDBObjects.
+ * Syntax: $egEPDBObjects['DrivingClassName'] = array( 'table' => 'table_name', 'prefix' => 'fieldprefix_' );
+ * Example: $egEPDBObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
  *
  * @since 0.1
  *
@@ -43,6 +52,7 @@ abstract class EPDBObject {
 
 	/**
 	 * If the object should log changes.
+	 * Can be changed via disableLogging and enableLogging.
 	 *
 	 * @since 0.1
 	 * @var bool
@@ -51,6 +61,7 @@ abstract class EPDBObject {
 
 	/**
 	 * The database connection to use for read operations.
+	 * Can be changed via @see setReadDb.
 	 *
 	 * @since 0.2
 	 * @var integer DB_ enum
