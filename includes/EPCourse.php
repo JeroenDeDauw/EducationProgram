@@ -82,7 +82,7 @@ class EPCourse extends EPDBObject {
 	protected static function getFieldTypes() {
 		return array(
 			'id' => 'id',
-			'course_id' => 'id',
+			'mc_id' => 'id',
 			'org_id' => 'id',
 
 			'year' => 'int',
@@ -213,7 +213,7 @@ class EPCourse extends EPDBObject {
 
 		if ( $success && $this->updateSummaries ) {
 			EPOrg::updateSummaryFields( array( 'terms', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
-			EPCourse::updateSummaryFields( 'active', array( 'id' => $this->getField( 'course_id' ) ) );
+			EPMC::updateSummaryFields( 'active', array( 'id' => $this->getField( 'mc_id' ) ) );
 		}
 
 		return $success;
@@ -227,9 +227,9 @@ class EPCourse extends EPDBObject {
 		$id = $this->getId();
 
 		if ( $this->updateSummaries ) {
-			$this->loadFields( array( 'org_id', 'course_id' ) );
+			$this->loadFields( array( 'org_id', 'mc_id' ) );
 			$orgId = $this->getField( 'org_id' );
-			$courseId = $this->getField( 'course_id' );
+			$courseId = $this->getField( 'mc_id' );
 		}
 
 		$success = parent::removeFromDB();
@@ -253,14 +253,14 @@ class EPCourse extends EPDBObject {
 	protected function updateInDB() {
 		if ( $this->updateSummaries ) {
 			$oldOrgId = $this->hasField( 'org_id' ) ? self::selectFieldsRow( 'org_id', array( 'id' => $this->getId() ) ) : false;
-			$oldCourseId = $this->hasField( 'course_id' ) ? self::selectFieldsRow( 'course_id', array( 'id' => $this->getId() ) ) : false;
+			$oldCourseId = $this->hasField( 'mc_id' ) ? self::selectFieldsRow( 'mc_id', array( 'id' => $this->getId() ) ) : false;
 		}
 
-		if ( $this->hasField( 'course_id' ) ) {
-			$oldCourseId = self::selectFieldsRow( 'course_id', array( 'id' => $this->getId() ) );
+		if ( $this->hasField( 'mc_id' ) ) {
+			$oldCourseId = self::selectFieldsRow( 'mc_id', array( 'id' => $this->getId() ) );
 
-			if ( $this->getField( 'course_id' ) !== $oldCourseId ) {
-				$this->setField( 'org_id', EPCourse::selectFieldsRow( 'org_id', array( 'id' => $this->getField( 'course_id' ) ) ) );
+			if ( $this->getField( 'mc_id' ) !== $oldCourseId ) {
+				$this->setField( 'org_id', EPCourse::selectFieldsRow( 'org_id', array( 'id' => $this->getField( 'mc_id' ) ) ) );
 			}
 		}
 
@@ -269,11 +269,11 @@ class EPCourse extends EPDBObject {
 		if ( $this->updateSummaries && $success ) {
 			if ( $oldOrgId !== false && $oldOrgId !== $this->getField( 'org_id' ) ) {
 				$conds = array( 'id' => array( $oldOrgId, $this->getField( 'org_id' ) ) );
-				EPOrg::updateSummaryFields( array( 'terms', 'students', 'active' ), $conds );
+				EPOrg::updateSummaryFields( array( 'courses', 'students', 'active' ), $conds );
 			}
 
 			if ( $oldCourseId !== false && $oldCourseId !== $this->getField( 'org_id' ) ) {
-				$conds = array( 'id' => array( $oldCourseId, $this->getField( 'course_id' ) ) );
+				$conds = array( 'id' => array( $oldCourseId, $this->getField( 'mc_id' ) ) );
 				EPCourse::updateSummaryFields( array( 'active', 'students' ), $conds );
 			}
 		}
