@@ -10,14 +10,14 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_orgs (
   org_city                   VARCHAR(255)        NOT NULL, -- Name of the city where the org is located
   org_country                VARCHAR(255)        NOT NULL, -- Name of the country where the org is located
 
-  org_active                 TINYINT unsigned    NOT NULL, -- If the org has any active terms
+  org_active                 TINYINT unsigned    NOT NULL, -- If the org has any active courses
   org_courses                SMALLINT unsigned   NOT NULL, -- Amount of courses
   org_mcs                    SMALLINT unsigned   NOT NULL, -- Amount of master courses
   org_students               INT unsigned        NOT NULL -- Amount of students
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_org_name ON /*_*/ep_orgs (org_name);
-CREATE INDEX /*i*/ep_org_terms ON /*_*/ep_orgs (org_terms);
+CREATE INDEX /*i*/ep_org_mcs ON /*_*/ep_orgs (org_mcs);
 CREATE INDEX /*i*/ep_org_courses ON /*_*/ep_orgs (org_courses);
 CREATE INDEX /*i*/ep_org_students ON /*_*/ep_orgs (org_students);
 CREATE INDEX /*i*/ep_org_active ON /*_*/ep_orgs (org_active);
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_mcs (
   mc_lang                    VARCHAR(10)         NOT NULL, -- Language (code)
   mc_instructors             BLOB                NOT NULL, -- List of associated instructors
 
-  mc_active                  TINYINT unsigned    NOT NULL, -- If the course has any active terms
+  mc_active                  TINYINT unsigned    NOT NULL, -- If the master course has any active courses
   mc_students                SMALLINT unsigned   NOT NULL -- Amount of students
 ) /*$wgDBTableOptions*/;
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_students (
   student_first_enroll       varbinary(14)       NOT NULL, -- Time of first enrollment
 
   student_last_active        varbinary(14)       NOT NULL, -- Time of last activity
-  student_active_enroll      TINYINT unsigned    NOT NULL -- If the student is enrolled in any active terms
+  student_active_enroll      TINYINT unsigned    NOT NULL -- If the student is enrolled in any active courses
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_students_user_id ON /*_*/ep_students (student_user_id);
