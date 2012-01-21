@@ -1,18 +1,18 @@
 <?php
 
 /**
- * Shows the info for a single term, with management and
+ * Shows the info for a single course, with management and
  * enrollment controls depending on the user and his rights.
  *
  * @since 0.1
  *
- * @file SpecialTerm.php
+ * @file SpecialCourse.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialTerm extends SpecialEPPage {
+class SpecialCourse extends SpecialEPPage {
 
 	/**
 	 * Constructor.
@@ -20,7 +20,7 @@ class SpecialTerm extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'Term' );
+		parent::__construct( 'Course' );
 	}
 
 	/**
@@ -36,50 +36,50 @@ class SpecialTerm extends SpecialEPPage {
 		$out = $this->getOutput();
 
 		if ( trim( $subPage ) === '' ) {
-			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'Terms' )->getLocalURL() );
+			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'Courses' )->getLocalURL() );
 		}
 		else {
-			$out->setPageTitle( wfMsgExt( 'ep-term-title', 'parsemag', $this->subPage ) );
+			$out->setPageTitle( wfMsgExt( 'ep-course-title', 'parsemag', $this->subPage ) );
 
-			$term = EPTerm::selectRow( null, array( 'id' => $this->subPage ) );
+			$course = EPCourse::selectRow( null, array( 'id' => $this->subPage ) );
 
-			if ( $term === false ) {
+			if ( $course === false ) {
 				$this->displayNavigation();
 
 				if ( $this->getUser()->isAllowed( 'ep-term' ) ) {
-					$out->addWikiMsg( 'ep-term-create', $this->subPage );
-					EPTerm::displayAddNewRegion( $this->getContext(), array( 'id' => $this->subPage ) );
+					$out->addWikiMsg( 'ep-course-create', $this->subPage );
+					EPCourse::displayAddNewRegion( $this->getContext(), array( 'id' => $this->subPage ) );
 				}
 				else {
-					$out->addWikiMsg( 'ep-term-none', $this->subPage );
+					$out->addWikiMsg( 'ep-course-none', $this->subPage );
 				}
 			}
 			else {
 				$links = array();
 
-				if ( $this->getUser()->isAllowed( 'ep-term' ) ) {
-					$links[wfMsg( 'ep-term-nav-edit' )] =
-						array( SpecialPage::getTitleFor( 'EditTerm', $this->subPage ) )
-						+ Linker::tooltipAndAccesskeyAttribs( 'ep-edit-term' );
+				if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
+					$links[wfMsg( 'ep-course-nav-edit' )] =
+						array( SpecialPage::getTitleFor( 'EditCourse', $this->subPage ) )
+						+ Linker::tooltipAndAccesskeyAttribs( 'ep-edit-course' );
 				}
 
 				$this->displayNavigation( $links );
 
-				$this->displaySummary( $term );
+				$this->displaySummary( $course );
 
-				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-term-description' ) ) );
+				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-course-description' ) ) );
 
-				$out->addHTML( $this->getOutput()->parse( $term->getField( 'description' ) ) );
+				$out->addHTML( $this->getOutput()->parse( $course->getField( 'description' ) ) );
 
 				$studentIds = array_map(
 					function( EPStudent $student ) {
 						return $student->getId();
 					},
-					$term->getStudents( 'id' )
+					$course->getStudents( 'id' )
 				);
 
 				if ( count( $studentIds ) > 0 ) {
-					$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-term-students' ) ) );
+					$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-course-students' ) ) );
 					EPStudent::displayPager( $this->getContext(), array( 'id' => $studentIds ) );
 				}
 				else {
@@ -94,35 +94,35 @@ class SpecialTerm extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPTerm $term
+	 * @param EPCourse $course
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( EPDBObject $term ) {
+	protected function getSummaryData( EPDBObject $course ) {
 		$stats = array();
 
-		$org = EPOrg::selectFieldsRow( 'name', array( 'id' => $term->getField( 'org_id' ) ) );
+		$org = EPOrg::selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
 
 		$stats['org'] = Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Institution', $org ),
 			htmlspecialchars( $org )
 		);
 
-		$course = EPCourse::selectFieldsRow( 'name', array( 'id' => $term->getField( 'course_id' ) ) );
+		$course = EPCourse::selectFieldsRow( 'name', array( 'id' => $course->getField( 'course_id' ) ) );
 
 		$stats['course'] = Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Course', $course ),
 			htmlspecialchars( $course )
 		);
 
-		$stats['year'] = htmlspecialchars( $this->getLanguage()->formatNum( $term->getField( 'year' ), true ) );
-		$stats['start'] = htmlspecialchars( $this->getLanguage()->timeanddate( $term->getField( 'start' ), true ) );
-		$stats['end'] = htmlspecialchars( $this->getLanguage()->timeanddate( $term->getField( 'end' ), true ) );
+		$stats['year'] = htmlspecialchars( $this->getLanguage()->formatNum( $course->getField( 'year' ), true ) );
+		$stats['start'] = htmlspecialchars( $this->getLanguage()->timeanddate( $course->getField( 'start' ), true ) );
+		$stats['end'] = htmlspecialchars( $this->getLanguage()->timeanddate( $course->getField( 'end' ), true ) );
 
 		if ( $this->getUser()->isAllowed( 'ep-token' ) ) {
 			$stats['token'] = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'Enroll', $term->getId() . '/' . $term->getField( 'token' ) ),
-				htmlspecialchars( $term->getField( 'token' ) )
+				SpecialPage::getTitleFor( 'Enroll', $course->getId() . '/' . $course->getField( 'token' ) ),
+				htmlspecialchars( $course->getField( 'token' ) )
 			);
 		}
 
