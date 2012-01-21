@@ -166,6 +166,8 @@ final class EPHooks {
 		}
 
 		$links['views'] = $viewLinks;
+
+		return true;
 	}
 
 }

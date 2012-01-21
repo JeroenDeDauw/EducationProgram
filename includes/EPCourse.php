@@ -1,18 +1,17 @@
 <?php
 
 /**
- * Class representing a single term.
- * These are "instances" of a course in a certain period.
+ * Class representing a single course.
  *
  * @since 0.1
  *
- * @file EPTerm.php
+ * @file EPCourse.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPTerm extends EPDBObject {
+class EPCourse extends EPDBObject {
 
 	/**
 	 * Field for caching the linked course.
@@ -48,9 +47,9 @@ class EPTerm extends EPDBObject {
 	 */
 	public static function getStatuses() {
 		return array(
-			wfMsg( 'ep-term-status-passed' ) => 'passed',
-			wfMsg( 'ep-term-status-current' ) => 'current',
-			wfMsg( 'ep-term-status-planned' ) => 'planned',
+			wfMsg( 'ep-course-status-passed' ) => 'passed',
+			wfMsg( 'ep-course-status-current' ) => 'current',
+			wfMsg( 'ep-course-status-planned' ) => 'planned',
 		);
 	}
 

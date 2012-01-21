@@ -5,13 +5,13 @@
  *
  * @since 0.1
  *
- * @file EPTermPager.php
+ * @file EPCoursePager.php
  * @ingroup EductaionProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPTermPager extends EPPager {
+class EPCoursePager extends EPPager {
 
 	/**
 	 * Constructor.
@@ -20,7 +20,7 @@ class EPTermPager extends EPPager {
 	 * @param array $conds
 	 */
 	public function __construct( IContextSource $context, array $conds = array() ) {
-		parent::__construct( $context, $conds, 'EPTerm' );
+		parent::__construct( $context, $conds, 'EPCourse' );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class EPTermPager extends EPPager {
 	public function getFields() {
 		return array(
 			'id',
-			'course_id',
+			'mc_id',
 			'year',
 			'start',
 			'end',
@@ -43,7 +43,7 @@ class EPTermPager extends EPPager {
 	 * @see TablePager::getRowClass()
 	 */
 	function getRowClass( $row ) {
-		return 'ep-term-row';
+		return 'ep-course-row';
 	}
 
 	/**
@@ -51,7 +51,7 @@ class EPTermPager extends EPPager {
 	 * @see TablePager::getTableClass()
 	 */
 	public function getTableClass() {
-		return 'TablePager ep-terms';
+		return 'TablePager ep-courses';
 	}
 
 	/**
@@ -62,15 +62,15 @@ class EPTermPager extends EPPager {
 		switch ( $name ) {
 			case 'id':
 				$value = Linker::linkKnown(
-					SpecialPage::getTitleFor( 'Term', $value ),
+					SpecialPage::getTitleFor( 'Course', $value ),
 					htmlspecialchars( $this->getLanguage()->formatNum( $value, true ) )
 				);
 				break;
-			case 'course_id':
-				$value = EPCourse::selectRow( 'name', array( 'id' => $value ) )->getField( 'name' );
+			case 'mc_id':
+				$value = EPMC::selectRow( 'name', array( 'id' => $value ) )->getField( 'name' );
 
 				$value = Linker::linkKnown(
-					SpecialPage::getTitleFor( 'Course', $value ),
+					SpecialPage::getTitleFor( 'MasterCourse', $value ),
 					htmlspecialchars( $value )
 				);
 				break;
@@ -111,7 +111,7 @@ class EPTermPager extends EPPager {
 	public function getFieldNames() {
 		$fields = parent::getFieldNames();
 
-		if ( array_key_exists( 'course_id', $this->conds ) && array_key_exists( 'org_id', $fields ) ) {
+		if ( array_key_exists( 'mc_id', $this->conds ) && array_key_exists( 'org_id', $fields ) ) {
 			unset( $fields['org_id'] );
 		}
 
@@ -127,12 +127,12 @@ class EPTermPager extends EPPager {
 	protected function getFilterOptions() {
 		$options = array();
 
-		if ( !array_key_exists( 'course_id', $this->conds ) ) {
-			$options['course_id'] = array(
+		if ( !array_key_exists( 'mc_id', $this->conds ) ) {
+			$options['mc_id'] = array(
 				'type' => 'select',
 				'options' => array_merge(
 					array( '' => '' ),
-					EPCourse::getCourseOptions( EPCourse::select( array( 'name', 'id' ) ) )
+					EPMC::getCourseOptions( EPMC::select( array( 'name', 'id' ) ) )
 				),
 				'value' => '',
 				'datatype' => 'int',
@@ -149,7 +149,7 @@ class EPTermPager extends EPPager {
 			);
 		}
 
-		$years = EPTerm::selectFields( 'year', array(), array( 'DISTINCT' ), array(), true );
+		$years = EPCourse::selectFields( 'year', array(), array( 'DISTINCT' ), array(), true );
 		asort( $years, SORT_NUMERIC );
 		$years = array_merge( array( '' ), $years );
 		$years = array_combine( $years, $years );
@@ -164,7 +164,7 @@ class EPTermPager extends EPPager {
 			'type' => 'select',
 			'options' => array_merge(
 				array( '' => '' ),
-				EPTerm::getStatuses()
+				EPCourse::getStatuses()
 			),
 			'value' => 'current',
 		);
@@ -180,17 +180,17 @@ class EPTermPager extends EPPager {
 		$links = parent::getControlLinks( $item );
 
 		$links[] = $value = Linker::linkKnown(
-			SpecialPage::getTitleFor( 'Term', $item->getId() ),
+			SpecialPage::getTitleFor( 'Course', $item->getId() ),
 			wfMsgHtml( 'view' )
 		);
 
 		if ( $this->getUser()->isAllowed( 'ep-term' ) ) {
 			$links[] = $value = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'EditTerm', $item->getId() ),
+				SpecialPage::getTitleFor( 'EditCourse', $item->getId() ),
 				wfMsgHtml( 'edit' )
 			);
 
-			$links[] = $this->getDeletionLink( 'term', $item->getId() );
+			$links[] = $this->getDeletionLink( 'course', $item->getId() );
 		}
 
 		return $links;
@@ -203,7 +203,7 @@ class EPTermPager extends EPPager {
 	protected function getMultipleItemActions() {
 		$actions = parent::getMultipleItemActions();
 
-		if ( $this->getUser()->isAllowed( 'ep-term' ) ) {
+		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$actions[wfMsg( 'ep-pager-delete-selected' )] = array(
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( $this->className )

@@ -1,18 +1,18 @@
 <?php
 
 /**
- * Class representing a single course.
+ * Class representing a single master course.
  * These describe a specific course, time-independent.
  *
  * @since 0.1
  *
- * @file EPCourse.php
+ * @file EPMC.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPCourse extends EPDBObject {
+class EPMC extends EPDBObject {
 
 	/**
 	 * Field for caching the linked org.

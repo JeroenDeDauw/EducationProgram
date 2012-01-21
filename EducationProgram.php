@@ -165,7 +165,7 @@ $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs
 // Logging
 $wgLogTypes[] = 'institution';
 $wgLogTypes[] = 'course';
-$wgLogTypes[] = 'term';
+$wgLogTypes[] = 'mc';
 $wgLogTypes[] = 'student';
 $wgLogTypes[] = 'ambassador';
 $wgLogTypes[] = 'instructor';
@@ -173,14 +173,14 @@ $wgLogTypes[] = 'instructor';
 if ( array_key_exists( 'LogFormatter', $wgAutoloadLocalClasses ) ) {
 	$wgLogActionsHandlers['institution/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['course/*'] = 'EPLogFormatter';
-	$wgLogActionsHandlers['term/*'] = 'EPLogFormatter';
+	$wgLogActionsHandlers['mc/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['student/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['ambassador/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['instructor/*'] = 'EPLogFormatter';
 }
 else {
 	// Compatibility with MediaWiki 1.18.
-	foreach ( array( 'institution', 'course', 'term' ) as $type ) {
+	foreach ( array( 'institution', 'course', 'mc' ) as $type ) {
 		foreach ( array( 'add', 'remove', 'update' ) as $action ) {
 			$wgLogActionsHandlers[$type . '/' . $action] = 'EPHooks::formatLogEntry';
 		}
@@ -198,7 +198,7 @@ else {
 	// Compatibility with MediaWiki 1.18.
 	$wgLogNames['institution'] = 'log-name-institution';
 	$wgLogNames['course'] = 'log-name-course';
-	$wgLogNames['term'] = 'log-name-term';
+	$wgLogNames['term'] = 'log-name-mc';
 	$wgLogNames['student'] = 'log-name-student';
 	$wgLogNames['ambassador'] = 'log-name-ambassador';
 	$wgLogNames['instructor'] = 'log-name-instructor';
@@ -206,7 +206,7 @@ else {
 	// Compatibility with MediaWiki 1.18.
 	$wgLogHeaders['institution'] = 'log-header-institution';
 	$wgLogHeaders['course'] = 'log-header-course';
-	$wgLogHeaders['term'] = 'log-header-term';
+	$wgLogHeaders['term'] = 'log-header-mc';
 	$wgLogHeaders['student'] = 'log-header-student';
 	$wgLogHeaders['ambassador'] = 'log-header-ambassador';
 	$wgLogHeaders['instructor'] = 'log-header-instructor';
@@ -215,7 +215,7 @@ else {
 // Rights
 $wgAvailableRights[] = 'ep-org'; 			// Manage orgs
 $wgAvailableRights[] = 'ep-course';			// Manage courses
-$wgAvailableRights[] = 'ep-term';			// Manage terms
+$wgAvailableRights[] = 'ep-mc';			    // Manage master courses
 $wgAvailableRights[] = 'ep-token';			// See enrollment tokens
 $wgAvailableRights[] = 'ep-enroll';			// Enroll as a student
 $wgAvailableRights[] = 'ep-remstudent';		// Dissasociate students from terms
@@ -230,7 +230,7 @@ $wgAvailableRights[] = 'ep-beinstructor';	// Add or remove yourself as instructo
 $wgGroupPermissions['*']['ep-enroll'] = true;
 $wgGroupPermissions['*']['ep-org'] = false;
 $wgGroupPermissions['*']['ep-course'] = false;
-$wgGroupPermissions['*']['ep-term'] = false;
+$wgGroupPermissions['*']['ep-mc'] = false;
 $wgGroupPermissions['*']['ep-token'] = false;
 $wgGroupPermissions['*']['ep-remstudent'] = false;
 $wgGroupPermissions['*']['ep-online'] = false;
@@ -242,7 +242,7 @@ $wgGroupPermissions['*']['ep-beinstructor'] = false;
 
 $wgGroupPermissions['epstaff']['ep-org'] = true;
 $wgGroupPermissions['epstaff']['ep-course'] = true;
-$wgGroupPermissions['epstaff']['ep-term'] = true;
+$wgGroupPermissions['epstaff']['ep-mc'] = true;
 $wgGroupPermissions['epstaff']['ep-token'] = true;
 $wgGroupPermissions['epstaff']['ep-enroll'] = true;
 $wgGroupPermissions['epstaff']['ep-remstudent'] = true;
@@ -255,7 +255,7 @@ $wgGroupPermissions['epstaff']['ep-beinstructor'] = true;
 
 $wgGroupPermissions['epadmin']['ep-org'] = true;
 $wgGroupPermissions['epadmin']['ep-course'] = true;
-$wgGroupPermissions['epadmin']['ep-term'] = true;
+$wgGroupPermissions['epadmin']['ep-mc'] = true;
 $wgGroupPermissions['epadmin']['ep-token'] = true;
 $wgGroupPermissions['epadmin']['ep-enroll'] = true;
 $wgGroupPermissions['epadmin']['ep-remstudent'] = true;
@@ -268,19 +268,19 @@ $wgGroupPermissions['epadmin']['ep-beinstructor'] = true;
 
 $wgGroupPermissions['eponlineamb']['ep-org'] = true;
 $wgGroupPermissions['eponlineamb']['ep-course'] = true;
-$wgGroupPermissions['eponlineamb']['ep-term'] = true;
+$wgGroupPermissions['eponlineamb']['ep-mc'] = true;
 $wgGroupPermissions['eponlineamb']['ep-token'] = true;
 $wgGroupPermissions['eponlineamb']['ep-beonline'] = true;
 
 $wgGroupPermissions['epcampamb']['ep-org'] = true;
 $wgGroupPermissions['epcampamb']['ep-course'] = true;
-$wgGroupPermissions['epcampamb']['ep-term'] = true;
+$wgGroupPermissions['epcampamb']['ep-mc'] = true;
 $wgGroupPermissions['epcampamb']['ep-token'] = true;
 $wgGroupPermissions['epcampamb']['ep-becampus'] = true;
 
 $wgGroupPermissions['epinstructor']['ep-org'] = true;
 $wgGroupPermissions['epinstructor']['ep-course'] = true;
-$wgGroupPermissions['epinstructor']['ep-term'] = true;
+$wgGroupPermissions['epinstructor']['ep-mc'] = true;
 $wgGroupPermissions['epinstructor']['ep-token'] = true;
 $wgGroupPermissions['epinstructor']['ep-remstudent'] = true;
 $wgGroupPermissions['epinstructor']['ep-online'] = true;

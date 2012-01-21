@@ -28,18 +28,18 @@ $messages['en'] = array(
 	'tooltip-ep-form-save' => 'Save',
 	'tooltip-ep-edit-institution' => 'Edit this institution',
 	'tooltip-ep-edit-course' => 'Edit this course',
-	'tooltip-ep-edit-term' => 'Edit this term',
+	'tooltip-ep-edit-mc' => 'Edit this master course',
 
 	// Access keys
 	'accesskey-ep-form-save' => 's', # do not translate or duplicate this message to other languages
 	'accesskey-ep-edit-institution' => 'e', # do not translate or duplicate this message to other languages
 	'accesskey-ep-edit-course' => 'e', # do not translate or duplicate this message to other languages
-	'accesskey-ep-edit-term' => 'e', # do not translate or duplicate this message to other languages
+	'accesskey-ep-edit-mc' => 'e', # do not translate or duplicate this message to other languages
 
 	// Navigation links
 	'ep-nav-orgs' => 'Institution list',
 	'ep-nav-courses' => 'Courses list',
-	'ep-nav-terms' => 'Terms list',
+	'ep-nav-mcs' => 'Master courses list',
 	'ep-nav-mycourses' => 'My courses',
 	'ep-nav-students' => 'Student list',
 	'ep-nav-mentors' => 'Ambassador list',
@@ -47,14 +47,14 @@ $messages['en'] = array(
 	// Logging
 	'log-name-institution' => 'Institution log',
 	'log-name-course' => 'Course log',
-	'log-name-term' => 'Term log',
+	'log-name-mc' => 'Master course log',
 	'log-name-student' => 'Student log',
 	'log-name-ambassador' => 'Ambassador log',
 	'log-name-instructor' => 'Instructor log',
 
-	'log-header-institution' => 'These events track when changes are made to institutions.',
-	'log-header-course' => 'These events track when changes are made to courses.',
-	'log-header-term' => 'These events track when changes are made to terms.',
+	'log-header-institution' => 'These events track the changes that are made to institutions.',
+	'log-header-course' => 'These events track the changes that are made to courses.',
+	'log-header-mc' => 'These events track the changes that are made to master courses.',
 
 	'logentry-institution-add' => '$1 created institution $3',
 	'logentry-institution-remove' => '$1 removed institution $3',
@@ -64,9 +64,9 @@ $messages['en'] = array(
 	'logentry-course-remove' => '$1 removed course $3',
 	'logentry-course-update' => '$1 updated course $3',
 
-	'logentry-term-add' => '$1 created term $3',
-	'logentry-term-remove' => '$1 removed term $3',
-	'logentry-term-update' => '$1 updated term $3',
+	'logentry-mc-add' => '$1 created master course $3',
+	'logentry-mc-remove' => '$1 removed master course $3',
+	'logentry-mc-update' => '$1 updated master course $3',
 
 	'logentry-instructor-add' => '$1 {{GENDER:$2|added}} {{PLURAL:$4|instructor|instructors}} $5 to course $3',
 	'logentry-instructor-remove' => '$1 {{GENDER:$2|removed}} {{PLURAL:$4|instructor|instructors}} $5 from course $3',
@@ -141,20 +141,22 @@ $messages['en'] = array(
 	'special-educationprogram' => 'Education Program',
 	'special-editinstitution-add' => 'Add institution',
 	'special-editinstitution-edit' => 'Edit institution',
-	'special-terms' => 'Terms',
-	'special-term' => 'Term',
-	'special-editterm-add' => 'Add term',
-	'special-editterm-edit' => 'Edit term',
+	'special-mastercourses' => 'Master courses',
+	'special-mastercourse' => 'Master course',
+	'special-editmc-add' => 'Add master course',
+	'special-editmc-edit' => 'Edit master course',
 	'special-editcourse-add' => 'Add course',
 	'special-editcourse-edit' => 'Edit course',
 	'special-enroll' => 'Enroll',
-    'special-ambassadors' => 'Ambassadors',
-	'special-ambassador' => 'Ambassador',
+	'special-onlineambassadors' => 'Online ambassadors',
+	'special-campusambassadors' => 'Campus ambassadors',
+	'special-onlineambassador' => 'Online ambassador',
+	'special-campusambassador' => 'Campus ambassador',
 
-	// Term statuses
-	'ep-term-status-passed' => 'Passed',
-	'ep-term-status-current' => 'Current',
-	'ep-term-status-planned' => 'Planned',
+	// Course statuses
+	'ep-course-status-passed' => 'Passed',
+	'ep-course-status-current' => 'Current',
+	'ep-course-status-planned' => 'Planned',
 
 	// Special:Institutions
 	'ep-institutions-nosuchinstitution' => 'There is no institution with name "$1". Existing institutions are listed below.',

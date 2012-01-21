@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Course pager, primarily for Special:Courses.
+ * Master course pager.
  *
  * @since 0.1
  *
- * @file EPCoursePager.php
+ * @file EPMCPager.php
  * @ingroup EductaionProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPCoursePager extends EPPager {
+class EPMCPager extends EPPager {
 
 	/**
 	 * Constructor.
@@ -20,7 +20,7 @@ class EPCoursePager extends EPPager {
 	 * @param array $conds
 	 */
 	public function __construct( IContextSource $context, array $conds = array() ) {
-		parent::__construct( $context, $conds, 'EPCourse' );
+		parent::__construct( $context, $conds, 'EPMC' );
 	}
 
 	/**
