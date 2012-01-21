@@ -19,7 +19,7 @@ class SpecialEditTerm extends SpecialEPFormPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'EditTerm', 'ep-term', 'EPTerm', 'Terms' );
+		parent::__construct( 'EditCourse', 'ep-term', 'EPCourse', 'Courses' );
 
 		$this->getOutput()->addModules( 'ep.datepicker' );
 	}

@@ -71,7 +71,7 @@ class EPStudent extends EPDBObject {
 	 *
 	 * @return bool
 	 */
-	public function associateWithTerms( array /* of EPCourse */ $courses ) {
+	public function associateWithCourses( array /* of EPCourse */ $courses ) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$success = true;
@@ -202,7 +202,7 @@ class EPStudent extends EPDBObject {
 	protected function doGetCourses( $fields, array $conditions ) {
 		$conditions[] = array( array( 'ep_students', 'id' ), $this->getId() );
 
-		return EPTerm::select(
+		return EPCourse::select(
 			$fields,
 			$conditions,
 			array(),

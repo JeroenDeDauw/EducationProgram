@@ -168,8 +168,8 @@ abstract class SpecialEPPage extends SpecialPage {
 	protected function getDefaultNavigationItems() {
 		$items = array(
 			wfMsg( 'ep-nav-orgs' ) => SpecialPage::getTitleFor( 'Institutions' ),
+			wfMsg( 'ep-nav-mcs' ) => SpecialPage::getTitleFor( 'MasterCourses' ),
 			wfMsg( 'ep-nav-courses' ) => SpecialPage::getTitleFor( 'Courses' ),
-			wfMsg( 'ep-nav-terms' ) => SpecialPage::getTitleFor( 'Terms' ),
 		);
 
 		$items[wfMsg( 'ep-nav-students' )] = SpecialPage::getTitleFor( 'Students' );

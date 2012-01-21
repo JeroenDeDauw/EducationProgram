@@ -324,7 +324,7 @@ class EPCourse extends EPDBObject {
 	 * @param array $conditions
 	 */
 	public static function displayPager( IContextSource $context, array $conditions = array() ) {
-		$pager = new EPTermPager( $context, $conditions );
+		$pager = new EPCoursePager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
 			$context->getOutput()->addHTML(
@@ -410,7 +410,7 @@ class EPCourse extends EPDBObject {
 	 */
 	public static function displayAddNewRegion( IContextSource $context, array $args = array() ) {
 		if ( EPCourse::has() ) {
-			EPTerm::displayAddNewControl( $context, $args );
+			EPCourse::displayAddNewControl( $context, $args );
 		}
 		elseif ( $context->getUser()->isAllowed( 'ep-course' ) ) {
 			$context->getOutput()->addWikiMsg( 'ep-terms-addcoursefirst' );

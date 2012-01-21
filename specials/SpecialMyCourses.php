@@ -69,19 +69,19 @@ class SpecialMyCourses extends SpecialEPPage {
 
 		if ( $student->hasTerm() ) {
 			if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
-				$term = EPTerm::selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
+				$course = EPCourse::selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
 
-				if ( $term !== false ) {
+				if ( $course !== false ) {
 					$this->showSuccess( wfMessage(
 						'ep-mycourses-enrolled',
-						$term->getCourse()->getField( 'name' ),
-						$term->getOrg()->getField( 'name' )
+						$course->getMasterCourse()->getField( 'name' ),
+						$course->getOrg()->getField( 'name' )
 					) );
 				}
 			}
 
-			$currentCourses = $student->getCurrentCourses();
-			$passedCourses = $student->getPassedCourses();
+			$currentCourses = $student->getCurrentMasterCourses();
+			$passedCourses = $student->getPassedMasterCourses();
 
 			if ( count( $currentCourses ) > 0 ) {
 				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mycourses-current' ) ) );
@@ -105,7 +105,7 @@ class SpecialMyCourses extends SpecialEPPage {
 	 *
 	 * @param array $courses
 	 */
-	protected function displayCoursesList( array /* of EPCourse */ $courses ) {
+	protected function displayCoursesList( array /* of EPMC */ $courses ) {
 		$out = $this->getOutput();
 
 		$out->addHTML( Xml::openElement(
@@ -122,7 +122,7 @@ class SpecialMyCourses extends SpecialEPPage {
 
 		$out->addHTML( '<tbody>' );
 
-		foreach ( $courses as /* EPCourse */ $course ) {
+		foreach ( $courses as /* EPMC */ $course ) {
 			$fields = array();
 
 			$fields[] = Linker::link(
@@ -183,20 +183,20 @@ class SpecialMyCourses extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
-	 * @param array $terms
+	 * @param EPCourse $masterCourse
+	 * @param array $courses
 	 */
-	protected function displayCourseSummary( EPCourse $course, array /* of EPTerm */ $terms ) {
+	protected function displayCourseSummary( EPCourse $masterCourse, array /* of EPCourse */ $courses ) {
 		$info = array();
 
-		$info['name'] = $course->getField( 'name' );
-		$info['org'] = EPOrg::selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
+		$info['name'] = $masterCourse->getField( 'name' );
+		$info['org'] = EPOrg::selectFieldsRow( 'name', array( 'id' => $masterCourse->getField( 'org_id' ) ) );
 
 		foreach ( $info as &$inf ) {
 			$inf = htmlspecialchars( $inf );
 		}
 
-		$this->displaySummary( $course, false, $info );
+		$this->displaySummary( $masterCourse, false, $info );
 	}
 	
 	/**

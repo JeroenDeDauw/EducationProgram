@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Term pager, primarily for Special:Terms.
+ * Course pager.
  *
  * @since 0.1
  *
@@ -81,7 +81,7 @@ class EPCoursePager extends EPPager {
 				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
 				break;
 			case '_status':
-				$value = htmlspecialchars( EPTerm::getStatusMessage( $this->currentObject->getStatus() ) );
+				$value = htmlspecialchars( EPCourse::getStatusMessage( $this->currentObject->getStatus() ) );
 			case 'students':
 				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
 				break;
@@ -132,7 +132,7 @@ class EPCoursePager extends EPPager {
 				'type' => 'select',
 				'options' => array_merge(
 					array( '' => '' ),
-					EPMC::getCourseOptions( EPMC::select( array( 'name', 'id' ) ) )
+					EPMC::getMasterCourseOptions( EPMC::select( array( 'name', 'id' ) ) )
 				),
 				'value' => '',
 				'datatype' => 'int',

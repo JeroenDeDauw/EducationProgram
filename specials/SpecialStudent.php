@@ -52,14 +52,14 @@ class SpecialStudent extends SpecialEPPage {
 
 				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-student-terms' ) ) );
 
-				$termIds = array_map(
-					function( EPTerm $term ) {
-						return $term->getId();
+				$courseIds = array_map(
+					function( EPCourse $course ) {
+						return $course->getId();
 					},
-					$student->getTerms( 'id' )
+					$student->getCourses( 'id' )
 				);
 
-				EPTerm::displayPager( $this->getContext(), array( 'id' => $termIds ) );
+				EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ) );
 			}
 		}
 	}

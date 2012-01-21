@@ -100,8 +100,8 @@ class SpecialInstitution extends SpecialEPPage {
 
 		$stats['status'] = wfMsgHtml( $org->getField( 'active' ) ? 'ep-institution-active' : 'ep-institution-inactive' );
 
+		$stats['mcs'] = $this->getLanguage()->formatNum( $org->getField( 'mcs' ) );
 		$stats['courses'] = $this->getLanguage()->formatNum( $org->getField( 'courses' ) );
-		$stats['terms'] = $this->getLanguage()->formatNum( $org->getField( 'terms' ) );
 		$stats['students'] = $this->getLanguage()->formatNum( $org->getField( 'students' ) );
 
 		foreach ( $stats as &$stat ) {
@@ -117,10 +117,10 @@ class SpecialInstitution extends SpecialEPPage {
 			);
 		}
 
-		if ( $org->getField( 'terms' ) > 0 ) {
-			$stats['terms'] = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'Terms' ),
-				$stats['terms'],
+		if ( $org->getField( 'mcs' ) > 0 ) {
+			$stats['mcs'] = Linker::linkKnown(
+				SpecialPage::getTitleFor( 'MasterCourses' ),
+				$stats['mcs'],
 				array(),
 				array( 'org_id' => $org->getId() )
 			);

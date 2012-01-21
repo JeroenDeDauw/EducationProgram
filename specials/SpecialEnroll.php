@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * Enrollment page for students.
  *
  * @since 0.1
  *
@@ -15,9 +15,9 @@ class SpecialEnroll extends SpecialEPPage {
 
 	/**
 	 * @since 0.1
-	 * @var EPTerm
+	 * @var EPCourse
 	 */
-	protected $term;
+	protected $course;
 
 	/**
 	 * Constructor.
@@ -45,14 +45,14 @@ class SpecialEnroll extends SpecialEPPage {
 			$this->showWarning( wfMessage( $args[0] === '' ? 'ep-enroll-no-id' : 'ep-enroll-invalid-id' ) );
 		}
 		else {
-			$term = EPTerm::selectRow( null, array( 'id' => $args[0] ) );
+			$course = EPCourse::selectRow( null, array( 'id' => $args[0] ) );
 			
-			if ( $term === false ) {
+			if ( $course === false ) {
 				$this->showWarning( wfMessage( 'ep-enroll-invalid-id' ) );
 			}
-			elseif ( $term->getStatus() === 'current' ) {
+			elseif ( $course->getStatus() === 'current' ) {
 				$token = '';
-				$tokenIsValid = $term->getField( 'token' ) === '';
+				$tokenIsValid = $course->getField( 'token' ) === '';
 				
 				if ( !$tokenIsValid ) {
 					if ( count( $args ) === 2 ) {
@@ -62,11 +62,11 @@ class SpecialEnroll extends SpecialEPPage {
 						$token = $this->getRequest()->getText( 'wptoken' );
 					}
 
-					$tokenIsValid = $term->getField( 'token' ) === $token;
+					$tokenIsValid = $course->getField( 'token' ) === $token;
 				}
 				
 				if ( $tokenIsValid ) {
-					$this->showEnrollmentView( $term );
+					$this->showEnrollmentView( $course );
 				}
 				else {
 					if ( $token !== '' ) {
@@ -77,23 +77,23 @@ class SpecialEnroll extends SpecialEPPage {
 				}
 			}
 			else {
-				$this->showWarning( wfMessage( 'ep-enroll-term-' . $term->getStatus() ) );
+				$this->showWarning( wfMessage( 'ep-enroll-course-' . $course->getStatus() ) );
 			}
 		}
 	}
 	
 	/**
-	 * Shows the actuall enrollment view.
+	 * Shows the actual enrollment view.
 	 * Should only be called after everything checks out, ie the user can enroll in the term.
 	 * 
 	 * @since 0.1
 	 * 
-	 * @param EPTerm $term
+	 * @param EPCourse $course
 	 */
-	protected function showEnrollmentView( EPTerm $term ) {
-		$this->term = $term;
+	protected function showEnrollmentView( EPCourse $course ) {
+		$this->course = $course;
 
-		$this->setPageTitle( $term );
+		$this->setPageTitle( $course );
 
 		if ( $this->getUser()->isLoggedIn() ) {
 			if ( $this->getUser()->isAllowed( 'ep-enroll' ) ) {
@@ -101,11 +101,11 @@ class SpecialEnroll extends SpecialEPPage {
 				$hasFields = trim( $user->getRealName() ) !== '' && $user->getOption( 'gender' ) !== 'unknown';
 
 				if ( $hasFields ) {
-					$this->doEnroll( $term );
+					$this->doEnroll( $course );
 					$this->onSuccess();
 				}
 				else {
-					$this->showEnrollmentForm( $term );
+					$this->showEnrollmentForm( $course );
 				}
 			}
 			else {
@@ -155,14 +155,14 @@ class SpecialEnroll extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPTerm $term
+	 * @param EPCourse $course
 	 */
-	protected function setPageTitle( EPTerm $term ) {
+	protected function setPageTitle( EPCourse $course ) {
 		$this->getOutput()->setPageTitle( wfMsgExt(
 			'ep-enroll-title',
 			'parsemag',
-			$term->getCourse( 'name' )->getField( 'name' ),
-			$term->getOrg( 'name' )->getField( 'name' )
+			$course->getMasterCourse( 'name' )->getField( 'name' ),
+			$course->getOrg( 'name' )->getField( 'name' )
 		) );
 	}
 
@@ -207,11 +207,11 @@ class SpecialEnroll extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPTerm $term
+	 * @param EPCourse $course
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function doEnroll( EPTerm $term ) {
+	protected function doEnroll( EPCourse $course ) {
 		$student = EPStudent::newFromUser( $this->getUser(), array( 'id' ) );
 		$hadStudent = $student !== false;
 
@@ -229,7 +229,7 @@ class SpecialEnroll extends SpecialEPPage {
 		$success = $student->writeToDB();
 
 		if ( $success ) {
-			$success = $student->associateWithTerms( array( $term ) ) && $success;
+			$success = $student->associateWithCourses( array( $course ) ) && $success;
 
 			if ( !$hadStudent ) {
 				$this->getUser()->setOption( 'ep_showtoplink', true );
@@ -245,9 +245,9 @@ class SpecialEnroll extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPTerm $term
+	 * @param EPCourse $course
 	 */
-	protected function showEnrollmentForm( EPTerm $term ) {
+	protected function showEnrollmentForm( EPCourse $course ) {
 		$this->getOutput()->addWikiMsg( 'ep-enroll-header' );
 
 		$form = new HTMLForm( $this->getFormFields(), $this->getContext() );

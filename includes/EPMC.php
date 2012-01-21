@@ -81,7 +81,7 @@ class EPMC extends EPDBObject {
 		$fields = array();
 
 		if ( in_array( 'students', $summaryFields ) ) {
-			$termIds = EPTerm::selectFields( 'id', array( 'course_id' => $this->getId() ) );
+			$termIds = EPCourse::selectFields( 'id', array( 'mc_id' => $this->getId() ) );
 
 			if ( count( $termIds ) > 0 ) {
 				$fields['students'] = wfGetDB( DB_SLAVE )->select(
@@ -100,8 +100,8 @@ class EPMC extends EPDBObject {
 		if ( in_array( 'active', $summaryFields ) ) {
 			$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
-			$fields['active'] = EPTerm::has( array(
-				'course_id' => $this->getId(),
+			$fields['active'] = EPCourse::has( array(
+				'mc_id' => $this->getId(),
 				'end >= ' . $now,
 				'start <= ' . $now,
 			) );
@@ -125,14 +125,14 @@ class EPMC extends EPDBObject {
 		$success = parent::removeFromDB();
 
 		if ( $success ) {
-			foreach ( EPTerm::select( 'id', array( 'course_id' => $id ) ) as /* EPTerm */ $term ) {
-				$term->setUpdateSummaries( false );
-				$success = $term->removeFromDB() && $success;
+			foreach ( EPCourse::select( 'id', array( 'mc_id' => $id ) ) as /* EPCourse */ $course ) {
+				$course->setUpdateSummaries( false );
+				$success = $course->removeFromDB() && $success;
 			}
 		}
 
 		if ( $this->updateSummaries && $orgId !== false ) {
-			EPOrg::updateSummaryFields( array( 'terms', 'students', 'courses', 'active' ), array( 'id' => $orgId ) );
+			EPCourse::updateSummaryFields( array( 'mcs', 'students', 'courses', 'active' ), array( 'id' => $orgId ) );
 		}
 
 		return $success;
@@ -163,8 +163,8 @@ class EPMC extends EPDBObject {
 
 		if ( $this->updateSummaries && $success && $oldOrgId !== false && $oldOrgId !== $this->getField( 'org_id' ) ) {
 			$conds = array( 'id' => array( $oldOrgId, $this->getField( 'org_id' ) ) );
-			EPTerm::updateSummaryFields( 'org_id', array( 'course_id' => $this->getId() ) );
-			EPOrg::updateSummaryFields( array( 'terms', 'students', 'courses', 'active' ), $conds );
+			EPCourse::updateSummaryFields( 'org_id', array( 'mc_id' => $this->getId() ) );
+			EPOrg::updateSummaryFields( array( 'mcs', 'students', 'courses', 'active' ), $conds );
 		}
 
 		return $success;
