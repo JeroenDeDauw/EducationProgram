@@ -148,7 +148,9 @@ $egEPDBObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
 $egEPDBObjects['EPMC'] = array( 'table' => 'ep_mcs', 'prefix' => 'mc_' );
 $egEPDBObjects['EPCourse'] = array( 'table' => 'ep_courses', 'prefix' => 'course_' );
 $egEPDBObjects['EPStudent'] = array( 'table' => 'ep_students', 'prefix' => 'student_' );
-$egEPDBObjects[] = array( 'table' => 'ep_students_per_term', 'prefix' => 'spt_' );
+$egEPDBObjects['EPOA'] = array( 'table' => 'ep_oas', 'prefix' => 'oa_' );
+$egEPDBObjects['EPCA'] = array( 'table' => 'ep_cas', 'prefix' => 'ca_' );
+$egEPDBObjects[] = array( 'table' => 'ep_students_per_course', 'prefix' => 'spc_' );
 
 // API
 $wgAPIModules['deleteeducation'] 				    = 'ApiDeleteEducation';
@@ -198,7 +200,7 @@ else {
 	// Compatibility with MediaWiki 1.18.
 	$wgLogNames['institution'] = 'log-name-institution';
 	$wgLogNames['course'] = 'log-name-course';
-	$wgLogNames['term'] = 'log-name-mc';
+	$wgLogNames['mc'] = 'log-name-mc';
 	$wgLogNames['student'] = 'log-name-student';
 	$wgLogNames['ambassador'] = 'log-name-ambassador';
 	$wgLogNames['instructor'] = 'log-name-instructor';
@@ -206,7 +208,7 @@ else {
 	// Compatibility with MediaWiki 1.18.
 	$wgLogHeaders['institution'] = 'log-header-institution';
 	$wgLogHeaders['course'] = 'log-header-course';
-	$wgLogHeaders['term'] = 'log-header-mc';
+	$wgLogHeaders['mc'] = 'log-header-mc';
 	$wgLogHeaders['student'] = 'log-header-student';
 	$wgLogHeaders['ambassador'] = 'log-header-ambassador';
 	$wgLogHeaders['instructor'] = 'log-header-instructor';

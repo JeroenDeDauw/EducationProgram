@@ -14,20 +14,20 @@
 class EPOrg extends EPDBObject {
 
 	/**
+	 * Cached array of the linked EPMC objects.
+	 *
+	 * @since 0.1
+	 * @var array|false
+	 */
+	protected $mcs = false;
+
+	/**
 	 * Cached array of the linked EPCourse objects.
 	 *
 	 * @since 0.1
 	 * @var array|false
 	 */
 	protected $courses = false;
-
-	/**
-	 * Cached array of the linked EPTerm objects.
-	 *
-	 * @since 0.1
-	 * @var array|false
-	 */
-	protected $terms = false;
 
 	/**
 	 * @see parent::getFieldTypes
@@ -46,7 +46,7 @@ class EPOrg extends EPDBObject {
 
 			'active' => 'bool',
 			'courses' => 'int',
-			'terms' => 'int',
+			'mcs' => 'int',
 			'students' => 'int',
 		);
 	}
@@ -63,7 +63,7 @@ class EPOrg extends EPDBObject {
 
 			'active' => false,
 			'courses' => 0,
-			'terms' => 0,
+			'mcs' => 0,
 			'students' => 0,
 		);
 	}
@@ -85,7 +85,7 @@ class EPOrg extends EPDBObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'courses', 'terms', 'students', 'active' );
+			$summaryFields = array( 'courses', 'mcs', 'students', 'active' );
 		}
 		else {
 			$summaryFields = (array)$summaryFields;
@@ -97,20 +97,20 @@ class EPOrg extends EPDBObject {
 			$fields['courses'] = EPCourse::count( array( 'org_id' => $this->getId() ) );
 		}
 
-		if ( in_array( 'terms', $summaryFields ) ) {
-			$fields['terms'] = EPTerm::count( array( 'org_id' => $this->getId() ) );
+		if ( in_array( 'mcs', $summaryFields ) ) {
+			$fields['mcs'] = EPMC::count( array( 'org_id' => $this->getId() ) );
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
 
 		if ( in_array( 'students', $summaryFields ) ) {
-			$termIds = EPTerm::selectFields( 'id', array( 'org_id' => $this->getId() ) );
+			$courseIds = EPCourse::selectFields( 'id', array( 'org_id' => $this->getId() ) );
 
-			if ( count( $termIds ) > 0 ) {
+			if ( count( $courseIds ) > 0 ) {
 				$fields['students'] = $dbr->select(
-					'ep_students_per_term',
+					'ep_students_per_course',
 					'COUNT(*) AS rowcount',
-					array( 'spt_term_id' => $termIds )
+					array( 'spc_course_id' => $courseIds )
 				);
 
 				$fields['students'] = $fields['students']->fetchObject()->rowcount;
@@ -123,7 +123,7 @@ class EPOrg extends EPDBObject {
 		if ( in_array( 'active', $summaryFields ) ) {
 			$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
-			$fields['active'] = EPTerm::has( array(
+			$fields['active'] = EPCourse::has( array(
 				'org_id' => $this->getId(),
 				'end >= ' . $now,
 				'start <= ' . $now,
@@ -144,10 +144,10 @@ class EPOrg extends EPDBObject {
 		$success = parent::removeFromDB();
 
 		if ( $success ) {
-			$success = wfGetDB( DB_MASTER )->delete( 'ep_mentors_per_org', array( 'mpo_org_id' => $id ) ) && $success;
+			$success = wfGetDB( DB_MASTER )->delete( 'ep_cas_per_org', array( 'cpo_org_id' => $id ) ) && $success;
 
-			foreach ( EPCourse::select( 'id', array( 'org_id' => $id ) ) as /* EPCourse */ $course ) {
-				$success = $course->removeFromDB() && $success;
+			foreach ( EPMC::select( 'id', array( 'org_id' => $id ) ) as /* EPMC */ $masterCourse ) {
+				$success = $masterCourse->removeFromDB() && $success;
 			}
 		}
 
@@ -257,6 +257,23 @@ class EPOrg extends EPDBObject {
 	}
 
 	/**
+	 * Retruns the master courses linked to this org.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array|null $fields
+	 *
+	 * @return array of EPMC
+	 */
+	public function getMasterCourses( array $fields = null ) {
+		if ( $this->mcs === false ) {
+			$this->mcs = EPMC::select( $fields, array( 'org_id' => $this->getId() ) );
+		}
+
+		return $this->mcs;
+	}
+
+	/**
 	 * Retruns the courses linked to this org.
 	 *
 	 * @since 0.1
@@ -271,23 +288,6 @@ class EPOrg extends EPDBObject {
 		}
 
 		return $this->courses;
-	}
-
-	/**
-	 * Retruns the terms linked to this org.
-	 *
-	 * @since 0.1
-	 *
-	 * @param array|null $fields
-	 *
-	 * @return array of EPTerm
-	 */
-	public function getTerms( array $fields = null ) {
-		if ( $this->terms === false ) {
-			$this->terms = EPTerm::select( $fields, array( 'org_id' => $this->getId() ) );
-		}
-
-		return $this->terms;
 	}
 
 	/**

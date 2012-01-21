@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_orgs (
 
   org_active                 TINYINT unsigned    NOT NULL, -- If the org has any active terms
   org_courses                SMALLINT unsigned   NOT NULL, -- Amount of courses
-  org_terms                  SMALLINT unsigned   NOT NULL, -- Amount of terms
+  org_mcs                    SMALLINT unsigned   NOT NULL, -- Amount of master courses
   org_students               INT unsigned        NOT NULL -- Amount of students
 ) /*$wgDBTableOptions*/;
 
@@ -21,6 +21,8 @@ CREATE INDEX /*i*/ep_org_terms ON /*_*/ep_orgs (org_terms);
 CREATE INDEX /*i*/ep_org_courses ON /*_*/ep_orgs (org_courses);
 CREATE INDEX /*i*/ep_org_students ON /*_*/ep_orgs (org_students);
 CREATE INDEX /*i*/ep_org_active ON /*_*/ep_orgs (org_active);
+
+
 
 -- Master courses. These describe a specific course, time-independent.
 CREATE TABLE IF NOT EXISTS /*_*/ep_mcs (
@@ -41,6 +43,8 @@ CREATE UNIQUE INDEX /*i*/ep_mc_name ON /*_*/ep_mcs (mc_name);
 CREATE INDEX /*i*/ep_mc_lang ON /*_*/ep_mcs (mc_lang);
 CREATE INDEX /*i*/ep_mc_students ON /*_*/ep_mcs (mc_students);
 CREATE INDEX /*i*/ep_mc_active ON /*_*/ep_mcs (mc_active);
+
+
 
 -- Courses. These are "instances" of a master course in a certain period.
 CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
@@ -65,6 +69,8 @@ CREATE INDEX /*i*/ep_course_end ON /*_*/ep_courses (course_end);
 CREATE UNIQUE INDEX /*i*/ep_trem_period ON /*_*/ep_courses (course_org_id, course_start, course_end);
 CREATE INDEX /*i*/ep_course_students ON /*_*/ep_courses (course_students);
 
+
+
 -- Students. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_students (
   student_id                 INT unsigned        NOT NULL auto_increment PRIMARY KEY,
@@ -81,21 +87,33 @@ CREATE INDEX /*i*/ep_students_first_enroll ON /*_*/ep_students (student_first_en
 CREATE INDEX /*i*/ep_students_last_active ON /*_*/ep_students (student_last_active);
 CREATE INDEX /*i*/ep_students_active_enroll ON /*_*/ep_students (student_active_enroll);
 
--- Mentors. In essence this is an extension to the user table.
-CREATE TABLE IF NOT EXISTS /*_*/ep_mentors (
-  mentor_id                  INT unsigned        NOT NULL auto_increment PRIMARY KEY,
-  mentor_user_id             INT unsigned        NOT NULL -- Foreign key on user.user_id
-) /*$wgDBTableOptions*/;
-
-CREATE UNIQUE INDEX /*i*/ep_mentors_user_id ON /*_*/ep_mentors (mentor_user_id);
-
--- Links the courses with all their students.
+-- Links the students with their courses.
 CREATE TABLE IF NOT EXISTS /*_*/ep_students_per_course (
   spc_student_id             INT unsigned        NOT NULL, -- Foreign key on ep_students.student_id
   spc_course_id              INT unsigned        NOT NULL -- Foreign key on ep_courses.course_id
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_students_per_course ON /*_*/ep_students_per_course (spc_student_id, spc_course_id);
+
+
+
+-- Instructors. In essence this is an extension to the user table.
+CREATE TABLE IF NOT EXISTS /*_*/ep_instructors (
+  instructor_id              INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  instructor_user_id         INT unsigned        NOT NULL -- Foreign key on user.user_id
+) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/ep_instructors_user_id ON /*_*/ep_instructors (instructor_user_id);
+
+
+
+-- Campus ambassadors. In essence this is an extension to the user table.
+CREATE TABLE IF NOT EXISTS /*_*/ep_cas (
+  ca_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  ca_user_id                 INT unsigned        NOT NULL -- Foreign key on user.user_id
+) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/ep_cas_user_id ON /*_*/ep_cas (ca_user_id);
 
 -- Links the campus ambassadors with all their orgs.
 CREATE TABLE IF NOT EXISTS /*_*/ep_cas_per_org (
@@ -104,6 +122,18 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_cas_per_org (
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_cas_per_org ON /*_*/ep_cas_per_org (cpo_ca_id, cpo_org_id);
+
+
+
+-- Online ambassadors. In essence this is an extension to the user table.
+CREATE TABLE IF NOT EXISTS /*_*/ep_oas (
+  oa_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  oa_user_id                 INT unsigned        NOT NULL -- Foreign key on user.user_id
+) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/ep_oas_user_id ON /*_*/ep_oas (oa_user_id);
+
+
 
 -- Revision table, holding blobs of various types of objects, such as orgs or students.
 -- This is somewhat based on the (core) revision table and is meant to serve
