@@ -222,7 +222,7 @@ class EPMC extends EPDBObject {
 	 * @return boolean
 	 */
 	public static function displayAddNewControl( IContextSource $context, array $args = array() ) {
-		if ( !$context->getUser()->isAllowed( 'ep-course' ) ) {
+		if ( !$context->getUser()->isAllowed( 'ep-mc' ) ) {
 			return false;
 		}
 
@@ -232,17 +232,17 @@ class EPMC extends EPDBObject {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => SpecialPage::getTitleFor( 'EditCourse' )->getLocalURL(),
+				'action' => SpecialPage::getTitleFor( 'EditMasterCourse' )->getLocalURL(),
 			)
 		) );
 
 		$out->addHTML( '<fieldset>' );
 
-		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-courses-addnew' ) . '</legend>' );
+		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-mcs-addnew' ) . '</legend>' );
 
-		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-courses-namedoc' ) ) );
+		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-mcs-namedoc' ) ) );
 
-		$out->addHTML( Html::element( 'label', array( 'for' => 'neworg' ), wfMsg( 'ep-courses-neworg' ) ) );
+		$out->addHTML( Html::element( 'label', array( 'for' => 'neworg' ), wfMsg( 'ep-mcs-neworg' ) ) );
 
 		$out->addHTML( '&#160;' );
 
@@ -258,7 +258,7 @@ class EPMC extends EPDBObject {
 		$out->addHTML( '&#160;' );
 
 		$out->addHTML( Xml::inputLabel(
-			wfMsg( 'ep-courses-newname' ),
+			wfMsg( 'ep-mcs-newname' ),
 			'newname',
 			'newname',
 			false,
@@ -307,7 +307,7 @@ class EPMC extends EPDBObject {
 	 * @param array $conditions
 	 */
 	public static function displayPager( IContextSource $context, array $conditions = array() ) {
-		$pager = new EPCoursePager( $context, $conditions );
+		$pager = new EPMCPager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
 			$context->getOutput()->addHTML(
@@ -320,7 +320,7 @@ class EPMC extends EPDBObject {
 		}
 		else {
 			$context->getOutput()->addHTML( $pager->getFilterControl( true ) );
-			$context->getOutput()->addWikiMsg( 'ep-mc-noresults' );
+			$context->getOutput()->addWikiMsg( 'ep-mcs-noresults' );
 		}
 	}
 

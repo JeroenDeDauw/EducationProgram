@@ -166,16 +166,16 @@ $messages['en'] = array(
 	'ep-institutions-newname' => 'Institution name:',
 	'ep-institutions-add' => 'Add institution',
 
-	// Special:Courses
-	'ep-courses-nosuchcourse' => 'There is no course with name "$1". Existing courses are listed below.',
-	'ep-courses-noresults' => 'There are no courses to list.',
-	'ep-courses-addnew' => 'Add a new course',
-	'ep-courses-namedoc' => 'Enter the name for the new course (which should be unique) and hit the button.',
-	'ep-courses-newname' => 'Course name:',
-	'ep-courses-add' => 'Add course',
-	'ep-courses-addorgfirst' => 'You need to [[Special:Institutions|add an institution]] before you can create any courses.',
-	'ep-courses-noorgs' => 'You are not a mentor of any institutions yet, so cannot add any courses.',
-	'ep-courses-neworg' => 'Institution',
+	// Special:MasterCourses
+	'ep-mcs-nosuchcourse' => 'There is no master course with name "$1". Existing master courses are listed below.',
+	'ep-mcs-noresults' => 'There are no master courses to list.',
+	'ep-mcs-addnew' => 'Add a new master course',
+	'ep-mcs-namedoc' => 'Enter the name for the new course (which should be unique) and hit the button.',
+	'ep-mcs-newname' => 'Master course name:',
+	'ep-mcs-add' => 'Add master course',
+	'ep-mcs-addorgfirst' => 'You need to [[Special:Institutions|add an institution]] before you can create any master courses.',
+	'ep-mcs-noorgs' => 'You are not a mentor of any institutions yet, so cannot add any master courses.',
+	'ep-mcs-neworg' => 'Institution',
 
 	// Special:Courses
 	'ep-courses-nosuchcourse' => 'There is no course with id "$1". Existing courses are listed below.',
