@@ -24,7 +24,7 @@ class ApiDeleteEducation extends ApiBase {
 	protected static $typeMap = array(
 		'org' => 'EPOrg',
 		'course' => 'EPCourse',
-		'term' => 'EPTerm',
+		'mc' => 'EPMC',
 	);
 
 	/**

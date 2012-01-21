@@ -14,12 +14,12 @@
 class EPCourse extends EPDBObject {
 
 	/**
-	 * Field for caching the linked course.
+	 * Field for caching the linked master course.
 	 *
 	 * @since 0.1
-	 * @var EPCourse|false
+	 * @var EPMC|false
 	 */
-	protected $course = false;
+	protected $mc = false;
 
 	/**
 	 * Field for caching the linked org.
@@ -116,7 +116,7 @@ class EPCourse extends EPDBObject {
 	}
 
 	/**
-	 * Returns the students enrolled in this term.
+	 * Returns the students enrolled in this course.
 	 *
 	 * @since 0.1
 	 *
@@ -126,21 +126,21 @@ class EPCourse extends EPDBObject {
 	 * @return array of EPStudent
 	 */
 	protected function doGetStudents( $fields, array $conditions ) {
-		$conditions[] = array( array( 'ep_terms', 'id' ), $this->getId() );
+		$conditions[] = array( array( 'ep_courses', 'id' ), $this->getId() );
 
 		return EPStudent::select(
 			$fields,
 			$conditions,
 			array(),
 			array(
-				'ep_students_per_term' => array( 'INNER JOIN', array( array( array( 'ep_students_per_term', 'student_id' ), array( 'ep_students', 'id' ) ) ) ),
-				'ep_terms' => array( 'INNER JOIN', array( array( array( 'ep_students_per_term', 'term_id' ), array( 'ep_terms', 'id' ) ) ) )
+				'ep_students_per_term' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'student_id' ), array( 'ep_students', 'id' ) ) ) ),
+				'ep_courses' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) )
 			)
 		);
 	}
 
 	/**
-	 * Returns the students enrolled in this term.
+	 * Returns the students enrolled in this course.
 	 * Caches the result when no conditions are provided and all fields are selected.
 	 *
 	 * @since 0.1
@@ -282,20 +282,20 @@ class EPCourse extends EPDBObject {
 	}
 
 	/**
-	 * Returns the course associated with this term.
+	 * Returns the master course associated with this course.
 	 *
 	 * @since 0.1
 	 *
 	 * @param string|array|null $fields
 	 *
-	 * @return EPCourse
+	 * @return EPMC
 	 */
-	public function getCourse( $fields = null ) {
-		if ( $this->course === false ) {
-			$this->course = EPCourse::selectRow( $fields, array( 'id' => $this->loadAndGetField( 'course_id' ) ) );
+	public function getMasterCourse( $fields = null ) {
+		if ( $this->mc === false ) {
+			$this->mc = EPMC::selectRow( $fields, array( 'id' => $this->loadAndGetField( 'mc_id' ) ) );
 		}
 
-		return $this->course;
+		return $this->mc;
 	}
 
 	/**

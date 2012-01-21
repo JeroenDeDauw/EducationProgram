@@ -192,19 +192,19 @@ class EPMC extends EPDBObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array|null $courses
+	 * @param array|null $masterCourses
 	 *
 	 * @return array
 	 */
-	public static function getCourseOptions( array /* EPCourse */ $courses = null ) {
+	public static function getMasterCourseOptions( array /* EPMC */ $masterCourses = null ) {
 		$options = array();
 
-		if ( is_null( $courses ) ) {
-			$courses = EPCourse::select( array( 'name', 'id' ) );
+		if ( is_null( $masterCourses ) ) {
+			$masterCourses = self::select( array( 'name', 'id' ) );
 		}
 		
-		foreach ( $courses as /* EPCourse */ $course ) {
-			$options[$course->getField( 'name' )] = $course->getId();
+		foreach ( $masterCourses as /* EPMC */ $masterCourse ) {
+			$options[$masterCourse->getField( 'name' )] = $masterCourse->getId();
 		}
 
 		return $options;
@@ -281,7 +281,7 @@ class EPMC extends EPDBObject {
 	}
 
 	/**
-	 * Adds a control to add a new course to the provided context
+	 * Adds a control to add a new master course to the provided context
 	 * or show a message if this is not possible for some reason.
 	 *
 	 * @since 0.1
@@ -291,7 +291,7 @@ class EPMC extends EPDBObject {
 	 */
 	public static function displayAddNewRegion( IContextSource $context, array $args = array() ) {
 		if ( EPOrg::has() ) {
-			EPCourse::displayAddNewControl( $context, $args );
+			self::displayAddNewControl( $context, $args );
 		}
 		elseif ( $context->getUser()->isAllowed( 'ep-org' ) ) {
 			$context->getOutput()->addWikiMsg( 'ep-courses-addorgfirst' );
@@ -346,7 +346,7 @@ class EPMC extends EPDBObject {
 	 * @return Title
 	 */
 	public function getTitle() {
-		return SpecialPage::getTitleFor( 'Course', $this->getField( 'name' ) );
+		return SpecialPage::getTitleFor( 'MasterCourse', $this->getField( 'name' ) );
 	}
 	
 	/**

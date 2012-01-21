@@ -14,12 +14,12 @@
 class EPStudent extends EPDBObject {
 
 	/**
-	 * Cached array of the linked EPTerm objects.
+	 * Cached array of the linked EPCourse objects.
 	 *
 	 * @since 0.1
 	 * @var array|false
 	 */
-	protected $terms = false;
+	protected $courses = false;
 
 	/**
 	 * Cached user object of the user that is this student.
@@ -63,44 +63,44 @@ class EPStudent extends EPDBObject {
 	}
 
 	/**
-	 * Associate the student with the provided terms.
+	 * Associate the student with the provided courses.
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $terms
+	 * @param array $courses
 	 *
 	 * @return bool
 	 */
-	public function associateWithTerms( array /* of EPTerm */ $terms ) {
+	public function associateWithTerms( array /* of EPCourse */ $courses ) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$success = true;
 
 		$dbw->begin();
 
-		foreach ( $terms as /* EPTerm */ $term ) {
+		foreach ( $courses as /* EPCourse */ $course ) {
 			$success = $dbw->insert(
-				'ep_students_per_term',
+				'ep_students_per_course',
 				array(
-					'spt_student_id' => $this->getId(),
-					'spt_term_id' => $term->getId(),
+					'spc_student_id' => $this->getId(),
+					'spc_term_id' => $course->getId(),
 				)
 			) && $success;
 		}
 
 		$dbw->commit();
 
-		foreach ( $terms as /* EPTerm */ $term ) {
-			EPCourse::updateSummaryFields( 'students', array( 'id' => $term->getField( 'course_id' ) ) );
-			EPOrg::updateSummaryFields( 'students', array( 'id' => $term->getField( 'org_id' ) ) );
-			EPTerm::updateSummaryFields( 'students', array( 'id' => $this->getId() ) );
+		foreach ( $courses as /* EPCourse */ $course ) {
+			EPMC::updateSummaryFields( 'students', array( 'id' => $course->getField( 'mc_id' ) ) );
+			EPOrg::updateSummaryFields( 'students', array( 'id' => $course->getField( 'org_id' ) ) );
+			EPCourse::updateSummaryFields( 'students', array( 'id' => $this->getId() ) );
 		}
 
 		return $success;
 	}
 
 	/**
-	 * Returns the terms this student is enrolled in.
+	 * Returns the courses this student is enrolled in.
 	 * Caches the result when no conditions are provided and all fields are selected.
 	 *
 	 * @since 0.1
@@ -108,98 +108,98 @@ class EPStudent extends EPDBObject {
 	 * @param string|array|null $fields
 	 * @param array $conditions
 	 *
-	 * @return array of EPTerm
+	 * @return array of EPCourse
 	 */
-	public function getTerms( $fields = null, array $conditions = array() ) {
+	public function getCourses( $fields = null, array $conditions = array() ) {
 		if ( count( $conditions ) !== 0 ) {
-			return $this->doGetTerms( $fields, $conditions );
+			return $this->doGetCourses( $fields, $conditions );
 		}
 
-		if ( $this->terms === false ) {
-			$terms = $this->doGetTerms( $fields, $conditions );
+		if ( $this->courses === false ) {
+			$courses = $this->doGetCourses( $fields, $conditions );
 
 			if ( is_null( $fields ) ) {
-				$this->terms = $terms;
+				$this->courses = $courses;
 			}
 
-			return $terms;
+			return $courses;
 		}
 		else {
-			return $this->terms;
+			return $this->courses;
 		}
 	}
 
 	/**
-	 * Returns the courses this student is linked to (via terms).
+	 * Returns the master courses this student is linked to (via courses).
 	 *
 	 * @since 0.1
 	 *
 	 * @param string|null|array $fields
 	 * @param array $conditions
-	 * @param array $termConditions
+	 * @param array $courseConditions
 	 *
-	 * @return array of EPCourse
+	 * @return array of EPMC
 	 */
-	public function getCourses( $fields = null, array $conditions = array(), array $termConditions = array() ) {
-		$courseIds = array_reduce(
-			$this->getTerms( 'course_id', $termConditions ),
-			function( array $ids, EPTerm $term ) {
-				$ids[] = $term->getField( 'course_id' );
+	public function getMasterCourses( $fields = null, array $conditions = array(), array $courseConditions = array() ) {
+		$mcIds = array_reduce(
+			$this->getCourses( 'course_id', $courseConditions ),
+			function( array $ids, EPCourse $term ) {
+				$ids[] = $term->getField( 'mc_id' );
 				return $ids;
-			} ,
+			},
 			array()
 		);
 
-		if ( count( $courseIds ) < 1 ) {
+		if ( count( $mcIds ) < 1 ) {
 			return array();
 		}
 
-		$conditions['id'] = array_unique( $courseIds );
+		$conditions['id'] = array_unique( $mcIds );
 
-		return EPCourse::select( $fields, $conditions );
+		return EPMC::select( $fields, $conditions );
 	}
 
 	/**
-	 * Returns the courses this student is currently enrolled in.
+	 * Returns the master courses this student is currently enrolled in.
 	 *
 	 * @since 0.1
 	 *
 	 * @param string|null|array $fields
 	 * @param array $conditions
 	 *
-	 * @return array of EPCourse
+	 * @return array of EPMC
 	 */
-	public function getCurrentCourses( $fields = null, array $conditions = array() ) {
+	public function getCurrentMasterCourses( $fields = null, array $conditions = array() ) {
 		$conditions['active'] = 1;
-		return $this->getCourses( $fields, $conditions );
+		return $this->getMasterCourses( $fields, $conditions );
 	}
 
 	/**
-	 * Returns the courses this student was previously enrolled in.
+	 * Returns the master courses this student was previously enrolled in.
 	 *
 	 * @since 0.1
 	 *
 	 * @param string|null|array $fields
 	 * @param array $conditions
 	 *
-	 * @return array of EPCourse
+	 * @return array of EPMC
 	 */
-	public function getPassedCourses( $fields = null, array $conditions = array() ) {
+	public function getPassedMasterCourses( $fields = null, array $conditions = array() ) {
 		$conditions['active'] = 0;
-		return $this->getCourses( $fields, $conditions );
+		return $this->getMasterCourses( $fields, $conditions );
 	}
 
 	/**
-	 * Returns the terms this student is enrolled in.
+	 * Returns the courses this student is enrolled in.
 	 *
 	 * @since 0.1
 	 *
 	 * @param string|array|null $fields
 	 * @param array $conditions
 	 *
-	 * @return array of EPTerm
+	 * @return array of EPCourse
 	 */
-	protected function doGetTerms( $fields, array $conditions ) {
+	protected function doGetCourses( $fields, array $conditions ) {
 		$conditions[] = array( array( 'ep_students', 'id' ), $this->getId() );
 
 		return EPTerm::select(
@@ -207,14 +207,14 @@ class EPStudent extends EPDBObject {
 			$conditions,
 			array(),
 			array(
-				'ep_students_per_term' => array( 'INNER JOIN', array( array( array( 'ep_students_per_term', 'term_id' ), array( 'ep_terms', 'id' ) ) ) ),
-				'ep_students' => array( 'INNER JOIN', array( array( array( 'ep_students_per_term', 'student_id' ), array( 'ep_students', 'id' ) ) ) )
+				'ep_students_per_course' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) ),
+				'ep_students' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'student_id' ), array( 'ep_students', 'id' ) ) ) )
 			)
 		);
 	}
 
 	/**
-	 * Retruns if the mentor has any term matching the provided conditions.
+	 * Returns if the student has any course matching the provided conditions.
 	 *
 	 * @since 0.1
 	 *
@@ -222,8 +222,8 @@ class EPStudent extends EPDBObject {
 	 *
 	 * @return boolean
 	 */
-	public function hasTerm( array $conditions = array() ) {
-		return count( $this->getTerms( 'id', $conditions ) ) > 0;
+	public function hasCourse( array $conditions = array() ) {
+		return count( $this->getCourses( 'id', $conditions ) ) > 0;
 	}
 
 	/**

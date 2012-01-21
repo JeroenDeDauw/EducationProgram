@@ -24,8 +24,7 @@ class ApiRefreshEducation extends ApiBase {
 	protected static $typeMap = array(
 		'org' => 'EPOrg',
 		'course' => 'EPCourse',
-		'term' => 'EPTerm',
-		'student' => 'EPStudent',
+		'mc' => 'EPMC',
 	);
 
 	public function execute() {

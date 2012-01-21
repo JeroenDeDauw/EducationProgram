@@ -18,7 +18,7 @@ class ApiInstructor extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		if ( !( isset( $params['username'] ) XOR isset( $params['userid'] ) ) ) {
-			$this->dieUsage( wfMsgExt( 'ep-addinstructor-invalid-user-args' ), 'username-xor-userid' );
+			$this->dieUsage( wfMsg( 'ep-addinstructor-invalid-user-args' ), 'username-xor-userid' );
 		}
 
 		if ( isset( $params['username'] ) ) {
@@ -30,27 +30,27 @@ class ApiInstructor extends ApiBase {
 		}
 		
 		if ( $userId < 1 ) {
-			$this->dieUsage( wfMsgExt( 'ep-addinstructor-invalid-user' ), 'invalid-user' );
+			$this->dieUsage( wfMsg( 'ep-addinstructor-invalid-user' ), 'invalid-user' );
 		}
 		
 		if ( !$this->userIsAllowed( $userId ) ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 		
-		$course = EPCourse::selectRow( array( 'id', 'name', 'instructors' ), array( 'id' => $params['courseid'] ) );
+		$masterCourse = EPMC::selectRow( array( 'id', 'name', 'instructors' ), array( 'id' => $params['mcid'] ) );
 
-		if ( $course === false ) {
-			$this->dieUsage( wfMsgExt( 'ep-addinstructor-invalid-course' ), 'invalid-course' );
+		if ( $masterCourse === false ) {
+			$this->dieUsage( wfMsg( 'ep-addinstructor-invalid-course' ), 'invalid-course' );
 		}
 		
 		$success = false;
 		
 		switch ( $params['subaction'] ) {
 			case 'add':
-				$success = $course->addInstructors( array( $userId ), $params['reason'] );
+				$success = $masterCourse->addInstructors( array( $userId ), $params['reason'] );
 				break;
 			case 'remove':
-				$success = $course->removeInstructors( array( $userId ), $params['reason'] );
+				$success = $masterCourse->removeInstructors( array( $userId ), $params['reason'] );
 				break;
 		}
 		
@@ -116,7 +116,7 @@ class ApiInstructor extends ApiBase {
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => false,
 			),
-			'courseid' => array(
+			'mcid' => array(
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
 			),
@@ -132,7 +132,7 @@ class ApiInstructor extends ApiBase {
 	public function getParamDescription() {
 		return array(
 			'subaction' => 'Specifies what you want to do with the instructor',
-			'courseid' => 'The ID of the course to which the instructor should be added',
+			'mcid' => 'The ID of the master course to/from which the instructor should be added/removed',
 			'username' => 'Name of the user to associate as instructor',
 			'userid' => 'Id of the user to associate as instructor',
 			'reason' => 'Message with the reason for this change for nthe log',
@@ -142,7 +142,7 @@ class ApiInstructor extends ApiBase {
 
 	public function getDescription() {
 		return array(
-			'API module for associating/disassociating a user as instructor with/from a course.'
+			'API module for associating/disassociating a user as instructor with/from a master course.'
 		);
 	}
 
@@ -150,7 +150,7 @@ class ApiInstructor extends ApiBase {
 		return array_merge( parent::getPossibleErrors(), array(
 			array( 'code' => 'username-xor-userid', 'info' => 'You need to either provide the username or the userid parameter' ),
 			array( 'code' => 'invalid-user', 'info' => 'An invalid user name or id was provided' ),
-			array( 'code' => 'invalid-course', 'info' => 'There is no course with the provided ID' ),
+			array( 'code' => 'invalid-course', 'info' => 'There is no master course with the provided ID' ),
 		) );
 	}
 
