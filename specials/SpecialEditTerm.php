@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Adittion and modification interface for terms.
+ * Addition and modification interface for courses.
  *
  * @since 0.1
  *
- * @file SpecialEditTerm.php
+ * @file SpecialEditCourse.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialEditTerm extends SpecialEPFormPage {
+class SpecialEditCourse extends SpecialEPFormPage {
 
 	/**
 	 * Constructor.
@@ -19,7 +19,7 @@ class SpecialEditTerm extends SpecialEPFormPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'EditCourse', 'ep-term', 'EPCourse', 'Courses' );
+		parent::__construct( 'EditCourse', 'ep-course', 'EPCourse', 'Courses' );
 
 		$this->getOutput()->addModules( 'ep.datepicker' );
 	}
@@ -32,33 +32,33 @@ class SpecialEditTerm extends SpecialEPFormPage {
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-		$courseOptions = EPCourse::getCourseOptions();
+		$courseOptions = EPMC::getMasterCourseOptions();
 
-		$fields['course_id'] = array (
+		$fields['mc_id'] = array (
 			'type' => 'select',
-			'label-message' => 'ep-term-edit-course',
+			'label-message' => 'ep-course-edit-mastercourse',
 			'required' => true,
 			'options' => $courseOptions,
 			'validation-callback' => function ( $value, array $alldata = null ) use ( $courseOptions ) {
-				return in_array( (int)$value, array_values( $courseOptions ) ) ? true : wfMsg( 'ep-term-invalid-course' );
+				return in_array( (int)$value, array_values( $courseOptions ) ) ? true : wfMsg( 'ep-course-invalid-course' );
 			},
 		);
 
 		$fields['token'] = array (
 			'type' => 'text',
-			'label-message' => 'ep-term-edit-token',
+			'label-message' => 'ep-course-edit-token',
 			'maxlength' => 255,
 			'required' => true,
 			'size' => 20,
 			'validation-callback' => function ( $value, array $alldata = null ) {
 				$strLen = strlen( $value );
-				return ( $strLen !== 0 && $strLen < 2 ) ? wfMsgExt( 'ep-term-invalid-token', 'parsemag', 2 ) : true;
+				return ( $strLen !== 0 && $strLen < 2 ) ? wfMsgExt( 'ep-course-invalid-token', 'parsemag', 2 ) : true;
 			} ,
 		);
 
 		$fields['year'] = array (
 			'type' => 'int',
-			'label-message' => 'ep-term-edit-year',
+			'label-message' => 'ep-course-edit-year',
 			'required' => true,
 			'min' => 2000,
 			'max' => 9001,
@@ -67,22 +67,22 @@ class SpecialEditTerm extends SpecialEPFormPage {
 
 		$fields['start'] = array (
 			'class' => 'EPHTMLDateField',
-			'label-message' => 'ep-term-edit-start',
+			'label-message' => 'ep-course-edit-start',
 			'required' => true,
 		);
 
 		$fields['end'] = array (
 			'class' => 'EPHTMLDateField',
-			'label-message' => 'ep-term-edit-end',
+			'label-message' => 'ep-course-edit-end',
 			'required' => true,
 		);
 
 		$fields['description'] = array (
 			'type' => 'textarea',
-			'label-message' => 'ep-term-edit-description',
+			'label-message' => 'ep-course-edit-description',
 			'required' => true,
 			'validation-callback' => function ( $value, array $alldata = null ) {
-				return strlen( $value ) < 10 ? wfMsgExt( 'ep-term-invalid-description', 'parsemag', 10 ) : true;
+				return strlen( $value ) < 10 ? wfMsgExt( 'ep-course-invalid-description', 'parsemag', 10 ) : true;
 			} ,
 			'rows' => 10,
 			'id' => 'wpTextbox1',
@@ -105,7 +105,7 @@ class SpecialEditTerm extends SpecialEPFormPage {
 	 */
 	protected function getNewData() {
 		return array(
-			'course_id' => $this->getRequest()->getVal( 'newcourse' ),
+			'mc_id' => $this->getRequest()->getVal( 'newmc' ),
 			'year' => $this->getRequest()->getVal( 'newyear' ),
 		);
 	}

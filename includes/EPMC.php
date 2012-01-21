@@ -320,7 +320,7 @@ class EPMC extends EPDBObject {
 		}
 		else {
 			$context->getOutput()->addHTML( $pager->getFilterControl( true ) );
-			$context->getOutput()->addWikiMsg( 'ep-courses-noresults' );
+			$context->getOutput()->addWikiMsg( 'ep-mc-noresults' );
 		}
 	}
 

@@ -337,7 +337,7 @@ class EPCourse extends EPDBObject {
 		}
 		else {
 			$context->getOutput()->addHTML( $pager->getFilterControl( true ) );
-			$context->getOutput()->addWikiMsg( 'ep-terms-noresults' );
+			$context->getOutput()->addWikiMsg( 'ep-courses-noresults' );
 		}
 	}
 
@@ -369,25 +369,25 @@ class EPCourse extends EPDBObject {
 
 		$out->addHTML( '<fieldset>' );
 
-		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-terms-addnew' ) . '</legend>' );
+		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-courses-addnew' ) . '</legend>' );
 
-		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-terms-namedoc' ) ) );
+		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-courses-namedoc' ) ) );
 
-		$out->addHTML( Html::element( 'label', array( 'for' => 'newcourse' ), wfMsg( 'ep-terms-newcourse' ) ) );
+		$out->addHTML( Html::element( 'label', array( 'for' => 'newmc' ), wfMsg( 'ep-courses-newmastercourse' ) ) );
 
 		$select = new XmlSelect(
-			'newcourse',
-			'newcourse',
-			array_key_exists( 'course', $args ) ? $args['course'] : false
+			'newmc',
+			'newmc',
+			array_key_exists( 'mc', $args ) ? $args['mc'] : false
 		);
 
 		$select->addOptions( EPCourse::getCourseOptions() );
 		$out->addHTML( $select->getHTML() );
 
-		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-terms-newyear' ), 'newyear', 'newyear', 10 ) );
+		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-courses-newyear' ), 'newyear', 'newyear', 10 ) );
 
 		$out->addHTML( '&#160;' . Html::input(
-			'addnewterm',
+			'addnewcourse',
 			wfMsg( 'ep-terms-add' ),
 			'submit'
 		) );
@@ -413,7 +413,7 @@ class EPCourse extends EPDBObject {
 			EPCourse::displayAddNewControl( $context, $args );
 		}
 		elseif ( $context->getUser()->isAllowed( 'ep-course' ) ) {
-			$context->getOutput()->addWikiMsg( 'ep-terms-addcoursefirst' );
+			$context->getOutput()->addWikiMsg( 'ep-courses-addcoursefirst' );
 		}
 	}
 
@@ -442,7 +442,7 @@ class EPCourse extends EPDBObject {
 	}
 
 	/**
-	 * Returns the status of the term.
+	 * Returns the status of the course.
 	 *
 	 * @since 0.1
 	 *
@@ -463,7 +463,7 @@ class EPCourse extends EPDBObject {
 	}
 
 	/**
-	 * Get a link to Special:Term/id.
+	 * Get a link to Special:Course/id.
 	 *
 	 * @since 0.1
 	 *
@@ -471,7 +471,7 @@ class EPCourse extends EPDBObject {
 	 */
 	public function getLink() {
 		return Linker::linkKnown(
-			SpecialPage::getTitleFor( 'Term', $this->getId() ),
+			SpecialPage::getTitleFor( 'Course', $this->getId() ),
 			htmlspecialchars( $this->getId() )
 		);
 	}

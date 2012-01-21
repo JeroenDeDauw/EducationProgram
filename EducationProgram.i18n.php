@@ -230,7 +230,7 @@ $messages['en'] = array(
 	'epcoursepager-header-year' => 'Year',
 	'epcoursepager-header-start' => 'Start',
 	'epcoursepager-header-end' => 'End',
-	'epcoursepager-filter-course-id' => 'Master course',
+	'epcoursepager-filter-mc-id' => 'Master course',
 	'epcoursepager-filter-year' => 'Year',
 	'epcoursepager-filter-org-id' => 'Institution',
 	'epcoursepager-header-status' => 'Status',
@@ -257,16 +257,16 @@ $messages['en'] = array(
 	'educationprogram-org-edit-country' => 'Country',
 	'educationprogram-org-submit' => 'Submit',
 
-	// Special:EditCourse
-	'editcourse-add-legend' => 'Add course',
-	'editcourse-edit-legend' => 'Edit course',
-	'ep-course-edit-name' => 'Name',
-	'ep-course-edit-org' => 'Institution',
-	'ep-course-edit-description' => 'Description',
+	// Special:EditMasterCourse
+	'editmastercourse-add-legend' => 'Add master course',
+	'editmastercourse-edit-legend' => 'Edit master course',
+	'ep-mc-edit-name' => 'Name',
+	'ep-mc-edit-org' => 'Institution',
+	'ep-mc-edit-description' => 'Description',
 
-	'ep-course-invalid-name' => 'This name is to short. It needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
-	'ep-course-invalid-description' => 'This description is to short. It needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
-	'ep-course-invalid-org' => 'This institution does not exist',
+	'ep-mc-invalid-name' => 'This name is to short. It needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
+	'ep-mc-invalid-description' => 'This description is to short. It needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
+	'ep-mc-invalid-org' => 'This institution does not exist',
 
 	// Special:EditCourse
 	'editcourse-add-legend' => 'Add course',
@@ -298,7 +298,7 @@ $messages['en'] = array(
 	'specialinstitution-summary-country' => 'Country',
 	'specialinstitution-summary-status' => 'Status',
 	'specialinstitution-summary-courses' => 'Course count',
-	'specialinstitution-summary-terms' => 'Term count',
+	'specialinstitution-summary-mcs' => 'Master course count',
 	'specialinstitution-summary-students' => 'Student count',
 	'ep-institution-nav-edit' => 'Edit this institution',
 	'ep-institution-add-course' => 'Add a course',

@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Adittion and modification interface for courses.
+ * Addition and modification interface for master courses.
  *
  * @since 0.1
  *
- * @file SpecialEditCourse.php
+ * @file SpecialEditMasterCourse.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialEditCourse extends SpecialEPFormPage {
+class SpecialEditMasterCourse extends SpecialEPFormPage {
 
 	/**
 	 * Constructor.
@@ -19,7 +19,7 @@ class SpecialEditCourse extends SpecialEPFormPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'EditCourse', 'ep-course', 'EPCourse', 'Courses' );
+		parent::__construct( 'EditMasterCourse', 'ep-mc', 'EPMC', 'MasterCourses' );
 	}
 
 	/**
@@ -32,11 +32,11 @@ class SpecialEditCourse extends SpecialEPFormPage {
 
 		$fields['name'] = array (
 			'type' => 'text',
-			'label-message' => 'ep-course-edit-name',
+			'label-message' => 'ep-mc-edit-name',
 			'maxlength' => 255,
 			'required' => true,
 			'validation-callback' => function ( $value, array $alldata = null ) {
-				return strlen( $value ) < 5 ? wfMsgExt( 'ep-course-invalid-name', 'parsemag', 5 ) : true;
+				return strlen( $value ) < 5 ? wfMsgExt( 'ep-mc-invalid-name', 'parsemag', 5 ) : true;
 			} ,
 		);
 
@@ -44,20 +44,20 @@ class SpecialEditCourse extends SpecialEPFormPage {
 
 		$fields['org_id'] = array (
 			'type' => 'select',
-			'label-message' => 'ep-course-edit-org',
+			'label-message' => 'ep-mc-edit-org',
 			'required' => true,
 			'options' => $orgOptions,
 			'validation-callback' => function ( $value, array $alldata = null ) use ( $orgOptions ) {
-				return in_array( (int)$value, array_values( $orgOptions ) ) ? true : wfMsg( 'ep-course-invalid-org' );
+				return in_array( (int)$value, array_values( $orgOptions ) ) ? true : wfMsg( 'ep-mc-invalid-org' );
 			} ,
 		);
 
 		$fields['description'] = array (
 			'type' => 'textarea',
-			'label-message' => 'ep-course-edit-description',
+			'label-message' => 'ep-mc-edit-description',
 			'required' => true,
 			'validation-callback' => function ( $value, array $alldata = null ) {
-				return strlen( $value ) < 10 ? wfMsgExt( 'ep-course-invalid-description', 'parsemag', 10 ) : true;
+				return strlen( $value ) < 10 ? wfMsgExt( 'ep-mc-invalid-description', 'parsemag', 10 ) : true;
 			} ,
 			'rows' => 10,
 			'id' => 'wpTextbox1',
