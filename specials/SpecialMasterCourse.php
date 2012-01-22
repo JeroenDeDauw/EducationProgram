@@ -55,15 +55,7 @@ class SpecialMasterCourse extends SpecialEPPage {
 				}
 			}
 			else {
-				$links = array();
-
-				if ( $this->getUser()->isAllowed( 'ep-mc' ) ) {
-					$links[wfMsg( 'ep-mc-nav-edit' )] =
-						array( SpecialPage::getTitleFor( 'EditMasterCourse', $this->subPage ) )
-						+ Linker::tooltipAndAccesskeyAttribs( 'ep-edit-mc' );
-				}
-
-				$this->displayNavigation( $links );
+				$this->displayNavigation();
 
 				$this->displaySummary( $masterCourse );
 

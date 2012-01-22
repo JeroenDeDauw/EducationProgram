@@ -55,15 +55,7 @@ class SpecialInstitution extends SpecialEPPage {
 				}
 			}
 			else {
-				$links = array();
-
-				if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
-					$links[wfMsg( 'ep-institution-nav-edit' )] =
-						array( SpecialPage::getTitleFor( 'EditInstitution', $this->subPage ) )
-						+ Linker::tooltipAndAccesskeyAttribs( 'ep-edit-institution' );
-				}
-
-				$this->displayNavigation( $links );
+				$this->displayNavigation();
 
 				$this->displaySummary( $org );
 

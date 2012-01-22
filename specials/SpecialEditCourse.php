@@ -19,7 +19,7 @@ class SpecialEditCourse extends SpecialEPFormPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'EditCourse', 'ep-course', 'EPCourse', 'Courses' );
+		parent::__construct( 'EditCourse', 'ep-course', 'EPCourse', 'Courses', 'Course' );
 
 		$this->getOutput()->addModules( 'ep.datepicker' );
 	}

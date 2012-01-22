@@ -153,16 +153,75 @@ final class EPHooks {
 
 		$title = $sktemplate->getTitle();
 
-		switch ( $title->getBaseText() ) {
-			case 'Institution': case 'EditInstitution':
-				$editTitle = SpecialPage::getTitleFor( 'EditInstitution', $title->getSubpageText() );
-				$viewLinks['edit'] = array(
-					'class' => $title->getBaseText() == 'EditInstitution' ? 'selected' : false,
-					'text' => wfMsg( 'edit' ),
-					'href' => $editTitle->getLocalUrl()
-				);
+		// The Title getBaseText and getSubpageText methods only do what we want when
+		// the special pages NS is in teh list of NS with subpages.
+		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
+		$baseText = $textParts[0];
+
+		$specials = array(
+			array(
+				'view' => 'Institution',
+				'edit' => 'EditInstitution',
+				//'history' => 'InstitutionHistory',
+			),
+			array(
+				'view' => 'MasterCourse',
+				'edit' => 'EditMasterCourse',
+				//'history' => 'MasterCourseHistory',
+			),
+			array(
+				'view' => 'Course',
+				'edit' => 'EditCourse',
+				//'history' => 'CourseHistory',
+			),
+		);
+
+		$editRights = array(
+			'EditInstitution' => 'ep-org',
+			'EditMasterCourse' => 'ep-mc',
+			'EditCourse' => 'ep-course',
+		);
+
+		$specialSet = false;
+		$type = false;
+
+		foreach ( $specials as $set ) {
+			if ( in_array( $baseText, $set ) ) {
+				$specialSet = $set;
+				$flipped = array_flip( $set );
+				$type = $flipped[$baseText];
 				break;
-			// TODO: test & add other links
+			}
+		}
+
+		// TODO: messages
+		if ( $specialSet !== false ) {
+			$editRight = $editRights[$specialSet['edit']];
+
+			foreach ( $specialSet as &$special ) {
+				$special = SpecialPageFactory::getLocalNameFor( $special );
+			}
+
+			$viewLinks['view'] = array(
+				'class' => $type === 'view' ? 'selected' : false,
+				'text' => wfMsg( 'vector-view-view' ),
+				'href' => SpecialPage::getTitleFor( $specialSet['view'], $textParts[1] )->getLocalUrl()
+			);
+
+			if ( $sktemplate->getUser()->isAllowed( $editRight ) ) {
+				$viewLinks['edit'] = array(
+					'class' => $type === 'edit' ? 'selected' : false,
+					'text' => wfMsg( 'vector-view-edit' ),
+					'href' => SpecialPage::getTitleFor( $specialSet['edit'], $textParts[1] )->getLocalUrl()
+				);
+			}
+
+			$viewLinks['history'] = array(
+				'class' => $type === 'history' ? 'selected' : false,
+				'text' => wfMsg( 'vector-view-history' ),
+				'href' => '' // TODO
+				//SpecialPage::getTitleFor( $specialSet['history'], $textParts[1] )->getLocalUrl()
+			);
 		}
 
 		$links['views'] = $viewLinks;

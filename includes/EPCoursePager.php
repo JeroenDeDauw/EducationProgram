@@ -187,7 +187,9 @@ class EPCoursePager extends EPPager {
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$links[] = $value = Linker::linkKnown(
 				SpecialPage::getTitleFor( 'EditCourse', $item->getId() ),
-				wfMsgHtml( 'edit' )
+				wfMsgHtml( 'edit' ),
+				array(),
+				array( 'wpreturnto' => $this->getTitle()->getText() )
 			);
 
 			$links[] = $this->getDeletionLink( 'course', $item->getId() );

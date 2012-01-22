@@ -142,7 +142,9 @@ class EPMCPager extends EPPager {
 		if ( $this->getUser()->isAllowed( 'ep-mc' ) ) {
 			$links[] = $value = Linker::linkKnown(
 				SpecialPage::getTitleFor( 'EditMasterCourse', $item->getField( 'name' ) ),
-				wfMsgHtml( 'edit' )
+				wfMsgHtml( 'edit' ),
+				array(),
+				array( 'wpreturnto' => $this->getTitle()->getText() )
 			);
 
 			$links[] = $this->getDeletionLink( 'course', $item->getId() );

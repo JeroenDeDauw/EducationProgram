@@ -55,15 +55,7 @@ class SpecialCourse extends SpecialEPPage {
 				}
 			}
 			else {
-				$links = array();
-
-				if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-					$links[wfMsg( 'ep-course-nav-edit' )] =
-						array( SpecialPage::getTitleFor( 'EditCourse', $this->subPage ) )
-						+ Linker::tooltipAndAccesskeyAttribs( 'ep-edit-course' );
-				}
-
-				$this->displayNavigation( $links );
+				$this->displayNavigation();
 
 				$this->displaySummary( $course );
 

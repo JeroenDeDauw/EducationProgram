@@ -152,7 +152,9 @@ class EPOrgPager extends EPPager {
 		if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
 			$links[] = $value = Linker::linkKnown(
 				SpecialPage::getTitleFor( 'EditInstitution', $item->getField( 'name' ) ),
-				wfMsgHtml( 'edit' )
+				wfMsgHtml( 'edit' ),
+				array(),
+				array( 'wpreturnto' => $this->getTitle()->getText() )
 			);
 
 			$links[] = $this->getDeletionLink( 'org', $item->getId() );

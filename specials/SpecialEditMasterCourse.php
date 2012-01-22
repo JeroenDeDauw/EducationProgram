@@ -19,7 +19,7 @@ class SpecialEditMasterCourse extends SpecialEPFormPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'EditMasterCourse', 'ep-mc', 'EPMC', 'MasterCourses' );
+		parent::__construct( 'EditMasterCourse', 'ep-mc', 'EPMC', 'MasterCourses', 'MasterCourse' );
 	}
 
 	/**

@@ -39,6 +39,15 @@ abstract class SpecialEPFormPage extends SpecialEPPage {
 	protected $listPage;
 
 	/**
+	 * Name of the special page displaying individual items.
+	 * For example, for "EditLolcat", it could be "Lolcat".
+	 *
+	 * @since 0.1
+	 * @var string
+	 */
+	protected $itemPage;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 0.1
@@ -47,10 +56,12 @@ abstract class SpecialEPFormPage extends SpecialEPPage {
 	 * @param string $right Right needed to access the page
 	 * @param string $itemClass Name of the item class
 	 * @param string $listPage Name of the page listing the items
+	 * @param string $itemPage Name of the page displaying individual items
 	 */
-	public function __construct( $name, $right, $itemClass, $listPage ) {
+	public function __construct( $name, $right, $itemClass, $listPage, $itemPage ) {
 		$this->itemClass = $itemClass;
 		$this->listPage = $listPage;
+		$this->itemPage = $itemPage;
 
 		parent::__construct( $name, $right, false );
 
@@ -210,7 +221,14 @@ abstract class SpecialEPFormPage extends SpecialEPPage {
 		if ( $this->isNew() ) {
 			$fields['isnew'] = array(
 				'type' => 'hidden',
-				'default' => 1
+				'default' => 1,
+			);
+		}
+
+		if ( $this->getRequest()->getCheck( 'wpreturnto' ) ) {
+			$fields['returnto'] = array(
+				'type' => 'hidden',
+				'default' => $this->getRequest()->getText( 'wpreturnto' ),
 			);
 		}
 
@@ -318,7 +336,15 @@ abstract class SpecialEPFormPage extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function onSuccess() {
-		$this->getOutput()->redirect( SpecialPage::getTitleFor( $this->listPage )->getLocalURL() );
+		if ( $this->getRequest()->getCheck( 'wpreturnto' ) ) {
+			$parts = explode( '/', $this->getRequest()->getText( 'wpreturnto' ), 2 );
+			$title = SpecialPage::getTitleFor( $parts[0], count( $parts ) === 2 ? $parts[1] : false )->getLocalURL();
+		}
+		else {
+			$title = SpecialPage::getTitleFor( $this->itemPage )->getLocalURL();
+		}
+
+		$this->getOutput()->redirect( $title );
 	}
 
 	/**
