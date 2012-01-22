@@ -100,11 +100,11 @@ class SpecialCourse extends SpecialEPPage {
 			htmlspecialchars( $org )
 		);
 
-		$course = EPCourse::selectFieldsRow( 'name', array( 'id' => $course->getField( 'course_id' ) ) );
+		$masterCourse = EPMC::selectFieldsRow( 'name', array( 'id' => $course->getField( 'mc_id' ) ) );
 
-		$stats['course'] = Linker::linkKnown(
-			SpecialPage::getTitleFor( 'Course', $course ),
-			htmlspecialchars( $course )
+		$stats['mastercourse'] = Linker::linkKnown(
+			SpecialPage::getTitleFor( 'MasterCourse', $masterCourse ),
+			htmlspecialchars( $masterCourse )
 		);
 
 		$stats['year'] = htmlspecialchars( $this->getLanguage()->formatNum( $course->getField( 'year' ), true ) );

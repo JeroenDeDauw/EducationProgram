@@ -180,8 +180,8 @@ class SpecialMasterCourse extends SpecialEPPage {
 				array(
 					'href' => '#',
 					'class' => 'ep-add-instructor',
-					'data-courseid' => $masterCourse->getId(),
-					'data-coursename' => $masterCourse->getField( 'name' ),
+					'data-mcid' => $masterCourse->getId(),
+					'data-mcname' => $masterCourse->getField( 'name' ),
 					'data-mode' => 'self',
 				),
 				wfMsg( 'ep-mc-become-instructor' )
@@ -194,8 +194,8 @@ class SpecialMasterCourse extends SpecialEPPage {
 				array(
 					'href' => '#',
 					'class' => 'ep-add-instructor',
-					'data-courseid' => $masterCourse->getId(),
-					'data-coursename' => $masterCourse->getField( 'name' ),
+					'data-mcid' => $masterCourse->getId(),
+					'data-mcname' => $masterCourse->getField( 'name' ),
 				),
 				wfMsg( 'ep-mc-add-instructor' )
 			);

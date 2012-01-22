@@ -85,9 +85,9 @@ class EPMC extends EPDBObject {
 
 			if ( count( $termIds ) > 0 ) {
 				$fields['students'] = wfGetDB( DB_SLAVE )->select(
-					'ep_students_per_term',
+					'ep_students_per_course',
 					'COUNT(*) AS rowcount',
-					array( 'spt_term_id' => $termIds )
+					array( 'spc_course_id' => $termIds )
 				);
 
 				$fields['students'] = $fields['students']->fetchObject()->rowcount;

@@ -186,7 +186,7 @@ $messages['en'] = array(
 	'ep-courses-newmastercourse' => 'Course master course:',
 	'ep-courses-add' => 'Add course',
 	'ep-courses-nocourses' => 'There are no master courses yet. You need to [[Special:MasterCourses|add a master course]] before you can create any courses.',
-	'ep-courses-addcoursefirst' => 'The institutions you are a mentor for do not have any master courses associated with them. You need to [[Special:MasterCourses|add a master course]] before you can create any courses.',
+	'ep-courses-addmastercoursefirst' => 'There are no master courses yet. You need to [[Special:MasterCourses|add a master course]] before you can create any courses.',
 
 	// Special:Students
 	'ep-students-noresults' => 'There are no students to list.',
@@ -226,7 +226,7 @@ $messages['en'] = array(
 
 	// Course pager
 	'epcoursepager-header-id' => 'Id',
-	'epcoursepager-header-course-id' => 'Master course',
+	'epcoursepager-header-mc-id' => 'Master course',
 	'epcoursepager-header-year' => 'Year',
 	'epcoursepager-header-start' => 'Start',
 	'epcoursepager-header-end' => 'End',
@@ -391,33 +391,33 @@ $messages['en'] = array(
     'ep-mycourses-not-a-student' => 'You are not enrolled in any [[Special:Courses|courses]].',
 
 	// ep.instructor
-	'ep-instructor-remove-title' => 'Remove instructor from course',
+	'ep-instructor-remove-title' => 'Remove instructor from master course',
 	'ep-instructor-remove-button' => 'Remove instructor',
 	'ep-instructor-removing' => 'Removing...',
-	'ep-instructor-removal-success' => 'This instructor has been successfully removed from this course.',
+	'ep-instructor-removal-success' => 'This instructor has been successfully removed from this master course.',
 	'ep-instructor-close-button' => 'Close',
 	'ep-instructor-remove-retry' => 'Retry',
-	'ep-instructor-remove-failed' => 'Something went wrong - could not remove the instructor from the course.',
+	'ep-instructor-remove-failed' => 'Something went wrong - could not remove the instructor from the master course.',
 	'ep-instructor-cancel-button' => 'Cancel',
-	'ep-instructor-remove-text' => 'You are about to remove $2 (Username: $1) as {{GENDER:$1|instructor}} from course $3. Please enter a brief summary with the reason for this removal.',
+	'ep-instructor-remove-text' => 'You are about to remove $2 (Username: $1) as {{GENDER:$1|instructor}} from master course $3. Please enter a brief summary with the reason for this removal.',
 	'ep-instructor-adding' => 'Adding...',
-	'ep-instructor-addittion-success' => '$1 has been successfully added as {{GENDER:$1|instructor}} for course $2!',
-	'ep-instructor-addittion-self-success' => 'You have been successfully added as {{GENDER:$1|instructor}} for course $2!',
+	'ep-instructor-addittion-success' => '$1 has been successfully added as {{GENDER:$1|instructor}} for master course $2!',
+	'ep-instructor-addittion-self-success' => 'You have been successfully added as {{GENDER:$1|instructor}} for master course $2!',
 	'ep-instructor-add-close-button' => 'Close',
 	'ep-instructor-add-retry' => 'Retry',
-	'ep-instructor-addittion-failed' => 'Something went wrong - could not add the instructor to the course.',
-	'ep-instructor-add-title' => 'Add an instructor to the course',
-	'ep-instructor-add-self-title' => 'Become an {{GENDER:$1|instructor}} for this course',
+	'ep-instructor-addittion-failed' => 'Something went wrong - could not add the instructor to the master course.',
+	'ep-instructor-add-title' => 'Add an instructor to the master course',
+	'ep-instructor-add-self-title' => 'Become an {{GENDER:$1|instructor}} for this master course',
 	'ep-instructor-add-button' => 'Add instructor',
 	'ep-instructor-add-self-button' => 'Become {{GENDER:$1|instructor}}',
-	'ep-instructor-add-text' => 'You are adding an instructor for course $1. Enter the username of the instructor and a brief description why this person is being added.',
-	'ep-instructor-add-self-text' => 'You are adding yourself as {{GENDER:$1|instructor}} for course $1. Please add a brief description why you are doing so.',
+	'ep-instructor-add-text' => 'You are adding an instructor for master course $1. Enter the username of the instructor and a brief description why this person is being added.',
+	'ep-instructor-add-self-text' => 'You are adding yourself as {{GENDER:$1|instructor}} for master course $1. Please add a brief description why you are doing so.',
 	'ep-instructor-add-cancel-button' => 'Cancel',
 	'ep-instructor-summary-input' => 'Summary',
 	'ep-instructor-name-input' => 'User name',
 
 	// EPInstrucor
-	'ep-instructor-remove' => 'remove from course',
+	'ep-instructor-remove' => 'remove as instructor',
 
 	// API addinstructor
 	'ep-addinstructor-invalid-user-args' => 'You need to either provide the username or the userid parameter',

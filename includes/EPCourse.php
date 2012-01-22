@@ -133,7 +133,7 @@ class EPCourse extends EPDBObject {
 			$conditions,
 			array(),
 			array(
-				'ep_students_per_term' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'student_id' ), array( 'ep_students', 'id' ) ) ) ),
+				'ep_students_per_course' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'student_id' ), array( 'ep_students', 'id' ) ) ) ),
 				'ep_courses' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) )
 			)
 		);
@@ -189,9 +189,9 @@ class EPCourse extends EPDBObject {
 		
 		if ( in_array( 'students', $summaryFields ) ) {
 			$fields['students'] = wfGetDB( DB_SLAVE )->select(
-				'ep_students_per_term',
+				'ep_students_per_course',
 				'COUNT(*) AS rowcount',
-				array( 'spt_term_id' => $this->getId() )
+				array( 'spc_course_id' => $this->getId() )
 			);
 
 			$fields['students'] = $fields['students']->fetchObject()->rowcount;
@@ -206,7 +206,7 @@ class EPCourse extends EPDBObject {
 	 */
 	protected function insertIntoDB() {
 		if ( !$this->hasField( 'org_id' ) ) {
-			$this->setField( 'org_id', $this->getCourse( 'org_id' )->getField( 'org_id' ) );
+			$this->setField( 'org_id', $this->getMasterCourse( 'org_id' )->getField( 'org_id' ) );
 		}
 
 		$success = parent::insertIntoDB();
@@ -240,7 +240,7 @@ class EPCourse extends EPDBObject {
 		}
 
 		if ( $success ) {
-			$success = wfGetDB( DB_MASTER )->delete( 'ep_students_per_term', array( 'spt_term_id' => $id ) ) && $success;
+			$success = wfGetDB( DB_MASTER )->delete( 'ep_students_per_course', array( 'spc_term_id' => $id ) ) && $success;
 		}
 
 		return $success;
@@ -409,11 +409,11 @@ class EPCourse extends EPDBObject {
 	 * @param array $args
 	 */
 	public static function displayAddNewRegion( IContextSource $context, array $args = array() ) {
-		if ( EPCourse::has() ) {
+		if ( EPMC::has() ) {
 			EPCourse::displayAddNewControl( $context, $args );
 		}
 		elseif ( $context->getUser()->isAllowed( 'ep-course' ) ) {
-			$context->getOutput()->addWikiMsg( 'ep-courses-addcoursefirst' );
+			$context->getOutput()->addWikiMsg( 'ep-courses-addmastercoursefirst' );
 		}
 	}
 

@@ -394,7 +394,7 @@ $wgResourceModules['ep.instructor'] = $moduleTemplate + array(
 		'ep-instructor-add-cancel-button',
 		'ep-instructor-summary-input',
 		'ep-instructor-name-input',
-		'ep-course-no-instructors',
+		'ep-mc-no-instructors',
 	),
 );
 
