@@ -60,7 +60,7 @@ class EPMCPager extends EPPager {
 		switch ( $name ) {
 			case 'name':
 				$value = Linker::linkKnown(
-					SpecialPage::getTitleFor( 'Course', $value ),
+					SpecialPage::getTitleFor( 'MasterCourse', $value ),
 					htmlspecialchars( $value )
 				);
 				break;
@@ -76,7 +76,7 @@ class EPMCPager extends EPPager {
 				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
 				break;
 			case 'active':
-				$value = wfMsgHtml( 'epcoursepager-' . ( $value == '1' ? 'yes' : 'no' ) );
+				$value = wfMsgHtml( 'epmcpager-' . ( $value == '1' ? 'yes' : 'no' ) );
 				break;
 		}
 
@@ -135,13 +135,13 @@ class EPMCPager extends EPPager {
 		$links = parent::getControlLinks( $item );
 
 		$links[] = $value = Linker::linkKnown(
-			SpecialPage::getTitleFor( 'Course', $item->getField( 'name' ) ),
+			SpecialPage::getTitleFor( 'MasterCourse', $item->getField( 'name' ) ),
 			wfMsgHtml( 'view' )
 		);
 
-		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
+		if ( $this->getUser()->isAllowed( 'ep-mc' ) ) {
 			$links[] = $value = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'EditCourse', $item->getField( 'name' ) ),
+				SpecialPage::getTitleFor( 'EditMasterCourse', $item->getField( 'name' ) ),
 				wfMsgHtml( 'edit' )
 			);
 

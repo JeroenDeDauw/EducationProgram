@@ -41,14 +41,14 @@ class SpecialMasterCourse extends SpecialEPPage {
 		else {
 			$out->setPageTitle( wfMsgExt( 'ep-mc-title', 'parsemag', $this->subPage ) );
 
-			$masterCourse = EPCourse::selectRow( null, array( 'name' => $this->subPage ) );
+			$masterCourse = EPMC::selectRow( null, array( 'name' => $this->subPage ) );
 
 			if ( $masterCourse === false ) {
 				$this->displayNavigation();
 
 				if ( $this->getUser()->isAllowed( 'ep-mc' ) ) {
 					$out->addWikiMsg( 'ep-mc-create', $this->subPage );
-					EPCourse::displayAddNewRegion( $this->getContext(), array( 'name' => $this->subPage ) );
+					EPMC::displayAddNewRegion( $this->getContext(), array( 'name' => $this->subPage ) );
 				}
 				else {
 					$out->addWikiMsg( 'ep-mc-none', $this->subPage );
@@ -73,12 +73,12 @@ class SpecialMasterCourse extends SpecialEPPage {
 
 				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mc-courses' ) ) );
 
-				EPCourse::displayPager( $this->getContext(), array( 'mc_id' => $masterCourse->getId() ) );
+				EPMC::displayPager( $this->getContext(), array( 'id' => $masterCourse->getId() ) );
 
 				if ( $this->getUser()->isAllowed( 'ep-mc' ) ) {
 					$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mc-add-term' ) ) );
 
-					EPCourse::displayAddNewControl( $this->getContext(), array( 'mc' => $masterCourse->getId() ) );
+					EPMC::displayAddNewControl( $this->getContext(), array( 'mc' => $masterCourse->getId() ) );
 				}
 			}
 		}
