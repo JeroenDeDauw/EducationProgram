@@ -76,7 +76,7 @@ class SpecialMasterCourse extends SpecialEPPage {
 				EPMC::displayPager( $this->getContext(), array( 'id' => $masterCourse->getId() ) );
 
 				if ( $this->getUser()->isAllowed( 'ep-mc' ) ) {
-					$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mc-add-term' ) ) );
+					$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mc-add-course' ) ) );
 
 					EPMC::displayAddNewControl( $this->getContext(), array( 'mc' => $masterCourse->getId() ) );
 				}
@@ -105,7 +105,7 @@ class SpecialMasterCourse extends SpecialEPPage {
 			htmlspecialchars( $org )
 		);
 
-		$stats['status'] = wfMsgHtml( $masterCourse->getField( 'active' ) ? 'ep-course-active' : 'ep-course-inactive' );
+		$stats['status'] = wfMsgHtml( $masterCourse->getField( 'active' ) ? 'ep-mc-active' : 'ep-mc-inactive' );
 
 		$lang = $this->getLanguage();
 
@@ -156,12 +156,12 @@ class SpecialMasterCourse extends SpecialEPPage {
 			}
 		}
 		else {
-			$html = wfMsgHtml( 'ep-course-no-instructors' );
+			$html = wfMsgHtml( 'ep-mc-no-instructors' );
 		}
 
 		return Html::rawElement(
 			'div',
-			array( 'id' => 'ep-course-instructors' ),
+			array( 'id' => 'ep-mc-instructors' ),
 			$html
 		);
 	}
@@ -192,7 +192,7 @@ class SpecialMasterCourse extends SpecialEPPage {
 					'data-coursename' => $masterCourse->getField( 'name' ),
 					'data-mode' => 'self',
 				),
-				wfMsg( 'ep-course-become-instructor' )
+				wfMsg( 'ep-mc-become-instructor' )
 			);
 		}
 		
@@ -205,7 +205,7 @@ class SpecialMasterCourse extends SpecialEPPage {
 					'data-courseid' => $masterCourse->getId(),
 					'data-coursename' => $masterCourse->getField( 'name' ),
 				),
-				wfMsg( 'ep-course-add-instructor' )
+				wfMsg( 'ep-mc-add-instructor' )
 			);
 		}
 		

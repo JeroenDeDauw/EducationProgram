@@ -184,7 +184,7 @@ class EPCoursePager extends EPPager {
 			wfMsgHtml( 'view' )
 		);
 
-		if ( $this->getUser()->isAllowed( 'ep-term' ) ) {
+		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$links[] = $value = Linker::linkKnown(
 				SpecialPage::getTitleFor( 'EditCourse', $item->getId() ),
 				wfMsgHtml( 'edit' )

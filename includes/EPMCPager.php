@@ -119,8 +119,8 @@ class EPMCPager extends EPPager {
 				'type' => 'select',
 				'options' => array(
 					'' => '',
-					wfMsg( 'epcoursepager-yes' ) => '1',
-					wfMsg( 'epcoursepager-no' ) => '0',
+					wfMsg( 'epmcpager-yes' ) => '1',
+					wfMsg( 'epmcpager-no' ) => '0',
 				),
 				'value' => '',
 			),
