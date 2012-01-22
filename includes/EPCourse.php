@@ -353,7 +353,7 @@ class EPCourse extends EPDBObject {
 	 * @return boolean
 	 */
 	public static function displayAddNewControl( IContextSource $context, array $args ) {
-		if ( !$context->getUser()->isAllowed( 'ep-term' ) ) {
+		if ( !$context->getUser()->isAllowed( 'ep-course' ) ) {
 			return false;
 		}
 
@@ -363,7 +363,7 @@ class EPCourse extends EPDBObject {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => SpecialPage::getTitleFor( 'EditTerm' )->getLocalURL(),
+				'action' => SpecialPage::getTitleFor( 'EditCourse' )->getLocalURL(),
 			)
 		) );
 
@@ -381,14 +381,14 @@ class EPCourse extends EPDBObject {
 			array_key_exists( 'mc', $args ) ? $args['mc'] : false
 		);
 
-		$select->addOptions( EPCourse::getCourseOptions() );
+		$select->addOptions( EPMC::getMasterCourseOptions() );
 		$out->addHTML( $select->getHTML() );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-courses-newyear' ), 'newyear', 'newyear', 10 ) );
 
 		$out->addHTML( '&#160;' . Html::input(
 			'addnewcourse',
-			wfMsg( 'ep-terms-add' ),
+			wfMsg( 'ep-courses-add' ),
 			'submit'
 		) );
 

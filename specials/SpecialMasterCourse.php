@@ -65,12 +65,12 @@ class SpecialMasterCourse extends SpecialEPPage {
 
 				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mc-courses' ) ) );
 
-				EPMC::displayPager( $this->getContext(), array( 'id' => $masterCourse->getId() ) );
+				EPCourse::displayPager( $this->getContext(), array( 'mc_id' => $masterCourse->getId() ) );
 
-				if ( $this->getUser()->isAllowed( 'ep-mc' ) ) {
+				if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 					$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mc-add-course' ) ) );
 
-					EPMC::displayAddNewControl( $this->getContext(), array( 'mc' => $masterCourse->getId() ) );
+					EPCourse::displayAddNewControl( $this->getContext(), array( 'mc' => $masterCourse->getId() ) );
 				}
 			}
 		}
