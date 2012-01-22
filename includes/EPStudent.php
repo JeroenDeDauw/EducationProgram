@@ -93,7 +93,7 @@ class EPStudent extends EPDBObject {
 		foreach ( $courses as /* EPCourse */ $course ) {
 			EPMC::updateSummaryFields( 'students', array( 'id' => $course->getField( 'mc_id' ) ) );
 			EPOrg::updateSummaryFields( 'students', array( 'id' => $course->getField( 'org_id' ) ) );
-			EPCourse::updateSummaryFields( 'students', array( 'id' => $this->getId() ) );
+			EPCourse::updateSummaryFields( 'students', array( 'id' => $course->getId() ) );
 		}
 
 		return $success;

@@ -132,7 +132,7 @@ class EPMC extends EPDBObject {
 		}
 
 		if ( $this->updateSummaries && $orgId !== false ) {
-			EPCourse::updateSummaryFields( array( 'mcs', 'students', 'courses', 'active' ), array( 'id' => $orgId ) );
+			EPOrg::updateSummaryFields( array( 'mcs', 'students', 'courses', 'active' ), array( 'id' => $orgId ) );
 		}
 
 		return $success;

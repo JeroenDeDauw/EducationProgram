@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
 CREATE INDEX /*i*/ep_course_year ON /*_*/ep_courses (course_year);
 CREATE INDEX /*i*/ep_course_start ON /*_*/ep_courses (course_start);
 CREATE INDEX /*i*/ep_course_end ON /*_*/ep_courses (course_end);
-CREATE UNIQUE INDEX /*i*/ep_trem_period ON /*_*/ep_courses (course_org_id, course_start, course_end);
+CREATE INDEX /*i*/ep_trem_period ON /*_*/ep_courses (course_org_id, course_start, course_end);
 CREATE INDEX /*i*/ep_course_students ON /*_*/ep_courses (course_students);
 
 

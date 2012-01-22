@@ -235,7 +235,7 @@ class EPCourse extends EPDBObject {
 		$success = parent::removeFromDB();
 
 		if ( $success && $this->updateSummaries ) {
-			EPCourse::updateSummaryFields( 'students', array( 'id' => $courseId ) );
+			EPMC::updateSummaryFields( 'students', array( 'id' => $courseId ) );
 			EPOrg::updateSummaryFields( array( 'terms', 'students', 'active' ), array( 'id' => $orgId ) );
 		}
 
@@ -274,7 +274,7 @@ class EPCourse extends EPDBObject {
 
 			if ( $oldCourseId !== false && $oldCourseId !== $this->getField( 'org_id' ) ) {
 				$conds = array( 'id' => array( $oldCourseId, $this->getField( 'mc_id' ) ) );
-				EPCourse::updateSummaryFields( array( 'active', 'students' ), $conds );
+				EPMC::updateSummaryFields( array( 'active', 'students' ), $conds );
 			}
 		}
 

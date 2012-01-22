@@ -58,7 +58,7 @@ class SpecialEnroll extends SpecialEPPage {
 					if ( count( $args ) === 2 ) {
 						$token = $args[1];
 					}
-					elseif ( $this->getRequest()->wasPosted() && $this->getRequest()->getCheck( 'wptoken' ) ) {
+					elseif ( $this->getRequest()->getCheck( 'wptoken' ) ) {
 						$token = $this->getRequest()->getText( 'wptoken' );
 					}
 
@@ -128,7 +128,7 @@ class SpecialEnroll extends SpecialEPPage {
 		$out->addHTML( Html::openElement(
 			'form',
 			array(
-				'method' => 'post',
+				'method' => 'get',
 				'action' => $this->getTitle( $this->subPage )->getLocalURL(),
 			)
 		) );
