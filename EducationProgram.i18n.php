@@ -24,6 +24,12 @@ $messages['en'] = array(
 	'ep-item-summary' => 'Summary',
 	'ep-toplink' => 'My courses',
 
+	// Tabs
+	'ep-tab-view' => 'View',
+	'ep-tab-edit' => 'Edit',
+	'ep-tab-history' => 'history',
+	'ep-tab-enroll' => 'Enroll',
+
 	// Tooltips
 	'tooltip-ep-form-save' => 'Save',
 	'tooltip-ep-edit-institution' => 'Edit this institution',

@@ -341,7 +341,7 @@ abstract class SpecialEPFormPage extends SpecialEPPage {
 			$title = SpecialPage::getTitleFor( $parts[0], count( $parts ) === 2 ? $parts[1] : false )->getLocalURL();
 		}
 		else {
-			$title = SpecialPage::getTitleFor( $this->itemPage )->getLocalURL();
+			$title = SpecialPage::getTitleFor( $this->itemPage, $this->subPage )->getLocalURL();
 		}
 
 		$this->getOutput()->redirect( $title );

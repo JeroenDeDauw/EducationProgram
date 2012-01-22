@@ -240,7 +240,7 @@ class EPCourse extends EPDBObject {
 		}
 
 		if ( $success ) {
-			$success = wfGetDB( DB_MASTER )->delete( 'ep_students_per_course', array( 'spc_term_id' => $id ) ) && $success;
+			$success = wfGetDB( DB_MASTER )->delete( 'ep_students_per_course', array( 'spc_course_id' => $id ) ) && $success;
 		}
 
 		return $success;

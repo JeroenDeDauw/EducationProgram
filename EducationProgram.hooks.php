@@ -151,8 +151,6 @@ final class EPHooks {
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		$viewLinks = $links['views'];
 
-		$title = $sktemplate->getTitle();
-
 		// The Title getBaseText and getSubpageText methods only do what we want when
 		// the special pages NS is in teh list of NS with subpages.
 		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
@@ -196,7 +194,7 @@ final class EPHooks {
 
 		// TODO: messages
 		if ( $specialSet !== false ) {
-			$editRight = $editRights[$specialSet['edit']];
+			$canonicalSet = $specialSet;
 
 			foreach ( $specialSet as &$special ) {
 				$special = SpecialPageFactory::getLocalNameFor( $special );
@@ -204,24 +202,40 @@ final class EPHooks {
 
 			$viewLinks['view'] = array(
 				'class' => $type === 'view' ? 'selected' : false,
-				'text' => wfMsg( 'vector-view-view' ),
+				'text' => wfMsg( 'ep-tab-view' ),
 				'href' => SpecialPage::getTitleFor( $specialSet['view'], $textParts[1] )->getLocalUrl()
 			);
 
-			if ( $sktemplate->getUser()->isAllowed( $editRight ) ) {
+			if ( $sktemplate->getUser()->isAllowed( $editRights[$canonicalSet['edit']] ) ) {
 				$viewLinks['edit'] = array(
 					'class' => $type === 'edit' ? 'selected' : false,
-					'text' => wfMsg( 'vector-view-edit' ),
+					'text' => wfMsg( 'ep-tab-edit' ),
 					'href' => SpecialPage::getTitleFor( $specialSet['edit'], $textParts[1] )->getLocalUrl()
 				);
 			}
 
 			$viewLinks['history'] = array(
 				'class' => $type === 'history' ? 'selected' : false,
-				'text' => wfMsg( 'vector-view-history' ),
+				'text' => wfMsg( 'ep-tab-history' ),
 				'href' => '' // TODO
 				//SpecialPage::getTitleFor( $specialSet['history'], $textParts[1] )->getLocalUrl()
 			);
+
+			if ( $canonicalSet['view'] === 'Course' ) {
+				$user = $sktemplate->getUser();
+
+				if ( $user->isAllowed( 'ep-enroll' ) ) {
+					$student = EPStudent::newFromUser( $user );
+
+					if ( $student === false || !$student->hasCourse( array( 'id' => $textParts[1] ) ) ) {
+						$viewLinks['enroll'] = array(
+							'class' => $type === 'enroll' ? 'selected' : false,
+							'text' => wfMsg( 'ep-tab-enroll' ),
+							'href' => SpecialPage::getTitleFor( 'Enroll', $textParts[1] )->getLocalUrl()
+						);
+					}
+				}
+			}
 		}
 
 		$links['views'] = $viewLinks;

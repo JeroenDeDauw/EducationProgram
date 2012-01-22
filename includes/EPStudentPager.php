@@ -85,7 +85,7 @@ class EPStudentPager extends EPPager {
 					function( EPCourse $course ) {
 						return $course->getLink();
 					},
-					$this->currentObject->getCurrentCourses( 'name' )
+					$this->currentObject->getCoursesWithState( 'current', 'id' )
 				) );
 				break;
 		}

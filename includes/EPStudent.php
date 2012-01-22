@@ -83,7 +83,7 @@ class EPStudent extends EPDBObject {
 				'ep_students_per_course',
 				array(
 					'spc_student_id' => $this->getId(),
-					'spc_term_id' => $course->getId(),
+					'spc_course_id' => $course->getId(),
 				)
 			) && $success;
 		}
@@ -127,6 +127,37 @@ class EPStudent extends EPDBObject {
 		else {
 			return $this->courses;
 		}
+	}
+
+	/**
+	 * Get the courses with a certain state.
+	 * States can be 'current', 'passed' and 'planned'
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $state
+	 * @param array|null $fields
+	 * @param array $conditions
+	 *
+	 * @return array of EPCourse
+	 */
+	public function getCoursesWithState( $state, $fields = null, array $conditions = array() ) {
+		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+
+		switch ( $state ) {
+			case 'passed':
+				$conditions[] = 'end < ' . $now;
+				break;
+			case 'planned':
+				$conditions[] = 'start > ' . $now;
+				break;
+			case 'current':
+				$conditions[] = 'end >= ' . $now;
+				$conditions[] = 'start <= ' . $now;
+				break;
+		}
+
+		return $this->getCourses( $fields, $conditions );
 	}
 
 	/**

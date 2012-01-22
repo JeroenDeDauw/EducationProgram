@@ -69,7 +69,7 @@ class SpecialEnroll extends SpecialEPPage {
 					$this->showEnrollmentView( $course );
 				}
 				else {
-					if ( $token !== '' ) {
+					if ( $token !== '' ) {q($token);
 						$this->showWarning( wfMessage( 'ep-enroll-invalid-token' ) );
 					}
 					
@@ -84,7 +84,7 @@ class SpecialEnroll extends SpecialEPPage {
 	
 	/**
 	 * Shows the actual enrollment view.
-	 * Should only be called after everything checks out, ie the user can enroll in the term.
+	 * Should only be called after everything checks out, ie the user can enroll in the course.
 	 * 
 	 * @since 0.1
 	 * 
@@ -203,7 +203,7 @@ class SpecialEnroll extends SpecialEPPage {
 	}
 
 	/**
-	 * Just enroll the user in the term.
+	 * Just enroll the user in the course.
 	 *
 	 * @since 0.1
 	 *
@@ -335,7 +335,7 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$this->getUser()->saveSettings();
 
-		if ( $this->doEnroll( $this->term ) ) {
+		if ( $this->doEnroll( $this->course ) ) {
 			return true;
 		}
 		else {
@@ -351,7 +351,7 @@ class SpecialEnroll extends SpecialEPPage {
 	public function onSuccess() {
 		$this->getOutput()->redirect(
 			SpecialPage::getTitleFor( 'MyCourses' )->getLocalURL( array(
-				'enrolled' => $this->term->getId()
+				'enrolled' => $this->course->getId()
 			) )
 		);
 	}

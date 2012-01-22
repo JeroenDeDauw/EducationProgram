@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Special page listing the courses that have at least one term in which the current user
- * is or has been enrolled. When a subpage param is provided, and it's a valid course
+ * Special page listing the courses in which the current user is enrolled.
+ * When a subpage param is provided, and it's a valid course
  * name, info for that course is shown.
  *
  * @since 0.1
@@ -21,7 +21,7 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'MyCourses', 'ep-enroll' );
+		parent::__construct( 'MyCourses' );
 	}
 
 	/**
@@ -67,7 +67,7 @@ class SpecialMyCourses extends SpecialEPPage {
 	protected function displayCourses( EPStudent $student ) {
 		$out = $this->getOutput();
 
-		if ( $student->hasTerm() ) {
+		if ( $student->hasCourse() ) {
 			if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
 				$course = EPCourse::selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
 
@@ -80,8 +80,8 @@ class SpecialMyCourses extends SpecialEPPage {
 				}
 			}
 
-			$currentCourses = $student->getCurrentMasterCourses();
-			$passedCourses = $student->getPassedMasterCourses();
+			$currentCourses = $student->getCoursesWithState( 'current' );
+			$passedCourses = $student->getCoursesWithState( 'passed' );
 
 			if ( count( $currentCourses ) > 0 ) {
 				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mycourses-current' ) ) );
@@ -105,7 +105,7 @@ class SpecialMyCourses extends SpecialEPPage {
 	 *
 	 * @param array $courses
 	 */
-	protected function displayCoursesList( array /* of EPMC */ $courses ) {
+	protected function displayCoursesList( array /* of EPCourse */ $courses ) {
 		$out = $this->getOutput();
 
 		$out->addHTML( Xml::openElement(
@@ -122,12 +122,12 @@ class SpecialMyCourses extends SpecialEPPage {
 
 		$out->addHTML( '<tbody>' );
 
-		foreach ( $courses as /* EPMC */ $course ) {
+		foreach ( $courses as /* EPCourse */ $course ) {
 			$fields = array();
 
 			$fields[] = Linker::link(
-				$this->getTitle( $course->getField( 'name' ) ),
-				'<b>' . htmlspecialchars( $course->getField( 'name' ) ) . '</b>'
+				$this->getTitle( $course->getMasterCourse()->getField( 'name' ) ),
+				'<b>' . htmlspecialchars( $course->getMasterCourse()->getField( 'name' ) ) . '</b>'
 			);
 
 			$fields[] = Linker::link(
@@ -158,7 +158,7 @@ class SpecialMyCourses extends SpecialEPPage {
 		$out = $this->getOutput();
 
 		$course = EPCourse::selectRow( null, array( 'name' => $courseName ) );
-		$terms = $student->getTerms( null, array( 'course_id' => $course->getId() ) );
+		$terms = $student->getCourses( null, array( 'course_id' => $course->getId() ) );
 
 		if ( $course !== false && count( $terms ) > 0 ) {
 			$out->addWikiMsg( 'ep-mycourses-show-all' );
