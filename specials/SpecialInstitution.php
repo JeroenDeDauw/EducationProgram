@@ -59,12 +59,12 @@ class SpecialInstitution extends SpecialEPPage {
 
 				$this->displaySummary( $org );
 
-				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-courses' ) ) );
+				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-mcs' ) ) );
 
 				EPMC::displayPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
 
-				if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-					$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-add-course' ) ) );
+				if ( $this->getUser()->isAllowed( 'ep-mc' ) ) {
+					$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-add-mc' ) ) );
 
 					EPMC::displayAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
 				}

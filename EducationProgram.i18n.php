@@ -304,7 +304,7 @@ $messages['en'] = array(
 	'ep-institution-none' => 'There is no institution with name "$1". See [[Special:Institution|here]] for a list of institutions.',
 	'ep-institution-create' => 'There is no institution with name "$1" yet, but you can create it.',
 	'ep-institution-title' => 'Institution: $1',
-	'ep-institution-courses' => 'Courses',
+	'ep-institution-mcs' => 'Master courses',
 	'specialinstitution-summary-name' => 'Name',
 	'specialinstitution-summary-city' => 'City',
 	'specialinstitution-summary-country' => 'Country',
@@ -313,7 +313,7 @@ $messages['en'] = array(
 	'specialinstitution-summary-mcs' => 'Master course count',
 	'specialinstitution-summary-students' => 'Student count',
 	'ep-institution-nav-edit' => 'Edit this institution',
-	'ep-institution-add-course' => 'Add a course',
+	'ep-institution-add-mc' => 'Add a master course',
 	'ep-institution-inactive' => 'Inactive',
 	'ep-institution-active' => 'Active',
 

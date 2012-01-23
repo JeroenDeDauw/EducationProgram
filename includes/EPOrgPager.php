@@ -157,7 +157,10 @@ class EPOrgPager extends EPPager {
 				array( 'wpreturnto' => $this->getTitle()->getText() )
 			);
 
-			$links[] = $this->getDeletionLink( 'org', $item->getId() );
+			$links[] = $this->getDeletionLink(
+				ApiDeleteEducation::getTypeForClassName( $this->className ),
+				$item->getId()
+			);
 		}
 
 		return $links;

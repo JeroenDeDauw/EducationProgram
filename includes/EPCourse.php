@@ -216,7 +216,7 @@ class EPCourse extends EPDBObject {
 		$success = parent::insertIntoDB();
 
 		if ( $success && $this->updateSummaries ) {
-			EPOrg::updateSummaryFields( array( 'terms', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
+			EPOrg::updateSummaryFields( array( 'courses', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
 			EPMC::updateSummaryFields( 'active', array( 'id' => $this->getField( 'mc_id' ) ) );
 		}
 
@@ -240,7 +240,7 @@ class EPCourse extends EPDBObject {
 
 		if ( $success && $this->updateSummaries ) {
 			EPMC::updateSummaryFields( 'students', array( 'id' => $courseId ) );
-			EPOrg::updateSummaryFields( array( 'terms', 'students', 'active' ), array( 'id' => $orgId ) );
+			EPOrg::updateSummaryFields( array( 'courses', 'students', 'active' ), array( 'id' => $orgId ) );
 		}
 
 		if ( $success ) {

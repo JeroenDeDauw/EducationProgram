@@ -52,8 +52,8 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_id                  INT unsigned        NOT NULL auto_increment PRIMARY KEY,
 
   course_mc_id               INT unsigned        NOT NULL, -- Foreign key on ep_mcs.mc_id
-  course_name                VARCHAR(255)        NOT NULL, -- Name of the course
   course_org_id              INT unsigned        NOT NULL, -- Foreign key on ep_orgs.org_id. Helper field, not strictly needed.
+  course_name                VARCHAR(255)        NOT NULL, -- Name of the course
   course_year                SMALLINT unsigned   NOT NULL, -- Year in which the course takes place
   course_start               varbinary(14)       NOT NULL, -- Start time of the course
   course_end                 varbinary(14)       NOT NULL, -- End time of the course

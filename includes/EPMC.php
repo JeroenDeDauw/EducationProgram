@@ -148,7 +148,7 @@ class EPMC extends EPDBObject {
 		$success = parent::insertIntoDB();
 
 		if ( $this->updateSummaries ) {
-			EPOrg::updateSummaryFields( array( 'courses', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
+			EPOrg::updateSummaryFields( array( 'mcs', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
 		}
 
 		return $success;
