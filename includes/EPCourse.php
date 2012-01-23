@@ -85,10 +85,12 @@ class EPCourse extends EPDBObject {
 			'mc_id' => 'id',
 			'org_id' => 'id',
 
+			'name' => 'str',
 			'year' => 'int',
 			'start' => 'str', // TS_MW
 			'end' => 'str', // TS_MW
 			'description' => 'str',
+			'timeline' => 'str',
 			'token' => 'str',
 			'online_ambs' => 'array',
 			'campus_ambs' => 'array',
@@ -103,10 +105,12 @@ class EPCourse extends EPDBObject {
 	 */
 	public static function getDefaults() {
 		return array(
+			'name' => '',
 			'year' => substr( wfTimestamp( TS_MW ), 0, 4 ),
 			'start' => wfTimestamp( TS_MW ),
 			'end' => wfTimestamp( TS_MW ),
 			'description' => '',
+			'timeline' => '',
 			'token' => '',
 			'online_ambs' => array(),
 			'campus_ambs' => array(),

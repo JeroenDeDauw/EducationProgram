@@ -29,8 +29,9 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_mcs (
   mc_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
 
   mc_org_id                  INT unsigned        NOT NULL, -- Foreign key on ep_orgs.org_id
-  mc_name                    VARCHAR(255)        NOT NULL, -- Name of the course
-  mc_description             TEXT                NOT NULL, -- Description of the course
+  mc_name                    VARCHAR(255)        NOT NULL, -- Name of the master course
+  mc_description             TEXT                NOT NULL, -- Description of the master course
+  mc_timeline                TEXT                NOT NULL, -- Timeline for the master course
   mc_lang                    VARCHAR(10)         NOT NULL, -- Language (code)
   mc_instructors             BLOB                NOT NULL, -- List of associated instructors
 
@@ -57,20 +58,38 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_start               varbinary(14)       NOT NULL, -- Start time of the course
   course_end                 varbinary(14)       NOT NULL, -- End time of the course
   course_description         TEXT                NOT NULL, -- Description of the course
-  course_online_ambs         BLOB                NOT NULL, -- List of associated online ambassadors
-  course_campus_ambs         BLOB                NOT NULL, -- List of associated campus ambassadors
+  course_timeline            TEXT                NOT NULL, -- Timeline for the course
+  course_online_ambs         BLOB                NOT NULL, -- List of associated online ambassadors (linking ep_oas.oa_id)
+  course_campus_ambs         BLOB                NOT NULL, -- List of associated campus ambassadors (linking ep_cas.ca_id)
   course_token               VARCHAR(255)        NOT NULL, -- Token needed to enroll
   
   course_students            SMALLINT unsigned   NOT NULL -- Amount of students
 ) /*$wgDBTableOptions*/;
 
+CREATE INDEX /*i*/ep_course_name ON /*_*/ep_courses (course_name);
 CREATE INDEX /*i*/ep_course_year ON /*_*/ep_courses (course_year);
 CREATE INDEX /*i*/ep_course_start ON /*_*/ep_courses (course_start);
 CREATE INDEX /*i*/ep_course_end ON /*_*/ep_courses (course_end);
-CREATE INDEX /*i*/ep_trem_period ON /*_*/ep_courses (course_org_id, course_start, course_end);
+CREATE INDEX /*i*/ep_course_period ON /*_*/ep_courses (course_org_id, course_start, course_end);
 CREATE INDEX /*i*/ep_course_students ON /*_*/ep_courses (course_students);
 
 
+
+-- Articles students are working on.
+CREATE TABLE IF NOT EXISTS /*_*/ep_articles (
+  article_id                 INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+
+  article_user_id            INT unsigned        NOT NULL, -- Foreign key on user.user_id
+  article_course_id          INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
+  article_page_id            INT unsigned        NOT NULL, -- Foreign key on page.page_id
+
+  article_reviewers          BLOB                NOT NULL -- List of reviewers for this article (linking user.user_id)
+) /*$wgDBTableOptions*/;
+
+CREATE INDEX /*i*/ep_articles_user_id ON /*_*/ep_articles (article_user_id);
+CREATE INDEX /*i*/ep_articles_course_id ON /*_*/ep_articles (article_course_id);
+CREATE INDEX /*i*/ep_articles_page_id ON /*_*/ep_articles (article_page_id);
+CREATE UNIQUE INDEX /*i*/ep_articles_course_page ON /*_*/ep_articles (article_course_id, article_page_id);
 
 -- Students. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_students (
@@ -111,7 +130,10 @@ CREATE UNIQUE INDEX /*i*/ep_instructors_user_id ON /*_*/ep_instructors (instruct
 -- Campus ambassadors. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_cas (
   ca_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
-  ca_user_id                 INT unsigned        NOT NULL -- Foreign key on user.user_id
+  ca_user_id                 INT unsigned        NOT NULL, -- Foreign key on user.user_id
+
+  ca_bio                     TEXT                NOT NULL, -- Bio of the ambassador
+  ca_photo                   VARCHAR(255)        NOT NULL -- Name of a photo of the ambassador on commons
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_cas_user_id ON /*_*/ep_cas (ca_user_id);
@@ -130,6 +152,9 @@ CREATE UNIQUE INDEX /*i*/ep_cas_per_org ON /*_*/ep_cas_per_org (cpo_ca_id, cpo_o
 CREATE TABLE IF NOT EXISTS /*_*/ep_oas (
   oa_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
   oa_user_id                 INT unsigned        NOT NULL -- Foreign key on user.user_id
+
+  oa_bio                     TEXT                NOT NULL, -- Bio of the ambassador
+  oa_photo                   VARCHAR(255)        NOT NULL -- Name of a photo of the ambassador on commons
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_oas_user_id ON /*_*/ep_oas (oa_user_id);

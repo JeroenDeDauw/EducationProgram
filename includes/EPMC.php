@@ -44,6 +44,7 @@ class EPMC extends EPDBObject {
 
 			'name' => 'str',
 			'description' => 'str',
+			'timeline' => 'str',
 			'lang' => 'str',
 			'instructors' => 'array',
 
@@ -59,6 +60,7 @@ class EPMC extends EPDBObject {
 	public static function getDefaults() {
 		return array(
 			'description' => '',
+			'timeline' => '',
 
 			'active' => false,
 			'students' => 0,
