@@ -171,6 +171,7 @@ final class EPHooks {
 				'view' => 'Course',
 				'edit' => 'EditCourse',
 				//'history' => 'CourseHistory',
+				'enroll' => 'Enroll',
 			),
 		);
 

@@ -20,6 +20,12 @@ class SpecialEnroll extends SpecialEPPage {
 	protected $course;
 
 	/**
+	 * @since 0.1
+	 * @var string|false
+	 */
+	protected $token = false;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 0.1
@@ -53,7 +59,7 @@ class SpecialEnroll extends SpecialEPPage {
 			elseif ( $course->getStatus() === 'current' ) {
 				$token = '';
 				$tokenIsValid = $course->getField( 'token' ) === '';
-				
+
 				if ( !$tokenIsValid ) {
 					if ( count( $args ) === 2 ) {
 						$token = $args[1];
@@ -63,6 +69,7 @@ class SpecialEnroll extends SpecialEPPage {
 					}
 
 					$tokenIsValid = $course->getField( 'token' ) === $token;
+					$this->token = $token;
 				}
 				
 				if ( $tokenIsValid ) {
@@ -178,12 +185,18 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$out->addHTML( '<ul><li>' );
 
+		$subPage = $this->course->getId();
+
+		if ( $this->token !== false ) {
+			$subPage .= '/' . $this->token;
+		}
+
 		$out->addHTML( Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Userlogin' ),
 			wfMsgHtml( 'ep-enroll-login-and-enroll' ),
 			array(),
 			array(
-				'returnto' => $this->getTitle( $this->subPage )->getFullText()
+				'returnto' => $this->getTitle( $subPage )->getFullText()
 			)
 		) );
 
@@ -194,7 +207,7 @@ class SpecialEnroll extends SpecialEPPage {
 			wfMsgHtml( 'ep-enroll-signup-and-enroll' ),
 			array(),
 			array(
-				'returnto' => $this->getTitle( $this->subPage )->getFullText(),
+				'returnto' => $this->getTitle( $subPage )->getFullText(),
 				'type' => 'signup'
 			)
 		) );
