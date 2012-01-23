@@ -83,7 +83,9 @@
 				'<b>' + mw.html.escape( bestName ) + '</b>', 
 				'<b>' + mw.html.escape( mcName ) + '</b>'
 			) );
-			
+
+			//$dialog.append( $( '<p>' ).msg( 'ep-instructor-remove-title' ) );
+
 			$dialog.append( summaryInput );
 			
 			summaryInput.focus();

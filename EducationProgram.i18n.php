@@ -25,9 +25,9 @@ $messages['en'] = array(
 	'ep-toplink' => 'My courses',
 
 	// Tabs
-	'ep-tab-view' => 'View',
+	'ep-tab-view' => 'Read',
 	'ep-tab-edit' => 'Edit',
-	'ep-tab-history' => 'history',
+	'ep-tab-history' => 'View history',
 	'ep-tab-enroll' => 'Enroll',
 
 	// Tooltips
@@ -405,6 +405,7 @@ $messages['en'] = array(
     'ep-mycourses-not-a-student' => 'You are not enrolled in any [[Special:Courses|courses]].',
 
 	// ep.instructor
+	// <script>alert("XSS");</script>
 	'ep-instructor-remove-title' => 'Remove instructor from master course',
 	'ep-instructor-remove-button' => 'Remove instructor',
 	'ep-instructor-removing' => 'Removing...',

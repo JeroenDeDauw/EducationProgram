@@ -60,6 +60,14 @@ abstract class EPDBObject {
 	protected $log = true;
 
 	/**
+	 * If the object should store old revisions.
+	 *
+	 * @since 0.1
+	 * @var bool
+	 */
+	protected $storeRevisions = true;
+
+	/**
 	 * The database connection to use for read operations.
 	 * Can be changed via @see setReadDb.
 	 *
@@ -320,7 +328,9 @@ abstract class EPDBObject {
 
 				switch ( $type ) {
 					case 'array':
-						$value = serialize( (array)$value );
+						$value = (array)$value;
+					case 'blob':
+						$value = serialize( $value );
 				}
 
 				$values[$this->getFieldPrefix() . $name] = $value;
@@ -393,13 +403,14 @@ abstract class EPDBObject {
 
 	/**
 	 * Updates the object in the database.
-	 * TODO: store old rev
 	 *
 	 * @since 0.1
 	 *
 	 * @return boolean Success indicator
 	 */
 	protected function updateInDB() {
+		$this->storeRevision();
+
 		$dbw = wfGetDB( DB_MASTER );
 
 		$success = $dbw->update(
@@ -414,6 +425,16 @@ abstract class EPDBObject {
 		}
 
 		return $success;
+	}
+
+	protected function storeRevision( $isDelete = false ) {
+		static::setReadDb( DB_MASTER );
+		$revison = static::selectRow( null, array( 'id' => $this->getId() ) );
+		static::setReadDb( DB_SLAVE );
+
+		$revison = EPRevision::newFromObject( $revison, $isDelete );
+
+		$revison->writeToDB();
 	}
 
 	/**
@@ -443,13 +464,14 @@ abstract class EPDBObject {
 
 	/**
 	 * Removes the object from the database.
-	 * TODO: store rev
 	 *
 	 * @since 0.1
 	 *
 	 * @return boolean Success indicator
 	 */
 	public function removeFromDB() {
+		$this->storeRevision( true );
+
 		$success = $this->delete( array( 'id' => $this->getId() ) );
 
 		if ( $success ) {
@@ -550,6 +572,11 @@ abstract class EPDBObject {
 					
 					if ( !is_array( $value ) ) {
 						$value = array();
+					}
+					break;
+				case 'blob':
+					if ( is_string( $value ) ) {
+						$value = unserialize( $value );
 					}
 					break;
 				case 'id':
@@ -1132,7 +1159,8 @@ abstract class EPDBObject {
 			'float' => 'NULL',
 			'str' => 'string',
 			'bool' => 'integer',
-			'array' => 'string'
+			'array' => 'string',
+			'blob' => 'string',
 		);
 
 		$params = array();
@@ -1204,6 +1232,17 @@ abstract class EPDBObject {
 	 */
 	public function setUpdateSummaries( $update ) {
 		$this->updateSummaries = $update;
+	}
+
+	/**
+	 * Sets the value for the @see $storeRevisions field.
+	 *
+	 * @since 0.1
+	 *
+	 * @param boolean $store
+	 */
+	public function setStoreRevisions( $store ) {
+		$this->storeRevisions = $store;
 	}
 
 	/**

@@ -37,6 +37,14 @@ final class EPHooks {
 			true
 		) );
 
+		$updater->addExtensionUpdate( array(
+			'addField',
+			'ep_revisions',
+			'rev_object_id',
+			dirname( __FILE__ ) . '/sql/AddRevisionObjectId.sql',
+			true
+		) );
+
 		return true;
 	}
 
@@ -179,7 +187,7 @@ final class EPHooks {
 			array(
 				'view' => 'Course',
 				'edit' => 'EditCourse',
-				//'history' => 'CourseHistory',
+				'history' => 'CourseHistory',
 				'enroll' => 'Enroll',
 			),
 		);
@@ -237,8 +245,7 @@ final class EPHooks {
 				$viewLinks['history'] = array(
 					'class' => $type === 'history' ? 'selected' : false,
 					'text' => wfMsg( 'ep-tab-history' ),
-					'href' => '' // TODO
-					//SpecialPage::getTitleFor( $specialSet['history'], $textParts[1] )->getLocalUrl()
+					'href' => SpecialPage::getTitleFor( $specialSet['history'], $textParts[1] )->getLocalUrl()
 				);
 
 				if ( $canonicalSet['view'] === 'Course' ) {

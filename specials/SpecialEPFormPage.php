@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Extends FormSpecialPage with commons functions needed in EducationProgram.
+ * FormSpecialPage equivalent but deriving from SpecialEPPage.
  *
  * @since 0.1
  *

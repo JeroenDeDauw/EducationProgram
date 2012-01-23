@@ -81,6 +81,7 @@ $wgAutoloadClasses['EPOAPager'] 					= dirname( __FILE__ ) . '/includes/EPOAPage
 $wgAutoloadClasses['EPCA'] 							= dirname( __FILE__ ) . '/includes/EPCA.php';
 $wgAutoloadClasses['EPCAPager'] 					= dirname( __FILE__ ) . '/includes/EPCAPager.php';
 $wgAutoloadClasses['EPHTMLDateField'] 				= dirname( __FILE__ ) . '/includes/EPHTMLDateField.php';
+$wgAutoloadClasses['EPRevision'] 				    = dirname( __FILE__ ) . '/includes/EPRevision.php';
 
 $wgAutoloadClasses['SpecialCourse'] 				= dirname( __FILE__ ) . '/specials/SpecialCourse.php';
 $wgAutoloadClasses['SpecialCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialCourses.php';
@@ -102,6 +103,8 @@ $wgAutoloadClasses['SpecialCAs'] 					= dirname( __FILE__ ) . '/specials/Special
 $wgAutoloadClasses['SpecialOAs'] 					= dirname( __FILE__ ) . '/specials/SpecialOAs.php';
 $wgAutoloadClasses['SpecialCA'] 					= dirname( __FILE__ ) . '/specials/SpecialCA.php';
 $wgAutoloadClasses['SpecialOA'] 					= dirname( __FILE__ ) . '/specials/SpecialOA.php';
+$wgAutoloadClasses['SpecialEPHistory'] 				= dirname( __FILE__ ) . '/specials/SpecialEPHistory.php';
+$wgAutoloadClasses['SpecialCourseHistory'] 			= dirname( __FILE__ ) . '/specials/SpecialCourseHistory.php';
 
 // Special pages
 $wgSpecialPages['MyCourses'] 						= 'SpecialMyCourses';
@@ -122,6 +125,7 @@ $wgSpecialPages['CampusAmbassadors'] 				= 'SpecialCAs';
 $wgSpecialPages['OnlineAmbassadors'] 				= 'SpecialOAs';
 $wgSpecialPages['CampusAmbassador'] 				= 'SpecialCA';
 $wgSpecialPages['OnlineAmbassador'] 				= 'SpecialOA';
+$wgSpecialPages['CourseHistory'] 				    = 'SpecialCourseHistory';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';
 $wgSpecialPageGroups['Institution'] 				= 'education';
@@ -140,9 +144,11 @@ $wgSpecialPageGroups['CampusAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['OnlineAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassador'] 			= 'education';
 $wgSpecialPageGroups['OnlineAmbassador'] 			= 'education';
+$wgSpecialPageGroups['CourseHistory'] 		    	= 'education';
 
 // DB object classes
 $egEPDBObjects = array();
+$egEPDBObjects['EPRevision'] = array( 'table' => 'ep_revisions', 'prefix' => 'rev_' );
 $egEPDBObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
 $egEPDBObjects['EPMC'] = array( 'table' => 'ep_mcs', 'prefix' => 'mc_' );
 $egEPDBObjects['EPCourse'] = array( 'table' => 'ep_courses', 'prefix' => 'course_' );
