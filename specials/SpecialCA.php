@@ -19,7 +19,7 @@ class SpecialCA extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'CampusAmbassador' );
+		parent::__construct( 'CampusAmbassador', '', false );
 	}
 
 	/**

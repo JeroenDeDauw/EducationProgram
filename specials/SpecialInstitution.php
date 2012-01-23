@@ -20,7 +20,7 @@ class SpecialInstitution extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'Institution' );
+		parent::__construct( 'Institution', '', false );
 	}
 
 	/**

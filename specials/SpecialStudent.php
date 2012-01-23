@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * Shows the info for a single student.
  *
  * @since 0.1
  *
@@ -19,7 +19,7 @@ class SpecialStudent extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'Student' );
+		parent::__construct( 'Student', '', false );
 	}
 
 	/**

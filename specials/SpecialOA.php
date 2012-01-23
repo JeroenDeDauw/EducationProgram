@@ -19,7 +19,7 @@ class SpecialOA extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'OnlineAmbassador' );
+		parent::__construct( 'OnlineAmbassador', '', false );
 	}
 
 	/**
