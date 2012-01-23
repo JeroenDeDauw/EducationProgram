@@ -177,12 +177,12 @@ final class EPHooks {
 			array(
 				'view' => 'Institution',
 				'edit' => 'EditInstitution',
-				//'history' => 'InstitutionHistory',
+				'history' => 'InstitutionHistory',
 			),
 			array(
 				'view' => 'MasterCourse',
 				'edit' => 'EditMasterCourse',
-				//'history' => 'MasterCourseHistory',
+				'history' => 'MasterCourseHistory',
 			),
 			array(
 				'view' => 'Course',

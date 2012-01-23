@@ -81,7 +81,7 @@ $wgAutoloadClasses['EPOAPager'] 					= dirname( __FILE__ ) . '/includes/EPOAPage
 $wgAutoloadClasses['EPCA'] 							= dirname( __FILE__ ) . '/includes/EPCA.php';
 $wgAutoloadClasses['EPCAPager'] 					= dirname( __FILE__ ) . '/includes/EPCAPager.php';
 $wgAutoloadClasses['EPHTMLDateField'] 				= dirname( __FILE__ ) . '/includes/EPHTMLDateField.php';
-$wgAutoloadClasses['EPRevision'] 				    = dirname( __FILE__ ) . '/includes/EPRevision.php';
+$wgAutoloadClasses['EPRevision'] 					= dirname( __FILE__ ) . '/includes/EPRevision.php';
 
 $wgAutoloadClasses['SpecialCourse'] 				= dirname( __FILE__ ) . '/specials/SpecialCourse.php';
 $wgAutoloadClasses['SpecialCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialCourses.php';
@@ -125,7 +125,9 @@ $wgSpecialPages['CampusAmbassadors'] 				= 'SpecialCAs';
 $wgSpecialPages['OnlineAmbassadors'] 				= 'SpecialOAs';
 $wgSpecialPages['CampusAmbassador'] 				= 'SpecialCA';
 $wgSpecialPages['OnlineAmbassador'] 				= 'SpecialOA';
-$wgSpecialPages['CourseHistory'] 				    = 'SpecialCourseHistory';
+$wgSpecialPages['CourseHistory'] 					= 'SpecialCourseHistory';
+$wgSpecialPages['MasterCourseHistory'] 				= 'SpecialMasterCourseHistory';
+$wgSpecialPages['InstitutionHistory'] 				= 'SpecialInstitutionHistory';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';
 $wgSpecialPageGroups['Institution'] 				= 'education';
@@ -144,7 +146,9 @@ $wgSpecialPageGroups['CampusAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['OnlineAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassador'] 			= 'education';
 $wgSpecialPageGroups['OnlineAmbassador'] 			= 'education';
-$wgSpecialPageGroups['CourseHistory'] 		    	= 'education';
+$wgSpecialPageGroups['CourseHistory'] 				= 'education';
+$wgSpecialPageGroups['MasterCourseHistory'] 		= 'education';
+$wgSpecialPageGroups['InstitutionHistory'] 			= 'education';
 
 // DB object classes
 $egEPDBObjects = array();

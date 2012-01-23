@@ -76,6 +76,10 @@ class EPOrgPager extends EPPager {
 				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
 
 				if ( $rawValue > 0 && in_array( $name, array( 'mcs', 'courses' ) ) ) {
+					if ( $name == 'mcs' ) {
+						$name = 'MasterCourses';
+					}
+
 					$value = Linker::linkKnown(
 						SpecialPage::getTitleFor( $this->getLanguage()->ucfirst( $name ) ),
 						$value,

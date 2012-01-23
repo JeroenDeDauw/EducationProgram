@@ -35,6 +35,8 @@ $specialPageAliases['en'] = array(
 	'CampusAmbassador' => array( 'CampusAmbassador' ),
 	'OnlineAmbassador' => array( 'OnlineAmbassador' ),
 	'CourseHistory' => array( 'CourseHistory' ),
+	'MasterCourseHistory' => array( 'MasterCourseHistory' ),
+	'InstitutionHistory' => array( 'InstitutionHistory' ),
 );
 
 /** Dutch (Nederlands) */
