@@ -107,9 +107,15 @@ class SpecialCourse extends SpecialEPPage {
 			htmlspecialchars( $masterCourse )
 		);
 
-		$stats['year'] = htmlspecialchars( $this->getLanguage()->formatNum( $course->getField( 'year' ), true ) );
-		$stats['start'] = htmlspecialchars( $this->getLanguage()->timeanddate( $course->getField( 'start' ), true ) );
-		$stats['end'] = htmlspecialchars( $this->getLanguage()->timeanddate( $course->getField( 'end' ), true ) );
+		$lang = $this->getLanguage();
+
+		$stats['year'] = htmlspecialchars( $lang->formatNum( $course->getField( 'year' ), true ) );
+		$stats['start'] = htmlspecialchars( $lang->timeanddate( $course->getField( 'start' ), true ) );
+		$stats['end'] = htmlspecialchars( $lang->timeanddate( $course->getField( 'end' ), true ) );
+
+		$stats['students'] = htmlspecialchars( $lang->formatNum( $course->getField( 'students' ) ) );
+
+		$stats['status'] = htmlspecialchars( EPCourse::getStatusMessage( $course->getStatus() ) );
 
 		if ( $this->getUser()->isAllowed( 'ep-token' ) ) {
 			$stats['token'] = Linker::linkKnown(
