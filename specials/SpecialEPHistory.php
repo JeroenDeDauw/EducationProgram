@@ -26,6 +26,12 @@ abstract class SpecialEPHistory extends SpecialEPPage {
 	protected $className;
 
 	/**
+	 * @since 0.1
+	 * @var string
+	 */
+	protected $itemPage;
+
+	/**
 	 * @see parent::__construct
 	 *
 	 * @since 0.1
@@ -35,9 +41,10 @@ abstract class SpecialEPHistory extends SpecialEPPage {
 	 * @param string $identifierField
 	 * @param string $restriction
 	 */
-	public function __construct( $name, $className, $identifierField, $restriction = '' ) {
+	public function __construct( $name, $className, $identifierField, $itemPage, $restriction = '' ) {
 		$this->identifier = $identifierField;
 		$this->className = $className;
+		$this->itemPage = $itemPage;
 
 		parent::__construct( $name, $restriction, false );
 	}
@@ -129,7 +136,7 @@ abstract class SpecialEPHistory extends SpecialEPPage {
 				'</fieldset></form>'
 		);
 
-		$pager = new EPRevisionPager( $this->getContext(), $conditions );
+		$pager = new EPRevisionPager( $this->getContext(), $this->className, $this->itemPage, $conditions );
 
 		if ( $pager->getNumRows() ) {
 			$out->addHTML(

@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPOrg extends EPDBObject {
+class EPOrg extends EPPageObject {
 
 	/**
 	 * Cached array of the linked EPMC objects.
@@ -288,31 +288,6 @@ class EPOrg extends EPDBObject {
 		}
 
 		return $this->courses;
-	}
-
-	/**
-	 * Get the title of Special:Institution/name.
-	 *
-	 * @since 0.1
-	 *
-	 * @return Title
-	 */
-	public function getTitle() {
-		return SpecialPage::getTitleFor( 'Institution', $this->getField( 'name' ) );
-	}
-
-	/**
-	 * Get a link to Special:Institution/name.
-	 *
-	 * @since 0.1
-	 *
-	 * @return string
-	 */
-	public function getLink() {
-		return Linker::linkKnown(
-			$this->getTitle(),
-			htmlspecialchars( $this->getField( 'name' ) )
-		);
 	}
 
 }

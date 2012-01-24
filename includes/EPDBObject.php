@@ -23,7 +23,7 @@
  * @since 0.1
  *
  * @file EPDBObject.php
- * @ingroup Review
+ * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >

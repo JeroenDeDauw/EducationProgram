@@ -19,7 +19,7 @@ class SpecialCourseHistory extends SpecialEPHistory {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'CourseHistory', 'EPCourse', 'id' );
+		parent::__construct( 'CourseHistory', 'EPCourse', 'id', 'Course' );
 	}
 
 }

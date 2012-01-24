@@ -12,7 +12,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPMC extends EPDBObject {
+class EPMC extends EPPageObject {
 
 	/**
 	 * Field for caching the linked org.
@@ -326,31 +326,6 @@ class EPMC extends EPDBObject {
 		}
 	}
 
-	/**
-	 * Get a link to Special:Course/name.
-	 *
-	 * @since 0.1
-	 *
-	 * @return string
-	 */
-	public function getLink() {
-		return Linker::linkKnown(
-			$this->getTitle(),
-			htmlspecialchars( $this->getField( 'name' ) )
-		);
-	}
-	
-	/**
-	 * Get the title of Special:Course/name.
-	 *
-	 * @since 0.1
-	 *
-	 * @return Title
-	 */
-	public function getTitle() {
-		return SpecialPage::getTitleFor( 'MasterCourse', $this->getField( 'name' ) );
-	}
-	
 	/**
 	 * Returns the instructors as a list of EPInstructor objects.
 	 * 

@@ -19,7 +19,7 @@ class SpecialInstitutionHistory extends SpecialEPHistory {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'InstitutionHistory', 'EPMC', 'name' );
+		parent::__construct( 'InstitutionHistory', 'EPMC', 'name', 'Institution' );
 	}
 
 }

@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPCourse extends EPDBObject {
+class EPCourse extends EPPageObject {
 
 	/**
 	 * Field for caching the linked master course.
@@ -464,20 +464,6 @@ class EPCourse extends EPDBObject {
 		}
 
 		return $status;
-	}
-
-	/**
-	 * Get a link to Special:Course/id.
-	 *
-	 * @since 0.1
-	 *
-	 * @return string
-	 */
-	public function getLink() {
-		return Linker::linkKnown(
-			SpecialPage::getTitleFor( 'Course', $this->getId() ),
-			htmlspecialchars( $this->getId() )
-		);
 	}
 
 }

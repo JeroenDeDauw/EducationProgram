@@ -21,15 +21,30 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	protected $context;
 
 	/**
+	 * @since 0.1
+	 * @var string
+	 */
+	protected $className;
+
+	/**
+	 * @since 0.1
+	 * @var string
+	 */
+	protected $itemPage;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
-	 * @param array $conds
 	 * @param string $className
+	 * @param string $itemPage
+	 * @param array $conds
 	 */
-	public function __construct( IContextSource $context, array $conds ) {
+	public function __construct( IContextSource $context, $className, $itemPage, array $conds = array() ) {
 		$this->conds = $conds;
 		$this->context = $context;
+		$this->className = $className;
+		$this->itemPage = $itemPage;
 
 		$this->mDefaultDirection = true;
 
@@ -102,6 +117,14 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	}
 
 	/**
+	 * @see parent::getStartBody
+	 * @since 0.1
+	 */
+	function getStartBody() {
+		return '<ul>';
+	}
+
+	/**
 	 * Abstract formatting function. This should return an HTML string
 	 * representing the result row $row. Rows will be concatenated and
 	 * returned by getBody()
@@ -111,7 +134,32 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * @return String
 	 */
 	function formatRow( $row ) {
-		return json_encode( $row ); // TODO
+		$revision = EPRevision::newFromDBResult( $row );
+
+		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
+		$object = $c::newFromArray( $revision->getField( 'data' ) );
+
+		$html = '';
+
+		$html .= Html::element(
+			'a',
+			array(
+				'href' => SpecialPage::getTitleFor( $this->itemPage, $object->getIdentifier() )->getLocalURL( array(
+					'revid' => $revision->getId(),
+				) ),
+			),
+			$this->getLanguage()->timeanddate( $revision->getField( 'time' ) )
+		);
+
+		return '<li>' . $html . '</li>';
+	}
+
+	/**
+	 * @see parent::getEndBody
+	 * @since 0.1
+	 */
+	function getEndBody() {
+		return '</ul>';
 	}
 
 	/**
