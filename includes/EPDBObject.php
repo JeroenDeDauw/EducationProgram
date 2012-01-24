@@ -409,8 +409,6 @@ abstract class EPDBObject {
 	 * @return boolean Success indicator
 	 */
 	protected function updateInDB() {
-		$this->storeRevision();
-
 		$dbw = wfGetDB( DB_MASTER );
 
 		$success = $dbw->update(
@@ -421,20 +419,36 @@ abstract class EPDBObject {
 		);
 
 		if ( $success ) {
+			$this->storeRevision();
 			$this->log( 'update' );
 		}
 
 		return $success;
 	}
 
+	/**
+	 * Store the current version of the object in the revisions table.
+	 * TODO: add handling for comment, minor edit, ect stuff
+	 *
+	 * @since 0.1
+	 *
+	 * @param bool $isDelete
+	 *
+	 * @return boolean Success indicator
+	 */
 	protected function storeRevision( $isDelete = false ) {
-		static::setReadDb( DB_MASTER );
-		$revison = static::selectRow( null, array( 'id' => $this->getId() ) );
-		static::setReadDb( DB_SLAVE );
+		if ( $this->storeRevisions ) {
+			static::setReadDb( DB_MASTER );
+			$revison = static::selectRow( null, array( 'id' => $this->getId() ) );
+			static::setReadDb( DB_SLAVE );
 
-		$revison = EPRevision::newFromObject( $revison, $isDelete );
+			$revison = EPRevision::newFromObject( $revison, $isDelete );
+			$revison->setStoreRevisions( false );
 
-		$revison->writeToDB();
+			return $revison->writeToDB();
+		}
+
+		return true;
 	}
 
 	/**
@@ -456,6 +470,7 @@ abstract class EPDBObject {
 
 		if ( $result ) {
 			$this->setField( 'id', $dbw->insertId() );
+			$this->storeRevision();
 			$this->log( 'add' );
 		}
 
@@ -470,8 +485,6 @@ abstract class EPDBObject {
 	 * @return boolean Success indicator
 	 */
 	public function removeFromDB() {
-		$this->storeRevision( true );
-
 		$success = $this->delete( array( 'id' => $this->getId() ) );
 
 		if ( $success ) {

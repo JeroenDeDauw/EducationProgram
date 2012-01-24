@@ -106,6 +106,8 @@ $wgAutoloadClasses['SpecialCA'] 					= dirname( __FILE__ ) . '/specials/SpecialC
 $wgAutoloadClasses['SpecialOA'] 					= dirname( __FILE__ ) . '/specials/SpecialOA.php';
 $wgAutoloadClasses['SpecialEPHistory'] 				= dirname( __FILE__ ) . '/specials/SpecialEPHistory.php';
 $wgAutoloadClasses['SpecialCourseHistory'] 			= dirname( __FILE__ ) . '/specials/SpecialCourseHistory.php';
+$wgAutoloadClasses['SpecialMasterCourseHistory'] 	= dirname( __FILE__ ) . '/specials/SpecialMasterCourseHistory.php';
+$wgAutoloadClasses['SpecialInstitutionHistory'] 	= dirname( __FILE__ ) . '/specials/SpecialInstitutionHistory.php';
 
 // Special pages
 $wgSpecialPages['MyCourses'] 						= 'SpecialMyCourses';
