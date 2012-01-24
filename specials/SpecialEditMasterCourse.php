@@ -60,7 +60,19 @@ class SpecialEditMasterCourse extends SpecialEPFormPage {
 				return strlen( $value ) < 10 ? wfMsgExt( 'ep-mc-invalid-description', 'parsemag', 10 ) : true;
 			} ,
 			'rows' => 10,
-			'id' => 'wpTextbox1',
+			'cssclass' => 'wiki-editor-input',
+			'id' => 'wpTextbox1'
+		);
+
+		$fields['timeline'] = array (
+			'type' => 'textarea',
+			'label-message' => 'ep-mc-edit-timeline',
+			'required' => true,
+			'validation-callback' => function ( $value, array $alldata = null ) {
+				return strlen( $value ) < 10 ? wfMsgExt( 'ep-mc-invalid-description', 'parsemag', 10 ) : true;
+			} ,
+			'rows' => 10,
+			//'cssclass' => 'wiki-editor-input',
 		);
 
 		return $this->processFormFields( $fields );

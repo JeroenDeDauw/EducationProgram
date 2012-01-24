@@ -288,6 +288,7 @@ $messages['en'] = array(
 	'ep-mc-edit-name' => 'Name',
 	'ep-mc-edit-org' => 'Institution',
 	'ep-mc-edit-description' => 'Description',
+	'ep-mc-edit-timeline' => 'Timeline',
 
 	'ep-mc-invalid-name' => 'This name is to short. It needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'ep-mc-invalid-description' => 'This description is to short. It needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',

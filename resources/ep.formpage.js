@@ -17,6 +17,8 @@
 			event.preventDefault();
 		} );
 
+		//$( 'textarea.wiki-editor-input' ).attr( 'class', 'wiki-editor' ).wikiEditor( 'addModule', $.wikiEditor.modules.toolbar.config.getDefaultConfig() );
+
 	} );
 	
 })( window.jQuery, window.mediaWiki );
