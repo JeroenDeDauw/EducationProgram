@@ -19,29 +19,7 @@ class SpecialInstitutionHistory extends SpecialEPHistory {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'InstitutionHistory' );
+		parent::__construct( 'InstitutionHistory', 'EPMC', 'name' );
 	}
-
-	/**
-	 * Main method.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string $subPage
-	 */
-	public function execute( $subPage ) {
-		parent::execute( $subPage );
-
-		$org = EPOrg::selectRow( null, array( 'name' => $subPage ) );
-
-		if ( $org === false ) {
-			// TODO
-		}
-		else {
-			$this->displayRevisions( $org );
-		}
-	}
-
-
 
 }

@@ -14,15 +14,64 @@
 abstract class SpecialEPHistory extends SpecialEPPage {
 
 	/**
+	 * @since 0.1
+	 * @var string
+	 */
+	protected $identifier;
+
+	/**
+	 * @since 0.1
+	 * @var string
+	 */
+	protected $className;
+
+	/**
 	 * @see parent::__construct
 	 *
 	 * @since 0.1
 	 *
 	 * @param string $name
+	 * @param string $className
+	 * @param string $identifierField
 	 * @param string $restriction
 	 */
-	public function __construct( $name, $restriction = '' ) {
+	public function __construct( $name, $className, $identifierField, $restriction = '' ) {
+		$this->identifier = $identifierField;
+		$this->className = $className;
+
 		parent::__construct( $name, $restriction, false );
+	}
+
+	/**
+	 * Main method.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $subPage
+	 */
+	public function execute( $subPage ) {
+		parent::execute( $subPage );
+
+		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
+		$object = $c::selectRow( null, array( $this->identifier => $subPage ) );
+
+		if ( $object === false ) {
+			// TODO
+		}
+		else {
+			$this->displayRevisions( $object );
+		}
+	}
+
+	/**
+	 * @see SpecialPage::getDescription
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
+	public function getDescription() {
+		return wfMsgExt( 'special-' . strtolower( $this->getName() ), 'parsemag', $this->subPage );
 	}
 
 	/**

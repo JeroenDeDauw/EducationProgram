@@ -168,6 +168,9 @@ $messages['en'] = array(
 	'special-campusambassadors' => 'Campus ambassadors',
 	'special-onlineambassador' => 'Online ambassador',
 	'special-campusambassador' => 'Campus ambassador',
+	'special-coursehistory' => 'Revision history of "$1"',
+	'special-mastercoursehistory' => 'Revision history of "$1"',
+	'special-institutionhistory' => 'Revision history of "$1"',
 
 	// Course statuses
 	'ep-course-status-passed' => 'Passed',

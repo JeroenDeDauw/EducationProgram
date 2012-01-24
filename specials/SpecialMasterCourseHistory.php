@@ -19,29 +19,7 @@ class SpecialMasterCourseHistory extends SpecialEPHistory {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'MasterCourseHistory' );
+		parent::__construct( 'MasterCourseHistory', 'EPMC', 'name' );
 	}
-
-	/**
-	 * Main method.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string $subPage
-	 */
-	public function execute( $subPage ) {
-		parent::execute( $subPage );
-
-		$course = EPMC::selectRow( null, array( 'name' => $subPage ) );
-
-		if ( $course === false ) {
-			// TODO
-		}
-		else {
-			$this->displayRevisions( $course );
-		}
-	}
-
-
 
 }

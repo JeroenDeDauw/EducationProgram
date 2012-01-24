@@ -19,29 +19,7 @@ class SpecialCourseHistory extends SpecialEPHistory {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'CourseHistory' );
+		parent::__construct( 'CourseHistory', 'EPCourse', 'id' );
 	}
-
-	/**
-	 * Main method.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string $subPage
-	 */
-	public function execute( $subPage ) {
-		parent::execute( $subPage );
-
-		$course = EPCourse::selectRow( null, array( 'id' => $subPage ) );
-
-		if ( $course === false ) {
-			// TODO
-		}
-		else {
-			$this->displayRevisions( $course );
-		}
-	}
-
-
 
 }
