@@ -19,7 +19,7 @@ class SpecialMasterCourseHistory extends SpecialEPHistory {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'MasterCourseHistory', '', false );
+		parent::__construct( 'MasterCourseHistory' );
 	}
 
 	/**

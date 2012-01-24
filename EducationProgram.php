@@ -82,6 +82,7 @@ $wgAutoloadClasses['EPCA'] 							= dirname( __FILE__ ) . '/includes/EPCA.php';
 $wgAutoloadClasses['EPCAPager'] 					= dirname( __FILE__ ) . '/includes/EPCAPager.php';
 $wgAutoloadClasses['EPHTMLDateField'] 				= dirname( __FILE__ ) . '/includes/EPHTMLDateField.php';
 $wgAutoloadClasses['EPRevision'] 					= dirname( __FILE__ ) . '/includes/EPRevision.php';
+$wgAutoloadClasses['EPRevisionPager'] 				= dirname( __FILE__ ) . '/includes/EPRevisionPager.php';
 
 $wgAutoloadClasses['SpecialCourse'] 				= dirname( __FILE__ ) . '/specials/SpecialCourse.php';
 $wgAutoloadClasses['SpecialCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialCourses.php';
