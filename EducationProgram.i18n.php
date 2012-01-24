@@ -61,6 +61,16 @@ $messages['en'] = array(
 	'log-header-institution' => 'These events track the changes that are made to institutions.',
 	'log-header-course' => 'These events track the changes that are made to courses.',
 	'log-header-mc' => 'These events track the changes that are made to master courses.',
+	'log-header-instructor' => 'These events track the changes that are made to instructors.',
+	'log-header-ambassador' => 'These events track the changes that are made to ambassadors.',
+	'log-header-student' => 'These events track the changes that are made to students.',
+
+	'log-description-institution' => 'Log of all changes to [[Special:Institutions|institutions]].',
+	'log-description-course' => 'Log of all changes to [[Special:Courses|courses]].',
+	'log-description-mc' => 'Log of all changes to [[Special:MasterCourses|master courses]].',
+	'log-description-instructor' => 'Log of all changes to instructors.',
+	'log-description-ambassador' => 'Log of all changes to [[Special:OnlineAmbassadors|online]] and [[Special:CampusAmbassadors|campus ambassadors]].',
+	'log-description-student' => 'Log of all changes to [[Special:Students|students]].',
 
 	'logentry-institution-add' => '$1 created institution $3',
 	'logentry-institution-remove' => '$1 removed institution $3',
