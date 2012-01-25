@@ -9,7 +9,6 @@
  *
  * The source code makes use of a number of terms different from but corresponding to those in the UI:
  * * Org instead of Institution
- * * MC for master course
  * * CA for campus ambassador
  * * OA for online ambassador
  *
@@ -270,7 +269,6 @@ $wgGroupPermissions['epcampamb']['ep-becampus'] = true;
 
 $wgGroupPermissions['epinstructor']['ep-org'] = true;
 $wgGroupPermissions['epinstructor']['ep-course'] = true;
-$wgGroupPermissions['epinstructor']['ep-mc'] = true;
 $wgGroupPermissions['epinstructor']['ep-token'] = true;
 $wgGroupPermissions['epinstructor']['ep-remstudent'] = true;
 $wgGroupPermissions['epinstructor']['ep-online'] = true;
@@ -383,7 +381,7 @@ $wgResourceModules['ep.instructor'] = $moduleTemplate + array(
 		'ep-instructor-add-cancel-button',
 		'ep-instructor-summary-input',
 		'ep-instructor-name-input',
-		'ep-mc-no-instructors',
+		'ep-course-no-instructors',
 	),
 );
 

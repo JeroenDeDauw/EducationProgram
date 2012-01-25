@@ -74,7 +74,7 @@ class SpecialMyCourses extends SpecialEPPage {
 				if ( $course !== false ) {
 					$this->showSuccess( wfMessage(
 						'ep-mycourses-enrolled',
-						$course->getMasterCourse()->getField( 'name' ),
+						$course->getField( 'name' ),
 						$course->getOrg()->getField( 'name' )
 					) );
 				}
@@ -126,8 +126,8 @@ class SpecialMyCourses extends SpecialEPPage {
 			$fields = array();
 
 			$fields[] = Linker::link(
-				$this->getTitle( $course->getMasterCourse()->getField( 'name' ) ),
-				'<b>' . htmlspecialchars( $course->getMasterCourse()->getField( 'name' ) ) . '</b>'
+				$this->getTitle( $course->getField( 'name' ) ),
+				'<b>' . htmlspecialchars( $course->getField( 'name' ) ) . '</b>'
 			);
 
 			$fields[] = Linker::link(
@@ -158,9 +158,8 @@ class SpecialMyCourses extends SpecialEPPage {
 		$out = $this->getOutput();
 
 		$course = EPCourse::selectRow( null, array( 'name' => $courseName ) );
-		$terms = $student->getCourses( null, array( 'course_id' => $course->getId() ) );
 
-		if ( $course !== false && count( $terms ) > 0 ) {
+		if ( $course !== false ) {
 			$out->addWikiMsg( 'ep-mycourses-show-all' );
 
 			$out->setPageTitle( wfMsgExt(
@@ -170,7 +169,7 @@ class SpecialMyCourses extends SpecialEPPage {
 				$course->getOrg( 'name' )->getField( 'name' )
 			) );
 
-			$this->displayCourseSummary( $course, $terms );
+			$this->displayCourseSummary( $course );
 		}
 		else {
 			$this->showError( wfMessage( 'ep-mycourses-no-such-course', $courseName ) );
@@ -183,20 +182,19 @@ class SpecialMyCourses extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $masterCourse
-	 * @param array $courses
+	 * @param EPCourse $course
 	 */
-	protected function displayCourseSummary( EPCourse $masterCourse, array /* of EPCourse */ $courses ) {
+	protected function displayCourseSummary( EPCourse $course ) {
 		$info = array();
 
-		$info['name'] = $masterCourse->getField( 'name' );
-		$info['org'] = EPOrg::selectFieldsRow( 'name', array( 'id' => $masterCourse->getField( 'org_id' ) ) );
+		$info['name'] = $course->getField( 'name' );
+		$info['org'] = EPOrg::selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
 
 		foreach ( $info as &$inf ) {
 			$inf = htmlspecialchars( $inf );
 		}
 
-		$this->displaySummary( $masterCourse, false, $info );
+		$this->displaySummary( $course, false, $info );
 	}
 	
 	/**

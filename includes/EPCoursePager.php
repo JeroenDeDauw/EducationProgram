@@ -111,9 +111,9 @@ class EPCoursePager extends EPPager {
 	public function getFieldNames() {
 		$fields = parent::getFieldNames();
 
-		if ( array_key_exists( 'mc_id', $this->conds ) && array_key_exists( 'org_id', $fields ) ) {
-			unset( $fields['org_id'] );
-		}
+//		if ( array_key_exists( 'mc_id', $this->conds ) && array_key_exists( 'org_id', $fields ) ) {
+//			unset( $fields['org_id'] );
+//		}
 
 		$fields = wfArrayInsertAfter( $fields, array( '_status' => 'status' ), 'students' );
 

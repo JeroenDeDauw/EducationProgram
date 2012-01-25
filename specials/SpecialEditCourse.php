@@ -34,13 +34,13 @@ class SpecialEditCourse extends SpecialEPFormPage {
 
 		$orgOptions = EPOrg::getOrgOptions();
 
-		$fields['mc_id'] = array (
+		$fields['org_id'] = array (
 			'type' => 'select',
-			'label-message' => 'ep-course-edit-mastercourse',
+			'label-message' => 'ep-course-edit-org',
 			'required' => true,
 			'options' => $orgOptions,
 			'validation-callback' => function ( $value, array $alldata = null ) use ( $orgOptions ) {
-				return in_array( (int)$value, array_values( $orgOptions ) ) ? true : wfMsg( 'ep-course-invalid-course' );
+				return in_array( (int)$value, array_values( $orgOptions ) ) ? true : wfMsg( 'ep-course-invalid-org' );
 			},
 		);
 

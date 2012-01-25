@@ -168,7 +168,7 @@ class SpecialEnroll extends SpecialEPPage {
 		$this->getOutput()->setPageTitle( wfMsgExt(
 			'ep-enroll-title',
 			'parsemag',
-			$course->getMasterCourse( 'name' )->getField( 'name' ),
+			$course->getField( 'name' ),
 			$course->getOrg( 'name' )->getField( 'name' )
 		) );
 	}

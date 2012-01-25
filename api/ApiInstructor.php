@@ -37,9 +37,9 @@ class ApiInstructor extends ApiBase {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 		
-		$masterCourse = EPCourse::selectRow( array( 'id', 'name', 'instructors' ), array( 'id' => $params['mcid'] ) );
+		$course = EPCourse::selectRow( array( 'id', 'name', 'instructors' ), array( 'id' => $params['orgid'] ) );
 
-		if ( $masterCourse === false ) {
+		if ( $course === false ) {
 			$this->dieUsage( wfMsg( 'ep-addinstructor-invalid-course' ), 'invalid-course' );
 		}
 		
@@ -47,10 +47,10 @@ class ApiInstructor extends ApiBase {
 		
 		switch ( $params['subaction'] ) {
 			case 'add':
-				$success = $masterCourse->addInstructors( array( $userId ), $params['reason'] );
+				$success = $course->addInstructors( array( $userId ), $params['reason'] );
 				break;
 			case 'remove':
-				$success = $masterCourse->removeInstructors( array( $userId ), $params['reason'] );
+				$success = $course->removeInstructors( array( $userId ), $params['reason'] );
 				break;
 		}
 		
@@ -116,7 +116,7 @@ class ApiInstructor extends ApiBase {
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => false,
 			),
-			'mcid' => array(
+			'courseid' => array(
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
 			),
@@ -132,7 +132,7 @@ class ApiInstructor extends ApiBase {
 	public function getParamDescription() {
 		return array(
 			'subaction' => 'Specifies what you want to do with the instructor',
-			'mcid' => 'The ID of the master course to/from which the instructor should be added/removed',
+			'courseid' => 'The ID of the course to/from which the instructor should be added/removed',
 			'username' => 'Name of the user to associate as instructor',
 			'userid' => 'Id of the user to associate as instructor',
 			'reason' => 'Message with the reason for this change for nthe log',
@@ -142,7 +142,7 @@ class ApiInstructor extends ApiBase {
 
 	public function getDescription() {
 		return array(
-			'API module for associating/disassociating a user as instructor with/from a master course.'
+			'API module for associating/disassociating a user as instructor with/from a course.'
 		);
 	}
 
@@ -150,7 +150,7 @@ class ApiInstructor extends ApiBase {
 		return array_merge( parent::getPossibleErrors(), array(
 			array( 'code' => 'username-xor-userid', 'info' => 'You need to either provide the username or the userid parameter' ),
 			array( 'code' => 'invalid-user', 'info' => 'An invalid user name or id was provided' ),
-			array( 'code' => 'invalid-course', 'info' => 'There is no master course with the provided ID' ),
+			array( 'code' => 'invalid-course', 'info' => 'There is no course with the provided ID' ),
 		) );
 	}
 

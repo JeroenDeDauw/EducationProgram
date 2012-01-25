@@ -14,8 +14,8 @@
 		
 		$( '.ep-instructor-remove' ).click( function( event ) {
 			var $this = $( this ),
-			mcId = $this.attr( 'data-mcid' ),
-			mcName = $this.attr( 'data-mcname' ),
+			courseId = $this.attr( 'data-courseid' ),
+			courseName = $this.attr( 'data-mcname' ),
 			userId = $this.attr( 'data-userid' ),
 			userName = $this.attr( 'data-username' ),
 			bestName = $this.attr( 'data-bestname' ),
@@ -29,7 +29,7 @@
 				$remove.button( 'option', 'label', ep.msg( 'ep-instructor-removing' ) );
 
 				ep.api.removeInstructor( {
-					'mcid': mcId,
+					'courseid': courseId,
 					'userid': userId,
 					'reason': summaryInput.val()
 				} ).done( function() {
@@ -81,7 +81,7 @@
 				'ep-instructor-remove-text',
 				mw.html.escape( userName ),
 				'<b>' + mw.html.escape( bestName ) + '</b>', 
-				'<b>' + mw.html.escape( mcName ) + '</b>'
+				'<b>' + mw.html.escape( courseName ) + '</b>'
 			) );
 
 			//$dialog.append( $( '<p>' ).msg( 'ep-instructor-remove-title' ) );
@@ -101,8 +101,8 @@
 		$( '.ep-add-instructor' ).click( function( event ) {
 			var $this = $( this ), _this = this;
 			
-			this.mcId = $this.attr( 'data-mcid' );
-			this.mcName = $this.attr( 'data-mcname' );
+			this.courseId = $this.attr( 'data-courseid' );
+			this.courseName = $this.attr( 'data-mcname' );
 			this.selfMode = $this.attr( 'data-mode' ) === 'self';
 			this.$dialog = null;
 			
@@ -134,14 +134,14 @@
 				$add.button( 'option', 'label', ep.msg( 'ep-instructor-adding' ) );
 
 				ep.api.addInstructor( {
-					'mcid': _this.mcId,
+					'courseid': _this.courseId,
 					'username': _this.getName(),
 					'reason': _this.summaryInput.val()
 				} ).done( function() {
 					_this.$dialog.text( ep.msg(
 						_this.selfMode ? 'ep-instructor-addittion-self-success' : 'ep-instructor-addittion-success',
 						_this.getName(),
-						_this.mcName
+						_this.courseName
 					) );
 
 					$add.remove();
@@ -149,11 +149,11 @@
 					$cancel.focus();
 
 					// TODO: link name to user page and show control links
-					$ul = $( '#ep-mc-instructors' ).find( 'ul' );
+					$ul = $( '#ep-course-instructors' ).find( 'ul' );
 
 					if ( $ul.length < 1 ) {
 						$ul = $( '<ul>' );
-						$( '#ep-mc-instructors' ).html( $ul );
+						$( '#ep-course-instructors' ).html( $ul );
 					}
 
 					$ul.append( $( '<li>' ).text( _this.getName() ) )
@@ -187,7 +187,7 @@
 			
 			this.$dialog.append( $( '<p>' ).text( gM(
 				this.selfMode ? 'ep-instructor-add-self-text' : 'ep-instructor-add-text',
-				this.mcName,
+				this.courseName,
 				this.getName()
 			) ) );
 			

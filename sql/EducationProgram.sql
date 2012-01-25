@@ -29,7 +29,7 @@ CREATE INDEX /*i*/ep_org_students ON /*_*/ep_orgs (org_students);
 
 
 
--- Courses. These are "instances" of a master course in a certain period.
+-- Courses.
 CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_id                  INT unsigned        NOT NULL auto_increment PRIMARY KEY,
 

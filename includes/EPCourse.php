@@ -214,10 +214,6 @@ class EPCourse extends EPPageObject {
 	 * @see EPDBObject::insertIntoDB()
 	 */
 	protected function insertIntoDB() {
-		if ( !$this->hasField( 'org_id' ) ) {
-			$this->setField( 'org_id', $this->getMasterCourse( 'org_id' )->getField( 'org_id' ) );
-		}
-
 		$success = parent::insertIntoDB();
 
 		if ( $success && $this->updateSummaries ) {
@@ -235,9 +231,8 @@ class EPCourse extends EPPageObject {
 		$id = $this->getId();
 
 		if ( $this->updateSummaries ) {
-			$this->loadFields( array( 'org_id', 'mc_id' ) );
+			$this->loadFields( array( 'org_id' ) );
 			$orgId = $this->getField( 'org_id' );
-			$courseId = $this->getField( 'mc_id' );
 		}
 
 		$success = parent::removeFromDB();
@@ -349,7 +344,7 @@ class EPCourse extends EPPageObject {
 
 		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-courses-namedoc' ) ) );
 
-		$out->addHTML( Html::element( 'label', array( 'for' => 'newmc' ), wfMsg( 'ep-courses-neworg' ) ) );
+		$out->addHTML( Html::element( 'label', array( 'for' => 'neworg' ), wfMsg( 'ep-courses-neworg' ) ) );
 
 		$select = new XmlSelect(
 			'neworg',
