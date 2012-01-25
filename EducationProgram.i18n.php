@@ -34,18 +34,15 @@ $messages['en'] = array(
 	'tooltip-ep-form-save' => 'Save',
 	'tooltip-ep-edit-institution' => 'Edit this institution',
 	'tooltip-ep-edit-course' => 'Edit this course',
-	'tooltip-ep-edit-mc' => 'Edit this master course',
 
 	// Access keys
 	'accesskey-ep-form-save' => 's', # do not translate or duplicate this message to other languages
 	'accesskey-ep-edit-institution' => 'e', # do not translate or duplicate this message to other languages
 	'accesskey-ep-edit-course' => 'e', # do not translate or duplicate this message to other languages
-	'accesskey-ep-edit-mc' => 'e', # do not translate or duplicate this message to other languages
 
 	// Navigation links
 	'ep-nav-orgs' => 'Institution list',
 	'ep-nav-courses' => 'Courses list',
-	'ep-nav-mcs' => 'Master courses list',
 	'ep-nav-mycourses' => 'My courses',
 	'ep-nav-students' => 'Student list',
 	'ep-nav-mentors' => 'Ambassador list',
@@ -53,21 +50,18 @@ $messages['en'] = array(
 	// Logging
 	'log-name-institution' => 'Institution log',
 	'log-name-course' => 'Course log',
-	'log-name-mc' => 'Master course log',
 	'log-name-student' => 'Student log',
 	'log-name-ambassador' => 'Ambassador log',
 	'log-name-instructor' => 'Instructor log',
 
 	'log-header-institution' => 'These events track the changes that are made to institutions.',
 	'log-header-course' => 'These events track the changes that are made to courses.',
-	'log-header-mc' => 'These events track the changes that are made to master courses.',
 	'log-header-instructor' => 'These events track the changes that are made to instructors.',
 	'log-header-ambassador' => 'These events track the changes that are made to ambassadors.',
 	'log-header-student' => 'These events track the changes that are made to students.',
 
 	'log-description-institution' => 'Log of all changes to [[Special:Institutions|institutions]].',
 	'log-description-course' => 'Log of all changes to [[Special:Courses|courses]].',
-	'log-description-mc' => 'Log of all changes to [[Special:MasterCourses|master courses]].',
 	'log-description-instructor' => 'Log of all changes to instructors.',
 	'log-description-ambassador' => 'Log of all changes to [[Special:OnlineAmbassadors|online]] and [[Special:CampusAmbassadors|campus ambassadors]].',
 	'log-description-student' => 'Log of all changes to [[Special:Students|students]].',
@@ -105,7 +99,6 @@ $messages['en'] = array(
 	// Rights
 	'right-ep-org' => 'Manage Education Program institutions',
 	'right-ep-course' => 'Manage Education Program courses',
-	'right-ep-mcs' => 'Manage Education Program master courses',
 	'right-ep-token' => 'See Education Program enrollment tokens',
 	'right-ep-remstudent' => 'Remove students from courses',
 	'right-ep-enroll' => 'Enroll in Education Program courses',
@@ -116,7 +109,6 @@ $messages['en'] = array(
 	// Actions
 	'action-ep-org' => 'manage institutions',
 	'action-ep-course' => 'manage courses',
-	'action-ep-mc' => 'manage master courses',
 	'action-ep-token' => 'see enrollment tokens',
 	'action-ep-remstudent' => 'remove students from courses',
 	'action-ep-enroll' => 'enroll in courses',
@@ -157,10 +149,6 @@ $messages['en'] = array(
 	'special-educationprogram' => 'Education Program',
 	'special-editinstitution-add' => 'Add institution',
 	'special-editinstitution-edit' => 'Edit institution',
-	'special-mastercourses' => 'Master courses',
-	'special-mastercourse' => 'Master course',
-	'special-editmastercourse-add' => 'Add master course',
-	'special-editmastercourse-edit' => 'Edit master course',
 	'special-editcourse-add' => 'Add course',
 	'special-editcourse-edit' => 'Edit course',
 	'special-enroll' => 'Enroll',
@@ -169,7 +157,6 @@ $messages['en'] = array(
 	'special-onlineambassador' => 'Online ambassador',
 	'special-campusambassador' => 'Campus ambassador',
 	'special-coursehistory' => 'Revision history of "$1"',
-	'special-mastercoursehistory' => 'Revision history of "$1"',
 	'special-institutionhistory' => 'Revision history of "$1"',
 
 	// Course statuses
@@ -185,27 +172,16 @@ $messages['en'] = array(
 	'ep-institutions-newname' => 'Institution name:',
 	'ep-institutions-add' => 'Add institution',
 
-	// Special:MasterCourses
-	'ep-mcs-nosuchcourse' => 'There is no master course with name "$1". Existing master courses are listed below.',
-	'ep-mcs-noresults' => 'There are no master courses to list.',
-	'ep-mcs-addnew' => 'Add a new master course',
-	'ep-mcs-namedoc' => 'Enter the name for the new course (which should be unique) and hit the button.',
-	'ep-mcs-newname' => 'Master course name:',
-	'ep-mcs-add' => 'Add master course',
-	'ep-mcs-addorgfirst' => 'You need to [[Special:Institutions|add an institution]] before you can create any master courses.',
-	'ep-mcs-noorgs' => 'You are not a mentor of any institutions yet, so cannot add any master courses.',
-	'ep-mcs-neworg' => 'Institution',
-
 	// Special:Courses
-	'ep-courses-nosuchcourse' => 'There is no course with id "$1". Existing courses are listed below.',
+	'ep-courses-nosuchcourse' => 'There is no course with name "$1". Existing courses are listed below.',
 	'ep-courses-noresults' => 'There are no courses to list.',
 	'ep-courses-addnew' => 'Add a new course',
-	'ep-courses-namedoc' => 'Enter the master course the course belongs to and the year in which it is active.',
-	'ep-courses-newyear' => 'Course year:',
-	'ep-courses-newmastercourse' => 'Course master course:',
+	'ep-courses-namedoc' => 'Enter the institution the course belongs to and the year in which it is active.',
+	'ep-courses-newterm' => 'Course term:',
+	'ep-courses-neworg' => 'Course institution:',
 	'ep-courses-add' => 'Add course',
-	'ep-courses-nocourses' => 'There are no master courses yet. You need to [[Special:MasterCourses|add a master course]] before you can create any courses.',
-	'ep-courses-addmastercoursefirst' => 'There are no master courses yet. You need to [[Special:MasterCourses|add a master course]] before you can create any courses.',
+	'ep-courses-noorgs' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
+	'ep-courses-addorgfirst' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
 
 	// Special:Students
 	'ep-students-noresults' => 'There are no students to list.',
@@ -227,7 +203,6 @@ $messages['en'] = array(
 	'eporgpager-filter-country' => 'Country',
 	'eporgpager-header-courses' => 'Courses',
 	'eporgpager-header-students' => 'Students',
-	'eporgpager-header-mcs' => 'Master courses',
 	'eporgpager-header-active' => 'Active',
 	'eporgpager-filter-active' => 'Active courses',
 	'eporgpager-yes' => 'Yes',
@@ -236,11 +211,11 @@ $messages['en'] = array(
 	// Course pager
 	'epcoursepager-header-id' => 'Id',
 	'epcoursepager-header-mc-id' => 'Master course',
-	'epcoursepager-header-year' => 'Year',
+	'epcoursepager-header-term' => 'Term',
 	'epcoursepager-header-start' => 'Start',
 	'epcoursepager-header-end' => 'End',
 	'epcoursepager-filter-mc-id' => 'Master course',
-	'epcoursepager-filter-year' => 'Year',
+	'epcoursepager-filter-term' => 'Term',
 	'epcoursepager-filter-org-id' => 'Institution',
 	'epcoursepager-header-status' => 'Status',
 	'epcoursepager-filter-status' => 'Status',
@@ -272,22 +247,10 @@ $messages['en'] = array(
 	'educationprogram-org-edit-country' => 'Country',
 	'educationprogram-org-submit' => 'Submit',
 
-	// Special:EditMasterCourse
-	'editmastercourse-add-legend' => 'Add master course',
-	'editmastercourse-edit-legend' => 'Edit master course',
-	'ep-mc-edit-name' => 'Name',
-	'ep-mc-edit-org' => 'Institution',
-	'ep-mc-edit-description' => 'Description',
-	'ep-mc-edit-timeline' => 'Timeline',
-
-	'ep-mc-invalid-name' => 'This name is to short. It needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
-	'ep-mc-invalid-description' => 'This description is to short. It needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
-	'ep-mc-invalid-org' => 'This institution does not exist',
-
 	// Special:EditCourse
 	'editcourse-add-legend' => 'Add course',
 	'editcourse-edit-legend' => 'Edit course',
-	'ep-course-edit-year' => 'Year',
+	'ep-course-edit-term' => 'Term',
 	'ep-course-edit-mastercourse' => 'Master course',
 	'ep-course-edit-start' => 'Start date',
 	'ep-course-edit-end' => 'End date',
@@ -308,38 +271,16 @@ $messages['en'] = array(
 	'ep-institution-none' => 'There is no institution with name "$1". See [[Special:Institution|here]] for a list of institutions.',
 	'ep-institution-create' => 'There is no institution with name "$1" yet, but you can create it.',
 	'ep-institution-title' => 'Institution: $1',
-	'ep-institution-mcs' => 'Master courses',
 	'specialinstitution-summary-name' => 'Name',
 	'specialinstitution-summary-city' => 'City',
 	'specialinstitution-summary-country' => 'Country',
 	'specialinstitution-summary-status' => 'Status',
 	'specialinstitution-summary-courses' => 'Course count',
-	'specialinstitution-summary-mcs' => 'Master course count',
 	'specialinstitution-summary-students' => 'Student count',
 	'ep-institution-nav-edit' => 'Edit this institution',
 	'ep-institution-add-mc' => 'Add a master course',
 	'ep-institution-inactive' => 'Inactive',
 	'ep-institution-active' => 'Active',
-
-	// Special:MasterCourse
-	'ep-mc-title' => 'Master course: $1',
-	'ep-mc-courses' => 'Courses',
-	'ep-mc-none' => 'There is no master course with name "$1". See [[Special:MasterCourses|here]] for a list of master courses.',
-	'ep-mc-create' => 'There is no master course with name "$1" yet, but you can create it.',
-	'specialmastercourse-summary-name' => 'Name',
-	'specialmastercourse-summary-org' => 'Institution',
-	'specialmastercourse-summary-students' => 'Student count',
-	'specialmastercourse-summary-status' => 'Status',
-	'ep-mc-description' => 'Description',
-	'ep-mc-nav-edit' => 'Edit this master course',
-	'ep-mc-add-course' => 'Add a course',
-	'ep-mc-inactive' => 'Inactive',
-	'ep-mc-active' => 'Active',
-	'specialmastercourse-summary-courses' => 'Course count',
-	'specialmastercourse-summary-instructors' => 'Instructors',
-	'ep-mc-no-instructors' => 'There are no instructors for this master course.',
-	'ep-mc-become-instructor' => 'Become instructor',
-	'ep-mc-add-instructor' => 'Add an instructor',
 
 	// Special:Course
 	'ep-course-title' => 'Course: $1',
@@ -348,7 +289,7 @@ $messages['en'] = array(
 	'ep-course-create' => 'There is no course with id "$1", but you can create a new one.',
 	'specialcourse-summary-org' => 'Institution',
 	'specialcourse-summary-mastercourse' => 'Master course',
-	'specialcourse-summary-year' => 'Year',
+	'specialcourse-summary-term' => 'Term',
 	'specialcourse-summary-start' => 'Start',
 	'specialcourse-summary-end' => 'End',
 	'specialcourse-summary-students' => 'Student count',
@@ -409,7 +350,6 @@ $messages['en'] = array(
     'ep-mycourses-not-a-student' => 'You are not enrolled in any [[Special:Courses|courses]].',
 
 	// ep.instructor
-	// <script>alert("XSS");</script>
 	'ep-instructor-remove-title' => 'Remove instructor from master course',
 	'ep-instructor-remove-button' => 'Remove instructor',
 	'ep-instructor-removing' => 'Removing...',

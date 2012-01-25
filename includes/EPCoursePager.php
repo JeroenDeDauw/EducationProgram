@@ -31,7 +31,7 @@ class EPCoursePager extends EPPager {
 		return array(
 			'id',
 			'org_id',
-			'year',
+			'term',
 			'start',
 			'end',
 			'students',
@@ -74,8 +74,8 @@ class EPCoursePager extends EPPager {
 					htmlspecialchars( $value )
 				);
 				break;
-			case 'year':
-				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value, true ) );
+			case 'term':
+				$value = htmlspecialchars( $value ); // TODO
 				break;
 			case 'start': case 'end':
 				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
@@ -97,7 +97,7 @@ class EPCoursePager extends EPPager {
 	protected function getSortableFields() {
 		return array(
 			'id',
-			'year',
+			'term',
 			'start',
 			'end',
 			'students',
@@ -137,14 +137,14 @@ class EPCoursePager extends EPPager {
 			'datatype' => 'int',
 		);
 
-		$years = EPCourse::selectFields( 'year', array(), array( 'DISTINCT' ), array(), true );
-		asort( $years, SORT_NUMERIC );
-		$years = array_merge( array( '' ), $years );
-		$years = array_combine( $years, $years );
+		$terms = EPCourse::selectFields( 'term', array(), array( 'DISTINCT' ), array(), true );
+		natcasesort( $terms );
+		$terms = array_merge( array( '' ), $terms );
+		$years = array_combine( $terms, $terms );
 
-		$options['year'] = array(
+		$options['term'] = array(
 			'type' => 'select',
-			'options' => $years,
+			'options' => $terms,
 			'value' => '',
 		);
 

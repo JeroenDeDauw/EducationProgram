@@ -81,7 +81,7 @@ class EPOrg extends EPPageObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'courses', 'mcs', 'students', 'active' );
+			$summaryFields = array( 'courses', 'students', 'active' );
 		}
 		else {
 			$summaryFields = (array)$summaryFields;

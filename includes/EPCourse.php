@@ -349,7 +349,7 @@ class EPCourse extends EPPageObject {
 
 		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-courses-namedoc' ) ) );
 
-		$out->addHTML( Html::element( 'label', array( 'for' => 'newmc' ), wfMsg( 'ep-courses-newmastercourse' ) ) );
+		$out->addHTML( Html::element( 'label', array( 'for' => 'newmc' ), wfMsg( 'ep-courses-neworg' ) ) );
 
 		$select = new XmlSelect(
 			'neworg',
@@ -360,7 +360,7 @@ class EPCourse extends EPPageObject {
 		$select->addOptions( EPOrg::getOrgOptions() );
 		$out->addHTML( $select->getHTML() );
 
-		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-courses-newyear' ), 'newyear', 'newyear', 10 ) );
+		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-courses-newterm' ), 'newterm', 'newterm', 10 ) );
 
 		$out->addHTML( '&#160;' . Html::input(
 			'addnewcourse',

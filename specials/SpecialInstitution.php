@@ -59,7 +59,7 @@ class SpecialInstitution extends SpecialEPPage {
 
 				$this->displaySummary( $org );
 
-				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-mcs' ) ) );
+				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-courses' ) ) );
 
 				EPCourse::displayPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
 
@@ -92,7 +92,6 @@ class SpecialInstitution extends SpecialEPPage {
 
 		$stats['status'] = wfMsgHtml( $org->getField( 'active' ) ? 'ep-institution-active' : 'ep-institution-inactive' );
 
-		$stats['mcs'] = $this->getLanguage()->formatNum( $org->getField( 'mcs' ) );
 		$stats['courses'] = $this->getLanguage()->formatNum( $org->getField( 'courses' ) );
 		$stats['students'] = $this->getLanguage()->formatNum( $org->getField( 'students' ) );
 
@@ -104,15 +103,6 @@ class SpecialInstitution extends SpecialEPPage {
 			$stats['courses'] = Linker::linkKnown(
 				SpecialPage::getTitleFor( 'Courses' ),
 				$stats['courses'],
-				array(),
-				array( 'org_id' => $org->getId() )
-			);
-		}
-
-		if ( $org->getField( 'mcs' ) > 0 ) {
-			$stats['mcs'] = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'MasterCourses' ),
-				$stats['mcs'],
 				array(),
 				array( 'org_id' => $org->getId() )
 			);

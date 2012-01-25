@@ -56,13 +56,10 @@ class SpecialEditCourse extends SpecialEPFormPage {
 			} ,
 		);
 
-		$fields['year'] = array (
-			'type' => 'int',
-			'label-message' => 'ep-course-edit-year',
+		$fields['term'] = array (
+			'type' => 'text',
+			'label-message' => 'ep-course-edit-term',
 			'required' => true,
-			'min' => 2000,
-			'max' => 9001,
-			'size' => 15,
 		);
 
 		$fields['start'] = array (
@@ -105,8 +102,8 @@ class SpecialEditCourse extends SpecialEPFormPage {
 	 */
 	protected function getNewData() {
 		return array(
-			'mc_id' => $this->getRequest()->getVal( 'newmc' ),
-			'year' => $this->getRequest()->getVal( 'newyear' ),
+			'org_id' => $this->getRequest()->getVal( 'neworg' ),
+			'term' => $this->getRequest()->getVal( 'newterm' ),
 		);
 	}
 

@@ -102,7 +102,7 @@ class SpecialCourse extends SpecialEPPage {
 
 		$lang = $this->getLanguage();
 
-		$stats['year'] = htmlspecialchars( $lang->formatNum( $course->getField( 'year' ), true ) );
+		$stats['term'] = htmlspecialchars( $course->getField( 'term' ) );
 		$stats['start'] = htmlspecialchars( $lang->timeanddate( $course->getField( 'start' ), true ) );
 		$stats['end'] = htmlspecialchars( $lang->timeanddate( $course->getField( 'end' ), true ) );
 
