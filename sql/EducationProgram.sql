@@ -12,9 +12,9 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_orgs (
 
   org_active                 TINYINT unsigned    NOT NULL, -- If the org has any active courses
   org_courses                SMALLINT unsigned   NOT NULL, -- Amount of courses
-  org_instructors            SMALLINT unsigned   NOT NULL -- Amount of instructors
-  org_online_ambs            INT unsigned        NOT NULL -- Amount of online ambassadors
-  org_campus_ambs            INT unsigned        NOT NULL -- Amount of campus ambassadors
+  org_instructors            SMALLINT unsigned   NOT NULL, -- Amount of instructors
+  org_online_ambs            INT unsigned        NOT NULL, -- Amount of online ambassadors
+  org_campus_ambs            INT unsigned        NOT NULL, -- Amount of campus ambassadors
   org_students               INT unsigned        NOT NULL -- Amount of students
 ) /*$wgDBTableOptions*/;
 
@@ -147,7 +147,7 @@ CREATE UNIQUE INDEX /*i*/ep_cas_per_org ON /*_*/ep_cas_per_org (cpo_ca_id, cpo_o
 -- Online ambassadors. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_oas (
   oa_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
-  oa_user_id                 INT unsigned        NOT NULL -- Foreign key on user.user_id
+  oa_user_id                 INT unsigned        NOT NULL, -- Foreign key on user.user_id
 
   oa_bio                     TEXT                NOT NULL, -- Bio of the ambassador
   oa_photo                   VARCHAR(255)        NOT NULL -- Name of a photo of the ambassador on commons
