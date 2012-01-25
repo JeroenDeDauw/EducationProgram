@@ -29,21 +29,13 @@ final class EPHooks {
 			dirname( __FILE__ ) . '/sql/EducationProgram.sql'
 		);
 
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_courses',
-			'course_name',
-			dirname( __FILE__ ) . '/sql/AddExtraFields.sql',
-			true
-		) );
-
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_revisions',
-			'rev_object_id',
-			dirname( __FILE__ ) . '/sql/AddRevisionObjectId.sql',
-			true
-		) );
+//		$updater->addExtensionUpdate( array(
+//			'addField',
+//			'ep_courses',
+//			'course_name',
+//			dirname( __FILE__ ) . '/sql/AddExtraFields.sql',
+//			true
+//		) );
 
 		return true;
 	}
@@ -180,11 +172,6 @@ final class EPHooks {
 				'history' => 'InstitutionHistory',
 			),
 			array(
-				'view' => 'MasterCourse',
-				'edit' => 'EditMasterCourse',
-				'history' => 'MasterCourseHistory',
-			),
-			array(
 				'view' => 'Course',
 				'edit' => 'EditCourse',
 				'history' => 'CourseHistory',
@@ -194,14 +181,12 @@ final class EPHooks {
 
 		$editRights = array(
 			'EditInstitution' => 'ep-org',
-			'EditMasterCourse' => 'ep-mc',
 			'EditCourse' => 'ep-course',
 		);
 
 		$classes = array(
 			'Institution' => 'EPOrg',
 			'Course' => 'EPCourse',
-			'MasterCourse' => 'EPMC',
 		);
 
 		$specialSet = false;

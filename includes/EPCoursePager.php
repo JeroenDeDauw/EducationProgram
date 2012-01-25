@@ -30,7 +30,7 @@ class EPCoursePager extends EPPager {
 	public function getFields() {
 		return array(
 			'id',
-			'mc_id',
+			'org_id',
 			'year',
 			'start',
 			'end',
@@ -66,11 +66,11 @@ class EPCoursePager extends EPPager {
 					htmlspecialchars( $this->getLanguage()->formatNum( $value, true ) )
 				);
 				break;
-			case 'mc_id':
-				$value = EPMC::selectRow( 'name', array( 'id' => $value ) )->getField( 'name' );
+			case 'org_id':
+				$value = EPOrg::selectRow( 'name', array( 'id' => $value ) )->getField( 'name' );
 
 				$value = Linker::linkKnown(
-					SpecialPage::getTitleFor( 'MasterCourse', $value ),
+					SpecialPage::getTitleFor( 'Institution', $value ),
 					htmlspecialchars( $value )
 				);
 				break;
@@ -127,27 +127,15 @@ class EPCoursePager extends EPPager {
 	protected function getFilterOptions() {
 		$options = array();
 
-		if ( !array_key_exists( 'mc_id', $this->conds ) ) {
-			$options['mc_id'] = array(
-				'type' => 'select',
-				'options' => array_merge(
-					array( '' => '' ),
-					EPMC::getMasterCourseOptions( EPMC::select( array( 'name', 'id' ) ) )
-				),
-				'value' => '',
-				'datatype' => 'int',
-			);
-
-			$options['org_id'] = array(
-				'type' => 'select',
-				'options' => array_merge(
-					array( '' => '' ),
-					EPOrg::getOrgOptions( EPOrg::select( array( 'name', 'id' ) ) )
-				),
-				'value' => '',
-				'datatype' => 'int',
-			);
-		}
+		$options['org_id'] = array(
+			'type' => 'select',
+			'options' => array_merge(
+				array( '' => '' ),
+				EPOrg::getOrgOptions( EPOrg::select( array( 'name', 'id' ) ) )
+			),
+			'value' => '',
+			'datatype' => 'int',
+		);
 
 		$years = EPCourse::selectFields( 'year', array(), array( 'DISTINCT' ), array(), true );
 		asort( $years, SORT_NUMERIC );

@@ -23,15 +23,6 @@ abstract class EPPageObject extends EPDBObject {
 			'edit-right' => 'ep-course',
 			'identifier' => 'id',
 		),
-		'EPMC' => array(
-			'pages' => array(
-				'view' => 'MasterCourse',
-				'edit' => 'EditMasterCourse',
-				'history' => 'MasterCourseHistory',
-			),
-			'edit-right' => 'ep-mc',
-			'identifier' => 'name',
-		),
 		'EPOrg' => array(
 			'pages' => array(
 				'view' => 'Institution',

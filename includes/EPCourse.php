@@ -14,14 +14,6 @@
 class EPCourse extends EPPageObject {
 
 	/**
-	 * Field for caching the linked master course.
-	 *
-	 * @since 0.1
-	 * @var EPMC|false
-	 */
-	protected $mc = false;
-
-	/**
 	 * Field for caching the linked org.
 	 *
 	 * @since 0.1
@@ -36,6 +28,14 @@ class EPCourse extends EPPageObject {
 	 * @var array|false
 	 */
 	protected $students = false;
+
+	/**
+	 * Field for caching the instructors.
+	 *
+	 * @since 0.1
+	 * @var {array of EPInstructor}|false
+	 */
+	protected $instructors = false;
 
 	/**
 	 * Returns a list of statuses a term can have.
@@ -82,18 +82,20 @@ class EPCourse extends EPPageObject {
 	protected static function getFieldTypes() {
 		return array(
 			'id' => 'id',
-			'mc_id' => 'id',
 			'org_id' => 'id',
 
 			'name' => 'str',
-			'year' => 'int',
 			'start' => 'str', // TS_MW
 			'end' => 'str', // TS_MW
 			'description' => 'str',
-			'timeline' => 'str',
 			'token' => 'str',
 			'online_ambs' => 'array',
 			'campus_ambs' => 'array',
+			'field' => 'str',
+			'level' => 'str',
+			'term' => 'str',
+			'lang' => 'str',
+			'mc' => 'str',
 		
 			'students' => 'int',
 		);
@@ -106,15 +108,18 @@ class EPCourse extends EPPageObject {
 	public static function getDefaults() {
 		return array(
 			'name' => '',
-			'year' => substr( wfTimestamp( TS_MW ), 0, 4 ),
 			'start' => wfTimestamp( TS_MW ),
 			'end' => wfTimestamp( TS_MW ),
 			'description' => '',
-			'timeline' => '',
 			'token' => '',
 			'online_ambs' => array(),
 			'campus_ambs' => array(),
-		
+			'field' => '',
+			'level' => '',
+			'term' => '',
+			'lang' => '',
+			'mc' => '',
+
 			'students' => 0,
 		);
 	}
@@ -217,7 +222,6 @@ class EPCourse extends EPPageObject {
 
 		if ( $success && $this->updateSummaries ) {
 			EPOrg::updateSummaryFields( array( 'courses', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
-			EPMC::updateSummaryFields( 'active', array( 'id' => $this->getField( 'mc_id' ) ) );
 		}
 
 		return $success;
@@ -239,7 +243,6 @@ class EPCourse extends EPPageObject {
 		$success = parent::removeFromDB();
 
 		if ( $success && $this->updateSummaries ) {
-			EPMC::updateSummaryFields( 'students', array( 'id' => $courseId ) );
 			EPOrg::updateSummaryFields( array( 'courses', 'students', 'active' ), array( 'id' => $orgId ) );
 		}
 
@@ -257,15 +260,6 @@ class EPCourse extends EPPageObject {
 	protected function updateInDB() {
 		if ( $this->updateSummaries ) {
 			$oldOrgId = $this->hasField( 'org_id' ) ? self::selectFieldsRow( 'org_id', array( 'id' => $this->getId() ) ) : false;
-			$oldCourseId = $this->hasField( 'mc_id' ) ? self::selectFieldsRow( 'mc_id', array( 'id' => $this->getId() ) ) : false;
-		}
-
-		if ( $this->hasField( 'mc_id' ) ) {
-			$oldCourseId = self::selectFieldsRow( 'mc_id', array( 'id' => $this->getId() ) );
-
-			if ( $this->getField( 'mc_id' ) !== $oldCourseId ) {
-				$this->setField( 'org_id', EPCourse::selectFieldsRow( 'org_id', array( 'id' => $this->getField( 'mc_id' ) ) ) );
-			}
 		}
 
 		$success = parent::updateInDB();
@@ -275,31 +269,9 @@ class EPCourse extends EPPageObject {
 				$conds = array( 'id' => array( $oldOrgId, $this->getField( 'org_id' ) ) );
 				EPOrg::updateSummaryFields( array( 'courses', 'students', 'active' ), $conds );
 			}
-
-			if ( $oldCourseId !== false && $oldCourseId !== $this->getField( 'org_id' ) ) {
-				$conds = array( 'id' => array( $oldCourseId, $this->getField( 'mc_id' ) ) );
-				EPMC::updateSummaryFields( array( 'active', 'students' ), $conds );
-			}
 		}
 
 		return $success;
-	}
-
-	/**
-	 * Returns the master course associated with this course.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|array|null $fields
-	 *
-	 * @return EPMC
-	 */
-	public function getMasterCourse( $fields = null ) {
-		if ( $this->mc === false ) {
-			$this->mc = EPMC::selectRow( $fields, array( 'id' => $this->loadAndGetField( 'mc_id' ) ) );
-		}
-
-		return $this->mc;
 	}
 
 	/**
@@ -380,12 +352,12 @@ class EPCourse extends EPPageObject {
 		$out->addHTML( Html::element( 'label', array( 'for' => 'newmc' ), wfMsg( 'ep-courses-newmastercourse' ) ) );
 
 		$select = new XmlSelect(
-			'newmc',
-			'newmc',
-			array_key_exists( 'mc', $args ) ? $args['mc'] : false
+			'neworg',
+			'neworg',
+			array_key_exists( 'org', $args ) ? $args['org'] : false
 		);
 
-		$select->addOptions( EPMC::getMasterCourseOptions() );
+		$select->addOptions( EPOrg::getOrgOptions() );
 		$out->addHTML( $select->getHTML() );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-courses-newyear' ), 'newyear', 'newyear', 10 ) );
@@ -413,11 +385,11 @@ class EPCourse extends EPPageObject {
 	 * @param array $args
 	 */
 	public static function displayAddNewRegion( IContextSource $context, array $args = array() ) {
-		if ( EPMC::has() ) {
+		if ( EPOrg::has() ) {
 			EPCourse::displayAddNewControl( $context, $args );
 		}
 		elseif ( $context->getUser()->isAllowed( 'ep-course' ) ) {
-			$context->getOutput()->addWikiMsg( 'ep-courses-addmastercoursefirst' );
+			$context->getOutput()->addWikiMsg( 'ep-courses-addorgfirst' );
 		}
 	}
 
@@ -464,6 +436,171 @@ class EPCourse extends EPPageObject {
 		}
 
 		return $status;
+	}
+
+	/**
+	 * Returns the instructors as a list of EPInstructor objects.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array of EPInstructor
+	 */
+	public function getInstructors() {
+		if ( $this->instructors === false ) {
+			$this->instructors = array();
+
+			foreach ( $this->getField( 'instructors' ) as $userId ) {
+				$this->instructors[] = EPInstructor::newFromId( $userId );
+			}
+		}
+
+		return $this->instructors;
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see EPDBObject::setField()
+	 */
+	public function setField( $name, $value ) {
+		if ( $name === 'instructors' ) {
+			$this->instructors = false;
+		}
+
+		parent::setField( $name, $value );
+	}
+
+	/**
+	 * Adds a number of instructors to this course,
+	 * by default also saving the course and only
+	 * logging the adittion of the instructors.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array|integer $newInstructors
+	 * @param string $message
+	 * @param boolean $save
+	 * @param boolean $log
+	 *
+	 * @return boolean Success indicator
+	 */
+	public function addInstructors( $newInstructors, $message = '', $save = true, $log = true ) {
+		$instructors = $this->getField( 'instructors' );
+		$addedInstructors = array();
+
+		foreach ( (array)$newInstructors as $userId ) {
+			if ( !is_integer( $userId ) ) {
+				throw new MWException( 'Provided user id is not an integer' );
+			}
+
+			if ( !in_array( $userId, $instructors ) ) {
+				$instructors[] = $userId;
+				$addedInstructors[] = $userId;
+			}
+		}
+
+		if ( count( $addedInstructors ) > 0 ) {
+			$this->setField( 'instructors', $instructors );
+
+			$success = true;
+
+			if ( $save ) {
+				$this->disableLogging();
+				$success = $this->writeToDB();
+				$this->enableLogging();
+			}
+
+			if ( $success && $log ) {
+				$this->logInstructorChange( 'add', $addedInstructors, $message );
+			}
+
+			return $success;
+		}
+		else {
+			return true;
+		}
+	}
+
+	/**
+	 * Remove a number of instructors to this course,
+	 * by default also saving the course and only
+	 * logging the removal of the instructors.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array|integer $sadInstructors
+	 * @param string $message
+	 * @param boolean $save
+	 * @param boolean $log
+	 *
+	 * @return boolean Success indicator
+	 */
+	public function removeInstructors( $sadInstructors, $message = '', $save = true, $log = true ) {
+		$removedInstructors = array();
+		$remaimingInstructors = array();
+		$sadInstructors = (array)$sadInstructors;
+
+		foreach ( $this->getField( 'instructors' ) as $userId ) {
+			if ( in_array( $userId, $sadInstructors ) ) {
+				$removedInstructors[] = $userId;
+			}
+			else {
+				$remaimingInstructors[] = $userId;
+			}
+		}
+
+		if ( count( $removedInstructors ) > 0 ) {
+			$this->setField( 'instructors', $remaimingInstructors );
+
+			$success = true;
+
+			if ( $save ) {
+				$this->disableLogging();
+				$success = $this->writeToDB();
+				$this->enableLogging();
+			}
+
+			if ( $success && $log ) {
+				$this->logInstructorChange( 'remove', $removedInstructors, $message );
+			}
+
+			return $success;
+		}
+		else {
+			return true;
+		}
+	}
+
+	/**
+	 * Log a change of the instructors of the course.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $action
+	 * @param array $instructors
+	 * @param string $message
+	 */
+	protected function logInstructorChange( $action, array $instructors, $message ) {
+		$names = array();
+
+		foreach ( $instructors as $userId ) {
+			$names[] = EPInstructor::newFromId( $userId )->getName();
+		}
+
+		$info = array(
+			'type' => 'instructor',
+			'subtype' => $action,
+			'title' => $this->getTitle(),
+			'parameters' => array(
+				'4::instructorcount' => count( $names ),
+				'5::instructors' => $GLOBALS['wgLang']->listToText( $names )
+			),
+		);
+
+		if ( $message !== '' ) {
+			$info['comment'] = $message;
+		}
+
+		EPUtils::log( $info );
 	}
 
 }

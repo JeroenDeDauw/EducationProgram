@@ -14,14 +14,6 @@
 class EPOrg extends EPPageObject {
 
 	/**
-	 * Cached array of the linked EPMC objects.
-	 *
-	 * @since 0.1
-	 * @var array|false
-	 */
-	protected $mcs = false;
-
-	/**
 	 * Cached array of the linked EPCourse objects.
 	 *
 	 * @since 0.1
@@ -46,8 +38,10 @@ class EPOrg extends EPPageObject {
 
 			'active' => 'bool',
 			'courses' => 'int',
-			'mcs' => 'int',
 			'students' => 'int',
+			'instructors' => 'int',
+			'campus_ambs' => 'int',
+			'online_ambs' => 'int',
 		);
 	}
 
@@ -63,8 +57,10 @@ class EPOrg extends EPPageObject {
 
 			'active' => false,
 			'courses' => 0,
-			'mcs' => 0,
 			'students' => 0,
+			'instructors' => 0,
+			'campus_ambs' => 0,
+			'online_ambs' => 0,
 		);
 	}
 
@@ -95,10 +91,6 @@ class EPOrg extends EPPageObject {
 
 		if ( in_array( 'courses', $summaryFields ) ) {
 			$fields['courses'] = EPCourse::count( array( 'org_id' => $this->getId() ) );
-		}
-
-		if ( in_array( 'mcs', $summaryFields ) ) {
-			$fields['mcs'] = EPMC::count( array( 'org_id' => $this->getId() ) );
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
@@ -146,8 +138,8 @@ class EPOrg extends EPPageObject {
 		if ( $success ) {
 			$success = wfGetDB( DB_MASTER )->delete( 'ep_cas_per_org', array( 'cpo_org_id' => $id ) ) && $success;
 
-			foreach ( EPMC::select( 'id', array( 'org_id' => $id ) ) as /* EPMC */ $masterCourse ) {
-				$success = $masterCourse->removeFromDB() && $success;
+			foreach ( EPCourse::select( 'id', array( 'org_id' => $id ) ) as /* EPCourse */ $course ) {
+				$success = $course->removeFromDB() && $success;
 			}
 		}
 
@@ -254,23 +246,6 @@ class EPOrg extends EPPageObject {
 			$context->getOutput()->addHTML( $pager->getFilterControl( true ) );
 			$context->getOutput()->addWikiMsg( 'ep-institutions-noresults' );
 		}
-	}
-
-	/**
-	 * Retruns the master courses linked to this org.
-	 *
-	 * @since 0.1
-	 *
-	 * @param array|null $fields
-	 *
-	 * @return array of EPMC
-	 */
-	public function getMasterCourses( array $fields = null ) {
-		if ( $this->mcs === false ) {
-			$this->mcs = EPMC::select( $fields, array( 'org_id' => $this->getId() ) );
-		}
-
-		return $this->mcs;
 	}
 
 	/**

@@ -12,38 +12,20 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_orgs (
 
   org_active                 TINYINT unsigned    NOT NULL, -- If the org has any active courses
   org_courses                SMALLINT unsigned   NOT NULL, -- Amount of courses
-  org_mcs                    SMALLINT unsigned   NOT NULL, -- Amount of master courses
+  org_instructors            SMALLINT unsigned   NOT NULL -- Amount of instructors
+  org_online_ambs            INT unsigned        NOT NULL -- Amount of online ambassadors
+  org_campus_ambs            INT unsigned        NOT NULL -- Amount of campus ambassadors
   org_students               INT unsigned        NOT NULL -- Amount of students
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_org_name ON /*_*/ep_orgs (org_name);
-CREATE INDEX /*i*/ep_org_mcs ON /*_*/ep_orgs (org_mcs);
-CREATE INDEX /*i*/ep_org_courses ON /*_*/ep_orgs (org_courses);
-CREATE INDEX /*i*/ep_org_students ON /*_*/ep_orgs (org_students);
+CREATE INDEX /*i*/ep_org_city ON /*_*/ep_orgs (org_city);
+CREATE INDEX /*i*/ep_org_country ON /*_*/ep_orgs (org_country);
 CREATE INDEX /*i*/ep_org_active ON /*_*/ep_orgs (org_active);
-
-
-
--- Master courses. These describe a specific course, time-independent.
-CREATE TABLE IF NOT EXISTS /*_*/ep_mcs (
-  mc_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
-
-  mc_org_id                  INT unsigned        NOT NULL, -- Foreign key on ep_orgs.org_id
-  mc_name                    VARCHAR(255)        NOT NULL, -- Name of the master course
-  mc_description             TEXT                NOT NULL, -- Description of the master course
-  mc_timeline                TEXT                NOT NULL, -- Timeline for the master course
-  mc_lang                    VARCHAR(10)         NOT NULL, -- Language (code)
-  mc_instructors             BLOB                NOT NULL, -- List of associated instructors
-
-  mc_active                  TINYINT unsigned    NOT NULL, -- If the master course has any active courses
-  mc_students                SMALLINT unsigned   NOT NULL -- Amount of students
-) /*$wgDBTableOptions*/;
-
-CREATE INDEX /*i*/ep_mc_org_id ON /*_*/ep_mcs (mc_org_id);
-CREATE UNIQUE INDEX /*i*/ep_mc_name ON /*_*/ep_mcs (mc_name);
-CREATE INDEX /*i*/ep_mc_lang ON /*_*/ep_mcs (mc_lang);
-CREATE INDEX /*i*/ep_mc_students ON /*_*/ep_mcs (mc_students);
-CREATE INDEX /*i*/ep_mc_active ON /*_*/ep_mcs (mc_active);
+CREATE INDEX /*i*/ep_org_courses ON /*_*/ep_orgs (org_courses);
+CREATE INDEX /*i*/ep_org_online_ambs ON /*_*/ep_orgs (org_online_ambs);
+CREATE INDEX /*i*/ep_org_campus_ambs ON /*_*/ep_orgs (org_campus_ambs);
+CREATE INDEX /*i*/ep_org_students ON /*_*/ep_orgs (org_students);
 
 
 
@@ -51,26 +33,34 @@ CREATE INDEX /*i*/ep_mc_active ON /*_*/ep_mcs (mc_active);
 CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_id                  INT unsigned        NOT NULL auto_increment PRIMARY KEY,
 
-  course_mc_id               INT unsigned        NOT NULL, -- Foreign key on ep_mcs.mc_id
   course_org_id              INT unsigned        NOT NULL, -- Foreign key on ep_orgs.org_id. Helper field, not strictly needed.
   course_name                VARCHAR(255)        NOT NULL, -- Name of the course
-  course_year                SMALLINT unsigned   NOT NULL, -- Year in which the course takes place
+  course_mc                  VARCHAR(255)        NOT NULL, -- Name of the master course
   course_start               varbinary(14)       NOT NULL, -- Start time of the course
   course_end                 varbinary(14)       NOT NULL, -- End time of the course
   course_description         TEXT                NOT NULL, -- Description of the course
-  course_timeline            TEXT                NOT NULL, -- Timeline for the course
   course_online_ambs         BLOB                NOT NULL, -- List of associated online ambassadors (linking ep_oas.oa_id)
   course_campus_ambs         BLOB                NOT NULL, -- List of associated campus ambassadors (linking ep_cas.ca_id)
+  course_instructors         BLOB                NOT NULL, -- List of associated instructors (linking ep_instructors.instructor_id)
   course_token               VARCHAR(255)        NOT NULL, -- Token needed to enroll
-  
+  course_field               VARCHAR(255)        NOT NULL, -- Field of study
+  course_level               VARCHAR(255)        NOT NULL, -- Study level
+  course_term                VARCHAR(255)        NOT NULL, -- Academic term
+  course_lang                VARCHAR(10)         NOT NULL, -- Language (code)
+
   course_students            SMALLINT unsigned   NOT NULL -- Amount of students
 ) /*$wgDBTableOptions*/;
 
+CREATE INDEX /*i*/ep_course_org_id ON /*_*/ep_courses (course_org_id);
 CREATE INDEX /*i*/ep_course_name ON /*_*/ep_courses (course_name);
-CREATE INDEX /*i*/ep_course_year ON /*_*/ep_courses (course_year);
+CREATE INDEX /*i*/ep_course_mc ON /*_*/ep_courses (course_mc);
 CREATE INDEX /*i*/ep_course_start ON /*_*/ep_courses (course_start);
 CREATE INDEX /*i*/ep_course_end ON /*_*/ep_courses (course_end);
-CREATE INDEX /*i*/ep_course_period ON /*_*/ep_courses (course_org_id, course_start, course_end);
+CREATE INDEX /*i*/ep_course_token ON /*_*/ep_courses (course_token);
+CREATE INDEX /*i*/ep_course_field ON /*_*/ep_courses (course_field);
+CREATE INDEX /*i*/ep_course_level ON /*_*/ep_courses (course_level);
+CREATE INDEX /*i*/ep_course_term ON /*_*/ep_courses (course_term);
+CREATE INDEX /*i*/ep_course_lang ON /*_*/ep_courses (course_lang);
 CREATE INDEX /*i*/ep_course_students ON /*_*/ep_courses (course_students);
 
 
@@ -91,6 +81,8 @@ CREATE INDEX /*i*/ep_articles_course_id ON /*_*/ep_articles (article_course_id);
 CREATE INDEX /*i*/ep_articles_page_id ON /*_*/ep_articles (article_page_id);
 CREATE UNIQUE INDEX /*i*/ep_articles_course_page ON /*_*/ep_articles (article_course_id, article_page_id);
 
+
+
 -- Students. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_students (
   student_id                 INT unsigned        NOT NULL auto_increment PRIMARY KEY,
@@ -106,6 +98,8 @@ CREATE UNIQUE INDEX /*i*/ep_students_user_id ON /*_*/ep_students (student_user_i
 CREATE INDEX /*i*/ep_students_first_enroll ON /*_*/ep_students (student_first_enroll);
 CREATE INDEX /*i*/ep_students_last_active ON /*_*/ep_students (student_last_active);
 CREATE INDEX /*i*/ep_students_active_enroll ON /*_*/ep_students (student_active_enroll);
+
+
 
 -- Links the students with their courses.
 CREATE TABLE IF NOT EXISTS /*_*/ep_students_per_course (
@@ -137,6 +131,8 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_cas (
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_cas_user_id ON /*_*/ep_cas (ca_user_id);
+
+
 
 -- Links the campus ambassadors with all their orgs.
 CREATE TABLE IF NOT EXISTS /*_*/ep_cas_per_org (

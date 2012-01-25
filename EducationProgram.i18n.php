@@ -233,16 +233,6 @@ $messages['en'] = array(
 	'eporgpager-yes' => 'Yes',
 	'eporgpager-no' => 'No',
 
-	// Master course pager
-	'epmcpager-header-name' => 'Name',
-	'epmcpager-header-org-id' => 'Institution',
-	'epmcpager-filter-org-id' => 'Institution',
-	'epmcpager-header-students' => 'Students',
-	'epmcpager-header-active' => 'Active',
-	'epmcpager-filter-active' => 'Active courses',
-	'epmcpager-yes' => 'Yes',
-	'epmcpager-no' => 'No',
-
 	// Course pager
 	'epcoursepager-header-id' => 'Id',
 	'epcoursepager-header-mc-id' => 'Master course',

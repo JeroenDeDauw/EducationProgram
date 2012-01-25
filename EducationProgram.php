@@ -65,8 +65,6 @@ $wgAutoloadClasses['ApiRefreshEducation'] 			= dirname( __FILE__ ) . '/api/ApiRe
 
 $wgAutoloadClasses['EPCourse'] 						= dirname( __FILE__ ) . '/includes/EPCourse.php';
 $wgAutoloadClasses['EPCoursePager'] 				= dirname( __FILE__ ) . '/includes/EPCoursePager.php';
-$wgAutoloadClasses['EPMC'] 							= dirname( __FILE__ ) . '/includes/EPMC.php';
-$wgAutoloadClasses['EPMCPager'] 					= dirname( __FILE__ ) . '/includes/EPMCPager.php';
 $wgAutoloadClasses['EPDBObject'] 					= dirname( __FILE__ ) . '/includes/EPDBObject.php';
 $wgAutoloadClasses['EPInstructor'] 					= dirname( __FILE__ ) . '/includes/EPInstructor.php';
 $wgAutoloadClasses['EPLogFormatter'] 				= dirname( __FILE__ ) . '/includes/EPLogFormatter.php';
@@ -89,7 +87,6 @@ $wgAutoloadClasses['SpecialCourse'] 				= dirname( __FILE__ ) . '/specials/Speci
 $wgAutoloadClasses['SpecialCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialCourses.php';
 $wgAutoloadClasses['SpecialEditCourse'] 			= dirname( __FILE__ ) . '/specials/SpecialEditCourse.php';
 $wgAutoloadClasses['SpecialEditInstitution'] 		= dirname( __FILE__ ) . '/specials/SpecialEditInstitution.php';
-$wgAutoloadClasses['SpecialEditMasterCourse'] 		= dirname( __FILE__ ) . '/specials/SpecialEditMasterCourse.php';
 $wgAutoloadClasses['SpecialEducationProgram'] 		= dirname( __FILE__ ) . '/specials/SpecialEducationProgram.php';
 $wgAutoloadClasses['SpecialEPFormPage'] 			= dirname( __FILE__ ) . '/specials/SpecialEPFormPage.php';
 $wgAutoloadClasses['SpecialEPPage'] 				= dirname( __FILE__ ) . '/specials/SpecialEPPage.php';
@@ -98,8 +95,6 @@ $wgAutoloadClasses['SpecialInstitutions'] 			= dirname( __FILE__ ) . '/specials/
 $wgAutoloadClasses['SpecialMyCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialMyCourses.php';
 $wgAutoloadClasses['SpecialStudent'] 				= dirname( __FILE__ ) . '/specials/SpecialStudent.php';
 $wgAutoloadClasses['SpecialStudents'] 				= dirname( __FILE__ ) . '/specials/SpecialStudents.php';
-$wgAutoloadClasses['SpecialMasterCourse'] 			= dirname( __FILE__ ) . '/specials/SpecialMasterCourse.php';
-$wgAutoloadClasses['SpecialMasterCourses'] 			= dirname( __FILE__ ) . '/specials/SpecialMasterCourses.php';
 $wgAutoloadClasses['SpecialEnroll'] 				= dirname( __FILE__ ) . '/specials/SpecialEnroll.php';
 $wgAutoloadClasses['SpecialCAs'] 					= dirname( __FILE__ ) . '/specials/SpecialCAs.php';
 $wgAutoloadClasses['SpecialOAs'] 					= dirname( __FILE__ ) . '/specials/SpecialOAs.php';
@@ -107,7 +102,6 @@ $wgAutoloadClasses['SpecialCA'] 					= dirname( __FILE__ ) . '/specials/SpecialC
 $wgAutoloadClasses['SpecialOA'] 					= dirname( __FILE__ ) . '/specials/SpecialOA.php';
 $wgAutoloadClasses['SpecialEPHistory'] 				= dirname( __FILE__ ) . '/specials/SpecialEPHistory.php';
 $wgAutoloadClasses['SpecialCourseHistory'] 			= dirname( __FILE__ ) . '/specials/SpecialCourseHistory.php';
-$wgAutoloadClasses['SpecialMasterCourseHistory'] 	= dirname( __FILE__ ) . '/specials/SpecialMasterCourseHistory.php';
 $wgAutoloadClasses['SpecialInstitutionHistory'] 	= dirname( __FILE__ ) . '/specials/SpecialInstitutionHistory.php';
 
 // Special pages
@@ -118,19 +112,15 @@ $wgSpecialPages['Student'] 							= 'SpecialStudent';
 $wgSpecialPages['Students'] 						= 'SpecialStudents';
 $wgSpecialPages['Course'] 							= 'SpecialCourse';
 $wgSpecialPages['Courses'] 							= 'SpecialCourses';
-$wgSpecialPages['MasterCourse'] 					= 'SpecialMasterCourse';
-$wgSpecialPages['MasterCourses'] 					= 'SpecialMasterCourses';
 $wgSpecialPages['EducationProgram'] 				= 'SpecialEducationProgram';
 $wgSpecialPages['EditCourse'] 						= 'SpecialEditCourse';
 $wgSpecialPages['EditInstitution'] 					= 'SpecialEditInstitution';
-$wgSpecialPages['EditMasterCourse'] 				= 'SpecialEditMasterCourse';
 $wgSpecialPages['Enroll'] 							= 'SpecialEnroll';
 $wgSpecialPages['CampusAmbassadors'] 				= 'SpecialCAs';
 $wgSpecialPages['OnlineAmbassadors'] 				= 'SpecialOAs';
 $wgSpecialPages['CampusAmbassador'] 				= 'SpecialCA';
 $wgSpecialPages['OnlineAmbassador'] 				= 'SpecialOA';
 $wgSpecialPages['CourseHistory'] 					= 'SpecialCourseHistory';
-$wgSpecialPages['MasterCourseHistory'] 				= 'SpecialMasterCourseHistory';
 $wgSpecialPages['InstitutionHistory'] 				= 'SpecialInstitutionHistory';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';
@@ -140,25 +130,20 @@ $wgSpecialPageGroups['Student'] 					= 'education';
 $wgSpecialPageGroups['Students'] 					= 'education';
 $wgSpecialPageGroups['Course'] 						= 'education';
 $wgSpecialPageGroups['Courses'] 					= 'education';
-$wgSpecialPageGroups['MasterCourse'] 				= 'education';
-$wgSpecialPageGroups['MasterCourses'] 				= 'education';
 $wgSpecialPageGroups['EducationProgram'] 			= 'education';
 $wgSpecialPageGroups['EditCourse'] 					= 'education';
 $wgSpecialPageGroups['EditInstitution'] 			= 'education';
-$wgSpecialPageGroups['EditMasterCourse'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['OnlineAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassador'] 			= 'education';
 $wgSpecialPageGroups['OnlineAmbassador'] 			= 'education';
 $wgSpecialPageGroups['CourseHistory'] 				= 'education';
-$wgSpecialPageGroups['MasterCourseHistory'] 		= 'education';
 $wgSpecialPageGroups['InstitutionHistory'] 			= 'education';
 
 // DB object classes
 $egEPDBObjects = array();
 $egEPDBObjects['EPRevision'] = array( 'table' => 'ep_revisions', 'prefix' => 'rev_' );
 $egEPDBObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
-$egEPDBObjects['EPMC'] = array( 'table' => 'ep_mcs', 'prefix' => 'mc_' );
 $egEPDBObjects['EPCourse'] = array( 'table' => 'ep_courses', 'prefix' => 'course_' );
 $egEPDBObjects['EPStudent'] = array( 'table' => 'ep_students', 'prefix' => 'student_' );
 $egEPDBObjects['EPOA'] = array( 'table' => 'ep_oas', 'prefix' => 'oa_' );
@@ -180,7 +165,6 @@ $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs
 // Logging
 $wgLogTypes[] = 'institution';
 $wgLogTypes[] = 'course';
-$wgLogTypes[] = 'mc';
 $wgLogTypes[] = 'student';
 $wgLogTypes[] = 'ambassador';
 $wgLogTypes[] = 'instructor';
@@ -188,14 +172,13 @@ $wgLogTypes[] = 'instructor';
 if ( array_key_exists( 'LogFormatter', $wgAutoloadLocalClasses ) ) {
 	$wgLogActionsHandlers['institution/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['course/*'] = 'EPLogFormatter';
-	$wgLogActionsHandlers['mc/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['student/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['ambassador/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['instructor/*'] = 'EPLogFormatter';
 }
 else {
 	// Compatibility with MediaWiki 1.18.
-	foreach ( array( 'institution', 'course', 'mc' ) as $type ) {
+	foreach ( array( 'institution', 'course' ) as $type ) {
 		foreach ( array( 'add', 'remove', 'update' ) as $action ) {
 			$wgLogActionsHandlers[$type . '/' . $action] = 'EPHooks::formatLogEntry';
 		}
@@ -213,7 +196,6 @@ else {
 	// Compatibility with MediaWiki 1.18.
 	$wgLogNames['institution'] = 'log-name-institution';
 	$wgLogNames['course'] = 'log-name-course';
-	$wgLogNames['mc'] = 'log-name-mc';
 	$wgLogNames['student'] = 'log-name-student';
 	$wgLogNames['ambassador'] = 'log-name-ambassador';
 	$wgLogNames['instructor'] = 'log-name-instructor';
@@ -221,7 +203,6 @@ else {
 	// Compatibility with MediaWiki 1.18.
 	$wgLogHeaders['institution'] = 'log-header-institution';
 	$wgLogHeaders['course'] = 'log-header-course';
-	$wgLogHeaders['mc'] = 'log-header-mc';
 	$wgLogHeaders['student'] = 'log-header-student';
 	$wgLogHeaders['ambassador'] = 'log-header-ambassador';
 	$wgLogHeaders['instructor'] = 'log-header-instructor';
@@ -230,7 +211,6 @@ else {
 // Rights
 $wgAvailableRights[] = 'ep-org'; 			// Manage orgs
 $wgAvailableRights[] = 'ep-course';			// Manage courses
-$wgAvailableRights[] = 'ep-mc';				// Manage master courses
 $wgAvailableRights[] = 'ep-token';			// See enrollment tokens
 $wgAvailableRights[] = 'ep-enroll';			// Enroll as a student
 $wgAvailableRights[] = 'ep-remstudent';		// Disassociate students from terms
@@ -245,7 +225,6 @@ $wgAvailableRights[] = 'ep-beinstructor';	// Add or remove yourself as instructo
 $wgGroupPermissions['*']['ep-enroll'] = true;
 $wgGroupPermissions['*']['ep-org'] = false;
 $wgGroupPermissions['*']['ep-course'] = false;
-$wgGroupPermissions['*']['ep-mc'] = false;
 $wgGroupPermissions['*']['ep-token'] = false;
 $wgGroupPermissions['*']['ep-remstudent'] = false;
 $wgGroupPermissions['*']['ep-online'] = false;
@@ -257,7 +236,6 @@ $wgGroupPermissions['*']['ep-beinstructor'] = false;
 
 $wgGroupPermissions['epstaff']['ep-org'] = true;
 $wgGroupPermissions['epstaff']['ep-course'] = true;
-$wgGroupPermissions['epstaff']['ep-mc'] = true;
 $wgGroupPermissions['epstaff']['ep-token'] = true;
 $wgGroupPermissions['epstaff']['ep-enroll'] = true;
 $wgGroupPermissions['epstaff']['ep-remstudent'] = true;
@@ -270,7 +248,6 @@ $wgGroupPermissions['epstaff']['ep-beinstructor'] = true;
 
 $wgGroupPermissions['epadmin']['ep-org'] = true;
 $wgGroupPermissions['epadmin']['ep-course'] = true;
-$wgGroupPermissions['epadmin']['ep-mc'] = true;
 $wgGroupPermissions['epadmin']['ep-token'] = true;
 $wgGroupPermissions['epadmin']['ep-enroll'] = true;
 $wgGroupPermissions['epadmin']['ep-remstudent'] = true;
@@ -283,13 +260,11 @@ $wgGroupPermissions['epadmin']['ep-beinstructor'] = true;
 
 $wgGroupPermissions['eponlineamb']['ep-org'] = true;
 $wgGroupPermissions['eponlineamb']['ep-course'] = true;
-$wgGroupPermissions['eponlineamb']['ep-mc'] = true;
 $wgGroupPermissions['eponlineamb']['ep-token'] = true;
 $wgGroupPermissions['eponlineamb']['ep-beonline'] = true;
 
 $wgGroupPermissions['epcampamb']['ep-org'] = true;
 $wgGroupPermissions['epcampamb']['ep-course'] = true;
-$wgGroupPermissions['epcampamb']['ep-mc'] = true;
 $wgGroupPermissions['epcampamb']['ep-token'] = true;
 $wgGroupPermissions['epcampamb']['ep-becampus'] = true;
 

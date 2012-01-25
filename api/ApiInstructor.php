@@ -37,7 +37,7 @@ class ApiInstructor extends ApiBase {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 		
-		$masterCourse = EPMC::selectRow( array( 'id', 'name', 'instructors' ), array( 'id' => $params['mcid'] ) );
+		$masterCourse = EPCourse::selectRow( array( 'id', 'name', 'instructors' ), array( 'id' => $params['mcid'] ) );
 
 		if ( $masterCourse === false ) {
 			$this->dieUsage( wfMsg( 'ep-addinstructor-invalid-course' ), 'invalid-course' );

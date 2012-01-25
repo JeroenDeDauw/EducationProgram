@@ -121,26 +121,26 @@ class EPInstructor {
 	 * @since 0.1
 	 * 
 	 * @param IContextSource $context
-	 * @param EPMC|null $course
+	 * @param EPCourse|null $course
 	 * 
 	 * @return string
 	 */
-	public function getToolLinks( IContextSource $context, EPMC $masterCourse = null ) {
+	public function getToolLinks( IContextSource $context, EPCourse $course = null ) {
 		$links = array();
 		
 		$links[] = Linker::userTalkLink( $this->getUser()->getId(), $this->getUser()->getName() );
 		
 		$links[] = Linker::link( SpecialPage::getTitleFor( 'Contributions', $this->getUser()->getName() ), wfMsgHtml( 'contribslink' ) );
 		
-		if ( !is_null( $masterCourse ) &&
+		if ( !is_null( $course ) &&
 			( $context->getUser()->isAllowed( 'ep-instructor' ) || $this->getUser()->getId() == $context->getUser()->getId() ) ) {
 			$links[] = Html::element(
 				'a',
 				array(
 					'href' => '#',
 					'class' => 'ep-instructor-remove',
-					'data-mcid' => $masterCourse->getId(),
-					'data-mcname' => $masterCourse->getField( 'name' ),
+					'data-courseid' => $course->getId(),
+					'data-coursename' => $course->getField( 'name' ),
 					'data-userid' => $this->getUser()->getId(),
 					'data-username' => $this->getUser()->getName(),
 					'data-bestname' => $this->getName(),

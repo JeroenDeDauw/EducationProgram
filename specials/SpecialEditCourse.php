@@ -32,15 +32,15 @@ class SpecialEditCourse extends SpecialEPFormPage {
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-		$courseOptions = EPMC::getMasterCourseOptions();
+		$orgOptions = EPOrg::getOrgOptions();
 
 		$fields['mc_id'] = array (
 			'type' => 'select',
 			'label-message' => 'ep-course-edit-mastercourse',
 			'required' => true,
-			'options' => $courseOptions,
-			'validation-callback' => function ( $value, array $alldata = null ) use ( $courseOptions ) {
-				return in_array( (int)$value, array_values( $courseOptions ) ) ? true : wfMsg( 'ep-course-invalid-course' );
+			'options' => $orgOptions,
+			'validation-callback' => function ( $value, array $alldata = null ) use ( $orgOptions ) {
+				return in_array( (int)$value, array_values( $orgOptions ) ) ? true : wfMsg( 'ep-course-invalid-course' );
 			},
 		);
 

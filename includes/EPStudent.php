@@ -91,7 +91,6 @@ class EPStudent extends EPDBObject {
 		$dbw->commit();
 
 		foreach ( $courses as /* EPCourse */ $course ) {
-			EPMC::updateSummaryFields( 'students', array( 'id' => $course->getField( 'mc_id' ) ) );
 			EPOrg::updateSummaryFields( 'students', array( 'id' => $course->getField( 'org_id' ) ) );
 			EPCourse::updateSummaryFields( 'students', array( 'id' => $course->getId() ) );
 		}
@@ -158,66 +157,6 @@ class EPStudent extends EPDBObject {
 		}
 
 		return $this->getCourses( $fields, $conditions );
-	}
-
-	/**
-	 * Returns the master courses this student is linked to (via courses).
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|null|array $fields
-	 * @param array $conditions
-	 * @param array $courseConditions
-	 *
-	 * @return array of EPMC
-	 */
-	public function getMasterCourses( $fields = null, array $conditions = array(), array $courseConditions = array() ) {
-		$mcIds = array_reduce(
-			$this->getCourses( 'course_id', $courseConditions ),
-			function( array $ids, EPCourse $term ) {
-				$ids[] = $term->getField( 'mc_id' );
-				return $ids;
-			},
-			array()
-		);
-
-		if ( count( $mcIds ) < 1 ) {
-			return array();
-		}
-
-		$conditions['id'] = array_unique( $mcIds );
-
-		return EPMC::select( $fields, $conditions );
-	}
-
-	/**
-	 * Returns the master courses this student is currently enrolled in.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|null|array $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPMC
-	 */
-	public function getCurrentMasterCourses( $fields = null, array $conditions = array() ) {
-		$conditions['active'] = 1;
-		return $this->getMasterCourses( $fields, $conditions );
-	}
-
-	/**
-	 * Returns the master courses this student was previously enrolled in.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|null|array $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPMC
-	 */
-	public function getPassedMasterCourses( $fields = null, array $conditions = array() ) {
-		$conditions['active'] = 0;
-		return $this->getMasterCourses( $fields, $conditions );
 	}
 
 	/**
