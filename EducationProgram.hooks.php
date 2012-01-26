@@ -209,7 +209,7 @@ final class EPHooks {
 				$special = SpecialPageFactory::getLocalNameFor( $special );
 			}
 
-			$identifier = $canonicalSet['view'] === 'Course' ? 'id' : 'name';
+			$identifier = 'name';
 			$exists = $classes[$canonicalSet['view']]::has( array( $identifier => $textParts[1] ) );
 
 			$viewLinks['view'] = array(
