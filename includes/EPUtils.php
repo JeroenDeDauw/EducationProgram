@@ -68,8 +68,33 @@ class EPUtils {
 	 * @return array
 	 */
 	public static function getCountryOptions( $langCode ) {
-		$countries = CountryNames::getNames( $langCode );
-	
+		return self::getKeyPrefixedValues( CountryNames::getNames( $langCode ) );
+	}
+
+	/**
+	 * Returns a list of language names that can be used by
+	 * a select input localized in the lang of which the code is provided.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $langCode
+	 *
+	 * @return array
+	 */
+	public static function getLanguageOptions( $langCode ) {
+		return self::getKeyPrefixedValues( LanguageNames::getNames( $langCode ) );
+	}
+
+	/**
+	 * Returns the array but with each value prefixed by it's provided key.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $list
+	 *
+	 * @return array
+	 */
+	protected static function getKeyPrefixedValues( array $list ) {
 		return array_merge(
 			array( '' => '' ),
 			array_combine(
@@ -77,12 +102,12 @@ class EPUtils {
 					function( $value, $key ) {
 						return $key . ' - ' . $value;
 					} ,
-					array_values( $countries ),
-					array_keys( $countries )
+					array_values( $list ),
+					array_keys( $list )
 				),
-				array_keys( $countries )
+				array_keys( $list )
 			)
 		);
 	}
-	
+
 }

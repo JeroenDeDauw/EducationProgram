@@ -34,6 +34,12 @@ class SpecialEditCourse extends SpecialEPFormPage {
 
 		$orgOptions = EPOrg::getOrgOptions();
 
+		$fields['name'] = array (
+			'type' => 'text',
+			'label-message' => 'ep-course-edit-name',
+			'required' => true,
+		);
+
 		$fields['org_id'] = array (
 			'type' => 'select',
 			'label-message' => 'ep-course-edit-org',
@@ -74,6 +80,36 @@ class SpecialEditCourse extends SpecialEPFormPage {
 			'required' => true,
 		);
 
+		$fields['field'] = array (
+			'type' => 'text',
+			'label-message' => 'ep-course-edit-field',
+			'required' => true,
+		);
+
+		$fields['level'] = array (
+			'type' => 'text',
+			'label-message' => 'ep-course-edit-level',
+			'required' => true,
+		);
+
+		$langOptions = EPUtils::getLanguageOptions( $this->getLanguage()->getCode() );
+		$fields['lang'] = array (
+			'type' => 'select',
+			'label-message' => 'ep-course-edit-lang',
+			'maxlength' => 255,
+			'required' => true,
+			'options' => $langOptions,
+			'validation-callback' => function ( $value, array $alldata = null ) use ( $langOptions ) {
+				return array_key_exists( $value, $langOptions ) ? true : wfMsg( 'ep-course-invalid-lang' );
+			}
+		);
+
+		$fields['mc'] = array (
+			'type' => 'text',
+			'label-message' => 'ep-course-edit-mc',
+			'required' => true,
+		);
+
 		$fields['description'] = array (
 			'type' => 'textarea',
 			'label-message' => 'ep-course-edit-description',
@@ -90,20 +126,19 @@ class SpecialEditCourse extends SpecialEPFormPage {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see SpecialEPFormPage::getTitleConditions()
-	 */
-	protected function getTitleConditions() {
-		return array( 'id' => $this->subPage );
-	}
-
-	/**
-	 * (non-PHPdoc)
 	 * @see SpecialEPFormPage::getNewData()
 	 */
 	protected function getNewData() {
 		return array(
 			'org_id' => $this->getRequest()->getVal( 'neworg' ),
+			'name' => wfMsgExt(
+				'ep-course-edit-name-format',
+				'parsemag',
+				$this->getRequest()->getVal( 'newname' ),
+				$this->getRequest()->getVal( 'newterm' )
+			),
 			'term' => $this->getRequest()->getVal( 'newterm' ),
+			'mc' => $this->getRequest()->getVal( 'newname' ),
 		);
 	}
 

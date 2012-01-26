@@ -355,6 +355,8 @@ class EPCourse extends EPPageObject {
 		$select->addOptions( EPOrg::getOrgOptions() );
 		$out->addHTML( $select->getHTML() );
 
+		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-courses-newname' ), 'newname', 'newname', 20 ) );
+
 		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-courses-newterm' ), 'newterm', 'newterm', 10 ) );
 
 		$out->addHTML( '&#160;' . Html::input(

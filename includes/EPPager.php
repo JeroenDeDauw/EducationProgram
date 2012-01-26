@@ -384,7 +384,8 @@ abstract class EPPager extends TablePager {
 				return $current && ( $data['value'] === '' || is_null( $data['value'] ) );
 			} , true );
 
-			if ( $noFiltersSet ) {
+			$c = $this->className;  // Yeah, this is needed in PHP 5.3 >_>
+			if ( $noFiltersSet || !$c::has() ) {
 				return '';
 			}
 		}

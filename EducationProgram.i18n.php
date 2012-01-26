@@ -173,8 +173,9 @@ $messages['en'] = array(
 	'ep-courses-noresults' => 'There are no courses to list.',
 	'ep-courses-addnew' => 'Add a new course',
 	'ep-courses-namedoc' => 'Enter the institution the course belongs to and the year in which it is active.',
-	'ep-courses-newterm' => 'Course term:',
-	'ep-courses-neworg' => 'Course institution:',
+	'ep-courses-newterm' => 'Term:',
+	'ep-courses-newname' => 'Name:',
+	'ep-courses-neworg' => 'Institution:',
 	'ep-courses-add' => 'Add course',
 	'ep-courses-noorgs' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
 	'ep-courses-addorgfirst' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
@@ -205,16 +206,18 @@ $messages['en'] = array(
 	'eporgpager-no' => 'No',
 
 	// Course pager
-	'epcoursepager-header-id' => 'Id',
+	'epcoursepager-header-name' => 'Name',
 	'epcoursepager-header-term' => 'Term',
 	'epcoursepager-header-start' => 'Start',
 	'epcoursepager-header-org-id' => 'Institution',
 	'epcoursepager-header-end' => 'End',
 	'epcoursepager-header-status' => 'Status',
 	'epcoursepager-header-students' => 'Students',
+	'epcoursepager-header-lang' => 'Language',
 	'epcoursepager-filter-term' => 'Term',
 	'epcoursepager-filter-org-id' => 'Institution',
 	'epcoursepager-filter-status' => 'Status',
+	'epcoursepager-invalid-lang' => 'Invalid',
 
 	// Student pager
 	'epstudentpager-header-user-id' => 'User',
@@ -251,10 +254,18 @@ $messages['en'] = array(
 	'ep-course-edit-end' => 'End date',
 	'ep-course-edit-token' => 'Enrollment token',
 	'ep-course-edit-description' => 'Description',
+	'ep-course-edit-name-format' => '$1 ($2)',
+	'ep-course-edit-name' => 'Name',
+	'ep-course-edit-field' => 'Field of study',
+	'ep-course-edit-level' => 'Course level',
+	'ep-course-edit-term' => 'Academic term',
+	'ep-course-edit-mc' => 'Master course',
+	'ep-course-edit-lang' => 'Course language',
 
 	'ep-course-invalid-org' => 'This institution does not exist.',
 	'ep-course-invalid-token' => 'The token needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'ep-course-invalid-description' => 'The description needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
+	'ep-course-invalid-lang' => 'This language is not valid.',
 
 	// ep.pager
 	'ep-pager-confirm-delete' => 'Are you sure you want to delete this item?',
@@ -276,6 +287,7 @@ $messages['en'] = array(
 	'ep-institution-add-course' => 'Add a course',
 	'ep-institution-inactive' => 'Inactive',
 	'ep-institution-active' => 'Active',
+	'ep-institution-courses' => 'Courses',
 
 	// Special:Course
 	'ep-course-title' => 'Course: $1',

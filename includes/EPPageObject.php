@@ -61,4 +61,15 @@ abstract class EPPageObject extends EPDBObject {
 		);
 	}
 
+	public static function getTitleFor( $identifierValue, $action = 'view' ) {
+		return SpecialPage::getTitleFor( self::getTitleText( $action ), $identifierValue );
+	}
+
+	public static function getLinkFor( $identifierValue, $action = 'view' ) {
+		return Linker::link(
+			self::getTitleFor( $identifierValue, $action ),
+			htmlspecialchars( $identifierValue )
+		);
+	}
+
 }

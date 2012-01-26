@@ -74,9 +74,9 @@ class SpecialEditInstitution extends SpecialEPFormPage {
 	public function countryIsValid( $value, array $alldata = null ) {
 		$countries = array_keys( CountryNames::getNames( $this->getLanguage()->getCode() ) );
 
-		if ( $this->isNew() ) {
-			array_unshift( $countries, '' );
-		}
+//		if ( $this->isNew() ) {
+//			array_unshift( $countries, '' );
+//		}
 
 		return in_array( $value, $countries ) ? true : wfMsg( 'educationprogram-org-invalid-country' );
 	}

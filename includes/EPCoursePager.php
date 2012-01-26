@@ -29,11 +29,12 @@ class EPCoursePager extends EPPager {
 	 */
 	public function getFields() {
 		return array(
-			'id',
+			'name',
 			'org_id',
 			'term',
 			'start',
 			'end',
+			'lang',
 			'students',
 		);
 	}
@@ -60,22 +61,24 @@ class EPCoursePager extends EPPager {
 	 */
 	public function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
-			case 'id':
-				$value = Linker::linkKnown(
-					SpecialPage::getTitleFor( 'Course', $value ),
-					htmlspecialchars( $this->getLanguage()->formatNum( $value, true ) )
-				);
+			case 'name':
+				$value = EPCourse::getLinkFor( $value );
 				break;
 			case 'org_id':
-				$value = EPOrg::selectRow( 'name', array( 'id' => $value ) )->getField( 'name' );
-
-				$value = Linker::linkKnown(
-					SpecialPage::getTitleFor( 'Institution', $value ),
-					htmlspecialchars( $value )
-				);
+				$value = EPOrg::selectRow( 'name', array( 'id' => $value ) )->getLink();
 				break;
 			case 'term':
-				$value = htmlspecialchars( $value ); // TODO
+				$value = htmlspecialchars( $value );
+				break;
+			case 'lang':
+				$langs = LanguageNames::getNames( $this->getLanguage()->getCode() );
+				if ( array_key_exists( $value, $langs ) ) {
+					$value = htmlspecialchars( $langs[$value] );
+				}
+				else {
+					$value = '<i>' . htmlspecialchars( $this->getMsg( 'invalid-lang' ) ) . '</i>';
+				}
+
 				break;
 			case 'start': case 'end':
 				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
@@ -96,10 +99,11 @@ class EPCoursePager extends EPPager {
 	 */
 	protected function getSortableFields() {
 		return array(
-			'id',
+			'name',
 			'term',
 			'start',
 			'end',
+			'lang',
 			'students',
 		);
 	}
@@ -140,7 +144,7 @@ class EPCoursePager extends EPPager {
 		$terms = EPCourse::selectFields( 'term', array(), array( 'DISTINCT' ), array(), true );
 		natcasesort( $terms );
 		$terms = array_merge( array( '' ), $terms );
-		$years = array_combine( $terms, $terms );
+		$terms = array_combine( $terms, $terms );
 
 		$options['term'] = array(
 			'type' => 'select',

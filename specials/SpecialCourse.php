@@ -41,14 +41,14 @@ class SpecialCourse extends SpecialEPPage {
 		else {
 			$out->setPageTitle( wfMsgExt( 'ep-course-title', 'parsemag', $this->subPage ) );
 
-			$course = EPCourse::selectRow( null, array( 'id' => $this->subPage ) );
+			$course = EPCourse::selectRow( null, array( 'name' => $this->subPage ) );
 
 			if ( $course === false ) {
 				$this->displayNavigation();
 
 				if ( $this->getUser()->isAllowed( 'ep-term' ) ) {
 					$out->addWikiMsg( 'ep-course-create', $this->subPage );
-					EPCourse::displayAddNewRegion( $this->getContext(), array( 'id' => $this->subPage ) );
+					EPCourse::displayAddNewRegion( $this->getContext(), array( 'name' => $this->subPage ) );
 				}
 				else {
 					$out->addWikiMsg( 'ep-course-none', $this->subPage );

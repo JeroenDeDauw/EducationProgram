@@ -76,7 +76,7 @@ class SpecialEnroll extends SpecialEPPage {
 					$this->showEnrollmentView( $course );
 				}
 				else {
-					if ( $token !== '' ) {q($token);
+					if ( $token !== '' ) {
 						$this->showWarning( wfMessage( 'ep-enroll-invalid-token' ) );
 					}
 					

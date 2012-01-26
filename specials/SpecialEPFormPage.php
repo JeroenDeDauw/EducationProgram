@@ -338,13 +338,17 @@ abstract class SpecialEPFormPage extends SpecialEPPage {
 	public function onSuccess() {
 		if ( $this->getRequest()->getCheck( 'wpreturnto' ) ) {
 			$parts = explode( '/', $this->getRequest()->getText( 'wpreturnto' ), 2 );
-			$title = SpecialPage::getTitleFor( $parts[0], count( $parts ) === 2 ? $parts[1] : false )->getLocalURL();
+			$title = SpecialPage::getTitleFor( $parts[0], count( $parts ) === 2 ? $parts[1] : false );
+		}
+		elseif ( $this->isNew() ) {
+			$c = $this->itemClass; // Yeah, this is needed in PHP 5.3 >_>
+			$title = $c::getTitleFor( $this->getRequest()->getText( 'wpitem-' . $c::getIdentifierField() ) );
 		}
 		else {
-			$title = SpecialPage::getTitleFor( $this->itemPage, $this->subPage )->getLocalURL();
+			$title = SpecialPage::getTitleFor( $this->itemPage, $this->subPage );
 		}
 
-		$this->getOutput()->redirect( $title );
+		$this->getOutput()->redirect( $title->getLocalURL() );
 	}
 
 	/**
@@ -399,7 +403,7 @@ abstract class SpecialEPFormPage extends SpecialEPPage {
 
 	/**
 	 * Gets called for evey unknown submitted value, so they can be dealt with if needed.
-	 *
+	 *$title = SpecialPage::getTitleFor( $this->itemPage, $this->subPage )->getLocalURL();
 	 * @since 0.1
 	 *
 	 * @param EPDBObject $item

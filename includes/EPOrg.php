@@ -81,7 +81,7 @@ class EPOrg extends EPPageObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'courses', 'students', 'active' );
+			$summaryFields = array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' );
 		}
 		else {
 			$summaryFields = (array)$summaryFields;
@@ -120,6 +120,29 @@ class EPOrg extends EPPageObject {
 				'end >= ' . $now,
 				'start <= ' . $now,
 			) );
+		}
+
+		$courseFields = array();
+
+		$upInstructors = in_array( 'instructors', $summaryFields );
+		$upOas = in_array( 'oas', $summaryFields );
+
+		if ( $upInstructors ) {
+			$courseFields[] = 'instructors';
+			$fields['instructors'] = 0;
+		}
+
+		if ( $upOas ) {
+			$courseFields[] = 'online_ambs';
+			$fields['online_ambs'] = 0;
+		}
+
+		if ( count( $courseFields ) > 0 ) {
+			$courses = EPCourse::select( $courseFields, array( 'org_id' => $this->getId() ) );
+
+			foreach ( $courses as /* EPCourse */ $course ) {
+				// TODO: foreach set field: count and add to fields[name]
+			}
 		}
 
 		$this->setFields( $fields );
