@@ -100,7 +100,7 @@ class SpecialEditCourse extends SpecialEPFormPage {
 			'required' => true,
 			'options' => $langOptions,
 			'validation-callback' => function ( $value, array $alldata = null ) use ( $langOptions ) {
-				return array_key_exists( $value, $langOptions ) ? true : wfMsg( 'ep-course-invalid-lang' );
+				return in_array( $value, $langOptions ) ? true : wfMsg( 'ep-course-invalid-lang' );
 			}
 		);
 

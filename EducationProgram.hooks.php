@@ -165,6 +165,10 @@ final class EPHooks {
 		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
 		$baseText = $textParts[0];
 
+		if ( is_null( $textParts[1] ) ) {
+			return true;
+		}
+
 		$specials = array(
 			array(
 				'view' => 'Institution',
