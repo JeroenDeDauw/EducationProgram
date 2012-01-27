@@ -21,7 +21,7 @@ abstract class EPPageObject extends EPDBObject {
 				'history' => 'CourseHistory',
 			),
 			'edit-right' => 'ep-course',
-			'identifier' => 'id',
+			'identifier' => 'name',
 		),
 		'EPOrg' => array(
 			'pages' => array(
