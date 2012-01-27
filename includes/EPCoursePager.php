@@ -171,15 +171,12 @@ class EPCoursePager extends EPPager {
 	protected function getControlLinks( EPDBObject $item ) {
 		$links = parent::getControlLinks( $item );
 
-		$links[] = $value = Linker::linkKnown(
-			SpecialPage::getTitleFor( 'Course', $item->getId() ),
-			wfMsgHtml( 'view' )
-		);
+		$links[] = $item->getLink();
 
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-			$links[] = $value = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'EditCourse', $item->getId() ),
-				wfMsgHtml( 'edit' ),
+			$links[] = $item->getLink(
+				'edit',
+				null,
 				array(),
 				array( 'wpreturnto' => $this->getTitle()->getText() )
 			);

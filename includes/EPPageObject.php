@@ -54,10 +54,12 @@ abstract class EPPageObject extends EPDBObject {
 		return SpecialPage::getTitleFor( self::getTitleText( $action ), $this->getIdentifier() );
 	}
 
-	public function getLink( $action = 'view' ) {
+	public function getLink( $action = 'view', $html = null, $customAttribs = array(), $query = array() ) {
 		return Linker::link(
 			self::getTitle( $action ),
-			htmlspecialchars( $this->getIdentifier() )
+			is_null( $html ) ? htmlspecialchars( $this->getIdentifier() ) : $html,
+			$customAttribs,
+			$query
 		);
 	}
 
@@ -65,10 +67,12 @@ abstract class EPPageObject extends EPDBObject {
 		return SpecialPage::getTitleFor( self::getTitleText( $action ), $identifierValue );
 	}
 
-	public static function getLinkFor( $identifierValue, $action = 'view' ) {
+	public static function getLinkFor( $identifierValue, $action = 'view', $html = null, $customAttribs = array(), $query = array() ) {
 		return Linker::link(
 			self::getTitleFor( $identifierValue, $action ),
-			htmlspecialchars( $identifierValue )
+			is_null( $html ) ? htmlspecialchars( $identifierValue ) : $html,
+			$customAttribs,
+			$query
 		);
 	}
 

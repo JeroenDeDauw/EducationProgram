@@ -142,15 +142,12 @@ class EPOrgPager extends EPPager {
 	protected function getControlLinks( EPDBObject $item ) {
 		$links = parent::getControlLinks( $item );
 
-		$links[] = $value = Linker::linkKnown(
-			SpecialPage::getTitleFor( 'Institution', $item->getField( 'name' ) ),
-			wfMsgHtml( 'view' )
-		);
+		$links[] = $item->getLink();
 
 		if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
-			$links[] = $value = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'EditInstitution', $item->getField( 'name' ) ),
-				wfMsgHtml( 'edit' ),
+			$links[] = $item->getLink(
+				'edit',
+				null,
 				array(),
 				array( 'wpreturnto' => $this->getTitle()->getText() )
 			);
