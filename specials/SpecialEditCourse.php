@@ -21,7 +21,7 @@ class SpecialEditCourse extends SpecialEPFormPage {
 	public function __construct() {
 		parent::__construct( 'EditCourse', 'ep-course', 'EPCourse', 'Courses', 'Course' );
 
-		$this->getOutput()->addModules( 'ep.datepicker' );
+		$this->getOutput()->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
 	}
 
 	/**
@@ -54,7 +54,6 @@ class SpecialEditCourse extends SpecialEPFormPage {
 			'type' => 'text',
 			'label-message' => 'ep-course-edit-token',
 			'maxlength' => 255,
-			'required' => true,
 			'size' => 20,
 			'validation-callback' => function ( $value, array $alldata = null ) {
 				$strLen = strlen( $value );
@@ -80,16 +79,22 @@ class SpecialEditCourse extends SpecialEPFormPage {
 			'required' => true,
 		);
 
+		$fieldFields = EPCourse::selectFields( 'field', array(), array( 'DISTINCT' ) );
+		$fieldFields = array_merge( array( '' => '' ), $fieldFields );
 		$fields['field'] = array (
-			'type' => 'text',
+			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-field',
 			'required' => true,
+			'options' => array_combine( $fieldFields, $fieldFields ),
 		);
 
+		$levels = EPCourse::selectFields( 'level', array(), array( 'DISTINCT' ) );
+		$levels = array_merge( array( '' => '' ), $levels );
 		$fields['level'] = array (
-			'type' => 'text',
+			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-level',
 			'required' => true,
+			'options' => array_combine( $levels, $levels ),
 		);
 
 		$langOptions = EPUtils::getLanguageOptions( $this->getLanguage()->getCode() );
@@ -104,10 +109,13 @@ class SpecialEditCourse extends SpecialEPFormPage {
 			}
 		);
 
+		$mcs = EPCourse::selectFields( 'mc', array(), array( 'DISTINCT' ) );
+		$mcs = array_merge( array( '' => '' ), $mcs );
 		$fields['mc'] = array (
-			'type' => 'text',
+			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-mc',
 			'required' => true,
+			'options' => array_combine( $mcs, $mcs ),
 		);
 
 		$fields['description'] = array (

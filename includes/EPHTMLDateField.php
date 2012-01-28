@@ -2,6 +2,7 @@
 
 /**
  * HTMLForm date field input.
+ * Requires jquery.datepicker
  *
  * @since 0.1
  *

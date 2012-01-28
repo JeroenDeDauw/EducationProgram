@@ -78,6 +78,7 @@ $wgAutoloadClasses['EPOAPager'] 					= dirname( __FILE__ ) . '/includes/EPOAPage
 $wgAutoloadClasses['EPCA'] 							= dirname( __FILE__ ) . '/includes/EPCA.php';
 $wgAutoloadClasses['EPCAPager'] 					= dirname( __FILE__ ) . '/includes/EPCAPager.php';
 $wgAutoloadClasses['EPHTMLDateField'] 				= dirname( __FILE__ ) . '/includes/EPHTMLDateField.php';
+$wgAutoloadClasses['EPHTMLCombobox'] 				= dirname( __FILE__ ) . '/includes/EPHTMLCombobox.php';
 $wgAutoloadClasses['EPRevision'] 					= dirname( __FILE__ ) . '/includes/EPRevision.php';
 $wgAutoloadClasses['EPRevisionPager'] 				= dirname( __FILE__ ) . '/includes/EPRevisionPager.php';
 $wgAutoloadClasses['EPPageObject'] 					= dirname( __FILE__ ) . '/includes/EPPageObject.php';
@@ -329,6 +330,20 @@ $wgResourceModules['ep.datepicker'] = $moduleTemplate + array(
 	),
 	'dependencies' => array(
 		'jquery.ui.datepicker',
+	),
+);
+
+$wgResourceModules['ep.combobox'] = $moduleTemplate + array(
+	'scripts' => array(
+		'ep.combobox.js',
+	),
+	'styles' => array(
+		'ep.combobox.css',
+	),
+	'dependencies' => array(
+		'jquery.ui.core',
+		'jquery.ui.widget',
+		'jquery.ui.autocomplete',
 	),
 );
 
