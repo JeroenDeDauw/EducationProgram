@@ -11,10 +11,12 @@
 	$( document ).ready( function() {
 
 		$( '.ep-course-add' ).closest( 'form' ).submit( function() {
-			var action = $( this ).attr( 'action' );
 			$( this ).attr(
 				'action', 
-				action.substring( 0, action.length - 4 ) + $( '#newname' ).val() + ' (' + $( '#newterm' ).val() + ')'
+				$( this ).attr( 'action' ).replace(
+					'NAME_PLACEHOLDER',
+					$( '#newname' ).val() + ' (' + $( '#newterm' ).val() + ')'
+				)
 			);
 		} );
 		

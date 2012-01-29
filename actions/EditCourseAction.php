@@ -107,7 +107,15 @@ class EditCourseAction extends EPEditAction {
 		);
 
 		$mcs = EPCourse::selectFields( 'mc', array(), array( 'DISTINCT' ) );
-		$mcs = array_merge( array( '' => '' ), $mcs );
+		
+		if ( $this->getRequest()->getCheck( 'newname' ) ) {
+			$newName = $this->getRequest()->getText( 'newname' );
+			$mcs = array_merge( array( $newName => $newName ), $mcs );
+		}
+		else {
+			$mcs = array_merge( array( '' => '' ), $mcs );
+		}
+		
 		$fields['mc'] = array (
 			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-mc',

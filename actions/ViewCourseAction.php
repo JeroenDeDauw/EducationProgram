@@ -27,7 +27,14 @@ class ViewCourseAction extends EPViewAction {
 
 			if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 				$out->addWikiMsg( 'ep-course-create', $name );
-				EPCourse::displayAddNewRegion( $this->getContext(), array( 'name' => $name ) );
+				
+				EPCourse::displayAddNewRegion(
+					$this->getContext(),
+					array(
+						'name' => $this->getRequest()->getText( 'newname', '' ),
+						'term' => $this->getRequest()->getText( 'newterm', '' ),
+					)
+				);
 			}
 			else {
 				$out->addWikiMsg( 'ep-course-none', $name );

@@ -11,8 +11,7 @@
 	$( document ).ready( function() {
 
 		$( '.ep-org-add' ).closest( 'form' ).submit( function() {
-			var action = $( this ).attr( 'action' );
-			$( this ).attr( 'action', action.substring( 0, action.length - 4 ) + $( '#newname' ).val() );
+			$( this ).attr( 'action', $( this ).attr( 'action' ).replace( 'NAME_PLACEHOLDER', $( '#newname' ).val() ) );
 		} );
 		
 		$( '.ep-org-add' ).removeAttr( 'disabled' );
