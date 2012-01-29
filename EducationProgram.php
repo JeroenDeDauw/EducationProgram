@@ -282,9 +282,9 @@ $wgAddGroups['epadmin'] = array( 'eponlineamb', 'epcampamb', 'epinstructor' );
 $wgRemoveGroups['epadmin'] = array( 'eponlineamb', 'epcampamb', 'epinstructor' );
 
 // Namespaces
-define( 'EP_NS_COURSE', 			442 + 0 );
+define( 'EP_NS_COURSE',				442 + 0 );
 define( 'EP_NS_COURSE_TALK', 		442 + 1 );
-define( 'EP_NS_INSTITUTION', 		422 + 2 );
+define( 'EP_NS_INSTITUTION', 		442 + 2 );
 define( 'EP_NS_INSTITUTION_TALK', 	442 + 3 );
 
 // Resource loader modules
@@ -356,6 +356,18 @@ $wgResourceModules['ep.formpage'] = $moduleTemplate + array(
 	),
 	'dependencies' => array(
 		'jquery.ui.button',
+	),
+);
+
+$wgResourceModules['ep.addorg'] = $moduleTemplate + array(
+	'scripts' => array(
+		'ep.addorg.js',
+	),
+);
+
+$wgResourceModules['ep.addcourse'] = $moduleTemplate + array(
+	'scripts' => array(
+		'ep.addcourse.js',
 	),
 );
 

@@ -209,12 +209,14 @@ class EPOrg extends EPPageObject {
 		}
 
 		$out = $context->getOutput();
+		
+		$out->addModules( 'ep.addorg' );
 
 		$out->addHTML( Html::openElement(
 			'form',
 			array(
 				'method' => 'post',
-				'action' => SpecialPage::getTitleFor( 'EditInstitution' )->getLocalURL(),
+				'action' => self::getTitleFor( 'NAME' )->getLocalURL(),
 			)
 		) );
 
@@ -235,7 +237,11 @@ class EPOrg extends EPPageObject {
 		$out->addHTML( '&#160;' . Html::input(
 			'addneworg',
 			wfMsg( 'ep-institutions-add' ),
-			'submit'
+			'submit',
+			array(
+				'disabled' => 'disabled',
+				'class' => 'ep-org-add',
+			)
 		) );
 
 		$out->addHTML( Html::hidden( 'isnew', 1 ) );

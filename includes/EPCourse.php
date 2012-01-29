@@ -329,12 +329,14 @@ class EPCourse extends EPPageObject {
 		}
 
 		$out = $context->getOutput();
+		
+		$out->addModules( 'ep.addcourse' );
 
 		$out->addHTML( Html::openElement(
 			'form',
 			array(
 				'method' => 'post',
-				'action' => SpecialPage::getTitleFor( 'EditCourse' )->getLocalURL(),
+				'action' => self::getTitleFor( 'NAME' )->getLocalURL(),
 			)
 		) );
 
@@ -362,7 +364,11 @@ class EPCourse extends EPPageObject {
 		$out->addHTML( '&#160;' . Html::input(
 			'addnewcourse',
 			wfMsg( 'ep-courses-add' ),
-			'submit'
+			'submit',
+			array(
+				'disabled' => 'disabled',
+				'class' => 'ep-course-add',
+			)
 		) );
 
 		$out->addHTML( Html::hidden( 'isnew', 1 ) );
