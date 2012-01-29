@@ -277,7 +277,28 @@ final class EPHooks {
 					}
 				}
 			}
+			
+			$tab = array_shift( $links['namespaces'] );
+			self::fixNewClass( $tab, $exists );
+			array_unshift( $links['namespaces'], $tab );
 		}	
+	}
+	
+	protected static function fixNewClass( &$tab, $exists ) {
+		$classes = explode( ' ', $tab['class'] );
+		$classes = array_flip( $classes );
+		
+		if ( array_key_exists( 'new', $classes ) && $exists ) {
+			unset( $classes['new'] );
+		}
+		
+		$classes = array_flip( $classes );
+		
+		if ( !$exists && !in_array( 'new', $classes ) ) {
+			$classes[] = 'new';
+		}
+		
+		$tab['class'] = implode( ' ', $classes );
 	}
 	
 }
