@@ -45,35 +45,20 @@ abstract class EPEditAction extends FormlessAction {
 	protected function showContent() {
 		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
 
-		if ( $this->isNew() ) {
-			$data = $this->getNewData();
-
-			$object = $c::selectRow( null, $data );
-
-			if ( $object === false ) {
-				$object = new $c( $data, true );
-			}
-			else {
-				$this->showWarning( wfMessage( 'educationprogram-' . strtolower( $this->getName() ) . '-exists-already' ) );
-			}
-		}
-		else {
-			$object = $c::selectRow( null, $this->getTitleConditions() );
-		}
-
+		$data = $this->getNewData();
+		
+		$object = $c::selectRow( null, $data );
+		
 		if ( $object === false ) {
-			$this->getOutput()->redirect( SpecialPage::getTitleFor( $c::getListPage() )->getLocalURL() );
+			$this->isNew = true;
+			$object = new $c( $data, true );
 		}
 		else {
-//			if ( !$this->isNew() ) {
-//				$this->getOutput()->addHTML(
-//					SpecialContestPage::getNavigation( $contest->getField( 'name' ), $this->getUser(), $this->getLanguage(), $this->getName() )
-//				);
-//			}
-
-			$this->item = $object;
-			$this->showForm();
+			$this->showWarning( wfMessage( 'educationprogram-' . strtolower( $this->getName() ) . '-exists-already' ) );
 		}
+		
+		$this->item = $object;
+		$this->showForm();
 	}
 
 	/**
@@ -84,14 +69,16 @@ abstract class EPEditAction extends FormlessAction {
 	 * @return boolean
 	 */
 	protected function isNew() {
-		static $isNew = null;
-
-		if ( is_null( $isNew ) ) {
-			$isNew = $this->getRequest()->wasPosted() &&
-				( $this->getRequest()->getCheck( 'isnew' ) || $this->getRequest()->getCheck( 'wpisnew' ) );
+		if ( is_null( $this->isNew ) ) {
+			$isNew = $this->isNewPost(); 
 		}
 
-		return $isNew;
+		return $this->isNew;
+	}
+	
+	protected function isNewPost() {
+		return $this->getRequest()->wasPosted() &&
+			( $this->getRequest()->getCheck( 'isnew' ) || $this->getRequest()->getCheck( 'wpisnew' ) );
 	}
 
 	/**
@@ -123,7 +110,16 @@ abstract class EPEditAction extends FormlessAction {
 	 * @return array
 	 */
 	protected function getNewData() {
-		return array( 'name' => $this->getRequest()->getVal( 'newname' ) );
+		$data = array();
+		
+		if ( $this->isNewPost() ) {
+			$data['name'] = $this->getRequest()->getVal( 'newname' );
+		}
+		else {
+			$data['name'] = $this->getTitle()->getText();
+		}
+		
+		return $data;
 	}
 
 	/**
@@ -268,13 +264,13 @@ abstract class EPEditAction extends FormlessAction {
 		$this->getOutput()->redirect( $this->getReturnToTitle( true )->getLocalURL() );
 	}
 	
-	protected function getReturnToTitle( $newToItem = false ) {
+	protected function getReturnToTitle( $addedItem = false ) {
 		if ( $this->getRequest()->getCheck( 'wpreturnto' ) ) {
 			return Title::newFromText( $this->getRequest()->getText( 'wpreturnto' ) );
 		}
-		elseif ( $newToItem && $this->isNew() ) {
+		elseif ( !$addedItem && $this->isNew() ) {
 			$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
-			return $c::getTitleFor( $this->getRequest()->getText( 'wpitem-' . $c::getIdentifierField() ) );
+			return SpecialPage::getTitleFor( $c::getListPage() );
 		}
 		else {
 			return $this->getTitle();

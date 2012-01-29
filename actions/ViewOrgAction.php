@@ -25,11 +25,8 @@ class ViewOrgAction extends EPViewAction {
 		$org = EPOrg::get( $name );
 
 		if ( $org === false ) {
-			$this->displayNavigation();
-
 			if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
-				$out->addWikiMsg( 'ep-institution-create', $name );
-				EPOrg::displayAddNewControl( $this->getContext(), array( 'name' => $name ) );
+				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
 			}
 			else {
 				$out->addWikiMsg( 'ep-institution-none', $name );

@@ -251,11 +251,13 @@ final class EPHooks {
 			$type = $sktemplate->getRequest()->getText( 'action' );
 			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
 			
-			$links['views']['view'] = array(
-				'class' => ( !$isSpecial && $type === '' ) ? 'selected' : false,
-				'text' => wfMsg( 'ep-tab-view' ),
-				'href' => $title->getLocalUrl()
-			);
+			if ( $type !== 'edit' || $exists ) {
+				$links['views']['view'] = array(
+					'class' => ( !$isSpecial && $type === '' ) ? 'selected' : false,
+					'text' => wfMsg( 'ep-tab-view' ),
+					'href' => $title->getLocalUrl()
+				);
+			}
 			
 			if ( $user->isAllowed( $class::getEditRight() ) ) {
 				$links['views']['edit'] = array(

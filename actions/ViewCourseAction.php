@@ -28,10 +28,23 @@ class ViewCourseAction extends EPViewAction {
 			if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 				$out->addWikiMsg( 'ep-course-create', $name );
 				
+				$bracketPos = strpos( $name, '(' );
+				
+				if ( $bracketPos !== false ) {
+					if ( $bracketPos > 0 && in_array( $name{$bracketPos - 1}, array( ' ', '_' ) ) ) {
+						$bracketPos -= 1;
+					}
+					
+					$newName = substr( $name, 0, $bracketPos );
+				}
+				
 				EPCourse::displayAddNewRegion(
 					$this->getContext(),
 					array(
-						'name' => $this->getRequest()->getText( 'newname', '' ),
+						'name' => $this->getRequest()->getText(
+							'newname',
+							$newName
+						),
 						'term' => $this->getRequest()->getText( 'newterm', '' ),
 					)
 				);
