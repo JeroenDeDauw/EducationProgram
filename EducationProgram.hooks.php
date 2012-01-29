@@ -227,10 +227,19 @@ final class EPHooks {
 	}
 	
 	protected static function displayTabs( SkinTemplate &$sktemplate, array &$links, Title $title ) {
-			$classes = array(
+		$classes = array(
 			EP_NS_INSTITUTION => 'EPOrg',
 			EP_NS_COURSE => 'EPCourse',
 		);
+		
+		$ns = array(
+			EP_NS_COURSE,
+			EP_NS_COURSE_TALK,
+			EP_NS_INSTITUTION,
+			EP_NS_INSTITUTION_TALK,
+		);
+		
+		$exists = null;
 		
 		if ( array_key_exists( $title->getNamespace(), $classes ) ) {
 			$links['views'] = array();
@@ -277,14 +286,23 @@ final class EPHooks {
 					}
 				}
 			}
+		}
+		
+		if ( in_array( $title->getNamespace(), $ns ) ) {
+			$subjectTitle = $title->getSubjectPage();
+			
+			if ( is_null( $exists ) ) {
+				$class = $classes[$subjectTitle->getNamespace()];
+				$exists = $class::hasIdentifier( $title->getText() );
+			}
 			
 			$tab = array_shift( $links['namespaces'] );
-			self::fixNewClass( $tab, $exists );
+			self::fixRedlinking( $tab, $exists, $subjectTitle );
 			array_unshift( $links['namespaces'], $tab );
-		}	
+		}
 	}
 	
-	protected static function fixNewClass( &$tab, $exists ) {
+	protected static function fixRedlinking( array &$tab, $exists, Title $title ) {
 		$classes = explode( ' ', $tab['class'] );
 		$classes = array_flip( $classes );
 		
@@ -299,6 +317,15 @@ final class EPHooks {
 		}
 		
 		$tab['class'] = implode( ' ', $classes );
+		
+		$query = array();
+		
+		if ( !$exists ) {
+			$query['action'] = 'edit';
+			$query['redlink'] = '1';
+		}
+		
+		$tab['href'] = $title->getLocalURL( $query );
 	}
 	
 }
