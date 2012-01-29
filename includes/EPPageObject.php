@@ -15,22 +15,27 @@ abstract class EPPageObject extends EPDBObject {
 
 	protected static $info = array(
 		'EPCourse' => array(
-			'pages' => array(
-				'view' => 'Course',
-				'edit' => 'EditCourse',
-				'history' => 'CourseHistory',
+			'ns' => EP_NS_COURSE,
+			'actions' => array(
+				'view' => false,
+				'edit' => 'ep-course',
+				'history' => false,
+				'enroll' => 'ep-enroll',
 			),
 			'edit-right' => 'ep-course',
 			'identifier' => 'name',
+			'list' => 'Courses',
 		),
 		'EPOrg' => array(
-			'pages' => array(
-				'view' => 'Institution',
-				'edit' => 'EditInstitution',
-				'history' => 'InstitutionHistory',
+			'ns' => EP_NS_INSTITUTION,
+			'actions' => array(
+				'view' => false,
+				'edit' => 'ep-org',
+				'history' => false,
 			),
 			'edit-right' => 'ep-org',
 			'identifier' => 'name',
+			'list' => 'Institutions',
 		),
 	);
 
@@ -46,34 +51,53 @@ abstract class EPPageObject extends EPDBObject {
 		return self::$info[get_called_class()]['edit-right'];
 	}
 
-	public static function getTitleText( $action = 'view' ) {
-		return self::$info[get_called_class()]['pages'][$action];
-	}
-
-	public function getTitle( $action = 'view' ) {
-		return SpecialPage::getTitleFor( self::getTitleText( $action ), $this->getIdentifier() );
+	public function getTitle() {
+		return Title::newFromText(
+			$this->getIdentifier(),
+			self::$info[get_called_class()]['ns']
+		);
 	}
 
 	public function getLink( $action = 'view', $html = null, $customAttribs = array(), $query = array() ) {
-		return Linker::link(
-			self::getTitle( $action ),
-			is_null( $html ) ? htmlspecialchars( $this->getIdentifier() ) : $html,
+		return self::getLinkFor(
+			$this->getIdentifier(),
+			$action,
+			$html,
 			$customAttribs,
 			$query
 		);
 	}
 
-	public static function getTitleFor( $identifierValue, $action = 'view' ) {
-		return SpecialPage::getTitleFor( self::getTitleText( $action ), $identifierValue );
+	public static function getTitleFor( $identifierValue ) {
+		return Title::newFromText(
+			$identifierValue,
+			self::$info[get_called_class()]['ns']
+		);
 	}
 
 	public static function getLinkFor( $identifierValue, $action = 'view', $html = null, $customAttribs = array(), $query = array() ) {
-		return Linker::link(
+		if ( $action !== 'view' ) {
+			$query['action'] = $action;
+		}
+		
+		return Linker::linkKnown( // Linker has no hook that allows us to figure out if the page actually exists :(
 			self::getTitleFor( $identifierValue, $action ),
 			is_null( $html ) ? htmlspecialchars( $identifierValue ) : $html,
 			$customAttribs,
 			$query
 		);
+	}
+	
+	public static function hasIdentifier( $identifier ) {
+		return static::has( array( static::getIdentifierField() => $identifier ) );
+	}
+	
+	public static function get( $identifier, $fields = null ) {
+		return static::selectRow( $fields, array( static::getIdentifierField() => $identifier ) );
+	}
+	
+	public static function getListPage() {
+		return self::$info[get_called_class()]['list'];
 	}
 
 }

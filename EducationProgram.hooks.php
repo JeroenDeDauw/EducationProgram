@@ -149,6 +149,63 @@ final class EPHooks {
 	}
 
 	/**
+	 * Called to determine the class to handle the article rendering, based on title.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleFromTitle
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param Title $title
+	 * @param Article|null $article
+	 * 
+	 * @return true
+	 */
+	public static function onArticleFromTitle( Title &$title, &$article ) {
+		if ( $title->getNamespace() == EP_NS_COURSE ) {
+			$article = new CoursePage( $title );
+		}
+		elseif ( $title->getNamespace() == EP_NS_INSTITUTION ) {
+			$article = new OrgPage( $title );
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * For extensions adding their own namespaces or altering the defaults.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/CanonicalNamespaces
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param array $list
+	 * 
+	 * @return true
+	 */
+	public static function onCanonicalNamespaces( array &$list ) {
+		$list[EP_NS_COURSE] = 'Course';
+		$list[EP_NS_INSTITUTION] = 'Institution';
+		$list[EP_NS_COURSE_TALK] = 'Course_talk';
+		$list[EP_NS_INSTITUTION_TALK] = 'Institution_talk';
+		return true;
+	}
+	
+	/**
+	 * Alter the structured navigation links in SkinTemplates.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation
+	 *
+	 * @since 0.1
+	 *
+	 * @param SkinTemplate $sktemplate
+	 * @param array $links
+	 *
+	 * @return true
+	 */
+	public static function onPageTabs( SkinTemplate &$sktemplate, array &$links ) {
+		self::displayTabs( $sktemplate, $links, $sktemplate->getTitle() );
+		
+		return true;
+	}
+	
+	/**
 	 * Called on special pages after the special tab is added but before variants have been added.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation::SpecialPage
 	 *
@@ -160,106 +217,68 @@ final class EPHooks {
 	 * @return true
 	 */
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
-		$viewLinks = $links['views'];
-
-		// The Title getBaseText and getSubpageText methods only do what we want when
-		// the special pages NS is in teh list of NS with subpages.
 		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
-		$baseText = $textParts[0];
-
-		if ( is_null( $textParts[1] ) ) {
-			return true;
+		
+		if ( $textParts[0] === 'Enroll' ) {
+			self::displayTabs( $sktemplate, $links, EPCourse::getTitleFor( $textParts[1] ) );
 		}
 
-		$specials = array(
-			array(
-				'view' => 'Institution',
-				'edit' => 'EditInstitution',
-				'history' => 'InstitutionHistory',
-			),
-			array(
-				'view' => 'Course',
-				'edit' => 'EditCourse',
-				'history' => 'CourseHistory',
-				'enroll' => 'Enroll',
-			),
+		return true;
+	}
+	
+	protected static function displayTabs( SkinTemplate &$sktemplate, array &$links, Title $title ) {
+			$classes = array(
+			EP_NS_INSTITUTION => 'EPOrg',
+			EP_NS_COURSE => 'EPCourse',
 		);
-
-		$editRights = array(
-			'EditInstitution' => 'ep-org',
-			'EditCourse' => 'ep-course',
-		);
-
-		$classes = array(
-			'Institution' => 'EPOrg',
-			'Course' => 'EPCourse',
-		);
-
-		$specialSet = false;
-		$type = false;
-
-		foreach ( $specials as $set ) {
-			if ( in_array( $baseText, $set ) ) {
-				$specialSet = $set;
-				$flipped = array_flip( $set );
-				$type = $flipped[$baseText];
-				break;
-			}
-		}
-
-		// TODO: messages
-		if ( $specialSet !== false ) {
-			$canonicalSet = $specialSet;
-
-			foreach ( $specialSet as &$special ) {
-				$special = SpecialPageFactory::getLocalNameFor( $special );
-			}
-
-			$identifier = 'name';
-			$exists = $classes[$canonicalSet['view']]::has( array( $identifier => $textParts[1] ) );
-
-			$viewLinks['view'] = array(
-				'class' => $type === 'view' ? 'selected' : false,
+		
+		if ( array_key_exists( $title->getNamespace(), $classes ) ) {
+			// array_intersect_key( $links['views'], array_flip( array( 'view', 'edit', 'history' ) ) );
+			$links['views'] = array();
+			$links['actions'] = array();
+			
+			$user = $sktemplate->getUser();
+			$class = $classes[$title->getNamespace()];
+			$exists = $class::hasIdentifier( $title->getText() );
+			$type = $sktemplate->getRequest()->getText( 'action' );
+			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
+			
+			$links['views']['view'] = array(
+				'class' => ( !$isSpecial && $type === '' ) ? 'selected' : false,
 				'text' => wfMsg( 'ep-tab-view' ),
-				'href' => SpecialPage::getTitleFor( $specialSet['view'], $textParts[1] )->getLocalUrl()
+				'href' => $title->getLocalUrl()
 			);
-
+			
+			if ( $user->isAllowed( $class::getEditRight() ) ) {
+				$links['views']['edit'] = array(
+					'class' => $type === 'edit' ? 'selected' : false,
+					'text' => wfMsg( $exists ? 'ep-tab-edit' : 'ep-tab-create' ),
+					'href' => $title->getLocalUrl( array( 'action' => 'edit' ) )
+				);
+			}
+			
 			if ( $exists ) {
-				if ( $sktemplate->getUser()->isAllowed( $editRights[$canonicalSet['edit']] ) ) {
-					$viewLinks['edit'] = array(
-						'class' => $type === 'edit' ? 'selected' : false,
-						'text' => wfMsg( 'ep-tab-edit' ),
-						'href' => SpecialPage::getTitleFor( $specialSet['edit'], $textParts[1] )->getLocalUrl()
-					);
-				}
-
-				$viewLinks['history'] = array(
+				$links['views']['history'] = array(
 					'class' => $type === 'history' ? 'selected' : false,
 					'text' => wfMsg( 'ep-tab-history' ),
-					'href' => SpecialPage::getTitleFor( $specialSet['history'], $textParts[1] )->getLocalUrl()
+					'href' => $title->getLocalUrl( array( 'action' => 'history' ) )
 				);
-
-				if ( $canonicalSet['view'] === 'Course' ) {
-					$user = $sktemplate->getUser();
-
+				
+				if ( $title->getNamespace() === EP_NS_COURSE ) {
 					if ( $user->isAllowed( 'ep-enroll' ) ) {
 						$student = EPStudent::newFromUser( $user );
 
-						if ( $student === false || !$student->hasCourse( array( 'id' => $textParts[1] ) ) ) {
-							$viewLinks['enroll'] = array(
-								'class' => $type === 'enroll' ? 'selected' : false,
+						if ( $student === false || !$student->hasCourse( array( 'name' => $title->getText() ) ) ) {
+							$links['views']['enroll'] = array(
+								'class' => $isSpecial ? 'selected' : false,
 								'text' => wfMsg( 'ep-tab-enroll' ),
-								'href' => SpecialPage::getTitleFor( 'Enroll', $textParts[1] )->getLocalUrl()
+								'href' => SpecialPage::getTitleFor( 'Enroll', $title->getText() )->getLocalURL()
 							);
 						}
 					}
 				}
 			}
-		}
-
-		$links['views'] = $viewLinks;
-
-		return true;
+		}	
 	}
-
+	
 }

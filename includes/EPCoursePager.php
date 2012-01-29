@@ -184,7 +184,7 @@ class EPCoursePager extends EPPager {
 				'edit',
 				wfMsgHtml( 'edit' ),
 				array(),
-				array( 'wpreturnto' => $this->getTitle()->getText() )
+				array( 'wpreturnto' => $this->getTitle()->getFullText() )
 			);
 
 			$links[] = $this->getDeletionLink(

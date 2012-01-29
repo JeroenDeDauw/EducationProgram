@@ -27,24 +27,16 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	protected $className;
 
 	/**
-	 * @since 0.1
-	 * @var string
-	 */
-	protected $itemPage;
-
-	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
 	 * @param string $className
-	 * @param string $itemPage
 	 * @param array $conds
 	 */
-	public function __construct( IContextSource $context, $className, $itemPage, array $conds = array() ) {
+	public function __construct( IContextSource $context, $className, array $conds = array() ) {
 		$this->conds = $conds;
 		$this->context = $context;
 		$this->className = $className;
-		$this->itemPage = $itemPage;
 
 		$this->mDefaultDirection = true;
 
@@ -141,14 +133,11 @@ class EPRevisionPager extends ReverseChronologicalPager {
 
 		$html = '';
 
-		$html .= Html::element(
-			'a',
-			array(
-				'href' => SpecialPage::getTitleFor( $this->itemPage, $object->getIdentifier() )->getLocalURL( array(
-					'revid' => $revision->getId(),
-				) ),
-			),
-			$this->getLanguage()->timeanddate( $revision->getField( 'time' ) )
+		$html .= $object->getLink(
+			'view',
+			$this->getLanguage()->timeanddate( $revision->getField( 'time' ) ),
+			array(),
+			array( 'revid' => $revision->getId() )
 		);
 
 		return '<li>' . $html . '</li>';

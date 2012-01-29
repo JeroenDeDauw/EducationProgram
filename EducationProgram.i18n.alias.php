@@ -5,7 +5,7 @@
  *
  * @since 0.1
  *
- * @file EducationProgram.alias.php
+ * @file EducationProgram.i18n.alias.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3+

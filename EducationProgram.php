@@ -53,10 +53,21 @@ $wgExtensionCredits['other'][] = array(
 // i18n
 $wgExtensionMessagesFiles['EducationProgram'] 		= dirname( __FILE__ ) . '/EducationProgram.i18n.php';
 $wgExtensionMessagesFiles['EducationProgramAlias']	= dirname( __FILE__ ) . '/EducationProgram.i18n.alias.php';
+$wgExtensionMessagesFiles['EPNamespaces'] 			= dirname( __FILE__ ) . '/EducationProgram.i18n.ns.php';
 
 // Autoloading
 $wgAutoloadClasses['EPHooks'] 						= dirname( __FILE__ ) . '/EducationProgram.hooks.php';
 $wgAutoloadClasses['EPSettings'] 					= dirname( __FILE__ ) . '/EducationProgram.settings.php';
+
+$wgAutoloadClasses['CourseHistoryAction'] 			= dirname( __FILE__ ) . '/actions/CourseHistoryAction.php';
+$wgAutoloadClasses['EditCourseAction'] 				= dirname( __FILE__ ) . '/actions/EditCourseAction.php';
+$wgAutoloadClasses['EditOrgAction'] 				= dirname( __FILE__ ) . '/actions/EditOrgAction.php';
+$wgAutoloadClasses['EPEditAction'] 					= dirname( __FILE__ ) . '/actions/EPEditAction.php';
+$wgAutoloadClasses['EPHistoryAction'] 				= dirname( __FILE__ ) . '/actions/EPHistoryAction.php';
+$wgAutoloadClasses['EPViewAction'] 					= dirname( __FILE__ ) . '/actions/EPViewAction.php';
+$wgAutoloadClasses['OrgHistoryAction'] 				= dirname( __FILE__ ) . '/actions/OrgHistoryAction.php';
+$wgAutoloadClasses['ViewCourseAction'] 				= dirname( __FILE__ ) . '/actions/ViewCourseAction.php';
+$wgAutoloadClasses['ViewOrgAction'] 				= dirname( __FILE__ ) . '/actions/ViewOrgAction.php';
 
 $wgAutoloadClasses['ApiDeleteEducation'] 			= dirname( __FILE__ ) . '/api/ApiDeleteEducation.php';
 $wgAutoloadClasses['ApiInstructor'] 				= dirname( __FILE__ ) . '/api/ApiInstructor.php';
@@ -82,6 +93,10 @@ $wgAutoloadClasses['EPHTMLCombobox'] 				= dirname( __FILE__ ) . '/includes/EPHT
 $wgAutoloadClasses['EPRevision'] 					= dirname( __FILE__ ) . '/includes/EPRevision.php';
 $wgAutoloadClasses['EPRevisionPager'] 				= dirname( __FILE__ ) . '/includes/EPRevisionPager.php';
 $wgAutoloadClasses['EPPageObject'] 					= dirname( __FILE__ ) . '/includes/EPPageObject.php';
+
+$wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
+$wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';
+$wgAutoloadClasses['OrgPage'] 						= dirname( __FILE__ ) . '/pages/OrgPage.php';
 
 $wgAutoloadClasses['SpecialCourse'] 				= dirname( __FILE__ ) . '/specials/SpecialCourse.php';
 $wgAutoloadClasses['SpecialCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialCourses.php';
@@ -160,7 +175,10 @@ $wgHooks['LoadExtensionSchemaUpdates'][] 			= 'EPHooks::onSchemaUpdate';
 $wgHooks['UnitTestsList'][] 						= 'EPHooks::registerUnitTests';
 $wgHooks['PersonalUrls'][] 							= 'EPHooks::onPersonalUrls';
 $wgHooks['GetPreferences'][] 						= 'EPHooks::onGetPreferences';
+$wgHooks['SkinTemplateNavigation'][] 				= 'EPHooks::onPageTabs';
 $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs';
+$wgHooks['ArticleFromTitle'][] 						= 'EPHooks::onArticleFromTitle';
+$wgHooks['CanonicalNamespaces'][] 					= 'EPHooks::onCanonicalNamespaces';
 
 // Logging
 $wgLogTypes[] = 'institution';
@@ -283,6 +301,12 @@ $wgRemoveGroups['epstaff'] = array( 'epstaff', 'epadmin', 'eponlineamb', 'epcamp
 $wgGroupPermissions['epadmin']['userrights'] = false;
 $wgAddGroups['epadmin'] = array( 'eponlineamb', 'epcampamb', 'epinstructor' );
 $wgRemoveGroups['epadmin'] = array( 'eponlineamb', 'epcampamb', 'epinstructor' );
+
+// Namespaces
+define( 'EP_NS_COURSE', 			442 + 0 );
+define( 'EP_NS_COURSE_TALK', 		442 + 1 );
+define( 'EP_NS_INSTITUTION', 		422 + 2 );
+define( 'EP_NS_INSTITUTION_TALK', 	442 + 3 );
 
 // Resource loader modules
 $moduleTemplate = array(

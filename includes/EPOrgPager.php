@@ -61,10 +61,7 @@ class EPOrgPager extends EPPager {
 	public function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
 			case 'name':
-				$value = Linker::linkKnown(
-					SpecialPage::getTitleFor( 'Institution', $value ),
-					htmlspecialchars( $value )
-				);
+				$value = EPOrg::getLinkFor( $value );
 				break;
 			case 'country':
 				$countries = array_flip( EPUtils::getCountryOptions( $this->getLanguage()->getCode() ) );
@@ -149,7 +146,7 @@ class EPOrgPager extends EPPager {
 				'edit',
 				wfMsgHtml( 'edit' ),
 				array(),
-				array( 'wpreturnto' => $this->getTitle()->getText() )
+				array( 'wpreturnto' => $this->getTitle()->getFullText() )
 			);
 
 			$links[] = $this->getDeletionLink(

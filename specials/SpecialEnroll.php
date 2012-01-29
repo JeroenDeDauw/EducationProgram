@@ -47,16 +47,18 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$args = explode( '/', $this->subPage, 2 );
 
-		if ( !ctype_digit( $args[0] ) ) {
-			$this->showWarning( wfMessage( $args[0] === '' ? 'ep-enroll-no-id' : 'ep-enroll-invalid-id' ) );
+		if ( $args[0] === '' ) {
+			$this->showWarning( 'ep-enroll-no-id' );
 		}
 		else {
-			$course = EPCourse::selectRow( null, array( 'id' => $args[0] ) );
+			$course = EPCourse::get( $args[0] );
 			
 			if ( $course === false ) {
 				$this->showWarning( wfMessage( 'ep-enroll-invalid-id' ) );
 			}
 			elseif ( $course->getStatus() === 'current' ) {
+				$this->setPageTitle( $course );
+				
 				$token = '';
 				$tokenIsValid = $course->getField( 'token' ) === '';
 
@@ -84,6 +86,8 @@ class SpecialEnroll extends SpecialEPPage {
 				}
 			}
 			else {
+				$this->setPageTitle( $course );
+				
 				$this->showWarning( wfMessage( 'ep-enroll-course-' . $course->getStatus() ) );
 			}
 		}
@@ -99,8 +103,6 @@ class SpecialEnroll extends SpecialEPPage {
 	 */
 	protected function showEnrollmentView( EPCourse $course ) {
 		$this->course = $course;
-
-		$this->setPageTitle( $course );
 
 		if ( $this->getUser()->isLoggedIn() ) {
 			if ( $this->getUser()->isAllowed( 'ep-enroll' ) ) {
