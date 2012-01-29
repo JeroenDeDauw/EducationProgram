@@ -6,6 +6,7 @@ abstract class EPHistoryAction extends FormlessAction {
 	
 	public function onView() {
 		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
+		
 		$object = $c::get( $this->getTitle()->getText() );
 
 		if ( $object === false ) {

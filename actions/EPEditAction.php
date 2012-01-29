@@ -10,6 +10,14 @@ abstract class EPEditAction extends FormlessAction {
 	 */
 	protected $item = false;
 
+	/**
+	 * If the action is in insert mode rather then edit mode.
+	 * 
+	 * @since 0.1
+	 * @var boolean|null
+	 */
+	protected $isNew = null;
+	
 	protected abstract function getItemClass();
 	
 	public function onView() {
@@ -54,12 +62,26 @@ abstract class EPEditAction extends FormlessAction {
 			$this->isNew = true;
 			$object = new $c( $data, true );
 		}
-		else {
+		elseif ( $this->isNewPost() ) {
 			$this->showWarning( wfMessage( 'educationprogram-' . strtolower( $this->getName() ) . '-exists-already' ) );
 		}
 		
 		$this->item = $object;
 		$this->showForm();
+	}
+	
+	/**
+	 * Show a message in a warning box.
+	 *
+	 * @since 0.1
+	 *
+	 * @param Message $message
+	 */
+	protected function showWarning( Message $message ) {
+		$this->getOutput()->addHTML(
+			'<p class="visualClear warningbox">' . $message->parse() . '</p>'
+			. '<hr style="display: block; clear: both; visibility: hidden;" />'
+		);
 	}
 
 	/**

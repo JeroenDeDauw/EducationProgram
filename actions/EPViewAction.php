@@ -2,52 +2,6 @@
 
 abstract class EPViewAction extends FormlessAction {
 	
-	public function onView() {
-		
-	}
-	
-	/**
-	 * Show a message in an error box.
-	 *
-	 * @since 0.1
-	 *
-	 * @param Message $message
-	 */
-	protected function showError( Message $message ) {
-		$this->getOutput()->addHTML(
-			'<p class="visualClear errorbox">' . $message->parse() . '</p>'
-			. '<hr style="display: block; clear: both; visibility: hidden;" />'
-		);
-	}
-
-	/**
-	 * Show a message in a warning box.
-	 *
-	 * @since 0.1
-	 *
-	 * @param Message $message
-	 */
-	protected function showWarning( Message $message ) {
-		$this->getOutput()->addHTML(
-			'<p class="visualClear warningbox">' . $message->parse() . '</p>'
-			. '<hr style="display: block; clear: both; visibility: hidden;" />'
-		);
-	}
-
-	/**
-	 * Show a message in a success box.
-	 *
-	 * @since 0.1
-	 *
-	 * @param Message $message
-	 */
-	protected function showSuccess( Message $message ) {
-		$this->getOutput()->addHTML(
-			'<div class="successbox"><strong><p>' . $message->parse() . '</p></strong></div>'
-			. '<hr style="display: block; clear: both; visibility: hidden;" />'
-		);
-	}
-	
 	/**
 	 * Adds a navigation menu with the provided links.
 	 * Links should be provided in an array with:
