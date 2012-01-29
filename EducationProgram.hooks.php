@@ -233,7 +233,6 @@ final class EPHooks {
 		);
 		
 		if ( array_key_exists( $title->getNamespace(), $classes ) ) {
-			// array_intersect_key( $links['views'], array_flip( array( 'view', 'edit', 'history' ) ) );
 			$links['views'] = array();
 			$links['actions'] = array();
 			

@@ -98,14 +98,9 @@ $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';
 $wgAutoloadClasses['OrgPage'] 						= dirname( __FILE__ ) . '/pages/OrgPage.php';
 
-$wgAutoloadClasses['SpecialCourse'] 				= dirname( __FILE__ ) . '/specials/SpecialCourse.php';
 $wgAutoloadClasses['SpecialCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialCourses.php';
-$wgAutoloadClasses['SpecialEditCourse'] 			= dirname( __FILE__ ) . '/specials/SpecialEditCourse.php';
-$wgAutoloadClasses['SpecialEditInstitution'] 		= dirname( __FILE__ ) . '/specials/SpecialEditInstitution.php';
 $wgAutoloadClasses['SpecialEducationProgram'] 		= dirname( __FILE__ ) . '/specials/SpecialEducationProgram.php';
-$wgAutoloadClasses['SpecialEPFormPage'] 			= dirname( __FILE__ ) . '/specials/SpecialEPFormPage.php';
 $wgAutoloadClasses['SpecialEPPage'] 				= dirname( __FILE__ ) . '/specials/SpecialEPPage.php';
-$wgAutoloadClasses['SpecialInstitution'] 			= dirname( __FILE__ ) . '/specials/SpecialInstitution.php';
 $wgAutoloadClasses['SpecialInstitutions'] 			= dirname( __FILE__ ) . '/specials/SpecialInstitutions.php';
 $wgAutoloadClasses['SpecialMyCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialMyCourses.php';
 $wgAutoloadClasses['SpecialStudent'] 				= dirname( __FILE__ ) . '/specials/SpecialStudent.php';
@@ -115,45 +110,29 @@ $wgAutoloadClasses['SpecialCAs'] 					= dirname( __FILE__ ) . '/specials/Special
 $wgAutoloadClasses['SpecialOAs'] 					= dirname( __FILE__ ) . '/specials/SpecialOAs.php';
 $wgAutoloadClasses['SpecialCA'] 					= dirname( __FILE__ ) . '/specials/SpecialCA.php';
 $wgAutoloadClasses['SpecialOA'] 					= dirname( __FILE__ ) . '/specials/SpecialOA.php';
-$wgAutoloadClasses['SpecialEPHistory'] 				= dirname( __FILE__ ) . '/specials/SpecialEPHistory.php';
-$wgAutoloadClasses['SpecialCourseHistory'] 			= dirname( __FILE__ ) . '/specials/SpecialCourseHistory.php';
-$wgAutoloadClasses['SpecialInstitutionHistory'] 	= dirname( __FILE__ ) . '/specials/SpecialInstitutionHistory.php';
 
 // Special pages
 $wgSpecialPages['MyCourses'] 						= 'SpecialMyCourses';
-$wgSpecialPages['Institution'] 						= 'SpecialInstitution';
 $wgSpecialPages['Institutions'] 					= 'SpecialInstitutions';
 $wgSpecialPages['Student'] 							= 'SpecialStudent';
 $wgSpecialPages['Students'] 						= 'SpecialStudents';
-$wgSpecialPages['Course'] 							= 'SpecialCourse';
 $wgSpecialPages['Courses'] 							= 'SpecialCourses';
 $wgSpecialPages['EducationProgram'] 				= 'SpecialEducationProgram';
-$wgSpecialPages['EditCourse'] 						= 'SpecialEditCourse';
-$wgSpecialPages['EditInstitution'] 					= 'SpecialEditInstitution';
 $wgSpecialPages['Enroll'] 							= 'SpecialEnroll';
 $wgSpecialPages['CampusAmbassadors'] 				= 'SpecialCAs';
 $wgSpecialPages['OnlineAmbassadors'] 				= 'SpecialOAs';
 $wgSpecialPages['CampusAmbassador'] 				= 'SpecialCA';
 $wgSpecialPages['OnlineAmbassador'] 				= 'SpecialOA';
-$wgSpecialPages['CourseHistory'] 					= 'SpecialCourseHistory';
-$wgSpecialPages['InstitutionHistory'] 				= 'SpecialInstitutionHistory';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';
-$wgSpecialPageGroups['Institution'] 				= 'education';
 $wgSpecialPageGroups['Institutions'] 				= 'education';
 $wgSpecialPageGroups['Student'] 					= 'education';
 $wgSpecialPageGroups['Students'] 					= 'education';
-$wgSpecialPageGroups['Course'] 						= 'education';
 $wgSpecialPageGroups['Courses'] 					= 'education';
 $wgSpecialPageGroups['EducationProgram'] 			= 'education';
-$wgSpecialPageGroups['EditCourse'] 					= 'education';
-$wgSpecialPageGroups['EditInstitution'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['OnlineAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassador'] 			= 'education';
-$wgSpecialPageGroups['OnlineAmbassador'] 			= 'education';
-$wgSpecialPageGroups['CourseHistory'] 				= 'education';
-$wgSpecialPageGroups['InstitutionHistory'] 			= 'education';
 
 // DB object classes
 $egEPDBObjects = array();

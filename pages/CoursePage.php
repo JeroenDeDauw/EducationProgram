@@ -9,7 +9,6 @@ class CoursePage extends EPPage {
 			'view' => 'ViewCourseAction',
 			'edit' => 'EditCourseAction',
 			'history' => 'CourseHistoryAction',
-			'enroll' => 'CourseEnrollAction',
 		);
 	}
 	
