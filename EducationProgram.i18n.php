@@ -215,6 +215,7 @@ $messages['en'] = array(
 	'epcoursepager-header-students' => 'Students',
 	'epcoursepager-header-lang' => 'Language',
 	'epcoursepager-filter-term' => 'Term',
+	'epcoursepager-filter-lang' => 'Language',
 	'epcoursepager-filter-org-id' => 'Institution',
 	'epcoursepager-filter-status' => 'Status',
 	'epcoursepager-invalid-lang' => 'Invalid',

@@ -151,6 +151,12 @@ class EPCoursePager extends EPPager {
 			'options' => $terms,
 			'value' => '',
 		);
+		
+//		$options['lang'] = array(
+//			'type' => 'select',
+//			'options' => EPUtils::getLanguageOptions( $this->getLanguage()->getCode() ),
+//			'value' => '',
+//		);
 
 		$options['status'] = array(
 			'type' => 'select',
