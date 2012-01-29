@@ -26,28 +26,7 @@ class ViewCourseAction extends EPViewAction {
 			$this->displayNavigation();
 
 			if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-				$out->addWikiMsg( 'ep-course-create', $name );
-				
-				$bracketPos = strpos( $name, '(' );
-				
-				if ( $bracketPos !== false ) {
-					if ( $bracketPos > 0 && in_array( $name{$bracketPos - 1}, array( ' ', '_' ) ) ) {
-						$bracketPos -= 1;
-					}
-					
-					$newName = substr( $name, 0, $bracketPos );
-				}
-				
-				EPCourse::displayAddNewRegion(
-					$this->getContext(),
-					array(
-						'name' => $this->getRequest()->getText(
-							'newname',
-							$newName
-						),
-						'term' => $this->getRequest()->getText( 'newterm', '' ),
-					)
-				);
+				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
 			}
 			else {
 				$out->addWikiMsg( 'ep-course-none', $name );

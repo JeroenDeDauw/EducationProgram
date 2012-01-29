@@ -16,6 +16,7 @@ abstract class EPEditAction extends FormlessAction {
 		$this->getOutput()->addModules( 'ep.formpage' );
 		
 		if ( $this->getRequest()->wasPosted() && $this->getUser()->matchEditToken( $this->getRequest()->getVal( 'wpEditToken' ) ) ) {
+			
 			$this->showForm();
 		}
 		else {
@@ -155,8 +156,10 @@ abstract class EPEditAction extends FormlessAction {
 			);
 		}
 
-		$form = new HTMLForm( $fields, $this->getContext() );
+		$form = new EPFailForm( $fields, $this->getContext() );
 
+		$form->setQuery( array( 'action' => 'edit' ) );
+		
 		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
 		$form->setSubmitText( wfMsg( 'educationprogram-org-submit' ) );
 		$form->setSubmitTooltip( 'ep-form-save' );

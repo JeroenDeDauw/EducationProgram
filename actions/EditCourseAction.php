@@ -14,7 +14,36 @@ class EditCourseAction extends EPEditAction {
 	public function onView() {
 		$this->getOutput()->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
 
-		return parent::onView();
+		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
+		
+		if ( !$this->isNewPost() && !$c::hasIdentifier( $this->getTitle()->getText() ) ) {
+			$name = $this->getTitle()->getText();
+			$bracketPos = strpos( $name, '(' );
+			
+			if ( $bracketPos !== false ) {
+				if ( $bracketPos > 0 && in_array( $name{$bracketPos - 1}, array( ' ', '_' ) ) ) {
+					$bracketPos -= 1;
+				}
+				
+				$name = substr( $name, 0, $bracketPos );
+			}
+			
+			EPCourse::displayAddNewRegion(
+				$this->getContext(),
+				array(
+					'name' => $this->getRequest()->getText(
+						'newname',
+						$name
+					),
+					'term' => $this->getRequest()->getText( 'newterm', '' ),
+				)
+			);
+			
+			return '';
+		}
+		else {
+			return parent::onView();
+		}
 	}
 	
 	protected function getItemClass() {
@@ -142,17 +171,19 @@ class EditCourseAction extends EPEditAction {
 	 * @see SpecialEPFormPage::getNewData()
 	 */
 	protected function getNewData() {
-		return array(
-			'org_id' => $this->getRequest()->getVal( 'neworg' ),
-			'name' => wfMsgExt(
-				'ep-course-edit-name-format',
-				'parsemag',
-				$this->getRequest()->getVal( 'newname' ),
-				$this->getRequest()->getVal( 'newterm' )
-			),
-			'term' => $this->getRequest()->getVal( 'newterm' ),
-			'mc' => $this->getRequest()->getVal( 'newname' ),
+		$data = parent::getNewData();
+		
+		$data['org_id'] = $this->getRequest()->getVal( 'neworg' );
+		$data['name'] = wfMsgExt(
+			'ep-course-edit-name-format',
+			'parsemag',
+			$data['name'],
+			$this->getRequest()->getVal( 'newterm' )
 		);
+		$data['term'] = $this->getRequest()->getVal( 'newterm' );
+		$data['mc'] = $data['name'];
+		
+		return $data;
 	}
 
 	/**

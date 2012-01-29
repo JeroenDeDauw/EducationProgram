@@ -20,6 +20,18 @@
 			);
 		} );
 		
+		var list = [ 'neworg', 'newname', 'newterm' ];
+		
+		for ( i in list ) {
+			if ( list.hasOwnProperty( i ) ) {
+				var $element = $( '#' + list[i] ),
+				val = $element.val();
+				
+				$element.removeAttr( 'value' );
+				$element.val( val );
+			}
+		}
+
 		$( '.ep-course-add' ).removeAttr( 'disabled' );
 
 	} );

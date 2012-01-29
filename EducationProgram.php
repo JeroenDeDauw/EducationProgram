@@ -93,6 +93,7 @@ $wgAutoloadClasses['EPHTMLCombobox'] 				= dirname( __FILE__ ) . '/includes/EPHT
 $wgAutoloadClasses['EPRevision'] 					= dirname( __FILE__ ) . '/includes/EPRevision.php';
 $wgAutoloadClasses['EPRevisionPager'] 				= dirname( __FILE__ ) . '/includes/EPRevisionPager.php';
 $wgAutoloadClasses['EPPageObject'] 					= dirname( __FILE__ ) . '/includes/EPPageObject.php';
+$wgAutoloadClasses['EPFailForm'] 					= dirname( __FILE__ ) . '/includes/EPFailForm.php';
 
 $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';
