@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Action for viewing a course.
+ *
+ * @since 0.1
+ *
+ * @file ViewCourseAction.php
+ * @ingroup EducationProgram
+ * @ingroup Action
+ *
+ * @licence GNU GPL v3+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class ViewCourseAction extends EPViewAction {
 	
 	public function getName() {

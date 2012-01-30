@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Action to edit an org.
+ *
+ * @since 0.1
+ *
+ * @file EditOrgAction.php
+ * @ingroup EducationProgram
+ * @ingroup Action
+ *
+ * @licence GNU GPL v3+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class EditOrgAction extends EPEditAction {
 	
 	

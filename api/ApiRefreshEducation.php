@@ -6,7 +6,7 @@
  * @since 0.1
  *
  * @file ApiRefreshEducation.php
- * @ingroup Education Program
+ * @ingroup EducationProgram
  * @ingroup API
  *
  * @licence GNU GPL v3+

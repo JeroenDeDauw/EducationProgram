@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Abstract action for viewing EPDBObject items.
+ *
+ * @since 0.1
+ *
+ * @file EPViewAction.php
+ * @ingroup EducationProgram
+ * @ingroup Action
+ *
+ * @licence GNU GPL v3+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 abstract class EPViewAction extends FormlessAction {
 	
 	/**

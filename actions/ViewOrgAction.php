@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Action for viewing an org.
+ *
+ * @since 0.1
+ *
+ * @file ViewOrgAction.php
+ * @ingroup EducationProgram
+ * @ingroup Action
+ *
+ * @licence GNU GPL v3+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class ViewOrgAction extends EPViewAction {
 	
 	public function getName() {

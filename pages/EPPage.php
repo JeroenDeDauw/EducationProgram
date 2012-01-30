@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Abstract Page for interacting with a EPDBObject.
+ *
+ * @since 0.1
+ *
+ * @file EPPage.php
+ * @ingroup EducationProgram
+ * @ingroup Page
+ *
+ * @licence GNU GPL v3+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 abstract class EPPage extends Page implements IContextSource {
 
 	protected $context;
@@ -7,6 +19,10 @@ abstract class EPPage extends Page implements IContextSource {
 	
 	public function __construct( Title $title ) {
 		$this->page = new WikiPage( $title );
+	}
+	
+	public function view() {
+	//	MediaWiki::articleFromTitle($title, $context)
 	}
 	
 	public function setContext( IContextSource $context ) {

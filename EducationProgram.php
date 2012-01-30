@@ -305,6 +305,7 @@ $wgResourceModules['ep.api'] = $moduleTemplate + array(
 		'ep.api.js',
 	),
 	'dependencies' => array(
+		'mediawiki.user',
 		'ep.core',
 	),
 );
@@ -381,6 +382,7 @@ $wgResourceModules['ep.instructor'] = $moduleTemplate + array(
 		'ep.instructor.js',
 	),
 	'dependencies' => array(
+		'mediawiki.user',
 		'jquery.ui.dialog',
 		'ep.core',
 		'ep.api',

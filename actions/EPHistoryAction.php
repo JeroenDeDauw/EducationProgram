@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Abstract action for viewing the history of EPDBObject items.
+ *
+ * @since 0.1
+ *
+ * @file EPHistoryAction.php
+ * @ingroup EducationProgram
+ * @ingroup Action
+ *
+ * @licence GNU GPL v3+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 abstract class EPHistoryAction extends FormlessAction {
 	
 	protected abstract function getItemClass();

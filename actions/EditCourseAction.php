@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Action to edit a course.
+ *
+ * @since 0.1
+ *
+ * @file EditCourseAction.php
+ * @ingroup EducationProgram
+ * @ingroup Action
+ *
+ * @licence GNU GPL v3+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class EditCourseAction extends EPEditAction {
 	
 	
