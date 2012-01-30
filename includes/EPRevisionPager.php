@@ -21,22 +21,15 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	protected $context;
 
 	/**
-	 * @since 0.1
-	 * @var string
-	 */
-	protected $className;
-
-	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
 	 * @param string $className
 	 * @param array $conds
 	 */
-	public function __construct( IContextSource $context, $className, array $conds = array() ) {
+	public function __construct( IContextSource $context, array $conds = array() ) {
 		$this->conds = $conds;
 		$this->context = $context;
-		$this->className = $className;
 
 		$this->mDefaultDirection = true;
 
@@ -127,9 +120,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 */
 	function formatRow( $row ) {
 		$revision = EPRevision::newFromDBResult( $row );
-
-		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
-		$object = $c::newFromArray( $revision->getField( 'data' ) );
+		$object = $revision->getObject();
 
 		$html = '';
 
@@ -139,6 +130,29 @@ class EPRevisionPager extends ReverseChronologicalPager {
 			array(),
 			array( 'revid' => $revision->getId() )
 		);
+
+		$html .= '&#160;&#160;';
+
+		$html .= Linker::userLink( $revision->getUser()->getId(), $revision->getUser()->getName() )
+			. Linker::userToolLinks( $revision->getUser()->getId(), $revision->getUser()->getName() );
+
+		if ( $revision->getField( 'minor_edit' ) ) {
+			$html .= '&#160;&#160;';
+			$html .= '<b>' . wfMsgHtml( 'minoreditletter' ) . '</b>';
+		}
+
+		if ( $revision->getField( 'comment' ) !== '' ) {
+			$html .= '&#160;.&#160;.&#160;';
+
+			$html .= Html::rawElement(
+				'span',
+				array(
+					'dir' => 'auto',
+					'class' => 'comment',
+				),
+				'(' . $this->getOutput()->parseInline( $revision->getField( 'comment' ) ) . ')'
+			);
+		}
 
 		return '<li>' . $html . '</li>';
 	}

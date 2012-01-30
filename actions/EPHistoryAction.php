@@ -104,7 +104,7 @@ abstract class EPHistoryAction extends FormlessAction {
 				'</fieldset></form>'
 		);
 
-		$pager = new EPRevisionPager( $this->getContext(), $this->getItemClass(), $conditions );
+		$pager = new EPRevisionPager( $this->getContext(), $conditions );
 
 		if ( $pager->getNumRows() ) {
 			$out->addHTML(
@@ -116,31 +116,6 @@ abstract class EPHistoryAction extends FormlessAction {
 		else {
 			// TODO
 		}
-
-//		$revisions = EPRevision::select(
-//			null,
-//			$conditions
-//		);
-//
-//		if ( count( $revisions ) > 0 ) {
-//			array_unshift( $revisions, EPRevision::newFromObject( $object ) );
-//			$this->displayRevisionList( $revisions );
-//		}
-//		else {
-//			// TODO
-//		}
 	}
 
-	protected function displayRevisionList( array /* of EPRevision */ $revisions ) {
-		foreach ( $revisions as &$revision ) {
-			$revision = '<li>' . $this->getRevisionItem( $revision ) . '</li>';
-		}
-
-		$this->getOutput()->addHTML( '<ul>' . implode( '', $revisions ) . '</ul>' );
-	}
-
-	protected function getRevisionItem( EPRevision $revision ) {
-		return $revision->getField( 'time' ) . json_encode( $revision->getField( 'data' ) ); // TODO
-	}
-	
 }
