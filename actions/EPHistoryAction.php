@@ -13,7 +13,14 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPHistoryAction extends FormlessAction {
-	
+
+	/**
+	 * Returns the class name of the EPDBObject this action handles.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	protected abstract function getItemClass();
 	
 	public function onView() {

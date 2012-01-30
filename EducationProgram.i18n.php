@@ -240,6 +240,7 @@ $messages['en'] = array(
 	'educationprogram-org-submit' => 'Submit',
 	'ep-addorg' => 'There is no institution with this name yet, but you can add it.',
 	'ep-editorg' => 'You are editing an existing institution.',
+	'ep-editorg-exists-already' => 'This institution already exists. You are editing it.',
 
 	// Course editing
 	'editcourse-add-legend' => 'Add course',
@@ -259,6 +260,7 @@ $messages['en'] = array(
 	'ep-course-edit-lang' => 'Course language',
 	'ep-addcourse' => 'There is no course with this name yet, but you can add it.',
 	'ep-editcourse' => 'You are editing an existing course.',
+	'ep-editcourse-exists-already' => 'This course already exists. You are editing it.',
 
 	'ep-course-invalid-org' => 'This institution does not exist.',
 	'ep-course-invalid-token' => 'The token needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',

@@ -14,7 +14,26 @@
  */
 abstract class EPPage extends Page implements IContextSource {
 
+	/**
+	 * Returns a list of actions this page can handle.
+	 * Array keys are action names, their values are the names of the handling Action classes.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
+	protected abstract function getActions();
+
+	/**
+	 * @since 0.1
+	 * @var IContextSource
+	 */
 	protected $context;
+
+	/**
+	 * @since 0.1
+	 * @var WikiPage
+	 */
 	protected $page;
 	
 	public function __construct( Title $title ) {
@@ -78,8 +97,6 @@ abstract class EPPage extends Page implements IContextSource {
 		return call_user_func_array( array( $this->getContext(), 'msg' ), $args );
 	}
 	
-	protected abstract function getActions();
-	
 	public function getActionOverrides() {
 		$actions = $this->getActions();
 		
@@ -95,7 +112,11 @@ abstract class EPPage extends Page implements IContextSource {
 	public function getTouched() {
 		return '19700101000000';
 	}
-	
+
+	/**
+	 * @deprecated
+	 * @return Language
+	 */
 	public function getLang() {
 		wfDeprecated( __METHOD__, '1.19' );
 		return $this->getLanguage();

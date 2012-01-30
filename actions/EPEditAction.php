@@ -29,7 +29,14 @@ abstract class EPEditAction extends FormlessAction {
 	 * @var boolean|null
 	 */
 	protected $isNew = null;
-	
+
+	/**
+	 * Returns the class name of the EPDBObject this action handles.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	protected abstract function getItemClass();
 	
 	public function onView() {
@@ -78,7 +85,7 @@ abstract class EPEditAction extends FormlessAction {
 				$object = new $c( $data, true );
 			}
 			elseif ( $this->isNewPost() ) {
-				$this->showWarning( wfMessage( 'educationprogram-' . strtolower( $this->getName() ) . '-exists-already' ) );
+				$this->showWarning( wfMessage( 'ep-' . strtolower( $this->getName() ) . '-exists-already' ) );
 			}
 
 			$this->getOutput()->setSubtitle( $this->getDescription() );

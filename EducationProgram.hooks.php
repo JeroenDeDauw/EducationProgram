@@ -225,19 +225,28 @@ final class EPHooks {
 
 		return true;
 	}
-	
+
+	/**
+	 * Display the tabs for a course or institution.
+	 *
+	 * @since 0.1
+	 *
+	 * @param SkinTemplate $sktemplate
+	 * @param array $links
+	 * @param Title $title
+	 */
 	protected static function displayTabs( SkinTemplate &$sktemplate, array &$links, Title $title ) {
 		$classes = array(
 			EP_NS_INSTITUTION => 'EPOrg',
 			EP_NS_COURSE => 'EPCourse',
 		);
 		
-		$ns = array(
-			EP_NS_COURSE,
-			EP_NS_COURSE_TALK,
-			EP_NS_INSTITUTION,
-			EP_NS_INSTITUTION_TALK,
-		);
+//		$ns = array(
+//			EP_NS_COURSE,
+//			EP_NS_COURSE_TALK,
+//			EP_NS_INSTITUTION,
+//			EP_NS_INSTITUTION_TALK,
+//		);
 		
 		$exists = null;
 		
@@ -290,44 +299,68 @@ final class EPHooks {
 			}
 		}
 		
-		if ( in_array( $title->getNamespace(), $ns ) ) {
-			$subjectTitle = $title->getSubjectPage();
-			
-			if ( is_null( $exists ) ) {
-				$class = $classes[$subjectTitle->getNamespace()];
-				$exists = $class::hasIdentifier( $title->getText() );
-			}
-			
-			$tab = array_shift( $links['namespaces'] );
-			self::fixRedlinking( $tab, $exists, $subjectTitle );
-			array_unshift( $links['namespaces'], $tab );
-		}
+//		if ( in_array( $title->getNamespace(), $ns ) ) {
+//			$subjectTitle = $title->getSubjectPage();
+//
+//			if ( is_null( $exists ) ) {
+//				$class = $classes[$subjectTitle->getNamespace()];
+//				$exists = $class::hasIdentifier( $title->getText() );
+//			}
+//
+//			$tab = array_shift( $links['namespaces'] );
+//			self::fixRedlinking( $tab, $exists, $subjectTitle );
+//			array_unshift( $links['namespaces'], $tab );
+//		}
 	}
-	
-	protected static function fixRedlinking( array &$tab, $exists, Title $title ) {
-		$classes = explode( ' ', $tab['class'] );
-		$classes = array_flip( $classes );
-		
-		if ( array_key_exists( 'new', $classes ) && $exists ) {
-			unset( $classes['new'] );
+
+//	protected static function fixRedlinking( array &$tab, $exists, Title $title ) {
+//		$classes = explode( ' ', $tab['class'] );
+//		$classes = array_flip( $classes );
+//
+//		if ( array_key_exists( 'new', $classes ) && $exists ) {
+//			unset( $classes['new'] );
+//		}
+//
+//		$classes = array_flip( $classes );
+//
+//		if ( !$exists && !in_array( 'new', $classes ) ) {
+//			$classes[] = 'new';
+//		}
+//
+//		$tab['class'] = implode( ' ', $classes );
+//
+//		$query = array();
+//
+//		if ( !$exists ) {
+//			$query['action'] = 'edit';
+//			$query['redlink'] = '1';
+//		}
+//
+//		$tab['href'] = $title->getLocalURL( $query );
+//	}
+
+	/**
+	 * Override the isKnown check for course and institution pages, so they don't all show up as redlinks.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/TitleIsKnown
+	 *
+	 * @since 0.1
+	 *
+	 * @param Title $title
+	 * @param boolean|null $isKnown
+	 *
+	 * @return true
+	 */
+	public static function onTitleIsKnown( Title $title, &$isKnown ) {
+		if ( in_array( $title->getNamespace(), array( EP_NS_COURSE, EP_NS_INSTITUTION ) ) ) {
+			$classes = array(
+				EP_NS_COURSE => 'EPCourse',
+				EP_NS_INSTITUTION => 'EPOrg',
+			);
+
+			$isKnown = $classes[$title->getNamespace()]::hasIdentifier( $title->getText() );
 		}
-		
-		$classes = array_flip( $classes );
-		
-		if ( !$exists && !in_array( 'new', $classes ) ) {
-			$classes[] = 'new';
-		}
-		
-		$tab['class'] = implode( ' ', $classes );
-		
-		$query = array();
-		
-		if ( !$exists ) {
-			$query['action'] = 'edit';
-			$query['redlink'] = '1';
-		}
-		
-		$tab['href'] = $title->getLocalURL( $query );
+
+		return true;
 	}
 	
 }
