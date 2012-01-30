@@ -36,7 +36,6 @@ abstract class EPEditAction extends FormlessAction {
 		$this->getOutput()->addModules( 'ep.formpage' );
 		
 		if ( $this->getRequest()->wasPosted() && $this->getUser()->matchEditToken( $this->getRequest()->getVal( 'wpEditToken' ) ) ) {
-			
 			$this->showForm();
 		}
 		else {
@@ -69,19 +68,24 @@ abstract class EPEditAction extends FormlessAction {
 		$data = $this->getNewData();
 		
 		$object = $c::selectRow( null, $data );
-		
-		if ( $object === false ) {
-			$this->isNew = true;
-			$object = new $c( $data, true );
-		}
-		elseif ( $this->isNewPost() ) {
-			$this->showWarning( wfMessage( 'educationprogram-' . strtolower( $this->getName() ) . '-exists-already' ) );
-		}
 
-		$this->getOutput()->setSubtitle( $this->getDescription() );
-		
-		$this->item = $object;
-		$this->showForm();
+		if ( $object !== false && $this->getRequest()->getText( 'redlink' ) === '1' ) {
+			$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
+		}
+		else {
+			if ( $object === false ) {
+				$this->isNew = true;
+				$object = new $c( $data, true );
+			}
+			elseif ( $this->isNewPost() ) {
+				$this->showWarning( wfMessage( 'educationprogram-' . strtolower( $this->getName() ) . '-exists-already' ) );
+			}
+
+			$this->getOutput()->setSubtitle( $this->getDescription() );
+
+			$this->item = $object;
+			$this->showForm();
+		}
 	}
 	
 	/**
