@@ -79,7 +79,99 @@ class ViewCourseAction extends EPViewAction {
 			);
 		}
 
+		$stats['instructors'] = $this->getInstructorsList( $course ) . $this->getInstructorControls( $course );
+
 		return $stats;
+	}
+
+	/**
+	 * Returns a list with the instructors for the provided course
+	 * or a message indicating there are none.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPCourse $course
+	 *
+	 * @return string
+	 */
+	protected function getInstructorsList( EPCourse $course ) {
+		$instructors = $course->getInstructors();
+
+		if ( count( $instructors ) > 0 ) {
+			$instList = array();
+
+			foreach ( $instructors as /* EPInstructor */ $instructor ) {
+				$instList[] = $instructor->getUserLink() . $instructor->getToolLinks( $this->getContext(), $course );
+			}
+
+			if ( false ) { // count( $instructors ) == 1
+				$html = $instList[0];
+			}
+			else {
+				$html = '<ul><li>' . implode( '</li><li>', $instList ) . '</li></ul>';
+			}
+		}
+		else {
+			$html = wfMsgHtml( 'ep-course-no-instructors' );
+		}
+
+		return Html::rawElement(
+			'div',
+			array( 'id' => 'ep-course-instructors' ),
+			$html
+		);
+	}
+
+	/**
+	 * Returns instructor addition controls for the course if the
+	 * current user has the right permissions.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPCourse $course
+	 *
+	 * @return string
+	 */
+	protected function getInstructorControls( EPCourse $course ) {
+		$user = $this->getUser();
+		$links = array();
+
+		if ( ( $user->isAllowed( 'ep-instructor' ) || $user->isAllowed( 'ep-beinstructor' ) )
+			&& !in_array( $user->getId(), $course->getField( 'instructors' ) )
+		) {
+			$links[] = Html::element(
+				'a',
+				array(
+					'href' => '#',
+					'class' => 'ep-add-instructor',
+					'data-courseid' => $course->getId(),
+					'data-coursename' => $course->getField( 'name' ),
+					'data-mode' => 'self',
+				),
+				wfMsg( 'ep-course-become-instructor' )
+			);
+		}
+
+		if ( $user->isAllowed( 'ep-instructor' ) ) {
+			$links[] = Html::element(
+				'a',
+				array(
+					'href' => '#',
+					'class' => 'ep-add-instructor',
+					'data-courseid' => $course->getId(),
+					'data-coursename' => $course->getField( 'name' ),
+				),
+				wfMsg( 'ep-course-add-instructor' )
+			);
+		}
+
+		if ( count( $links ) > 0 ) {
+			$this->getOutput()->addModules( 'ep.instructor' );
+			return '<br />' . $this->getLanguage()->pipeList( $links );
+		}
+		else {
+			return '';
+		}
 	}
 	
 }

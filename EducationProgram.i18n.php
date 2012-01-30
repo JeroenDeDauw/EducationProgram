@@ -172,6 +172,9 @@ $messages['en'] = array(
 	'ep-courses-add' => 'Add course',
 	'ep-courses-noorgs' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
 	'ep-courses-addorgfirst' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
+	'ep-course-no-instructors' => 'There are no instructors for this course yet.',
+	'ep-course-become-instructor' => 'Become an instructor',
+	'ep-course-add-instructor' => 'Add an instructor',
 
 	// Special:Students
 	'ep-students-noresults' => 'There are no students to list.',
@@ -300,6 +303,7 @@ $messages['en'] = array(
 	'viewcourseaction-summary-students' => 'Student count',
 	'viewcourseaction-summary-status' => 'Status',
 	'viewcourseaction-summary-token' => 'Enrollment token',
+	'viewcourseaction-summary-instructors' => 'Instructors',
 	'ep-course-description' => 'description',
 
 	// Institution history

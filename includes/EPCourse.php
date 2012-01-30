@@ -89,6 +89,7 @@ class EPCourse extends EPPageObject {
 			'end' => 'str', // TS_MW
 			'description' => 'str',
 			'token' => 'str',
+			'instructors' => 'array',
 			'online_ambs' => 'array',
 			'campus_ambs' => 'array',
 			'field' => 'str',
@@ -112,6 +113,7 @@ class EPCourse extends EPPageObject {
 			'end' => wfTimestamp( TS_MW ),
 			'description' => '',
 			'token' => '',
+			'instructors' => array(),
 			'online_ambs' => array(),
 			'campus_ambs' => array(),
 			'field' => '',
