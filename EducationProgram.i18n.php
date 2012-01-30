@@ -281,7 +281,6 @@ $messages['en'] = array(
 	'vieworgaction-summary-status' => 'Status',
 	'vieworgaction-summary-courses' => 'Course count',
 	'vieworgaction-summary-students' => 'Student count',
-	'ep-institution-nav-edit' => 'Edit this institution',
 	'ep-institution-add-course' => 'Add a course',
 	'ep-institution-inactive' => 'Inactive',
 	'ep-institution-active' => 'Active',
@@ -300,7 +299,12 @@ $messages['en'] = array(
 	'viewcourseaction-summary-status' => 'Status',
 	'viewcourseaction-summary-token' => 'Enrollment token',
 	'ep-course-description' => 'description',
-	'ep-course-nav-edit' => 'Edit this course',
+
+	// Institution history
+	'ep-org-history' => 'View logs for this institution',
+
+	// Course history
+	'ep-course-history' => 'View logs for this course',
 
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',

@@ -20,7 +20,12 @@ class OrgHistoryAction extends EPHistoryAction {
 	}
 
 	protected function getDescription() {
-		return wfMsgHtml( 'orghistory' );
+		return Linker::linkKnown(
+			SpecialPage::getTitleFor( 'Log' ),
+			$this->msg( 'ep-org-history' )->escaped(),
+			array(),
+			array( 'page' => $this->getTitle()->getPrefixedText() )
+		);
 	}
 
 	protected function getItemClass() {

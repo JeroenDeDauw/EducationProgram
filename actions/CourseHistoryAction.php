@@ -20,7 +20,12 @@ class CourseHistoryAction extends EPHistoryAction {
 	}
 
 	protected function getDescription() {
-		return wfMsgHtml( 'coursehistory' );
+		return Linker::linkKnown(
+			SpecialPage::getTitleFor( 'Log' ),
+			$this->msg( 'ep-course-history' )->escaped(),
+			array(),
+			array( 'page' => $this->getTitle()->getPrefixedText() )
+		);
 	}
 
 	protected function getItemClass() {
