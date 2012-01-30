@@ -137,24 +137,16 @@ $messages['en'] = array(
 	// Special pages
 	'specialpages-group-education' => 'Education',
 	'special-mycourses' => 'My courses',
-	'special-institution' => 'Institution',
 	'special-institutions' => 'Institutions',
 	'special-student' => 'Student',
 	'special-students' => 'Students',
-	'special-course' => 'Course',
 	'special-courses' => 'Courses',
 	'special-educationprogram' => 'Education Program',
-	'special-editinstitution-add' => 'Add institution',
-	'special-editinstitution-edit' => 'Edit institution',
-	'special-editcourse-add' => 'Add course',
-	'special-editcourse-edit' => 'Edit course',
 	'special-enroll' => 'Enroll',
 	'special-onlineambassadors' => 'Online ambassadors',
 	'special-campusambassadors' => 'Campus ambassadors',
 	'special-onlineambassador' => 'Online ambassador',
 	'special-campusambassador' => 'Campus ambassador',
-	'special-coursehistory' => 'Revision history of "$1"',
-	'special-institutionhistory' => 'Revision history of "$1"',
 
 	// Course statuses
 	'ep-course-status-passed' => 'Passed',
@@ -238,7 +230,7 @@ $messages['en'] = array(
 	// Online ambassador pager
 	'epstudentpager-header-user-id' => 'User',
 
-	// Special:EditInstitution
+	// Institution editing
 	'editinstitution-text' => 'Enter the institution details below and click submit to save your changes.',
 	'educationprogram-org-edit-name' => 'Institution name',
 	'editinstitution-add-legend' => 'Add institution',
@@ -247,7 +239,7 @@ $messages['en'] = array(
 	'educationprogram-org-edit-country' => 'Country',
 	'educationprogram-org-submit' => 'Submit',
 
-	// Special:EditCourse
+	// Course editing
 	'editcourse-add-legend' => 'Add course',
 	'editcourse-edit-legend' => 'Edit course',
 	'ep-course-edit-term' => 'Term',
@@ -275,35 +267,35 @@ $messages['en'] = array(
 	'ep-pager-confirm-delete-selected' => 'Are you sure you want to delete the selected {{PLURAL:$1|item|items}}?',
 	'ep-pager-delete-selected-fail' => 'Could not delete the selected {{PLURAL:$1|item|items}}.',
 
-	// Special:Institution
+	// Institution viewing
 	'ep-institution-none' => 'There is no institution with name "$1". See [[Special:Institution|here]] for a list of institutions.',
 	'ep-institution-create' => 'There is no institution with name "$1" yet, but you can create it.',
 	'ep-institution-title' => 'Institution: $1',
-	'vieworgaction-summary-name' => 'Name',
-	'vieworgaction-summary-city' => 'City',
-	'vieworgaction-summary-country' => 'Country',
-	'vieworgaction-summary-status' => 'Status',
-	'vieworgaction-summary-courses' => 'Course count',
-	'vieworgaction-summary-students' => 'Student count',
+	'specialinstitution-summary-name' => 'Name',
+	'specialinstitution-summary-city' => 'City',
+	'specialinstitution-summary-country' => 'Country',
+	'specialinstitution-summary-status' => 'Status',
+	'specialinstitution-summary-courses' => 'Course count',
+	'specialinstitution-summary-students' => 'Student count',
 	'ep-institution-nav-edit' => 'Edit this institution',
 	'ep-institution-add-course' => 'Add a course',
 	'ep-institution-inactive' => 'Inactive',
 	'ep-institution-active' => 'Active',
 	'ep-institution-courses' => 'Courses',
 
-	// Special:Course
+	// Course viewing
 	'ep-course-title' => 'Course: $1',
 	'ep-course-students' => 'Students',
 	'ep-course-none' => 'There is no course with id "$1". See [[Special:Courses|here]] for a list of courses.',
 	'ep-course-create' => 'There is no course with id "$1", but you can create a new one.',
-	'viewcourseaction-summary-org' => 'Institution',
-	'viewcourseaction-summary-term' => 'Term',
-	'viewcourseaction-summary-start' => 'Start',
-	'viewcourseaction-summary-end' => 'End',
-	'viewcourseaction-summary-students' => 'Student count',
-	'viewcourseaction-summary-status' => 'Status',
+	'specialcourse-summary-org' => 'Institution',
+	'specialcourse-summary-term' => 'Term',
+	'specialcourse-summary-start' => 'Start',
+	'specialcourse-summary-end' => 'End',
+	'specialcourse-summary-students' => 'Student count',
+	'specialcourse-summary-status' => 'Status',
 	'ep-course-description' => 'description',
-	'viewcourseaction-summary-token' => 'Enrollment token',
+	'specialcourse-summary-token' => 'Enrollment token',
 	'ep-course-nav-edit' => 'Edit this course',
 
 	// Special:Ambassador

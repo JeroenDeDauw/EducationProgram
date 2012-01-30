@@ -111,6 +111,8 @@ $wgAutoloadClasses['SpecialCAs'] 					= dirname( __FILE__ ) . '/specials/Special
 $wgAutoloadClasses['SpecialOAs'] 					= dirname( __FILE__ ) . '/specials/SpecialOAs.php';
 $wgAutoloadClasses['SpecialCA'] 					= dirname( __FILE__ ) . '/specials/SpecialCA.php';
 $wgAutoloadClasses['SpecialOA'] 					= dirname( __FILE__ ) . '/specials/SpecialOA.php';
+$wgAutoloadClasses['SpecialOAProfile'] 				= dirname( __FILE__ ) . '/specials/SpecialOAProfile.php';
+$wgAutoloadClasses['SpecialCAProfile'] 				= dirname( __FILE__ ) . '/specials/SpecialCAProfile.php';
 
 // Special pages
 $wgSpecialPages['MyCourses'] 						= 'SpecialMyCourses';
@@ -124,6 +126,8 @@ $wgSpecialPages['CampusAmbassadors'] 				= 'SpecialCAs';
 $wgSpecialPages['OnlineAmbassadors'] 				= 'SpecialOAs';
 $wgSpecialPages['CampusAmbassador'] 				= 'SpecialCA';
 $wgSpecialPages['OnlineAmbassador'] 				= 'SpecialOA';
+$wgSpecialPages['CampusAmbassadorProfile'] 			= 'SpecialCAProfile';
+$wgSpecialPages['OnlineAmbassadorProfile'] 			= 'SpecialOAProfile';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';
 $wgSpecialPageGroups['Institutions'] 				= 'education';
@@ -134,6 +138,8 @@ $wgSpecialPageGroups['EducationProgram'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['OnlineAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassador'] 			= 'education';
+$wgSpecialPageGroups['CampusAmbassadorProfile'] 	= 'education';
+$wgSpecialPageGroups['OnlineAmbassadorProfile'] 	= 'education';
 
 // DB object classes
 $egEPDBObjects = array();
