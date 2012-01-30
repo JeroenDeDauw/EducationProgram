@@ -253,7 +253,7 @@ final class EPHooks {
 		if ( array_key_exists( $title->getNamespace(), $classes ) ) {
 			$links['views'] = array();
 			$links['actions'] = array();
-			
+
 			$user = $sktemplate->getUser();
 			$class = $classes[$title->getNamespace()];
 			$exists = $class::hasIdentifier( $title->getText() );

@@ -29,6 +29,9 @@ class EPSettings {
 	protected static function getDefaultSettings() {
 		return array(
 			'enableTopLink' => true,
+			'ambassadorPictureDomains' => array(
+				'wikimedia.org'
+			),
 		);
 	}
 

@@ -170,6 +170,18 @@ class EPOrg extends EPPageObject {
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see EPDBObject::writeToDB()
+	 */
+	public function writeToDB() {
+		if ( $this->hasField( 'name' ) ) {
+			$this->setField( 'name', $GLOBALS['wgLang']->ucfirst( $this->getField( 'name' ) ) );
+		}
+
+		return parent::writeToDB();
+	}
+
+	/**
 	 * Returns a list of orgs in an array that can be fed to select inputs.
 	 *
 	 * @since 0.1

@@ -270,6 +270,18 @@ class EPCourse extends EPPageObject {
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see EPDBObject::writeToDB()
+	 */
+	public function writeToDB() {
+		if ( $this->hasField( 'name' ) ) {
+			$this->setField( 'name', $GLOBALS['wgLang']->ucfirst( $this->getField( 'name' ) ) );
+		}
+
+		return parent::writeToDB();
+	}
+
+	/**
 	 * Returns the org associated with this term.
 	 *
 	 * @since 0.1

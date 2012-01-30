@@ -18,56 +18,35 @@ class ViewCourseAction extends EPViewAction {
 		return 'viewcourse';
 	}
 
-	/**
-	 * 
-	 *
-	 * @return String HTML
-	 */
-	public function onView() {
+	protected function getItemClass() {
+		return 'EPCourse';
+	}
+
+	protected function displayPage( EPDBObject $course ) {
+		parent::displayPage( $course );
+
 		$out = $this->getOutput();
-		
-		$name = $this->getTitle()->getText();
-		
-		$course = EPCourse::get( $name );
 
-		if ( $course === false ) {
-			$this->displayNavigation();
+		$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-course-description' ) ) );
 
-			if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
-			}
-			else {
-				$out->addWikiMsg( 'ep-course-none', $name );
-			}
+		$out->addHTML( $this->getOutput()->parse( $course->getField( 'description' ) ) );
+
+		$studentIds = array_map(
+			function( EPStudent $student ) {
+				return $student->getId();
+			},
+			$course->getStudents( 'id' )
+		);
+
+		if ( count( $studentIds ) > 0 ) {
+			$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-course-students' ) ) );
+			EPStudent::displayPager( $this->getContext(), array( 'id' => $studentIds ) );
 		}
 		else {
-			$this->displayNavigation();
-
-			$this->displaySummary( $course );
-
-			$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-course-description' ) ) );
-
-			$out->addHTML( $this->getOutput()->parse( $course->getField( 'description' ) ) );
-
-			$studentIds = array_map(
-				function( EPStudent $student ) {
-					return $student->getId();
-				},
-				$course->getStudents( 'id' )
-			);
-
-			if ( count( $studentIds ) > 0 ) {
-				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-course-students' ) ) );
-				EPStudent::displayPager( $this->getContext(), array( 'id' => $studentIds ) );
-			}
-			else {
-				// TODO
-			}
+			// TODO
 		}
-
-		return '';
 	}
-	
+
 	/**
 	 * Gets the summary data.
 	 *

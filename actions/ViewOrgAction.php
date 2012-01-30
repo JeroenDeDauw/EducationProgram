@@ -18,47 +18,26 @@ class ViewOrgAction extends EPViewAction {
 		return 'vieworg';
 	}
 
-	/**
-	 * 
-	 *
-	 * @return String HTML
-	 */
-	public function onView() {
-		$out = $this->getOutput();
-		
-		$name = $this->getTitle()->getText();
-		
-		$out->setPageTitle( wfMsgExt( 'ep-institution-title', 'parsemag', $name ) );
-
-		$org = EPOrg::get( $name );
-
-		if ( $org === false ) {
-			if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
-				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
-			}
-			else {
-				$out->addWikiMsg( 'ep-institution-none', $name );
-			}
-		}
-		else {
-			$this->displayNavigation();
-
-			$this->displaySummary( $org );
-
-			$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-courses' ) ) );
-
-			EPCourse::displayPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
-
-			if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-add-course' ) ) );
-
-				EPCourse::displayAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
-			}
-		}
-
-		return '';
+	protected function getItemClass() {
+		return 'EPOrg';
 	}
-	
+
+	protected function displayPage( EPDBObject $org ) {
+		parent::displayPage( $org );
+
+		$out = $this->getOutput();
+
+		$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-courses' ) ) );
+
+		EPCourse::displayPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
+
+		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
+			$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-add-course' ) ) );
+
+			EPCourse::displayAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
+		}
+	}
+
 	/**
 	 * Gets the summary data.
 	 *

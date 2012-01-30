@@ -113,7 +113,7 @@ abstract class SpecialEPPage extends SpecialPage {
 
 	/**
 	 * Get the Language being used for this instance.
-	 * getLang was deprecated in 1.19, getLanguage was introduces in the same version.
+	 * getLang was deprecated in 1.19, getLanguage was introduced in the same version.
 	 *
 	 * @since 0.1
 	 *

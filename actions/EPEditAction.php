@@ -166,6 +166,8 @@ abstract class EPEditAction extends FormlessAction {
 		else {
 			$data['name'] = $this->getTitle()->getText();
 		}
+
+		$data['name'] = $this->getLanguage()->ucfirst( $data['name'] );
 		
 		return $data;
 	}

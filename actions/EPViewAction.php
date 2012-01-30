@@ -19,6 +19,97 @@ abstract class EPViewAction extends FormlessAction {
 	}
 
 	/**
+	 * Returns the class name of the EPDBObject this action handles.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
+	protected abstract function getItemClass();
+
+	/**
+	 *
+	 *
+	 * @return String HTML
+	 */
+	public function onView() {
+		$out = $this->getOutput();
+		$name = $this->getTitle()->getText();
+		$class = $this->getItemClass();
+
+		$object = false;
+
+		if ( $this->getRequest()->getCheck( 'revid' ) ) {
+			$currentObject = $class::get( $name, 'id' );
+
+			if ( $currentObject !== false ) {
+				$rev = EPRevision::selectRow( null, array(
+					'id' => $this->getRequest()->getInt( 'revid' ),
+					'object_id' => $currentObject->getField( 'id' )
+				) );
+
+				if ( $rev === false ) {
+					// TODO
+				}
+				else {
+					$object = $rev->getObject();
+
+					$lang = $this->getLanguage();
+
+					$current = false; // TODO
+					$td = $lang->timeanddate( $rev->getField( 'time' ), true );
+					$tddate = $lang->date( $rev->getField( 'time' ), true );
+					$tdtime = $lang->time( $rev->getField( 'time' ), true );
+					
+					$userToolLinks = Linker::userLink(  $rev->getUser()->getId(), $rev->getUser()->getName() )
+						. Linker::userToolLinks( $rev->getUser()->getId(), $rev->getUser()->getName() );
+
+					$infomsg = $current && !wfMessage( 'revision-info-current' )->isDisabled()
+						? 'revision-info-current'
+						: 'revision-info';
+
+					$out->setSubtitle(
+						"<div id=\"mw-{$infomsg}\">" .
+							wfMessage( $infomsg, $td )->rawParams( $userToolLinks )->params(
+								$rev->getId(),
+								$tddate,
+								$tdtime,
+								$rev->getUser()
+							)->parse() .
+						"</div>"
+					);
+				}
+			}
+		}
+
+		if ( $object === false ) {
+			$object = $class::get( $name );
+		}
+
+		if ( $object === false ) {
+			$this->displayNavigation();
+
+			if ( $this->getUser()->isAllowed( $class::getEditRight() ) ) {
+				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
+			}
+			else {
+				$out->addWikiMsg( strtolower( get_called_class() ) . '-none', $name );
+			}
+		}
+		else {
+			$this->displayPage( $object );
+		}
+
+		return '';
+	}
+
+	protected function displayPage( EPDBObject $object ) {
+		$this->displayNavigation();
+
+		$this->displaySummary( $object );
+	}
+
+	/**
 	 * Adds a navigation menu with the provided links.
 	 * Links should be provided in an array with:
 	 * label => Title (object)
