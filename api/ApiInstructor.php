@@ -37,7 +37,7 @@ class ApiInstructor extends ApiBase {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 		
-		$course = EPCourse::selectRow( array( 'id', 'name', 'instructors' ), array( 'id' => $params['orgid'] ) );
+		$course = EPCourse::selectRow( array( 'id', 'name', 'instructors' ), array( 'id' => $params['courseid'] ) );
 
 		if ( $course === false ) {
 			$this->dieUsage( wfMsg( 'ep-addinstructor-invalid-course' ), 'invalid-course' );
@@ -135,7 +135,7 @@ class ApiInstructor extends ApiBase {
 			'courseid' => 'The ID of the course to/from which the instructor should be added/removed',
 			'username' => 'Name of the user to associate as instructor',
 			'userid' => 'Id of the user to associate as instructor',
-			'reason' => 'Message with the reason for this change for nthe log',
+			'reason' => 'Message with the reason for this change for the log',
 			'token' => 'Edit token. You can get one of these through prop=info.',
 		);
 	}

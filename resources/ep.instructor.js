@@ -15,7 +15,7 @@
 		$( '.ep-instructor-remove' ).click( function( event ) {
 			var $this = $( this ),
 			courseId = $this.attr( 'data-courseid' ),
-			courseName = $this.attr( 'data-mcname' ),
+			courseName = $this.attr( 'data-coursename' ),
 			userId = $this.attr( 'data-userid' ),
 			userName = $this.attr( 'data-username' ),
 			bestName = $this.attr( 'data-bestname' ),
@@ -43,7 +43,7 @@
 					$li.remove();
 
 					if ( $ul.find( 'li' ).length < 1 ) {
-						$ul.closest( 'div' ).text( mw.msg( 'ep-mc-no-instructors' ) );
+						$ul.closest( 'div' ).text( mw.msg( 'ep-course-no-instructors' ) );
 					}
 				} ).fail( function() {
 					$remove.button( 'option', 'disabled', false );
@@ -80,8 +80,8 @@
 			$dialog.append( $( '<p>' ).msg(
 				'ep-instructor-remove-text',
 				mw.html.escape( userName ),
-				'<b>' + mw.html.escape( bestName ) + '</b>', 
-				'<b>' + mw.html.escape( courseName ) + '</b>'
+				$( '<b>' ).text( bestName ),
+				$( '<b>' ).text( courseName )
 			) );
 
 			//$dialog.append( $( '<p>' ).msg( 'ep-instructor-remove-title' ) );
