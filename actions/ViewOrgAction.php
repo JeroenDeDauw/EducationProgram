@@ -18,10 +18,6 @@ class ViewOrgAction extends EPViewAction {
 		return 'vieworg';
 	}
 
-	protected function getDescription() {
-		return wfMsg( 'vieworg' );
-	}
-
 	/**
 	 * 
 	 *

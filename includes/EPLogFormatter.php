@@ -19,7 +19,7 @@ class EPLogFormatter extends LogFormatter {
 	 * 
 	 * @since 0.1
 	 * 
-	 * This is overriden to change the link text to only include the name of the object,
+	 * This is overridden to change the link text to only include the name of the object,
 	 * rather then the full name of it's page.
 	 */
 	protected function makePageLink( Title $title = null, $parameters = array() ) {

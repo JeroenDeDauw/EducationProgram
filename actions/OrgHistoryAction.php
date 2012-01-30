@@ -20,7 +20,7 @@ class OrgHistoryAction extends EPHistoryAction {
 	}
 
 	protected function getDescription() {
-		return wfMsg( 'orghistory' );
+		return wfMsgHtml( 'orghistory' );
 	}
 
 	protected function getItemClass() {

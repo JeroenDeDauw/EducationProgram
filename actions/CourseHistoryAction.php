@@ -20,7 +20,7 @@ class CourseHistoryAction extends EPHistoryAction {
 	}
 
 	protected function getDescription() {
-		return wfMsg( 'coursehistory' );
+		return wfMsgHtml( 'coursehistory' );
 	}
 
 	protected function getItemClass() {

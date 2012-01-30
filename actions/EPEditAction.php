@@ -77,6 +77,8 @@ abstract class EPEditAction extends FormlessAction {
 		elseif ( $this->isNewPost() ) {
 			$this->showWarning( wfMessage( 'educationprogram-' . strtolower( $this->getName() ) . '-exists-already' ) );
 		}
+
+		$this->getOutput()->setSubtitle( $this->getDescription() );
 		
 		$this->item = $object;
 		$this->showForm();

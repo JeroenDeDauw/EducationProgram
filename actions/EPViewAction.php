@@ -13,7 +13,11 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPViewAction extends FormlessAction {
-	
+
+	protected function getDescription() {
+		return '';
+	}
+
 	/**
 	 * Adds a navigation menu with the provided links.
 	 * Links should be provided in an array with:

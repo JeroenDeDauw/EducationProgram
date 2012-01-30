@@ -20,7 +20,7 @@ class EditOrgAction extends EPEditAction {
 	}
 
 	protected function getDescription() {
-		return wfMsg( 'editorg' );
+		return wfMsgHtml( $this->isNew() ? 'ep-addorg' : 'ep-editorg' );
 	}
 
 	protected function getItemClass() {

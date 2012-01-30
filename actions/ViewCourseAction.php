@@ -18,10 +18,6 @@ class ViewCourseAction extends EPViewAction {
 		return 'viewcourse';
 	}
 
-	protected function getDescription() {
-		return wfMsg( 'viewcourse' );
-	}
-
 	/**
 	 * 
 	 *

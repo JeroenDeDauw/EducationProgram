@@ -20,7 +20,7 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	protected function getDescription() {
-		return wfMsg( 'editcourse' );
+		return wfMsgHtml( $this->isNew() ? 'ep-addcourse' : 'ep-editcourse' );
 	}
 
 	public function onView() {
