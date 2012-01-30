@@ -118,7 +118,7 @@ abstract class EPEditAction extends FormlessAction {
 	 */
 	protected function isNew() {
 		if ( is_null( $this->isNew ) ) {
-			$isNew = $this->isNewPost(); 
+			$this->isNew = $this->isNewPost();
 		}
 
 		return $this->isNew;

@@ -50,6 +50,9 @@ class EditCourseAction extends EPEditAction {
 					'term' => $this->getRequest()->getText( 'newterm', '' ),
 				)
 			);
+
+			$this->isNew = true;
+			$this->getOutput()->setSubtitle( $this->getDescription() );
 			
 			return '';
 		}

@@ -59,12 +59,8 @@ class ViewCourseAction extends EPViewAction {
 	protected function getSummaryData( EPDBObject $course ) {
 		$stats = array();
 
-		$org = EPOrg::selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
-
-		$stats['org'] = Linker::linkKnown(
-			SpecialPage::getTitleFor( 'Institution', $org ),
-			htmlspecialchars( $org )
-		);
+		$orgName = EPOrg::selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
+		$stats['org'] = EPOrg::getLinkFor( $orgName );
 
 		$lang = $this->getLanguage();
 
