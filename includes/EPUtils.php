@@ -109,5 +109,47 @@ class EPUtils {
 			)
 		);
 	}
+	
+	/**
+	 * Returns the tool links for this ambassador.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param EPIRole $role
+	 * @param IContextSource $context
+	 * @param EPCourse|null $course
+	 * 
+	 * @return string
+	 */
+	public static function getRoleToolLinks( EPIRole $role, IContextSource $context, EPCourse $course = null ) {
+		$roleName = $role->getRoleName();
+		$links = array();
+		
+		$links[] = Linker::userTalkLink( $role->getUser()->getId(), $role->getUser()->getName() );
+		
+		$links[] = Linker::link( SpecialPage::getTitleFor( 'Contributions', $role->getUser()->getName() ), wfMsgHtml( 'contribslink' ) );
+		
+		if ( !is_null( $course ) &&
+			( $context->getUser()->isAllowed( 'ep-' . $roleName ) || $role->getUser()->getId() == $context->getUser()->getId() ) ) {
+			$links[] = Html::element(
+				'a',
+				array(
+					'href' => '#',
+					'class' => 'ep-remove-role',
+					'data-role' => $roleName,
+					'data-courseid' => $course->getId(),
+					'data-coursename' => $course->getField( 'name' ),
+					'data-userid' => $role->getUser()->getId(),
+					'data-username' => $role->getUser()->getName(),
+					'data-bestname' => $role->getName(),
+				),
+				wfMsg( 'ep-' . $roleName . '-remove' )
+			);
+			
+			$context->getOutput()->addModules( 'ep.enlist' );
+		}
+		
+		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( $links ) . ')</span>';
+	}
 
 }

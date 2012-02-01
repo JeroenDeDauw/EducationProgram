@@ -1,24 +1,24 @@
 <?php
 
 /**
- * API module to associate/disassociate users as instructor with/from a course.
+ * API module to associate/disassociate users as instructor or ambassador with/from a course.
  *
  * @since 0.1
  *
- * @file ApiInstructor.php
+ * @file ApiEnlist.php
  * @ingroup EducationProgram
  * @ingroup API
  *
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiInstructor extends ApiBase {
+class ApiEnlist extends ApiBase {
 
 	public function execute() {
 		$params = $this->extractRequestParams();
 
 		if ( !( isset( $params['username'] ) XOR isset( $params['userid'] ) ) ) {
-			$this->dieUsage( wfMsg( 'ep-addinstructor-invalid-user-args' ), 'username-xor-userid' );
+			$this->dieUsage( wfMsg( 'ep-enlist-invalid-user-args' ), 'username-xor-userid' );
 		}
 
 		if ( isset( $params['username'] ) ) {
@@ -30,27 +30,28 @@ class ApiInstructor extends ApiBase {
 		}
 		
 		if ( $userId < 1 ) {
-			$this->dieUsage( wfMsg( 'ep-addinstructor-invalid-user' ), 'invalid-user' );
+			$this->dieUsage( wfMsg( 'ep-enlist-invalid-user' ), 'invalid-user' );
 		}
 		
 		if ( !$this->userIsAllowed( $userId ) ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 		
-		$course = EPCourse::selectRow( array( 'id', 'name', 'instructors' ), array( 'id' => $params['courseid'] ) );
+		$field = $params['role'] === 'instructor' ? 'instructors' : $params['role'] . '_ambs'; 
+		$course = EPCourse::selectRow( array( 'id', 'name', $field ), array( 'id' => $params['courseid'] ) );
 
 		if ( $course === false ) {
-			$this->dieUsage( wfMsg( 'ep-addinstructor-invalid-course' ), 'invalid-course' );
+			$this->dieUsage( wfMsg( 'ep-enlist-invalid-course' ), 'invalid-course' );
 		}
 		
 		$success = false;
 		
 		switch ( $params['subaction'] ) {
 			case 'add':
-				$success = $course->addInstructors( array( $userId ), $params['reason'] );
+				$success = $course->enlistUsers( array( $userId ), $params['role'], $params['reason'] );
 				break;
 			case 'remove':
-				$success = $course->removeInstructors( array( $userId ), $params['reason'] );
+				$success = $course->unenlistUsers( array( $userId ), $params['role'], $params['reason'] );
 				break;
 		}
 		
@@ -108,6 +109,10 @@ class ApiInstructor extends ApiBase {
 				ApiBase::PARAM_TYPE => array( 'add', 'remove' ),
 				ApiBase::PARAM_REQUIRED => true,
 			),
+			'role' => array(
+				ApiBase::PARAM_TYPE => array( 'instructor', 'online', 'campus' ),
+				ApiBase::PARAM_REQUIRED => true,
+			),
 			'username' => array(
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => false,
@@ -131,10 +136,11 @@ class ApiInstructor extends ApiBase {
 
 	public function getParamDescription() {
 		return array(
-			'subaction' => 'Specifies what you want to do with the instructor',
-			'courseid' => 'The ID of the course to/from which the instructor should be added/removed',
-			'username' => 'Name of the user to associate as instructor',
-			'userid' => 'Id of the user to associate as instructor',
+			'subaction' => 'Specifies what you want to do with the instructor or ambassador',
+			'role' => 'The role to affect. "instructor" for instructor, "online" for online ambassadors and "campus" for campus ambassadors',
+			'courseid' => 'The ID of the course to/from which the instructor or ambassador should be added/removed',
+			'username' => 'Name of the user to associate as instructor or ambassador',
+			'userid' => 'Id of the user to associate as instructor or ambassador',
 			'reason' => 'Message with the reason for this change for the log',
 			'token' => 'Edit token. You can get one of these through prop=info.',
 		);
@@ -142,7 +148,7 @@ class ApiInstructor extends ApiBase {
 
 	public function getDescription() {
 		return array(
-			'API module for associating/disassociating a user as instructor with/from a course.'
+			'API module for associating/disassociating a user as instructor or ambassador with/from a course.'
 		);
 	}
 

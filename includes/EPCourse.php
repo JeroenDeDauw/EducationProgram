@@ -36,6 +36,22 @@ class EPCourse extends EPPageObject {
 	 * @var {array of EPInstructor}|false
 	 */
 	protected $instructors = false;
+	
+	/**
+	 * Field for caching the online ambassaords.
+	 *
+	 * @since 0.1
+	 * @var {array of EPOA}|false
+	 */
+	protected $oas = false;
+	
+		/**
+	 * Field for caching the campus ambassaords.
+	 *
+	 * @since 0.1
+	 * @var {array of EPCA}|false
+	 */
+	protected $cas = false;
 
 	/**
 	 * Returns a list of statuses a term can have.
@@ -479,11 +495,75 @@ class EPCourse extends EPPageObject {
 			$this->instructors = array();
 
 			foreach ( $this->getField( 'instructors' ) as $userId ) {
-				$this->instructors[] = EPInstructor::newFromId( $userId );
+				$this->instructors[] = EPInstructor::newFromUserId( $userId );
 			}
 		}
 
 		return $this->instructors;
+	}
+	
+	/**
+	 * Returns the campus ambassadors as a list of EPCA objects.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array of EPCA
+	 */
+	public function getCampusAmbassadors() {
+		if ( $this->cas === false ) {
+			$this->cas = array();
+
+			foreach ( $this->getField( 'campus_ambs' ) as $userId ) {
+				$this->cas[] = EPCA::newFromUserId( $userId );
+			}
+		}
+
+		return $this->cas;
+	}
+	
+	/**
+	 * Returns the online ambassadors as a list of EPOA objects.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array of EPOA
+	 */
+	public function getOnlineAmbassadors() {
+		if ( $this->oas === false ) {
+			$this->oas = array();
+
+			foreach ( $this->getField( 'online_ambs' ) as $userId ) {
+				$this->oas[] = EPOA::newFromUserId( $userId );
+			}
+		}
+
+		return $this->oas;
+	}
+	
+	/**
+	 * Returns the users that have a certain role as list of EPIRole objects.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param string $roleName
+	 * 
+	 * @return array of EPIRole
+	 * @throws MWException
+	 */
+	public function getUserWithRole( $roleName ) {
+		switch ( $roleName ) {
+			case 'instructor':
+				return $this->getInstructors();
+				break;
+			case 'online':
+				return $this->getOnlineAmbassadors();
+				break;
+			case 'campus':
+				return $this->getCampusAmbassadors();
+				break;
+		}
+		
+		throw new MWException( 'Invalid role name: ' . $roleName );
 	}
 
 	/**
@@ -499,36 +579,38 @@ class EPCourse extends EPPageObject {
 	}
 
 	/**
-	 * Adds a number of instructors to this course,
+	 * Adds a role for a number of users to this course,
 	 * by default also saving the course and only
-	 * logging the adittion of the instructors.
+	 * logging the adittion of the users/roles.
 	 *
 	 * @since 0.1
 	 *
-	 * @param array|integer $newInstructors
+	 * @param array|integer $newUsers
+	 * @param string $role
 	 * @param string $message
 	 * @param boolean $save
 	 * @param boolean $log
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function addInstructors( $newInstructors, $message = '', $save = true, $log = true ) {
-		$instructors = $this->getField( 'instructors' );
-		$addedInstructors = array();
+	public function enlistUsers( $newUsers, $role, $message = '', $save = true, $log = true ) {
+		$field = $role === 'instructor' ? 'instructors' : $role . '_ambs'; 
+		$users = $this->getField( $field );
+		$addedUsers = array();
 
-		foreach ( (array)$newInstructors as $userId ) {
+		foreach ( (array)$newUsers as $userId ) {
 			if ( !is_integer( $userId ) ) {
 				throw new MWException( 'Provided user id is not an integer' );
 			}
-
-			if ( !in_array( $userId, $instructors ) ) {
-				$instructors[] = $userId;
-				$addedInstructors[] = $userId;
+			
+			if ( !in_array( $userId, $users ) ) {
+				$users[] = $userId;
+				$addedUsers[] = $userId;
 			}
 		}
 
-		if ( count( $addedInstructors ) > 0 ) {
-			$this->setField( 'instructors', $instructors );
+		if ( count( $addedUsers ) > 0 ) {
+			$this->setField( $field, $users );
 
 			$success = true;
 
@@ -539,7 +621,7 @@ class EPCourse extends EPPageObject {
 			}
 
 			if ( $success && $log ) {
-				$this->logInstructorChange( 'add', $addedInstructors, $message );
+				$this->logRoleChange( 'add', $role, $addedUsers, $message );
 			}
 
 			return $success;
@@ -550,35 +632,38 @@ class EPCourse extends EPPageObject {
 	}
 
 	/**
-	 * Remove a number of instructors to this course,
+	 * Remove the role for a number of users for this course,
 	 * by default also saving the course and only
-	 * logging the removal of the instructors.
+	 * logging the role changes.
 	 *
 	 * @since 0.1
 	 *
-	 * @param array|integer $sadInstructors
+	 * @param array|integer $sadUsers
+	 * @param string $role
 	 * @param string $message
 	 * @param boolean $save
 	 * @param boolean $log
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function removeInstructors( $sadInstructors, $message = '', $save = true, $log = true ) {
-		$removedInstructors = array();
-		$remaimingInstructors = array();
-		$sadInstructors = (array)$sadInstructors;
+	public function unenlistUsers( $sadUsers, $role, $message = '', $save = true, $log = true ) {
+		$removedUser = array();
+		$remaimingUsers = array();
+		$sadUsers = (array)$sadUsers;
 
-		foreach ( $this->getField( 'instructors' ) as $userId ) {
-			if ( in_array( $userId, $sadInstructors ) ) {
-				$removedInstructors[] = $userId;
+		$field = $role === 'instructor' ? 'instructors' : $role . '_ambs'; 
+		
+		foreach ( $this->getField( $field ) as $userId ) {
+			if ( in_array( $userId, $sadUsers ) ) {
+				$removedUser[] = $userId;
 			}
 			else {
-				$remaimingInstructors[] = $userId;
+				$remaimingUsers[] = $userId;
 			}
 		}
 
-		if ( count( $removedInstructors ) > 0 ) {
-			$this->setField( 'instructors', $remaimingInstructors );
+		if ( count( $removedUser ) > 0 ) {
+			$this->setField( $field, $remaimingUsers );
 
 			$success = true;
 
@@ -589,7 +674,7 @@ class EPCourse extends EPPageObject {
 			}
 
 			if ( $success && $log ) {
-				$this->logInstructorChange( 'remove', $removedInstructors, $message );
+				$this->logRoleChange( 'remove', $role, $removedUser, $message );
 			}
 
 			return $success;
@@ -605,18 +690,27 @@ class EPCourse extends EPPageObject {
 	 * @since 0.1
 	 *
 	 * @param string $action
-	 * @param array $instructors
+	 * @param string $role
+	 * @param array $users
 	 * @param string $message
 	 */
-	protected function logInstructorChange( $action, array $instructors, $message ) {
+	protected function logRoleChange( $action, $role, array $users, $message ) {
 		$names = array();
 
-		foreach ( $instructors as $userId ) {
-			$names[] = EPInstructor::newFromId( $userId )->getName();
+		$classes = array(
+			'instructor' => 'EPInstructor',
+			'campus' => 'EPCA',
+			'online' => 'EPOA',
+		);
+		
+		$class = $classes[$role];
+		
+		foreach ( $users as $userId ) {
+			$names[] = $class::newFromUserId( $userId )->getName();
 		}
 
 		$info = array(
-			'type' => 'instructor',
+			'type' => $role,
 			'subtype' => $action,
 			'title' => $this->getTitle(),
 			'parameters' => array(

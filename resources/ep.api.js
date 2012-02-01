@@ -10,9 +10,9 @@
 
 	mw.educationProgram.api = {
 
-		instructor: function( args ) {
+		enlist: function( args ) {
 			var requestArgs = $.extend( {
-				'action': 'instructor',
+				'action': 'enlist',
 				'format': 'json',
 				'token': window.mw.user.tokens.get( 'editToken' )
 			}, args );
@@ -35,14 +35,14 @@
 			return deferred.promise();
 		},
 
-		addInstructor: function( args ) {
+		enlistUser: function( args ) {
 			args.subaction = 'add';
-			return this.instructor( args );
+			return this.enlist( args );
 		},
 
-		removeInstructor: function( args ) {
+		unenlistUser: function( args ) {
 			args.subaction = 'remove';
-			return this.instructor( args );
+			return this.enlist( args );
 		},
 
 		remove: function( data, callback ) {

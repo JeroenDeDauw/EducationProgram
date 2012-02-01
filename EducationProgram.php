@@ -70,7 +70,7 @@ $wgAutoloadClasses['ViewCourseAction'] 				= dirname( __FILE__ ) . '/actions/Vie
 $wgAutoloadClasses['ViewOrgAction'] 				= dirname( __FILE__ ) . '/actions/ViewOrgAction.php';
 
 $wgAutoloadClasses['ApiDeleteEducation'] 			= dirname( __FILE__ ) . '/api/ApiDeleteEducation.php';
-$wgAutoloadClasses['ApiInstructor'] 				= dirname( __FILE__ ) . '/api/ApiInstructor.php';
+$wgAutoloadClasses['ApiEnlist'] 					= dirname( __FILE__ ) . '/api/ApiEnlist.php';
 $wgAutoloadClasses['ApiRefreshEducation'] 			= dirname( __FILE__ ) . '/api/ApiRefreshEducation.php';
 
 $wgAutoloadClasses['EPCourse'] 						= dirname( __FILE__ ) . '/includes/EPCourse.php';
@@ -94,6 +94,7 @@ $wgAutoloadClasses['EPRevision'] 					= dirname( __FILE__ ) . '/includes/EPRevis
 $wgAutoloadClasses['EPRevisionPager'] 				= dirname( __FILE__ ) . '/includes/EPRevisionPager.php';
 $wgAutoloadClasses['EPPageObject'] 					= dirname( __FILE__ ) . '/includes/EPPageObject.php';
 $wgAutoloadClasses['EPFailForm'] 					= dirname( __FILE__ ) . '/includes/EPFailForm.php';
+$wgAutoloadClasses['EPIRole'] 						= dirname( __FILE__ ) . '/includes/EPIRole.php';
 
 $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';
@@ -153,7 +154,7 @@ $egEPDBObjects[] = array( 'table' => 'ep_students_per_course', 'prefix' => 'spc_
 
 // API
 $wgAPIModules['deleteeducation'] 					= 'ApiDeleteEducation';
-$wgAPIModules['instructor'] 						= 'ApiInstructor';
+$wgAPIModules['enlist'] 							= 'ApiEnlist';
 $wgAPIModules['refresheducation'] 					= 'ApiRefreshEducation';
 
 // Hooks
@@ -171,14 +172,16 @@ $wgHooks['TitleIsKnown'][] 							= 'EPHooks::onTitleIsKnown';
 $wgLogTypes[] = 'institution';
 $wgLogTypes[] = 'course';
 $wgLogTypes[] = 'student';
-$wgLogTypes[] = 'ambassador';
+$wgLogTypes[] = 'online';
+$wgLogTypes[] = 'campus';
 $wgLogTypes[] = 'instructor';
 
 if ( array_key_exists( 'LogFormatter', $wgAutoloadLocalClasses ) ) {
 	$wgLogActionsHandlers['institution/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['course/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['student/*'] = 'EPLogFormatter';
-	$wgLogActionsHandlers['ambassador/*'] = 'EPLogFormatter';
+	$wgLogActionsHandlers['online/*'] = 'EPLogFormatter';
+	$wgLogActionsHandlers['campus/*'] = 'EPLogFormatter';
 	$wgLogActionsHandlers['instructor/*'] = 'EPLogFormatter';
 }
 else {
@@ -384,9 +387,9 @@ if ( array_key_exists( 'WikiEditorHooks', $GLOBALS['wgAutoloadClasses'] ) ) {
 	$wgResourceModules['ep.formpage']['dependencies'][] = 'ext.wikiEditor.toolbar';
 }
 
-$wgResourceModules['ep.instructor'] = $moduleTemplate + array(
+$wgResourceModules['ep.enlist'] = $moduleTemplate + array(
 	'scripts' => array(
-		'ep.instructor.js',
+		'ep.enlist.js',
 	),
 	'dependencies' => array(
 		'mediawiki.user',
@@ -398,30 +401,80 @@ $wgResourceModules['ep.instructor'] = $moduleTemplate + array(
 	),
 	'messages' => array(
 		'ep-instructor-remove-title',
+		'ep-online-remove-title',
+		'ep-campus-remove-title',
 		'ep-instructor-remove-button',
+		'ep-online-remove-button',
+		'ep-campus-remove-button',
 		'ep-instructor-removing',
+		'ep-online-removing',
+		'ep-campus-removing',
 		'ep-instructor-removal-success',
+		'ep-online-removal-success',
+		'ep-campus-removal-success',
 		'ep-instructor-close-button',
+		'ep-online-close-button',
+		'ep-campus-close-button',
 		'ep-instructor-remove-retry',
+		'ep-online-remove-retry',
+		'ep-campus-remove-retry',
 		'ep-instructor-remove-failed',
+		'ep-online-remove-failed',
+		'ep-campus-remove-failed',
 		'ep-instructor-cancel-button',
+		'ep-online-cancel-button',
+		'ep-campus-cancel-button',
 		'ep-instructor-remove-text',
+		'ep-online-remove-text',
+		'ep-campus-remove-text',
 		'ep-instructor-adding',
+		'ep-online-adding',
+		'ep-campus-adding',
 		'ep-instructor-addittion-success',
+		'ep-online-addittion-success',
+		'ep-campus-addittion-success',
 		'ep-instructor-addittion-self-success',
+		'ep-online-addittion-self-success',
+		'ep-campus-addittion-self-success',
 		'ep-instructor-add-close-button',
+		'ep-online-add-close-button',
+		'ep-campus-add-close-button',
 		'ep-instructor-add-retry',
+		'ep-online-add-retry',
+		'ep-campus-add-retry',
 		'ep-instructor-addittion-failed',
+		'ep-online-addittion-failed',
+		'ep-campus-addittion-failed',
 		'ep-instructor-add-title',
+		'ep-online-add-title',
+		'ep-campus-add-title',
 		'ep-instructor-add-button',
+		'ep-online-add-button',
+		'ep-campus-add-button',
 		'ep-instructor-add-self-button',
+		'ep-online-add-self-button',
+		'ep-campus-add-self-button',
 		'ep-instructor-add-text',
+		'ep-online-add-text',
+		'ep-campus-add-text',
 		'ep-instructor-add-self-text',
+		'ep-online-add-self-text',
+		'ep-campus-add-self-text',
 		'ep-instructor-add-self-title',
+		'ep-online-add-self-title',
+		'ep-campus-add-self-title',
 		'ep-instructor-add-cancel-button',
+		'ep-online-add-cancel-button',
+		'ep-campus-add-cancel-button',
 		'ep-instructor-summary-input',
+		'ep-online-summary-input',
+		'ep-campus-summary-input',
 		'ep-instructor-name-input',
-		'ep-course-no-instructors',
+		'ep-online-name-input',
+		'ep-campus-name-input',
+		'ep-course-no-instructor',
+		'ep-course-no-online',
+		'ep-course-no-campus',
 	),
 );
 

@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPInstructor {
+class EPInstructor implements EPIRole {
 
 	/**
 	 * Field for caching the linked user.
@@ -38,7 +38,7 @@ class EPInstructor {
 	 * 
 	 * @return EPInstructor
 	 */
-	public static function newFromId( $userId ) {
+	public static function newFromUserId( $userId ) {
 		return new self( $userId );
 	}
 	
@@ -126,32 +126,15 @@ class EPInstructor {
 	 * @return string
 	 */
 	public function getToolLinks( IContextSource $context, EPCourse $course = null ) {
-		$links = array();
-		
-		$links[] = Linker::userTalkLink( $this->getUser()->getId(), $this->getUser()->getName() );
-		
-		$links[] = Linker::link( SpecialPage::getTitleFor( 'Contributions', $this->getUser()->getName() ), wfMsgHtml( 'contribslink' ) );
-		
-		if ( !is_null( $course ) &&
-			( $context->getUser()->isAllowed( 'ep-instructor' ) || $this->getUser()->getId() == $context->getUser()->getId() ) ) {
-			$links[] = Html::element(
-				'a',
-				array(
-					'href' => '#',
-					'class' => 'ep-instructor-remove',
-					'data-courseid' => $course->getId(),
-					'data-coursename' => $course->getField( 'name' ),
-					'data-userid' => $this->getUser()->getId(),
-					'data-username' => $this->getUser()->getName(),
-					'data-bestname' => $this->getName(),
-				),
-				wfMsg( 'ep-instructor-remove' )
-			);
-			
-			$context->getOutput()->addModules( 'ep.instructor' );
-		}
-		
-		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( $links ) . ')</span>';
+		return EPUtils::getRoleToolLinks( $this, $context, $course );
+	}
+	
+	/**
+	 * @since 0.1
+	 * @see EPIRole::getRoleName
+	 */
+	public function getRoleName() {
+		return 'instructor';
 	}
 	
 }

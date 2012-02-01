@@ -79,29 +79,32 @@ class ViewCourseAction extends EPViewAction {
 			);
 		}
 
-		$stats['instructors'] = $this->getInstructorsList( $course ) . $this->getInstructorControls( $course );
+		$stats['instructors'] = $this->getRoleList( $course, 'instructor' ) . $this->getRoleControls( $course, 'instructor' );
+		$stats['online'] = $this->getRoleList( $course, 'online' ) . $this->getRoleControls( $course, 'online' );
+		$stats['campus'] = $this->getRoleList( $course, 'campus' ) . $this->getRoleControls( $course, 'campus' );
 
 		return $stats;
 	}
 
 	/**
-	 * Returns a list with the instructors for the provided course
+	 * Returns a list with the users that the specified role for the provided course
 	 * or a message indicating there are none.
 	 *
 	 * @since 0.1
 	 *
 	 * @param EPCourse $course
+	 * @param string $roleName
 	 *
 	 * @return string
 	 */
-	protected function getInstructorsList( EPCourse $course ) {
-		$instructors = $course->getInstructors();
+	protected function getRoleList( EPCourse $course, $roleName ) {
+		$users = $course->getUserWithRole( $roleName );
 
-		if ( count( $instructors ) > 0 ) {
+		if ( count( $users ) > 0 ) {
 			$instList = array();
 
-			foreach ( $instructors as /* EPInstructor */ $instructor ) {
-				$instList[] = $instructor->getUserLink() . $instructor->getToolLinks( $this->getContext(), $course );
+			foreach ( $users as /* EPIRole */ $user ) {
+				$instList[] = $user->getUserLink() . $user->getToolLinks( $this->getContext(), $course );
 			}
 
 			if ( false ) { // count( $instructors ) == 1
@@ -112,114 +115,66 @@ class ViewCourseAction extends EPViewAction {
 			}
 		}
 		else {
-			$html = wfMsgHtml( 'ep-course-no-instructors' );
+			$html = wfMsgHtml( 'ep-course-no-' . $roleName );
 		}
 
 		return Html::rawElement(
 			'div',
-			array( 'id' => 'ep-course-instructors' ),
+			array( 'id' => 'ep-course-' . $roleName ),
 			$html
 		);
 	}
 
 	/**
-	 * Returns instructor addition controls for the course if the
+	 * Returns role a controls for the course if the
 	 * current user has the right permissions.
 	 *
 	 * @since 0.1
 	 *
 	 * @param EPCourse $course
+	 * @param string $roleName
 	 *
 	 * @return string
 	 */
-	protected function getInstructorControls( EPCourse $course ) {
+	protected function getRoleControls( EPCourse $course, $roleName ) {
 		$user = $this->getUser();
 		$links = array();
 
-		if ( ( $user->isAllowed( 'ep-instructor' ) || $user->isAllowed( 'ep-beinstructor' ) )
-			&& !in_array( $user->getId(), $course->getField( 'instructors' ) )
+		$field = $roleName === 'instructor' ? 'instructors' : $roleName . '_ambs';
+		
+		if ( ( $user->isAllowed( 'ep-' . $roleName ) || $user->isAllowed( 'ep-be' . $roleName ) )
+			&& !in_array( $user->getId(), $course->getField( $field ) )
 		) {
 			$links[] = Html::element(
 				'a',
 				array(
 					'href' => '#',
-					'class' => 'ep-add-instructor',
+					'class' => 'ep-add-role',
+					'data-role' => $roleName,
 					'data-courseid' => $course->getId(),
 					'data-coursename' => $course->getField( 'name' ),
 					'data-mode' => 'self',
 				),
-				wfMsg( 'ep-course-become-instructor' )
+				wfMsg( 'ep-course-become-' . $roleName )
 			);
 		}
 
-		if ( $user->isAllowed( 'ep-instructor' ) ) {
+		if ( $user->isAllowed( 'ep-' . $roleName ) ) {
 			$links[] = Html::element(
 				'a',
 				array(
 					'href' => '#',
-					'class' => 'ep-add-instructor',
+					'class' => 'ep-add-role',
+					'data-role' => $roleName,
 					'data-courseid' => $course->getId(),
 					'data-coursename' => $course->getField( 'name' ),
 				),
-				wfMsg( 'ep-course-add-instructor' )
+				wfMsg( 'ep-course-add-' . $roleName )
 			);
 		}
 
 		if ( count( $links ) > 0 ) {
-			$this->getOutput()->addModules( 'ep.instructor' );
-			return '<br />' . $this->getLanguage()->pipeList( $links );
-		}
-		else {
-			return '';
-		}
-	}
-
-	/**
-	 * Returns ambassador addiction controls for the course if the
-	 * current user has the right permissions.
-	 *
-	 * @since 0.1
-	 *
-	 * @param EPCourse $course
-	 * @param string $type
-	 *
-	 * @return string
-	 */
-	protected function getAmbassadorControls( EPCourse $course, $type ) {
-		$user = $this->getUser();
-		$links = array();
-
-		if ( ( $user->isAllowed( 'ep-' . $type ) || $user->isAllowed( 'ep-be' . $type ) )
-			&& !in_array( $user->getId(), $course->getField( 'instructors' ) )
-		) {
-			$links[] = Html::element(
-				'a',
-				array(
-					'href' => '#',
-					'class' => 'ep-add-instructor',
-					'data-courseid' => $course->getId(),
-					'data-coursename' => $course->getField( 'name' ),
-					'data-mode' => 'self',
-				),
-				wfMsg( 'ep-course-become-instructor' )
-			);
-		}
-
-		if ( $user->isAllowed( 'ep-instructor' ) ) {
-			$links[] = Html::element(
-				'a',
-				array(
-					'href' => '#',
-					'class' => 'ep-add-instructor',
-					'data-courseid' => $course->getId(),
-					'data-coursename' => $course->getField( 'name' ),
-				),
-				wfMsg( 'ep-course-add-instructor' )
-			);
-		}
-
-		if ( count( $links ) > 0 ) {
-			$this->getOutput()->addModules( 'ep.instructor' );
+			$this->getOutput()->addModules( 'ep.enlist' );
 			return '<br />' . $this->getLanguage()->pipeList( $links );
 		}
 		else {

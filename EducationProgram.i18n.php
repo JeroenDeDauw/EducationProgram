@@ -49,22 +49,25 @@ $messages['en'] = array(
 	'ep-nav-mentors' => 'Ambassador list',
 
 	// Logging
-	'log-name-institution' => 'Institution log',
-	'log-name-course' => 'Course log',
-	'log-name-student' => 'Student log',
-	'log-name-ambassador' => 'Ambassador log',
-	'log-name-instructor' => 'Instructor log',
+	'log-name-institution' => 'Education Program institution log',
+	'log-name-course' => 'Education Program course log',
+	'log-name-student' => 'Education Program student log',
+	'log-name-online' => 'Education Program Online Ambassador log',
+	'log-name-campus' => 'Education Program Campus Ambassador log',
+	'log-name-instructor' => 'Education Program instructor log',
 
-	'log-header-institution' => 'These events track the changes that are made to institutions.',
-	'log-header-course' => 'These events track the changes that are made to courses.',
-	'log-header-instructor' => 'These events track the changes that are made to instructors.',
-	'log-header-ambassador' => 'These events track the changes that are made to ambassadors.',
-	'log-header-student' => 'These events track the changes that are made to students.',
+	'log-header-institution' => 'These events track the changes that are made to Education Program institutions.',
+	'log-header-course' => 'These events track the changes that are made to Education Program courses.',
+	'log-header-instructor' => 'These events track the changes that are made to Education Program instructors.',
+	'log-header-campus' => 'These events track the changes that are made to Education Program Campus Ambassadors.',
+	'log-header-online' => 'These events track the changes that are made to Education Program Online Ambassadors.',
+	'log-header-student' => 'These events track the changes that are made to Education Program students.',
 
 	'log-description-institution' => 'Log of all changes to [[Special:Institutions|institutions]].',
 	'log-description-course' => 'Log of all changes to [[Special:Courses|courses]].',
 	'log-description-instructor' => 'Log of all changes to instructors.',
-	'log-description-ambassador' => 'Log of all changes to [[Special:OnlineAmbassadors|online]] and [[Special:CampusAmbassadors|campus ambassadors]].',
+	'log-description-online' => 'Log of all changes to Education Program [[Special:OnlineAmbassadors|Online Ambassadors]]',
+	'log-description-campus' => 'Log of all changes to Education Program [[Special:CampusAmbassadors|Campus Ambassadors]]',
 	'log-description-student' => 'Log of all changes to [[Special:Students|students]].',
 
 	'logentry-institution-add' => '$1 created institution $3',
@@ -77,13 +80,18 @@ $messages['en'] = array(
 
 	'logentry-instructor-add' => '$1 {{GENDER:$2|added}} {{PLURAL:$4|instructor|instructors}} $5 to course $3',
 	'logentry-instructor-remove' => '$1 {{GENDER:$2|removed}} {{PLURAL:$4|instructor|instructors}} $5 from course $3',
-	'logentry-instructor-selfadd' => '$1 {{GENDER:$2|added himself|added herself}} as instructor to course $3',
-	'logentry-instructor-selfremove' => '$1 {{GENDER:$2|removed himself|removed herself}} as instructor from course $3',
+	'logentry-instructor-selfadd' => '$1 added {{GENDER:$2|added himself|herself}} as {{GENDER:$2|instructor}} to course $3',
+	'logentry-instructor-selfremove' => '$1 removed {{GENDER:$2|removed himself|herself}} as {{GENDER:$2|instructor}} from course $3',
 
-	'logentry-ambassador-add' => '$1 added {{PLURAL:$4|ambassador|ambassadors}} $5 to course $3',
-	'logentry-ambassador-remove' => '$1 removed {{PLURAL:$4|ambassador|ambassadors}} $5 from course $3',
-	'logentry-ambassador-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as ambassador to course $3',
-	'logentry-ambassador-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as ambassador from course $3',
+	'logentry-online-add' => '$1 added {{PLURAL:$4|Online Ambassador|Online Ambassadors}} $5 to course $3',
+	'logentry-online-remove' => '$1 removed {{PLURAL:$4|Online Ambassador|Online Ambassadors}} $5 from course $3',
+	'logentry-online-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as {{GENDER:$2|Online Ambassador}} to course $3',
+	'logentry-online-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as {{GENDER:$2|Online Ambassador}} from course $3',
+
+	'logentry-campus-add' => '$1 added {{PLURAL:$4|Campus Ambassador|Campus Ambassadors}} $5 to course $3',
+	'logentry-campus-remove' => '$1 removed {{PLURAL:$4|Campus Ambassador|Campus Ambassadors}} $5 from course $3',
+	'logentry-campus-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as {{GENDER:$2|Campus Ambassador}} to course $3',
+	'logentry-campus-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as {{GENDER:$2|Campus Ambassador}} from course $3',
 
 	'logentry-student-enroll' => '$1 enrolled in course $3',
 	'logentry-student-remove' => '$1 removed $4 as student from course $3',
@@ -172,9 +180,6 @@ $messages['en'] = array(
 	'ep-courses-add' => 'Add course',
 	'ep-courses-noorgs' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
 	'ep-courses-addorgfirst' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
-	'ep-course-no-instructors' => 'There are no instructors for this course yet.',
-	'ep-course-become-instructor' => 'Become an instructor',
-	'ep-course-add-instructor' => 'Add an instructor',
 
 	// Special:Students
 	'ep-students-noresults' => 'There are no students to list.',
@@ -296,6 +301,8 @@ $messages['en'] = array(
 	'ep-course-students' => 'Students',
 	'ep-course-none' => 'There is no course with id "$1". See [[Special:Courses|here]] for a list of courses.',
 	'ep-course-create' => 'There is no course with id "$1", but you can create a new one.',
+	'ep-course-description' => 'description',
+	'ep-course-no-online' => '',
 	'viewcourseaction-summary-org' => 'Institution',
 	'viewcourseaction-summary-term' => 'Term',
 	'viewcourseaction-summary-start' => 'Start',
@@ -304,7 +311,17 @@ $messages['en'] = array(
 	'viewcourseaction-summary-status' => 'Status',
 	'viewcourseaction-summary-token' => 'Enrollment token',
 	'viewcourseaction-summary-instructors' => 'Instructors',
-	'ep-course-description' => 'description',
+	'viewcourseaction-summary-online' => 'Online Ambassaords',
+	'viewcourseaction-summary-campus' => 'Campus Ambassaords',
+	'ep-course-no-instructor' => 'There are no instructors for this course yet.',
+	'ep-course-become-instructor' => 'Become an instructor',
+	'ep-course-add-instructor' => 'Add an instructor',
+	'ep-course-no-online' => 'There are no Online Ambassadors for this course yet.',
+	'ep-course-become-online' => 'Become an Online Ambassador',
+	'ep-course-add-online' => 'Add an Online Ambassador',
+	'ep-course-no-campus' => 'There are no Campus Ambassadors for this course yet.',
+	'ep-course-become-campus' => 'Become an Campus Ambassador',
+	'ep-course-add-campus' => 'Add an Campus Ambassador',
 
 	// Institution history
 	'ep-org-history' => 'View logs for this institution',
@@ -363,7 +380,7 @@ $messages['en'] = array(
 	'specialmycourses-summary-org' => 'Institution name',
     'ep-mycourses-not-a-student' => 'You are not enrolled in any [[Special:Courses|courses]].',
 
-	// ep.instructor
+	// ep.enlist instructor
 	'ep-instructor-remove-title' => 'Remove instructor from course',
 	'ep-instructor-remove-button' => 'Remove instructor',
 	'ep-instructor-removing' => 'Removing...',
@@ -389,13 +406,71 @@ $messages['en'] = array(
 	'ep-instructor-summary-input' => 'Summary',
 	'ep-instructor-name-input' => 'User name',
 
+	// ep.enlist online
+	'ep-online-remove-title' => 'Remove Online Ambassador from course',
+	'ep-online-remove-button' => 'Remove Online Ambassador',
+	'ep-online-removing' => 'Removing...',
+	'ep-online-removal-success' => 'This Online Ambassador has been successfully removed from this course.',
+	'ep-online-close-button' => 'Close',
+	'ep-online-remove-retry' => 'Retry',
+	'ep-online-remove-failed' => 'Something went wrong - could not remove the Online Ambassador from the course.',
+	'ep-online-cancel-button' => 'Cancel',
+	'ep-online-remove-text' => 'You are about to remove $2 (Username: $1) as {{GENDER:$1|Online Ambassador}} from course $3. Please enter a brief summary with the reason for this removal.',
+	'ep-online-adding' => 'Adding...',
+	'ep-online-addittion-success' => '$1 has been successfully added as {{GENDER:$1|Online Ambassador}} for course $2!',
+	'ep-online-addittion-self-success' => 'You have been successfully added as {{GENDER:$1|Online Ambassador}} for course $2!',
+	'ep-online-add-close-button' => 'Close',
+	'ep-online-add-retry' => 'Retry',
+	'ep-online-addittion-failed' => 'Something went wrong - could not add the Online Ambassador to the course.',
+	'ep-online-add-title' => 'Add an Online Ambassador to the course',
+	'ep-online-add-self-title' => 'Become an {{GENDER:$1|Online Ambassador}} for this course',
+	'ep-online-add-button' => 'Add Online Ambassador',
+	'ep-online-add-self-button' => 'Become {{GENDER:$1|Online Ambassador}}',
+	'ep-online-add-text' => 'You are adding an Online Ambassador for course $1. Enter the username of the Online Ambassador and a brief description why this person is being added.',
+	'ep-online-add-self-text' => 'You are adding yourself as {{GENDER:$1|Online Ambassador}} for course $1. Please add a brief description why you are doing so.',
+	'ep-online-add-cancel-button' => 'Cancel',
+	'ep-online-summary-input' => 'Summary',
+	'ep-online-name-input' => 'User name',
+
+	// ep.enlist campus
+	'ep-campus-remove-title' => 'Remove Campus Ambassador from course',
+	'ep-campus-remove-button' => 'Remove Campus Ambassador',
+	'ep-campus-removing' => 'Removing...',
+	'ep-campus-removal-success' => 'This Campus Ambassador has been successfully removed from this course.',
+	'ep-campus-close-button' => 'Close',
+	'ep-campus-remove-retry' => 'Retry',
+	'ep-campus-remove-failed' => 'Something went wrong - could not remove the Campus Ambassador from the course.',
+	'ep-campus-cancel-button' => 'Cancel',
+	'ep-campus-remove-text' => 'You are about to remove $2 (Username: $1) as {{GENDER:$1|Campus Ambassador}} from course $3. Please enter a brief summary with the reason for this removal.',
+	'ep-campus-adding' => 'Adding...',
+	'ep-campus-addittion-success' => '$1 has been successfully added as {{GENDER:$1|Campus Ambassador}} for course $2!',
+	'ep-campus-addittion-self-success' => 'You have been successfully added as {{GENDER:$1|Campus Ambassador}} for course $2!',
+	'ep-campus-add-close-button' => 'Close',
+	'ep-campus-add-retry' => 'Retry',
+	'ep-campus-addittion-failed' => 'Something went wrong - could not add the Campus Ambassador to the course.',
+	'ep-campus-add-title' => 'Add an Campus Ambassador to the course',
+	'ep-campus-add-self-title' => 'Become an {{GENDER:$1|Campus Ambassador}} for this course',
+	'ep-campus-add-button' => 'Add Campus Ambassador',
+	'ep-campus-add-self-button' => 'Become {{GENDER:$1|Campus Ambassador}}',
+	'ep-campus-add-text' => 'You are adding an Campus Ambassador for course $1. Enter the username of the Campus Ambassador and a brief description why this person is being added.',
+	'ep-campus-add-self-text' => 'You are adding yourself as {{GENDER:$1|Campus Ambassador}} for course $1. Please add a brief description why you are doing so.',
+	'ep-campus-add-cancel-button' => 'Cancel',
+	'ep-campus-summary-input' => 'Summary',
+	'ep-campus-name-input' => 'User name',
+
 	// EPInstrucor
 	'ep-instructor-remove' => 'remove as instructor',
 
-	// API addinstructor
-	'ep-addinstructor-invalid-user-args' => 'You need to either provide the username or the userid parameter',
-	'ep-addinstructor-invalid-user' => 'The provided user id or name is not valid and can therefore not be associated as instrucor with the specified course',
-	'ep-addinstructor-invalid-course' => 'There is no course with the provided ID',
+	// EPCA
+	'ep-campus-remove' => 'remove as Campus Ambassador',
+
+	// EPOA
+	'ep-online-remove' => 'remove as Online Ambassador',
+
+	// API enlist
+	'ep-enlist-invalid-user-args' => 'You need to either provide the username or the userid parameter',
+	'ep-enlist-invalid-user' => 'The provided user id or name is not valid and can therefore not be associated as instrucor or ambassador with the specified course',
+	'ep-enlist-invalid-course' => 'There is no course with the provided ID',
 );
 
 /** Message documentation (Message documentation)
