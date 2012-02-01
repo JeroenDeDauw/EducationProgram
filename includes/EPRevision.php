@@ -94,7 +94,7 @@ class EPRevision extends EPDBObject {
 	 */
 	public function getObject() {
 		$class = $this->getField( 'type' );
-		return $class::newFromArray( $this->getField( 'data' ) );
+		return $class::newFromArray( $this->getField( 'data' ), true );
 	}
 
 	/**
