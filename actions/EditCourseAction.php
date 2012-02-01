@@ -187,17 +187,19 @@ class EditCourseAction extends EPEditAction {
 	 */
 	protected function getNewData() {
 		$data = parent::getNewData();
-		
-		$data['org_id'] = $this->getRequest()->getVal( 'neworg' );
-		$data['name'] = wfMsgExt(
-			'ep-course-edit-name-format',
-			'parsemag',
-			$data['name'],
-			$this->getRequest()->getVal( 'newterm' )
-		);
-		$data['term'] = $this->getRequest()->getVal( 'newterm' );
-		$data['mc'] = $data['name'];
-		
+
+		if ( $this->isNew() ) {
+			$data['org_id'] = $this->getRequest()->getVal( 'neworg' );
+			$data['name'] = wfMsgExt(
+				'ep-course-edit-name-format',
+				'parsemag',
+				$data['name'],
+				$this->getRequest()->getVal( 'newterm' )
+			);
+			$data['term'] = $this->getRequest()->getVal( 'newterm' );
+			$data['mc'] = $data['name'];
+		}
+
 		return $data;
 	}
 

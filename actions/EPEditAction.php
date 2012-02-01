@@ -159,16 +159,18 @@ abstract class EPEditAction extends FormlessAction {
 	 */
 	protected function getNewData() {
 		$data = array();
-		
-		if ( $this->isNewPost() ) {
-			$data['name'] = $this->getRequest()->getVal( 'newname' );
-		}
-		else {
-			$data['name'] = $this->getTitle()->getText();
+
+		if ( $this->isNew() ) {
+			if ( $this->isNewPost() ) {
+				$data['name'] = $this->getRequest()->getVal( 'newname' );
+			}
+			else {
+				$data['name'] = $this->getTitle()->getText();
+			}
+
+			$data['name'] = $this->getLanguage()->ucfirst( $data['name'] );
 		}
 
-		$data['name'] = $this->getLanguage()->ucfirst( $data['name'] );
-		
 		return $data;
 	}
 

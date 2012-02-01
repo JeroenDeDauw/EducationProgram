@@ -173,5 +173,58 @@ class ViewCourseAction extends EPViewAction {
 			return '';
 		}
 	}
+
+	/**
+	 * Returns ambassador addiction controls for the course if the
+	 * current user has the right permissions.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPCourse $course
+	 * @param string $type
+	 *
+	 * @return string
+	 */
+	protected function getAmbassadorControls( EPCourse $course, $type ) {
+		$user = $this->getUser();
+		$links = array();
+
+		if ( ( $user->isAllowed( 'ep-' . $type ) || $user->isAllowed( 'ep-be' . $type ) )
+			&& !in_array( $user->getId(), $course->getField( 'instructors' ) )
+		) {
+			$links[] = Html::element(
+				'a',
+				array(
+					'href' => '#',
+					'class' => 'ep-add-instructor',
+					'data-courseid' => $course->getId(),
+					'data-coursename' => $course->getField( 'name' ),
+					'data-mode' => 'self',
+				),
+				wfMsg( 'ep-course-become-instructor' )
+			);
+		}
+
+		if ( $user->isAllowed( 'ep-instructor' ) ) {
+			$links[] = Html::element(
+				'a',
+				array(
+					'href' => '#',
+					'class' => 'ep-add-instructor',
+					'data-courseid' => $course->getId(),
+					'data-coursename' => $course->getField( 'name' ),
+				),
+				wfMsg( 'ep-course-add-instructor' )
+			);
+		}
+
+		if ( count( $links ) > 0 ) {
+			$this->getOutput()->addModules( 'ep.instructor' );
+			return '<br />' . $this->getLanguage()->pipeList( $links );
+		}
+		else {
+			return '';
+		}
+	}
 	
 }
