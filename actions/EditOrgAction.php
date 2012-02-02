@@ -14,17 +14,36 @@
  */
 class EditOrgAction extends EPEditAction {
 	
-	
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getName()
+	 */
 	public function getName() {
 		return 'editorg';
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getDescription()
+	 */
 	protected function getDescription() {
 		return wfMsgHtml( $this->isNew() ? 'ep-addorg' : 'ep-editorg' );
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see EPEditAction::getItemClass()
+	 */
 	protected function getItemClass() {
 		return 'EPOrg';
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getRestriction()
+	 */
+	public function getRestriction() {
+		return 'ep-org';
 	}
 	
 	/**

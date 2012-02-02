@@ -39,6 +39,10 @@ abstract class EPEditAction extends FormlessAction {
 	 */
 	protected abstract function getItemClass();
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see FormlessAction::onView()
+	 */
 	public function onView() {
 		$this->getOutput()->addModules( 'ep.formpage' );
 		
@@ -53,16 +57,20 @@ abstract class EPEditAction extends FormlessAction {
 	}
 	
 	/**
-	 * @see SpecialPage::getDescription
+	 * Returns the page title.
 	 *
 	 * @since 0.1
 	 *
 	 * @return string
 	 */
-//	public function getDescription() {
-//		$action = $this->isNew() ? 'add' : 'edit';
-//		return wfMsg( 'special-' . strtolower( $this->getName() ) . '-' . $action );
-//	}
+	protected function getPageTitle() {
+		$action = $this->isNew() ? 'add' : 'edit';
+		return wfMsgExt(
+			'ep-' . strtolower( $this->getName() ) . '-' . $action,
+			'parsemag',
+			$this->getTitle()->getText()
+		);
+	}
 
 	/**
 	 * Display the form and set the item field, or redirect the user.
@@ -88,6 +96,7 @@ abstract class EPEditAction extends FormlessAction {
 				$this->showWarning( wfMessage( 'ep-' . strtolower( $this->getName() ) . '-exists-already' ) );
 			}
 
+			$this->getOutput()->setPageTitle( $this->getPageTitle() );
 			$this->getOutput()->setSubtitle( $this->getDescription() );
 
 			$this->item = $object;

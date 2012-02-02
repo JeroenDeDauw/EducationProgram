@@ -14,15 +14,34 @@
  */
 class EditCourseAction extends EPEditAction {
 	
-	
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getName()
+	 */
 	public function getName() {
 		return 'editcourse';
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getDescription()
+	 */
 	protected function getDescription() {
 		return wfMsgHtml( $this->isNew() ? 'ep-addcourse' : 'ep-editcourse' );
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getRestriction()
+	 */
+	public function getRestriction() {
+		return 'ep-course';
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPEditAction::onView()
+	 */
 	public function onView() {
 		$this->getOutput()->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
 

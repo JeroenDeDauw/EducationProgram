@@ -23,7 +23,13 @@ abstract class EPHistoryAction extends FormlessAction {
 	 */
 	protected abstract function getItemClass();
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see FormlessAction::onView()
+	 */
 	public function onView() {
+		$this->getOutput()->setPageTitle( $this->getPageTitle() );
+		
 		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
 		
 		$object = $c::get( $this->getTitle()->getText() );
@@ -39,16 +45,20 @@ abstract class EPHistoryAction extends FormlessAction {
 	}
 	
 	/**
-	 * @see SpecialPage::getDescription
+	 * Returns the page title.
 	 *
 	 * @since 0.1
 	 *
 	 * @return string
 	 */
-//	public function getDescription() {
-//		return wfMsgExt( 'special-' . strtolower( $this->getName() ), 'parsemag', $this->subPage );
-//	}
-
+	protected function getPageTitle() {
+		return wfMsgExt(
+			'ep-' . strtolower( $this->getName() ) . '-title',
+			'parsemag',
+			$this->getTitle()->getText()
+		);
+	}
+	
 	/**
 	 * Display a list with the passed revisions.
 	 *

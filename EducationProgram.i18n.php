@@ -249,6 +249,9 @@ $messages['en'] = array(
 	'ep-addorg' => 'There is no institution with this name yet, but you can add it.',
 	'ep-editorg' => 'You are editing an existing institution.',
 	'ep-editorg-exists-already' => 'This institution already exists. You are editing it.',
+	'ep-editorg-edit' => 'Editing institution: $1',
+	'ep-editorg-add' => 'Adding institution: $1',
+
 
 	// Course editing
 	'editcourse-add-legend' => 'Add course',
@@ -269,6 +272,8 @@ $messages['en'] = array(
 	'ep-addcourse' => 'There is no course with this name yet, but you can add it.',
 	'ep-editcourse' => 'You are editing an existing course.',
 	'ep-editcourse-exists-already' => 'This course already exists. You are editing it.',
+	'ep-editcourse-edit' => 'Editing course: $1',
+	'ep-editcourse-add' => 'Adding course: $1',
 
 	'ep-course-invalid-org' => 'This institution does not exist.',
 	'ep-course-invalid-token' => 'The token needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
@@ -325,9 +330,11 @@ $messages['en'] = array(
 
 	// Institution history
 	'ep-org-history' => 'View logs for this institution',
+	'ep-orghistory-title' => 'Revision history of institution "$1"',
 
 	// Course history
 	'ep-course-history' => 'View logs for this course',
+	'ep-coursehistory-title' => 'Revision history of course "$1"',
 
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',
