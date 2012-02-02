@@ -27,7 +27,7 @@ class ViewCourseAction extends EPViewAction {
 
 		$out = $this->getOutput();
 
-		$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-course-description' ) ) );
+		$out->addElement( 'h2', array(), wfMsg( 'ep-course-description' ) );
 
 		$out->addHTML( $this->getOutput()->parse( $course->getField( 'description' ) ) );
 
@@ -39,7 +39,7 @@ class ViewCourseAction extends EPViewAction {
 		);
 
 		if ( count( $studentIds ) > 0 ) {
-			$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-course-students' ) ) );
+			$out->addElement( 'h2', array(), wfMsg( 'ep-course-students' ) );
 			EPStudent::displayPager( $this->getContext(), array( 'id' => $studentIds ) );
 		}
 		else {

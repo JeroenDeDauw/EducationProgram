@@ -251,7 +251,7 @@ class EPOrg extends EPPageObject {
 
 		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-institutions-addnew' ) . '</legend>' );
 
-		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-institutions-namedoc' ) ) );
+		$out->addElement( 'p', array(), wfMsg( 'ep-institutions-namedoc' ) );
 
 		$out->addHTML( Xml::inputLabel(
 			wfMsg( 'ep-institutions-newname' ),

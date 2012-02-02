@@ -50,7 +50,7 @@ class SpecialStudent extends SpecialEPPage {
 
 				$this->displaySummary( $student );
 
-				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-student-terms' ) ) );
+				$out->addElement( 'h2', array(), wfMsg( 'ep-student-terms' ) );
 
 				$courseIds = array_map(
 					function( EPCourse $course ) {

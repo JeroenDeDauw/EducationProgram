@@ -163,11 +163,11 @@ abstract class SpecialEPPage extends SpecialPage {
 		foreach ( $summaryData as $stat => $value ) {
 			$out->addHTML( '<tr>' );
 
-			$out->addHTML( Html::element(
+			$out->addElement(
 				'th',
 				array( 'class' => 'ep-summary-name' ),
 				wfMsg( strtolower( get_called_class() ) . '-summary-' . $stat )
-			) );
+			);
 
 			$out->addHTML( Html::rawElement(
 				'td',

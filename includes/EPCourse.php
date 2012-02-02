@@ -384,9 +384,9 @@ class EPCourse extends EPPageObject {
 
 		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-courses-addnew' ) . '</legend>' );
 
-		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-courses-namedoc' ) ) );
+		$out->addElement( 'p', array(), wfMsg( 'ep-courses-namedoc' ) );
 
-		$out->addHTML( Html::element( 'label', array( 'for' => 'neworg' ), wfMsg( 'ep-courses-neworg' ) ) );
+		$out->addElement( 'label', array( 'for' => 'neworg' ), wfMsg( 'ep-courses-neworg' ) );
 
 		$select = new XmlSelect(
 			'neworg',

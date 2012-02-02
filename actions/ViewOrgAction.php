@@ -27,12 +27,12 @@ class ViewOrgAction extends EPViewAction {
 
 		$out = $this->getOutput();
 
-		$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-courses' ) ) );
+		$out->addElement( 'h2', array(), wfMsg( 'ep-institution-courses' ) );
 
 		EPCourse::displayPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
 
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-			$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-institution-add-course' ) ) );
+			$out->addElement( 'h2', array(), wfMsg( 'ep-institution-add-course' ) );
 
 			EPCourse::displayAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
 		}
