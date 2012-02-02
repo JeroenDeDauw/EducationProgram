@@ -239,10 +239,10 @@ class EPCourse extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::insertIntoDB()
+	 * @see EPDBObject::insert()
 	 */
-	protected function insertIntoDB() {
-		$success = parent::insertIntoDB();
+	protected function insert() {
+		$success = parent::insert();
 
 		if ( $success && $this->updateSummaries ) {
 			EPOrg::updateSummaryFields( array( 'courses', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
@@ -253,9 +253,9 @@ class EPCourse extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::removeFromDB()
+	 * @see EPDBObject::remove()
 	 */
-	public function removeFromDB() {
+	public function remove() {
 		$id = $this->getId();
 
 		if ( $this->updateSummaries ) {
@@ -263,7 +263,7 @@ class EPCourse extends EPPageObject {
 			$orgId = $this->getField( 'org_id' );
 		}
 
-		$success = parent::removeFromDB();
+		$success = parent::remove();
 
 		if ( $success && $this->updateSummaries ) {
 			EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), array( 'id' => $orgId ) );
@@ -280,9 +280,9 @@ class EPCourse extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::updateInDB()
+	 * @see EPDBObject::saveExisting()
 	 */
-	protected function updateInDB() {
+	protected function saveExisting() {
 		if ( $this->updateSummaries ) {
 			$currentFields = array();
 			
@@ -297,7 +297,7 @@ class EPCourse extends EPPageObject {
 			}
 		}
 
-		$success = parent::updateInDB();
+		$success = parent::saveExisting();
 
 		if ( $this->updateSummaries && $success ) {
 			if ( array_key_exists( 'org_id', $currentFields ) && $currentFields['org_id'] !== $this->getField( 'org_id' ) ) {
@@ -319,14 +319,14 @@ class EPCourse extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::writeToDB()
+	 * @see EPDBObject::save()
 	 */
-	public function writeToDB() {
+	public function save() {
 		if ( $this->hasField( 'name' ) ) {
 			$this->setField( 'name', $GLOBALS['wgLang']->ucfirst( $this->getField( 'name' ) ) );
 		}
 
-		return parent::writeToDB();
+		return parent::save();
 	}
 
 	/**
@@ -646,7 +646,7 @@ class EPCourse extends EPPageObject {
 
 			if ( $save ) {
 				$this->disableLogging();
-				$success = $this->writeToDB();
+				$success = $this->save();
 				$this->enableLogging();
 			}
 
@@ -699,7 +699,7 @@ class EPCourse extends EPPageObject {
 
 			if ( $save ) {
 				$this->disableLogging();
-				$success = $this->writeToDB();
+				$success = $this->save();
 				$this->enableLogging();
 			}
 

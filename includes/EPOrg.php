@@ -165,19 +165,19 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::removeFromDB()
+	 * @see EPDBObject::remove()
 	 */
-	public function removeFromDB() {
+	public function remove() {
 		$id = $this->getId();
 		$this->loadFields( array( 'name' ) );
 
-		$success = parent::removeFromDB();
+		$success = parent::remove();
 
 		if ( $success ) {
 			$success = wfGetDB( DB_MASTER )->delete( 'ep_cas_per_org', array( 'cpo_org_id' => $id ) ) && $success;
 
 			foreach ( EPCourse::select( 'id', array( 'org_id' => $id ) ) as /* EPCourse */ $course ) {
-				$success = $course->removeFromDB() && $success;
+				$success = $course->remove() && $success;
 			}
 		}
 
@@ -186,14 +186,14 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::writeToDB()
+	 * @see EPDBObject::save()
 	 */
-	public function writeToDB() {
+	public function save() {
 		if ( $this->hasField( 'name' ) ) {
 			$this->setField( 'name', $GLOBALS['wgLang']->ucfirst( $this->getField( 'name' ) ) );
 		}
 
-		return parent::writeToDB();
+		return parent::save();
 	}
 
 	/**

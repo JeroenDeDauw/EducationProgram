@@ -55,11 +55,11 @@ class ApiDeleteEducation extends ApiBase {
 		$everythingOk = true;
 
 		foreach ( $params['ids'] as $id ) {
-			// $instance->removeFromDB is used instead of Class::delete,
+			// $instance->remove is used instead of Class::delete,
 			// so that linked data also gets deleted.
 			$c = self::$typeMap[$params['type']];
 			$object = new $c( array( 'id' => $id ) );
-			$everythingOk = $object->removeFromDB() && $everythingOk;
+			$everythingOk = $object->remove() && $everythingOk;
 		}
 
 		$this->getResult()->addValue(

@@ -378,7 +378,7 @@ abstract class EPEditAction extends FormlessAction {
 			$this->handleUnknownField( $item, $name, $value );
 		}
 
-		$success = $item->writeToDB();
+		$success = $item->save();
 
 		if ( $success ) {
 			return true;

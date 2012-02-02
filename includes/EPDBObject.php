@@ -11,9 +11,9 @@
  *
  * These methods are likely candidates for overriding:
  * * getDefaults
- * * removeFromDB
- * * insertIntoDB
- * * updateInDB
+ * * remove
+ * * insert
+ * * saveExisting
  * * loadSummaryFields
  * * getSummaryFields
  *
@@ -24,9 +24,8 @@
  * Main instance methods:
  * * getField(s)
  * * setField(s)
- * * writeToDB
- * * removeFromDB
- * * updateInDB
+ * * save
+ * * remove
  * 
  * Main static methods:
  * * select
@@ -418,11 +417,11 @@ abstract class EPDBObject {
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function writeToDB() {
+	public function save() {
 		if ( $this->hasIdField() ) {
-			return $this->updateInDB();
+			return $this->saveExisting();
 		} else {
-			return $this->insertIntoDB();
+			return $this->insert();
 		}
 	}
 
@@ -433,7 +432,7 @@ abstract class EPDBObject {
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function updateInDB() {
+	protected function saveExisting() {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$success = $dbw->update(
@@ -453,7 +452,7 @@ abstract class EPDBObject {
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function insertIntoDB() {
+	protected function insert() {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$result = $dbw->insert(
@@ -477,7 +476,7 @@ abstract class EPDBObject {
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function removeFromDB() {
+	public function remove() {
 		$success = $this->delete( array( 'id' => $this->getId() ) );
 
 		if ( $success ) {
@@ -1190,7 +1189,7 @@ abstract class EPDBObject {
 		foreach ( self::select( 'id', $conditions ) as /* EPDBObject */ $item ) {
 			$item->loadSummaryFields( $summaryFields );
 			$item->setSummaryMode( true );
-			$item->updateInDB();
+			$item->saveExisting();
 		}
 
 		self::setReadDb( DB_SLAVE );
@@ -1207,7 +1206,7 @@ abstract class EPDBObject {
 		$this->updateSummaries = $update;
 	}
 
-		/**
+	/**
 	 * Sets the value for the @see $updateSummaries field.
 	 *
 	 * @since 0.1

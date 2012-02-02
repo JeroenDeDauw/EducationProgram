@@ -241,7 +241,7 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$student->setFields( $fields );
 
-		$success = $student->writeToDB();
+		$success = $student->save();
 
 		if ( $success ) {
 			$success = $student->associateWithCourses( array( $course ) ) && $success;

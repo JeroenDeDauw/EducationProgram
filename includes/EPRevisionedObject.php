@@ -85,7 +85,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 	protected function storeRevision( EPRevisionedObject $revision, $isDelete = false ) {
 		if ( $this->storeRevisions ) {
 			$revison->setStoreRevisions( false );
-			return $revison->writeToDB();
+			return $revison->save();
 		}
 
 		return true;
@@ -148,10 +148,10 @@ abstract class EPRevisionedObject extends EPDBObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::updateInDB()
+	 * @see EPDBObject::saveExisting()
 	 */
-	protected function updateInDB() {
-		$success = parent::updateInDB();
+	protected function saveExisting() {
+		$success = parent::saveExisting();
 
 		if ( $success && !$this->inSummaryMode ) {
 			$revision = $this->getCurrentRevision();
@@ -167,10 +167,10 @@ abstract class EPRevisionedObject extends EPDBObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::insertIntoDB()
+	 * @see EPDBObject::insert()
 	 */
-	protected function insertIntoDB() {
-		$result = parent::insertIntoDB();
+	protected function insert() {
+		$result = parent::insert();
 
 		if ( $result ) {
 			$this->storeRevision( $this );
@@ -182,10 +182,10 @@ abstract class EPRevisionedObject extends EPDBObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::removeFromDB()
+	 * @see EPDBObject::remove()
 	 */
-	public function removeFromDB() {
-		$success = parent::removeFromDB();
+	public function remove() {
+		$success = parent::remove();
 
 		if ( $success ) {
 			$this->log( 'remove' );
