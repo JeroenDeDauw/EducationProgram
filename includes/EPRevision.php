@@ -31,7 +31,6 @@ class EPRevision extends EPDBObject {
 	 * @param bool $loadDefaults
 	 */
 	public function __construct( $fields = null, $loadDefaults = false ) {
-		$this->setStoreRevisions( false );
 		parent::__construct( $fields, $loadDefaults );
 	}
 

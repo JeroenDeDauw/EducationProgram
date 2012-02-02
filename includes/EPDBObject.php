@@ -49,23 +49,17 @@ abstract class EPDBObject {
 	 * @var bool
 	 */
 	protected $updateSummaries = true;
-
+	
 	/**
-	 * If the object should log changes.
-	 * Can be changed via disableLogging and enableLogging.
+	 * Indicates if the object is in summary mode.
+	 * This mode indicates that only summary fields got updated,
+	 * which allows for optimizations.
 	 *
 	 * @since 0.1
 	 * @var bool
 	 */
-	protected $log = true;
-
-	/**
-	 * If the object should store old revisions.
-	 *
-	 * @since 0.1
-	 * @var bool
-	 */
-	protected $storeRevisions = true;
+	protected $inSummaryMode = false;
+	
 
 	/**
 	 * The database connection to use for read operations.
@@ -144,6 +138,19 @@ abstract class EPDBObject {
 	 * @return array
 	 */
 	public static function getDefaults() {
+		return array();
+	}
+	
+	/**
+	 * Returns a list of the summary fields.
+	 * These are fields that cache computed values, such as the amount of linked objects of $type.
+	 * This is relevant as one might not want to do actions such as log changes when these get updated.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
+	public static function getSummaryFields() {
 		return array();
 	}
 
@@ -418,37 +425,7 @@ abstract class EPDBObject {
 			__METHOD__
 		);
 
-		if ( $success ) {
-			$this->storeRevision();
-			$this->log( 'update' );
-		}
-
 		return $success;
-	}
-
-	/**
-	 * Store the current version of the object in the revisions table.
-	 * TODO: add handling for comment, minor edit, ect stuff
-	 *
-	 * @since 0.1
-	 *
-	 * @param bool $isDelete
-	 *
-	 * @return boolean Success indicator
-	 */
-	protected function storeRevision( $isDelete = false ) {
-		if ( $this->storeRevisions ) {
-			static::setReadDb( DB_MASTER );
-			$revison = static::selectRow( null, array( 'id' => $this->getId() ) );
-			static::setReadDb( DB_SLAVE );
-
-			$revison = EPRevision::newFromObject( $revison, $isDelete );
-			$revison->setStoreRevisions( false );
-
-			return $revison->writeToDB();
-		}
-
-		return true;
 	}
 
 	/**
@@ -470,8 +447,6 @@ abstract class EPDBObject {
 
 		if ( $result ) {
 			$this->setField( 'id', $dbw->insertId() );
-			$this->storeRevision();
-			$this->log( 'add' );
 		}
 
 		return $result;
@@ -489,41 +464,9 @@ abstract class EPDBObject {
 
 		if ( $success ) {
 			$this->setField( 'id', null );
-			$this->log( 'remove' );
 		}
 
 		return $success;
-	}
-
-	/**
-	 * Log an action.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string $subType
-	 */
-	protected function log( $subType ) {
-		if ( $this->log ) {
-			$info = $this->getLogInfo( $subType );
-			
-			if ( $info !== false ) {
-				$info['subtype'] = $subType;
-				EPUtils::log( $info );
-			}
-		}
-	}
-
-	/**
-	 * Returns the info for the log entry or false if no entry should be created.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string $subType
-	 *
-	 * @return array|false
-	 */
-	protected function getLogInfo( $subType ) {
-		return false;
 	}
 
 	/**
@@ -1228,9 +1171,8 @@ abstract class EPDBObject {
 
 		foreach ( self::select( 'id', $conditions ) as /* EPDBObject */ $item ) {
 			$item->loadSummaryFields( $summaryFields );
-			$item->disableLogging();
-			$item->writeToDB();
-			$item->enableLogging();
+			$item->setSummaryMode( true );
+			$item->updateInDB();
 		}
 
 		self::setReadDb( DB_SLAVE );
@@ -1247,33 +1189,15 @@ abstract class EPDBObject {
 		$this->updateSummaries = $update;
 	}
 
-	/**
-	 * Sets the value for the @see $storeRevisions field.
+		/**
+	 * Sets the value for the @see $updateSummaries field.
 	 *
 	 * @since 0.1
 	 *
-	 * @param boolean $store
+	 * @param boolean $update
 	 */
-	public function setStoreRevisions( $store ) {
-		$this->storeRevisions = $store;
-	}
-
-	/**
-	 * Sets the value for the @see $log field.
-	 *
-	 * @since 0.1
-	 */
-	public function enableLogging() {
-		$this->log = true;
-	}
-
-	/**
-	 * Sets the value for the @see $log field.
-	 *
-	 * @since 0.1
-	 */
-	public function disableLogging() {
-		$this->log = false;
+	public function setSummaryMode( $summaryMode ) {
+		$this->inSummaryMode = $summaryMode;
 	}
 
 }

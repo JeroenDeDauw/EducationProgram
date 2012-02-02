@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract base class for EPDBObjects that have associated view, edit and history pages
+ * Abstract base class for EPRevisionedObject that have associated view, edit and history pages.
  *
  * @since 0.1
  *
@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPPageObject extends EPDBObject {
+abstract class EPPageObject extends EPRevisionedObject {
 
 	protected static $info = array(
 		'EPCourse' => array(
