@@ -266,11 +266,13 @@ class EPCourse extends EPPageObject {
 		$success = parent::removeFromDB();
 
 		if ( $success && $this->updateSummaries ) {
-			EPOrg::updateSummaryFields( array( 'courses', 'students', 'active' ), array( 'id' => $orgId ) );
+			EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), array( 'id' => $orgId ) );
 		}
 
 		if ( $success ) {
 			$success = wfGetDB( DB_MASTER )->delete( 'ep_students_per_course', array( 'spc_course_id' => $id ) ) && $success;
+			$success = wfGetDB( DB_MASTER )->delete( 'ep_cas_per_course', array( 'cpc_course_id' => $id ) ) && $success;
+			$success = wfGetDB( DB_MASTER )->delete( 'ep_oas_per_course', array( 'opc_course_id' => $id ) ) && $success;
 		}
 
 		return $success;
@@ -282,15 +284,33 @@ class EPCourse extends EPPageObject {
 	 */
 	protected function updateInDB() {
 		if ( $this->updateSummaries ) {
-			$oldOrgId = $this->hasField( 'org_id' ) ? self::selectFieldsRow( 'org_id', array( 'id' => $this->getId() ) ) : false;
+			$currentFields = array();
+			
+			foreach ( array( 'org_id', 'online_ambs', 'campus_ambs' ) as $field ) {
+				if ( $this->hasField( $field ) ) {
+					$currentFields[] = $field;
+				}
+			}
+			
+			if ( count( $currentFields ) > 0 ) {
+				$currentFields = self::selectFieldsRow( $currentFields, array( 'id' => $this->getId() ) );
+			}
 		}
 
 		$success = parent::updateInDB();
 
 		if ( $this->updateSummaries && $success ) {
-			if ( $oldOrgId !== false && $oldOrgId !== $this->getField( 'org_id' ) ) {
+			if ( array_key_exists( 'org_id', $currentFields ) && $currentFields['org_id'] !== $this->getField( 'org_id' ) ) {
 				$conds = array( 'id' => array( $oldOrgId, $this->getField( 'org_id' ) ) );
-				EPOrg::updateSummaryFields( array( 'courses', 'students', 'active' ), $conds );
+				EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), $conds );
+			}
+			
+			foreach ( array( 'oas', 'cas' ) as $ambs ) {
+				$field = $ambs === 'oas' ? 'online_ambs' : 'campus_ambs';
+				
+				if ( array_key_exists( $field, $currentFields ) && $currentFields[$field] !== $this->getField( $field ) ) {
+					// TODO
+				}
 			}
 		}
 

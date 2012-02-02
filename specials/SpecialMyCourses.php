@@ -70,8 +70,18 @@ class SpecialMyCourses extends SpecialEPPage {
 	
 	protected function displayCourses() {
 		$this->displayEnrollment();
-		$this->displayMentorship();
-		$this->displayInstructorship();
+		
+		if ( $this->getUser()->isAllowed( 'ep-instructor' ) ) {
+			$this->displayInstructorship();
+		}
+		
+		if ( $this->getUser()->isAllowed( 'ep-online' ) ) {
+			$this->displayOnlineMentorship();
+		}
+		
+		if ( $this->getUser()->isAllowed( 'ep-campus' ) ) {
+			$this->displayCampusMentorship();
+		}
 	}
 	
 	protected function displayEnrollment() {
@@ -116,7 +126,11 @@ class SpecialMyCourses extends SpecialEPPage {
 		}
 	}
 	
-	protected function displayMentorship() {
+	protected function displayOnlineMentorship() {
+		
+	}
+	
+	protected function displayCampusMentorship() {
 		
 	}
 	
