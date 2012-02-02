@@ -82,9 +82,8 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function storeRevision( EPRevisionedObject $revision, $isDelete = false ) {
+	protected function storeRevision( EPRevision $revision, $isDelete = false ) {
 		if ( $this->storeRevisions ) {
-			$revison->setStoreRevisions( false );
 			return $revison->save();
 		}
 
@@ -121,7 +120,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 		$revison = static::selectRow( null, array( 'id' => $this->getId() ) );
 		static::setReadDb( DB_SLAVE );
 		
-		return EPRevision::newFromObject( $revison, $isDelete );;
+		return EPRevision::newFromObject( $revison );
 	}
 	
 	/**
@@ -156,7 +155,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 		if ( $success && !$this->inSummaryMode ) {
 			$revision = $this->getCurrentRevision();
 			
-			if ( $this->fieldsChanged( $revision, true ) ) {
+			if ( $this->fieldsChanged( $revision->getObject(), true ) ) {
 				$this->storeRevision( $revision );
 				$this->log( 'update' );
 			}

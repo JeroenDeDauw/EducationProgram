@@ -293,7 +293,7 @@ class EPCourse extends EPPageObject {
 			}
 			
 			if ( count( $currentFields ) > 0 ) {
-				$currentFields = self::selectFieldsRow( $currentFields, array( 'id' => $this->getId() ) );
+				$currentFields = self::selectFieldsRow( $currentFields, array( 'id' => $this->getId() ), array(), array(), false );
 			}
 		}
 
@@ -309,7 +309,24 @@ class EPCourse extends EPPageObject {
 				$field = $ambs === 'oas' ? 'online_ambs' : 'campus_ambs';
 				
 				if ( array_key_exists( $field, $currentFields ) && $currentFields[$field] !== $this->getField( $field ) ) {
-					// TODO
+					$courseField = $ambs === 'oas' ? 'opc_course_id' : 'cpc_course_id';
+					$userField = $ambs === 'oas' ? 'opc_oa_id' : 'cpc_ca_id';
+					$table = 'ep_' . $ambs . '_per_course';
+					
+					$dbw = wfGetDB( DB_MASTER );
+					
+					$dbw->delete( $table, array( $courseField => $id ) );
+					
+					$dbw->begin();
+					
+					foreach ( $this->getField( $field ) as $userId ) {
+						$dbw->insert( $table, array(
+							$courseField => $this->getId(),
+							$userField => $userId
+						) );
+					}
+					
+					$dbw->commit();
 				}
 			}
 		}
