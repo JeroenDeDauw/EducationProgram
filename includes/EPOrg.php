@@ -63,6 +63,21 @@ class EPOrg extends EPPageObject {
 			'online_ambs' => 0,
 		);
 	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPDBObject::getSummaryFields()
+	 */
+	public static function getSummaryFields() {
+		return array(
+			'active',
+			'courses',
+			'students',
+			'instructors',
+			'campus_ambs',
+			'online_ambs',
+		);
+	}
 
 	/**
 	 * (non-PHPdoc)

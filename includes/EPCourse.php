@@ -141,6 +141,16 @@ class EPCourse extends EPPageObject {
 			'students' => 0,
 		);
 	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPDBObject::getSummaryFields()
+	 */
+	public static function getSummaryFields() {
+		return array(
+			'students',
+		);
+	}
 
 	/**
 	 * Returns the students enrolled in this course.

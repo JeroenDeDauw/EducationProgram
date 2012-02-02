@@ -15,10 +15,28 @@
  * * insertIntoDB
  * * updateInDB
  * * loadSummaryFields
+ * * getSummaryFields
  *
  * Deriving classes must register their table and field prefix in $egEPDBObjects.
  * Syntax: $egEPDBObjects['DrivingClassName'] = array( 'table' => 'table_name', 'prefix' => 'fieldprefix_' );
  * Example: $egEPDBObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
+ *
+ * Main instance methods:
+ * * getField(s)
+ * * setField(s)
+ * * writeToDB
+ * * removeFromDB
+ * * updateInDB
+ * 
+ * Main static methods:
+ * * select
+ * * update
+ * * delete
+ * * count
+ * * has
+ * * selectRow
+ * * selectFields
+ * * selectFieldsRow
  *
  * @since 0.1
  *
