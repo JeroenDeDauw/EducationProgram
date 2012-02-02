@@ -29,8 +29,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-if ( version_compare( $wgVersion, '1.18c', '<' ) ) { // Needs to be 1.18c because version_compare() works in confusing ways.
-	die( '<b>Error:</b> Education Program requires MediaWiki 1.18 or above.' );
+if ( version_compare( $wgVersion, '1.19c', '<' ) ) { // Needs to be 1.19c because version_compare() works in confusing ways.
+	die( '<b>Error:</b> Education Program requires MediaWiki 1.19 or above.' );
 }
 
 if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version constant to check against :/
@@ -177,45 +177,12 @@ $wgLogTypes[] = 'online';
 $wgLogTypes[] = 'campus';
 $wgLogTypes[] = 'instructor';
 
-if ( array_key_exists( 'LogFormatter', $wgAutoloadLocalClasses ) ) {
-	$wgLogActionsHandlers['institution/*'] = 'EPLogFormatter';
-	$wgLogActionsHandlers['course/*'] = 'EPLogFormatter';
-	$wgLogActionsHandlers['student/*'] = 'EPLogFormatter';
-	$wgLogActionsHandlers['online/*'] = 'EPLogFormatter';
-	$wgLogActionsHandlers['campus/*'] = 'EPLogFormatter';
-	$wgLogActionsHandlers['instructor/*'] = 'EPLogFormatter';
-}
-else {
-	// Compatibility with MediaWiki 1.18.
-	foreach ( array( 'institution', 'course' ) as $type ) {
-		foreach ( array( 'add', 'remove', 'update' ) as $action ) {
-			$wgLogActionsHandlers[$type . '/' . $action] = 'EPHooks::formatLogEntry';
-		}
-	}
-	
-	foreach ( array( 'instructor', 'ambassador' ) as $type ) {
-		foreach ( array( 'add', 'remove', 'selfadd', 'selfremove' ) as $action ) {
-			$wgLogActionsHandlers[$type . '/' . $action] = 'EPHooks::formatLogEntry';
-		}
-	}
-	
-	$wgLogActionsHandlers['student/enroll'] = 'EPHooks::formatLogEntry';
-	$wgLogActionsHandlers['student/remove'] = 'EPHooks::formatLogEntry';
-	
-	// Compatibility with MediaWiki 1.18.
-	$wgLogNames['institution'] = 'log-name-institution';
-	$wgLogNames['course'] = 'log-name-course';
-	$wgLogNames['student'] = 'log-name-student';
-	$wgLogNames['ambassador'] = 'log-name-ambassador';
-	$wgLogNames['instructor'] = 'log-name-instructor';
-	
-	// Compatibility with MediaWiki 1.18.
-	$wgLogHeaders['institution'] = 'log-header-institution';
-	$wgLogHeaders['course'] = 'log-header-course';
-	$wgLogHeaders['student'] = 'log-header-student';
-	$wgLogHeaders['ambassador'] = 'log-header-ambassador';
-	$wgLogHeaders['instructor'] = 'log-header-instructor';
-}
+$wgLogActionsHandlers['institution/*'] = 'EPLogFormatter';
+$wgLogActionsHandlers['course/*'] = 'EPLogFormatter';
+$wgLogActionsHandlers['student/*'] = 'EPLogFormatter';
+$wgLogActionsHandlers['online/*'] = 'EPLogFormatter';
+$wgLogActionsHandlers['campus/*'] = 'EPLogFormatter';
+$wgLogActionsHandlers['instructor/*'] = 'EPLogFormatter';
 
 // Rights
 $wgAvailableRights[] = 'ep-org'; 			// Manage orgs

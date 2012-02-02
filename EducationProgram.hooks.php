@@ -116,39 +116,6 @@ final class EPHooks {
 	}
 	
 	/**
-	 * Handles formatting of log entries for MediaWiki 1.18.x. 
-	 * 
-	 * @since 0.1
-	 * 
-	 * @param string $type
-	 * @param string $action
-	 * @param Title $title
-	 * @param boolean|null $forUI
-	 * @param array $params
-	 * 
-	 * @return string
-	 */
-	public static function formatLogEntry( $type, $action, Title $title, $forUI, array $params ) {
-		global $wgContLang, $wgLang;
-
-		$message = wfMessage( 'logentry-' . $type . '-' . $action );
-
-		$message = call_user_func_array(
-			array( $message, 'params' ),
-			array_merge(
-				array(
-					'', // User link in the new system
-					'#', // User name for gender in the new system
-					Message::rawParam( $forUI ? Linker::link( $title ) : $title->getPrefixedText() )
-				),
-				$params
-			)
-		);
-
-		return $message->inLanguage( $forUI === null ? $wgContLang : $wgLang )->text();
-	}
-
-	/**
 	 * Called to determine the class to handle the article rendering, based on title.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleFromTitle
 	 * 
