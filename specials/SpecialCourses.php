@@ -39,7 +39,7 @@ class SpecialCourses extends SpecialEPPage {
 			EPCourse::displayPager( $this->getContext() );
 		}
 		else {
-			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'Course', $this->subPage )->getLocalURL() );
+			$this->getOutput()->redirect( Title::newFromText( $this->subPage, EP_NS_COURSE )->getLocalURL() );
 		}
 	}
 

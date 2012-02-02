@@ -32,8 +32,6 @@ class EPCoursePager extends EPPager {
 			'name',
 			'org_id',
 			'term',
-			'start',
-			'end',
 			'lang',
 			'students',
 		);
@@ -101,8 +99,8 @@ class EPCoursePager extends EPPager {
 		return array(
 			'name',
 			'term',
-			'start',
-			'end',
+//			'start',
+//			'end',
 			'lang',
 			'students',
 		);

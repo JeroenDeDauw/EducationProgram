@@ -112,18 +112,6 @@ abstract class SpecialEPPage extends SpecialPage {
 	}
 
 	/**
-	 * Get the Language being used for this instance.
-	 * getLang was deprecated in 1.19, getLanguage was introduced in the same version.
-	 *
-	 * @since 0.1
-	 *
-	 * @return Language
-	 */
-	public function getLanguage() {
-		return method_exists( get_parent_class(), 'getLanguage' ) ? parent::getLanguage() : $this->getLang();
-	}
-
-	/**
 	 * Adds a navigation menu with the provided links.
 	 * Links should be provided in an array with:
 	 * label => Title (object)

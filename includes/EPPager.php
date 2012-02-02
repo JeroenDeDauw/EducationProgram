@@ -87,7 +87,7 @@ abstract class EPPager extends TablePager {
 	 * @return Language
 	 */
 	public function getLanguage() {
-		return method_exists( $this->context, 'getLanguage' ) ? $this->context->getLanguage() : $this->context->getLang();
+		return $this->context->getLanguage();
 	}
 
 	/**

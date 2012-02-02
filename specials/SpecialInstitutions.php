@@ -39,7 +39,7 @@ class SpecialInstitutions extends SpecialEPPage {
 			EPOrg::displayPager( $this->getContext() );
 		}
 		else {
-			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'Institution', $this->subPage )->getLocalURL() );
+			$this->getOutput()->redirect( Title::newFromText( $this->subPage, EP_NS_INSTITUTION )->getLocalURL() );
 		}
 	}
 
