@@ -121,29 +121,8 @@ abstract class SpecialEPPage extends SpecialPage {
 	 * @param array $items
 	 */
 	protected function displayNavigation( array $items = array() ) {
-		$links = array();
 		$items = array_merge( $this->getDefaultNavigationItems(), $items );
-
-		foreach ( $items as $label => $data ) {
-			if ( is_array( $data ) ) {
-				$target = array_shift( $data );
-				$attribs = $data;
-			}
-			else {
-				$target = $data;
-				$attribs = array();
-			}
-
-			$links[] = Linker::linkKnown(
-				$target,
-				htmlspecialchars( $label ),
-				$attribs
-			);
-		}
-
-		$this->getOutput()->addHTML(
-			Html::rawElement( 'p', array(), $this->getLanguage()->pipeList( $links ) )
-		);
+		EPUtils::displayNavigation( $this->getContext(), $items );
 	}
 
 	/**
@@ -154,18 +133,7 @@ abstract class SpecialEPPage extends SpecialPage {
 	 * @return array
 	 */
 	protected function getDefaultNavigationItems() {
-		$items = array(
-			wfMsg( 'ep-nav-orgs' ) => SpecialPage::getTitleFor( 'Institutions' ),
-			wfMsg( 'ep-nav-courses' ) => SpecialPage::getTitleFor( 'Courses' ),
-		);
-
-		$items[wfMsg( 'ep-nav-students' )] = SpecialPage::getTitleFor( 'Students' );
-
-		if ( EPStudent::has( array( 'user_id' => $this->getUser()->getId() ) ) ) {
-			$items[wfMsg( 'ep-nav-mycourses' )] = SpecialPage::getTitleFor( 'MyCourses' );
-		}
-
-		return $items;
+		return EPUtils::getDefaultNavigationItems( $this->getContext() );
 	}
 
 	/**

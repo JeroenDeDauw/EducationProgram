@@ -14,10 +14,6 @@
  */
 abstract class EPViewAction extends FormlessAction {
 
-	protected function getDescription() {
-		return '';
-	}
-
 	/**
 	 * Returns the class name of the EPDBObject this action handles.
 	 *
@@ -28,9 +24,8 @@ abstract class EPViewAction extends FormlessAction {
 	protected abstract function getItemClass();
 
 	/**
-	 *
-	 *
-	 * @return String HTML
+	 * (non-PHPdoc)
+	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
 		$out = $this->getOutput();
@@ -78,7 +73,22 @@ abstract class EPViewAction extends FormlessAction {
 
 		return '';
 	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getDescription()
+	 */
+	protected function getDescription() {
+		return '';
+	}
 
+	/**
+	 * Display a revision notice as subtitle.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param EPRevision $rev
+	 */
 	protected function displayRevisionNotice( EPRevision $rev ) {
 		$lang = $this->getLanguage();
 
@@ -106,9 +116,15 @@ abstract class EPViewAction extends FormlessAction {
 		);
 	}
 
+	/**
+	 * Display the actual page.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param EPDBObject $object
+	 */
 	protected function displayPage( EPDBObject $object ) {
 		$this->displayNavigation();
-
 		$this->displaySummary( $object );
 	}
 
@@ -122,29 +138,8 @@ abstract class EPViewAction extends FormlessAction {
 	 * @param array $items
 	 */
 	protected function displayNavigation( array $items = array() ) {
-		$links = array();
 		$items = array_merge( $this->getDefaultNavigationItems(), $items );
-
-		foreach ( $items as $label => $data ) {
-			if ( is_array( $data ) ) {
-				$target = array_shift( $data );
-				$attribs = $data;
-			}
-			else {
-				$target = $data;
-				$attribs = array();
-			}
-
-			$links[] = Linker::linkKnown(
-				$target,
-				htmlspecialchars( $label ),
-				$attribs
-			);
-		}
-
-		$this->getOutput()->addHTML(
-			Html::rawElement( 'p', array(), $this->getLanguage()->pipeList( $links ) )
-		);
+		EPUtils::displayNavigation( $this->getContext(), $items );
 	}
 
 	/**
@@ -155,18 +150,7 @@ abstract class EPViewAction extends FormlessAction {
 	 * @return array
 	 */
 	protected function getDefaultNavigationItems() {
-		$items = array(
-			wfMsg( 'ep-nav-orgs' ) => SpecialPage::getTitleFor( 'Institutions' ),
-			wfMsg( 'ep-nav-courses' ) => SpecialPage::getTitleFor( 'Courses' ),
-		);
-
-		$items[wfMsg( 'ep-nav-students' )] = SpecialPage::getTitleFor( 'Students' );
-
-		if ( EPStudent::has( array( 'user_id' => $this->getUser()->getId() ) ) ) {
-			$items[wfMsg( 'ep-nav-mycourses' )] = SpecialPage::getTitleFor( 'MyCourses' );
-		}
-
-		return $items;
+		return EPUtils::getDefaultNavigationItems( $this->getContext() );
 	}
 
 	/**

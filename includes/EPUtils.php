@@ -151,5 +151,62 @@ class EPUtils {
 		
 		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( $links ) . ')</span>';
 	}
+	
+	/**
+	 * Adds a navigation menu with the provided links.
+	 * Links should be provided in an array with:
+	 * label => Title (object)
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param IContextSource $context
+	 * @param array $items
+	 */
+	public static function displayNavigation( IContextSource $context, array $items = array() ) {
+		$links = array();
+
+		foreach ( $items as $label => $data ) {
+			if ( is_array( $data ) ) {
+				$target = array_shift( $data );
+				$attribs = $data;
+			}
+			else {
+				$target = $data;
+				$attribs = array();
+			}
+
+			$links[] = Linker::linkKnown(
+				$target,
+				htmlspecialchars( $label ),
+				$attribs
+			);
+		}
+
+		$context->getOutput()->addHTML(
+			Html::rawElement( 'p', array(), $context->getLanguage()->pipeList( $links ) )
+		);
+	}
+	
+	/**
+	 * Returns the default nav items for @see displayNavigation.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
+	public static function getDefaultNavigationItems( IContextSource $context ) {
+		$items = array(
+			wfMsg( 'ep-nav-orgs' ) => SpecialPage::getTitleFor( 'Institutions' ),
+			wfMsg( 'ep-nav-courses' ) => SpecialPage::getTitleFor( 'Courses' ),
+		);
+
+		$items[wfMsg( 'ep-nav-students' )] = SpecialPage::getTitleFor( 'Students' );
+
+		if ( EPStudent::has( array( 'user_id' => $context->getUser()->getId() ) ) ) {
+			$items[wfMsg( 'ep-nav-mycourses' )] = SpecialPage::getTitleFor( 'MyCourses' );
+		}
+
+		return $items;		
+	}
 
 }

@@ -386,6 +386,8 @@ $messages['en'] = array(
 	'specialmycourses-summary-name' => 'Course name',
 	'specialmycourses-summary-org' => 'Institution name',
     'ep-mycourses-not-a-student' => 'You are not enrolled in any [[Special:Courses|courses]].',
+	'ep-mycourses-enrollment' => 'Courses I am enrolled in',
+	'ep-mycourses-course-enrollment' => 'Course I am enrolled in',
 
 	// ep.enlist instructor
 	'ep-instructor-remove-title' => 'Remove instructor from course',

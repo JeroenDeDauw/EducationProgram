@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Special page listing the courses in which the current user is enrolled.
+ * Special page listing the courses relevant to the current user.
+ * There are the courses the user is either enrolled in, an ambassador for or instructor for.
  * When a subpage param is provided, and it's a valid course
  * name, info for that course is shown.
  *
@@ -34,169 +35,25 @@ class SpecialMyCourses extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
-		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
-			EPStudent::setReadDb( DB_MASTER );
+		if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
+			$this->displayNavigation();
 		}
-
-		$student = EPStudent::newFromUser( $this->getUser() );
-
-		if ( $student === false ) {
-			$this->getOutput()->addWikiMsg( 'ep-mycourses-not-a-student' );
+		
+		if ( $this->subPage === '' ) {
+			$this->displayCourses();
 		}
 		else {
-			if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
-				$this->displayNavigation();
-			}
+			$course = EPCourse::selectRow( null, array( 'name' => $this->subPage ) );
 			
-			if ( $this->subPage === '' ) {
-				$this->displayCourses( $student );
+			if ( $course === false ) {
+			
 			}
 			else {
-				$this->displayCourse( $student, $this->subPage );
+				$this->displayCourse( $course );
 			}
 		}
 	}
 
-	/**
-	 * Display the courses this student is linked to.
-	 *
-	 * @since 0.1
-	 *
-	 * @param EPStudent $student
-	 */
-	protected function displayCourses( EPStudent $student ) {
-		$out = $this->getOutput();
-
-		if ( $student->hasCourse() ) {
-			if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
-				$course = EPCourse::selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
-
-				if ( $course !== false ) {
-					$this->showSuccess( wfMessage(
-						'ep-mycourses-enrolled',
-						$course->getField( 'name' ),
-						$course->getOrg()->getField( 'name' )
-					) );
-				}
-			}
-
-			$currentCourses = $student->getCoursesWithState( 'current' );
-			$passedCourses = $student->getCoursesWithState( 'passed' );
-
-			if ( count( $currentCourses ) > 0 ) {
-				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mycourses-current' ) ) );
-				$this->displayCoursesList( $currentCourses );
-			}
-
-			if ( count( $passedCourses ) > 0 ) {
-				$out->addHTML( Html::element( 'h2', array(), wfMsg( 'ep-mycourses-passed' ) ) );
-				$this->displayCoursesList( $passedCourses );
-			}
-		}
-		else {
-			$out->addWikiMsg( 'ep-mycourses-not-enrolled' );
-		}
-	}
-
-	/**
-	 * Display the provided courses in a table.
-	 *
-	 * @since 0.1
-	 *
-	 * @param array $courses
-	 */
-	protected function displayCoursesList( array /* of EPCourse */ $courses ) {
-		$out = $this->getOutput();
-
-		$out->addHTML( Xml::openElement(
-			'table',
-			array( 'class' => 'wikitable sortable' )
-		) );
-
-		$headers = array(
-			Html::element( 'th', array(), wfMsg( 'ep-mycourses-header-name' ) ),
-			Html::element( 'th', array(), wfMsg( 'ep-mycourses-header-institution' ) ),
-		);
-
-		$out->addHTML( '<thead><tr>' . implode( '', $headers ) . '</tr></thead>' );
-
-		$out->addHTML( '<tbody>' );
-
-		foreach ( $courses as /* EPCourse */ $course ) {
-			$fields = array();
-
-			$fields[] = Linker::link(
-				$this->getTitle( $course->getField( 'name' ) ),
-				'<b>' . htmlspecialchars( $course->getField( 'name' ) ) . '</b>'
-			);
-
-			$fields[] = Linker::link(
-				SpecialPage::getTitleFor( 'Institution', $course->getOrg()->getField( 'name' ) ),
-				htmlspecialchars( $course->getOrg()->getField( 'name' ) )
-			);
-
-			foreach ( $fields as &$field ) {
-				$field = Html::rawElement( 'td', array(), $field );
-			}
-
-			$out->addHTML( '<tr>' . implode( '', $fields ) . '</tr>' );
-		}
-
-		$out->addHTML( '</tbody>' );
-		$out->addHTML( '</table>' );
-	}
-
-	/**
-	 * Display info for a single course.
-	 *
-	 * @since 0.1
-	 *
-	 * @param EPStudent $student
-	 * @param string $courseName
-	 */
-	protected function displayCourse( EPStudent $student, $courseName ) {
-		$out = $this->getOutput();
-
-		$course = EPCourse::selectRow( null, array( 'name' => $courseName ) );
-
-		if ( $course !== false ) {
-			$out->addWikiMsg( 'ep-mycourses-show-all' );
-
-			$out->setPageTitle( wfMsgExt(
-				'ep-mycourses-course-title',
-				'parsemag',
-				$courseName,
-				$course->getOrg( 'name' )->getField( 'name' )
-			) );
-
-			$this->displayCourseSummary( $course );
-		}
-		else {
-			$this->showError( wfMessage( 'ep-mycourses-no-such-course', $courseName ) );
-			$this->displayCourses( $student );
-		}
-	}
-
-	/**
-	 * Display the summary for a course.
-	 *
-	 * @since 0.1
-	 *
-	 * @param EPCourse $course
-	 */
-	protected function displayCourseSummary( EPCourse $course ) {
-		$info = array();
-
-		$info['name'] = $course->getField( 'name' );
-		$info['org'] = EPOrg::selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
-
-		foreach ( $info as &$inf ) {
-			$inf = htmlspecialchars( $inf );
-		}
-
-		$this->displaySummary( $course, false, $info );
-	}
-	
 	/**
 	 * (non-PHPdoc)
 	 * @see SpecialEPPage::getDefaultNavigationItems()
@@ -204,9 +61,75 @@ class SpecialMyCourses extends SpecialEPPage {
 	protected function getDefaultNavigationItems() {
 		$items = parent::getDefaultNavigationItems();
 		
-		unset( $items[wfMsg( 'ep-nav-mycourses' )] );
+		if ( $this->subPage === '' ) {
+			unset( $items[wfMsg( 'ep-nav-mycourses' )] );			
+		}
 		
 		return $items;
+	}
+	
+	protected function displayCourses() {
+		$this->displayEnrollment();
+		$this->displayMentorship();
+		$this->displayInstructorship();
+	}
+	
+	protected function displayEnrollment() {
+		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
+			EPStudent::setReadDb( DB_MASTER );
+		}
+
+		$student = EPStudent::newFromUser( $this->getUser() );
+
+		if ( $student !== false ) {
+			$courses = $student->getCourses( 'id' );
+			
+			$courseIds = array_map(
+				function( EPCourse $course ) {
+					return $course->getId();
+				},
+				$courses
+			);
+			
+			if ( $this->getRequest()->getCheck( 'enrolled' ) && in_array( $this->getRequest()->getInt( 'enrolled' ), $courseIds ) ) {
+				$course = EPCourse::selectRow( array( 'name', 'org_id' ), array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
+				
+				$this->showSuccess( wfMessage(
+					'ep-mycourses-enrolled',
+					$course->getField( 'name' ),
+					$course->getOrg()->getField( 'name' )
+				) );
+			}
+			
+			if ( count( $courseIds ) === 0 ) {
+				// TODO
+			}
+			elseif ( count( $courseIds ) === 1 ) {
+				$course = $courses[0];
+				$course->loadFields();
+				$this->displayCourse( $course );
+			}
+			else {
+				$this->getOutput()->addElement( 'h2', array(), wfMsg( 'ep-mycourses-enrollment' ) );
+				EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ) );
+			}
+		}
+	}
+	
+	protected function displayMentorship() {
+		
+	}
+	
+	protected function displayInstructorship() {
+		
+	}
+	
+	protected function displayCourse( EPCourse $course ) {
+		$out = $this->getOutput();
+		
+		$out->addElement( 'h2', array(), wfMsg( 'ep-mycourses-course-enrollment' ) );
+		
+		$out->addHTML( 'You are currently enrolled in ' . $course->getField( 'name' ) ); // TODO
 	}
 
 }
