@@ -29,7 +29,7 @@ class EditOrgAction extends EPEditAction {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see SpecialEPFormPage::getFormFields()
+	 * @see EPEditAction::getFormFields()
 	 * @return array
 	 */
 	protected function getFormFields() {

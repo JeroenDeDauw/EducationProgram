@@ -67,7 +67,7 @@ class EditCourseAction extends EPEditAction {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see SpecialEPFormPage::getFormFields()
+	 * @see EPEditAction::getFormFields()
 	 * @return array
 	 */
 	protected function getFormFields() {
@@ -183,20 +183,23 @@ class EditCourseAction extends EPEditAction {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see SpecialEPFormPage::getNewData()
+	 * @see EPEditAction::getNewData()
 	 */
 	protected function getNewData() {
 		$data = parent::getNewData();
 
-		if ( $this->isNew() ) {
+		if ( $this->isNewPost() ) {
 			$data['org_id'] = $this->getRequest()->getVal( 'neworg' );
+			
 			$data['name'] = wfMsgExt(
 				'ep-course-edit-name-format',
 				'parsemag',
 				$data['name'],
 				$this->getRequest()->getVal( 'newterm' )
 			);
+			
 			$data['term'] = $this->getRequest()->getVal( 'newterm' );
+			
 			$data['mc'] = $data['name'];
 		}
 
@@ -205,7 +208,7 @@ class EditCourseAction extends EPEditAction {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see SpecialEPFormPage::handleKnownField()
+	 * @see EPEditAction::handleKnownField()
 	 */
 	protected function handleKnownField( $name, $value ) {
 		if ( in_array( $name, array( 'end', 'start' ) ) ) {
