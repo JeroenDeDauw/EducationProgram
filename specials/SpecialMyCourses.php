@@ -129,7 +129,7 @@ class SpecialMyCourses extends SpecialEPPage {
 		}
 		elseif ( count( $courseIds ) > 1 ) {
 			$this->getOutput()->addElement( 'h2', array(), wfMsg( 'ep-mycourses-enrollment' ) );
-			EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true );
+			EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true, 'enrollment' );
 		}
 	}
 	
@@ -145,7 +145,7 @@ class SpecialMyCourses extends SpecialEPPage {
 		
 		if ( count( $courseIds ) > 0 ) {
 			$this->getOutput()->addElement( 'h2', array(), wfMsg( 'ep-mycourses-ambcourses-' . strtolower( $class ) ) );
-			EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true );
+			EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true, $class );
 		}
 		else {
 			$this->getOutput()->addWikiMsg( 'ep-mycourses-noambcourses-' . strtolower( $class ) );

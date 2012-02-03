@@ -56,74 +56,9 @@ abstract class EPPager extends TablePager {
 
 		$this->mDefaultDirection = true;
 
-		if ( method_exists( 'TablePager', 'getUser' ) ) {
-			parent::__construct( $context );
-		}
-		else {
-			parent::__construct();
-		}
+		parent::__construct( $context );
 
 		$this->context->getOutput()->addModules( 'ep.pager' );
-	}
-
-	/**
-	 * Get the OutputPage being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return OutputPage
-	 */
-	public function getOutput() {
-		return $this->context->getOutput();
-	}
-
-	/**
-	 * Get the Language being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return Language
-	 */
-	public function getLanguage() {
-		return $this->context->getLanguage();
-	}
-
-	/**
-	 * Get the User being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return User
-	 */
-	public function getUser() {
-		return $this->context->getUser();
-	}
-
-	/**
-	 * Get the WebRequest being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return WebRequest
-	 */
-	public function getRequest() {
-		return $this->context->getRequest();
-	}
-
-	/**
-	 * Get the Title being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return Title
-	 */
-	public function getTitle() {
-		return $this->context->getTitle();
 	}
 
 	/**
@@ -395,7 +330,11 @@ abstract class EPPager extends TablePager {
 		foreach ( $filterOptions as $optionName => $optionData ) {
 			switch ( $optionData['type'] ) {
 				case 'select':
-					$select = new XmlSelect( $optionName, $optionName, $optionData['value'] );
+					$select = new XmlSelect( 
+						$this->filterPrefix . $optionName,
+						$this->filterPrefix . $optionName,
+						$optionData['value']
+					);
 					$select->addOptions( $optionData['options'] );
 					$control = $select->getHTML();
 					break;
@@ -436,9 +375,9 @@ abstract class EPPager extends TablePager {
 		$changed = false;
 
 		foreach ( $filterOptions as $optionName => &$optionData ) {
-			if ( $req->getCheck( $optionName ) ) {
-				$optionData['value'] = $req->getVal( $optionName );
-				$req->setSessionData( get_called_class() . $optionName, $optionData['value'] );
+			if ( $req->getCheck( $this->filterPrefix . $optionName ) ) {
+				$optionData['value'] = $req->getVal( $this->filterPrefix . $optionName );
+				$req->setSessionData( $this->getNameForSession( $optionName ), $optionData['value'] );
 				$changed = true;
 
 				if ( $cast && array_key_exists( 'datatype', $optionData ) ) {
@@ -452,13 +391,23 @@ abstract class EPPager extends TablePager {
 					}
 				}
 			}
-			elseif ( !is_null( $req->getSessionData( get_called_class() . $optionName ) ) ) {
-				$optionData['value'] = $req->getSessionData( get_called_class() . $optionName );
+			elseif ( !is_null( $req->getSessionData( $this->getNameForSession( $optionName ) ) ) ) {
+				$optionData['value'] = $req->getSessionData( $this->getNameForSession( $optionName ) );
 				$changed = true;
 			}
 		}
 
 		return $changed;
+	}
+	
+	protected function getNameForSession( $optionName ) {
+		return $this->filterPrefix . get_called_class() . $optionName;
+	}
+	
+	protected $filterPrefix = '';
+	
+	public function setFilterPrefix( $filterPrefix ) {
+		$this->filterPrefix = $filterPrefix;
 	}
 
 	/**

@@ -379,10 +379,15 @@ class EPCourse extends EPPageObject {
 	 * @param IContextSource $context
 	 * @param array $conditions
 	 * @param boolean $readOnlyMode
+	 * @param string|false $filterPrefix
 	 */
-	public static function displayPager( IContextSource $context, array $conditions = array(), $readOnlyMode = false ) {
+	public static function displayPager( IContextSource $context, array $conditions = array(), $readOnlyMode = false, $filterPrefix = false ) {
 		$pager = new EPCoursePager( $context, $conditions, $readOnlyMode );
 
+		if ( $filterPrefix !== false ) {
+			$pager->setFilterPrefix( $filterPrefix );
+		}
+		
 		if ( $pager->getNumRows() ) {
 			$context->getOutput()->addHTML(
 				$pager->getFilterControl() .
