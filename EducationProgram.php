@@ -96,6 +96,7 @@ $wgAutoloadClasses['EPPageObject'] 					= dirname( __FILE__ ) . '/includes/EPPag
 $wgAutoloadClasses['EPFailForm'] 					= dirname( __FILE__ ) . '/includes/EPFailForm.php';
 $wgAutoloadClasses['EPIRole'] 						= dirname( __FILE__ ) . '/includes/EPIRole.php';
 $wgAutoloadClasses['EPRevisionedObject'] 			= dirname( __FILE__ ) . '/includes/EPRevisionedObject.php';
+$wgAutoloadClasses['EPRoleObject'] 					= dirname( __FILE__ ) . '/includes/EPRoleObject.php';
 
 $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';
@@ -152,6 +153,8 @@ $egEPDBObjects['EPStudent'] = array( 'table' => 'ep_students', 'prefix' => 'stud
 $egEPDBObjects['EPOA'] = array( 'table' => 'ep_oas', 'prefix' => 'oa_' );
 $egEPDBObjects['EPCA'] = array( 'table' => 'ep_cas', 'prefix' => 'ca_' );
 $egEPDBObjects[] = array( 'table' => 'ep_students_per_course', 'prefix' => 'spc_' );
+$egEPDBObjects[] = array( 'table' => 'ep_oas_per_course', 'prefix' => 'opc_' );
+$egEPDBObjects[] = array( 'table' => 'ep_cas_per_course', 'prefix' => 'cpc_' );
 
 // API
 $wgAPIModules['deleteeducation'] 					= 'ApiDeleteEducation';

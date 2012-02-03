@@ -11,23 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPStudent extends EPDBObject {
-
-	/**
-	 * Cached array of the linked EPCourse objects.
-	 *
-	 * @since 0.1
-	 * @var array|false
-	 */
-	protected $courses = false;
-
-	/**
-	 * Cached user object of the user that is this student.
-	 *
-	 * @since 0.1
-	 * @var User|false
-	 */
-	protected $user = false;
+class EPStudent extends EPRoleObject {
 
 	/**
 	 * @see parent::getFieldTypes
@@ -46,154 +30,6 @@ class EPStudent extends EPDBObject {
 			'last_active' => 'str', // TS_MW
 			'active_enroll' => 'bool',
 		);
-	}
-
-	/**
-	 * Get the student object of a user, or false if there is none.
-	 *
-	 * @since 0.1
-	 *
-	 * @param User $user
-	 * @param string|array|null $fields
-	 *
-	 * @return EPStudent|false
-	 */
-	public static function newFromUser( User $user, $fields = null ) {
-		return self::selectRow( $fields, array( 'user_id' => $user->getId() ) );
-	}
-
-	/**
-	 * Associate the student with the provided courses.
-	 *
-	 * @since 0.1
-	 *
-	 * @param array $courses
-	 *
-	 * @return bool
-	 */
-	public function associateWithCourses( array /* of EPCourse */ $courses ) {
-		$dbw = wfGetDB( DB_MASTER );
-
-		$success = true;
-
-		$dbw->begin();
-
-		foreach ( $courses as /* EPCourse */ $course ) {
-			$success = $dbw->insert(
-				'ep_students_per_course',
-				array(
-					'spc_student_id' => $this->getId(),
-					'spc_course_id' => $course->getId(),
-				)
-			) && $success;
-		}
-
-		$dbw->commit();
-
-		foreach ( $courses as /* EPCourse */ $course ) {
-			EPOrg::updateSummaryFields( 'students', array( 'id' => $course->getField( 'org_id' ) ) );
-			EPCourse::updateSummaryFields( 'students', array( 'id' => $course->getId() ) );
-		}
-
-		return $success;
-	}
-
-	/**
-	 * Returns the courses this student is enrolled in.
-	 * Caches the result when no conditions are provided and all fields are selected.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|array|null $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPCourse
-	 */
-	public function getCourses( $fields = null, array $conditions = array() ) {
-		if ( count( $conditions ) !== 0 ) {
-			return $this->doGetCourses( $fields, $conditions );
-		}
-
-		if ( $this->courses === false ) {
-			$courses = $this->doGetCourses( $fields, $conditions );
-
-			if ( is_null( $fields ) ) {
-				$this->courses = $courses;
-			}
-
-			return $courses;
-		}
-		else {
-			return $this->courses;
-		}
-	}
-
-	/**
-	 * Get the courses with a certain state.
-	 * States can be 'current', 'passed' and 'planned'
-	 *
-	 * @since 0.1
-	 *
-	 * @param string $state
-	 * @param array|null $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPCourse
-	 */
-	public function getCoursesWithState( $state, $fields = null, array $conditions = array() ) {
-		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
-
-		switch ( $state ) {
-			case 'passed':
-				$conditions[] = 'end < ' . $now;
-				break;
-			case 'planned':
-				$conditions[] = 'start > ' . $now;
-				break;
-			case 'current':
-				$conditions[] = 'end >= ' . $now;
-				$conditions[] = 'start <= ' . $now;
-				break;
-		}
-
-		return $this->getCourses( $fields, $conditions );
-	}
-
-	/**
-	 * Returns the courses this student is enrolled in.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|array|null $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPCourse
-	 */
-	protected function doGetCourses( $fields, array $conditions ) {
-		$conditions[] = array( array( 'ep_students', 'id' ), $this->getId() );
-
-		return EPCourse::select(
-			$fields,
-			$conditions,
-			array(),
-			array(
-				'ep_students_per_course' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) ),
-				'ep_students' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'student_id' ), array( 'ep_students', 'id' ) ) ) )
-			)
-		);
-	}
-
-	/**
-	 * Returns if the student has any course matching the provided conditions.
-	 *
-	 * @since 0.1
-	 *
-	 * @param array $conditions
-	 *
-	 * @return boolean
-	 */
-	public function hasCourse( array $conditions = array() ) {
-		return count( $this->getCourses( 'id', $conditions ) ) > 0;
 	}
 
 	/**
@@ -223,29 +59,35 @@ class EPStudent extends EPDBObject {
 	}
 
 	/**
-	 * Returns the user that is this student.
-	 *
 	 * @since 0.1
-	 *
-	 * @return User
+	 * @see EPIRole::getRoleName
 	 */
-	public function getUser() {
-		if ( $this->user === false ) {
-			$this->user = User::newFromId( $this->loadAndGetField( 'user_id' ) );
-		}
-
-		return $this->user;
+	public function getRoleName() {
+		return 'student';
 	}
 
 	/**
-	 * Returns the display name for the student.
+	 * Returns the courses this student is enrolled in.
 	 *
 	 * @since 0.1
 	 *
-	 * @return String
+	 * @param string|array|null $fields
+	 * @param array $conditions
+	 *
+	 * @return array of EPCourse
 	 */
-	public function getName() {
-		return $this->getUser()->getRealName() === '' ? $this->user->getName() : $this->user->getRealName();
-	}
+	protected function doGetCourses( $fields, array $conditions ) {
+		$conditions[] = array( array( 'ep_students', 'id' ), $this->getId() );
 
+		return EPCourse::select(
+			$fields,
+			$conditions,
+			array(),
+			array(
+				'ep_students_per_course' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) ),
+				'ep_students' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'student_id' ), array( 'ep_students', 'id' ) ) ) )
+			)
+		);
+	}
+	
 }

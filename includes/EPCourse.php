@@ -301,7 +301,7 @@ class EPCourse extends EPPageObject {
 
 		if ( $this->updateSummaries && $success ) {
 			if ( array_key_exists( 'org_id', $currentFields ) && $currentFields['org_id'] !== $this->getField( 'org_id' ) ) {
-				$conds = array( 'id' => array( $oldOrgId, $this->getField( 'org_id' ) ) );
+				$conds = array( 'id' => array( $currentFields['org_id'], $this->getField( 'org_id' ) ) );
 				EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), $conds );
 			}
 			
@@ -310,19 +310,27 @@ class EPCourse extends EPPageObject {
 				
 				if ( array_key_exists( $field, $currentFields ) && $currentFields[$field] !== $this->getField( $field ) ) {
 					$courseField = $ambs === 'oas' ? 'opc_course_id' : 'cpc_course_id';
-					$userField = $ambs === 'oas' ? 'opc_oa_id' : 'cpc_ca_id';
+					$userField = $ambs === 'oas' ? 'opc_user_id' : 'cpc_user_id';
 					$table = 'ep_' . $ambs . '_per_course';
+					
+					$addedIds = array_diff( $this->getField( $field ), $currentFields[$field] ); 
+					$removedIds = array_diff( $currentFields[$field], $this->getField( $field ) ); 
 					
 					$dbw = wfGetDB( DB_MASTER );
 					
-					$dbw->delete( $table, array( $courseField => $id ) );
+					if ( count( $removedIds ) > 0 ) {
+						$dbw->delete( $table, array(
+							$courseField => $this->getId(),
+							$userField => $removedIds
+						) );
+					}
 					
 					$dbw->begin();
 					
-					foreach ( $this->getField( $field ) as $userId ) {
+					foreach ( $addedIds as $ambassadorId ) {
 						$dbw->insert( $table, array(
 							$courseField => $this->getId(),
-							$userField => $userId
+							$userField => $ambassadorId
 						) );
 					}
 					
@@ -370,9 +378,10 @@ class EPCourse extends EPPageObject {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conditions
+	 * @param boolean $readOnlyMode
 	 */
-	public static function displayPager( IContextSource $context, array $conditions = array() ) {
-		$pager = new EPCoursePager( $context, $conditions );
+	public static function displayPager( IContextSource $context, array $conditions = array(), $readOnlyMode = false ) {
+		$pager = new EPCoursePager( $context, $conditions, $readOnlyMode );
 
 		if ( $pager->getNumRows() ) {
 			$context->getOutput()->addHTML(

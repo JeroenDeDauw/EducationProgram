@@ -19,10 +19,11 @@ interface EPIRole {
 	 * @since 0.1
 	 * 
 	 * @param integer $userId
+	 * @param null|array|string $fields
 	 * 
 	 * @return EPIRole
 	 */
-	public static function newFromUserId( $userId );
+	public static function newFromUserId( $userId, $fields = null );
 
 	/**
 	 * Create a new role object from a user object.
@@ -30,10 +31,11 @@ interface EPIRole {
 	 * @since 0.1
 	 * 
 	 * @param User $user
+	 * @param null|array|string $fields
 	 * 
 	 * @return EPIRole
 	 */
-	public static function newFromUser( User $user );
+	public static function newFromUser( User $user, $fields = null );
 	
 	
 	/**

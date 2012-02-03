@@ -14,12 +14,22 @@
 class EPCoursePager extends EPPager {
 
 	/**
+	 * When in read only mode, the pager should not show any course editing controls.
+	 * 
+	 * @since 0.1
+	 * @var boolean
+	 */
+	protected $readOnlyMode;
+	
+	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
 	 * @param array $conds
+	 * @param boolean $readOnlyMode
 	 */
-	public function __construct( IContextSource $context, array $conds = array() ) {
+	public function __construct( IContextSource $context, array $conds = array(), $readOnlyMode = false ) {
+		$this->readOnlyMode = $readOnlyMode;
 		parent::__construct( $context, $conds, 'EPCourse' );
 	}
 
@@ -177,7 +187,7 @@ class EPCoursePager extends EPPager {
 
 		$links[] = $item->getLink( 'view', wfMsgHtml( 'view' ) );
 
-		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
+		if ( !$this->readOnlyMode && $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$links[] = $item->getLink(
 				'edit',
 				wfMsgHtml( 'edit' ),
@@ -201,7 +211,7 @@ class EPCoursePager extends EPPager {
 	protected function getMultipleItemActions() {
 		$actions = parent::getMultipleItemActions();
 
-		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
+		if ( !$this->readOnlyMode && $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$actions[wfMsg( 'ep-pager-delete-selected' )] = array(
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( $this->className )
@@ -238,6 +248,14 @@ class EPCoursePager extends EPPager {
 		}
 
 		return $conds;
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPager::hasActionsColumn()
+	 */
+	protected function hasActionsColumn() {
+		return !$this->readOnlyMode;
 	}
 
 }

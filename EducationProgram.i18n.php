@@ -388,6 +388,11 @@ $messages['en'] = array(
     'ep-mycourses-not-a-student' => 'You are not enrolled in any [[Special:Courses|courses]].',
 	'ep-mycourses-enrollment' => 'Courses I am enrolled in',
 	'ep-mycourses-course-enrollment' => 'Course I am enrolled in',
+	'ep-mycourses-login-first' => 'You need to login before you can view your courses.',
+	'ep-mycourses-ambcourses-epoa' => 'Courses I am Online Ambassador for',
+	'ep-mycourses-ambcourses-epca' => 'Courses I am Campus Ambassador for',
+	'ep-mycourses-noambcourses-epca' => 'There are no courses you are Campus Ambassador for yet.',
+	'ep-mycourses-noambcourses-epoa' => 'There are no courses you are Online Ambassador for yet.',
 
 	// ep.enlist instructor
 	'ep-instructor-remove-title' => 'Remove instructor from course',

@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPInstructor implements EPIRole {
+class EPInstructor extends EPRoleObject implements EPIRole {
 
 	/**
 	 * Field for caching the linked user.
@@ -35,10 +35,11 @@ class EPInstructor implements EPIRole {
 	 * @since 0.1
 	 * 
 	 * @param integer $userId
+	 * @param null|array|string $fields
 	 * 
 	 * @return EPInstructor
 	 */
-	public static function newFromUserId( $userId ) {
+	public static function newFromUserId( $userId, $fields = null ) {
 		return new self( $userId );
 	}
 	
@@ -48,10 +49,11 @@ class EPInstructor implements EPIRole {
 	 * @since 0.1
 	 * 
 	 * @param User $user
+	 * @param null|array|string $fields
 	 * 
 	 * @return EPInstructor
 	 */
-	public static function newFromUser( User $user ) {
+	public static function newFromUser( User $user, $fields = null ) {
 		return new self( $user );
 	}
 	
@@ -135,6 +137,22 @@ class EPInstructor implements EPIRole {
 	 */
 	public function getRoleName() {
 		return 'instructor';
+	}
+
+	/**
+	 * Not implemented as we do not need this, so no need for having it in the
+	 * db in a way we can efficiently query this. If needed at some point,
+	 * most stuff is in place already since the ambassador stuff is similar.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string|array|null $fields
+	 * @param array $conditions
+	 *
+	 * @return array of EPCourse
+	 */
+	protected function doGetCourses( $fields, array $conditions ) {
+		throw new MWException( 'doGetCourses is not implemented by EPInstructor' );
 	}
 	
 }
