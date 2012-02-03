@@ -33,6 +33,14 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 		}
 
 		parent::execute( $subPage );
+
+		$this->getOutput()->addModules( 'ep.ambprofile' );
+	}
+
+	protected function getForm() {
+		$form = parent::getForm();
+		$form->setSubmitTooltip( 'ep-form-save' );
+		return $form;
 	}
 
 	protected function getMsgPrefix() {

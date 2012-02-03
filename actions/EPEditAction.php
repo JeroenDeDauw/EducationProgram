@@ -225,8 +225,6 @@ abstract class EPEditAction extends FormlessAction {
 		$action = $this->isNew() ? 'add' : 'edit';
 		$form->setWrapperLegend( $this->msg( strtolower( $this->getName() ) . '-' . $action . '-legend' ) );
 
-		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
-		
 		$form->addButton(
 			'cancelEdit',
 			wfMsg( 'cancel' ),

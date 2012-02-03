@@ -343,6 +343,15 @@ $wgResourceModules['ep.formpage'] = $moduleTemplate + array(
 	),
 );
 
+$wgResourceModules['ep.ambprofile'] = $moduleTemplate + array(
+	'scripts' => array(
+		'ep.ambprofile.js',
+	),
+	'dependencies' => array(
+		'jquery.ui.button',
+	),
+);
+
 $wgResourceModules['ep.addorg'] = $moduleTemplate + array(
 	'scripts' => array(
 		'ep.addorg.js',
