@@ -485,6 +485,24 @@ $messages['en'] = array(
 	'ep-enlist-invalid-user-args' => 'You need to either provide the username or the userid parameter',
 	'ep-enlist-invalid-user' => 'The provided user id or name is not valid and can therefore not be associated as instrucor or ambassador with the specified course',
 	'ep-enlist-invalid-course' => 'There is no course with the provided ID',
+
+	// Special:OnlineAmbassadorProfile
+	'onlineambassadorprofile' => 'Online Ambassador profile',
+	'onlineambassadorprofile-legend' => 'My Online Ambassador profile',
+	'onlineambassadorprofile-text' => 'Your Online Ambassador profile is what students get to see when they browse available ambassadors.',
+	'epoa-profile-invalid-photo' => 'The photo must be located on {{PLURAL:$2|this website: $1|one of these websites: $1}}',
+	'epoa-profile-bio' => 'Short bio',
+	'epoa-profile-photo' => 'Profile photo',
+	'epoa-profile-saved' => 'Your profile has been saved',
+
+	// Special:CampusAmbassadorProfile
+	'campusambassadorprofile' => 'Campus Ambassador profile',
+	'campusambassadorprofile-legend' => 'My Campus Ambassador profile',
+	'campusambassadorprofile-text' => 'Your Campus Ambassador profile is what students get to see when they browse available ambassadors.',
+	'epca-profile-invalid-photo' => 'The photo must be located on {{PLURAL:$2|this website: $1|one of these websites: $1}}',
+	'epca-profile-bio' => 'Short bio',
+	'epca-profile-photo' => 'Profile photo',
+	'epca-profile-saved' => 'Your profile has been saved',
 );
 
 /** Message documentation (Message documentation)
