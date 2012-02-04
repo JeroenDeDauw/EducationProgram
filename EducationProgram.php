@@ -377,6 +377,7 @@ $wgResourceModules['ep.addcourse'] = $moduleTemplate + array(
 
 if ( array_key_exists( 'WikiEditorHooks', $GLOBALS['wgAutoloadClasses'] ) ) {
 	$wgResourceModules['ep.formpage']['dependencies'][] = 'ext.wikiEditor.toolbar';
+	$wgResourceModules['ep.ambprofile']['dependencies'][] = 'ext.wikiEditor.toolbar';
 }
 
 $wgResourceModules['ep.enlist'] = $moduleTemplate + array(
