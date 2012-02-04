@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPOAPager extends EPPager {
+
 	/**
 	 * Constructor.
 	 *
@@ -49,6 +50,16 @@ class EPOAPager extends EPPager {
 	 */
 	public function getTableClass() {
 		return 'TablePager ep-oas';
+	}
+
+	function getCellAttrs( $field, $value ) {
+		$attr = parent::getCellAttrs( $field, $value );
+
+		if ( in_array( $field, array( 'user_id', '_courses' ) ) ) {
+			$attr['style'] = 'min-width: 200px';
+		}
+
+		return $attr;
 	}
 
 	/**

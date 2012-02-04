@@ -70,9 +70,9 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 			'default' => $ambassador->getField( 'bio' ),
 		);
 
-		$lang = $this->getLanguage();
-
-		$prefix = $this->getMsgPrefix();
+//		$lang = $this->getLanguage();
+//
+//		$prefix = $this->getMsgPrefix();
 		$fields['photo'] = array(
 			'type' => 'text',
 			'label-message' => $this->getMsgPrefix() . 'profile-photo',
