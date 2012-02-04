@@ -76,29 +76,30 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 		$fields['photo'] = array(
 			'type' => 'text',
 			'label-message' => $this->getMsgPrefix() . 'profile-photo',
-			'validation-callback' => function ( $value, array $alldata = null ) use ( $lang, $prefix ) {
-				if ( trim( $value ) === '' ) {
-					return true;
-				}
-
-				$domains = EPSettings::get( 'ambassadorPictureDomains' );
-
-				foreach ( $domains as $domain ) {
-					$pattern = '@^https?://(([a-z0-9]+)\.)?' . str_replace( '.', '\.', $domain ) . '/.*$@i';
-
-					if ( preg_match( $pattern, $value ) ) {
-						return true;
-					}
-				}
-
-				return wfMsgExt(
-					$prefix . 'profile-invalid-photo',
-					'parsemag',
-					$lang->listToText( $domains ),
-					count( $domains )
-				);
-			},
+//			'validation-callback' => function ( $value, array $alldata = null ) use ( $lang, $prefix ) {
+//				if ( trim( $value ) === '' ) {
+//					return true;
+//				}
+//
+//				$domains = EPSettings::get( 'ambassadorPictureDomains' );
+//
+//				foreach ( $domains as $domain ) {
+//					$pattern = '@^https?://(([a-z0-9]+)\.)?' . str_replace( '.', '\.', $domain ) . '/.*$@i';
+//
+//					if ( preg_match( $pattern, $value ) ) {
+//						return true;
+//					}
+//				}
+//
+//				return wfMsgExt(
+//					$prefix . 'profile-invalid-photo',
+//					'parsemag',
+//					$lang->listToText( $domains ),
+//					count( $domains )
+//				);
+//			},
 			'default' => $ambassador->getField( 'photo' ),
+			'cssclass' => 'commons-input',
 		);
 
 		return $fields;

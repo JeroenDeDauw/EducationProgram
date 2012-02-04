@@ -349,6 +349,17 @@ $wgResourceModules['ep.ambprofile'] = $moduleTemplate + array(
 	),
 	'dependencies' => array(
 		'jquery.ui.button',
+		'ep.imageinput',
+	),
+);
+
+$wgResourceModules['ep.imageinput'] = $moduleTemplate + array(
+	'scripts' => array(
+		'jquery.imageinput.js',
+		'ep.imageinput.js',
+	),
+	'dependencies' => array(
+		'jquery.ui.autocomplete',
 	),
 );
 
