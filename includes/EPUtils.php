@@ -188,6 +188,10 @@ class EPUtils {
 
 		$items[wfMsg( 'ep-nav-students' )] = SpecialPage::getTitleFor( 'Students' );
 
+		$items[wfMsg( 'ep-nav-oas' )] = SpecialPage::getTitleFor( 'OnlineAmbassadors' );
+
+		$items[wfMsg( 'ep-nav-cas' )] = SpecialPage::getTitleFor( 'CampusAmbassadors' );
+
 		if ( EPStudent::has( array( 'user_id' => $context->getUser()->getId() ) ) ) {
 			$items[wfMsg( 'ep-nav-mycourses' )] = SpecialPage::getTitleFor( 'MyCourses' );
 		}

@@ -90,11 +90,20 @@ class EPOAPager extends EPPager {
 				}
 				break;
 			case 'user_id':
-				$oa = EPOA::newFromUserId( $value );
+				$oa = $this->currentObject;
 				$value = Linker::userLink( $value, $oa->getName() ) . Linker::userToolLinks( $value, $oa->getName() );
 				break;
 			case 'bio':
 				$value = $this->getOutput()->parseInline( $value );
+				break;
+			case '_courses':
+				$oa = $this->currentObject;
+				$value = $this->getLanguage()->listToText( array_map(
+					function( EPCourse $course ) {
+						return $course->getLink();
+					},
+					$oa->getCoursesWithState( 'current', 'name' )
+				) );
 				break;
 		}
 
@@ -124,7 +133,7 @@ class EPOAPager extends EPPager {
 	 */
 	public function getFieldNames() {
 		$fields = parent::getFieldNames();
-
+		$fields['_courses'] = 'courses';
 		return $fields;
 	}
 

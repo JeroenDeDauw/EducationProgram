@@ -293,29 +293,29 @@ class EPCourse extends EPPageObject {
 			}
 			
 			if ( count( $currentFields ) > 0 ) {
-				$currentFields = self::selectFieldsRow( $currentFields, array( 'id' => $this->getId() ), array(), array(), false );
+				$currentCourse = self::selectRow( $currentFields, array( 'id' => $this->getId() ) );
 			}
 		}
 
 		$success = parent::saveExisting();
 
 		if ( $this->updateSummaries && $success ) {
-			if ( array_key_exists( 'org_id', $currentFields ) && $currentFields['org_id'] !== $this->getField( 'org_id' ) ) {
-				$conds = array( 'id' => array( $currentFields['org_id'], $this->getField( 'org_id' ) ) );
+			if ( $currentCourse->hasField( 'org_id' )  && $currentCourse->getField( 'org_id' )  !== $this->getField( 'org_id' ) ) {
+				$conds = array( 'id' => array( $currentCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
 				EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), $conds );
 			}
 			
 			foreach ( array( 'oas', 'cas' ) as $ambs ) {
 				$field = $ambs === 'oas' ? 'online_ambs' : 'campus_ambs';
 				
-				if ( array_key_exists( $field, $currentFields ) && $currentFields[$field] !== $this->getField( $field ) ) {
+				if ( $currentCourse->hasField( $field )  && $currentCourse->getField( $field ) !== $this->getField( $field ) ) {
 					$courseField = $ambs === 'oas' ? 'opc_course_id' : 'cpc_course_id';
 					$userField = $ambs === 'oas' ? 'opc_user_id' : 'cpc_user_id';
 					$table = 'ep_' . $ambs . '_per_course';
 					
-					$addedIds = array_diff( $this->getField( $field ), $currentFields[$field] ); 
-					$removedIds = array_diff( $currentFields[$field], $this->getField( $field ) ); 
-					
+					$addedIds = array_diff( $this->getField( $field ), $currentCourse->getField( $field ) );
+					$removedIds = array_diff( $currentCourse->getField( $field ), $this->getField( $field ) );
+
 					$dbw = wfGetDB( DB_MASTER );
 					
 					if ( count( $removedIds ) > 0 ) {
@@ -326,7 +326,7 @@ class EPCourse extends EPPageObject {
 					}
 					
 					$dbw->begin();
-					
+
 					foreach ( $addedIds as $ambassadorId ) {
 						$dbw->insert( $table, array(
 							$courseField => $this->getId(),

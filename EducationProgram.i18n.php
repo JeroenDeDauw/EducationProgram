@@ -47,6 +47,8 @@ $messages['en'] = array(
 	'ep-nav-mycourses' => 'My courses',
 	'ep-nav-students' => 'Student list',
 	'ep-nav-mentors' => 'Ambassador list',
+	'ep-nav-cas' => 'Campus Ambassadors',
+	'ep-nav-oas' => 'Online Ambassadors',
 
 	// Logging
 	'log-name-institution' => 'Education Program institution log',
@@ -236,11 +238,13 @@ $messages['en'] = array(
 	'epcapager-header-photo' => 'Photo',
 	'epcapager-header-user-id' => 'User',
 	'epcapager-header-bio' => 'Profile',
+	'epcapager-header-courses' => 'Current courses',
 
 	// Online ambassador pager
 	'epoapager-header-photo' => 'Photo',
 	'epoapager-header-user-id' => 'User',
 	'epoapager-header-bio' => 'Profile',
+	'epoapager-header-courses' => 'Current courses',
 
 	// Institution editing
 	'editinstitution-text' => 'Enter the institution details below and click submit to save your changes.',
