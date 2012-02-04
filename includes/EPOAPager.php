@@ -80,7 +80,8 @@ class EPOAPager extends EPPager {
 								$value = Html::element(
 									'img',
 									array(
-										'src' => $imageInfo['thumburl']
+										'src' => $imageInfo['thumburl'],
+										'width' => '200px',
 									)
 								);
 								break;

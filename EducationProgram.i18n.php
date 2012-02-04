@@ -239,12 +239,14 @@ $messages['en'] = array(
 	'epcapager-header-user-id' => 'User',
 	'epcapager-header-bio' => 'Profile',
 	'epcapager-header-courses' => 'Current courses',
+	'ep-ca-noresults' => 'There are no Campus Ambassadors to list.',
 
 	// Online ambassador pager
 	'epoapager-header-photo' => 'Photo',
 	'epoapager-header-user-id' => 'User',
 	'epoapager-header-bio' => 'Profile',
 	'epoapager-header-courses' => 'Current courses',
+	'ep-oa-noresults' => 'There are no Online Ambassadors to list.',
 
 	// Institution editing
 	'editinstitution-text' => 'Enter the institution details below and click submit to save your changes.',
