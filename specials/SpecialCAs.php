@@ -34,12 +34,10 @@ class SpecialCAs extends SpecialEPPage {
 
 		if ( $this->subPage === '' ) {
 			$this->displayNavigation();
-			// TODO
-			// EPMentor::displayPager( $this->getContext() );
+			EPCA::displayPager( $this->getContext() );
 		}
 		else {
-			// TODO
-			// $this->getOutput()->redirect( SpecialPage::getTitleFor( 'Institution', $this->subPage )->getLocalURL() );
+			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'CampusAmbassador', $this->subPage )->getLocalURL() );
 		}
 	}
 

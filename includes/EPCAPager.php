@@ -29,8 +29,9 @@ class EPCAPager extends EPPager {
 	 */
 	public function getFields() {
 		return array(
-			'id',
+			'photo',
 			'user_id',
+			'bio',
 		);
 	}
 
@@ -56,14 +57,44 @@ class EPCAPager extends EPPager {
 	 */
 	protected function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
-			case 'id':
-				$value = $value;
+			case 'photo':
+				$title = Title::newFromText( $value, NS_FILE );
+				$value = '';
+
+				if ( is_object( $title ) ) {
+					$api = new ApiMain( new FauxRequest( array(
+						'action' => 'query',
+						'format' => 'json',
+						'prop' => 'imageinfo',
+						'iiprop' => 'url',
+						'titles' => $title->getFullText(),
+						'iiurlwidth' => 200
+					), true ), true );
+
+					$api->execute();
+					$result = $api->getResultData();
+
+					if ( array_key_exists( 'query', $result ) && array_key_exists( 'pages', $result['query'] ) ) {
+						foreach ( $result['query']['pages'] as $page ) {
+							foreach ( $page['imageinfo'] as $imageInfo ) {
+								$value = Html::element(
+									'img',
+									array(
+										'src' => $imageInfo['thumburl']
+									)
+								);
+								break;
+							}
+						}
+					}
+				}
 				break;
 			case 'user_id':
-				$user = User::newFromId( $value );
-				$name = $user->getRealName() === '' ? $user->getName() : $user->getRealName();
-
-				$value = Linker::userLink( $value, $name ) . Linker::userToolLinks( $value, $name );
+				$oa = EPOA::newFromUserId( $value );
+				$value = Linker::userLink( $value, $oa->getName() ) . Linker::userToolLinks( $value, $oa->getName() );
+				break;
+			case 'bio':
+				$value = $this->getOutput()->parseInline( $value );
 				break;
 		}
 
@@ -76,7 +107,6 @@ class EPCAPager extends EPPager {
 	 */
 	protected function getSortableFields() {
 		return array(
-			'id',
 		);
 	}
 

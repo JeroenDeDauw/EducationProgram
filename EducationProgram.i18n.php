@@ -233,10 +233,14 @@ $messages['en'] = array(
 	'epstudentpager-no' => 'No',
 
 	// Campus ambassador pager
-	'eppager-header-user-id' => 'User',
+	'epcapager-header-photo' => 'Photo',
+	'epcapager-header-user-id' => 'User',
+	'epcapager-header-bio' => 'Profile',
 
 	// Online ambassador pager
-	'epstudentpager-header-user-id' => 'User',
+	'epoapager-header-photo' => 'Photo',
+	'epoapager-header-user-id' => 'User',
+	'epoapager-header-bio' => 'Profile',
 
 	// Institution editing
 	'editinstitution-text' => 'Enter the institution details below and click submit to save your changes.',

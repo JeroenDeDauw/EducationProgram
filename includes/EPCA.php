@@ -50,7 +50,7 @@ class EPCA extends EPRoleObject implements EPIRole {
 	 * @param array $conditions
 	 */
 	public static function displayPager( IContextSource $context, array $conditions = array() ) {
-		$pager = new EPOAPager( $context, $conditions );
+		$pager = new EPCAPager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
 			$context->getOutput()->addHTML(
