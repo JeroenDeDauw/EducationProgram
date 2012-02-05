@@ -187,7 +187,7 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$out->addHTML( '<ul><li>' );
 
-		$subPage = $this->course->getId();
+		$subPage = $this->course->getField( 'name' );
 
 		if ( $this->token !== false ) {
 			$subPage .= '/' . $this->token;
