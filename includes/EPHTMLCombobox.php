@@ -20,6 +20,10 @@ class EPHTMLCombobox extends HTMLSelectField {
 	}
 
 	function getInputHTML( $value ) {
+		if ( !in_array( $value, $this->mParams['options'] ) ) {
+			 $this->mParams['options'][$value] = $value;
+		}
+		
 		return parent::getInputHTML( $value );
 	}
 
