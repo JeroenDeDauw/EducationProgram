@@ -31,6 +31,8 @@ class EPCoursePager extends EPPager {
 	public function __construct( IContextSource $context, array $conds = array(), $readOnlyMode = false ) {
 		$this->readOnlyMode = $readOnlyMode;
 		parent::__construct( $context, $conds, 'EPCourse' );
+		
+		$this->context->getOutput()->addModules( 'ep.pager.course' );
 	}
 
 	/**
@@ -197,7 +199,8 @@ class EPCoursePager extends EPPager {
 
 			$links[] = $this->getDeletionLink(
 				ApiDeleteEducation::getTypeForClassName( $this->className ),
-				$item->getId()
+				$item->getId(),
+				$item->getIdentifier()
 			);
 		}
 

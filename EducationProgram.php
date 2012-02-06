@@ -306,12 +306,41 @@ $wgResourceModules['ep.pager'] = $moduleTemplate + array(
 	'dependencies' => array(
 		'ep.api',
 		'mediawiki.jqueryMsg',
+		'jquery.ui.dialog',
 	),
 	'messages' => array(
 		'ep-pager-confirm-delete',
 		'ep-pager-delete-fail',
 		'ep-pager-confirm-delete-selected',
 		'ep-pager-delete-selected-fail',
+	),
+);
+
+$wgResourceModules['ep.pager.course'] = $moduleTemplate + array(
+	'messages' => array(
+		'ep-pager-cancel-button-course',
+		'ep-pager-delete-button-course',
+		'ep-pager-confirm-delete-course',
+		'ep-pager-confirm-message-course',
+		'ep-pager-confirm-message-course-many',
+		'ep-pager-retry-button-course',
+	),
+	'dependencies' => array(
+		'ep.pager',
+	),
+);
+
+$wgResourceModules['ep.pager.org'] = $moduleTemplate + array(
+	'messages' => array(
+		'ep-pager-cancel-button-org',
+		'ep-pager-delete-button-org',
+		'ep-pager-confirm-delete-org',
+		'ep-pager-confirm-message-org',
+		'ep-pager-confirm-message-org-many',
+		'ep-pager-retry-button-org',
+	),
+	'dependencies' => array(
+		'ep.pager',
 	),
 );
 

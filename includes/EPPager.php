@@ -468,7 +468,7 @@ abstract class EPPager extends TablePager {
 	 *
 	 * @return string
 	 */
-	protected function getDeletionLink( $type, $id ) {
+	protected function getDeletionLink( $type, $id, $name ) {
 		return Html::element(
 			'a',
 			array(
@@ -476,6 +476,7 @@ abstract class EPPager extends TablePager {
 				'class' => 'ep-pager-delete',
 				'data-id' => $id,
 				'data-type' => $type,
+				'data-name' => $name,
 			),
 			wfMsg( 'delete' )
 		);

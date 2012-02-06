@@ -21,6 +21,7 @@ class EPOrgPager extends EPPager {
 	 */
 	public function __construct( IContextSource $context, array $conds = array() ) {
 		parent::__construct( $context, $conds, 'EPOrg' );
+		$this->context->getOutput()->addModules( 'ep.pager.org' );
 	}
 
 	/**
@@ -151,7 +152,8 @@ class EPOrgPager extends EPPager {
 
 			$links[] = $this->getDeletionLink(
 				ApiDeleteEducation::getTypeForClassName( $this->className ),
-				$item->getId()
+				$item->getId(),
+				$item->getIdentifier()
 			);
 		}
 

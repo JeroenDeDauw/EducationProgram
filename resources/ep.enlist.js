@@ -20,7 +20,7 @@
 			userName = $this.attr( 'data-username' ),
 			bestName = $this.attr( 'data-bestname' ),
 			role = $this.attr( 'data-role' ),
-			$dialog = null;
+			$dialog = undefined;
 			
 			var doRemove = function() {
 				var $remove = $( '#ep-' + role + '-remove-button' );
@@ -108,7 +108,7 @@
 			this.courseId = $this.attr( 'data-courseid' );
 			this.courseName = $this.attr( 'data-coursename' );
 			this.selfMode = $this.attr( 'data-mode' ) === 'self';
-			this.$dialog = null;
+			this.$dialog = undefined;
 			
 			this.nameInput = $( '<input>' ).attr( {
 				'type': 'text',

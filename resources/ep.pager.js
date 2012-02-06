@@ -18,76 +18,150 @@
 			$form.submit();
 			return false;
 		} );
+		
+		var $dialog = undefined,
+		$remove = undefined;
+		
+		var showConfirmDialog = function( args, onConfirm ) {
+			var args = $.extend( {
+				'type': 'unknown',
+				'ids': [],
+				'names': []
+			}, args );
+			
+			var deferred = $.Deferred();
+			
+			$dialog = $( '<div>' ).html( '' ).dialog( {
+				'title': ep.msg( 'ep-pager-confirm-delete-' + args.type, args.ids.length ),
+				'minWidth': 550,
+				'buttons': [
+					{
+						'text': ep.msg( 'ep-pager-delete-button-' + args.type, args.ids.length ),
+						'id': 'ep-pager-remove-button',
+						'click': function() {
+							$remove.button( 'option', 'disabled', true );
+							onConfirm();
+							deferred.resolve();
+						}
+					},
+					{
+						'text': ep.msg( 'ep-pager-cancel-button-' + args.type ),
+						'id': 'ep-pager-cancel-button',
+						'click': function() {
+							$dialog.dialog( 'close' );
+							deferred.reject();
+						}
+					}
+				]
+			} );
+			
+			$remove = $( '#ep-pager-remove-button' );
+			
+			var names = args.names.map( function( name ) {
+				return '<b>' + mw.html.escape( name ) + '</b>';
+			} ).join( ', ' );
+			
+			$dialog.msg(
+				'ep-pager-confirm-message-' + args.type + ( args.names.length > 1 ? '-many' : '' ),
+				$( '<span>' ).html( names ),
+				args.names.length
+			);
+			
+			return deferred.promise();
+		};
+		
+		var onFail = function( type ) {
+			$remove.button( 'option', 'disabled', false );
+			$remove.button( 'option', 'label', ep.msg( 'ep-pager-retry-button-' + type ) );
+		}; 
 
 		$( '.ep-pager-delete' ).click( function () {
-			if ( confirm( mw.msg( 'ep-pager-confirm-delete' ) ) ) {
-				var $this = $( this );
+			var $this = $( this ),
+			args = {
+				'type': $this.attr( 'data-type' ),
+				'ids': [ $this.attr( 'data-id' ) ],
+				'names': [ $this.attr( 'data-name' ) ]
+			};
+			
+			showConfirmDialog(
+				args,
+				function() {
+					ep.api.remove( args ).done( function() {
+						$dialog.dialog( 'close' );
+						
+						var $tr = $this.closest( 'tr' );
+						var $table = $tr.closest( 'table' );
 
-				ep.api.remove( {
-					'type': $this.attr( 'data-type' ),
-					'ids': [ $this.attr( 'data-id' ) ]
-				} ).done( function() {
-					var $tr = $this.closest( 'tr' );
-					var $table = $tr.closest( 'table' );
-
-					if ( $table.find( 'tr' ).length > 2 ) {
-						$tr.slideUp( 'slow', function () {
-							$tr.remove();
-						} );
-					}
-					else {
-						$table.slideUp( 'slow', function () {
-							$table.remove();
-						} );
-					}
-				} ).fail( function() {
-					alert( mw.msg( 'ep-pager-delete-fail' ) );
+						if ( $table.find( 'tr' ).length > 2 ) {
+							$tr.slideUp( 'slow', function () {
+								$tr.remove();
+							} );
+						}
+						else {
+							$table.slideUp( 'slow', function () {
+								$table.remove();
+							} );
+						}
+					} ).fail( function() {
+						onFail( args.type );
+						alert( mw.msg( 'ep-pager-delete-fail' ) );
+					} );
 				} );
-			}
-		} );
+			} );
 
 		$( '.ep-pager-select-all' ).change( function () {
 			$( this ).closest( 'table' ).find( 'input:checkbox' ).prop( 'checked', $( this ).is( ':checked' ) );
 		} );
 
 		$( '.ep-pager-delete-selected' ).click( function () {
-			var $deleteButton = $( this );
-			var $selectAllCheckbox = $( '#ep-pager-select-all-' + $( this ).attr( 'data-pager-id' ) );
-			var $table = $selectAllCheckbox.closest( 'table' );
-
-			var ids = [];
+			var $deleteButton = $( this ),
+			$selectAllCheckbox = $( '#ep-pager-select-all-' + $( this ).attr( 'data-pager-id' ) ),
+			$table = $selectAllCheckbox.closest( 'table' ),
+			ids = [],
+			names = [];
 
 			$table.find( 'input[type=checkbox]:checked' ).each( function ( i, element ) {
-				ids.push( $( element ).val() );
+				$element = $( element );
+				ids.push( $element.val() );
+				names.push( $element.closest( 'tr' ).find( '.ep-pager-delete' ).attr( 'data-name' ) );
 			} );
 
-			if ( ids.length < 1 || !confirm( window.gM( 'ep-pager-confirm-delete-selected', ids.length ) ) ) {
+			if ( ids.length < 1 ) {
 				return;
 			}
 
-			var pagerId = $( this ).attr( 'data-pager-id' );
-
-			ep.api.remove( {
+			var pagerId = $( this ).attr( 'data-pager-id' ),
+			args = {
 				'type': $( this ).attr( 'data-type' ),
-				'ids': ids
-			} ).done( function() {
-				if ( ids.length > 0 && ( $table.find( 'tr' ).length - ids.length > 1 ) ) {
-					for ( i in ids ) {
-						if ( ids.hasOwnProperty( i ) ) {
-							$( '#select-' + pagerId + '-' + ids[i] ).closest( 'tr' ).remove();
+				'ids': ids,
+				'names': names
+			};
+			
+			showConfirmDialog(
+				args,
+				function() {
+					ep.api.remove( args ).done( function() {
+						$dialog.dialog( 'close' );
+						
+						if ( $table.find( 'tr' ).length - ids.length > 1 ) {
+							for ( i in ids ) {
+								if ( ids.hasOwnProperty( i ) ) {
+									$( '#select-' + pagerId + '-' + ids[i] ).closest( 'tr' ).remove();
+								}
+							}
 						}
-					}
-				}
-				else {
-					$table.slideUp( 'slow', function () {
-						$table.remove();
-						$deleteButton.closest( 'fieldset' ).remove();
+						else {
+							$table.slideUp( 'slow', function () {
+								$table.remove();
+								$deleteButton.closest( 'fieldset' ).remove();
+							} );
+						}
+					} ).fail( function() {
+						onFail( args.type );
+						alert( window.gM( 'ep-pager-delete-selected-fail', ids.length ) );
 					} );
-				}
-			} ).fail( function() {
-				alert( window.gM( 'ep-pager-delete-selected-fail', ids.length ) );
+				} );
 			} );
-		} );
 
 	} );
 

@@ -51,7 +51,7 @@ class ApiDeleteEducation extends ApiBase {
 		if ( !$this->userIsAllowed( $params['type'], $params ) || $this->getUser()->isBlocked() ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
-
+		
 		$everythingOk = true;
 
 		foreach ( $params['ids'] as $id ) {
