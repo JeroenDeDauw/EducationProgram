@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract action for editing EPDBObject items.
+ * Abstract action for editing EPPageObject items.
  *
  * @since 0.1
  *
@@ -18,7 +18,7 @@ abstract class EPEditAction extends FormlessAction {
 	 * Instance of the object being edited or created.
 	 *
 	 * @since 0.1
-	 * @var EPDBObject|false
+	 * @var EPPageObject|false
 	 */
 	protected $item = false;
 
@@ -31,7 +31,7 @@ abstract class EPEditAction extends FormlessAction {
 	protected $isNew = null;
 
 	/**
-	 * Returns the class name of the EPDBObject this action handles.
+	 * Returns the class name of the EPPageObject this action handles.
 	 *
 	 * @since 0.1
 	 *
@@ -305,12 +305,12 @@ abstract class EPEditAction extends FormlessAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $item
+	 * @param EPPageObject $item
 	 * @param string $name
 	 *
 	 * @return mixed
 	 */
-	protected function getDefaultFromItem( EPDBObject $item, $name ) {
+	protected function getDefaultFromItem( EPPageObject $item, $name ) {
 		return $item->getField( $name );
 	}
 
@@ -323,6 +323,16 @@ abstract class EPEditAction extends FormlessAction {
 		$this->getOutput()->redirect( $this->getReturnToTitle( true )->getLocalURL() );
 	}
 	
+	/**
+	 * Returns the title to return to after the form has been submitted,
+	 * or when form use is aborted for some other reason.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param boolean $addedItem
+	 * 
+	 * @return Title
+	 */
 	protected function getReturnToTitle( $addedItem = false ) {
 		if ( $this->getRequest()->getCheck( 'wpreturnto' ) ) {
 			return Title::newFromText( $this->getRequest()->getText( 'wpreturnto' ) );
@@ -331,9 +341,20 @@ abstract class EPEditAction extends FormlessAction {
 			$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
 			return SpecialPage::getTitleFor( $c::getListPage() );
 		}
+		elseif ( $this->item !== false ) {
+			return $this->item->getTitle();
+		}
 		else {
-			return $this->getTitle();
-		}	
+			$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
+			$fieldName = 'wpitem-' . $c::getIdentifierField();
+			
+			if ( $this->getRequest()->getCheck( $fieldName ) ) {
+				return $c::getTitleFor( $this->getRequest()->getText( $fieldName ) );
+			}
+			else {
+				return $this->getTitle();
+			}
+		}
 	}
 
 	/**
@@ -370,7 +391,7 @@ abstract class EPEditAction extends FormlessAction {
 		$keys = array_keys( $fields );
 		$fields = array_combine( $keys, array_map( array( $this, 'handleKnownField' ), $keys, $fields ) );
 
-		/* EPDBObject */ $item = new $c( $fields, is_null( $fields['id'] ) );
+		/* EPPageObject */ $item = new $c( $fields, is_null( $fields['id'] ) );
 
 		foreach ( $unknownValues as $name => $value ) {
 			$this->handleUnknownField( $item, $name, $value );

@@ -99,6 +99,24 @@ class EditCourseAction extends EPEditAction {
 			'label-message' => 'ep-course-edit-name',
 			'required' => true,
 		);
+		
+		$mcs = EPCourse::selectFields( 'mc', array(), array( 'DISTINCT' ) );
+		
+		if ( $this->getRequest()->getCheck( 'newname' ) ) {
+			$newName = $this->getRequest()->getText( 'newname' );
+			$mcs = array_merge( array( $newName => $newName ), $mcs );
+		}
+		else {
+			$mcs = array_merge( array( '' => '' ), $mcs );
+		}
+		
+		
+		$fields['mc'] = array (
+			'class' => 'EPHTMLCombobox',
+			'label-message' => 'ep-course-edit-mc',
+			'required' => true,
+			'options' => array_combine( $mcs, $mcs ),
+		);
 
 		$fields['org_id'] = array (
 			'type' => 'select',
@@ -167,23 +185,6 @@ class EditCourseAction extends EPEditAction {
 			'validation-callback' => function ( $value, array $alldata = null ) use ( $langOptions ) {
 				return in_array( $value, $langOptions ) ? true : wfMsg( 'ep-course-invalid-lang' );
 			}
-		);
-
-		$mcs = EPCourse::selectFields( 'mc', array(), array( 'DISTINCT' ) );
-		
-		if ( $this->getRequest()->getCheck( 'newname' ) ) {
-			$newName = $this->getRequest()->getText( 'newname' );
-			$mcs = array_merge( array( $newName => $newName ), $mcs );
-		}
-		else {
-			$mcs = array_merge( array( '' => '' ), $mcs );
-		}
-		
-		$fields['mc'] = array (
-			'class' => 'EPHTMLCombobox',
-			'label-message' => 'ep-course-edit-mc',
-			'required' => true,
-			'options' => array_combine( $mcs, $mcs ),
 		);
 
 		$fields['description'] = array (
