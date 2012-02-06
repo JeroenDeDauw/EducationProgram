@@ -23,8 +23,8 @@ class EPCA extends EPRoleObject implements EPIRole {
 	protected static function getFieldTypes() {
 		return array(
 			'id' => 'id',
-			'user_id' => 'id',
-		
+
+			'user_id' => 'int',
 			'bio' => 'str',
 			'photo' => 'str',
 		);

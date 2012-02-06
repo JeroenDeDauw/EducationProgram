@@ -98,8 +98,8 @@ class EPCourse extends EPPageObject {
 	protected static function getFieldTypes() {
 		return array(
 			'id' => 'id',
-			'org_id' => 'id',
 
+			'org_id' => 'int',
 			'name' => 'str',
 			'start' => 'str', // TS_MW
 			'end' => 'str', // TS_MW

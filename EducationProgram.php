@@ -97,6 +97,8 @@ $wgAutoloadClasses['EPFailForm'] 					= dirname( __FILE__ ) . '/includes/EPFailF
 $wgAutoloadClasses['EPIRole'] 						= dirname( __FILE__ ) . '/includes/EPIRole.php';
 $wgAutoloadClasses['EPRevisionedObject'] 			= dirname( __FILE__ ) . '/includes/EPRevisionedObject.php';
 $wgAutoloadClasses['EPRoleObject'] 					= dirname( __FILE__ ) . '/includes/EPRoleObject.php';
+$wgAutoloadClasses['EPArticle'] 					= dirname( __FILE__ ) . '/includes/EPArticle.php';
+$wgAutoloadClasses['EPArticlePager'] 				= dirname( __FILE__ ) . '/includes/EPArticlePager.php';
 
 $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';
@@ -153,6 +155,7 @@ $egEPDBObjects['EPCourse'] = array( 'table' => 'ep_courses', 'prefix' => 'course
 $egEPDBObjects['EPStudent'] = array( 'table' => 'ep_students', 'prefix' => 'student_' );
 $egEPDBObjects['EPOA'] = array( 'table' => 'ep_oas', 'prefix' => 'oa_' );
 $egEPDBObjects['EPCA'] = array( 'table' => 'ep_cas', 'prefix' => 'ca_' );
+$egEPDBObjects['EPArticle'] = array( 'table' => 'ep_articles', 'prefix' => 'article_' );
 $egEPDBObjects[] = array( 'table' => 'ep_students_per_course', 'prefix' => 'spc_' );
 $egEPDBObjects[] = array( 'table' => 'ep_oas_per_course', 'prefix' => 'opc_' );
 $egEPDBObjects[] = array( 'table' => 'ep_cas_per_course', 'prefix' => 'cpc_' );

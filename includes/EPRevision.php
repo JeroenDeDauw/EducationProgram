@@ -45,8 +45,8 @@ class EPRevision extends EPDBObject {
 		return array(
 			'id' => 'id',
 
-			'object_id' => 'id',
-			'user_id' => 'id',
+			'object_id' => 'int',
+			'user_id' => 'int',
 			'type' => 'str',
 			'comment' => 'str',
 			'user_text' => 'str',

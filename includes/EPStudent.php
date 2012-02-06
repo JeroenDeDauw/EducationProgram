@@ -23,8 +23,8 @@ class EPStudent extends EPRoleObject {
 	protected static function getFieldTypes() {
 		return array(
 			'id' => 'id',
-			'user_id' => 'id',
 
+			'user_id' => 'int',
 			'first_enroll' => 'str', // TS_MW
 
 			'last_active' => 'str', // TS_MW

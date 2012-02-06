@@ -234,6 +234,10 @@ $messages['en'] = array(
 	'epstudentpager-yes' => 'Yes',
 	'epstudentpager-no' => 'No',
 
+	// Article pager
+	'ep-articles-noresults' => 'There are no articles to list.',
+	'ep-articles-noresults' => 'There are no articles to list.',
+
 	// Campus ambassador pager
 	'epcapager-header-photo' => 'Photo',
 	'epcapager-header-user-id' => 'User',
@@ -314,6 +318,7 @@ $messages['en'] = array(
 	// Course viewing
 	'ep-course-title' => 'Course: $1',
 	'ep-course-students' => 'Students',
+	'ep-course-articles' => 'Articles',
 	'viewcourseaction-none' => 'There is no course with name "$1". See [[Special:Courses|here]] for a list of courses.',
 	'ep-course-create' => 'There is no course with name "$1", but you can create a new one.',
 	'ep-course-description' => 'Description',
