@@ -171,12 +171,12 @@ final class EPHooks {
 	 * @param SkinTemplate $sktemplate
 	 * @param array $links
 	 *
-	 * @return true
+	 * @return false
 	 */
 	public static function onPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		self::displayTabs( $sktemplate, $links, $sktemplate->getTitle() );
 		
-		return true;
+		return false;
 	}
 	
 	/**
@@ -188,7 +188,7 @@ final class EPHooks {
 	 * @param SkinTemplate $sktemplate
 	 * @param array $links
 	 *
-	 * @return true
+	 * @return false
 	 */
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
@@ -212,7 +212,7 @@ final class EPHooks {
 			}
 		}
 
-		return true;
+		return false;
 	}
 
 	/**
