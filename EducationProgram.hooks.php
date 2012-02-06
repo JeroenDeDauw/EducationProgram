@@ -192,8 +192,8 @@ final class EPHooks {
 	 */
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
-		
-		if ( $textParts[0] === 'Enroll' ) {
+
+		if ( $textParts[0] === 'Enroll' && !is_null( $textParts[1] ) && trim( $textParts[1] ) !== '' ) {
 			// Remove the token from the title if needed.
 			if ( !$sktemplate->getRequest()->getCheck( 'wptoken' ) ) {
 				$textParts[1] = explode( '/', $textParts[1] );
@@ -205,7 +205,11 @@ final class EPHooks {
 				$textParts[1] = implode( '/', $textParts[1] );
 			}
 
-			self::displayTabs( $sktemplate, $links, EPCourse::getTitleFor( $textParts[1] ) );
+			$title = EPCourse::getTitleFor( $textParts[1] );
+
+			if ( !is_null( $title ) ) {
+				self::displayTabs( $sktemplate, $links, $title );
+			}
 		}
 
 		return true;
