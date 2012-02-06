@@ -197,7 +197,11 @@ final class EPHooks {
 			// Remove the token from the title if needed.
 			if ( !$sktemplate->getRequest()->getCheck( 'wptoken' ) ) {
 				$textParts[1] = explode( '/', $textParts[1] );
-				array_pop( $textParts[1] );
+
+				if ( count( $textParts[1] ) > 1 ) {
+					array_pop( $textParts[1] );
+				}
+
 				$textParts[1] = implode( '/', $textParts[1] );
 			}
 

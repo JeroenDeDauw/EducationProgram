@@ -284,6 +284,7 @@ class EPCourse extends EPPageObject {
 	 */
 	protected function saveExisting() {
 		if ( $this->updateSummaries ) {
+			$currentCourse = false;
 			$currentFields = array( 'id' );
 			
 			foreach ( array( 'org_id', 'online_ambs', 'campus_ambs' ) as $field ) {
