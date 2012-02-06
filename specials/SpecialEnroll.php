@@ -48,7 +48,7 @@ class SpecialEnroll extends SpecialEPPage {
 		$args = explode( '/', $this->subPage, 2 );
 
 		if ( $args[0] === '' ) {
-			$this->showWarning( 'ep-enroll-no-id' );
+			$this->showWarning( wfMessage(  'ep-enroll-no-id' ) );
 		}
 		else {
 			$course = EPCourse::get( $args[0] );
