@@ -23,32 +23,26 @@
 			if ( confirm( mw.msg( 'ep-pager-confirm-delete' ) ) ) {
 				var $this = $( this );
 
-				ep.api.remove(
-					{
-						'type': $this.attr( 'data-type' ),
-						'ids': [ $this.attr( 'data-id' ) ]
-					},
-					function ( result ) {
-						if ( result.success ) {
-							var $tr = $this.closest( 'tr' );
-							var $table = $tr.closest( 'table' );
+				ep.api.remove( {
+					'type': $this.attr( 'data-type' ),
+					'ids': [ $this.attr( 'data-id' ) ]
+				} ).done( function() {
+					var $tr = $this.closest( 'tr' );
+					var $table = $tr.closest( 'table' );
 
-							if ( $table.find( 'tr' ).length > 2 ) {
-								$tr.slideUp( 'slow', function () {
-									$tr.remove();
-								} );
-							}
-							else {
-								$table.slideUp( 'slow', function () {
-									$table.remove();
-								} );
-							}
-						}
-						else {
-							alert( mw.msg( 'ep-pager-delete-fail' ) );
-						}
+					if ( $table.find( 'tr' ).length > 2 ) {
+						$tr.slideUp( 'slow', function () {
+							$tr.remove();
+						} );
 					}
-				);
+					else {
+						$table.slideUp( 'slow', function () {
+							$table.remove();
+						} );
+					}
+				} ).fail( function() {
+					alert( mw.msg( 'ep-pager-delete-fail' ) );
+				} );
 			}
 		} );
 
@@ -73,32 +67,26 @@
 
 			var pagerId = $( this ).attr( 'data-pager-id' );
 
-			ep.api.remove(
-				{
-					'type': $( this ).attr( 'data-type' ),
-					'ids': ids
-				},
-				function ( result ) {
-					if ( result.success ) {
-						if ( ids.length > 0 && ( $table.find( 'tr' ).length - ids.length > 1 ) ) {
-							for ( i in ids ) {
-								if ( ids.hasOwnProperty( i ) ) {
-									$( '#select-' + pagerId + '-' + ids[i] ).closest( 'tr' ).remove();
-								}
-							}
+			ep.api.remove( {
+				'type': $( this ).attr( 'data-type' ),
+				'ids': ids
+			} ).done( function() {
+				if ( ids.length > 0 && ( $table.find( 'tr' ).length - ids.length > 1 ) ) {
+					for ( i in ids ) {
+						if ( ids.hasOwnProperty( i ) ) {
+							$( '#select-' + pagerId + '-' + ids[i] ).closest( 'tr' ).remove();
 						}
-						else {
-							$table.slideUp( 'slow', function () {
-								$table.remove();
-								$deleteButton.closest( 'fieldset' ).remove();
-							} );
-						}
-					}
-					else {
-						alert( window.gM( 'ep-pager-delete-selected-fail', ids.length ) );
 					}
 				}
-			);
+				else {
+					$table.slideUp( 'slow', function () {
+						$table.remove();
+						$deleteButton.closest( 'fieldset' ).remove();
+					} );
+				}
+			} ).fail( function() {
+				alert( window.gM( 'ep-pager-delete-selected-fail', ids.length ) );
+			} );
 		} );
 
 	} );

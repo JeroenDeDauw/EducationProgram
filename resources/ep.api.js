@@ -45,26 +45,31 @@
 			return this.enlist( args );
 		},
 
-		remove: function( data, callback ) {
-			var requestArgs = {
+		remove: function( data, args ) {
+			var requestArgs = $.extend( {
 				'action': 'deleteeducation',
 				'format': 'json',
 				'token': window.mw.user.tokens.get( 'editToken' ),
 				'ids': data.ids.join( '|' ),
 				'type': data.type
-			};
+			}, args );
+			
+			var deferred = $.Deferred();
 
 			$.post(
 				wgScriptPath + '/api.php',
 				requestArgs,
 				function( data ) {
-					var success = data.hasOwnProperty( 'success' ) && data.success;
-
-					callback( {
-						'success': success
-					} );
+					if ( data.hasOwnProperty( 'success' ) && data.success ) {
+						deferred.resolve();
+					}
+					else {
+						deferred.reject();
+					}
 				}
 			);
+			
+			return deferred.promise();
 		}
 
 	};

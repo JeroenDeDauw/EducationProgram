@@ -10,7 +10,7 @@
 
 	var compatMode = undefined;
 
-	var ep =  {
+	var ep = {
 		msg: function () {
 			// Yeah, doing it here, since "mw.loader.using( 'mediawiki.language',"
 			// does not have mediaWiki.language loaded.
@@ -56,7 +56,7 @@
 		msge: function () {
 			return mw.html.escape( this.msg.apply( this, arguments ) );
 		}
-	}
+	};
 
 	mw.educationProgram = ep;
 
