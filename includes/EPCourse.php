@@ -284,7 +284,7 @@ class EPCourse extends EPPageObject {
 	 */
 	protected function saveExisting() {
 		if ( $this->updateSummaries ) {
-			$currentFields = array();
+			$currentFields = array( 'id' );
 			
 			foreach ( array( 'org_id', 'online_ambs', 'campus_ambs' ) as $field ) {
 				if ( $this->hasField( $field ) ) {
@@ -292,14 +292,14 @@ class EPCourse extends EPPageObject {
 				}
 			}
 			
-			if ( count( $currentFields ) > 0 ) {
+			if ( count( $currentFields ) > 1 ) {
 				$currentCourse = self::selectRow( $currentFields, array( 'id' => $this->getId() ) );
 			}
 		}
 
 		$success = parent::saveExisting();
 
-		if ( $this->updateSummaries && $success ) {
+		if ( $this->updateSummaries && $currentCourse !== false && $success ) {
 			if ( $currentCourse->hasField( 'org_id' )  && $currentCourse->getField( 'org_id' )  !== $this->getField( 'org_id' ) ) {
 				$conds = array( 'id' => array( $currentCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
 				EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), $conds );

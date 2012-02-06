@@ -297,7 +297,7 @@ $messages['en'] = array(
 	'ep-pager-delete-selected-fail' => 'Could not delete the selected {{PLURAL:$1|item|items}}.',
 
 	// Institution viewing
-	'ep-institution-none' => 'There is no institution with name "$1". See [[Special:Institutions|here]] for a list of institutions.',
+	'vieworgaction-none' => 'There is no institution with name "$1". See [[Special:Institutions|here]] for a list of institutions.',
 	'ep-institution-create' => 'There is no institution with name "$1" yet, but you can create it.',
 	'ep-institution-title' => 'Institution: $1',
 	'vieworgaction-summary-name' => 'Name',
@@ -314,8 +314,8 @@ $messages['en'] = array(
 	// Course viewing
 	'ep-course-title' => 'Course: $1',
 	'ep-course-students' => 'Students',
-	'ep-course-none' => 'There is no course with id "$1". See [[Special:Courses|here]] for a list of courses.',
-	'ep-course-create' => 'There is no course with id "$1", but you can create a new one.',
+	'viewcourseaction-none' => 'There is no course with name "$1". See [[Special:Courses|here]] for a list of courses.',
+	'ep-course-create' => 'There is no course with name "$1", but you can create a new one.',
 	'ep-course-description' => 'Description',
 	'ep-course-no-online' => '',
 	'viewcourseaction-summary-org' => 'Institution',

@@ -194,6 +194,13 @@ final class EPHooks {
 		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
 		
 		if ( $textParts[0] === 'Enroll' ) {
+			// Remove the token from the title if needed.
+			if ( !$sktemplate->getRequest()->getCheck( 'wptoken' ) ) {
+				$textParts[1] = explode( '/', $textParts[1] );
+				array_pop( $textParts[1] );
+				$textParts[1] = implode( '/', $textParts[1] );
+			}
+
 			self::displayTabs( $sktemplate, $links, EPCourse::getTitleFor( $textParts[1] ) );
 		}
 
@@ -226,7 +233,7 @@ final class EPHooks {
 			$exists = $class::hasIdentifier( $title->getText() );
 			$type = $sktemplate->getRequest()->getText( 'action' );
 			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
-			
+
 			if ( $type !== 'edit' || $exists ) {
 				$links['views']['view'] = array(
 					'class' => ( !$isSpecial && $type === '' ) ? 'selected' : false,

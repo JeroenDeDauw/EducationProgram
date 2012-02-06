@@ -78,13 +78,14 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 *
 	 * @since 0.1
 	 *
+	 * @param EPRevision $revision
 	 * @param bool $isDelete
 	 *
 	 * @return boolean Success indicator
 	 */
 	protected function storeRevision( EPRevision $revision, $isDelete = false ) {
 		if ( $this->storeRevisions ) {
-			return $revison->save();
+			return $revision->save();
 		}
 
 		return true;
@@ -172,7 +173,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 		$result = parent::insert();
 
 		if ( $result ) {
-			$this->storeRevision( $this );
+			$this->storeRevision( $this->getCurrentRevision() );
 			$this->log( 'add' );
 		}
 
