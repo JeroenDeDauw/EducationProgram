@@ -324,6 +324,7 @@ $wgResourceModules['ep.pager.course'] = $moduleTemplate + array(
 		'ep-pager-confirm-message-course',
 		'ep-pager-confirm-message-course-many',
 		'ep-pager-retry-button-course',
+		'ep-pager-summary-message-course',
 	),
 	'dependencies' => array(
 		'ep.pager',
@@ -338,6 +339,7 @@ $wgResourceModules['ep.pager.org'] = $moduleTemplate + array(
 		'ep-pager-confirm-message-org',
 		'ep-pager-confirm-message-org-many',
 		'ep-pager-retry-button-org',
+		'ep-pager-summary-message-org',
 	),
 	'dependencies' => array(
 		'ep.pager',

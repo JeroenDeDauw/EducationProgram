@@ -67,6 +67,28 @@
 				args.names.length
 			);
 			
+			var summaryLabel = $( '<label>' ).attr( {
+				'for': 'epsummaryinput'
+			} ).msg( 'ep-pager-summary-message-' + args.type ).append( '&#160;' );
+			
+			var summaryInput = $( '<input>' ).attr( {
+				'type': 'text',
+				'size': 60,
+				'maxlength': 250,
+				'id': 'epsummaryinput'
+			} );
+			
+			$dialog.append( '<br /><br />', summaryLabel, summaryInput );
+			
+			summaryInput.keypress( function( event ) {
+				if ( event.which == '13' ) {
+					event.preventDefault();
+					onConfirm();
+				}
+			} );
+			
+			summaryInput.focus();
+			
 			return deferred.promise();
 		};
 		
@@ -161,8 +183,8 @@
 						alert( window.gM( 'ep-pager-delete-selected-fail', ids.length ) );
 					} );
 				} );
-			} );
-
+			}
+		);
 	} );
 
 })( window.jQuery, window.mediaWiki );
