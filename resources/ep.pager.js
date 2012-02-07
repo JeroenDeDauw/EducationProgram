@@ -20,7 +20,8 @@
 		} );
 		
 		var $dialog = undefined,
-		$remove = undefined;
+		$remove = undefined,
+		$summaryInput = undefined;
 		
 		var showConfirmDialog = function( args, onConfirm ) {
 			var args = $.extend( {
@@ -71,7 +72,7 @@
 				'for': 'epsummaryinput'
 			} ).msg( 'ep-pager-summary-message-' + args.type ).append( '&#160;' );
 			
-			var summaryInput = $( '<input>' ).attr( {
+			summaryInput = $( '<input>' ).attr( {
 				'type': 'text',
 				'size': 60,
 				'maxlength': 250,
@@ -102,7 +103,8 @@
 			args = {
 				'type': $this.attr( 'data-type' ),
 				'ids': [ $this.attr( 'data-id' ) ],
-				'names': [ $this.attr( 'data-name' ) ]
+				'names': [ $this.attr( 'data-name' ) ],
+				'comment': $summaryInput
 			};
 			
 			showConfirmDialog(
@@ -156,7 +158,8 @@
 			args = {
 				'type': $( this ).attr( 'data-type' ),
 				'ids': ids,
-				'names': names
+				'names': names,
+				'comment': $summaryInput
 			};
 			
 			showConfirmDialog(

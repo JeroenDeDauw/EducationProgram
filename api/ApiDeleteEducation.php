@@ -54,12 +54,23 @@ class ApiDeleteEducation extends ApiBase {
 		
 		$everythingOk = true;
 
-		foreach ( $params['ids'] as $id ) {
-			// $instance->remove is used instead of Class::delete,
-			// so that linked data also gets deleted.
-			$c = self::$typeMap[$params['type']];
-			$object = new $c( array( 'id' => $id ) );
-			$everythingOk = $object->remove() && $everythingOk;
+//		foreach ( $params['ids'] as $id ) {
+//			// $instance->remove is used instead of Class::delete,
+//			// so that linked data also gets deleted.
+//			$c = self::$typeMap[$params['type']];
+//			$object = new $c( array( 'id' => $id ) );
+//			$everythingOk = $object->remove() && $everythingOk;
+//		}
+
+		$class = self::$typeMap[$params['type']];
+		
+		if ( count( $params['ids'] ) > 0 ) {
+			$revAction = new EPRevisionAction();
+			
+			$revAction->setUser( $this->getUser() );
+			$revAction->setComment( $params['comment'] );
+			
+			$objects = $class::deleteAndLog( $revAction, array( 'id' =>  $params['ids'] ) );
 		}
 
 		$this->getResult()->addValue(
@@ -115,6 +126,11 @@ class ApiDeleteEducation extends ApiBase {
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_ISMULTI => false,
 			),
+			'comment' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_REQUIRED => false,
+				ApiBase::PARAM_DFLT => '',
+			),
 			'token' => null,
 		);
 	}
@@ -124,6 +140,7 @@ class ApiDeleteEducation extends ApiBase {
 			'ids' => 'The IDs of the reviews to delete',
 			'token' => 'Edit token. You can get one of these through prop=info.',
 			'type' => 'Type of object to delete.',
+			'comment' => 'Message with the reason for this change for the log',
 		);
 	}
 

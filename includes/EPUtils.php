@@ -24,23 +24,21 @@ class EPUtils {
 	public static function log( array $info ) {
 		$user = array_key_exists( 'user', $info ) ? $info['user'] : $GLOBALS['wgUser'];
 		
-		if ( $info !== false ) {
-			$logEntry = new ManualLogEntry( $info['type'], $info['subtype'] );
+		$logEntry = new ManualLogEntry( $info['type'], $info['subtype'] );
 
-			$logEntry->setPerformer( $user );
-			$logEntry->setTarget( $info['title'] );
-			
-			if ( array_key_exists( 'comment', $info ) ) {
-				$logEntry->setComment( $info['comment'] );
-			}
-			
-			if ( array_key_exists( 'parameters', $info ) ) {
-				$logEntry->setParameters( $info['parameters'] );
-			}
-
-			$logid = $logEntry->insert();
-			$logEntry->publish( $logid );
+		$logEntry->setPerformer( $user );
+		$logEntry->setTarget( $info['title'] );
+		
+		if ( array_key_exists( 'comment', $info ) ) {
+			$logEntry->setComment( $info['comment'] );
 		}
+		
+		if ( array_key_exists( 'parameters', $info ) ) {
+			$logEntry->setParameters( $info['parameters'] );
+		}
+
+		$logid = $logEntry->insert();
+		$logEntry->publish( $logid );
 	}
 	
 	/**
