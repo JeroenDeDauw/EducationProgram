@@ -190,8 +190,18 @@ class EPUtils {
 
 		$items[wfMsg( 'ep-nav-cas' )] = SpecialPage::getTitleFor( 'CampusAmbassadors' );
 
-		if ( EPStudent::has( array( 'user_id' => $context->getUser()->getId() ) ) ) {
+		$user = $context->getUser();
+		
+		if ( EPStudent::has( array( 'user_id' => $user->getId() ) ) ) {
 			$items[wfMsg( 'ep-nav-mycourses' )] = SpecialPage::getTitleFor( 'MyCourses' );
+		}
+		
+		if ( $user->isAllowed( 'ep-online' ) && EPOA::newFromUser( $user )->hasCourse() ) {
+			$items[wfMsg( 'ep-nav-oaprofile' )] = SpecialPage::getTitleFor( 'OnlineAmbassadorProfile' );
+		}
+		
+		if ( $user->isAllowed( 'ep-campus' ) && EPCA::newFromUser( $user )->hasCourse() ) {
+			$items[wfMsg( 'ep-nav-caprofile' )] = SpecialPage::getTitleFor( 'CampusAmbassadorProfile' );
 		}
 
 		return $items;		

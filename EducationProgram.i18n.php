@@ -49,6 +49,8 @@ $messages['en'] = array(
 	'ep-nav-mentors' => 'Ambassador list',
 	'ep-nav-cas' => 'Campus Ambassadors',
 	'ep-nav-oas' => 'Online Ambassadors',
+	'ep-nav-oaprofile' => 'Online Ambassador profile',
+	'ep-nav-caprofile' => 'Campus Ambassador profile',
 
 	// Logging
 	'log-name-institution' => 'Education Program institution log',
