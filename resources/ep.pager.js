@@ -72,23 +72,23 @@
 				'for': 'epsummaryinput'
 			} ).msg( 'ep-pager-summary-message-' + args.type ).append( '&#160;' );
 			
-			summaryInput = $( '<input>' ).attr( {
+			$summaryInput = $( '<input>' ).attr( {
 				'type': 'text',
 				'size': 60,
 				'maxlength': 250,
 				'id': 'epsummaryinput'
 			} );
 			
-			$dialog.append( '<br /><br />', summaryLabel, summaryInput );
+			$dialog.append( '<br /><br />', summaryLabel, $summaryInput );
 			
-			summaryInput.keypress( function( event ) {
+			$summaryInput.keypress( function( event ) {
 				if ( event.which == '13' ) {
 					event.preventDefault();
 					onConfirm();
 				}
 			} );
 			
-			summaryInput.focus();
+			$summaryInput.focus();
 			
 			return deferred.promise();
 		};
@@ -103,14 +103,13 @@
 			args = {
 				'type': $this.attr( 'data-type' ),
 				'ids': [ $this.attr( 'data-id' ) ],
-				'names': [ $this.attr( 'data-name' ) ],
-				'comment': $summaryInput
+				'names': [ $this.attr( 'data-name' ) ]
 			};
 			
 			showConfirmDialog(
 				args,
 				function() {
-					ep.api.remove( args ).done( function() {
+					ep.api.remove( args, { 'comment': $summaryInput.val() } ).done( function() {
 						$dialog.dialog( 'close' );
 						
 						var $tr = $this.closest( 'tr' );
@@ -159,13 +158,13 @@
 				'type': $( this ).attr( 'data-type' ),
 				'ids': ids,
 				'names': names,
-				'comment': $summaryInput
+				'comment': $summaryInput.val()
 			};
 			
 			showConfirmDialog(
 				args,
 				function() {
-					ep.api.remove( args ).done( function() {
+					ep.api.remove( args, { 'comment': $summaryInput.val() } ).done( function() {
 						$dialog.dialog( 'close' );
 						
 						if ( $table.find( 'tr' ).length - ids.length > 1 ) {
