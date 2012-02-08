@@ -787,5 +787,5 @@ class EPCourse extends EPPageObject {
 
 		EPUtils::log( $info );
 	}
-
+	
 }

@@ -92,7 +92,6 @@ abstract class EPRevisionedObject extends EPDBObject {
 	
 	/**
 	 * Store the current version of the object in the revisions table.
-	 * TODO: add handling for comment, minor edit, ect stuff
 	 *
 	 * @since 0.1
 	 *
@@ -105,7 +104,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 			if ( $this->revAction !== false ) {
 				$revision->setFields( array(
 					'minor_edit' => $this->revAction->isMinor(),
-					'deleted' => $this->revAction->deleted(),
+					'deleted' => $this->revAction->isDelete(),
 					'time' => $this->revAction->getTime(),
 					'comment' => $this->revAction->getComment(),
 					'user_id' => $this->revAction->getUser()->getId(),
@@ -133,6 +132,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 			if ( $info !== false ) {
 				if ( $this->revAction !== false ) {
 					$info['user'] = $this->revAction->getUser();
+					$info['comment'] = $this->revAction->getComment();
 				}
 
 				$info['subtype'] = $subType;
@@ -205,7 +205,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 		$result = parent::insert();
 
 		if ( $result ) {
-			$this->storeRevision( $this->getCurrentRevision() );
+			$this->storeRevision( EPRevision::newFromObject( $this ) );
 			$this->log( 'add' );
 		}
 
@@ -217,16 +217,36 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 * @see EPDBObject::remove()
 	 */
 	public function remove() {
+		$object = clone $this;
+		$object->loadFields();
+		
 		$success = parent::remove();
 
 		if ( $success ) {
-			$this->log( 'remove' );
+			$object->onRemoved();
 		}
 
 		return $success;
 	}
 
-	public function logRmove() {
+	/**
+	 * @since 0.1
+	 * 
+	 * @param EPRevisionAction $revAction
+	 */
+	public function handleRemoved( EPRevisionAction $revAction ) {
+		$this->setRevisionAction( $revAction );
+		$this->onRemoved();
+	}
+	
+	/**
+	 * Do logging and revision storage after a removal.
+	 * The object needs to have all it's fields loaded.
+	 * 
+	 * @since 0.1
+	 */
+	protected function onRemoved() {
+		//$this->storeRevision( EPRevision::newFromObject( $this ) );
 		$this->log( 'remove' );
 	}
 	

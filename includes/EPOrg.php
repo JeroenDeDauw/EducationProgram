@@ -81,17 +81,6 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::getLogInfo()
-	 */
-	protected function getLogInfo( $subType ) {
-		return array(
-			'type' => 'institution',
-			'title' => $this->getTitle(),
-		);
-	}
-
-	/**
-	 * (non-PHPdoc)
 	 * @see EPDBObject::loadSummaryFields()
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {

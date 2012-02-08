@@ -25,6 +25,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 			'edit-right' => 'ep-course',
 			'identifier' => 'name',
 			'list' => 'Courses',
+			'log-type' => 'course',
 		),
 		'EPOrg' => array(
 			'ns' => EP_NS_INSTITUTION,
@@ -36,6 +37,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 			'edit-right' => 'ep-org',
 			'identifier' => 'name',
 			'list' => 'Institutions',
+			'log-type' => 'institution',
 		),
 	);
 
@@ -119,19 +121,29 @@ abstract class EPPageObject extends EPRevisionedObject {
 		$success = true;
 
 		if ( count( $objects ) > 0 ) {
-			$success = static::delete( $conditions );
+			$success = true;//static::delete( $conditions );
 
 			if ( $success ) {
 				$revAction->setDelete( true );
 
 				foreach ( $objects as /* EPPageObject */ $object ) {
-					// TODO
-					// $object->logRemove();
+					$object->handleRemoved( $revAction );
 				}
 			}
 		}
 
 		return $success;
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPRevisionedObject::getLogInfo()
+	 */
+	protected function getLogInfo( $subType ) {
+		return array(
+			'type' => self::$info[get_called_class()]['log-type'],
+			'title' => $this->getTitle(),
+		);
 	}
 
 }
