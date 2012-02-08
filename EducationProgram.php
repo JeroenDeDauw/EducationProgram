@@ -100,6 +100,7 @@ $wgAutoloadClasses['EPRoleObject'] 					= dirname( __FILE__ ) . '/includes/EPRol
 $wgAutoloadClasses['EPArticle'] 					= dirname( __FILE__ ) . '/includes/EPArticle.php';
 $wgAutoloadClasses['EPArticlePager'] 				= dirname( __FILE__ ) . '/includes/EPArticlePager.php';
 $wgAutoloadClasses['EPArticleTable'] 				= dirname( __FILE__ ) . '/includes/EPArticleTable.php';
+$wgAutoloadClasses['EPRevisionAction'] 				= dirname( __FILE__ ) . '/includes/EPRevisionAction.php';
 
 $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';

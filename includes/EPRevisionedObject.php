@@ -29,7 +29,25 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 * @var bool
 	 */
 	protected $storeRevisions = true;
-	
+
+	/**
+	 *
+	 * @since 0.1
+	 * @var EPRevisionAction|false
+	 */
+	protected $revAction = false;
+
+	/**
+	 *
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPRevisionAction $revAction
+	 */
+	protected function setRevisionAction( EPRevisionAction $revAction ) {
+		$this->revAction = $revAction;
+	}
+
 	/**
 	 * Sets the value for the @see $storeRevisions field.
 	 *
@@ -79,12 +97,22 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 * @since 0.1
 	 *
 	 * @param EPRevision $revision
-	 * @param bool $isDelete
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function storeRevision( EPRevision $revision, $isDelete = false ) {
+	protected function storeRevision( EPRevision $revision ) {
 		if ( $this->storeRevisions ) {
+			if ( $this->revAction !== false ) {
+				$revision->setFields( array(
+					'minor_edit' => $this->revAction->isMinor(),
+					'deleted' => $this->revAction->deleted(),
+					'time' => $this->revAction->getTime(),
+					'comment' => $this->revAction->getComment(),
+					'user_id' => $this->revAction->getUser()->getId(),
+					'user_text' => $this->revAction->getUser()->getName(),
+				) );
+			}
+
 			return $revision->save();
 		}
 
@@ -101,8 +129,12 @@ abstract class EPRevisionedObject extends EPDBObject {
 	protected function log( $subType ) {
 		if ( $this->log ) {
 			$info = $this->getLogInfo( $subType );
-			
+
 			if ( $info !== false ) {
+				if ( $this->revAction !== false ) {
+					$info['user'] = $this->revAction->getUser();
+				}
+
 				$info['subtype'] = $subType;
 				EPUtils::log( $info );
 			}
@@ -193,72 +225,9 @@ abstract class EPRevisionedObject extends EPDBObject {
 
 		return $success;
 	}
-	
-	public static function deleteAndLog( EPRevisionAction $revAction, array $conditions ) {
-		$success = static::delete( $conditions );
-		
-		if ( $success ) {
-			$revAction->setDelete( true );
-			
-			// TODO
-			//static::log();
-		}
-		
-		return $success;
-	}
-	
-}
 
-class EPRevisionAction {
-
-	protected $user;
-	protected $isMinor = false;
-	protected $isDelete = false;
-	protected $comment = false;
-	protected $time = false;
-	
-	public function __construct() {
-	
-	}
-
-	public function isMinor() {
-		return $this->isMinor;
-	}
-	
-	public function isDelete() {
-		return $this->isDelete;
-	}
-	
-	public function getComment() {
-		return $this->comment;
-	}
-	
-	public function getUser() {
-		return $this->user;
-	}
-	
-	public function getTime() {
-		return $this->time;
-	}
-	
-	public function setUser( User $user ) {
-		$this->user = $user;
-	}
-	
-	public function setComment( $comment ) {
-		$this->comment = $comment;
-	}
-	
-	public function setDelete( $isDelete ) {
-		$this->isDelete = $isDelete;
-	}
-	
-	public function setMinor( $isMinor ) {
-		$this->isMinor = $isMinor;
-	}
-	
-	public function setTime( $time ) {
-		$this->time = $time;
+	public function logRmove() {
+		$this->log( 'remove' );
 	}
 	
 }

@@ -175,7 +175,7 @@ final class EPHooks {
 	 */
 	public static function onPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		self::displayTabs( $sktemplate, $links, $sktemplate->getTitle() );
-		
+
 		return false;
 	}
 	

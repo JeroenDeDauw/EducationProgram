@@ -100,4 +100,37 @@ abstract class EPPageObject extends EPRevisionedObject {
 		return self::$info[get_called_class()]['list'];
 	}
 
+	/**
+	 *
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPRevisionAction $revAction
+	 * @param array $conditions
+	 *
+	 * @return boolean
+	 */
+	public static function deleteAndLog( EPRevisionAction $revAction, array $conditions ) {
+		$objects = static::select(
+			null,
+			$conditions
+		);
+
+		$success = true;
+
+		if ( count( $objects ) > 0 ) {
+			$success = static::delete( $conditions );
+
+			if ( $success ) {
+				$revAction->setDelete( true );
+
+				foreach ( $objects as /* EPPageObject */ $object ) {
+					$object->logRemove();
+				}
+			}
+		}
+
+		return $success;
+	}
+
 }
