@@ -125,7 +125,8 @@ abstract class EPPageObject extends EPRevisionedObject {
 				$revAction->setDelete( true );
 
 				foreach ( $objects as /* EPPageObject */ $object ) {
-					$object->logRemove();
+					// TODO
+					// $object->logRemove();
 				}
 			}
 		}
