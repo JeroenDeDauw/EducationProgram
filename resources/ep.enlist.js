@@ -54,10 +54,15 @@
 				} );
 			};
 
+			var summaryLabel = $( '<label>' ).attr( {
+				'for': 'epenlistsummary'
+			} ).msg( 'ep-' + role + '-summary' ).append( '&#160;' );
+			
 			var summaryInput = $( '<input>' ).attr( {
 				'type': 'text',
 				'size': 60,
-				'maxlength': 250
+				'maxlength': 250,
+				'id': 'epenlistsummary'
 			} );
 			
 			$dialog = $( '<div>' ).html( '' ).dialog( {
@@ -88,7 +93,7 @@
 
 			//$dialog.append( $( '<p>' ).msg( 'ep-instructor-remove-title' ) );
 
-			$dialog.append( summaryInput );
+			$dialog.append( summaryLabel, summaryInput );
 			
 			summaryInput.focus();
 			
@@ -208,7 +213,7 @@
 					'<br />',
 					$( '<label>' ).attr( {
 						'for': 'ep-' + role + '-summaryinput'
-					} ).text( ep.msg( 'ep-' + role + '-summary-input' ) )
+					} ).text( ep.msg( 'ep-' + role + '-summary-input' ) + ' ' )
 				);
 			}
 			

@@ -116,8 +116,8 @@ $wgAutoloadClasses['SpecialStudents'] 				= dirname( __FILE__ ) . '/specials/Spe
 $wgAutoloadClasses['SpecialEnroll'] 				= dirname( __FILE__ ) . '/specials/SpecialEnroll.php';
 $wgAutoloadClasses['SpecialCAs'] 					= dirname( __FILE__ ) . '/specials/SpecialCAs.php';
 $wgAutoloadClasses['SpecialOAs'] 					= dirname( __FILE__ ) . '/specials/SpecialOAs.php';
-$wgAutoloadClasses['SpecialCA'] 					= dirname( __FILE__ ) . '/specials/SpecialCA.php';
-$wgAutoloadClasses['SpecialOA'] 					= dirname( __FILE__ ) . '/specials/SpecialOA.php';
+//$wgAutoloadClasses['SpecialCA'] 					= dirname( __FILE__ ) . '/specials/SpecialCA.php';
+//$wgAutoloadClasses['SpecialOA'] 					= dirname( __FILE__ ) . '/specials/SpecialOA.php';
 $wgAutoloadClasses['SpecialOAProfile'] 				= dirname( __FILE__ ) . '/specials/SpecialOAProfile.php';
 $wgAutoloadClasses['SpecialCAProfile'] 				= dirname( __FILE__ ) . '/specials/SpecialCAProfile.php';
 $wgAutoloadClasses['SpecialAmbassadorProfile'] 		= dirname( __FILE__ ) . '/specials/SpecialAmbassadorProfile.php';
@@ -132,8 +132,8 @@ $wgSpecialPages['EducationProgram'] 				= 'SpecialEducationProgram';
 $wgSpecialPages['Enroll'] 							= 'SpecialEnroll';
 $wgSpecialPages['CampusAmbassadors'] 				= 'SpecialCAs';
 $wgSpecialPages['OnlineAmbassadors'] 				= 'SpecialOAs';
-$wgSpecialPages['CampusAmbassador'] 				= 'SpecialCA';
-$wgSpecialPages['OnlineAmbassador'] 				= 'SpecialOA';
+//$wgSpecialPages['CampusAmbassador'] 				= 'SpecialCA';
+//$wgSpecialPages['OnlineAmbassador'] 				= 'SpecialOA';
 $wgSpecialPages['CampusAmbassadorProfile'] 			= 'SpecialCAProfile';
 $wgSpecialPages['OnlineAmbassadorProfile'] 			= 'SpecialOAProfile';
 
@@ -145,7 +145,8 @@ $wgSpecialPageGroups['Courses'] 					= 'education';
 $wgSpecialPageGroups['EducationProgram'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassadors'] 			= 'education';
 $wgSpecialPageGroups['OnlineAmbassadors'] 			= 'education';
-$wgSpecialPageGroups['CampusAmbassador'] 			= 'education';
+//$wgSpecialPageGroups['CampusAmbassador'] 			= 'education';
+//$wgSpecialPageGroups['OnlineAmbassador'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassadorProfile'] 	= 'education';
 $wgSpecialPageGroups['OnlineAmbassadorProfile'] 	= 'education';
 
@@ -504,6 +505,9 @@ $wgResourceModules['ep.enlist'] = $moduleTemplate + array(
 		'ep-course-no-instructor',
 		'ep-course-no-online',
 		'ep-course-no-campus',
+		'ep-instructor-summary',
+		'ep-online-summary',
+		'ep-campus-summary',
 	),
 );
 

@@ -25,8 +25,8 @@ $specialPageAliases['en'] = array(
 	'Enroll' => array( 'Enroll' ),
 	'CampusAmbassadors' => array( 'CampusAmbassadors' ),
 	'OnlineAmbassadors' => array( 'OnlineAmbassadors' ),
-	'CampusAmbassador' => array( 'CampusAmbassador' ),
-	'OnlineAmbassador' => array( 'OnlineAmbassador' ),
+//	'CampusAmbassador' => array( 'CampusAmbassador' ),
+//	'OnlineAmbassador' => array( 'OnlineAmbassador' ),
 	'OnlineAmbassadorProfile' => array( 'OnlineAmbassadorProfile' ),
 	'CampusAmbassadorProfile' => array( 'CampusAmbassadorProfile' ),
 );

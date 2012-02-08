@@ -358,6 +358,9 @@ $messages['en'] = array(
 	'ep-course-no-campus' => 'There are no Campus Ambassadors for this course yet.',
 	'ep-course-become-campus' => 'Become an Campus Ambassador',
 	'ep-course-add-campus' => 'Add an Campus Ambassador',
+	'ep-instructor-summary' => 'Summary:',
+	'ep-online-summary' => 'Summary:',
+	'ep-campus-summary' => 'Summary:',
 
 	// Institution history
 	'ep-org-history' => 'View logs for this institution',
@@ -448,8 +451,8 @@ $messages['en'] = array(
 	'ep-instructor-add-text' => 'You are adding an instructor for course $1. Enter the username of the instructor and a brief description why this person is being added.',
 	'ep-instructor-add-self-text' => 'You are adding yourself as {{GENDER:$1|instructor}} for course $1. Please add a brief description why you are doing so.',
 	'ep-instructor-add-cancel-button' => 'Cancel',
-	'ep-instructor-summary-input' => 'Summary',
-	'ep-instructor-name-input' => 'User name',
+	'ep-instructor-summary-input' => 'Summary:',
+	'ep-instructor-name-input' => 'User name:',
 
 	// ep.enlist online
 	'ep-online-remove-title' => 'Remove Online Ambassador from course',
@@ -474,8 +477,8 @@ $messages['en'] = array(
 	'ep-online-add-text' => 'You are adding an Online Ambassador for course $1. Enter the username of the Online Ambassador and a brief description why this person is being added.',
 	'ep-online-add-self-text' => 'You are adding yourself as {{GENDER:$1|Online Ambassador}} for course $1. Please add a brief description why you are doing so.',
 	'ep-online-add-cancel-button' => 'Cancel',
-	'ep-online-summary-input' => 'Summary',
-	'ep-online-name-input' => 'User name',
+	'ep-online-summary-input' => 'Summary:',
+	'ep-online-name-input' => 'User name:',
 
 	// ep.enlist campus
 	'ep-campus-remove-title' => 'Remove Campus Ambassador from course',
@@ -500,8 +503,8 @@ $messages['en'] = array(
 	'ep-campus-add-text' => 'You are adding an Campus Ambassador for course $1. Enter the username of the Campus Ambassador and a brief description why this person is being added.',
 	'ep-campus-add-self-text' => 'You are adding yourself as {{GENDER:$1|Campus Ambassador}} for course $1. Please add a brief description why you are doing so.',
 	'ep-campus-add-cancel-button' => 'Cancel',
-	'ep-campus-summary-input' => 'Summary',
-	'ep-campus-name-input' => 'User name',
+	'ep-campus-summary-input' => 'Summary:',
+	'ep-campus-name-input' => 'User name:',
 
 	// EPInstrucor
 	'ep-instructor-remove' => 'remove as instructor',

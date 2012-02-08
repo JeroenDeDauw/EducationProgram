@@ -246,7 +246,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 * @since 0.1
 	 */
 	protected function onRemoved() {
-		//$this->storeRevision( EPRevision::newFromObject( $this ) );
+		$this->storeRevision( EPRevision::newFromObject( $this ) );
 		$this->log( 'remove' );
 	}
 	

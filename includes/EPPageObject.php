@@ -121,7 +121,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 		$success = true;
 
 		if ( count( $objects ) > 0 ) {
-			$success = true;//static::delete( $conditions );
+			$success = static::delete( $conditions );
 
 			if ( $success ) {
 				$revAction->setDelete( true );
