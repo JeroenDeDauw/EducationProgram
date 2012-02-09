@@ -40,6 +40,16 @@ abstract class EPPageObject extends EPRevisionedObject {
 			'log-type' => 'institution',
 		),
 	);
+	
+	public static function getTypeForNS( $ns ) {
+		foreach ( self::$info as $type => $info ) {
+			if ( $info['ns'] === $ns ) {
+				return $type;
+			}
+		}
+		
+		throw new MWException( 'Unknown EPPageObject ns' );
+	}
 
 	public static function getIdentifierField() {
 		return self::$info[get_called_class()]['identifier'];

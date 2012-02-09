@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract action for viewing the history of EPDBObject items.
+ * Abstract action for viewing the history of EPPageObject items.
  *
  * @since 0.1
  *
@@ -15,7 +15,7 @@
 abstract class EPHistoryAction extends FormlessAction {
 
 	/**
-	 * Returns the class name of the EPDBObject this action handles.
+	 * Returns the class name of the EPPageObject this action handles.
 	 *
 	 * @since 0.1
 	 *
@@ -37,7 +37,23 @@ abstract class EPHistoryAction extends FormlessAction {
 		if ( $object === false ) {
 			$this->getOutput()->addWikiMsg( 'ep-' . strtolower( $this->getName() ) . '-norevs' );
 			
+			$lastRev = EPRevision::selectRow(
+				null,
+				array(
+					'type' => EPPageObject::getTypeForNS( $this->getTitle()->getNamespace() ),
+					'object_identifier' => $this->getTitle()->getText(),
+					'deleted' => true,
+				),
+				array(
+					'SORT BY' => EPRevision::getPrefixedField( 'time' ),
+					'ORDER' => 'DESC',
+				)
+			);
 			
+			if ( $lastRev !== false ) {
+				// TODO: show available info about deletion
+				$this->getOutput()->addWikiMsg( 'ep-' . strtolower( $this->getName() ) . '-deleted' );
+			}
 		}
 		else {
 			$this->displayRevisions( $object );
@@ -66,9 +82,9 @@ abstract class EPHistoryAction extends FormlessAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $object
+	 * @param EPPageObject $object
 	 */
-	protected function displayRevisions( EPDBObject $object ) {
+	protected function displayRevisions( EPPageObject $object ) {
 		$conditions = array(
 			'type' => get_class( $object ),
 		);

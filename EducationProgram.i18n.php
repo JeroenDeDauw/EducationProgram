@@ -367,10 +367,14 @@ $messages['en'] = array(
 	// Institution history
 	'ep-org-history' => 'View logs for this institution',
 	'ep-orghistory-title' => 'Revision history of institution "$1"',
+	'ep-orghistory-norevs' => 'There is no edit history for this institution.',
+	'ep-orghistory-deleted' => 'This institution has been deleted.',
 
 	// Course history
 	'ep-course-history' => 'View logs for this course',
 	'ep-coursehistory-title' => 'Revision history of course "$1"',
+	'ep-coursehistory-norevs' => 'There is no edit history for this course.',
+	'ep-coursehistory-deleted' => 'This course has been deleted.',
 
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',
