@@ -283,7 +283,10 @@ $messages['en'] = array(
 	'ep-editorg-exists-already' => 'This institution already exists. You are editing it.',
 	'ep-editorg-edit' => 'Editing institution: $1',
 	'ep-editorg-add' => 'Adding institution: $1',
+	'ep-editorg-deleted' => "'''Warning: You are recreating an institution that was previously deleted.'''
 
+You should consider whether it is appropriate to continue editing this institution.
+The deletion log for this institution is provided below for convenience:",
 
 	// Course editing
 	'editcourse-add-legend' => 'Add course',
@@ -306,6 +309,10 @@ $messages['en'] = array(
 	'ep-editcourse-exists-already' => 'This course already exists. You are editing it.',
 	'ep-editcourse-edit' => 'Editing course: $1',
 	'ep-editcourse-add' => 'Adding course: $1',
+	'ep-editcourse-deleted' => "'''Warning: You are recreating a course that was previously deleted.'''
+
+You should consider whether it is appropriate to continue editing this course.
+The deletion log for this course is provided below for convenience:",
 
 	'ep-course-invalid-org' => 'This institution does not exist.',
 	'ep-course-invalid-token' => 'The token needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
@@ -332,6 +339,7 @@ $messages['en'] = array(
 	'ep-institution-inactive' => 'Inactive',
 	'ep-institution-active' => 'Active',
 	'ep-institution-courses' => 'Courses',
+	'ep-vieworg-deleted' => 'This institution has been deleted. The deletion log for the institution is provided below for reference.',
 
 	// Course viewing
 	'ep-course-title' => 'Course: $1',
@@ -363,18 +371,19 @@ $messages['en'] = array(
 	'ep-instructor-summary' => 'Summary:',
 	'ep-online-summary' => 'Summary:',
 	'ep-campus-summary' => 'Summary:',
+	'ep-viewcourse-deleted' => 'This course has been deleted. The deletion log for the course is provided below for reference.',
 
 	// Institution history
 	'ep-org-history' => 'View logs for this institution',
 	'ep-orghistory-title' => 'Revision history of institution "$1"',
 	'ep-orghistory-norevs' => 'There is no edit history for this institution.',
-	'ep-orghistory-deleted' => 'This institution has been deleted.',
+	'ep-orghistory-deleted' => 'This institution has been deleted. The deletion log for the institution is provided below for reference.',
 
 	// Course history
 	'ep-course-history' => 'View logs for this course',
 	'ep-coursehistory-title' => 'Revision history of course "$1"',
 	'ep-coursehistory-norevs' => 'There is no edit history for this course.',
-	'ep-coursehistory-deleted' => 'This course has been deleted.',
+	'ep-coursehistory-deleted' => 'This course has been deleted. The deletion log for the course is provided below for reference.',
 
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',

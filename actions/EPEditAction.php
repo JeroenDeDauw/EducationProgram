@@ -89,6 +89,11 @@ abstract class EPEditAction extends FormlessAction {
 		}
 		else {
 			if ( $object === false ) {
+				$c::displayDeletionLog(
+					$this->getContext(),
+					'ep-' . strtolower( $this->getName() ) . '-deleted' 
+				);
+		
 				$this->isNew = true;
 				$object = new $c( $data, true );
 			}

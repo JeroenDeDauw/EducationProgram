@@ -65,6 +65,11 @@ abstract class EPViewAction extends FormlessAction {
 			}
 			else {
 				$out->addWikiMsg( strtolower( get_called_class() ) . '-none', $name );
+				
+				$class::displayDeletionLog(
+					$this->getContext(),
+					'ep-' . strtolower( $this->getName() ) . '-deleted' 
+				);
 			}
 		}
 		else {

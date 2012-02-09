@@ -35,31 +35,22 @@ abstract class EPHistoryAction extends FormlessAction {
 		$object = $c::get( $this->getTitle()->getText() );
 
 		if ( $object === false ) {
-			$this->getOutput()->addWikiMsg( 'ep-' . strtolower( $this->getName() ) . '-norevs' );
-			
-			$lastRev = EPRevision::selectRow(
-				null,
-				array(
-					'type' => EPPageObject::getTypeForNS( $this->getTitle()->getNamespace() ),
-					'object_identifier' => $this->getTitle()->getText(),
-					'deleted' => true,
-				),
-				array(
-					'SORT BY' => EPRevision::getPrefixedField( 'time' ),
-					'ORDER' => 'DESC',
-				)
-			);
-			
-			if ( $lastRev !== false ) {
-				// TODO: show available info about deletion
-				$this->getOutput()->addWikiMsg( 'ep-' . strtolower( $this->getName() ) . '-deleted' );
-			}
+			$this->displayNoRevisions();
 		}
 		else {
 			$this->displayRevisions( $object );
 		}
 		
 		return '';
+	}
+	
+	protected function displayNoRevisions() {
+		$this->getOutput()->addWikiMsg( 'ep-' . strtolower( $this->getName() ) . '-norevs' );
+		
+		$c::displayDeletionLog(
+			$this->getContext(),
+			'ep-' . strtolower( $this->getName() ) . '-deleted' 
+		);
 	}
 	
 	/**

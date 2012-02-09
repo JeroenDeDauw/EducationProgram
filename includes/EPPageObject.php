@@ -40,16 +40,6 @@ abstract class EPPageObject extends EPRevisionedObject {
 			'log-type' => 'institution',
 		),
 	);
-	
-	public static function getTypeForNS( $ns ) {
-		foreach ( self::$info as $type => $info ) {
-			if ( $info['ns'] === $ns ) {
-				return $type;
-			}
-		}
-		
-		throw new MWException( 'Unknown EPPageObject ns' );
-	}
 
 	public static function getIdentifierField() {
 		return self::$info[get_called_class()]['identifier'];
@@ -156,4 +146,40 @@ abstract class EPPageObject extends EPRevisionedObject {
 		);
 	}
 
+	public static function getTypeForNS( $ns ) {
+		foreach ( self::$info as $type => $info ) {
+			if ( $info['ns'] === $ns ) {
+				return $type;
+			}
+		}
+		
+		throw new MWException( 'Unknown EPPageObject ns' );
+	}
+	
+	public static function getLatestRevForTitle( Title $title, $conditions = array() ) {
+		$conds = array(
+			'type' => self::getTypeForNS( $title->getNamespace() ),
+			'object_identifier' => $title->getText(),
+		);
+		
+		return EPRevision::getLastRevision( array_merge( $conds, $conditions ) );
+	}
+	
+	public static function displayDeletionLog( IContextSource $context, $messageKey ) {
+		$out = $context->getOutput();
+		
+		LogEventsList::showLogExtract(
+			$out,
+			array( self::$info[get_called_class()]['log-type'] ),
+			$context->getTitle(),
+			'',
+			array(
+				'lim' => 10,
+				'conds' => array( 'log_action' => 'remove' ),
+				'showIfEmpty' => false,
+				'msgKey' => array( $messageKey )
+			)
+		);
+	}
+	
 }
