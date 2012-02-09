@@ -25,6 +25,8 @@ $messages['en'] = array(
 	'ep-toplink' => 'My courses',
 	'ep-org-course-delete-comment' => "Deleted institution $1 and all it's courses with comment $2",
 	'ep-org-course-delete' => "Deleted institution $1 and all it's courses",
+	'ep-form-summary' => 'Summary:',
+	'ep-form-minor' => 'This is a minor edit',
 
 	// Tabs
 	'ep-tab-view' => 'Read',
@@ -37,11 +39,15 @@ $messages['en'] = array(
 	'tooltip-ep-form-save' => 'Save',
 	'tooltip-ep-edit-institution' => 'Edit this institution',
 	'tooltip-ep-edit-course' => 'Edit this course',
+	'tooltip-ep-summary' => 'Enter a short summary',
+	'tooltip-ep-minor' => 'Marks this as a minor edit',
 
 	// Access keys
 	'accesskey-ep-form-save' => 's', # do not translate or duplicate this message to other languages
 	'accesskey-ep-edit-institution' => 'e', # do not translate or duplicate this message to other languages
 	'accesskey-ep-edit-course' => 'e', # do not translate or duplicate this message to other languages
+	'accesskey-ep-summary' => 'b', # do not translate or duplicate this message to other languages
+	'accesskey-ep-minor' => 'i', # do not translate or duplicate this message to other languages
 
 	// Navigation links
 	'ep-nav-orgs' => 'Institution list',

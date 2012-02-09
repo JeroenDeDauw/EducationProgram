@@ -78,6 +78,8 @@ abstract class EPEditAction extends FormlessAction {
 	 * @since 0.1
 	 */
 	protected function showContent() {
+		$out = $this->getOutput();
+
 		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
 
 		$data = $this->getNewData();
@@ -85,7 +87,7 @@ abstract class EPEditAction extends FormlessAction {
 		$object = $c::selectRow( null, $data );
 
 		if ( $object !== false && $this->getRequest()->getText( 'redlink' ) === '1' ) {
-			$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
+			$out->redirect( $this->getTitle()->getLocalURL() );
 		}
 		else {
 			if ( $object === false ) {
@@ -101,8 +103,8 @@ abstract class EPEditAction extends FormlessAction {
 				$this->showWarning( wfMessage( 'ep-' . strtolower( $this->getName() ) . '-exists-already' ) );
 			}
 
-			$this->getOutput()->setPageTitle( $this->getPageTitle() );
-			$this->getOutput()->setSubtitle( $this->getDescription() );
+			$out->setPageTitle( $this->getPageTitle() );
+			$out->setSubtitle( $this->getDescription() );
 
 			$this->item = $object;
 			$this->showForm();

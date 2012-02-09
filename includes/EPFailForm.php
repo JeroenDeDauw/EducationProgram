@@ -47,5 +47,44 @@ class EPFailForm extends HTMLForm {
 	public function setQuery( array $query ) {
 		$this->query = $query;
 	}
-	
+
+	function getBody() {
+		$html = $this->displaySection( $this->mFieldTree );
+
+		$html .= '<br />';
+
+		$html .= Html::element(
+			'label',
+			array( 'for' => 'wpSummary' ),
+			wfMsg( 'ep-form-summary' )
+		) . '&#160;';
+
+		$attrs = array(
+			'id' => 'wpSummary',
+			'name' => 'wpSummary',
+			'size' => 60,
+			'maxlength' => 250,
+			'spellcheck' => true
+		);
+
+		$attrs = array_merge( $attrs, Linker::tooltipAndAccesskeyAttribs( 'ep-summary' ) );
+
+		$html .= Html::element(
+			'input',
+			$attrs
+		) . '<br />';
+
+		$attrs = Linker::tooltipAndAccesskeyAttribs( 'ep-minor' );
+
+		$html .= Xml::checkLabel(
+			wfMsg( 'ep-form-minor' ),
+			'wpMinoredit',
+			'wpMinoredit',
+			false,
+			$attrs
+		) . '<br />';
+
+		return $html;
+	}
+
 }
