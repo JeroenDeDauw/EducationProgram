@@ -46,6 +46,7 @@ class EPRevision extends EPDBObject {
 			'id' => 'id',
 
 			'object_id' => 'int',
+			'object_identifier' => 'str',
 			'user_id' => 'int',
 			'type' => 'str',
 			'comment' => 'str',
@@ -58,28 +59,34 @@ class EPRevision extends EPDBObject {
 	}
 
 	/**
-	 * Create a new revision object for the provided EPDBObject.
-	 * The EPDBObject should have all it's fields loaded.
+	 * Create a new revision object for the provided EPRevisionedObject.
+	 * The EPRevisionedObject should have all it's fields loaded.
 	 *
 	 * @since 0.1
 	 *
 	 * @param EPDBObject $object
-	 * @param boolean $deleted
+	 * @param EPRevisionAction $revAction
 	 *
 	 * @return EPRevision
 	 */
-	public static function newFromObject( EPDBObject $object, $deleted = false ) {
+	public static function newFromObject( EPRevisionedObject $object, EPRevisionAction $revAction ) {
 		$fields = array(
 			'object_id' => $object->getId(),
-			'user_id' => $GLOBALS['wgUser']->getID(), // TODO
-			'user_text' => $GLOBALS['wgUser']->getName(), // TODO
+			'user_id' => $revAction->getUser()->getID(),
+			'user_text' => $revAction->getUser()->getName(),
 			'type' => get_class( $object ),
-			'comment' => '', // TODO
-			'minor_edit' => false, // TODO
-			'time' => wfTimestampNow(),
-			'deleted' => $deleted,
+			'comment' => $revAction->getComment(),
+			'minor_edit' => $revAction->isMinor(),
+			'time' => $revAction->getTime(),
+			'deleted' => $revAction->isDelete(),
 			'data' => serialize( $object->toArray() )
 		);
+		
+		$identifier = $object->getIdentifier();
+		
+		if ( !is_null( $identifier ) ) {
+			$fields['object_identifier'] = $identifier;
+		}
 
 		return new static( $fields );
 	}
@@ -89,7 +96,7 @@ class EPRevision extends EPDBObject {
 	 *
 	 * @since 0,1
 	 *
-	 * @return EPDBObject
+	 * @return EPRevisionedObject
 	 */
 	public function getObject() {
 		$class = $this->getField( 'type' );
@@ -105,7 +112,7 @@ class EPRevision extends EPDBObject {
 	 * @param integer $revId
 	 * @param integer|null $objectId
 	 *
-	 * @return EPDBObject|false
+	 * @return EPRevisionedObject|false
 	 */
 	public static function getObjectFromRevId( $revId, $objectId = null ) {
 		$conditions = array(

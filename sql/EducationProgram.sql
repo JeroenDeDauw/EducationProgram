@@ -177,6 +177,7 @@ CREATE UNIQUE INDEX /*i*/ep_oas_per_course ON /*_*/ep_oas_per_course (opc_user_i
 CREATE TABLE IF NOT EXISTS /*_*/ep_revisions (
   rev_id                     INT unsigned        NOT NULL auto_increment PRIMARY KEY,
   rev_object_id              INT unsigned        NOT NULL,
+  rev_object_identifier      VARCHAR(255)        NULL,
   rev_type                   varbinary(32)       NOT NULL,
   rev_comment                TINYBLOB            NOT NULL,
   rev_user_id                INT unsigned        NOT NULL default 0,
@@ -194,3 +195,4 @@ CREATE INDEX /*i*/ep_revision_user_text ON /*_*/ep_revisions (rev_user_text);
 CREATE INDEX /*i*/ep_revision_time ON /*_*/ep_revisions (rev_time);
 CREATE INDEX /*i*/ep_revision_minor_edit ON /*_*/ep_revisions (rev_minor_edit);
 CREATE INDEX /*i*/ep_revision_deleted ON /*_*/ep_revisions (rev_deleted);
+CREATE INDEX /*i*/ep_revision_object_identifier ON /*_*/ep_revisions (rev_object_identifier);

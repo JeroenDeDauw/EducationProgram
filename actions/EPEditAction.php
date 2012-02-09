@@ -396,8 +396,13 @@ abstract class EPEditAction extends FormlessAction {
 		foreach ( $unknownValues as $name => $value ) {
 			$this->handleUnknownField( $item, $name, $value );
 		}
+		
+		$revAction = new EPRevisionAction();
+		$revAction->setUser( $this->getUser() );
+		$revAction->setComment( '' ); // TODO
+		$revAction->setMinor( false ); // TODO
 
-		$success = $item->save();
+		$success = $item->revisionedSave( $revAction );
 
 		if ( $success ) {
 			return true;

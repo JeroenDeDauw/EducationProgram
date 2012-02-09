@@ -38,13 +38,13 @@ abstract class EPRevisionedObject extends EPDBObject {
 	protected $revAction = false;
 
 	/**
-	 *
+	 * Sets the revision action.
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPRevisionAction $revAction
+	 * @param EPRevisionAction|false $revAction
 	 */
-	protected function setRevisionAction( EPRevisionAction $revAction ) {
+	protected function setRevisionAction( $revAction ) {
 		$this->revAction = $revAction;
 	}
 
@@ -95,24 +95,13 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPRevision $revision
+	 * @param EPRevisionedObject $object
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function storeRevision( EPRevision $revision ) {
-		if ( $this->storeRevisions ) {
-			if ( $this->revAction !== false ) {
-				$revision->setFields( array(
-					'minor_edit' => $this->revAction->isMinor(),
-					'deleted' => $this->revAction->isDelete(),
-					'time' => $this->revAction->getTime(),
-					'comment' => $this->revAction->getComment(),
-					'user_id' => $this->revAction->getUser()->getId(),
-					'user_text' => $this->revAction->getUser()->getName(),
-				) );
-			}
-
-			return $revision->save();
+	protected function storeRevision( EPRevisionedObject $object ) {
+		if ( $this->storeRevisions && $this->revAction !== false ) {
+			return EPRevision::newFromObject( $object, $this->revAction )->save();
 		}
 
 		return true;
@@ -142,21 +131,6 @@ abstract class EPRevisionedObject extends EPDBObject {
 	}
 	
 	/**
-	 * Returns the current revision of the object, ie what is in the database.
-	 * 
-	 * @since 0.1
-	 * 
-	 * @return EPRevisionedObject
-	 */
-	protected function getCurrentRevision() {
-		static::setReadDb( DB_MASTER );
-		$revison = static::selectRow( null, array( 'id' => $this->getId() ) );
-		static::setReadDb( DB_SLAVE );
-		
-		return EPRevision::newFromObject( $revison );
-	}
-	
-	/**
 	 * Return if any fields got changed.
 	 * 
 	 * @since 0.1
@@ -183,13 +157,17 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 * @see EPDBObject::saveExisting()
 	 */
 	protected function saveExisting() {
+		if ( !$this->inSummaryMode ) {
+			static::setReadDb( DB_MASTER );
+			$currentObject = static::selectRow( null, array( 'id' => $this->getId() ) );
+			static::setReadDb( DB_SLAVE );
+		}
+		
 		$success = parent::saveExisting();
 
 		if ( $success && !$this->inSummaryMode ) {
-			$revision = $this->getCurrentRevision();
-			
-			if ( $this->fieldsChanged( $revision->getObject(), true ) ) {
-				$this->storeRevision( $revision );
+			if ( $this->fieldsChanged( $currentObject, true ) ) {
+				$this->storeRevision( $currentObject );
 				$this->log( 'update' );
 			}
 		}
@@ -205,7 +183,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 		$result = parent::insert();
 
 		if ( $result ) {
-			$this->storeRevision( EPRevision::newFromObject( $this ) );
+			$this->storeRevision( $this );
 			$this->log( 'add' );
 		}
 
@@ -246,8 +224,46 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 * @since 0.1
 	 */
 	protected function onRemoved() {
-		$this->storeRevision( EPRevision::newFromObject( $this ) );
+		$this->storeRevision( $this );
 		$this->log( 'remove' );
+	}
+	
+	public function getIdentifier() {
+		return null;
+	}
+	
+	/**
+	 * Save the object using the provided revision action info for logging and revision storage.
+	 * PHP does not support method overloading, else this would be just "save" :/
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param EPRevisionAction $revAction
+	 * 
+	 * @return boolean Success indicator
+	 */
+	public function revisionedSave( EPRevisionAction $revAction ) {
+		$this->setRevisionAction( $revAction );
+		$success = $this->save();
+		$this->setRevisionAction( false );
+		return $success;
+	}
+	
+	/**
+	 * Remove the object using the provided revision action info for logging and revision storage.
+	 * PHP does not support method overloading, else this would be just "remove" :/
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param EPRevisionAction $revAction
+	 * 
+	 * @return boolean Success indicator
+	 */
+	public function revisionedRemove( EPRevisionAction $revAction ) {
+		$this->setRevisionAction( $revAction );
+		$success =  $this->remove();
+		$this->setRevisionAction( false );
+		return $success;
 	}
 	
 }

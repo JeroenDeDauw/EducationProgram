@@ -43,6 +43,14 @@ final class EPHooks {
 			dirname( __FILE__ ) . '/sql/RenameAmbUserField.sql',
 			true
 		) );
+		
+		$updater->addExtensionUpdate( array(
+			'addField',
+			'ep_revisions',
+			'rev_object_identifier',
+			dirname( __FILE__ ) . '/sql/AddRevIdentifier.sql',
+			true
+		) );
 
 		return true;
 	}
@@ -242,7 +250,7 @@ final class EPHooks {
 			$type = $sktemplate->getRequest()->getText( 'action' );
 			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
 
-			if ( $type !== 'edit' || $exists ) {
+			if ( $exists ) {
 				$links['views']['view'] = array(
 					'class' => ( !$isSpecial && $type === '' ) ? 'selected' : false,
 					'text' => wfMsg( 'ep-tab-view' ),

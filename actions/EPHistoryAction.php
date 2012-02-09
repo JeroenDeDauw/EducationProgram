@@ -35,7 +35,9 @@ abstract class EPHistoryAction extends FormlessAction {
 		$object = $c::get( $this->getTitle()->getText() );
 
 		if ( $object === false ) {
-			// TODO
+			$this->getOutput()->addWikiMsg( 'ep-' . strtolower( $this->getName() ) . '-norevs' );
+			
+			
 		}
 		else {
 			$this->displayRevisions( $object );
