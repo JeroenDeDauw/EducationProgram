@@ -242,7 +242,7 @@ class EditCourseAction extends EPEditAction {
 	 */
 	protected function handleKnownField( $name, $value ) {
 		if ( in_array( $name, array( 'end', 'start' ) ) ) {
-			$value = wfTimestamp( TS_MW, strtotime( $value ) );
+			$value = wfTimestamp( TS_MW, strtotime( $value. ' UTC' ) );
 		}
 
 		return $value;

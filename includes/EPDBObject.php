@@ -1278,7 +1278,6 @@ abstract class EPDBObject {
 			$excluded = $excludeSummaryFields && in_array( $name, $this->getSummaryFields() );
 
 			if ( !$excluded && $object->getField( $name ) !== $value ) {
-				//q($name, $value, $object->getField( $name ));
 				return true;
 			}
 		}
