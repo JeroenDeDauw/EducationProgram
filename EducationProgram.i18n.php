@@ -23,6 +23,8 @@ $messages['en'] = array(
 	// Misc
 	'ep-item-summary' => 'Summary',
 	'ep-toplink' => 'My courses',
+	'ep-org-course-delete-comment' => "Deleted institution $1 and all it's courses with comment $2",
+	'ep-org-course-delete' => "Deleted institution $1 and all it's courses",
 
 	// Tabs
 	'ep-tab-view' => 'Read',

@@ -154,23 +154,32 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::remove()
+	 * @see EPRevisionedObject::onRemoved()
 	 */
-	public function remove() {
-		$id = $this->getId();
-		$this->loadFields( array( 'name' ) );
-
-		$success = parent::remove();
-
-		if ( $success ) {
-			$success = wfGetDB( DB_MASTER )->delete( 'ep_cas_per_org', array( 'cpo_org_id' => $id ) ) && $success;
-
-			foreach ( EPCourse::select( 'id', array( 'org_id' => $id ) ) as /* EPCourse */ $course ) {
-				$success = $course->remove() && $success;
+	protected function onRemoved() {
+		foreach ( EPCourse::select( null, array( 'org_id' => $this->getId() ) ) as /* EPCourse */ $course ) {
+			$revAction = clone $this->revAction;
+			
+			if ( trim( $revAction->getComment() ) === '' ) {
+				$revAction->setComment( wfMsgExt(
+					'ep-org-course-delete',
+					'parsemag',
+					$this->getField( 'name' )
+				) );
 			}
+			else {
+				$revAction->setComment( wfMsgExt(
+					'ep-org-course-delete-comment',
+					'parsemag',
+					$this->getField( 'name' ),
+					$revAction->getComment()
+				) );
+			}
+			
+			$course->revisionedRemove( $revAction );
 		}
-
-		return $success;
+		
+		parent::onRemoved();
 	}
 
 	/**

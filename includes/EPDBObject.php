@@ -201,7 +201,7 @@ abstract class EPDBObject {
 	 *
 	 * @return Success indicator
 	 */
-	public function loadFields( $fields = null, $override = true ) {
+	public function loadFields( $fields = null, $override = true, $skipLoaded = false ) {
 		if ( is_null( $this->getId() ) ) {
 			return false;
 		}
@@ -209,19 +209,30 @@ abstract class EPDBObject {
 		if ( is_null( $fields ) ) {
 			$fields = array_keys( $this->getFieldTypes() );
 		}
-
-		$results = $this->rawSelect(
-			$this->getPrefixedFields( $fields ),
-			array( $this->getPrefixedField( 'id' ) => $this->getId() ),
-			array( 'LIMIT' => 1 )
-		);
-
-		foreach ( $results as $result ) {
-			$this->setFields( $this->getFieldsFromDBResult( $result ), $override );
-			return true;
+		
+		if ( $skipLoaded ) {
+			$loadedFields = array_keys( $this->fields );
+			$fields = array_filter( $fields, function( $field ) use ( $loadedFields ) {
+				return !in_array( $loadedFields );
+			} );
+		}
+		
+		if ( count( $fields ) > 0 ) {
+			$results = $this->rawSelect(
+				$this->getPrefixedFields( $fields ),
+				array( $this->getPrefixedField( 'id' ) => $this->getId() ),
+				array( 'LIMIT' => 1 )
+			);
+	
+			foreach ( $results as $result ) {
+				$this->setFields( $this->getFieldsFromDBResult( $result ), $override );
+				return true;
+			}
+	
+			return false;
 		}
 
-		return false;
+		return true;
 	}
 
 	/**
@@ -477,13 +488,47 @@ abstract class EPDBObject {
 	 * @return boolean Success indicator
 	 */
 	public function remove() {
-		$success = $this->delete( array( 'id' => $this->getId() ) );
+		$this->beforeRemove();
+		
+		$success = static::delete( array( 'id' => $this->getId() ) );
 
 		if ( $success ) {
-			$this->setField( 'id', null );
+			$this->onRemoved();
 		}
 
 		return $success;
+	}
+	
+	/**
+	 * Gets called before an object is removed from the database.
+	 * 
+	 * @since 0.1
+	 */
+	protected function beforeRemove() {
+		$this->loadFields( $this->getBeforeRemoveFields(), false, true );
+	}
+
+	/**
+	 * Before removal of an object happens, @see beforeRemove gets called.
+	 * This method loads the fields of which the names have been returned by this one (or all fields if null is returned).
+	 * This allows for loading info needed after removal to get rid of linked data and the like.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return array|null
+	 */
+	protected function getBeforeRemoveFields() {
+		return array();
+	}
+	
+	/**
+	 * Gets called after successfull removal.
+	 * Can be overriden to get rid of linked data.
+	 * 
+	 * @since 0.1
+	 */
+	protected function onRemoved() {
+		$this->setField( 'id', null );
 	}
 
 	/**
@@ -1043,7 +1088,7 @@ abstract class EPDBObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array|null $fields
+	 * @param array $fields
 	 * @param array $conditions
 	 * @param array $options
 	 * @param array $joinConds
@@ -1051,7 +1096,7 @@ abstract class EPDBObject {
 	 *
 	 * @return ResultWrapper
 	 */
-	public static function rawSelect( $fields = null, array $conditions = array(), array $options = array(), array $joinConds = array(), array $tables = null ) {
+	public static function rawSelect( array $fields, array $conditions = array(), array $options = array(), array $joinConds = array(), array $tables = null ) {
 		if ( is_null( $tables ) ) {
 			$tables = static::getDBTable();
 		}

@@ -68,7 +68,7 @@ abstract class EPPager extends TablePager {
 	function formatRow( $row ) {
 		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
 		$this->currentObject = $c::newFromDBResult( $row );
-
+		
 		$cells = array();
 
 		foreach ( $this->getFieldNames() as $field => $name ) {

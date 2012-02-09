@@ -75,7 +75,13 @@ class EPCoursePager extends EPPager {
 				$value = EPCourse::getLinkFor( $value );
 				break;
 			case 'org_id':
-				$value = EPOrg::selectRow( 'name', array( 'id' => $value ) )->getLink();
+				$org = EPOrg::selectRow( 'name', array( 'id' => $value ) );
+				
+				// This should not happen. A course should always have an org.
+				// But if something gets messed up somehow, just display the ID rather then throwing a fatal.
+				if ( $org !== false ) {
+					$value = $org->getLink();
+				}
 				break;
 			case 'term':
 				$value = htmlspecialchars( $value );

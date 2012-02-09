@@ -103,7 +103,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 	}
 
 	/**
-	 *
+	 * Delete all objects matching the provided condirions.
 	 *
 	 * @since 0.1
 	 *
@@ -121,14 +121,10 @@ abstract class EPPageObject extends EPRevisionedObject {
 		$success = true;
 
 		if ( count( $objects ) > 0 ) {
-			$success = static::delete( $conditions );
+			$revAction->setDelete( true );
 
-			if ( $success ) {
-				$revAction->setDelete( true );
-
-				foreach ( $objects as /* EPPageObject */ $object ) {
-					$object->handleRemoved( $revAction );
-				}
+			foreach ( $objects as /* EPPageObject */ $object ) {
+				$success = $object->revisionedRemove( $revAction ) && $success;
 			}
 		}
 

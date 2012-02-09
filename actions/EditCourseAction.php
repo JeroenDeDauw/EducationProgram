@@ -48,15 +48,21 @@ class EditCourseAction extends EPEditAction {
 		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
 		
 		if ( !$this->isNewPost() && !$c::hasIdentifier( $this->getTitle()->getText() ) ) {
-			$name = $this->getTitle()->getText();
-			$bracketPos = strpos( $name, '(' );
+			$c::displayDeletionLog(
+				$this->getContext(),
+				'ep-' . strtolower( $this->getName() ) . '-deleted' 
+			);
 			
-			if ( $bracketPos !== false ) {
-				if ( $bracketPos > 0 && in_array( $name{$bracketPos - 1}, array( ' ', '_' ) ) ) {
-					$bracketPos -= 1;
-				}
-				
-				$name = substr( $name, 0, $bracketPos );
+			$name = $this->getTitle()->getText();
+			$term = '';
+			
+			$matches = array();
+			
+			preg_match( '/(.*)(\(.*\))/', $name, $matches );
+			
+			if ( count( $matches ) == 3 && trim( $matches[1] ) !== '' && $matches[2] !== '' ) {
+				$name = trim( $matches[1] );
+				$term = trim( $matches[2] );
 			}
 			
 			EPCourse::displayAddNewRegion(
@@ -66,12 +72,16 @@ class EditCourseAction extends EPEditAction {
 						'newname',
 						$name
 					),
-					'term' => $this->getRequest()->getText( 'newterm', '' ),
+					'term' => $this->getRequest()->getText(
+						'newterm',
+						$term
+					),
 				)
 			);
 
 			$this->isNew = true;
 			$this->getOutput()->setSubtitle( $this->getDescription() );
+			$this->getOutput()->setPageTitle( $this->getPageTitle() );
 			
 			return '';
 		}

@@ -250,32 +250,21 @@ class EPCourse extends EPPageObject {
 
 		return $success;
 	}
-
+	
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::remove()
+	 * @see EPRevisionedObject::onRemoved()
 	 */
-	public function remove() {
-		$id = $this->getId();
-
+	protected function onRemoved() {
 		if ( $this->updateSummaries ) {
-			$this->loadFields( array( 'org_id' ) );
-			$orgId = $this->getField( 'org_id' );
+			EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), array( 'id' => $this->getField( 'org_id' ) ) );
 		}
 
-		$success = parent::remove();
-
-		if ( $success && $this->updateSummaries ) {
-			EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), array( 'id' => $orgId ) );
-		}
-
-		if ( $success ) {
-			$success = wfGetDB( DB_MASTER )->delete( 'ep_students_per_course', array( 'spc_course_id' => $id ) ) && $success;
-			$success = wfGetDB( DB_MASTER )->delete( 'ep_cas_per_course', array( 'cpc_course_id' => $id ) ) && $success;
-			$success = wfGetDB( DB_MASTER )->delete( 'ep_oas_per_course', array( 'opc_course_id' => $id ) ) && $success;
-		}
-
-		return $success;
+		wfGetDB( DB_MASTER )->delete( 'ep_students_per_course', array( 'spc_course_id' => $this->getId() ) );
+		wfGetDB( DB_MASTER )->delete( 'ep_cas_per_course', array( 'cpc_course_id' => $this->getId() ) );
+		wfGetDB( DB_MASTER )->delete( 'ep_oas_per_course', array( 'opc_course_id' => $this->getId() ) );
+		
+		parent::onRemoved();
 	}
 
 	/**

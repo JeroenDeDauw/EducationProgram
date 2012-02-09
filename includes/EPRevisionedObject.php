@@ -191,41 +191,15 @@ abstract class EPRevisionedObject extends EPDBObject {
 	}
 	
 	/**
-	 * (non-PHPdoc)
-	 * @see EPDBObject::remove()
-	 */
-	public function remove() {
-		$object = clone $this;
-		$object->loadFields();
-		
-		$success = parent::remove();
-
-		if ( $success ) {
-			$object->onRemoved();
-		}
-
-		return $success;
-	}
-
-	/**
-	 * @since 0.1
-	 * 
-	 * @param EPRevisionAction $revAction
-	 */
-	public function handleRemoved( EPRevisionAction $revAction ) {
-		$this->setRevisionAction( $revAction );
-		$this->onRemoved();
-	}
-	
-	/**
 	 * Do logging and revision storage after a removal.
-	 * The object needs to have all it's fields loaded.
+	 * @see EPDBObject::onRemoved()
 	 * 
 	 * @since 0.1
 	 */
 	protected function onRemoved() {
 		$this->storeRevision( $this );
 		$this->log( 'remove' );
+		parent::onRemoved( $object );
 	}
 	
 	public function getIdentifier() {
@@ -261,9 +235,17 @@ abstract class EPRevisionedObject extends EPDBObject {
 	 */
 	public function revisionedRemove( EPRevisionAction $revAction ) {
 		$this->setRevisionAction( $revAction );
-		$success =  $this->remove();
+		$success = $this->remove();
 		$this->setRevisionAction( false );
 		return $success;
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPDBObject::getBeforeRemoveFields()
+	 */
+	protected function getBeforeRemoveFields() {
+		return null;
 	}
 	
 }
