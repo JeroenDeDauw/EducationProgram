@@ -403,11 +403,11 @@ abstract class EPEditAction extends FormlessAction {
 		foreach ( $unknownValues as $name => $value ) {
 			$this->handleUnknownField( $item, $name, $value );
 		}
-		
+
 		$revAction = new EPRevisionAction();
 		$revAction->setUser( $this->getUser() );
-		$revAction->setComment( '' ); // TODO
-		$revAction->setMinor( false ); // TODO
+		$revAction->setComment( $this->getRequest()->getText( 'wpSummary' ) );
+		$revAction->setMinor( $this->getRequest()->getCheck( 'wpMinoredit' ) );
 
 		$success = $item->revisionedSave( $revAction );
 

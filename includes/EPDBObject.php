@@ -198,6 +198,7 @@ abstract class EPDBObject {
 	 *
 	 * @param array|null $fields
 	 * @param boolean $override
+	 * @param boolean $skipLoaded
 	 *
 	 * @return Success indicator
 	 */
@@ -213,7 +214,7 @@ abstract class EPDBObject {
 		if ( $skipLoaded ) {
 			$loadedFields = array_keys( $this->fields );
 			$fields = array_filter( $fields, function( $field ) use ( $loadedFields ) {
-				return !in_array( $loadedFields );
+				return !in_array( $field, $loadedFields );
 			} );
 		}
 		
@@ -1260,6 +1261,29 @@ abstract class EPDBObject {
 	 */
 	public function setSummaryMode( $summaryMode ) {
 		$this->inSummaryMode = $summaryMode;
+	}
+
+	/**
+	 * Return if any fields got changed.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPDBObject $object
+	 * @param boolean $excludeSummaryFields When set to true, summary field changes are ignored.
+	 *
+	 * @return boolean
+	 */
+	protected function fieldsChanged( EPDBObject $object, $excludeSummaryFields = false ) {
+		foreach ( $this->fields as $name => $value ) {
+			$excluded = $excludeSummaryFields && in_array( $name, $this->getSummaryFields() );
+
+			if ( !$excluded && $object->getField( $name ) !== $value ) {
+				//q($name, $value, $object->getField( $name ));
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 }

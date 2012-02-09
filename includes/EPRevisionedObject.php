@@ -131,28 +131,6 @@ abstract class EPRevisionedObject extends EPDBObject {
 	}
 	
 	/**
-	 * Return if any fields got changed.
-	 * 
-	 * @since 0.1
-	 * 
-	 * @param EPRevisionedObject $revision
-	 * @param boolean $excludeSummaryFields When set to true, summaty field changes are ignored.
-	 * 
-	 * @return boolean
-	 */
-	protected function fieldsChanged( EPRevisionedObject $revision, $excludeSummaryFields = false ) {
-		foreach ( $this->fields as $name => $value ) {
-			$excluded = $excludeSummaryFields && in_array( $name, $this->getSummaryFields() );
-			
-			if ( !$excluded && $revision->getField( $name ) !== $value ) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
-	
-	/**
 	 * (non-PHPdoc)
 	 * @see EPDBObject::saveExisting()
 	 */
@@ -162,11 +140,14 @@ abstract class EPRevisionedObject extends EPDBObject {
 			$currentObject = static::selectRow( null, array( 'id' => $this->getId() ) );
 			static::setReadDb( DB_SLAVE );
 		}
-		
-		$success = parent::saveExisting();
 
-		if ( $success && !$this->inSummaryMode ) {
-			if ( $this->fieldsChanged( $currentObject, true ) ) {
+		$success = true;
+
+		if ( $this->inSummaryMode || $currentObject === false || $this->fieldsChanged( $currentObject, true ) ) {
+
+			$success = parent::saveExisting();
+
+			if ( $success && !$this->inSummaryMode ) {
 				$this->storeRevision( $currentObject );
 				$this->log( 'update' );
 			}
@@ -199,7 +180,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 	protected function onRemoved() {
 		$this->storeRevision( $this );
 		$this->log( 'remove' );
-		parent::onRemoved( $object );
+		parent::onRemoved();
 	}
 	
 	public function getIdentifier() {
