@@ -51,6 +51,13 @@ final class EPHooks {
 			dirname( __FILE__ ) . '/sql/AddRevIdentifier.sql',
 			true
 		) );
+		
+		$updater->addExtensionUpdate( array(
+			'addTable',
+			'ep_users_per_course',
+			dirname( __FILE__ ) . '/sql/UpdateUserLinks.sql',
+			true
+		) );
 
 		return true;
 	}

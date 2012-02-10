@@ -104,12 +104,15 @@ CREATE INDEX /*i*/ep_students_active_enroll ON /*_*/ep_students (student_active_
 
 
 -- Links the students with their courses.
-CREATE TABLE IF NOT EXISTS /*_*/ep_students_per_course (
-  spc_student_id             INT unsigned        NOT NULL, -- Foreign key on ep_students.student_id
-  spc_course_id              INT unsigned        NOT NULL -- Foreign key on ep_courses.course_id
+CREATE TABLE IF NOT EXISTS /*_*/ep_users_per_course (
+  upc_user_id                INT unsigned        NOT NULL, -- Foreign key on ep_user.user_id
+  upc_course_id              INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
+  upc_role                   TINYINT unsigned    NOT NULL -- The role the user has for the course
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/ep_students_per_course ON /*_*/ep_students_per_course (spc_student_id, spc_course_id);
+CREATE UNIQUE INDEX /*i*/ep_users_per_course ON /*_*/ep_users_per_course (upc_user_id, upc_course_id, upc_role);
+CREATE INDEX /*i*/ep_upc_course_id ON /*_*/ep_users_per_course (upc_course_id);
+CREATE INDEX /*i*/ep_upc_role ON /*_*/ep_users_per_course (upc_role);
 
 
 
@@ -136,17 +139,6 @@ CREATE UNIQUE INDEX /*i*/ep_cas_user_id ON /*_*/ep_cas (ca_user_id);
 
 
 
--- Links the campus ambassadors with all their courses.
--- The is secondary storage for queries. The canonical data is in ep_course.campus_ambs
-CREATE TABLE IF NOT EXISTS /*_*/ep_cas_per_course (
-  cpc_user_id                INT unsigned        NOT NULL, -- Foreign key on user.user_id
-  cpc_course_id              INT unsigned        NOT NULL -- Foreign key on ep_course.course_id
-) /*$wgDBTableOptions*/;
-
-CREATE UNIQUE INDEX /*i*/ep_cas_per_course ON /*_*/ep_cas_per_course (cpc_user_id, cpc_course_id);
-
-
-
 -- Online ambassadors. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_oas (
   oa_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
@@ -157,17 +149,6 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_oas (
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_oas_user_id ON /*_*/ep_oas (oa_user_id);
-
-
-
--- Links the online ambassadors with all their courses.
--- The is secondary storage for queries. The canonical data is in ep_course.online_ambs
-CREATE TABLE IF NOT EXISTS /*_*/ep_oas_per_course (
-  opc_user_id                INT unsigned        NOT NULL, -- Foreign key on user.user_id
-  opc_course_id              INT unsigned        NOT NULL -- Foreign key on ep_course.course_id
-) /*$wgDBTableOptions*/;
-
-CREATE UNIQUE INDEX /*i*/ep_oas_per_course ON /*_*/ep_oas_per_course (opc_user_id, opc_course_id);
 
 
 
