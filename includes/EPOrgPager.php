@@ -33,8 +33,8 @@ class EPOrgPager extends EPPager {
 			'name',
 			'city',
 			'country',
-			'courses',
-			'students',
+			'course_count',
+			'student_count',
 			'active',
 		);
 	}
@@ -68,13 +68,13 @@ class EPOrgPager extends EPPager {
 				$countries = array_flip( EPUtils::getCountryOptions( $this->getLanguage()->getCode() ) );
 				$value = htmlspecialchars( $countries[$value] );
 				break;
-			case 'courses': case 'students':
+			case 'course_count': case 'student_count':
 				$rawValue = $value;
 				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
 
-				if ( $rawValue > 0 && $name === 'courses' ) {
+				if ( $rawValue > 0 && $name === 'course_count' ) {
 					$value = Linker::linkKnown(
-						SpecialPage::getTitleFor( $this->getLanguage()->ucfirst( $name ) ),
+						SpecialPage::getTitleFor( 'Courses' ),
 						$value,
 						array(),
 						array( 'org_id' => $this->currentObject->getId() )
@@ -99,8 +99,8 @@ class EPOrgPager extends EPPager {
 			'name',
 			'city',
 			'country',
-			'courses',
-			'students',
+			'course_count',
+			'student_count',
 			'active',
 		);
 	}

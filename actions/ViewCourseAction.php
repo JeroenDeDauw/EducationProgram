@@ -71,7 +71,7 @@ class ViewCourseAction extends EPViewAction {
 		$stats['start'] = htmlspecialchars( $lang->timeanddate( $course->getField( 'start' ), true ) );
 		$stats['end'] = htmlspecialchars( $lang->timeanddate( $course->getField( 'end' ), true ) );
 
-		$stats['students'] = htmlspecialchars( $lang->formatNum( $course->getField( 'students' ) ) );
+		$stats['students'] = htmlspecialchars( $lang->formatNum( $course->getField( 'student_count' ) ) );
 
 		$stats['status'] = htmlspecialchars( EPCourse::getStatusMessage( $course->getStatus() ) );
 

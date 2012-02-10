@@ -205,7 +205,7 @@ class EPCourse extends EPPageObject {
 		$success = parent::insert();
 
 		if ( $success && $this->updateSummaries ) {
-			EPOrg::updateSummaryFields( array( 'courses', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
+			EPOrg::updateSummaryFields( array( 'course_count', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
 		}
 
 		return $success;
@@ -581,6 +581,9 @@ class EPCourse extends EPPageObject {
 				break;
 			case 'campus':
 				return $this->getCampusAmbassadors();
+				break;
+			case 'student':
+				return $this->getStudents();
 				break;
 		}
 		

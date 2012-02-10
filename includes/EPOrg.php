@@ -37,7 +37,7 @@ class EPOrg extends EPPageObject {
 			'country' => 'str',
 
 			'active' => 'bool',
-			'courses' => 'int',
+			'course_count' => 'int',
 			'student_count' => 'int',
 			'instructor_count' => 'int',
 			'ca_count' => 'int',
@@ -56,7 +56,7 @@ class EPOrg extends EPPageObject {
 			'country' => '',
 
 			'active' => false,
-			'courses' => 0,
+			'course_count' => 0,
 			'student_count' => 0,
 			'instructor_count' => 0,
 			'ca_count' => 0,
@@ -71,7 +71,7 @@ class EPOrg extends EPPageObject {
 	public static function getSummaryFields() {
 		return array(
 			'active',
-			'courses',
+			'course_count',
 			'student_count',
 			'instructor_count',
 			'ca_count',
@@ -85,7 +85,7 @@ class EPOrg extends EPPageObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'courses', 'active', 'student_count', 'instructor_count', 'oa_count', 'ca_count' );
+			$summaryFields = array( 'course_count', 'active', 'student_count', 'instructor_count', 'oa_count', 'ca_count' );
 		}
 		else {
 			$summaryFields = (array)$summaryFields;
@@ -93,8 +93,8 @@ class EPOrg extends EPPageObject {
 
 		$fields = array();
 
-		if ( in_array( 'courses', $summaryFields ) ) {
-			$fields['courses'] = EPCourse::count( array( 'org_id' => $this->getId() ) );
+		if ( in_array( 'course_count', $summaryFields ) ) {
+			$fields['course_count'] = EPCourse::count( array( 'org_id' => $this->getId() ) );
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
@@ -111,7 +111,7 @@ class EPOrg extends EPPageObject {
 
 		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $field ) {
 			$fields[$field] = EPCourse::rawSelect(
-				'SUM(' . $dbr->addQuotes( $field ) . ') AS sum',
+				array( 'SUM(' . $dbr->addQuotes( $field ) . ') AS sum' ),
 				EPCourse::getPrefixedValues( array(
 					'org_id' => $this->getId()
 				) )

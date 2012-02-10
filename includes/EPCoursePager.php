@@ -45,7 +45,7 @@ class EPCoursePager extends EPPager {
 			'org_id',
 			'term',
 			'lang',
-			'students',
+			'student_count',
 		);
 	}
 
@@ -101,7 +101,7 @@ class EPCoursePager extends EPPager {
 				break;
 			case '_status':
 				$value = htmlspecialchars( EPCourse::getStatusMessage( $this->currentObject->getStatus() ) );
-			case 'students':
+			case 'student_count':
 				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
 				break;
 		}
@@ -117,10 +117,8 @@ class EPCoursePager extends EPPager {
 		return array(
 			'name',
 			'term',
-//			'start',
-//			'end',
 			'lang',
-			'students',
+			'student_count',
 		);
 	}
 
@@ -131,11 +129,7 @@ class EPCoursePager extends EPPager {
 	public function getFieldNames() {
 		$fields = parent::getFieldNames();
 
-//		if ( array_key_exists( 'mc_id', $this->conds ) && array_key_exists( 'org_id', $fields ) ) {
-//			unset( $fields['org_id'] );
-//		}
-
-		$fields = wfArrayInsertAfter( $fields, array( '_status' => 'status' ), 'students' );
+		$fields = wfArrayInsertAfter( $fields, array( '_status' => 'status' ), 'student_count' );
 
 		return $fields;
 	}

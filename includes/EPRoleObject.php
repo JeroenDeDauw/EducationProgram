@@ -239,7 +239,7 @@ abstract class EPRoleObject extends EPDBObject implements EPIRole {
 		return EPUtils::getCoursesForUser(
 			$fields,
 			$this->getField( 'user_id' ),
-			$this->getRoleName( getRoleId ),
+			EPUtils::getRoleId( $this->getRoleName() ),
 			$conditions
 		);
 	}

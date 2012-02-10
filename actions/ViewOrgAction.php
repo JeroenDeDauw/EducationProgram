@@ -58,14 +58,14 @@ class ViewOrgAction extends EPViewAction {
 
 		$stats['status'] = wfMsgHtml( $org->getField( 'active' ) ? 'ep-institution-active' : 'ep-institution-inactive' );
 
-		$stats['courses'] = $this->getLanguage()->formatNum( $org->getField( 'courses' ) );
-		$stats['students'] = $this->getLanguage()->formatNum( $org->getField( 'students' ) );
+		$stats['courses'] = $this->getLanguage()->formatNum( $org->getField( 'course_count' ) );
+		$stats['students'] = $this->getLanguage()->formatNum( $org->getField( 'student_count' ) );
 
 		foreach ( $stats as &$stat ) {
 			$stat = htmlspecialchars( $stat );
 		}
 
-		if ( $org->getField( 'courses' ) > 0 ) {
+		if ( $org->getField( 'course_count' ) > 0 ) {
 			$stats['courses'] = Linker::linkKnown(
 				SpecialPage::getTitleFor( 'Courses' ),
 				$stats['courses'],
