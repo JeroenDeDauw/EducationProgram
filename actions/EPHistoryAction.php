@@ -46,7 +46,9 @@ abstract class EPHistoryAction extends FormlessAction {
 	
 	protected function displayNoRevisions() {
 		$this->getOutput()->addWikiMsg( 'ep-' . strtolower( $this->getName() ) . '-norevs' );
-		
+
+		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
+
 		$c::displayDeletionLog(
 			$this->getContext(),
 			'ep-' . strtolower( $this->getName() ) . '-deleted' 

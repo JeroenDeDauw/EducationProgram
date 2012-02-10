@@ -328,6 +328,8 @@ abstract class EPPager extends TablePager {
 		$controls = array();
 
 		foreach ( $filterOptions as $optionName => $optionData ) {
+
+
 			switch ( $optionData['type'] ) {
 				case 'select':
 					$select = new XmlSelect( 
@@ -337,6 +339,9 @@ abstract class EPPager extends TablePager {
 					);
 					$select->addOptions( $optionData['options'] );
 					$control = $select->getHTML();
+					break;
+				default:
+					$control = '';
 					break;
 			}
 

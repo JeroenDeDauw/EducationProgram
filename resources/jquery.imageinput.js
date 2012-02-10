@@ -71,7 +71,7 @@
 				},
 				this.displayImage
 			);
-		}
+		};
 
 		this.displayImage = function( imageUrl ) {
 			if ( imageUrl === false ) {
