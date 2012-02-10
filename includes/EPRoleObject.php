@@ -121,41 +121,27 @@ abstract class EPRoleObject extends EPDBObject implements EPIRole {
 	 *
 	 * @param array $courses
 	 *
-	 * @return bool
+	 * @return bool Success indicator
 	 */
 	public function associateWithCourses( array /* of EPCourse */ $courses ) {
 		$success = true;
 
-		if ( count( $courses ) > 0 ) {
-			$courseIds = array();
-			$orgIds = array();
+		foreach ( $courses as /* EPCourse */ $course ) {
+			$courseIds[] = $course->getId();
+			$course->setUpdateSummaries( false );
+			$course->enlistUsers( $this->getField( 'user_id' ), $this->getRoleName(), '' );
+			$course->setUpdateSummaries( true );
+		}
 
-			$dbw = wfGetDB( DB_MASTER );
-			$dbw->begin();
+		$fieldMap = array(
+			'student' => 'student_count',
+			'online' => 'oa_count',
+			'campus' => 'ca_count',
+		);
 
-			foreach ( $courses as /* EPCourse */ $course ) {
-				$success = $dbw->insert(
-					'ep_users_per_course',
-					array(
-						'upc_user_id' => $this->getId(),
-						'upc_course_id' => $course->getId(),
-						'upc_role' => EPUtils::getRoleId( $this->getRoleName() ),
-					)
-				) && $success;
+		$field = $fieldMap[$this->getRoleName()];
 
-				$courseIds[] = $course->getId();
-			}
-
-			$dbw->commit();
-
-			$fieldMap = array(
-				'student' => 'student_count',
-				'online' => 'oa_count',
-				'campus' => 'ca_count',
-			);
-
-			$field = $fieldMap[$this->getRoleName()];
-
+		if ( count( $courseIds ) > 0 ) {
 			EPOrg::updateSummaryFields( $field, array( 'id' => array_unique( $courseIds ) ) );
 			EPCourse::updateSummaryFields( $field, array( 'id' => $courseIds ) );
 		}

@@ -1253,7 +1253,7 @@ abstract class EPDBObject {
 	}
 
 	/**
-	 * Sets the value for the @see $updateSummaries field.
+	 * Sets the value for the @see $inSummaryMode field.
 	 *
 	 * @since 0.1
 	 *

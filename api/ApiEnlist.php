@@ -33,11 +33,19 @@ class ApiEnlist extends ApiBase {
 			$this->dieUsage( wfMsg( 'ep-enlist-invalid-user' ), 'invalid-user' );
 		}
 		
-		if ( !$this->userIsAllowed( $userId ) ) {
+		if ( !$this->userIsAllowed( $userId, $params['role'] ) ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
-		
-		$field = $params['role'] === 'instructor' ? 'instructors' : $params['role'] . '_ambs'; 
+
+		$roleMap = array(
+			'student' => 'students',
+			'campus' => 'campus_ambs',
+			'online' => 'online_ambs',
+			'instructor' => 'instructors',
+		);
+
+		$field = $roleMap[$params['role']];
+
 		$course = EPCourse::selectRow( array( 'id', 'name', $field ), array( 'id' => $params['courseid'] ) );
 
 		if ( $course === false ) {
@@ -63,35 +71,37 @@ class ApiEnlist extends ApiBase {
 	}
 
 	/**
-	 * Get the User being used for this instance.
-	 * ApiBase extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return User
-	 */
-	public function getUser() {
-		return method_exists( 'ApiBase', 'getUser' ) ? parent::getUser() : $GLOBALS['wgUser'];
-	}
-	
-	/**
 	 * Returns if the user is allowed to do the requested action.
 	 * 
 	 * @since 0.1
 	 * 
 	 * @param integer $userId User id of the mentor affected
+	 * @param string $role
+	 *
+	 * @return boolean
 	 */
-	protected function userIsAllowed( $userId ) {
+	protected function userIsAllowed( $userId, $role ) {
 		$user = $this->getUser();
-		
-		if ( $user->isAllowed( 'ep-instructor' ) ) {
-			return true;
+		$isSelf = $user->getId() === $userId;
+
+		switch ( $role ) {
+			case 'student':
+				return $user->isAllowed( 'ep-enroll' ) && $isSelf;
+				break;
+			case 'instructor':
+				return $user->isAllowed( 'ep-instructor' )
+					|| ( $user->isAllowed( 'ep-beinstructor' ) && $isSelf );
+				break;
+			case 'online':
+				return $user->isAllowed( 'ep-online' )
+					|| ( $user->isAllowed( 'ep-beonline' ) && $isSelf );
+				break;
+			case 'campus':
+				return $user->isAllowed( 'ep-campus' )
+					|| ( $user->isAllowed( 'ep-becampus' ) && $isSelf );
+				break;
 		}
-		
-		if ( $user->isAllowed( 'ep-beinstructor' ) && $user->getId() === $userId ) {
-			return true;
-		}
-		
+
 		return false;
 	}
 
@@ -110,7 +120,7 @@ class ApiEnlist extends ApiBase {
 				ApiBase::PARAM_REQUIRED => true,
 			),
 			'role' => array(
-				ApiBase::PARAM_TYPE => array( 'instructor', 'online', 'campus' ),
+				ApiBase::PARAM_TYPE => array( 'instructor', 'online', 'campus', 'student' ),
 				ApiBase::PARAM_REQUIRED => true,
 			),
 			'username' => array(

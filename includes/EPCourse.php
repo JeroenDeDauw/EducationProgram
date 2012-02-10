@@ -224,58 +224,58 @@ class EPCourse extends EPPageObject {
 	 * @see EPRevisionedObject::onUpdated()
 	 */
 	protected function onUpdated( EPRevisionedObject $originalCourse ) {
+		$newUsers = array();
+		$changedSummaries = array();
+
+		$roleMap = array(
+			'online_ambs' => EP_OA,
+			'campus_ambs' => EP_CA,
+			'students' => EP_STUDENT,
+			'instructors' => EP_INSTRUCTOR,
+		);
+
+		$countMap = array_flip( self::$countMap );
+
+		$dbw = wfGetDB( DB_MASTER );
+
+		foreach ( array( 'online_ambs', 'campus_ambs', 'students', 'instructors' ) as $usersField ) {
+			if ( $this->hasField( $usersField ) && $originalCourse->getField( $usersField ) !== $this->getField( $usersField ) ) {
+				$removedIds = array_diff( $originalCourse->getField( $usersField ), $this->getField( $usersField ) );
+				$addedIds = array_diff( $this->getField( $usersField ), $originalCourse->getField( $usersField ) );
+
+				foreach ( $addedIds as $addedId ) {
+					$newUsers[] = array(
+						'upc_course_id' => $this->getId(),
+						'upc_user_id' => $addedId,
+						'upc_role' => $roleMap[$usersField],
+					);
+				}
+
+				if ( !empty( $removedIds ) || !empty( $addedIds ) ) {
+					$changedSummaries[] = $countMap[$usersField];
+				}
+
+				if ( count( $removedIds ) > 0 ) {
+					$dbw->delete( 'ep_users_per_course', array(
+						'upc_course_id' => $this->getId(),
+						'upc_user_id' => $removedIds,
+						'upc_role' => $roleMap[$usersField],
+					) );
+				}
+			}
+		}
+
+		if ( count( $newUsers ) > 0 ) {
+			$dbw->begin();
+
+			foreach ( $newUsers as $userLink ) {
+				$dbw->insert( 'ep_users_per_course', $userLink );
+			}
+
+			$dbw->commit();
+		}
+
 		if ( $this->updateSummaries ) {
-			$newUsers = array();
-			$changedSummaries = array();
-
-			$roleMap = array(
-				'online_ambs' => EP_OA,
-				'campus_ambs' => EP_CA,
-				'students' => EP_STUDENT,
-				'instructors' => EP_INSTRUCTOR,
-			);
-
-			$countMap = array_flip( self::$countMap );
-
-			$dbw = wfGetDB( DB_MASTER );
-
-			foreach ( array( 'online_ambs', 'campus_ambs', 'students', 'instructors' ) as $usersField ) {
-				if ( $this->hasField( $usersField ) && $originalCourse->getField( $usersField ) !== $this->getField( $usersField ) ) {
-					$removedIds = array_diff( $originalCourse->getField( $usersField ), $this->getField( $usersField ) );
-					$addedIds = array_diff( $this->getField( $usersField ), $originalCourse->getField( $usersField ) );
-
-					foreach ( $addedIds as $addedId ) {
-						$newUsers[] = array(
-							'upc_course_id' => $this->getId(),
-							'upc_user_id' => $addedId,
-							'upc_role' => $roleMap[$usersField],
-						);
-					}
-
-					if ( !empty( $removedIds ) || !empty( $addedIds ) ) {
-						$changedSummaries[] = $countMap[$usersField];
-					}
-
-					if ( count( $removedIds ) > 0 ) {
-						$dbw->delete( 'ep_users_per_course', array(
-							'upc_course_id' => $this->getId(),
-							'upc_user_id' => $removedIds,
-							'upc_role' => $roleMap[$usersField],
-						) );
-					}
-				}
-			}
-
-			if ( count( $newUsers ) > 0 ) {
-				$dbw->begin();
-
-				foreach ( $newUsers as $userLink ) {
-					$dbw->insert( 'ep_users_per_course', $userLink );
-				}
-
-				$dbw->commit();
-			}
-
 			if ( $this->hasField( 'org_id' ) && $originalCourse->getField( 'org_id' ) !== $this->getField( 'org_id' ) ) {
 				$conds = array( 'id' => array( $originalCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
 				EPOrg::updateSummaryFields( null, $conds );
@@ -630,7 +630,14 @@ class EPCourse extends EPPageObject {
 	 * @return boolean Success indicator
 	 */
 	public function enlistUsers( $newUsers, $role, $message = '', $save = true, $log = true ) {
-		$field = $role === 'instructor' ? 'instructors' : $role . '_ambs'; 
+		$roleMap = array(
+			'student' => 'students',
+			'campus' => 'campus_ambs',
+			'online' => 'online_ambs',
+			'instructor' => 'instructors',
+		);
+
+		$field = $roleMap[$role];
 		$users = $this->getField( $field );
 		$addedUsers = array();
 
@@ -687,7 +694,14 @@ class EPCourse extends EPPageObject {
 		$remaimingUsers = array();
 		$sadUsers = (array)$sadUsers;
 
-		$field = $role === 'instructor' ? 'instructors' : $role . '_ambs'; 
+		$roleMap = array(
+			'student' => 'students',
+			'campus' => 'campus_ambs',
+			'online' => 'online_ambs',
+			'instructor' => 'instructors',
+		);
+
+		$field = $roleMap[$role];
 		
 		foreach ( $this->getField( $field ) as $userId ) {
 			if ( in_array( $userId, $sadUsers ) ) {
@@ -737,6 +751,7 @@ class EPCourse extends EPPageObject {
 			'instructor' => 'EPInstructor',
 			'campus' => 'EPCA',
 			'online' => 'EPOA',
+			'student' => 'EPStudent',
 		);
 		
 		$class = $classes[$role];

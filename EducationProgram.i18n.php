@@ -105,7 +105,7 @@ $messages['en'] = array(
 	'logentry-campus-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as {{GENDER:$2|Campus Ambassador}} to course $3',
 	'logentry-campus-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as {{GENDER:$2|Campus Ambassador}} from course $3',
 
-	'logentry-student-enroll' => '$1 enrolled in course $3',
+	'logentry-student-add' => '$1 enrolled in course $3',
 	'logentry-student-remove' => '$1 removed $4 as student from course $3',
 	'logentry-student-selfremove' => '$1 removed {{GENDER:$2|his|her}} enrollment from course $3',
 
