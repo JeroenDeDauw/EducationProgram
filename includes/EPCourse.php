@@ -163,6 +163,13 @@ class EPCourse extends EPPageObject {
 		);
 	}
 
+	protected static $countMap = array(
+		'student_count' => 'students',
+		'instructor_count' => 'instructors',
+		'oa_count' => 'online_ambs',
+		'ca_count' => 'campus_ambs',
+	);
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPDBObject::loadSummaryFields()
@@ -181,16 +188,9 @@ class EPCourse extends EPPageObject {
 			$fields['org_id'] = $this->getField( 'org_id' );
 		}
 
-		$map = array(
-			'student_count' => 'students',
-			'instructor_count' => 'instructors',
-			'oa_count' => 'online_ambs',
-			'ca_count' => 'campus_ambs',
-		);
-
 		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $field ) {
 			if ( in_array( $field, $summaryFields ) ) {
-				$fields[$field] = count( $this->getField( $map[$field] ) );
+				$fields[$field] = count( $this->getField( self::$countMap[$field] ) );
 			}
 		}
 
@@ -231,13 +231,9 @@ class EPCourse extends EPPageObject {
 	 */
 	protected function onUpdated( EPRevisionedObject $originalCourse ) {
 		if ( $this->updateSummaries ) {
-			if ( $originalCourse->getField( 'org_id' )  !== $this->getField( 'org_id' ) ) {
-				$conds = array( 'id' => array( $originalCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
-				EPOrg::updateSummaryFields( null, $conds );
-			}
-
 			$removedIds = array();
 			$newUsers = array();
+			$changedSummaries = array();
 
 			$roleMap = array(
 				'online_ambs' => EP_OA,
@@ -246,16 +242,24 @@ class EPCourse extends EPPageObject {
 				'instructors' => EP_INSTRUCTOR,
 			);
 
-			foreach ( array( 'online_ambs', 'campus_ambs', 'students', 'instructors' ) as $usersField ) {
-				if ( $originalCourse->getField( $usersField ) !== $this->getField( $usersField ) ) {
-					$removedIds = array_diff( $originalCourse->getField( $usersField ), $this->getField( $usersField ) );
+			$countMap = array_flip( self::$countMap );
 
-					foreach ( array_diff( $this->getField( $usersField ), $originalCourse->getField( $usersField ) ) as $addedId ) {
-						$newUsers = array(
+			foreach ( array( 'online_ambs', 'campus_ambs', 'students', 'instructors' ) as $usersField ) {
+				if ( $this->hasField( $usersField ) && $originalCourse->getField( $usersField ) !== $this->getField( $usersField ) ) {
+					$removedIds = array_diff( $originalCourse->getField( $usersField ), $this->getField( $usersField ) );
+					$addedIds = array_diff( $this->getField( $usersField ), $originalCourse->getField( $usersField ) );
+
+					foreach ( $addedIds as $addedId ) {
+						$newUsers[] = array(
 							'upc_course_id' => $this->getId(),
 							'upc_user_id' => $addedId,
 							'upc_role' => $roleMap[$usersField],
 						);
+					}
+
+					if ( !empty( $removedIds ) || !empty( $addedIds ) ) {
+						$this->loadSummaryFields( $countMap[$usersField] );
+						$changedSummaries[] = $countMap[$usersField];
 					}
 				}
 			}
@@ -277,6 +281,20 @@ class EPCourse extends EPPageObject {
 				}
 
 				$dbw->commit();
+			}
+
+			if ( !empty( $changedSummaries ) ) {
+				$this->setSummaryMode( true );
+				$this->saveExisting();
+				$this->setSummaryMode( false );
+			}
+
+			if ( $this->hasField( 'org_id' ) && $originalCourse->getField( 'org_id' ) !== $this->getField( 'org_id' ) ) {
+				$conds = array( 'id' => array( $originalCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
+				EPOrg::updateSummaryFields( null, $conds );
+			}
+			else if ( !empty( $changedSummaries ) ) {
+				EPOrg::updateSummaryFields( $changedSummaries, array( 'id' => $originalCourse->getField( 'org_id' ) ) );
 			}
 		}
 

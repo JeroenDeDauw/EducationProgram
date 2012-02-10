@@ -1232,7 +1232,7 @@ abstract class EPDBObject {
 	public static function updateSummaryFields( $summaryFields = null, array $conditions = array() ) {
 		self::setReadDb( DB_MASTER );
 
-		foreach ( self::select( 'id', $conditions ) as /* EPDBObject */ $item ) {
+		foreach ( self::select( null, $conditions ) as /* EPDBObject */ $item ) {
 			$item->loadSummaryFields( $summaryFields );
 			$item->setSummaryMode( true );
 			$item->saveExisting();
