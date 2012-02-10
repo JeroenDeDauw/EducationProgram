@@ -217,79 +217,70 @@ class EPCourse extends EPPageObject {
 	 */
 	protected function onRemoved() {
 		if ( $this->updateSummaries ) {
-			EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), array( 'id' => $this->getField( 'org_id' ) ) );
+			EPOrg::updateSummaryFields( null, array( 'id' => $this->getField( 'org_id' ) ) );
 		}
 
-		wfGetDB( DB_MASTER )->delete( 'ep_students_per_course', array( 'spc_course_id' => $this->getId() ) );
-		wfGetDB( DB_MASTER )->delete( 'ep_cas_per_course', array( 'cpc_course_id' => $this->getId() ) );
-		wfGetDB( DB_MASTER )->delete( 'ep_oas_per_course', array( 'opc_course_id' => $this->getId() ) );
-		
+		wfGetDB( DB_MASTER )->delete( 'ep_users_per_course', array( 'upc_course_id' => $this->getId() ) );
+
 		parent::onRemoved();
 	}
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::saveExisting()
+	 * @see EPRevisionedObject::onUpdated()
 	 */
-	protected function saveExisting() {
+	protected function onUpdated( EPRevisionedObject $originalCourse ) {
 		if ( $this->updateSummaries ) {
-			$currentCourse = false;
-			$currentFields = array( 'id' );
-			
-			foreach ( array( 'org_id', 'online_ambs', 'campus_ambs' ) as $field ) {
-				if ( $this->hasField( $field ) ) {
-					$currentFields[] = $field;
+			if ( $originalCourse->getField( 'org_id' )  !== $this->getField( 'org_id' ) ) {
+				$conds = array( 'id' => array( $originalCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
+				EPOrg::updateSummaryFields( null, $conds );
+			}
+
+			$removedIds = array();
+			$newUsers = array();
+
+			$roleMap = array(
+				'online_ambs' => EP_OA,
+				'campus_ambs' => EP_CA,
+				'students' => EP_STUDENT,
+				'instructors' => EP_INSTRUCTOR,
+			);
+
+			foreach ( array( 'online_ambs', 'campus_ambs', 'students', 'instructors' ) as $usersField ) {
+				if ( $originalCourse->getField( $usersField ) !== $this->getField( $usersField ) ) {
+					$removedIds = array_diff( $originalCourse->getField( $usersField ), $this->getField( $usersField ) );
+
+					foreach ( array_diff( $this->getField( $usersField ), $originalCourse->getField( $usersField ) ) as $addedId ) {
+						$newUsers = array(
+							'upc_course_id' => $this->getId(),
+							'upc_user_id' => $addedId,
+							'upc_role' => $roleMap[$usersField],
+						);
+					}
 				}
 			}
-			
-			if ( count( $currentFields ) > 1 ) {
-				$currentCourse = self::selectRow( $currentFields, array( 'id' => $this->getId() ) );
+
+			$dbw = wfGetDB( DB_MASTER );
+
+			if ( count( $removedIds ) > 0 ) {
+				$dbw->delete( 'ep_users_per_course', array(
+					'upc_course_id' => $this->getId(),
+					'upc_user_id' => $removedIds
+				) );
+			}
+
+			if ( count( $newUsers ) > 0 ) {
+				$dbw->begin();
+
+				foreach ( $newUsers as $userLink ) {
+					$dbw->insert( 'ep_users_per_course', $userLink );
+				}
+
+				$dbw->commit();
 			}
 		}
 
-		$success = parent::saveExisting();
-
-		if ( $this->updateSummaries && $currentCourse !== false && $success ) {
-			if ( $currentCourse->hasField( 'org_id' )  && $currentCourse->getField( 'org_id' )  !== $this->getField( 'org_id' ) ) {
-				$conds = array( 'id' => array( $currentCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
-				EPOrg::updateSummaryFields( array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' ), $conds );
-			}
-			
-			foreach ( array( 'oas', 'cas' ) as $ambs ) {
-				$field = $ambs === 'oas' ? 'online_ambs' : 'campus_ambs';
-				
-				if ( $currentCourse->hasField( $field )  && $currentCourse->getField( $field ) !== $this->getField( $field ) ) {
-					$courseField = $ambs === 'oas' ? 'opc_course_id' : 'cpc_course_id';
-					$userField = $ambs === 'oas' ? 'opc_user_id' : 'cpc_user_id';
-					$table = 'ep_' . $ambs . '_per_course';
-					
-					$addedIds = array_diff( $this->getField( $field ), $currentCourse->getField( $field ) );
-					$removedIds = array_diff( $currentCourse->getField( $field ), $this->getField( $field ) );
-
-					$dbw = wfGetDB( DB_MASTER );
-					
-					if ( count( $removedIds ) > 0 ) {
-						$dbw->delete( $table, array(
-							$courseField => $this->getId(),
-							$userField => $removedIds
-						) );
-					}
-					
-					$dbw->begin();
-
-					foreach ( $addedIds as $ambassadorId ) {
-						$dbw->insert( $table, array(
-							$courseField => $this->getId(),
-							$userField => $ambassadorId
-						) );
-					}
-					
-					$dbw->commit();
-				}
-			}
-		}
-
-		return $success;
+		parent::onUpdated( $originalCourse );
 	}
 
 	/**

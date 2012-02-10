@@ -137,23 +137,40 @@ abstract class EPRevisionedObject extends EPDBObject {
 	protected function saveExisting() {
 		if ( !$this->inSummaryMode ) {
 			static::setReadDb( DB_MASTER );
-			$currentObject = static::selectRow( null, array( 'id' => $this->getId() ) );
+			$originalObject = static::selectRow( null, array( 'id' => $this->getId() ) );
 			static::setReadDb( DB_SLAVE );
+		}
+
+		if ( $originalObject === false ) {
+			return false;
 		}
 
 		$success = true;
 
-		if ( $this->inSummaryMode || $currentObject === false || $this->fieldsChanged( $currentObject, true ) ) {
+		if ( $this->inSummaryMode || $this->fieldsChanged( $originalObject, true ) ) {
 
 			$success = parent::saveExisting();
 
-			if ( $success && !$this->inSummaryMode ) {
-				$this->storeRevision( $currentObject );
-				$this->log( 'update' );
+			if ( $success ) {
+				$this->onUpdated( $originalObject );
 			}
 		}
 
 		return $success;
+	}
+
+	/**
+	 *
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPRevisionedObject $originalObject
+	 */
+	protected function onUpdated( EPRevisionedObject $originalObject ) {
+		if ( !$this->inSummaryMode ) {
+			$this->storeRevision( $originalObject );
+			$this->log( 'update' );
+		}
 	}
 	
 	/**

@@ -38,10 +38,10 @@ class EPOrg extends EPPageObject {
 
 			'active' => 'bool',
 			'courses' => 'int',
-			'students' => 'int',
-			'instructors' => 'int',
-			'campus_ambs' => 'int',
-			'online_ambs' => 'int',
+			'student_count' => 'int',
+			'instructor_count' => 'int',
+			'ca_count' => 'int',
+			'oa_count' => 'int',
 		);
 	}
 
@@ -57,10 +57,10 @@ class EPOrg extends EPPageObject {
 
 			'active' => false,
 			'courses' => 0,
-			'students' => 0,
-			'instructors' => 0,
-			'campus_ambs' => 0,
-			'online_ambs' => 0,
+			'student_count' => 0,
+			'instructor_count' => 0,
+			'ca_count' => 0,
+			'oa_count' => 0,
 		);
 	}
 	
@@ -72,10 +72,10 @@ class EPOrg extends EPPageObject {
 		return array(
 			'active',
 			'courses',
-			'students',
-			'instructors',
-			'campus_ambs',
-			'online_ambs',
+			'student_count',
+			'instructor_count',
+			'ca_count',
+			'oa_count',
 		);
 	}
 
