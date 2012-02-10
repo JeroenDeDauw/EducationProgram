@@ -159,9 +159,7 @@ $egEPDBObjects['EPStudent'] = array( 'table' => 'ep_students', 'prefix' => 'stud
 $egEPDBObjects['EPOA'] = array( 'table' => 'ep_oas', 'prefix' => 'oa_' );
 $egEPDBObjects['EPCA'] = array( 'table' => 'ep_cas', 'prefix' => 'ca_' );
 $egEPDBObjects['EPArticle'] = array( 'table' => 'ep_articles', 'prefix' => 'article_' );
-$egEPDBObjects[] = array( 'table' => 'ep_students_per_course', 'prefix' => 'spc_' );
-$egEPDBObjects[] = array( 'table' => 'ep_oas_per_course', 'prefix' => 'opc_' );
-$egEPDBObjects[] = array( 'table' => 'ep_cas_per_course', 'prefix' => 'cpc_' );
+$egEPDBObjects[] = array( 'table' => 'ep_users_per_course', 'prefix' => 'upc_' );
 
 // API
 $wgAPIModules['deleteeducation'] 					= 'ApiDeleteEducation';

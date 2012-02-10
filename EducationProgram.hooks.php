@@ -30,21 +30,6 @@ final class EPHooks {
 		);
 
 		$updater->addExtensionUpdate( array(
-			'addTable',
-			'ep_oas_per_course',
-			dirname( __FILE__ ) . '/sql/AddAmbassadorLinks.sql',
-			true
-		) );
-		
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_oas_per_course',
-			'opc_user_id',
-			dirname( __FILE__ ) . '/sql/RenameAmbUserField.sql',
-			true
-		) );
-		
-		$updater->addExtensionUpdate( array(
 			'addField',
 			'ep_revisions',
 			'rev_object_identifier',
