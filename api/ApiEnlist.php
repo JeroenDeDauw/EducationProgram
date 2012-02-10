@@ -23,7 +23,7 @@ class ApiEnlist extends ApiBase {
 
 		if ( isset( $params['username'] ) ) {
 			$user = User::newFromName( $params['username'] );
-			$userId = $user->getId();
+			$userId = $user === false ? 0 : $user->getId();
 		}
 		else {
 			$userId = $params['userid'];
