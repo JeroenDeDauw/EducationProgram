@@ -12,21 +12,22 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_orgs (
 
   -- Summary fields - cahing data or computations on data stored elswhere
   org_active                 TINYINT unsigned    NOT NULL, -- If the org has any active courses
-  org_courses                SMALLINT unsigned   NOT NULL, -- Amount of courses
-  org_instructors            SMALLINT unsigned   NOT NULL, -- Amount of instructors
-  org_online_ambs            INT unsigned        NOT NULL, -- Amount of online ambassadors
-  org_campus_ambs            INT unsigned        NOT NULL, -- Amount of campus ambassadors
-  org_students               INT unsigned        NOT NULL -- Amount of students
+  org_course_count           SMALLINT unsigned   NOT NULL, -- Amount of courses
+  org_instructor_count       SMALLINT unsigned   NOT NULL, -- Amount of instructors
+  org_oa_count               INT unsigned        NOT NULL, -- Amount of online ambassadors
+  org_ca_count               INT unsigned        NOT NULL, -- Amount of campus ambassadors
+  org_student_count          INT unsigned        NOT NULL -- Amount of students
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_org_name ON /*_*/ep_orgs (org_name);
 CREATE INDEX /*i*/ep_org_city ON /*_*/ep_orgs (org_city);
 CREATE INDEX /*i*/ep_org_country ON /*_*/ep_orgs (org_country);
 CREATE INDEX /*i*/ep_org_active ON /*_*/ep_orgs (org_active);
-CREATE INDEX /*i*/ep_org_courses ON /*_*/ep_orgs (org_courses);
-CREATE INDEX /*i*/ep_org_online_ambs ON /*_*/ep_orgs (org_online_ambs);
-CREATE INDEX /*i*/ep_org_campus_ambs ON /*_*/ep_orgs (org_campus_ambs);
-CREATE INDEX /*i*/ep_org_students ON /*_*/ep_orgs (org_students);
+CREATE INDEX /*i*/ep_org_course_count ON /*_*/ep_orgs (org_course_count);
+CREATE INDEX /*i*/ep_org_oa_count ON /*_*/ep_orgs (org_oa_count);
+CREATE INDEX /*i*/ep_org_ca_count ON /*_*/ep_orgs (org_ca_count);
+CREATE INDEX /*i*/ep_org_student_count ON /*_*/ep_orgs (org_student_count);
+CREATE INDEX /*i*/ep_org_instructor_count ON /*_*/ep_orgs (org_instructor_count);
 
 
 
@@ -35,11 +36,12 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_id                  INT unsigned        NOT NULL auto_increment PRIMARY KEY,
 
   course_org_id              INT unsigned        NOT NULL, -- Foreign key on ep_orgs.org_id. Helper field, not strictly needed.
-  course_name                VARCHAR(255)        NOT NULL, -- Name of the course
-  course_mc                  VARCHAR(255)        NOT NULL, -- Name of the master course
+  course_name                VARCHAR(255)        NOT NULL, -- Title of the course. ie "Master in Angry Birds (2012 q1)"
+  course_mc                  VARCHAR(255)        NOT NULL, -- Name of the course. ie "Master in Angry Birds"
   course_start               varbinary(14)       NOT NULL, -- Start time of the course
   course_end                 varbinary(14)       NOT NULL, -- End time of the course
   course_description         TEXT                NOT NULL, -- Description of the course
+  course_students            BLOB                NOT NULL, --  List of associated students (linking user.user_id)
   course_online_ambs         BLOB                NOT NULL, -- List of associated online ambassadors (linking user.user_id)
   course_campus_ambs         BLOB                NOT NULL, -- List of associated campus ambassadors (linking user.user_id)
   course_instructors         BLOB                NOT NULL, -- List of associated instructors (linking user.user_id)
@@ -50,7 +52,10 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_lang                VARCHAR(10)         NOT NULL, -- Language (code)
 
   -- Summary fields - cahing data or computations on data stored elswhere
-  course_students            SMALLINT unsigned   NOT NULL -- Amount of students
+  course_instructor_count    TINYINT unsigned    NOT NULL, -- Amount of instructors
+  course_oa_count            SMALLINT unsigned   NOT NULL, -- Amount of online ambassadors
+  course_ca_count            SMALLINT unsigned   NOT NULL, -- Amount of campus ambassadors
+  course_student_count       SMALLINT unsigned   NOT NULL -- Amount of students
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/ep_course_org_id ON /*_*/ep_courses (course_org_id);
@@ -63,7 +68,10 @@ CREATE INDEX /*i*/ep_course_field ON /*_*/ep_courses (course_field);
 CREATE INDEX /*i*/ep_course_level ON /*_*/ep_courses (course_level);
 CREATE INDEX /*i*/ep_course_term ON /*_*/ep_courses (course_term);
 CREATE INDEX /*i*/ep_course_lang ON /*_*/ep_courses (course_lang);
-CREATE INDEX /*i*/ep_course_students ON /*_*/ep_courses (course_students);
+CREATE INDEX /*i*/ep_course_student_count ON /*_*/ep_courses (course_student_count);
+CREATE INDEX /*i*/ep_course_oa_count ON /*_*/ep_courses (course_oa_count);
+CREATE INDEX /*i*/ep_course_ca_count ON /*_*/ep_courses (course_ca_count);
+CREATE INDEX /*i*/ep_course_instructor_count ON /*_*/ep_courses (course_instructor_count);
 
 
 

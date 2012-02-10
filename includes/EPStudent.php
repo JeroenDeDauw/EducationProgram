@@ -66,28 +66,4 @@ class EPStudent extends EPRoleObject {
 		return 'student';
 	}
 
-	/**
-	 * Returns the courses this student is enrolled in.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|array|null $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPCourse
-	 */
-	protected function doGetCourses( $fields, array $conditions ) {
-		$conditions[] = array( array( 'ep_students', 'id' ), $this->getId() );
-
-		return EPCourse::select(
-			$fields,
-			$conditions,
-			array(),
-			array(
-				'ep_students_per_course' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) ),
-				'ep_students' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'student_id' ), array( 'ep_students', 'id' ) ) ) )
-			)
-		);
-	}
-	
 }

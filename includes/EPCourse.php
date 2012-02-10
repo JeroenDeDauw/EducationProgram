@@ -105,6 +105,7 @@ class EPCourse extends EPPageObject {
 			'end' => 'str', // TS_MW
 			'description' => 'str',
 			'token' => 'str',
+			'students' => 'array',
 			'instructors' => 'array',
 			'online_ambs' => 'array',
 			'campus_ambs' => 'array',
@@ -113,8 +114,11 @@ class EPCourse extends EPPageObject {
 			'term' => 'str',
 			'lang' => 'str',
 			'mc' => 'str',
-		
-			'students' => 'int',
+
+			'student_count' => 'int',
+			'instructor_count' => 'int',
+			'oa_count' => 'int',
+			'ca_count' => 'int',
 		);
 	}
 
@@ -129,6 +133,7 @@ class EPCourse extends EPPageObject {
 			'end' => wfTimestamp( TS_MW ),
 			'description' => '',
 			'token' => '',
+			'students' => array(),
 			'instructors' => array(),
 			'online_ambs' => array(),
 			'campus_ambs' => array(),
@@ -138,7 +143,10 @@ class EPCourse extends EPPageObject {
 			'lang' => '',
 			'mc' => '',
 
-			'students' => 0,
+			'student_count' => 0,
+			'instructor_count' => 0,
+			'oa_count' => 0,
+			'ca_count' => 0,
 		);
 	}
 	
@@ -148,62 +156,11 @@ class EPCourse extends EPPageObject {
 	 */
 	public static function getSummaryFields() {
 		return array(
-			'students',
+			'student_count',
+			'instructor_count',
+			'oa_count',
+			'ca_count',
 		);
-	}
-
-	/**
-	 * Returns the students enrolled in this course.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|array|null $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPStudent
-	 */
-	protected function doGetStudents( $fields, array $conditions ) {
-		$conditions[] = array( array( 'ep_courses', 'id' ), $this->getId() );
-
-		return EPStudent::select(
-			$fields,
-			$conditions,
-			array(),
-			array(
-				'ep_students_per_course' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'student_id' ), array( 'ep_students', 'id' ) ) ) ),
-				'ep_courses' => array( 'INNER JOIN', array( array( array( 'ep_students_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) )
-			)
-		);
-	}
-
-	/**
-	 * Returns the students enrolled in this course.
-	 * Caches the result when no conditions are provided and all fields are selected.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|array|null $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPStudent
-	 */
-	public function getStudents( $fields = null, array $conditions = array() ) {
-		if ( count( $conditions ) !== 0 ) {
-			return $this->doGetStudents( $fields, $conditions );
-		}
-
-		if ( $this->students === false ) {
-			$students = $this->doGetStudents( $fields, $conditions );
-
-			if ( is_null( $fields ) ) {
-				$this->students = $students;
-			}
-
-			return $students;
-		}
-		else {
-			return $this->students;
-		}
 	}
 
 	/**
@@ -212,7 +169,7 @@ class EPCourse extends EPPageObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'org_id', 'students' );
+			$summaryFields = array( 'org_id', 'student_count', 'instructor_count', 'oa_count', 'ca_count' );
 		}
 		else {
 			$summaryFields = (array)$summaryFields;
@@ -221,17 +178,20 @@ class EPCourse extends EPPageObject {
 		$fields = array();
 
 		if ( in_array( 'org_id', $summaryFields ) ) {
-			$fields['org_id'] = $this->getCourse( 'org_id' )->getField( 'org_id' );
+			$fields['org_id'] = $this->getField( 'org_id' );
 		}
-		
-		if ( in_array( 'students', $summaryFields ) ) {
-			$fields['students'] = wfGetDB( DB_SLAVE )->select(
-				'ep_students_per_course',
-				'COUNT(*) AS rowcount',
-				array( 'spc_course_id' => $this->getId() )
-			);
 
-			$fields['students'] = $fields['students']->fetchObject()->rowcount;
+		$map = array(
+			'student_count' => 'students',
+			'instructor_count' => 'instructors',
+			'oa_count' => 'online_ambs',
+			'ca_count' => 'campus_ambs',
+		);
+
+		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $field ) {
+			if ( in_array( $field, $summaryFields ) ) {
+				$fields[$field] = count( $this->getField( $map[$field] ) );
+			}
 		}
 
 		$this->setFields( $fields );
@@ -532,6 +492,25 @@ class EPCourse extends EPPageObject {
 		}
 
 		return $status;
+	}
+
+	/**
+	 * Returns the students as a list of EPStudent objects.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array of EPStudent
+	 */
+	public function getStudents() {
+		if ( $this->students === false ) {
+			$this->students = array();
+
+			foreach ( $this->getField( 'students' ) as $userId ) {
+				$this->students[] = EPStudent::newFromUserId( $userId );
+			}
+		}
+
+		return $this->students;
 	}
 
 	/**

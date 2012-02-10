@@ -75,27 +75,4 @@ class EPCA extends EPRoleObject implements EPIRole {
 		return 'campus';
 	}
 	
-	/**
-	 * Returns the courses this campus ambassdor is associated with.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|array|null $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPCourse
-	 */
-	protected function doGetCourses( $fields, array $conditions ) {
-		$conditions[] = array( array( 'ep_cas_per_course', 'user_id' ), $this->getField( 'user_id' ) );
-
-		return EPCourse::select(
-			$fields,
-			$conditions,
-			array(),
-			array(
-				'ep_cas_per_course' => array( 'INNER JOIN', array( array( array( 'ep_cas_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) ),
-			)
-		);
-	}
-	
 }

@@ -140,9 +140,7 @@ class EPInstructor extends EPRoleObject implements EPIRole {
 	}
 
 	/**
-	 * Not implemented as we do not need this, so no need for having it in the
-	 * db in a way we can efficiently query this. If needed at some point,
-	 * most stuff is in place already since the ambassador stuff is similar.
+	 * Returns the courses this campus ambassdor is associated with.
 	 *
 	 * @since 0.1
 	 *
@@ -152,7 +150,12 @@ class EPInstructor extends EPRoleObject implements EPIRole {
 	 * @return array of EPCourse
 	 */
 	protected function doGetCourses( $fields, array $conditions ) {
-		throw new MWException( 'doGetCourses is not implemented by EPInstructor' );
+		return EPUtils::getCoursesForUser(
+			$fields,
+			$this->getField( 'user_id' ),
+			EP_INSTRUCTOR,
+			$conditions
+		);
 	}
 	
 }

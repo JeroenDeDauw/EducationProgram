@@ -85,7 +85,7 @@ class EPOrg extends EPPageObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'courses', 'students', 'active', 'instructors', 'oas', 'cas' );
+			$summaryFields = array( 'courses', 'active', 'student_count', 'instructor_count', 'oa_count', 'ca_count' );
 		}
 		else {
 			$summaryFields = (array)$summaryFields;
@@ -99,25 +99,8 @@ class EPOrg extends EPPageObject {
 
 		$dbr = wfGetDB( DB_SLAVE );
 
-		if ( in_array( 'students', $summaryFields ) ) {
-			$courseIds = EPCourse::selectFields( 'id', array( 'org_id' => $this->getId() ) );
-
-			if ( count( $courseIds ) > 0 ) {
-				$fields['students'] = $dbr->select(
-					'ep_students_per_course',
-					'COUNT(*) AS rowcount',
-					array( 'spc_course_id' => $courseIds )
-				);
-
-				$fields['students'] = $fields['students']->fetchObject()->rowcount;
-			}
-			else {
-				$fields['students'] = 0;
-			}
-		}
-
 		if ( in_array( 'active', $summaryFields ) ) {
-			$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+			$now = $dbr->addQuotes( wfTimestampNow() );
 
 			$fields['active'] = EPCourse::has( array(
 				'org_id' => $this->getId(),
@@ -126,27 +109,13 @@ class EPOrg extends EPPageObject {
 			) );
 		}
 
-		$courseFields = array();
-
-		$upInstructors = in_array( 'instructors', $summaryFields );
-		$upOas = in_array( 'oas', $summaryFields );
-
-		if ( $upInstructors ) {
-			$courseFields[] = 'instructors';
-			$fields['instructors'] = 0;
-		}
-
-		if ( $upOas ) {
-			$courseFields[] = 'online_ambs';
-			$fields['online_ambs'] = 0;
-		}
-
-		if ( count( $courseFields ) > 0 ) {
-			$courses = EPCourse::select( $courseFields, array( 'org_id' => $this->getId() ) );
-
-			foreach ( $courses as /* EPCourse */ $course ) {
-				// TODO: foreach set field: count and add to fields[name]
-			}
+		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $field ) {
+			$fields[$field] = EPCourse::rawSelect(
+				'SUM(' . $dbr->addQuotes( $field ) . ') AS sum',
+				EPCourse::getPrefixedValues( array(
+					'org_id' => $this->getId()
+				) )
+			)->fetchObject()->sum;
 		}
 
 		$this->setFields( $fields );

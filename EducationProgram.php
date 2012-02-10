@@ -161,6 +161,11 @@ $egEPDBObjects['EPCA'] = array( 'table' => 'ep_cas', 'prefix' => 'ca_' );
 $egEPDBObjects['EPArticle'] = array( 'table' => 'ep_articles', 'prefix' => 'article_' );
 $egEPDBObjects[] = array( 'table' => 'ep_users_per_course', 'prefix' => 'upc_' );
 
+define( 'EP_STUDENT', 0 );
+define( 'EP_INSTRUCTOR', 1 );
+define( 'EP_OA', 2 );
+define( 'EP_CA', 3 );
+
 // API
 $wgAPIModules['deleteeducation'] 					= 'ApiDeleteEducation';
 $wgAPIModules['enlist'] 							= 'ApiEnlist';

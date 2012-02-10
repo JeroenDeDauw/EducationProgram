@@ -124,30 +124,31 @@ abstract class EPRoleObject extends EPDBObject implements EPIRole {
 	 * @return bool
 	 */
 	public function associateWithCourses( array /* of EPCourse */ $courses ) {
-		$dbw = wfGetDB( DB_MASTER );
-
-		$success = true;
-
-		$dbw->begin();
-
-		foreach ( $courses as /* EPCourse */ $course ) {
-			$success = $dbw->insert(
-				'ep_students_per_course',
-				array(
-					'spc_student_id' => $this->getId(),
-					'spc_course_id' => $course->getId(),
-				)
-			) && $success;
-		}
-
-		$dbw->commit();
-
-		foreach ( $courses as /* EPCourse */ $course ) {
-			EPOrg::updateSummaryFields( 'students', array( 'id' => $course->getField( 'org_id' ) ) );
-			EPCourse::updateSummaryFields( 'students', array( 'id' => $course->getId() ) );
-		}
-
-		return $success;
+//		$dbw = wfGetDB( DB_MASTER );
+//
+//		$success = true;
+//
+//		$dbw->begin();
+//
+//		foreach ( $courses as /* EPCourse */ $course ) {
+//			$success = $dbw->insert(
+//				'ep_users_per_course',
+//				array(
+//					'upc_student_id' => $this->getId(),
+//					'upc_course_id' => $course->getId(),
+//					'upc_role' => EPUtils::getRoleId( $this->getRoleName() ),
+//				)
+//			) && $success;
+//		}
+//
+//		$dbw->commit();
+//
+//		foreach ( $courses as /* EPCourse */ $course ) {
+//			EPOrg::updateSummaryFields( 'students', array( 'id' => $course->getField( 'org_id' ) ) );
+//			EPCourse::updateSummaryFields( 'students', array( 'id' => $course->getId() ) );
+//		}
+//
+//		return $success;
 	}
 
 	/**
@@ -225,7 +226,7 @@ abstract class EPRoleObject extends EPDBObject implements EPIRole {
 	}
 	
 	/**
-	 * Returns the courses this user is associated with.
+	 * Returns the courses this campus ambassdor is associated with.
 	 *
 	 * @since 0.1
 	 *
@@ -234,6 +235,13 @@ abstract class EPRoleObject extends EPDBObject implements EPIRole {
 	 *
 	 * @return array of EPCourse
 	 */
-	protected abstract function doGetCourses( $fields, array $conditions );
+	protected function doGetCourses( $fields, array $conditions ) {
+		return EPUtils::getCoursesForUser(
+			$fields,
+			$this->getField( 'user_id' ),
+			$this->getRoleName( getRoleId ),
+			$conditions
+		);
+	}
 	
 }

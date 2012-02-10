@@ -74,28 +74,5 @@ class EPOA extends EPRoleObject implements EPIRole {
 	public function getRoleName() {
 		return 'online';
 	}
-	
-	/**
-	 * Returns the courses this online ambassdor is associated with.
-	 *
-	 * @since 0.1
-	 *
-	 * @param string|array|null $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPCourse
-	 */
-	protected function doGetCourses( $fields, array $conditions ) {
-		$conditions[] = array( array( 'ep_oas_per_course', 'user_id' ), $this->getField( 'user_id' ) );
 
-		return EPCourse::select(
-			$fields,
-			$conditions,
-			array(),
-			array(
-				'ep_oas_per_course' => array( 'INNER JOIN', array( array( array( 'ep_oas_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) ),
-			)
-		);
-	}
-	
 }
