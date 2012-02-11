@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Static class for storing and retrieving revisions of EPDBObjects.
+ * Static class for storing and retrieving revisions of DBDataObjects.
  *
  * @since 0.1
  *

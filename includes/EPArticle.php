@@ -12,7 +12,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPArticle extends EPDBObject {
+class EPArticle extends DBDataObject {
 
 	/**
 	 * Cached user object for this revision.
@@ -42,7 +42,7 @@ class EPArticle extends EPDBObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::getDefaults()
+	 * @see DBDataObject::getDefaults()
 	 */
 	public static function getDefaults() {
 		return array(

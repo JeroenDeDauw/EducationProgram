@@ -75,7 +75,7 @@ $wgAutoloadClasses['ApiRefreshEducation'] 			= dirname( __FILE__ ) . '/api/ApiRe
 
 $wgAutoloadClasses['EPCourse'] 						= dirname( __FILE__ ) . '/includes/EPCourse.php';
 $wgAutoloadClasses['EPCoursePager'] 				= dirname( __FILE__ ) . '/includes/EPCoursePager.php';
-$wgAutoloadClasses['EPDBObject'] 					= dirname( __FILE__ ) . '/includes/EPDBObject.php';
+$wgAutoloadClasses['DBDataObject'] 					= dirname( __FILE__ ) . '/includes/DBDataObject.php';
 $wgAutoloadClasses['EPInstructor'] 					= dirname( __FILE__ ) . '/includes/EPInstructor.php';
 $wgAutoloadClasses['EPLogFormatter'] 				= dirname( __FILE__ ) . '/includes/EPLogFormatter.php';
 $wgAutoloadClasses['EPOrg'] 						= dirname( __FILE__ ) . '/includes/EPOrg.php';
@@ -151,15 +151,15 @@ $wgSpecialPageGroups['CampusAmbassadorProfile'] 	= 'education';
 $wgSpecialPageGroups['OnlineAmbassadorProfile'] 	= 'education';
 
 // DB object classes
-$egEPDBObjects = array();
-$egEPDBObjects['EPRevision'] = array( 'table' => 'ep_revisions', 'prefix' => 'rev_' );
-$egEPDBObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
-$egEPDBObjects['EPCourse'] = array( 'table' => 'ep_courses', 'prefix' => 'course_' );
-$egEPDBObjects['EPStudent'] = array( 'table' => 'ep_students', 'prefix' => 'student_' );
-$egEPDBObjects['EPOA'] = array( 'table' => 'ep_oas', 'prefix' => 'oa_' );
-$egEPDBObjects['EPCA'] = array( 'table' => 'ep_cas', 'prefix' => 'ca_' );
-$egEPDBObjects['EPArticle'] = array( 'table' => 'ep_articles', 'prefix' => 'article_' );
-$egEPDBObjects[] = array( 'table' => 'ep_users_per_course', 'prefix' => 'upc_' );
+$egDBDataObjects = array();
+$egDBDataObjects['EPRevision'] = array( 'table' => 'ep_revisions', 'prefix' => 'rev_' );
+$egDBDataObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
+$egDBDataObjects['EPCourse'] = array( 'table' => 'ep_courses', 'prefix' => 'course_' );
+$egDBDataObjects['EPStudent'] = array( 'table' => 'ep_students', 'prefix' => 'student_' );
+$egDBDataObjects['EPOA'] = array( 'table' => 'ep_oas', 'prefix' => 'oa_' );
+$egDBDataObjects['EPCA'] = array( 'table' => 'ep_cas', 'prefix' => 'ca_' );
+$egDBDataObjects['EPArticle'] = array( 'table' => 'ep_articles', 'prefix' => 'article_' );
+$egDBDataObjects[] = array( 'table' => 'ep_users_per_course', 'prefix' => 'upc_' );
 
 define( 'EP_STUDENT', 0 );
 define( 'EP_INSTRUCTOR', 1 );

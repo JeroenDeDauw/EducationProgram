@@ -62,7 +62,7 @@ class SpecialOA extends SpecialEPPage {
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( EPDBObject $oa ) {
+	protected function getSummaryData( DBDataObject $oa ) {
 		$stats = array();
 
 		return $stats;

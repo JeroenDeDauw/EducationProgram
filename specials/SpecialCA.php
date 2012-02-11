@@ -62,7 +62,7 @@ class SpecialCA extends SpecialEPPage {
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( EPDBObject $ca ) {
+	protected function getSummaryData( DBDataObject $ca ) {
 		$stats = array();
 
 		return $stats;

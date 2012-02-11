@@ -2,7 +2,7 @@
 
 /**
  * Abstract class extending the TablePager with common functions
- * for pagers listing EPDBObject deriving classes and some compatibility helpers.
+ * for pagers listing DBDataObject deriving classes and some compatibility helpers.
  *
  * @since 0.1
  *
@@ -22,16 +22,16 @@ abstract class EPPager extends TablePager {
 	protected $conds;
 
 	/**
-	 * Name of the class deriving from EPDBObject.
+	 * Name of the class deriving from DBDataObject.
 	 * @since 0.1
 	 * @var string
 	 */
 	protected $className;
 
 	/**
-	 * EPDBObject object constructed from $this->currentRow.
+	 * DBDataObject object constructed from $this->currentRow.
 	 * @since 0.1
-	 * @var EPDBObject
+	 * @var DBDataObject
 	 */
 	protected $currentObject;
 
@@ -455,11 +455,11 @@ abstract class EPPager extends TablePager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $item
+	 * @param DBDataObject $item
 	 *
 	 * @return array
 	 */
-	protected function getControlLinks( EPDBObject $item ) {
+	protected function getControlLinks( DBDataObject $item ) {
 		return array();
 	}
 

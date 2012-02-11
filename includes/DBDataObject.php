@@ -17,9 +17,9 @@
  * * loadSummaryFields
  * * getSummaryFields
  *
- * Deriving classes must register their table and field prefix in $egEPDBObjects.
- * Syntax: $egEPDBObjects['DrivingClassName'] = array( 'table' => 'table_name', 'prefix' => 'fieldprefix_' );
- * Example: $egEPDBObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
+ * Deriving classes must register their table and field prefix in $egDBDataObjects.
+ * Syntax: $egDBDataObjects['DrivingClassName'] = array( 'table' => 'table_name', 'prefix' => 'fieldprefix_' );
+ * Example: $egDBDataObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
  *
  * Main instance methods:
  * * getField(s)
@@ -39,13 +39,13 @@
  *
  * @since 0.1
  *
- * @file EPDBObject.php
+ * @file DBDataObject.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPDBObject {
+abstract class DBDataObject {
 
 	/**
 	 * The fields of the object.
@@ -96,12 +96,12 @@ abstract class EPDBObject {
 	 * @return string
 	 */
 	public static function getDBTable() {
-		global $egEPDBObjects;
-		if ( array_key_exists( get_called_class(), $egEPDBObjects ) ) {
-			return $egEPDBObjects[get_called_class()]['table'];
+		global $egDBDataObjects;
+		if ( array_key_exists( get_called_class(), $egDBDataObjects ) ) {
+			return $egDBDataObjects[get_called_class()]['table'];
 		}
 		else {
-			throw new MWException( 'Class "' . get_called_class() . '" not found in $egEPDBObjects' );
+			throw new MWException( 'Class "' . get_called_class() . '" not found in $egDBDataObjects' );
 		}
 	}
 
@@ -114,12 +114,12 @@ abstract class EPDBObject {
 	 * @return string
 	 */
 	protected static function getFieldPrefix() {
-		global $egEPDBObjects;
-		if ( array_key_exists( get_called_class(), $egEPDBObjects ) ) {
-			return $egEPDBObjects[get_called_class()]['prefix'];
+		global $egDBDataObjects;
+		if ( array_key_exists( get_called_class(), $egDBDataObjects ) ) {
+			return $egDBDataObjects[get_called_class()]['prefix'];
 		}
 		else {
-			throw new MWException( 'Class "' . get_called_class() . '" not found in $egEPDBObjects' );
+			throw new MWException( 'Class "' . get_called_class() . '" not found in $egDBDataObjects' );
 		}
 	}
 
@@ -619,7 +619,7 @@ abstract class EPDBObject {
 	 * @param array $data
 	 * @param boolean $loadDefaults
 	 *
-	 * @return EPDBObject
+	 * @return DBDataObject
 	 */
 	public static function newFromArray( array $data, $loadDefaults = false ) {
 		return new static( $data, $loadDefaults );
@@ -681,7 +681,7 @@ abstract class EPDBObject {
 	 * Takes in a field and returns an it's prefixed version, ready for db usage.
 	 * If the field needs to be prefixed for another table, provide an array in the form
 	 * array( 'tablename', 'fieldname' )
-	 * Where table name is registered in $egEPDBObjects.
+	 * Where table name is registered in $egDBDataObjects.
 	 *
 	 * @since 0.1
 	 *
@@ -694,7 +694,7 @@ abstract class EPDBObject {
 		static $prefixes = false;
 
 		if ( $prefixes === false ) {
-			foreach ( $GLOBALS['egEPDBObjects'] as $classInfo ) {
+			foreach ( $GLOBALS['egDBDataObjects'] as $classInfo ) {
 				$prefixes[$classInfo['table']] = $classInfo['prefix'];
 			}
 		}
@@ -806,7 +806,7 @@ abstract class EPDBObject {
 	 *
 	 * @param stdClass $result
 	 *
-	 * @return EPDBObject
+	 * @return DBDataObject
 	 */
 	public static function newFromDBResult( stdClass $result ) {
 		return static::newFromArray( static::getFieldsFromDBResult( $result ) );
@@ -870,7 +870,7 @@ abstract class EPDBObject {
 
 	/**
 	 * Selects the the specified fields of the records matching the provided
-	 * conditions and returns them as EPDBObject. Field names get prefixed.
+	 * conditions and returns them as DBDataObject. Field names get prefixed.
 	 *
 	 * @since 0.1
 	 *
@@ -1028,7 +1028,7 @@ abstract class EPDBObject {
 	 * conditions and returns it as an associative array, or false when nothing matches.
 	 * This method makes use of selectFields and expects the same parameters and
 	 * returns the same results (if there are any, if there are none, this method returns false).
-	 * @see EPDBObject::selectFields
+	 * @see DBDataObject::selectFields
 	 *
 	 * @since 0.1
 	 *
@@ -1232,7 +1232,7 @@ abstract class EPDBObject {
 	public static function updateSummaryFields( $summaryFields = null, array $conditions = array() ) {
 		self::setReadDb( DB_MASTER );
 
-		foreach ( self::select( null, $conditions ) as /* EPDBObject */ $item ) {
+		foreach ( self::select( null, $conditions ) as /* DBDataObject */ $item ) {
 			$item->loadSummaryFields( $summaryFields );
 			$item->setSummaryMode( true );
 			$item->saveExisting();
@@ -1268,12 +1268,12 @@ abstract class EPDBObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $object
+	 * @param DBDataObject $object
 	 * @param boolean $excludeSummaryFields When set to true, summary field changes are ignored.
 	 *
 	 * @return boolean
 	 */
-	protected function fieldsChanged( EPDBObject $object, $excludeSummaryFields = false ) {
+	protected function fieldsChanged( DBDataObject $object, $excludeSummaryFields = false ) {
 		foreach ( $this->fields as $name => $value ) {
 			$excluded = $excludeSummaryFields && in_array( $name, $this->getSummaryFields() );
 

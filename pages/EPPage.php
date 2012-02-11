@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract Page for interacting with a EPDBObject.
+ * Abstract Page for interacting with a DBDataObject.
  *
  * @since 0.1
  *

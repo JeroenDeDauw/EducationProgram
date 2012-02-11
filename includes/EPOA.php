@@ -32,7 +32,7 @@ class EPOA extends EPRoleObject implements EPIRole {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::getDefaults()
+	 * @see DBDataObject::getDefaults()
 	 */
 	public static function getDefaults() {
 		return array(

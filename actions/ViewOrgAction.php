@@ -22,7 +22,7 @@ class ViewOrgAction extends EPViewAction {
 		return 'EPOrg';
 	}
 
-	protected function displayPage( EPDBObject $org ) {
+	protected function displayPage( DBDataObject $org ) {
 		parent::displayPage( $org );
 
 		$out = $this->getOutput();
@@ -47,7 +47,7 @@ class ViewOrgAction extends EPViewAction {
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( EPDBObject $org ) {
+	protected function getSummaryData( DBDataObject $org ) {
 		$stats = array();
 
 		$stats['name'] = $org->getField( 'name' );

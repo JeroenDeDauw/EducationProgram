@@ -137,7 +137,7 @@ class EPOrgPager extends EPPager {
 	 * (non-PHPdoc)
 	 * @see EPPager::getControlLinks()
 	 */
-	protected function getControlLinks( EPDBObject $item ) {
+	protected function getControlLinks( DBDataObject $item ) {
 		$links = parent::getControlLinks( $item );
 
 		$links[] = $item->getLink( 'view', wfMsgHtml( 'view' ) );

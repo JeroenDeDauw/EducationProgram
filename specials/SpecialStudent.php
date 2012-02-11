@@ -73,7 +73,7 @@ class SpecialStudent extends SpecialEPPage {
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( EPDBObject $student ) {
+	protected function getSummaryData( DBDataObject $student ) {
 		$stats = array();
 
 		$id = $student->getUser()->getId();

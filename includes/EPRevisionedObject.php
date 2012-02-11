@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract base class for EPDBObjects with revision history and logging support.
+ * Abstract base class for DBDataObjects with revision history and logging support.
  *
  * @since 0.1
  *
@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPRevisionedObject extends EPDBObject {
+abstract class EPRevisionedObject extends DBDataObject {
 	
 	/**
 	 * If the object should log changes.
@@ -132,7 +132,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::saveExisting()
+	 * @see DBDataObject::saveExisting()
 	 */
 	protected function saveExisting() {
 		if ( !$this->inSummaryMode ) {
@@ -173,7 +173,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::insert()
+	 * @see DBDataObject::insert()
 	 */
 	protected function insert() {
 		$result = parent::insert();
@@ -188,7 +188,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 	
 	/**
 	 * Do logging and revision storage after a removal.
-	 * @see EPDBObject::onRemoved()
+	 * @see DBDataObject::onRemoved()
 	 * 
 	 * @since 0.1
 	 */
@@ -238,7 +238,7 @@ abstract class EPRevisionedObject extends EPDBObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::getBeforeRemoveFields()
+	 * @see DBDataObject::getBeforeRemoveFields()
 	 */
 	protected function getBeforeRemoveFields() {
 		return null;

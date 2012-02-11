@@ -47,7 +47,7 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::getDefaults()
+	 * @see DBDataObject::getDefaults()
 	 */
 	public static function getDefaults() {
 		return array(
@@ -66,7 +66,7 @@ class EPOrg extends EPPageObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::getSummaryFields()
+	 * @see DBDataObject::getSummaryFields()
 	 */
 	public static function getSummaryFields() {
 		return array(
@@ -81,7 +81,7 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::loadSummaryFields()
+	 * @see DBDataObject::loadSummaryFields()
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
@@ -153,7 +153,7 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPDBObject::save()
+	 * @see DBDataObject::save()
 	 */
 	public function save() {
 		if ( $this->hasField( 'name' ) ) {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract action for viewing EPDBObject items.
+ * Abstract action for viewing DBDataObject items.
  *
  * @since 0.1
  *
@@ -15,7 +15,7 @@
 abstract class EPViewAction extends FormlessAction {
 
 	/**
-	 * Returns the class name of the EPDBObject this action handles.
+	 * Returns the class name of the DBDataObject this action handles.
 	 *
 	 * @since 0.1
 	 *
@@ -126,9 +126,9 @@ abstract class EPViewAction extends FormlessAction {
 	 * 
 	 * @since 0.1
 	 * 
-	 * @param EPDBObject $object
+	 * @param DBDataObject $object
 	 */
-	protected function displayPage( EPDBObject $object ) {
+	protected function displayPage( DBDataObject $object ) {
 		$this->displayNavigation();
 		$this->displaySummary( $object );
 	}
@@ -163,11 +163,11 @@ abstract class EPViewAction extends FormlessAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $item
+	 * @param DBDataObject $item
 	 * @param boolean $collapsed
 	 * @param array $summaryData
 	 */
-	protected function displaySummary( EPDBObject $item, $collapsed = false, array $summaryData = null ) {
+	protected function displaySummary( DBDataObject $item, $collapsed = false, array $summaryData = null ) {
 		$out = $this->getOutput();
 
 		$class = 'wikitable ep-summary mw-collapsible';
@@ -209,11 +209,11 @@ abstract class EPViewAction extends FormlessAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $item
+	 * @param DBDataObject $item
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( EPDBObject $item ) {
+	protected function getSummaryData( DBDataObject $item ) {
 		return array();
 	}
 	

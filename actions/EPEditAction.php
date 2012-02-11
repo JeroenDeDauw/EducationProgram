@@ -424,11 +424,11 @@ abstract class EPEditAction extends FormlessAction {
 	 *$title = SpecialPage::getTitleFor( $this->itemPage, $this->subPage )->getLocalURL();
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $item
+	 * @param DBDataObject $item
 	 * @param string $name
 	 * @param string $value This is a string, since it comes from request data, but might be a number or other type.
 	 */
-	protected function handleUnknownField( EPDBObject $item, $name, $value ) {
+	protected function handleUnknownField( DBDataObject $item, $name, $value ) {
 		// Override to use.
 	}
 

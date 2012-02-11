@@ -141,11 +141,11 @@ abstract class SpecialEPPage extends SpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $item
+	 * @param DBDataObject $item
 	 * @param boolean $collapsed
 	 * @param array $summaryData
 	 */
-	protected function displaySummary( EPDBObject $item, $collapsed = false, array $summaryData = null ) {
+	protected function displaySummary( DBDataObject $item, $collapsed = false, array $summaryData = null ) {
 		$out = $this->getOutput();
 
 		$class = 'wikitable ep-summary mw-collapsible';
@@ -187,11 +187,11 @@ abstract class SpecialEPPage extends SpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $item
+	 * @param DBDataObject $item
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( EPDBObject $item ) {
+	protected function getSummaryData( DBDataObject $item ) {
 		return array();
 	}
 

@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPRoleObject extends EPDBObject implements EPIRole {
+abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	
 	/**
 	 * Field for caching the linked user.

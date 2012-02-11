@@ -22,7 +22,7 @@ class ViewCourseAction extends EPViewAction {
 		return 'EPCourse';
 	}
 
-	protected function displayPage( EPDBObject $course ) {
+	protected function displayPage( DBDataObject $course ) {
 		parent::displayPage( $course );
 
 		$out = $this->getOutput();
@@ -59,7 +59,7 @@ class ViewCourseAction extends EPViewAction {
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( EPDBObject $course ) {
+	protected function getSummaryData( DBDataObject $course ) {
 		$stats = array();
 
 		$orgName = EPOrg::selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );

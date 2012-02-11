@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPRevision extends EPDBObject {
+class EPRevision extends DBDataObject {
 
 	/**
 	 * Cached user object for this revision.
@@ -64,7 +64,7 @@ class EPRevision extends EPDBObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPDBObject $object
+	 * @param DBDataObject $object
 	 * @param EPRevisionAction $revAction
 	 *
 	 * @return EPRevision
