@@ -17,9 +17,9 @@
  * * loadSummaryFields
  * * getSummaryFields
  *
- * Deriving classes must register their table and field prefix in $egDBDataObjects.
- * Syntax: $egDBDataObjects['DrivingClassName'] = array( 'table' => 'table_name', 'prefix' => 'fieldprefix_' );
- * Example: $egDBDataObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
+ * Deriving classes must register their table and field prefix in $wgDBDataObjects.
+ * Syntax: $wgDBDataObjects['DrivingClassName'] = array( 'table' => 'table_name', 'prefix' => 'fieldprefix_' );
+ * Example: $wgDBDataObjects['EPOrg'] = array( 'table' => 'ep_orgs', 'prefix' => 'org_' );
  *
  * Main instance methods:
  * * getField(s)
@@ -96,12 +96,12 @@ abstract class DBDataObject {
 	 * @return string
 	 */
 	public static function getDBTable() {
-		global $egDBDataObjects;
-		if ( array_key_exists( get_called_class(), $egDBDataObjects ) ) {
-			return $egDBDataObjects[get_called_class()]['table'];
+		global $wgDBDataObjects;
+		if ( array_key_exists( get_called_class(), $wgDBDataObjects ) ) {
+			return $wgDBDataObjects[get_called_class()]['table'];
 		}
 		else {
-			throw new MWException( 'Class "' . get_called_class() . '" not found in $egDBDataObjects' );
+			throw new MWException( 'Class "' . get_called_class() . '" not found in $wgDBDataObjects' );
 		}
 	}
 
@@ -114,12 +114,12 @@ abstract class DBDataObject {
 	 * @return string
 	 */
 	protected static function getFieldPrefix() {
-		global $egDBDataObjects;
-		if ( array_key_exists( get_called_class(), $egDBDataObjects ) ) {
-			return $egDBDataObjects[get_called_class()]['prefix'];
+		global $wgDBDataObjects;
+		if ( array_key_exists( get_called_class(), $wgDBDataObjects ) ) {
+			return $wgDBDataObjects[get_called_class()]['prefix'];
 		}
 		else {
-			throw new MWException( 'Class "' . get_called_class() . '" not found in $egDBDataObjects' );
+			throw new MWException( 'Class "' . get_called_class() . '" not found in $wgDBDataObjects' );
 		}
 	}
 
@@ -681,7 +681,7 @@ abstract class DBDataObject {
 	 * Takes in a field and returns an it's prefixed version, ready for db usage.
 	 * If the field needs to be prefixed for another table, provide an array in the form
 	 * array( 'tablename', 'fieldname' )
-	 * Where table name is registered in $egDBDataObjects.
+	 * Where table name is registered in $wgDBDataObjects.
 	 *
 	 * @since 0.1
 	 *
@@ -694,7 +694,7 @@ abstract class DBDataObject {
 		static $prefixes = false;
 
 		if ( $prefixes === false ) {
-			foreach ( $GLOBALS['egDBDataObjects'] as $classInfo ) {
+			foreach ( $GLOBALS['wgDBDataObjects'] as $classInfo ) {
 				$prefixes[$classInfo['table']] = $classInfo['prefix'];
 			}
 		}
