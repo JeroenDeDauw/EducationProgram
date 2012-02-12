@@ -79,23 +79,33 @@ class SpecialMyCourses extends SpecialEPPage {
 		
 		return $items;
 	}
-	
+
+	/**
+	 * Display the courses relevant to the current user.
+	 *
+	 * @since 0.1
+	 */
 	protected function displayCourses() {
 		$this->displayEnrollment();
 		
 		if ( $this->getUser()->isAllowed( 'ep-instructor' ) ) {
-			$this->displayInstructorship();
+			$this->displayRoleAssociation( 'EPInstructor' );
 		}
 		
 		if ( $this->getUser()->isAllowed( 'ep-online' ) ) {
-			$this->displayMentorship( 'EPOA' );
+			$this->displayRoleAssociation( 'EPOA' );
 		}
 		
 		if ( $this->getUser()->isAllowed( 'ep-campus' ) ) {
-			$this->displayMentorship( 'EPCA' );
+			$this->displayRoleAssociation( 'EPCA' );
 		}
 	}
-	
+
+	/**
+	 * Display the courses the user is enrolled in (if any).
+	 *
+	 * @since 0.1
+	 */
 	protected function displayEnrollment() {
 		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
 			EPStudent::setReadDb( DB_MASTER );
@@ -132,8 +142,16 @@ class SpecialMyCourses extends SpecialEPPage {
 			EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true, 'enrollment' );
 		}
 	}
-	
-	protected function displayMentorship( $class ) {
+
+	/**
+	 * Display the courses the current user is associated with in the role
+	 * of which the class name is provided.
+	 *
+	 * @since 0.1
+	 *
+	 * @param $class The name of the EPIRole implementing class
+	 */
+	protected function displayRoleAssociation( $class ) {
 		$ambassador = $class::newFromUser( $this->getUser() );
 		
 		$courseIds = array_map(
@@ -144,18 +162,21 @@ class SpecialMyCourses extends SpecialEPPage {
 		);
 		
 		if ( count( $courseIds ) > 0 ) {
-			$this->getOutput()->addElement( 'h2', array(), wfMsg( 'ep-mycourses-ambcourses-' . strtolower( $class ) ) );
+			$this->getOutput()->addElement( 'h2', array(), wfMsg( 'ep-mycourses-courses-' . strtolower( $class ) ) );
 			EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true, $class );
 		}
 		else {
-			$this->getOutput()->addWikiMsg( 'ep-mycourses-noambcourses-' . strtolower( $class ) );
+			$this->getOutput()->addWikiMsg( 'ep-mycourses-nocourses-' . strtolower( $class ) );
 		}
 	}
-	
-	protected function displayInstructorship() {
-		
-	}
-	
+
+	/**
+	 * Display enrollment info for a single course.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPCourse $course
+	 */
 	protected function displayCourse( EPCourse $course ) {
 		$out = $this->getOutput();
 		
