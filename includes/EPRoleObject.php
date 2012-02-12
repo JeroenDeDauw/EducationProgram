@@ -234,12 +234,38 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	 * @return array of EPCourse
 	 */
 	protected function doGetCourses( $fields, array $conditions ) {
-		return EPUtils::getCoursesForUser(
-			$fields,
-			$this->getField( 'user_id' ),
-			EPUtils::getRoleId( $this->getRoleName() ),
-			$conditions
+		$result = wfGetDB( DB_SLAVE )->select(
+			array( 'ep_courses', 'ep_users_per_course' ),
+			EPCourse::getPrefixedFields( is_null( $fields ) ? EPCourse::getFieldNames() : (array)$fields ),
+			array(
+				'upc_role' => $this->getRoleId(),
+				'upc_user_id' => $this->getField( 'user_id' ),
+			),
+			__METHOD__,
+			array(),
+			array(
+				'ep_users_per_course' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
+			)
 		);
+		
+		$courses = array();
+		
+		foreach ( $result as $course ) {
+			$courses[] = EPCourse::newFromDBResult( $course );
+		}
+		
+		return $courses;
+	}
+	
+	protected function getRoleId() {
+		$map = array(
+			'campus' => EP_CA,
+			'online' => EP_OA,
+			'instructor' => EP_INSTRUCTOR,
+			'student' => EP_STUDENT,
+		);
+
+		return $map[$this->getRoleName()];
 	}
 	
 }

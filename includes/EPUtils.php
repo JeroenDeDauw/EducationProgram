@@ -209,47 +209,4 @@ class EPUtils {
 		return $items;		
 	}
 
-	/**
-	 * Gets the courses for a user.
-	 *
-	 * @since 0.1
-	 *
-	 * @param array|string|null $fields
-	 * @param integer $userId
-	 * @param null|integer $role
-	 * @param array $conditions
-	 *
-	 * @return array of EPCourse
-	 */
-	public static function getCoursesForUser( $fields, $userId, $role = null, $conditions = array() ) {
-		$conditions[] = array( array( 'ep_users_per_course', 'user_id' ), $userId );
-
-		if ( !is_null( $role ) ) {
-			$conditions[] = array( array( 'ep_users_per_course', 'role' ), $role );
-		}
-
-		// FIXME
-		return array();
-		
-//		return EPCourse::select(
-//			$fields,
-//			$conditions,
-//			array(),
-//			array(
-//				'ep_users_per_course' => array( 'INNER JOIN', array( array( array( 'ep_users_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) ),
-//			)
-//		);
-	}
-
-	public static function getRoleId( $roleName ) {
-		$map = array(
-			'campus' => EP_CA,
-			'online' => EP_OA,
-			'instructor' => EP_INSTRUCTOR,
-			'student' => EP_STUDENT,
-		);
-
-		return $map[$roleName];
-	}
-
 }

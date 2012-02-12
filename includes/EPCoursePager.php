@@ -151,7 +151,8 @@ class EPCoursePager extends EPPager {
 			'datatype' => 'int',
 		);
 
-		$terms = EPCourse::selectFields( 'term', array(), array( 'DISTINCT' ), array(), true );
+		$terms = EPCourse::selectFields( 'term', array(), array( 'DISTINCT' ), true );
+		
 		natcasesort( $terms );
 		$terms = array_merge( array( '' ), $terms );
 		$terms = array_combine( $terms, $terms );

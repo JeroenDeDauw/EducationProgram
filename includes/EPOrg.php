@@ -126,12 +126,12 @@ class EPOrg extends EPPageObject {
 		}
 
 		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $field ) {
-			$fields[$field] = EPCourse::rawSelect(
+			$fields[$field] = EPCourse::rawSelectRow(
 				array( 'SUM(' . EPCourse::getPrefixedField( $field ). ') AS sum' ),
 				EPCourse::getPrefixedValues( array(
 					'org_id' => $this->getId()
 				) )
-			)->fetchObject()->sum;
+			)->sum;
 		}
 
 		$this->setFields( $fields );
