@@ -386,7 +386,7 @@ abstract class EPEditAction extends FormlessAction {
 					$value = null;
 				}
 
-				if ( $c::canHasField( $matches[1] ) ) {
+				if ( $c::canHaveField( $matches[1] ) ) {
 					$fields[$matches[1]] = $value;
 				}
 				else {
