@@ -52,18 +52,8 @@ class EditCourseAction extends EPEditAction {
 				$this->getContext(),
 				'ep-' . strtolower( $this->getName() ) . '-deleted' 
 			);
-			
-			$name = $this->getTitle()->getText();
-			$term = '';
-			
-			$matches = array();
-			
-			preg_match( '/(.*)(\(.*\))/', $name, $matches );
-			
-			if ( count( $matches ) == 3 && trim( $matches[1] ) !== '' && $matches[2] !== '' ) {
-				$name = trim( $matches[1] );
-				$term = trim( $matches[2] );
-			}
+
+			list( $name, $term ) = $this->titleToNameAndTerm( $this->getTitle()->getText() );
 			
 			EPCourse::displayAddNewRegion(
 				$this->getContext(),
@@ -88,6 +78,29 @@ class EditCourseAction extends EPEditAction {
 		else {
 			return parent::onView();
 		}
+	}
+
+	/**
+	 * Parse a course title to name and term.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $titleText
+	 *
+	 * @return array
+	 */
+	protected function titleToNameAndTerm( $titleText ) {
+		$term = '';
+
+		$matches = array();
+		preg_match( '/(.*)\((.*)\)/', $titleText, $matches );
+
+		if ( count( $matches ) == 3 && trim( $matches[1] ) !== '' && $matches[2] !== '' ) {
+			$name = trim( $matches[1] );
+			$term = trim( $matches[2] );
+		}
+
+		return array( $name, $term );
 	}
 	
 	protected function getItemClass() {
@@ -220,7 +233,9 @@ class EditCourseAction extends EPEditAction {
 
 		if ( $this->isNewPost() ) {
 			$data['org_id'] = $this->getRequest()->getVal( 'neworg' );
-			
+
+			$data['mc'] = $data['name'];
+
 			$data['name'] = wfMsgExt(
 				'ep-course-edit-name-format',
 				'parsemag',
@@ -229,8 +244,6 @@ class EditCourseAction extends EPEditAction {
 			);
 			
 			$data['term'] = $this->getRequest()->getVal( 'newterm' );
-			
-			$data['mc'] = $data['name'];
 		}
 
 		return $data;
