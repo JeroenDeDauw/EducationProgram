@@ -23,6 +23,7 @@ $specialPageAliases['en'] = array(
 	'Courses' => array( 'Courses' ),
 	'EducationProgram' => array( 'EducationProgram' ),
 	'Enroll' => array( 'Enroll' ),
+	'Disenroll' => array( 'Disenroll' ),
 	'CampusAmbassadors' => array( 'CampusAmbassadors' ),
 	'OnlineAmbassadors' => array( 'OnlineAmbassadors' ),
 //	'CampusAmbassador' => array( 'CampusAmbassador' ),

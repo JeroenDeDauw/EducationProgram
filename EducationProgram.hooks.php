@@ -193,7 +193,9 @@ final class EPHooks {
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
 
-		if ( $textParts[0] === 'Enroll' && !is_null( $textParts[1] ) && trim( $textParts[1] ) !== '' ) {
+		if ( in_array( $textParts[0], array( 'Enroll', 'Disenroll' ) )
+			&& !is_null( $textParts[1] ) && trim( $textParts[1] ) !== '' ) {
+
 			// Remove the token from the title if needed.
 			if ( !$sktemplate->getRequest()->getCheck( 'wptoken' ) ) {
 				$textParts[1] = explode( '/', $textParts[1] );
@@ -264,18 +266,27 @@ final class EPHooks {
 					'text' => wfMsg( 'ep-tab-history' ),
 					'href' => $title->getLocalUrl( array( 'action' => 'history' ) )
 				);
-				
-				if ( $title->getNamespace() === EP_NS_COURSE ) {
-					if ( $user->isAllowed( 'ep-enroll' ) ) {
-						$student = EPStudent::newFromUser( $user );
 
-						if ( $student === false || !$student->hasCourse( array( 'name' => $title->getText() ) ) ) {
+				if ( $title->getNamespace() === EP_NS_COURSE ) {
+					$student = EPStudent::newFromUser( $user );
+					$hasCourse = $student !== false && $student->hasCourse( array( 'name' => $title->getText() ) );
+
+					if ( $user->isAllowed( 'ep-enroll' ) ) {
+						if ( !$hasCourse ) {
 							$links['views']['enroll'] = array(
 								'class' => $isSpecial ? 'selected' : false,
 								'text' => wfMsg( 'ep-tab-enroll' ),
 								'href' => SpecialPage::getTitleFor( 'Enroll', $title->getText() )->getLocalURL()
 							);
 						}
+					}
+
+					if ( $hasCourse ) {
+						$links[$isSpecial ? 'views' : 'actions']['disenroll'] = array(
+							'class' => $isSpecial ? 'selected' : false,
+							'text' => wfMsg( 'ep-tab-disenroll' ),
+							'href' => SpecialPage::getTitleFor( 'Disenroll', $title->getText() )->getLocalURL()
+						);
 					}
 				}
 			}

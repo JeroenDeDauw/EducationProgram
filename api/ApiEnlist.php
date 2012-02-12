@@ -33,7 +33,7 @@ class ApiEnlist extends ApiBase {
 			$this->dieUsage( wfMsg( 'ep-enlist-invalid-user' ), 'invalid-user' );
 		}
 		
-		if ( !$this->userIsAllowed( $userId, $params['role'] ) ) {
+		if ( !$this->userIsAllowed( $userId, $params['role'], $params['subaction'] ) ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 
@@ -77,12 +77,18 @@ class ApiEnlist extends ApiBase {
 	 * 
 	 * @param integer $userId User id of the mentor affected
 	 * @param string $role
+	 * @param string $subAction
 	 *
 	 * @return boolean
 	 */
-	protected function userIsAllowed( $userId, $role ) {
+	protected function userIsAllowed( $userId, $role, $subAction ) {
 		$user = $this->getUser();
 		$isSelf = $user->getId() === $userId;
+		$isRemove = $subAction === 'remove';
+
+		if ( $isSelf && $isRemove ) {
+			return true;
+		}
 
 		switch ( $role ) {
 			case 'student':

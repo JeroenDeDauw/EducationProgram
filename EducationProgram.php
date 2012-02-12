@@ -113,6 +113,7 @@ $wgAutoloadClasses['SpecialMyCourses'] 				= dirname( __FILE__ ) . '/specials/Sp
 $wgAutoloadClasses['SpecialStudent'] 				= dirname( __FILE__ ) . '/specials/SpecialStudent.php';
 $wgAutoloadClasses['SpecialStudents'] 				= dirname( __FILE__ ) . '/specials/SpecialStudents.php';
 $wgAutoloadClasses['SpecialEnroll'] 				= dirname( __FILE__ ) . '/specials/SpecialEnroll.php';
+$wgAutoloadClasses['SpecialDisenroll'] 				= dirname( __FILE__ ) . '/specials/SpecialDisenroll.php';
 $wgAutoloadClasses['SpecialCAs'] 					= dirname( __FILE__ ) . '/specials/SpecialCAs.php';
 $wgAutoloadClasses['SpecialOAs'] 					= dirname( __FILE__ ) . '/specials/SpecialOAs.php';
 //$wgAutoloadClasses['SpecialCA'] 					= dirname( __FILE__ ) . '/specials/SpecialCA.php';
@@ -129,6 +130,7 @@ $wgSpecialPages['Students'] 						= 'SpecialStudents';
 $wgSpecialPages['Courses'] 							= 'SpecialCourses';
 $wgSpecialPages['EducationProgram'] 				= 'SpecialEducationProgram';
 $wgSpecialPages['Enroll'] 							= 'SpecialEnroll';
+$wgSpecialPages['Disenroll'] 						= 'SpecialDisenroll';
 $wgSpecialPages['CampusAmbassadors'] 				= 'SpecialCAs';
 $wgSpecialPages['OnlineAmbassadors'] 				= 'SpecialOAs';
 //$wgSpecialPages['CampusAmbassador'] 				= 'SpecialCA';
@@ -148,6 +150,8 @@ $wgSpecialPageGroups['OnlineAmbassadors'] 			= 'education';
 //$wgSpecialPageGroups['OnlineAmbassador'] 			= 'education';
 $wgSpecialPageGroups['CampusAmbassadorProfile'] 	= 'education';
 $wgSpecialPageGroups['OnlineAmbassadorProfile'] 	= 'education';
+$wgSpecialPageGroups['Enroll'] 						= 'education';
+$wgSpecialPageGroups['Disenroll'] 					= 'education';
 
 define( 'EP_STUDENT', 0 );
 define( 'EP_INSTRUCTOR', 1 );

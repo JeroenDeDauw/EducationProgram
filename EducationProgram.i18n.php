@@ -34,6 +34,7 @@ $messages['en'] = array(
 	'ep-tab-create' => 'Create',
 	'ep-tab-history' => 'View history',
 	'ep-tab-enroll' => 'Enroll',
+	'ep-tab-disenroll' => 'Disenroll',
 
 	// Tooltips
 	'tooltip-ep-form-save' => 'Save',
@@ -167,6 +168,7 @@ $messages['en'] = array(
 	'special-campusambassadors' => 'Campus ambassadors',
 	'special-onlineambassador' => 'Online ambassador',
 	'special-campusambassador' => 'Campus ambassador',
+	'special-disenroll' => 'Disenroll',
 
 	// Course statuses
 	'ep-course-status-passed' => 'Passed',
