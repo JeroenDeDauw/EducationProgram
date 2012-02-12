@@ -432,6 +432,12 @@ The deletion log for this course is provided below for convenience:",
 	'ep-enroll-course-passed' => 'This course has ended, so you can no longer enroll for it. A list of existing courses can be found [[Special:Courses|here]].',
 	'ep-enroll-course-planned' => 'This course has not yet started, please be patient. A list of existing courses can be found [[Special:Courses|here]].',
 
+	// Special:Disenroll
+	'ep-disenroll-no-name' => 'You need to provide the name of the course you want to disenroll from.',
+	'ep-disenroll-invalid-name' => 'There is no course with name "$1".',
+	'ep-disenroll-course-passed' => 'This course has ended. You can no longer disenroll from it.',
+	'ep-disenroll-not-enrolled' => 'You are not enrolled in this course, so cannot disenroll from it.',
+
 	// Special:MyCourses
 	'ep-mycourses-enrolled' => 'You have successfully enrolled for $1 at $2.',
 	'ep-mycourses-not-enrolled' => 'You are not enrolled in any course. A list of courses can be found [[Special:Courses|here]].',

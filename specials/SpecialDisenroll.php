@@ -14,18 +14,6 @@
 class SpecialDisenroll extends SpecialEPPage {
 
 	/**
-	 * @since 0.1
-	 * @var EPCourse
-	 */
-	protected $course;
-
-	/**
-	 * @since 0.1
-	 * @var string|false
-	 */
-	protected $token = false;
-
-	/**
 	 * Constructor.
 	 *
 	 * @since 0.1
@@ -53,7 +41,7 @@ class SpecialDisenroll extends SpecialEPPage {
 			$course = EPCourse::get( $args[0] );
 
 			if ( $course === false ) {
-				$this->showWarning( wfMessage( 'ep-disenroll-invalid-name' ) );
+				$this->showWarning( wfMessage( 'ep-disenroll-invalid-name', $subPage ) );
 			}
 			else {
 				if ( EPStudent::newFromUser( $this->getUser() )->hasCourse( array( 'id' => $course->getId() ) ) ) {
@@ -83,6 +71,12 @@ class SpecialDisenroll extends SpecialEPPage {
 		}
 	}
 
+	/**
+	 * Show a link to the login page with appropriate returnto argument
+	 * when the user is not logged in.
+	 *
+	 * @since 0.1
+	 */
 	protected function showLoginLink() {
 		$this->getOutput()->addHTML( Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Userlogin' ),
@@ -94,10 +88,24 @@ class SpecialDisenroll extends SpecialEPPage {
 		) );
 	}
 
+	/**
+	 * Show the disenrollment form for the provdied course.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPCourse $course
+	 */
 	protected function showDisenrollForm( EPCourse $course ) {
 		// TODO
 	}
 
+	/**
+	 * Disenroll the user from the provided course.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPCourse $course
+	 */
 	protected function doDisenroll( EPCourse $course ) {
 		// TODO
 	}
