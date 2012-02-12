@@ -272,7 +272,7 @@ final class EPHooks {
 					$hasCourse = $student !== false && $student->hasCourse( array( 'name' => $title->getText() ) );
 
 					if ( $user->isAllowed( 'ep-enroll' ) ) {
-						if ( !$hasCourse ) {
+						if ( !$hasCourse && EPCourse::hasActiveName( $title->getText() ) ) {
 							$links['views']['enroll'] = array(
 								'class' => $isSpecial ? 'selected' : false,
 								'text' => wfMsg( 'ep-tab-enroll' ),
@@ -281,7 +281,7 @@ final class EPHooks {
 						}
 					}
 
-					if ( $hasCourse ) {
+					if ( $hasCourse && EPCourse::hasActiveName( $title->getText() ) ) {
 						$links[$isSpecial ? 'views' : 'actions']['disenroll'] = array(
 							'class' => $isSpecial ? 'selected' : false,
 							'text' => wfMsg( 'ep-tab-disenroll' ),

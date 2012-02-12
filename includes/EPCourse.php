@@ -792,5 +792,15 @@ class EPCourse extends EPPageObject {
 
 		EPUtils::log( $info );
 	}
+
+	public static function hasActiveName( $courseName ) {
+		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+
+		return self::has( array(
+			'name' => $courseName,
+			'end >= ' . $now,
+			'start <= ' . $now,
+		) );
+	}
 	
 }
