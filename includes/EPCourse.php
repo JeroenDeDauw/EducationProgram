@@ -89,6 +89,22 @@ class EPCourse extends EPPageObject {
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getDBTable()
+	 */
+	public static function getDBTable() {
+		return 'ep_courses';
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getFieldPrefix()
+	 */
+	public static function getFieldPrefix() {
+		return 'course_';
+	}
+	
+	/**
 	 * @see parent::getFieldTypes
 	 *
 	 * @since 0.1

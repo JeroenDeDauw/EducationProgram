@@ -14,6 +14,22 @@
 class EPCA extends EPRoleObject implements EPIRole {
 
 	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getDBTable()
+	 */
+	public static function getDBTable() {
+		return 'ep_cas';
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getFieldPrefix()
+	 */
+	public static function getFieldPrefix() {
+		return 'ca_';
+	}
+	
+	/**
 	 * @see parent::getFieldTypes
 	 *
 	 * @since 0.1

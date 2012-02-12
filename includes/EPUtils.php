@@ -228,14 +228,17 @@ class EPUtils {
 			$conditions[] = array( array( 'ep_users_per_course', 'role' ), $role );
 		}
 
-		return EPCourse::select(
-			$fields,
-			$conditions,
-			array(),
-			array(
-				'ep_users_per_course' => array( 'INNER JOIN', array( array( array( 'ep_users_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) ),
-			)
-		);
+		// FIXME
+		return array();
+		
+//		return EPCourse::select(
+//			$fields,
+//			$conditions,
+//			array(),
+//			array(
+//				'ep_users_per_course' => array( 'INNER JOIN', array( array( array( 'ep_users_per_course', 'course_id' ), array( 'ep_courses', 'id' ) ) ) ),
+//			)
+//		);
 	}
 
 	public static function getRoleId( $roleName ) {

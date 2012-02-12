@@ -13,7 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPArticle extends DBDataObject {
-
+	
 	/**
 	 * Cached user object for this revision.
 	 *
@@ -22,6 +22,22 @@ class EPArticle extends DBDataObject {
 	 */
 	protected $user = false;
 
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getDBTable()
+	 */
+	public static function getDBTable() {
+		return 'ep_articles';
+	}
+	
+		/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getFieldPrefix()
+	 */
+	public static function getFieldPrefix() {
+		return 'article_';
+	}
+	
 	/**
 	 * @see parent::getFieldTypes
 	 *

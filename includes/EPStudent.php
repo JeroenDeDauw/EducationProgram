@@ -14,6 +14,22 @@
 class EPStudent extends EPRoleObject {
 
 	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getDBTable()
+	 */
+	public static function getDBTable() {
+		return 'ep_students';
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getFieldPrefix()
+	 */
+	public static function getFieldPrefix() {
+		return 'student_';
+	}
+	
+	/**
 	 * @see parent::getFieldTypes
 	 *
 	 * @since 0.1

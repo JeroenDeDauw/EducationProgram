@@ -22,6 +22,22 @@ class EPOrg extends EPPageObject {
 	protected $courses = false;
 
 	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getDBTable()
+	 */
+	public static function getDBTable() {
+		return 'ep_orgs';
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getFieldPrefix()
+	 */
+	public static function getFieldPrefix() {
+		return 'org_';
+	}
+	
+	/**
 	 * @see parent::getFieldTypes
 	 *
 	 * @since 0.1

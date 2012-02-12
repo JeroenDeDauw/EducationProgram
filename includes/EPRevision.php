@@ -12,7 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPRevision extends DBDataObject {
-
+	
 	/**
 	 * Cached user object for this revision.
 	 *
@@ -34,6 +34,22 @@ class EPRevision extends DBDataObject {
 		parent::__construct( $fields, $loadDefaults );
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getDBTable()
+	 */
+	public static function getDBTable() {
+		return 'ep_revisions';
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getFieldPrefix()
+	 */
+	public static function getFieldPrefix() {
+		return 'rev_';
+	}
+	
 	/**
 	 * @see parent::getFieldTypes
 	 *
