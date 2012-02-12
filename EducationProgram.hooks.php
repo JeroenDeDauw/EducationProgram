@@ -295,7 +295,7 @@ final class EPHooks {
 
 	/**
 	 * Override the isKnown check for course and institution pages, so they don't all show up as redlinks.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/TitleIsKnown
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/TitleIsAlwaysKnown
 	 *
 	 * @since 0.1
 	 *
@@ -304,7 +304,7 @@ final class EPHooks {
 	 *
 	 * @return true
 	 */
-	public static function onTitleIsKnown( Title $title, &$isKnown ) {
+	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
 		if ( in_array( $title->getNamespace(), array( EP_NS_COURSE, EP_NS_INSTITUTION ) ) ) {
 			$classes = array(
 				EP_NS_COURSE => 'EPCourse',

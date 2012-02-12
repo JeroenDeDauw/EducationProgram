@@ -172,7 +172,7 @@ $wgHooks['SkinTemplateNavigation'][] 				= 'EPHooks::onPageTabs';
 $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs';
 $wgHooks['ArticleFromTitle'][] 						= 'EPHooks::onArticleFromTitle';
 $wgHooks['CanonicalNamespaces'][] 					= 'EPHooks::onCanonicalNamespaces';
-$wgHooks['TitleIsKnown'][] 							= 'EPHooks::onTitleIsKnown';
+$wgHooks['TitleIsAlwaysKnown'][] 					= 'EPHooks::onTitleIsAlwaysKnown';
 
 // Logging
 $wgLogTypes[] = 'institution';

@@ -27,14 +27,62 @@ class SpecialEducationProgram extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param string $arg
+	 * @param string $subPage
 	 */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
 		$out = $this->getOutput();
 
-		// TODO
+		$this->displaySummaryTable();
+	}
+
+	/**
+	 * @since 0.1
+	 */
+	protected function displaySummaryTable() {
+		$out = $this->getOutput();
+
+		$out->addHTML( Html::openElement( 'table', array( 'class' => 'wikitable ep-summary' ) ) );
+
+		$out->addHTML( '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-summary-table-header' ) ) . '</tr>' );
+
+		$summaryData = $this->getSummaryInfo();
+
+		foreach ( $summaryData as $stat => $value ) {
+			$out->addHTML( '<tr>' );
+
+			$out->addHtml( Html::rawElement(
+				'th',
+				array( 'class' => 'ep-summary-name' ),
+				wfMsgExt( strtolower( get_called_class() ) . '-summary-' . $stat, 'parseinline' )
+			) );
+
+			$out->addHTML( Html::rawElement(
+				'td',
+				array( 'class' => 'ep-summary-value' ),
+				$value
+			) );
+
+			$out->addHTML( '</tr>' );
+		}
+
+		$out->addHTML( Html::closeElement( 'table' ) );
+	}
+
+	protected function getSummaryInfo() {
+		$data = array();
+
+		$lang = $this->getLanguage();
+
+		$data['org-count'] = $lang->formatNum( EPOrg::count() );
+		$data['course-count'] = $lang->formatNum( EPCourse::count() );
+		$data['student-count'] = $lang->formatNum( EPStudent::count() );
+		$data['instructor-count'] = $lang->formatNum( EPInstructor::count() );
+		$data['oa-count'] = $lang->formatNum( EPOA::count() );
+		$data['ca-count'] = $lang->formatNum( EPCA::count() );
+
+		return $data;
 	}
 
 }

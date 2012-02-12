@@ -102,7 +102,12 @@ class EditCourseAction extends EPEditAction {
 
 		return array( $name, $term );
 	}
-	
+
+	/**
+	 * (non-PHPdoc)
+	 * @see EPEditAction::getItemClass()
+	 * @return string
+	 */
 	protected function getItemClass() {
 		return 'EPCourse';
 	}

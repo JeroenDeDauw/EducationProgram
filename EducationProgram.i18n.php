@@ -175,6 +175,15 @@ $messages['en'] = array(
 	'ep-course-status-current' => 'Current',
 	'ep-course-status-planned' => 'Planned',
 
+	// Special:EducationProgram
+	'ep-summary-table-header' => 'Education Program summary',
+	'specialeducationprogram-summary-org-count' => 'Amount of [[Special:Institutions|institutions]]',
+	'specialeducationprogram-summary-course-count' => 'Amount of [[Special:Courses|courses]]',
+	'specialeducationprogram-summary-student-count' => 'Amount of [[Special:Students|students]]',
+	'specialeducationprogram-summary-instructor-count' => 'Amount of instructors',
+	'specialeducationprogram-summary-ca-count' => 'Amount of [[Special:CampusAmbassadors|Campus Ambassadors]]',
+	'specialeducationprogram-summary-oa-count' => 'Amount of [[Special:OnlineAmbassadors|Online Ambassadors]]',
+
 	// Special:Institutions
 	'ep-institutions-nosuchinstitution' => 'There is no institution with name "$1". Existing institutions are listed below.',
 	'ep-institutions-noresults' => 'There are no institutions to list.',
