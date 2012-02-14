@@ -21,7 +21,6 @@ class EPRevision extends DBDataObject {
 	 */
 	protected $user = false;
 
-
 	/**
 	 * @see parent::__construct
 	 *
@@ -75,8 +74,8 @@ class EPRevision extends DBDataObject {
 	 * @return EPRevisionedObject
 	 */
 	public function getObject() {
-		$class = $this->getField( 'type' );
-		return $class::newFromArray( $this->getField( 'data' ), true );
+		$class = $this->getField( 'type' ) . 's'; // TODO: refactor made this suck a lot
+		return $class::singleton()->newFromArray( $this->getField( 'data' ), true );
 	}
 
 	/**

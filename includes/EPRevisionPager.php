@@ -42,66 +42,6 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	}
 
 	/**
-	 * Get the OutputPage being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return OutputPage
-	 */
-	public function getOutput() {
-		return $this->context->getOutput();
-	}
-
-	/**
-	 * Get the Language being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return Language
-	 */
-	public function getLanguage() {
-		return $this->context->getLanguage();
-	}
-
-	/**
-	 * Get the User being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return User
-	 */
-	public function getUser() {
-		return $this->context->getUser();
-	}
-
-	/**
-	 * Get the WebRequest being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return WebRequest
-	 */
-	public function getRequest() {
-		return $this->context->getRequest();
-	}
-
-	/**
-	 * Get the Title being used for this instance.
-	 * IndexPager extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return Title
-	 */
-	public function getTitle() {
-		return $this->context->getTitle();
-	}
-
-	/**
 	 * @see parent::getStartBody
 	 * @since 0.1
 	 */
@@ -119,7 +59,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * @return String
 	 */
 	function formatRow( $row ) {
-		$revision = EPRevision::newFromDBResult( $row );
+		$revision = EPRevisions::singleton()->newFromDBResult( $row );
 		$object = $revision->getObject();
 
 		$html = '';
@@ -179,9 +119,9 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 */
 	function getQueryInfo() {
 		return array(
-			'tables' => EPRevision::getDBTable(),
-			'fields' => EPRevision::getPrefixedFields( EPRevision::getFieldNames() ),
-			'conds' => EPRevision::getPrefixedValues( $this->conds )
+			'tables' => EPRevisions::singleton()->getDBTable(),
+			'fields' => EPRevisions::singleton()->getPrefixedFields( EPRevisions::singleton()->getFieldNames() ),
+			'conds' => EPRevisions::singleton()->getPrefixedValues( $this->conds )
 		);
 	}
 
@@ -198,8 +138,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * @return string|Array
 	 */
 	function getIndexField() {
-		return EPRevision::getPrefixedField( 'id' );
+		return EPRevisions::singleton()->getPrefixedField( 'id' );
 	}
-
 
 }

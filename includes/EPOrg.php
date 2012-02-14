@@ -129,7 +129,7 @@ class EPOrg extends EPPageObject {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => self::getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( array( 'action' => 'edit' ) ),
+				'action' => EPOrgs::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( array( 'action' => 'edit' ) ),
 			)
 		) );
 
