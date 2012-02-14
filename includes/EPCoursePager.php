@@ -30,7 +30,7 @@ class EPCoursePager extends EPPager {
 	 */
 	public function __construct( IContextSource $context, array $conds = array(), $readOnlyMode = false ) {
 		$this->readOnlyMode = $readOnlyMode;
-		parent::__construct( $context, $conds, 'EPCourse' );
+		parent::__construct( $context, $conds, EPCourses::singleton() );
 		
 		$this->context->getOutput()->addModules( 'ep.pager.course' );
 	}

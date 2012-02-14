@@ -22,11 +22,10 @@ abstract class EPPager extends TablePager {
 	protected $conds;
 
 	/**
-	 * Name of the class deriving from DBTable.
 	 * @since 0.1
-	 * @var string
+	 * @var DBTable
 	 */
-	protected $tableClass;
+	protected $table;
 
 	/**
 	 * DBDataObject object constructed from $this->currentRow.
@@ -47,11 +46,11 @@ abstract class EPPager extends TablePager {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conds
-	 * @param string $tableClass
+	 * @param DBTable $table
 	 */
-	public function __construct( IContextSource $context, array $conds, $tableClass ) {
+	public function __construct( IContextSource $context, array $conds, DBTable $table ) {
 		$this->conds = $conds;
-		$this->tableClass = $tableClass;
+		$this->table = $table;
 		$this->context = $context;
 
 		$this->mDefaultDirection = true;
@@ -66,8 +65,7 @@ abstract class EPPager extends TablePager {
 	 * @see TablePager::formatRow()
 	 */
 	function formatRow( $row ) {
-		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
-		$this->currentObject = $c::newFromDBResult( $row );
+		$this->currentObject = $this->table->newFromDBResult( $row );
 		
 		$cells = array();
 
@@ -89,7 +87,7 @@ abstract class EPPager extends TablePager {
 				$value = $this->getLanguage()->pipeList( $this->getControlLinks( $this->currentObject ) );
 			}
 			else {
-				$prefixedField = $c::getPrefixedField( $field );
+				$prefixedField = $this->table->getPrefixedField( $field );
 				$value = isset( $row->$prefixedField ) ? $row->$prefixedField : null;
 			}
 
@@ -222,11 +220,10 @@ abstract class EPPager extends TablePager {
 	 * @see IndexPager::getQueryInfo()
 	 */
 	function getQueryInfo() {
-		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
 		return array(
-			'tables' => array( $c::getDBTable() ),
-			'fields' => $c::getPrefixedFields( $c::getFieldNames() ),
-			'conds' => $c::getPrefixedValues( $this->getConditions() ),
+			'tables' => array( $this->table->getDBTable() ),
+			'fields' => $this->table->getPrefixedFields( $this->table->getFieldNames() ),
+			'conds' => $this->table->getPrefixedValues( $this->getConditions() ),
 		);
 	}
 
@@ -258,16 +255,14 @@ abstract class EPPager extends TablePager {
 	 * @see TablePager::isFieldSortable()
 	 */
 	function isFieldSortable( $name ) {
-		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
 		return in_array(
 			$name,
-			$c::getPrefixedFields( $this->getSortableFields() )
+			$this->table->getPrefixedFields( $this->getSortableFields() )
 		);
 	}
 
 	function getDefaultSort() {
-		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
-		return $c::getPrefixedField( 'id' );
+		return $this->table->getPrefixedField( 'id' );
 	}
 
 	/**
@@ -319,8 +314,7 @@ abstract class EPPager extends TablePager {
 				return $current && ( $data['value'] === '' || is_null( $data['value'] ) );
 			} , true );
 
-			$c = $this->className;  // Yeah, this is needed in PHP 5.3 >_>
-			if ( $noFiltersSet || !$c::has() ) {
+			if ( $noFiltersSet || !$this->table->has() ) {
 				return '';
 			}
 		}
@@ -426,7 +420,7 @@ abstract class EPPager extends TablePager {
 	 * @return string
 	 */
 	protected function getMsg( $messageKey ) {
-		return wfMsg( strtolower( $this->className ) . 'pager-' . str_replace( '_', '-', $messageKey ) );
+		return wfMsg( strtolower( $this->table->getDataObjectClass() ) . 'pager-' . str_replace( '_', '-', $messageKey ) );
 	}
 
 	/**
@@ -505,8 +499,7 @@ abstract class EPPager extends TablePager {
 
 		# Make table header
 		foreach ( $fields as $field => $name ) {
-			$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
-			$prefixedField = $c::getPrefixedField( $field );
+			$prefixedField = $this->table->getPrefixedField( $field );
 			$name = $name === '' ? '' : $this->getMsg( 'header-' . $name );
 
 			if ( $field === '_select' ) {

@@ -20,7 +20,7 @@ class EPOrgPager extends EPPager {
 	 * @param array $conds
 	 */
 	public function __construct( IContextSource $context, array $conds = array() ) {
-		parent::__construct( $context, $conds, 'EPOrg' );
+		parent::__construct( $context, $conds, EPOrgs::singleton() );
 		$this->context->getOutput()->addModules( 'ep.pager.org' );
 	}
 
