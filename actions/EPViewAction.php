@@ -15,13 +15,24 @@
 abstract class EPViewAction extends FormlessAction {
 
 	/**
-	 * Returns the class name of the DBDataObject this action handles.
+	 * @since 0.1
+	 * @var DBTable
+	 */
+	protected $table;
+
+	/**
+	 * Constructor.
 	 *
 	 * @since 0.1
 	 *
-	 * @return string
+	 * @param Page $page
+	 * @param IContextSource $context
+	 * @param DBTable $table
 	 */
-	protected abstract function getItemClass();
+	protected function __construct( Page $page, IContextSource $context = null, DBTable $table ) {
+		$this->table = $table;
+		parent::__construct( $page, $context );
+	}
 
 	/**
 	 * (non-PHPdoc)
@@ -30,12 +41,11 @@ abstract class EPViewAction extends FormlessAction {
 	public function onView() {
 		$out = $this->getOutput();
 		$name = $this->getTitle()->getText();
-		$class = $this->getItemClass();
 
 		$object = false;
 
 		if ( $this->getRequest()->getCheck( 'revid' ) ) {
-			$currentObject = $class::get( $name, 'id' );
+			$currentObject = $this->table->get( $name, 'id' );
 
 			if ( $currentObject !== false ) {
 				$rev = EPRevision::selectRow( null, array(
@@ -54,19 +64,19 @@ abstract class EPViewAction extends FormlessAction {
 		}
 
 		if ( $object === false ) {
-			$object = $class::get( $name );
+			$object = $this->table->get( $name );
 		}
 
 		if ( $object === false ) {
 			$this->displayNavigation();
 
-			if ( $this->getUser()->isAllowed( $class::getEditRight() ) ) {
+			if ( $this->getUser()->isAllowed( $this->table->getEditRight() ) ) {
 				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
 			}
 			else {
 				$out->addWikiMsg( strtolower( get_called_class() ) . '-none', $name );
-				
-				$class::displayDeletionLog(
+
+				$this->table->displayDeletionLog(
 					$this->getContext(),
 					'ep-' . strtolower( $this->getName() ) . '-deleted' 
 				);

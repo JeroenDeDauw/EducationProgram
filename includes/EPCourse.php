@@ -305,7 +305,7 @@ class EPCourse extends EPPageObject {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => self::getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( array( 'action' => 'edit' ) ),
+				'action' => EPCourses::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( array( 'action' => 'edit' ) ),
 			)
 		) );
 
@@ -705,7 +705,7 @@ class EPCourse extends EPPageObject {
 	public static function hasActiveName( $courseName ) {
 		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
-		return self::has( array(
+		return EPCourses::singleton()->has( array(
 			'name' => $courseName,
 			'end >= ' . $now,
 			'start <= ' . $now,

@@ -13,7 +13,19 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EditOrgAction extends EPEditAction {
-	
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.1
+	 *
+	 * @param Page $page
+	 * @param IContextSource $context
+	 */
+	protected function __construct( Page $page, IContextSource $context = null ) {
+		parent::__construct( $page, $context, EPOrgs::singleton() );
+	}
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getName()
@@ -30,14 +42,6 @@ class EditOrgAction extends EPEditAction {
 		return wfMsgHtml( $this->isNew() ? 'ep-addorg' : 'ep-editorg' );
 	}
 
-	/**
-	 * (non-PHPdoc)
-	 * @see EPEditAction::getItemClass()
-	 */
-	protected function getItemClass() {
-		return 'EPOrg';
-	}
-	
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getRestriction()

@@ -228,8 +228,8 @@ final class EPHooks {
 	 */
 	protected static function displayTabs( SkinTemplate &$sktemplate, array &$links, Title $title ) {
 		$classes = array(
-			EP_NS_INSTITUTION => 'EPOrg',
-			EP_NS_COURSE => 'EPCourse',
+			EP_NS_INSTITUTION => 'EPOrgs',
+			EP_NS_COURSE => 'EPCourses',
 		);
 
 		$exists = null;
@@ -240,7 +240,7 @@ final class EPHooks {
 
 			$user = $sktemplate->getUser();
 			$class = $classes[$title->getNamespace()];
-			$exists = $class::hasIdentifier( $title->getText() );
+			$exists = $class::singleton()->hasIdentifier( $title->getText() );
 			$type = $sktemplate->getRequest()->getText( 'action' );
 			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
 
@@ -252,7 +252,7 @@ final class EPHooks {
 				);
 			}
 			
-			if ( $user->isAllowed( $class::getEditRight() ) ) {
+			if ( $user->isAllowed( $class::singleton()->getEditRight() ) ) {
 				$links['views']['edit'] = array(
 					'class' => $type === 'edit' ? 'selected' : false,
 					'text' => wfMsg( $exists ? 'ep-tab-edit' : 'ep-tab-create' ),
@@ -307,11 +307,11 @@ final class EPHooks {
 	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
 		if ( in_array( $title->getNamespace(), array( EP_NS_COURSE, EP_NS_INSTITUTION ) ) ) {
 			$classes = array(
-				EP_NS_COURSE => 'EPCourse',
-				EP_NS_INSTITUTION => 'EPOrg',
+				EP_NS_COURSE => 'EPCourses',
+				EP_NS_INSTITUTION => 'EPOrgs',
 			);
 
-			$isKnown = $classes[$title->getNamespace()]::hasIdentifier( $title->getText() );
+			$isKnown = $classes[$title->getNamespace()]::singleton()->hasIdentifier( $title->getText() );
 		}
 
 		return true;

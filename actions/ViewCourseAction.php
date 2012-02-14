@@ -13,13 +13,21 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ViewCourseAction extends EPViewAction {
-	
-	public function getName() {
-		return 'viewcourse';
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.1
+	 *
+	 * @param Page $page
+	 * @param IContextSource $context
+	 */
+	protected function __construct( Page $page, IContextSource $context = null ) {
+		parent::__construct( $page, $context, EPCourses::singleton() );
 	}
 
-	protected function getItemClass() {
-		return 'EPCourse';
+	public function getName() {
+		return 'viewcourse';
 	}
 
 	protected function displayPage( DBDataObject $course ) {
@@ -62,8 +70,8 @@ class ViewCourseAction extends EPViewAction {
 	protected function getSummaryData( DBDataObject $course ) {
 		$stats = array();
 
-		$orgName = EPOrg::selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
-		$stats['org'] = EPOrg::getLinkFor( $orgName );
+		$orgName = EPOrgs::singleton()->selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
+		$stats['org'] = EPOrgs::singleton()->getLinkFor( $orgName );
 
 		$lang = $this->getLanguage();
 

@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPOrgs extends DBTable {
+class EPOrgs extends EPPageTable {
 
 	/**
 	 * (non-PHPdoc)

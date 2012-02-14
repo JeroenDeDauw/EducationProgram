@@ -23,50 +23,6 @@ class EPArticle extends DBDataObject {
 	protected $user = false;
 
 	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getDBTable()
-	 */
-	public static function getDBTable() {
-		return 'ep_articles';
-	}
-	
-		/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getFieldPrefix()
-	 */
-	public static function getFieldPrefix() {
-		return 'article_';
-	}
-	
-	/**
-	 * @see parent::getFieldTypes
-	 *
-	 * @since 0.1
-	 *
-	 * @return array
-	 */
-	protected static function getFieldTypes() {
-		return array(
-			'id' => 'id',
-
-			'course_id' => 'int',
-			'user_id' => 'int',
-			'page_id' => 'int',
-			'reviewers' => 'array',
-		);
-	}
-
-	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getDefaults()
-	 */
-	public static function getDefaults() {
-		return array(
-			'reviewers' => array(),
-		);
-	}
-
-	/**
 	 * Returns the user that authored this revision.
 	 *
 	 * @since 0.1

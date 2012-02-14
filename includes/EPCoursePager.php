@@ -72,7 +72,7 @@ class EPCoursePager extends EPPager {
 	public function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
 			case 'name':
-				$value = EPCourse::getLinkFor( $value );
+				$value = EPCourses::getLinkFor( $value );
 				break;
 			case 'org_id':
 				$org = EPOrgs::singleton()->selectRow( 'name', array( 'id' => $value ) );

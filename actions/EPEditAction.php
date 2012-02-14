@@ -31,14 +31,25 @@ abstract class EPEditAction extends FormlessAction {
 	protected $isNew = null;
 
 	/**
-	 * Returns the class name of the EPPageObject this action handles.
+	 * @since 0.1
+	 * @var DBTable
+	 */
+	protected $table;
+
+	/**
+	 * Constructor.
 	 *
 	 * @since 0.1
 	 *
-	 * @return string
+	 * @param Page $page
+	 * @param IContextSource $context
+	 * @param DBTable $table
 	 */
-	protected abstract function getItemClass();
-	
+	protected function __construct( Page $page, IContextSource $context = null, DBTable $table ) {
+		$this->table = $table;
+		parent::__construct( $page, $context );
+	}
+
 	/**
 	 * (non-PHPdoc)
 	 * @see FormlessAction::onView()
@@ -80,24 +91,23 @@ abstract class EPEditAction extends FormlessAction {
 	protected function showContent() {
 		$out = $this->getOutput();
 
-		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
-
 		$data = $this->getNewData();
 		
-		$object = $c::selectRow( null, $data );
+		$object = $this->table->selectRow( null, $data );
 
 		if ( $object !== false && $this->getRequest()->getText( 'redlink' ) === '1' ) {
 			$out->redirect( $this->getTitle()->getLocalURL() );
 		}
 		else {
 			if ( $object === false ) {
+				$c = $this->table->getDataObjectClass();
 				$c::displayDeletionLog(
 					$this->getContext(),
-					'ep-' . strtolower( $this->getName() ) . '-deleted' 
+					'ep-' . strtolower( $this->getName() ) . '-deleted'
 				);
 		
 				$this->isNew = true;
-				$object = new $c( $data, true );
+				$object = $this->table->newFromArray( $data, true );
 			}
 			elseif ( $this->isNewPost() ) {
 				$this->showWarning( wfMessage( 'ep-' . strtolower( $this->getName() ) . '-exists-already' ) );
@@ -345,14 +355,14 @@ abstract class EPEditAction extends FormlessAction {
 			return Title::newFromText( $this->getRequest()->getText( 'wpreturnto' ) );
 		}
 		elseif ( !$addedItem && $this->isNew() ) {
-			$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
+			$c = $this->table->getDataObjectClass(); // Yeah, this is needed in PHP 5.3 >_>
 			return SpecialPage::getTitleFor( $c::getListPage() );
 		}
 		elseif ( $this->item !== false ) {
 			return $this->item->getTitle();
 		}
 		else {
-			$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
+			$c = $this->table->getDataObjectClass(); // Yeah, this is needed in PHP 5.3 >_>
 			$fieldName = 'wpitem-' . $c::getIdentifierField();
 			
 			if ( $this->getRequest()->getCheck( $fieldName ) ) {
@@ -376,8 +386,6 @@ abstract class EPEditAction extends FormlessAction {
 		$fields = array();
 		$unknownValues = array();
 
-		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
-
 		foreach ( $data as $name => $value ) {
 			$matches = array();
 
@@ -386,7 +394,7 @@ abstract class EPEditAction extends FormlessAction {
 					$value = null;
 				}
 
-				if ( $c::canHaveField( $matches[1] ) ) {
+				if ( $this->table->canHaveField( $matches[1] ) ) {
 					$fields[$matches[1]] = $value;
 				}
 				else {
@@ -398,7 +406,7 @@ abstract class EPEditAction extends FormlessAction {
 		$keys = array_keys( $fields );
 		$fields = array_combine( $keys, array_map( array( $this, 'handleKnownField' ), $keys, $fields ) );
 
-		/* EPPageObject */ $item = new $c( $fields, is_null( $fields['id'] ) );
+		/* EPPageObject */ $item = $this->table->newFromArray( $fields, is_null( $fields['id'] ) );
 
 		foreach ( $unknownValues as $name => $value ) {
 			$this->handleUnknownField( $item, $name, $value );

@@ -13,7 +13,18 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class OrgHistoryAction extends EPHistoryAction {
-	
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.1
+	 *
+	 * @param Page $page
+	 * @param IContextSource $context
+	 */
+	protected function __construct( Page $page, IContextSource $context = null ) {
+		parent::__construct( $page, $context, EPOrgs::singleton() );
+	}
 	
 	public function getName() {
 		return 'orghistory';
@@ -28,8 +39,4 @@ class OrgHistoryAction extends EPHistoryAction {
 		);
 	}
 
-	protected function getItemClass() {
-		return 'EPOrg';
-	}
-	
 }

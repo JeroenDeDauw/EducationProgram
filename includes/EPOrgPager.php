@@ -62,7 +62,7 @@ class EPOrgPager extends EPPager {
 	public function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
 			case 'name':
-				$value = EPOrg::getLinkFor( $value );
+				$value = EPOrgs::getLinkFor( $value );
 				break;
 			case 'country':
 				$countries = array_flip( EPUtils::getCountryOptions( $this->getLanguage()->getCode() ) );

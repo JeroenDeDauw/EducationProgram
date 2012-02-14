@@ -23,7 +23,7 @@ class EPArticlePager extends EPPager {
 		$this->mDefaultDirection = true;
 
 		// when MW 1.19 becomes min, we want to pass an IContextSource $context here.
-		parent::__construct( $context, $conds, 'EPArticle' );
+		parent::__construct( $context, $conds, EPArticles::singleton() );
 	}
 
 	/**
@@ -91,8 +91,7 @@ class EPArticlePager extends EPPager {
 	}
 
 	function getDefaultSort() {
-		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
-		return $c::getPrefixedField( 'user_id' );
+		return $this->table->getPrefixedField( 'user_id' );
 	}
 
 }

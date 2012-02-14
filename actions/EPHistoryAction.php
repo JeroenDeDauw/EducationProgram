@@ -15,13 +15,24 @@
 abstract class EPHistoryAction extends FormlessAction {
 
 	/**
-	 * Returns the class name of the EPPageObject this action handles.
+	 * @since 0.1
+	 * @var DBTable
+	 */
+	protected $table;
+
+	/**
+	 * Constructor.
 	 *
 	 * @since 0.1
 	 *
-	 * @return string
+	 * @param Page $page
+	 * @param IContextSource $context
+	 * @param DBTable $table
 	 */
-	protected abstract function getItemClass();
+	protected function __construct( Page $page, IContextSource $context = null, DBTable $table ) {
+		$this->table = $table;
+		parent::__construct( $page, $context );
+	}
 	
 	/**
 	 * (non-PHPdoc)
@@ -30,9 +41,7 @@ abstract class EPHistoryAction extends FormlessAction {
 	public function onView() {
 		$this->getOutput()->setPageTitle( $this->getPageTitle() );
 		
-		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
-		
-		$object = $c::get( $this->getTitle()->getText() );
+		$object = $this->table->get( $this->getTitle()->getText() );
 
 		if ( $object === false ) {
 			$this->displayNoRevisions();
@@ -47,9 +56,7 @@ abstract class EPHistoryAction extends FormlessAction {
 	protected function displayNoRevisions() {
 		$this->getOutput()->addWikiMsg( 'ep-' . strtolower( $this->getName() ) . '-norevs' );
 
-		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
-
-		$c::displayDeletionLog(
+		$this->table->displayDeletionLog(
 			$this->getContext(),
 			'ep-' . strtolower( $this->getName() ) . '-deleted' 
 		);

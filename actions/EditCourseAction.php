@@ -13,7 +13,19 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EditCourseAction extends EPEditAction {
-	
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.1
+	 *
+	 * @param Page $page
+	 * @param IContextSource $context
+	 */
+	protected function __construct( Page $page, IContextSource $context = null ) {
+		parent::__construct( $page, $context, EPCourses::singleton() );
+	}
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getName()
@@ -45,10 +57,8 @@ class EditCourseAction extends EPEditAction {
 	public function onView() {
 		$this->getOutput()->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
 
-		$c = $this->getItemClass(); // Yeah, this is needed in PHP 5.3 >_>
-		
-		if ( !$this->isNewPost() && !$c::hasIdentifier( $this->getTitle()->getText() ) ) {
-			$c::displayDeletionLog(
+		if ( !$this->isNewPost() && !$this->table->hasIdentifier( $this->getTitle()->getText() ) ) {
+			$this->table->displayDeletionLog(
 				$this->getContext(),
 				'ep-' . strtolower( $this->getName() ) . '-deleted' 
 			);
@@ -105,22 +115,13 @@ class EditCourseAction extends EPEditAction {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPEditAction::getItemClass()
-	 * @return string
-	 */
-	protected function getItemClass() {
-		return 'EPCourse';
-	}
-	
-	/**
-	 * (non-PHPdoc)
 	 * @see EPEditAction::getFormFields()
 	 * @return array
 	 */
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-		$orgOptions = EPOrg::getOrgOptions();
+		$orgOptions = EPOrgs::singleton()->getOrgOptions();
 
 		$fields['name'] = array (
 			'type' => 'text',
@@ -128,7 +129,7 @@ class EditCourseAction extends EPEditAction {
 			'required' => true,
 		);
 		
-		$mcs = EPCourse::selectFields( 'mc', array(), array( 'DISTINCT' ) );
+		$mcs = $this->table->selectFields( 'mc', array(), array( 'DISTINCT' ) );
 		
 		if ( $this->getRequest()->getCheck( 'newname' ) ) {
 			$newName = $this->getRequest()->getText( 'newname' );
@@ -137,7 +138,6 @@ class EditCourseAction extends EPEditAction {
 		else {
 			$mcs = array_merge( array( '' => '' ), $mcs );
 		}
-		
 		
 		$fields['mc'] = array (
 			'class' => 'EPHTMLCombobox',
@@ -185,7 +185,7 @@ class EditCourseAction extends EPEditAction {
 			'required' => true,
 		);
 
-		$fieldFields = EPCourse::selectFields( 'field', array(), array( 'DISTINCT' ) );
+		$fieldFields = $this->table->selectFields( 'field', array(), array( 'DISTINCT' ) );
 		$fieldFields = array_merge( array( '' => '' ), $fieldFields );
 		$fields['field'] = array (
 			'class' => 'EPHTMLCombobox',
@@ -194,7 +194,7 @@ class EditCourseAction extends EPEditAction {
 			'options' => array_combine( $fieldFields, $fieldFields ),
 		);
 
-		$levels = EPCourse::selectFields( 'level', array(), array( 'DISTINCT' ) );
+		$levels = $this->table->selectFields( 'level', array(), array( 'DISTINCT' ) );
 		$levels = array_merge( array( '' => '' ), $levels );
 		$fields['level'] = array (
 			'class' => 'EPHTMLCombobox',

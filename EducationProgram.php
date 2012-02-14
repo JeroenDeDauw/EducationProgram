@@ -92,6 +92,7 @@ $wgAutoloadClasses['EPHTMLCombobox'] 				= dirname( __FILE__ ) . '/includes/EPHT
 $wgAutoloadClasses['EPRevision'] 					= dirname( __FILE__ ) . '/includes/EPRevision.php';
 $wgAutoloadClasses['EPRevisionPager'] 				= dirname( __FILE__ ) . '/includes/EPRevisionPager.php';
 $wgAutoloadClasses['EPPageObject'] 					= dirname( __FILE__ ) . '/includes/EPPageObject.php';
+$wgAutoloadClasses['EPPageTable'] 					= dirname( __FILE__ ) . '/includes/EPPageTable.php';
 $wgAutoloadClasses['EPFailForm'] 					= dirname( __FILE__ ) . '/includes/EPFailForm.php';
 $wgAutoloadClasses['EPIRole'] 						= dirname( __FILE__ ) . '/includes/EPIRole.php';
 $wgAutoloadClasses['EPRevisionedObject'] 			= dirname( __FILE__ ) . '/includes/EPRevisionedObject.php';
@@ -107,6 +108,7 @@ $wgAutoloadClasses['EPOAs'] 						= dirname( __FILE__ ) . '/includes/EPOAs.php';
 $wgAutoloadClasses['EPCAs'] 						= dirname( __FILE__ ) . '/includes/EPCAs.php';
 $wgAutoloadClasses['EPInstructors'] 				= dirname( __FILE__ ) . '/includes/EPInstructors.php';
 $wgAutoloadClasses['EPRevisions'] 					= dirname( __FILE__ ) . '/includes/EPRevisions.php';
+$wgAutoloadClasses['EPArticles'] 					= dirname( __FILE__ ) . '/includes/EPArticles.php';
 
 $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';

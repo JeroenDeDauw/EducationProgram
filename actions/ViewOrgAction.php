@@ -13,13 +13,21 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ViewOrgAction extends EPViewAction {
-	
-	public function getName() {
-		return 'vieworg';
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.1
+	 *
+	 * @param Page $page
+	 * @param IContextSource $context
+	 */
+	protected function __construct( Page $page, IContextSource $context = null ) {
+		parent::__construct( $page, $context, EPOrgs::singleton() );
 	}
 
-	protected function getItemClass() {
-		return 'EPOrg';
+	public function getName() {
+		return 'vieworg';
 	}
 
 	protected function displayPage( DBDataObject $org ) {
