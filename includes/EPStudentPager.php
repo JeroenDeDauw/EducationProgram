@@ -23,7 +23,7 @@ class EPStudentPager extends EPPager {
 		$this->mDefaultDirection = true;
 
 		// when MW 1.19 becomes min, we want to pass an IContextSource $context here.
-		parent::__construct( $context, $conds, 'EPStudent' );
+		parent::__construct( $context, $conds, EPStudents::singleton() );
 	}
 
 	/**

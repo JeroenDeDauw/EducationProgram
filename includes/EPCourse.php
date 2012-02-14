@@ -323,7 +323,7 @@ class EPCourse extends EPPageObject {
 			array_key_exists( 'org', $args ) ? $args['org'] : false
 		);
 
-		$select->addOptions( EPOrg::getOrgOptions() );
+		$select->addOptions( EPOrgs::singleton()->getOrgOptions() );
 		$out->addHTML( $select->getHTML() );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel(
@@ -369,7 +369,7 @@ class EPCourse extends EPPageObject {
 	 * @param array $args
 	 */
 	public static function displayAddNewRegion( IContextSource $context, array $args = array() ) {
-		if ( EPOrg::has() ) {
+		if ( EPOrgs::singleton()->has() ) {
 			EPCourse::displayAddNewControl( $context, $args );
 		}
 		elseif ( $context->getUser()->isAllowed( 'ep-course' ) ) {

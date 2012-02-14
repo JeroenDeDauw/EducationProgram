@@ -150,7 +150,7 @@ class EPOrgPager extends EPPager {
 			);
 
 			$links[] = $this->getDeletionLink(
-				ApiDeleteEducation::getTypeForClassName( $this->className ),
+				ApiDeleteEducation::getTypeForClassName( $this->table->getDataObjectClass() ),
 				$item->getId(),
 				$item->getIdentifier()
 			);
@@ -169,7 +169,7 @@ class EPOrgPager extends EPPager {
 		if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
 			$actions[wfMsg( 'ep-pager-delete-selected' )] = array(
 				'class' => 'ep-pager-delete-selected',
-				'data-type' => ApiDeleteEducation::getTypeForClassName( $this->className )
+				'data-type' => ApiDeleteEducation::getTypeForClassName( $this->table->getDataObjectClass() )
 			);
 		}
 		

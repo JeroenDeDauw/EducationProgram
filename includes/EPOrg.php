@@ -106,29 +106,6 @@ class EPOrg extends EPPageObject {
 	}
 
 	/**
-	 * Returns a list of orgs in an array that can be fed to select inputs.
-	 *
-	 * @since 0.1
-	 *
-	 * @param array|null $orgs
-	 *
-	 * @return array
-	 */
-	public static function getOrgOptions( array /* EPOrg */ $orgs = null ) {
-		$options = array();
-
-		if ( is_null( $orgs ) ) {
-			$orgs = EPOrg::select( array( 'name', 'id' ) );
-		}
-		
-		foreach ( $orgs as /* EPOrg */ $org ) {
-			$options[$org->getField( 'name' )] = $org->getId();
-		}
-
-		return $options;
-	}
-
-	/**
 	 * Adds a control to add a new org to the provided context.
 	 * Adittional arguments can be provided to set the default values for the control fields.
 	 *

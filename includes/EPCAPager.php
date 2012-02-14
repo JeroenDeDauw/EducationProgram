@@ -20,7 +20,7 @@ class EPCAPager extends EPOAPager {
 	 */
 	public function __construct( IContextSource $context, array $conds = array() ) {
 		$this->mDefaultDirection = true;
-		parent::__construct( $context, $conds, 'EPCA' );
+		parent::__construct( $context, $conds, EPCAs::singleton() );
 	}
 
 	/**

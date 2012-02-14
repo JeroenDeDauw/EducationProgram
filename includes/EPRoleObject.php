@@ -264,7 +264,7 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		$courses = array();
 		
 		foreach ( $result as $course ) {
-			$courses[] = EPCourse::newFromDBResult( $course );
+			$courses[] = EPCourses::singleton()->newFromDBResult( $course );
 		}
 		
 		return $courses;

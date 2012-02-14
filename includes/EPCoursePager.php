@@ -75,7 +75,7 @@ class EPCoursePager extends EPPager {
 				$value = EPCourse::getLinkFor( $value );
 				break;
 			case 'org_id':
-				$org = EPOrg::selectRow( 'name', array( 'id' => $value ) );
+				$org = EPOrgs::singleton()->selectRow( 'name', array( 'id' => $value ) );
 				
 				// This should not happen. A course should always have an org.
 				// But if something gets messed up somehow, just display the ID rather then throwing a fatal.
@@ -141,17 +141,19 @@ class EPCoursePager extends EPPager {
 	protected function getFilterOptions() {
 		$options = array();
 
+		$orgs = EPOrgs::singleton();
+
 		$options['org_id'] = array(
 			'type' => 'select',
 			'options' => array_merge(
 				array( '' => '' ),
-				EPOrg::getOrgOptions( EPOrg::select( array( 'name', 'id' ) ) )
+				$orgs->getOrgOptions( $orgs->select( array( 'name', 'id' ) ) )
 			),
 			'value' => '',
 			'datatype' => 'int',
 		);
 
-		$terms = EPCourse::selectFields( 'term', array(), array( 'DISTINCT' ), true );
+		$terms = EPCourses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ), true );
 		
 		natcasesort( $terms );
 		$terms = array_merge( array( '' ), $terms );
@@ -199,7 +201,7 @@ class EPCoursePager extends EPPager {
 			);
 
 			$links[] = $this->getDeletionLink(
-				ApiDeleteEducation::getTypeForClassName( $this->className ),
+				ApiDeleteEducation::getTypeForClassName( $this->table->getDataObjectClass() ),
 				$item->getId(),
 				$item->getIdentifier()
 			);
@@ -218,7 +220,7 @@ class EPCoursePager extends EPPager {
 		if ( !$this->readOnlyMode && $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$actions[wfMsg( 'ep-pager-delete-selected' )] = array(
 				'class' => 'ep-pager-delete-selected',
-				'data-type' => ApiDeleteEducation::getTypeForClassName( $this->className )
+				'data-type' => ApiDeleteEducation::getTypeForClassName( $this->table->getDataObjectClass() )
 			);
 		}
 		

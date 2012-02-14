@@ -103,5 +103,29 @@ class EPOrgs extends DBTable {
 			'oa_count',
 		);
 	}
+
+
+	/**
+	 * Returns a list of orgs in an array that can be fed to select inputs.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array|null $orgs
+	 *
+	 * @return array
+	 */
+	public function getOrgOptions( array /* EPOrg */ $orgs = null ) {
+		$options = array();
+
+		if ( is_null( $orgs ) ) {
+			$orgs = $this->select( array( 'name', 'id' ) );
+		}
+
+		foreach ( $orgs as /* EPOrg */ $org ) {
+			$options[$org->getField( 'name' )] = $org->getId();
+		}
+
+		return $options;
+	}
 	
 }
