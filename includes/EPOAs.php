@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Class representing the ep_revisions table.
+ * Class representing the ep_oas table.
  *
  * @since 0.1
  *
- * @file EPRevisions.php
+ * @file EPOAs.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPRevisions extends DBTable {
+class EPOAs extends DBTable {
 
 	/**
 	 * (non-PHPdoc)
@@ -20,7 +20,7 @@ class EPRevisions extends DBTable {
 	 * @return string
 	 */
 	public function getDBTable() {
-		return 'ep_revisions';
+		return 'ep_oas';
 	}
 	
 	/**
@@ -30,7 +30,7 @@ class EPRevisions extends DBTable {
 	 * @return string
 	 */
 	public function getFieldPrefix() {
-		return 'rev_';
+		return 'oa_';
 	}
 	
 	/**
@@ -40,7 +40,7 @@ class EPRevisions extends DBTable {
 	 * @return string
 	 */
 	public function getDataObjectClass() {
-		return 'EPRevision';
+		return 'EPOA';
 	}
 	
 	/**
@@ -53,17 +53,23 @@ class EPRevisions extends DBTable {
 		return array(
 			'id' => 'id',
 
-			'object_id' => 'int',
-			'object_identifier' => 'str',
 			'user_id' => 'int',
-			'type' => 'str',
-			'comment' => 'str',
-			'user_text' => 'str',
-			'minor_edit' => 'bool',
-			'time' => 'str', // TS_MW
-			'deleted' => 'bool',
-			'data' => 'blob',
+			'bio' => 'str',
+			'photo' => 'str',
 		);
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBTable::getDefaults()
+	 * @since 0.1
+	 * @return array
+	 */
+	public function getDefaults() {
+		return array(
+			'bio' => '',
+			'photo' => '',
+		);
+	}
+
 }

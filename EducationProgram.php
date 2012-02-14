@@ -100,6 +100,13 @@ $wgAutoloadClasses['EPArticle'] 					= dirname( __FILE__ ) . '/includes/EPArticl
 $wgAutoloadClasses['EPArticlePager'] 				= dirname( __FILE__ ) . '/includes/EPArticlePager.php';
 $wgAutoloadClasses['EPArticleTable'] 				= dirname( __FILE__ ) . '/includes/EPArticleTable.php';
 $wgAutoloadClasses['EPRevisionAction'] 				= dirname( __FILE__ ) . '/includes/EPRevisionAction.php';
+$wgAutoloadClasses['EPOrgs'] 						= dirname( __FILE__ ) . '/includes/EPOrgs.php';
+$wgAutoloadClasses['EPCourses'] 					= dirname( __FILE__ ) . '/includes/EPCourses.php';
+$wgAutoloadClasses['EPStudents'] 					= dirname( __FILE__ ) . '/includes/EPStudents.php';
+$wgAutoloadClasses['EPOAs'] 						= dirname( __FILE__ ) . '/includes/EPOAs.php';
+$wgAutoloadClasses['EPCAs'] 						= dirname( __FILE__ ) . '/includes/EPCAs.php';
+$wgAutoloadClasses['EPInstructors'] 				= dirname( __FILE__ ) . '/includes/EPInstructors.php';
+$wgAutoloadClasses['EPRevisions'] 					= dirname( __FILE__ ) . '/includes/EPRevisions.php';
 
 $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';

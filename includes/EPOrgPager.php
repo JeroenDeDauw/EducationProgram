@@ -106,8 +106,7 @@ class EPOrgPager extends EPPager {
 	}
 
 	function getDefaultSort() {
-		$c = $this->className; // Yeah, this is needed in PHP 5.3 >_>
-		return $c::getPrefixedField( 'name' );
+		return EPOrgs::singleton()->getPrefixedField( 'name' );
 	}
 
 	/**

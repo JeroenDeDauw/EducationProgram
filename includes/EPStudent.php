@@ -14,41 +14,6 @@
 class EPStudent extends EPRoleObject {
 
 	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getDBTable()
-	 */
-	public static function getDBTable() {
-		return 'ep_students';
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getFieldPrefix()
-	 */
-	public static function getFieldPrefix() {
-		return 'student_';
-	}
-	
-	/**
-	 * @see parent::getFieldTypes
-	 *
-	 * @since 0.1
-	 *
-	 * @return array
-	 */
-	protected static function getFieldTypes() {
-		return array(
-			'id' => 'id',
-
-			'user_id' => 'int',
-			'first_enroll' => 'str', // TS_MW
-
-			'last_active' => 'str', // TS_MW
-			'active_enroll' => 'bool',
-		);
-	}
-
-	/**
 	 * Display a pager with students.
 	 *
 	 * @since 0.1

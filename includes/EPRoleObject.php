@@ -41,8 +41,19 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	 */
 	public static function newFromUserId( $userId, $fields = null ) {
 		$data = array( 'user_id' => $userId );
-		$userRole = static::selectRow( null, $data );
-		return $userRole === false ? new static( $data, true ) : $userRole;
+		
+		$map = array(
+			'EPOA' => 'EPOAs',
+			'EPCA' => 'EPCAs',
+			'EPStudent' => 'EPStudents',
+			'EPInstructor' => 'EPInstructors',
+		); // TODO: this is lame
+		
+		$class = $map[get_called_class()];
+		$table = $class::singleton();
+		
+		$userRole = $table->selectRow( null, $data );
+		return $userRole === false ? new static( $table, $data, true ) : $userRole;
 	}
 	
 	/**
@@ -234,9 +245,11 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	 * @return array of EPCourse
 	 */
 	protected function doGetCourses( $fields, array $conditions ) {
+		$courseTable = EPCourses::singleton();
+		
 		$result = wfGetDB( DB_SLAVE )->select(
 			array( 'ep_courses', 'ep_users_per_course' ),
-			EPCourse::getPrefixedFields( is_null( $fields ) ? EPCourse::getFieldNames() : (array)$fields ),
+			$courseTable->getPrefixedFields( is_null( $fields ) ? $courseTable->getFieldNames() : (array)$fields ),
 			array(
 				'upc_role' => $this->getRoleId(),
 				'upc_user_id' => $this->getField( 'user_id' ),

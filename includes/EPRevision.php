@@ -35,46 +35,6 @@ class EPRevision extends DBDataObject {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getDBTable()
-	 */
-	public static function getDBTable() {
-		return 'ep_revisions';
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getFieldPrefix()
-	 */
-	public static function getFieldPrefix() {
-		return 'rev_';
-	}
-	
-	/**
-	 * @see parent::getFieldTypes
-	 *
-	 * @since 0.1
-	 *
-	 * @return array
-	 */
-	protected static function getFieldTypes() {
-		return array(
-			'id' => 'id',
-
-			'object_id' => 'int',
-			'object_identifier' => 'str',
-			'user_id' => 'int',
-			'type' => 'str',
-			'comment' => 'str',
-			'user_text' => 'str',
-			'minor_edit' => 'bool',
-			'time' => 'str', // TS_MW
-			'deleted' => 'bool',
-			'data' => 'blob',
-		);
-	}
-
-	/**
 	 * Create a new revision object for the provided EPRevisionedObject.
 	 * The EPRevisionedObject should have all it's fields loaded.
 	 *

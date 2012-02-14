@@ -22,11 +22,11 @@ abstract class EPPager extends TablePager {
 	protected $conds;
 
 	/**
-	 * Name of the class deriving from DBDataObject.
+	 * Name of the class deriving from DBTable.
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $className;
+	protected $tableClass;
 
 	/**
 	 * DBDataObject object constructed from $this->currentRow.
@@ -47,11 +47,11 @@ abstract class EPPager extends TablePager {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conds
-	 * @param string $className
+	 * @param string $tableClass
 	 */
-	public function __construct( IContextSource $context, array $conds, $className ) {
+	public function __construct( IContextSource $context, array $conds, $tableClass ) {
 		$this->conds = $conds;
-		$this->className = $className;
+		$this->tableClass = $tableClass;
 		$this->context = $context;
 
 		$this->mDefaultDirection = true;

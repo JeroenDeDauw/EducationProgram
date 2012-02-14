@@ -14,50 +14,6 @@
 class EPOA extends EPRoleObject implements EPIRole {
 	
 	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getDBTable()
-	 */
-	public static function getDBTable() {
-		return 'ep_oas';
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getFieldPrefix()
-	 */
-	public static function getFieldPrefix() {
-		return 'oa_';
-	}
-	
-	/**
-	 * @see parent::getFieldTypes
-	 *
-	 * @since 0.1
-	 *
-	 * @return array
-	 */
-	protected static function getFieldTypes() {
-		return array(
-			'id' => 'id',
-
-			'user_id' => 'int',
-			'bio' => 'str',
-			'photo' => 'str',
-		);
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::getDefaults()
-	 */
-	public static function getDefaults() {
-		return array(
-			'bio' => '',
-			'photo' => '',
-		);
-	}
-	
-	/**
 	 * Display a pager with online ambassadors.
 	 *
 	 * @since 0.1

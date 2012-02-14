@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Class representing the ep_revisions table.
+ * Class representing the ep_students table.
  *
  * @since 0.1
  *
- * @file EPRevisions.php
+ * @file EPStudents.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPRevisions extends DBTable {
+class EPStudents extends DBTable {
 
 	/**
 	 * (non-PHPdoc)
@@ -20,7 +20,7 @@ class EPRevisions extends DBTable {
 	 * @return string
 	 */
 	public function getDBTable() {
-		return 'ep_revisions';
+		return 'ep_students';
 	}
 	
 	/**
@@ -30,7 +30,7 @@ class EPRevisions extends DBTable {
 	 * @return string
 	 */
 	public function getFieldPrefix() {
-		return 'rev_';
+		return 'student_';
 	}
 	
 	/**
@@ -40,7 +40,7 @@ class EPRevisions extends DBTable {
 	 * @return string
 	 */
 	public function getDataObjectClass() {
-		return 'EPRevision';
+		return 'EPStudent';
 	}
 	
 	/**
@@ -53,17 +53,12 @@ class EPRevisions extends DBTable {
 		return array(
 			'id' => 'id',
 
-			'object_id' => 'int',
-			'object_identifier' => 'str',
 			'user_id' => 'int',
-			'type' => 'str',
-			'comment' => 'str',
-			'user_text' => 'str',
-			'minor_edit' => 'bool',
-			'time' => 'str', // TS_MW
-			'deleted' => 'bool',
-			'data' => 'blob',
+			'first_enroll' => 'str', // TS_MW
+
+			'last_active' => 'str', // TS_MW
+			'active_enroll' => 'bool',
 		);
 	}
-	
+
 }

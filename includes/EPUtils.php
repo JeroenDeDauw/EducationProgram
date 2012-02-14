@@ -194,7 +194,7 @@ class EPUtils {
 
 		$user = $context->getUser();
 		
-		if ( EPStudent::has( array( 'user_id' => $user->getId() ) ) ) {
+		if ( EPStudents::singleton()->has( array( 'user_id' => $user->getId() ) ) ) {
 			$items[wfMsg( 'ep-nav-mycourses' )] = SpecialPage::getTitleFor( 'MyCourses' );
 		}
 		
