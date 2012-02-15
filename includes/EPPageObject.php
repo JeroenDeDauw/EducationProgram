@@ -17,6 +17,13 @@ abstract class EPPageObject extends EPRevisionedObject {
 		return $this->getField( $this->table->getIdentifierField() );
 	}
 
+	/**
+	 *
+	 *
+	 * @since 0.1
+	 *
+	 * @return Title
+	 */
 	public function getTitle() {
 		return $this->table->getTitleFor( $this->getIdentifier() );
 	}

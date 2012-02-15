@@ -49,7 +49,12 @@ class SpecialDisenroll extends SpecialEPPage {
 						if ( $this->getUser()->isLoggedIn() ) {
 							$req = $this->getRequest();
 
-							if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'disenrollEditToken' ) ) ) {
+							$editTokenMatches = $this->getUser()->matchEditToken(
+								$req->getText( 'disenrollToken' ),
+								$this->getTitle( $this->subPage )->getLocalURL()
+							);
+
+							if ( $req->wasPosted() && $editTokenMatches ) {
 								$this->doDisenroll( $course );
 							}
 							else {
@@ -127,23 +132,23 @@ class SpecialDisenroll extends SpecialEPPage {
 
 		$out->addHTML( '<br />' );
 
-		$out->addElement(
-			'button',
-			array(
-				'class' => 'ep-disenroll-cancel',
-			),
-			wfMsg( 'ep-disenroll-cancel' )
-		);
-
 		$out->addHTML( Html::input(
 			'disenroll',
 			wfMsg( 'ep-disenroll-button' ),
 			'submit',
 			array(
 				'class' => 'ep-disenroll',
-				'target-url' => '', // TODO
 			)
 		) );
+
+		$out->addElement(
+			'button',
+			array(
+				'class' => 'ep-disenroll-cancel',
+				'target-url' => $course->getTitle()->getLocalURL(),
+			),
+			wfMsg( 'ep-disenroll-cancel' )
+		);
 
 		$out->addHTML( Html::hidden( 'disenrollToken', $this->getUser()->getEditToken( $target ) ) );
 
@@ -158,7 +163,20 @@ class SpecialDisenroll extends SpecialEPPage {
 	 * @param EPCourse $course
 	 */
 	protected function doDisenroll( EPCourse $course ) {
-		// TODO
+		$success = $course->unenlistUsers(
+			$this->getUser()->getId(),
+			'student',
+			$this->getRequest()->getText( 'summary' )
+		);
+
+		if ( $success ) {
+			$this->showSuccess( wfMessage( 'ep-disenroll-success' ) );
+		}
+		else {
+			$this->showError( wfMessage( 'ep-disenroll-fail' ) );
+		}
+
+		$this->getOutput()->addWikiMsg( 'ep-disenroll-returnto', $course->getField( 'name' ) );
 	}
 
 }
