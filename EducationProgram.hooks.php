@@ -207,7 +207,7 @@ final class EPHooks {
 				$textParts[1] = implode( '/', $textParts[1] );
 			}
 
-			$title = EPCourse::getTitleFor( $textParts[1] );
+			$title = EPCourses::singleton()->getTitleFor( $textParts[1] );
 
 			if ( !is_null( $title ) ) {
 				self::displayTabs( $sktemplate, $links, $title );
@@ -272,7 +272,7 @@ final class EPHooks {
 					$hasCourse = $student !== false && $student->hasCourse( array( 'name' => $title->getText() ) );
 
 					if ( $user->isAllowed( 'ep-enroll' ) ) {
-						if ( !$hasCourse && EPCourse::hasActiveName( $title->getText() ) ) {
+						if ( !$hasCourse && EPCourses::singleton()->hasActiveName( $title->getText() ) ) {
 							$links['views']['enroll'] = array(
 								'class' => $isSpecial ? 'selected' : false,
 								'text' => wfMsg( 'ep-tab-enroll' ),
@@ -281,7 +281,7 @@ final class EPHooks {
 						}
 					}
 
-					if ( $hasCourse && EPCourse::hasActiveName( $title->getText() ) ) {
+					if ( $hasCourse && EPCourses::singleton()->hasActiveName( $title->getText() ) ) {
 						$links[$isSpecial ? 'views' : 'actions']['disenroll'] = array(
 							'class' => $isSpecial ? 'selected' : false,
 							'text' => wfMsg( 'ep-tab-disenroll' ),

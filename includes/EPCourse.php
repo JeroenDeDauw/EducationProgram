@@ -124,7 +124,7 @@ class EPCourse extends EPPageObject {
 		$success = parent::insert();
 
 		if ( $success && $this->updateSummaries ) {
-			EPOrg::updateSummaryFields( array( 'course_count', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
+			EPOrgs::singleton()->updateSummaryFields( array( 'course_count', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
 		}
 
 		return $success;
@@ -136,7 +136,7 @@ class EPCourse extends EPPageObject {
 	 */
 	protected function onRemoved() {
 		if ( $this->updateSummaries ) {
-			EPOrg::updateSummaryFields( null, array( 'id' => $this->getField( 'org_id' ) ) );
+			EPOrgs::singleton()->updateSummaryFields( null, array( 'id' => $this->getField( 'org_id' ) ) );
 		}
 
 		wfGetDB( DB_MASTER )->delete( 'ep_users_per_course', array( 'upc_course_id' => $this->getId() ) );
@@ -203,10 +203,10 @@ class EPCourse extends EPPageObject {
 		if ( $this->updateSummaries ) {
 			if ( $this->hasField( 'org_id' ) && $originalCourse->getField( 'org_id' ) !== $this->getField( 'org_id' ) ) {
 				$conds = array( 'id' => array( $originalCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
-				EPOrg::updateSummaryFields( null, $conds );
+				EPOrgs::singleton()->updateSummaryFields( null, $conds );
 			}
 			else if ( !empty( $changedSummaries ) ) {
-				EPOrg::updateSummaryFields( $changedSummaries, array( 'id' => $originalCourse->getField( 'org_id' ) ) );
+				EPOrgs::singleton()->updateSummaryFields( $changedSummaries, array( 'id' => $originalCourse->getField( 'org_id' ) ) );
 			}
 		}
 
@@ -243,7 +243,7 @@ class EPCourse extends EPPageObject {
 	 */
 	public function getOrg( $fields = null ) {
 		if ( $this->org === false ) {
-			$this->org = EPOrg::selectRow( $fields, array( 'id' => $this->loadAndGetField( 'org_id' ) ) );
+			$this->org = EPOrgs::singleton()->selectRow( $fields, array( 'id' => $this->loadAndGetField( 'org_id' ) ) );
 		}
 
 		return $this->org;
@@ -700,16 +700,6 @@ class EPCourse extends EPPageObject {
 		}
 
 		EPUtils::log( $info );
-	}
-
-	public static function hasActiveName( $courseName ) {
-		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
-
-		return EPCourses::singleton()->has( array(
-			'name' => $courseName,
-			'end >= ' . $now,
-			'start <= ' . $now,
-		) );
 	}
 	
 }

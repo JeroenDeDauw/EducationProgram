@@ -44,7 +44,7 @@ class SpecialMyCourses extends SpecialEPPage {
 				$this->displayCourses();
 			}
 			else {
-				$course = EPCourse::selectRow( null, array( 'name' => $this->subPage ) );
+				$course = EPCourses::singleton()->selectRow( null, array( 'name' => $this->subPage ) );
 				
 				if ( $course === false ) {
 					// TODO
@@ -108,7 +108,7 @@ class SpecialMyCourses extends SpecialEPPage {
 	 */
 	protected function displayEnrollment() {
 		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
-			EPStudent::setReadDb( DB_MASTER );
+			EPStudents::singleton()->setReadDb( DB_MASTER );
 		}
 
 		$student = EPStudent::newFromUser( $this->getUser() );
@@ -123,7 +123,10 @@ class SpecialMyCourses extends SpecialEPPage {
 		);
 		
 		if ( $this->getRequest()->getCheck( 'enrolled' ) && in_array( $this->getRequest()->getInt( 'enrolled' ), $courseIds ) ) {
-			$course = EPCourse::selectRow( array( 'name', 'org_id' ), array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
+			$course = EPCourses::singleton()->selectRow(
+				array( 'name', 'org_id' ),
+				array( 'id' => $this->getRequest()->getInt( 'enrolled' ) )
+			);
 			
 			$this->showSuccess( wfMessage(
 				'ep-mycourses-enrolled',

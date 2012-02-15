@@ -114,7 +114,7 @@ abstract class EPPageTable extends DBTable {
 	 * (non-PHPdoc)
 	 * @see EPRevisionedObject::getLogInfo()
 	 */
-	protected function getLogInfoForTitle( Title $title ) {
+	public function getLogInfoForTitle( Title $title ) {
 		return array(
 			'type' => self::$info[get_called_class()]['log-type'],
 			'title' => $title,

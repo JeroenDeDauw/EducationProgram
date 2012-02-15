@@ -22,8 +22,8 @@ class ApiRefreshEducation extends ApiBase {
 	 * @var array
 	 */
 	protected static $typeMap = array(
-		'org' => 'EPOrg',
-		'course' => 'EPCourse',
+		'org' => 'EPOrsg',
+		'course' => 'EPCourses',
 	);
 
 	public function execute() {
@@ -34,7 +34,7 @@ class ApiRefreshEducation extends ApiBase {
 		}
 
 		$c = self::$typeMap[$params['type']];
-		$c::updateSummaryFields( null, array( 'id' => $params['ids'] ) );
+		$c::singleton()->updateSummaryFields( null, array( 'id' => $params['ids'] ) );
 
 		$this->getResult()->addValue(
 			null,

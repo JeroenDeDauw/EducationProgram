@@ -66,4 +66,37 @@ class EPRevisions extends DBTable {
 		);
 	}
 	
+	/**
+	 * Create a new revision object for the provided EPRevisionedObject.
+	 * The EPRevisionedObject should have all it's fields loaded.
+	 *
+	 * @since 0.1
+	 *
+	 * @param DBDataObject $object
+	 * @param EPRevisionAction $revAction
+	 *
+	 * @return EPRevision
+	 */
+	public function newFromObject( EPRevisionedObject $object, EPRevisionAction $revAction ) {
+		$fields = array(
+			'object_id' => $object->getId(),
+			'user_id' => $revAction->getUser()->getID(),
+			'user_text' => $revAction->getUser()->getName(),
+			'type' => get_class( $object ),
+			'comment' => $revAction->getComment(),
+			'minor_edit' => $revAction->isMinor(),
+			'time' => $revAction->getTime(),
+			'deleted' => $revAction->isDelete(),
+			'data' => serialize( $object->toArray() )
+		);
+		
+		$identifier = $object->getIdentifier();
+		
+		if ( !is_null( $identifier ) ) {
+			$fields['object_identifier'] = $identifier;
+		}
+
+		return new EPRevision( $this, $fields );
+	}
+	
 }

@@ -121,4 +121,14 @@ class EPCourses extends EPPageTable {
 		);
 	}
 	
+	public function hasActiveName( $courseName ) {
+		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+
+		return $this->has( array(
+			'name' => $courseName,
+			'end >= ' . $now,
+			'start <= ' . $now,
+		) );
+	}
+	
 }

@@ -36,7 +36,7 @@ class EPOrg extends EPPageObject {
 		$fields = array();
 
 		if ( in_array( 'course_count', $summaryFields ) ) {
-			$fields['course_count'] = EPCourse::count( array( 'org_id' => $this->getId() ) );
+			$fields['course_count'] = EPCourses::singleton()->count( array( 'org_id' => $this->getId() ) );
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
@@ -44,7 +44,7 @@ class EPOrg extends EPPageObject {
 		if ( in_array( 'active', $summaryFields ) ) {
 			$now = $dbr->addQuotes( wfTimestampNow() );
 
-			$fields['active'] = EPCourse::has( array(
+			$fields['active'] = EPCourses::singleton()->has( array(
 				'org_id' => $this->getId(),
 				'end >= ' . $now,
 				'start <= ' . $now,
@@ -52,9 +52,9 @@ class EPOrg extends EPPageObject {
 		}
 
 		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $field ) {
-			$fields[$field] = EPCourse::rawSelectRow(
-				array( 'SUM(' . EPCourse::getPrefixedField( $field ). ') AS sum' ),
-				EPCourse::getPrefixedValues( array(
+			$fields[$field] = EPCourses::singleton()->rawSelectRow(
+				array( 'SUM(' . EPCourses::singleton()->getPrefixedField( $field ). ') AS sum' ),
+				EPCourses::singleton()->getPrefixedValues( array(
 					'org_id' => $this->getId()
 				) )
 			)->sum;
@@ -68,7 +68,7 @@ class EPOrg extends EPPageObject {
 	 * @see EPRevisionedObject::onRemoved()
 	 */
 	protected function onRemoved() {
-		foreach ( EPCourse::select( null, array( 'org_id' => $this->getId() ) ) as /* EPCourse */ $course ) {
+		foreach ( EPCourses::singleton()->select( null, array( 'org_id' => $this->getId() ) ) as /* EPCourse */ $course ) {
 			$revAction = clone $this->revAction;
 			
 			if ( trim( $revAction->getComment() ) === '' ) {
@@ -201,7 +201,7 @@ class EPOrg extends EPPageObject {
 	 */
 	public function getCourses( array $fields = null ) {
 		if ( $this->courses === false ) {
-			$this->courses = EPCourse::select( $fields, array( 'org_id' => $this->getId() ) );
+			$this->courses = EPCourses::singleton()->select( $fields, array( 'org_id' => $this->getId() ) );
 		}
 
 		return $this->courses;

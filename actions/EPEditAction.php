@@ -100,8 +100,7 @@ abstract class EPEditAction extends FormlessAction {
 		}
 		else {
 			if ( $object === false ) {
-				$c = $this->table->getDataObjectClass();
-				$c::displayDeletionLog(
+				$this->table->displayDeletionLog(
 					$this->getContext(),
 					'ep-' . strtolower( $this->getName() ) . '-deleted'
 				);
@@ -355,18 +354,16 @@ abstract class EPEditAction extends FormlessAction {
 			return Title::newFromText( $this->getRequest()->getText( 'wpreturnto' ) );
 		}
 		elseif ( !$addedItem && $this->isNew() ) {
-			$c = $this->table->getDataObjectClass(); // Yeah, this is needed in PHP 5.3 >_>
-			return SpecialPage::getTitleFor( $c::getListPage() );
+			return SpecialPage::getTitleFor( $this->table->getListPage() );
 		}
 		elseif ( $this->item !== false ) {
 			return $this->item->getTitle();
 		}
 		else {
-			$c = $this->table->getDataObjectClass(); // Yeah, this is needed in PHP 5.3 >_>
-			$fieldName = 'wpitem-' . $c::getIdentifierField();
+			$fieldName = 'wpitem-' . $this->table->getIdentifierField();
 			
 			if ( $this->getRequest()->getCheck( $fieldName ) ) {
-				return $c::getTitleFor( $this->getRequest()->getText( $fieldName ) );
+				return $this->table->getTitleFor( $this->getRequest()->getText( $fieldName ) );
 			}
 			else {
 				return $this->getTitle();

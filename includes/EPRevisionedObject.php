@@ -101,7 +101,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 */
 	protected function storeRevision( EPRevisionedObject $object ) {
 		if ( $this->storeRevisions && $this->revAction !== false ) {
-			return EPRevision::newFromObject( $object, $this->revAction )->save();
+			return EPRevisions::singleton()->newFromObject( $object, $this->revAction )->save();
 		}
 
 		return true;
@@ -136,9 +136,9 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 */
 	protected function saveExisting() {
 		if ( !$this->inSummaryMode ) {
-			static::setReadDb( DB_MASTER );
-			$originalObject = static::selectRow( null, array( 'id' => $this->getId() ) );
-			static::setReadDb( DB_SLAVE );
+			$this->table->setReadDb( DB_MASTER );
+			$originalObject = $this->table->selectRow( null, array( 'id' => $this->getId() ) );
+			$this->table->setReadDb( DB_SLAVE );
 
 			if ( $originalObject === false ) {
 				return false;

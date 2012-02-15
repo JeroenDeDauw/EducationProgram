@@ -153,8 +153,8 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		$field = $fieldMap[$this->getRoleName()];
 
 		if ( count( $courseIds ) > 0 ) {
-			EPOrg::updateSummaryFields( $field, array( 'id' => array_unique( $courseIds ) ) );
-			EPCourse::updateSummaryFields( $field, array( 'id' => $courseIds ) );
+			EPOrgs::singleton()->updateSummaryFields( $field, array( 'id' => array_unique( $courseIds ) ) );
+			EPCourses::singleton()->updateSummaryFields( $field, array( 'id' => $courseIds ) );
 		}
 
 		return $success;

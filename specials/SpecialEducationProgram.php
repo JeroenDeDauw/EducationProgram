@@ -75,12 +75,12 @@ class SpecialEducationProgram extends SpecialEPPage {
 
 		$lang = $this->getLanguage();
 
-		$data['org-count'] = $lang->formatNum( EPOrg::count() );
-		$data['course-count'] = $lang->formatNum( EPCourse::count() );
-		$data['student-count'] = $lang->formatNum( EPStudent::count() );
-		$data['instructor-count'] = $lang->formatNum( EPInstructor::count() );
-		$data['oa-count'] = $lang->formatNum( EPOA::count() );
-		$data['ca-count'] = $lang->formatNum( EPCA::count() );
+		$data['org-count'] = $lang->formatNum( EPOrgs::singleton()->count() );
+		$data['course-count'] = $lang->formatNum( EPCourses::singleton()->count() );
+		$data['student-count'] = $lang->formatNum( EPStudents::singleton()->count() );
+		$data['instructor-count'] = $lang->formatNum( EPInstructors::singleton()->count() );
+		$data['oa-count'] = $lang->formatNum( EPOAs::singleton()->count() );
+		$data['ca-count'] = $lang->formatNum( EPCAs::singleton()->count() );
 
 		return $data;
 	}
