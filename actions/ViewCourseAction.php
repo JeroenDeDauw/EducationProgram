@@ -48,10 +48,22 @@ class ViewCourseAction extends EPViewAction {
 
 		if ( count( $studentIds ) > 0 ) {
 			$out->addElement( 'h2', array(), wfMsg( 'ep-course-articles' ) );
-			EPArticle::displayPager( $this->getContext(), array( 'course_id' => $course->getId() ) );
 
-			$out->addElement( 'h2', array(), wfMsg( 'ep-course-students' ) );
-			EPStudent::displayPager( $this->getContext(), array( 'id' => $studentIds ) );
+			$pager = new EPArticleTable( $this->getContext(), array( 'id' => $studentIds ) );
+
+			if ( $pager->getNumRows() ) {
+				$out->addHTML(
+					$pager->getFilterControl() .
+					$pager->getNavigationBar() .
+					$pager->getBody() .
+					$pager->getNavigationBar() .
+					$pager->getMultipleItemControl()
+				);
+			}
+
+			// EPArticle::displayPager( $this->getContext(), array( 'course_id' => $course->getId() ) );
+			//$out->addElement( 'h2', array(), wfMsg( 'ep-course-students' ) );
+
 		}
 		else {
 			// TODO

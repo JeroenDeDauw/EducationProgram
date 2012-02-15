@@ -271,8 +271,10 @@ $messages['en'] = array(
 	'epstudentpager-yes' => 'Yes',
 	'epstudentpager-no' => 'No',
 
+	// Student article pager
+	'epstudentpager-header-articles' => 'Articles',
+
 	// Article pager
-	'ep-articles-noresults' => 'There are no articles to list.',
 	'ep-articles-noresults' => 'There are no articles to list.',
 
 	// Campus ambassador pager

@@ -18,12 +18,14 @@ class EPArticleTable extends EPPager {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conds
+	 * @param array $articleConds
 	 */
-	public function __construct( IContextSource $context, array $conds = array() ) {
+	public function __construct( IContextSource $context, array $conds = array(), $articleConds = array() ) {
 		$this->mDefaultDirection = true;
+		$this->articleConds = $articleConds;
 
 		// when MW 1.19 becomes min, we want to pass an IContextSource $context here.
-		parent::__construct( $context, $conds, 'EPStudent' );
+		parent::__construct( $context, $conds, EPStudents::singleton() );
 	}
 
 	/**
@@ -65,6 +67,10 @@ class EPArticleTable extends EPPager {
 
 				$value = Linker::userLink( $value, $name ) . Linker::userToolLinks( $value, $name );
 				break;
+			case '_articles':
+				// TODO
+				$value = serialize( $this->articles[$this->currentObject->getField( 'user_id' )] );
+				break;
 		}
 
 		return $value;
@@ -94,9 +100,35 @@ class EPArticleTable extends EPPager {
 	public function getFieldNames() {
 		$fields = parent::getFieldNames();
 
-		//$fields['_courses_current'] = 'current-courses';
+		$fields['_articles'] = 'articles';
 
 		return $fields;
+	}
+
+	protected $articles = array();
+
+	protected $articleConds;
+
+	/**
+	 * (non-PHPdoc)
+	 * @see IndexPager::doBatchLookups()
+	 */
+	protected function doBatchLookups() {
+		$userIds = array();
+
+		while( $student = $this->mResult->fetchObject() ) {
+			$field = EPStudents::singleton()->getPrefixedField( 'user_id' );
+			$userIds[] = $student->$field;
+			$this->articles[$student->$field] = array();
+		}
+
+		$conditions = array_merge( array( 'user_id' => $userIds ), $this->articleConds );
+
+		$articles = EPArticles::singleton()->select( null, $conditions );
+
+		foreach ( $articles as /* EPArticle */ $article ) {
+			$this->articles[$article->getField( 'user_id' )][] = $article;
+		}
 	}
 
 }
