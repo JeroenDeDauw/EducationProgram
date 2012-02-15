@@ -22,8 +22,8 @@ class ApiDeleteEducation extends ApiBase {
 	 * @var array
 	 */
 	protected static $typeMap = array(
-		'org' => 'EPOrg',
-		'course' => 'EPCourse',
+		'org' => 'EPOrgs',
+		'course' => 'EPCourses',
 	);
 
 	/**
@@ -70,7 +70,7 @@ class ApiDeleteEducation extends ApiBase {
 			$revAction->setUser( $this->getUser() );
 			$revAction->setComment( $params['comment'] );
 			
-			$class::deleteAndLog( $revAction, array( 'id' =>  $params['ids'] ) );
+			$class::singleton()->deleteAndLog( $revAction, array( 'id' =>  $params['ids'] ) );
 		}
 
 		$this->getResult()->addValue(
