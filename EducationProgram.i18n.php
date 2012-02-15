@@ -446,6 +446,11 @@ The deletion log for this course is provided below for convenience:",
 	'ep-disenroll-invalid-name' => 'There is no course with name "$1".',
 	'ep-disenroll-course-passed' => 'This course has ended. You can no longer disenroll from it.',
 	'ep-disenroll-not-enrolled' => 'You are not enrolled in this course, so cannot disenroll from it.',
+	'ep-disenroll-title' => 'Disenroll from course "$1"',
+	'ep-disenroll-text' => 'You are about to disenroll from course "$1". This will remove any articles you are working on for this course from your student profile.',
+	'ep-disenroll-button' => 'Disenroll',
+	'ep-disenroll-summary' => 'Why are you disenrolling?',
+	'ep-disenroll-cancel' => 'Cancel',
 
 	// Special:MyCourses
 	'ep-mycourses-enrolled' => 'You have successfully enrolled for $1 at $2.',

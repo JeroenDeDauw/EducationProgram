@@ -53,6 +53,7 @@ class SpecialDisenroll extends SpecialEPPage {
 								$this->doDisenroll( $course );
 							}
 							else {
+								$this->getOutput()->setPageTitle( wfMsgExt( 'ep-disenroll-title', 'parsemag', $course->getField( 'mc' ) ) );
 								$this->showDisenrollForm( $course );
 							}
 						}
@@ -96,7 +97,57 @@ class SpecialDisenroll extends SpecialEPPage {
 	 * @param EPCourse $course
 	 */
 	protected function showDisenrollForm( EPCourse $course ) {
-		// TODO
+		$out = $this->getOutput();
+
+		$out->addModules( 'ep.disenroll' );
+
+		$target = $this->getTitle( $this->subPage )->getLocalURL();
+
+		$out->addElement( 'p', array(), wfMsgExt( 'ep-disenroll-text', 'parsemag', $course->getField( 'name' ) ) );
+
+		$out->addHTML( Html::openElement(
+			'form',
+			array(
+				'method' => 'post',
+				'action' => $target,
+			)
+		) );
+
+		$out->addHTML( '&#160;' . Xml::inputLabel(
+			wfMsg( 'ep-disenroll-summary' ),
+			'summary',
+			'summary',
+			65,
+			false,
+			array(
+				'maxlength' => 250,
+				'spellcheck' => true,
+			)
+		) );
+
+		$out->addHTML( '<br />' );
+
+		$out->addElement(
+			'button',
+			array(
+				'class' => 'ep-disenroll-cancel',
+			),
+			wfMsg( 'ep-disenroll-cancel' )
+		);
+
+		$out->addHTML( Html::input(
+			'disenroll',
+			wfMsg( 'ep-disenroll-button' ),
+			'submit',
+			array(
+				'class' => 'ep-disenroll',
+				'target-url' => '', // TODO
+			)
+		) );
+
+		$out->addHTML( Html::hidden( 'disenrollToken', $this->getUser()->getEditToken( $target ) ) );
+
+		$out->addHTML( '</form>' );
 	}
 
 	/**

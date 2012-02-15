@@ -384,6 +384,15 @@ $wgResourceModules['ep.formpage'] = $moduleTemplate + array(
 	),
 );
 
+$wgResourceModules['ep.disenroll'] = $moduleTemplate + array(
+	'scripts' => array(
+		'ep.disenroll.js',
+	),
+	'dependencies' => array(
+		'jquery.ui.button',
+	),
+);
+
 $wgResourceModules['ep.ambprofile'] = $moduleTemplate + array(
 	'scripts' => array(
 		'ep.ambprofile.js',
