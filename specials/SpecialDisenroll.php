@@ -108,7 +108,7 @@ class SpecialDisenroll extends SpecialEPPage {
 
 		$target = $this->getTitle( $this->subPage )->getLocalURL();
 
-		$out->addElement( 'p', array(), wfMsgExt( 'ep-disenroll-text', 'parsemag', $course->getField( 'name' ) ) );
+		$out->addWikiMsg( 'ep-disenroll-text', $course->getField( 'name' ) );
 
 		$out->addHTML( Html::openElement(
 			'form',
