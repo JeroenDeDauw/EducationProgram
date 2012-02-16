@@ -53,13 +53,17 @@ class ApiEnlist extends ApiBase {
 		}
 		
 		$success = false;
-		
+
+		$revAction = new EPRevisionAction();
+		$revAction->setUser( $this->getUser() );
+		$revAction->setComment( $params['reason'] );
+
 		switch ( $params['subaction'] ) {
 			case 'add':
-				$success = $course->enlistUsers( array( $userId ), $params['role'], $params['reason'] );
+				$success = $course->enlistUsers( array( $userId ), $params['role'], true, $revAction );
 				break;
 			case 'remove':
-				$success = $course->unenlistUsers( array( $userId ), $params['role'], $params['reason'] );
+				$success = $course->unenlistUsers( array( $userId ), $params['role'], true, $revAction );
 				break;
 		}
 		

@@ -548,13 +548,12 @@ class EPCourse extends EPPageObject {
 	 *
 	 * @param array|integer $newUsers
 	 * @param string $role
-	 * @param string $message
 	 * @param boolean $save
-	 * @param boolean $log
+	 * @param EPRevisionAction|null $revAction
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function enlistUsers( $newUsers, $role, $message = '', $save = true, $log = true ) {
+	public function enlistUsers( $newUsers, $role, $save = true, EPRevisionAction $revAction = null ) {
 		$roleMap = array(
 			'student' => 'students',
 			'campus' => 'campus_ambs',
@@ -588,8 +587,9 @@ class EPCourse extends EPPageObject {
 				$this->enableLogging();
 			}
 
-			if ( $success && $log ) {
-				$this->logRoleChange( 'add', $role, $addedUsers, $message );
+			if ( $success && !is_null( $revAction ) ) {
+				$action = count( $addedUsers ) == 1 && $revAction->getUser()->getId() === $addedUsers[0] ? 'selfadd' : 'add';
+				$this->logRoleChange( $action, $role, $addedUsers, $revAction->getComment() );
 			}
 
 			return $success;
@@ -608,14 +608,13 @@ class EPCourse extends EPPageObject {
 	 *
 	 * @param array|integer $sadUsers
 	 * @param string $role
-	 * @param string $message
 	 * @param boolean $save
-	 * @param boolean $log
+	 * @param EPRevisionAction|null $revAction
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function unenlistUsers( $sadUsers, $role, $message = '', $save = true, $log = true ) {
-		$removedUser = array();
+	public function unenlistUsers( $sadUsers, $role, $save = true, EPRevisionAction $revAction = null ) {
+		$removedUsers = array();
 		$remaimingUsers = array();
 		$sadUsers = (array)$sadUsers;
 
@@ -630,14 +629,14 @@ class EPCourse extends EPPageObject {
 		
 		foreach ( $this->getField( $field ) as $userId ) {
 			if ( in_array( $userId, $sadUsers ) ) {
-				$removedUser[] = $userId;
+				$removedUsers[] = $userId;
 			}
 			else {
 				$remaimingUsers[] = $userId;
 			}
 		}
 
-		if ( count( $removedUser ) > 0 ) {
+		if ( count( $removedUsers ) > 0 ) {
 			$this->setField( $field, $remaimingUsers );
 
 			$success = true;
@@ -648,8 +647,9 @@ class EPCourse extends EPPageObject {
 				$this->enableLogging();
 			}
 
-			if ( $success && $log ) {
-				$this->logRoleChange( 'remove', $role, $removedUser, $message );
+			if ( $success && !is_null( $revAction ) ) {
+				$action = count( $removedUsers ) == 1 && $revAction->getUser()->getId() === $removedUsers[0] ? 'selfremove' : 'remove';
+				$this->logRoleChange( $action, $role, $removedUsers, $revAction->getComment() );
 			}
 
 			return $success;
@@ -690,8 +690,8 @@ class EPCourse extends EPPageObject {
 			'subtype' => $action,
 			'title' => $this->getTitle(),
 			'parameters' => array(
-				'4::instructorcount' => count( $names ),
-				'5::instructors' => $GLOBALS['wgLang']->listToText( $names )
+				'4::usercount' => count( $names ),
+				'5::users' => $GLOBALS['wgLang']->listToText( $names )
 			),
 		);
 

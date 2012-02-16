@@ -163,10 +163,15 @@ class SpecialDisenroll extends SpecialEPPage {
 	 * @param EPCourse $course
 	 */
 	protected function doDisenroll( EPCourse $course ) {
+		$revAction = new EPRevisionAction();
+		$revAction->setUser( $this->getUser() );
+		$revAction->setComment( $this->getRequest()->getText( 'summary' ) );
+
 		$success = $course->unenlistUsers(
 			$this->getUser()->getId(),
 			'student',
-			$this->getRequest()->getText( 'summary' )
+			true,
+			$revAction
 		);
 
 		if ( $success ) {
