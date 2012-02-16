@@ -140,7 +140,7 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		foreach ( $courses as /* EPCourse */ $course ) {
 			$courseIds[] = $course->getId();
 			$course->setUpdateSummaries( false );
-			$course->enlistUsers( $this->getField( 'user_id' ), $this->getRoleName(), '' );
+			$course->enlistUsers( $this->getField( 'user_id' ), $this->getRoleName() );
 			$course->setUpdateSummaries( true );
 		}
 
