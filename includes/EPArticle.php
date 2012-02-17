@@ -23,7 +23,15 @@ class EPArticle extends DBDataObject {
 	protected $user = false;
 
 	/**
-	 * Returns the user that authored this revision.
+	 * Cached title object for this revision.
+	 *
+	 * @since 0.1
+	 * @var Title|false
+	 */
+	protected $title = false;
+
+	/**
+	 * Returns the user that is working on this article.
 	 *
 	 * @since 0.1
 	 *
@@ -61,6 +69,21 @@ class EPArticle extends DBDataObject {
 			$context->getOutput()->addHTML( $pager->getFilterControl( true ) );
 			$context->getOutput()->addWikiMsg( 'ep-articles-noresults' );
 		}
+	}
+
+	/**
+	 * Returns the title of this article.
+	 *
+	 * @since 0.1
+	 *
+	 * @return Title
+	 */
+	public function getTitle() {
+		if ( $this->title === false ) {
+			$this->title = Title::newFromID( $this->getField( 'page_id' ) );
+		}
+
+		return $this->title;
 	}
 
 }

@@ -73,9 +73,6 @@ class EPArticleTable extends EPPager {
 		return 'TablePager ep-students';
 	}
 
-	protected $currentArticleKey = 0;
-
-
 	/**
 	 * (non-PHPdoc)
 	 * @see TablePager::formatRow()
@@ -107,34 +104,38 @@ class EPArticleTable extends EPPager {
 
 			$reviewers = $article->getField( 'reviewers' );
 
-			$html .= Html::rawElement(
-				'td',
-				array_merge(
-					$this->getCellAttrs( 'articles', $article ),
-					array( 'rowspan' => max( 1, count( $reviewers ) ) )
-				),
-				serialize( $article ) // TODO
-			);
+			$html .= $this->getArticleCell( $article, max( 1, count( $reviewers ) )  );
 
 			foreach ( $reviewers as $nr => $userId ) {
 				if ( $nr !== 0 ) {
 					$html .= '</tr><tr>';
 				}
 
-				$html .= Html::rawElement(
-					'td',
-					$this->getCellAttrs( 'reviewers', $userId ),
-					$userId // TODO
-				);
+				$html .= $this->getReviewerCell( $article, $userId );
 			}
+
+			// TODO: add reviewer adittion control for reviewers
 		}
+
+		// TODO: add article adittion control for student
 
 		$html .= '</tr>';
 
 		return $html;
 	}
 
+	/**
+	 * Returns the HTML for a user cell.
+	 *
+	 * @since 0.1
+	 *
+	 * @param integer $userId
+	 * @param integer $rowSpan
+	 *
+	 * @return string
+	 */
 	protected function getUserCell( $userId, $rowSpan ) {
+		// TODO: add student removal control for instructors
 		$user = User::newFromId( $userId );
 		$name = $user->getRealName() === '' ? $user->getName() : $user->getRealName();
 
@@ -144,6 +145,54 @@ class EPArticleTable extends EPPager {
 				$this->getCellAttrs( 'user_id', $userId ),
 				array( 'rowspan' => $rowSpan )
 			),
+			Linker::userLink( $userId, $name ) . Linker::userToolLinks( $userId, $name )
+		);
+	}
+
+	/**
+	 * Returns the HTML for an article cell.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPArticle $article
+	 * @param integer $rowSpan
+	 *
+	 * @return string
+	 */
+	protected function getArticleCell( EPArticle $article, $rowSpan ) {
+		// TODO: add article removal control for student
+
+		return Html::rawElement(
+			'td',
+			array_merge(
+				$this->getCellAttrs( 'articles', $article ),
+				array( 'rowspan' => $rowSpan )
+			),
+			Linker::link(
+				$article->getTitle(),
+				htmlspecialchars( $article->getTitle()->getFullText() )
+			)
+		);
+	}
+
+	/**
+	 * Returns the HTML for a reviewer cell.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPArticle $article
+	 * @param integer $userId
+	 *
+	 * @return string
+	 */
+	protected function getReviewerCell( EPArticle $article, $userId ) {
+		// TODO: add reviewer removal control reviewer and instructors
+		$user = User::newFromId( $userId );
+		$name = $user->getRealName() === '' ? $user->getName() : $user->getRealName();
+
+		return Html::rawElement(
+			'td',
+			$this->getCellAttrs( 'reviewers', $userId ),
 			Linker::userLink( $userId, $name ) . Linker::userToolLinks( $userId, $name )
 		);
 	}
@@ -198,9 +247,9 @@ class EPArticleTable extends EPPager {
 		while( $student = $this->mResult->fetchObject() ) {
 			$field = EPStudents::singleton()->getPrefixedField( 'user_id' );
 			$userIds[] = $student->$field;
-			$this->articles[$student->$field] = array(
-				EPArticles::singleton()->newFromArray( array( 'page_id' => 1, 'reviewers' => array( 'rev 0', 'rev 1' ) ) ),
-				EPArticles::singleton()->newFromArray( array( 'page_id' => 2, 'reviewers' => array( 'rev 2', 'rev 3' ) ) ),
+			$this->articles[$student->$field] = array( // TODO
+				EPArticles::singleton()->newFromArray( array( 'page_id' => 1, 'reviewers' => array( 1, 1 ) ) ),
+				EPArticles::singleton()->newFromArray( array( 'page_id' => 2, 'reviewers' => array( 1, 1 ) ) ),
 			);
 		}
 
