@@ -38,5 +38,19 @@ class EPLogFormatter extends LogFormatter {
 		}
 		return $link;
 	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see LogFormatter::extractParameters()
+	 */
+	protected function extractParameters() {
+		$params = parent::extractParameters();
+
+		if ( !empty( $params ) ) {
+			$params[4] = $this->context->getLanguage()->listToText( (array)$params[4] );
+		}
+
+		return $params;
+	}
 	
 }

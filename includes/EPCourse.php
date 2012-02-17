@@ -691,7 +691,7 @@ class EPCourse extends EPPageObject {
 			'title' => $this->getTitle(),
 			'parameters' => array(
 				'4::usercount' => count( $names ),
-				'5::users' => $GLOBALS['wgLang']->listToText( $names )
+				'5::users' => $names
 			),
 		);
 

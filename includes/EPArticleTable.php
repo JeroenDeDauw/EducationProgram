@@ -197,6 +197,25 @@ class EPArticleTable extends EPPager {
 		);
 	}
 
+	protected function addStudentRemovalControl() {
+
+	}
+
+	protected function addArticleRemovalControl() {
+
+	}
+
+	protected function addReviwerRemovalControl() {
+
+	}
+
+	protected function addArticleAdittionControl() {
+
+	}
+
+	protected function addReviewerAdittionControl() {
+
+	}
 
 	/**
 	 * (non-PHPdoc)
