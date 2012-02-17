@@ -65,6 +65,7 @@ abstract class EPPager extends TablePager {
 	 * @see TablePager::formatRow()
 	 */
 	function formatRow( $row ) {
+		$this->mCurrentRow = $row;
 		$this->currentObject = $this->table->newFromDBResult( $row );
 		
 		$cells = array();
@@ -322,8 +323,6 @@ abstract class EPPager extends TablePager {
 		$controls = array();
 
 		foreach ( $filterOptions as $optionName => $optionData ) {
-
-
 			switch ( $optionData['type'] ) {
 				case 'select':
 					$select = new XmlSelect( 

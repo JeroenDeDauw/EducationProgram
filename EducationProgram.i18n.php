@@ -272,7 +272,9 @@ $messages['en'] = array(
 	'epstudentpager-no' => 'No',
 
 	// Student article pager
+	'epstudentpager-header-student' => 'Student',
 	'epstudentpager-header-articles' => 'Articles',
+	'epstudentpager-header-reviewers' => 'Reviewers',
 
 	// Article pager
 	'ep-articles-noresults' => 'There are no articles to list.',
