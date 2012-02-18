@@ -49,7 +49,11 @@ class ViewCourseAction extends EPViewAction {
 		if ( count( $studentIds ) > 0 ) {
 			$out->addElement( 'h2', array(), wfMsg( 'ep-course-articles' ) );
 
-			$pager = new EPArticleTable( $this->getContext(), array( 'id' => $studentIds ) );
+			$pager = new EPArticleTable(
+				$this->getContext(),
+				array( 'id' => $studentIds ),
+				array( 'course_id' => $course->getId() )
+			);
 
 			if ( $pager->getNumRows() ) {
 				$out->addHTML(

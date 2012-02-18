@@ -135,9 +135,34 @@ class EPArticleTable extends EPPager {
 	 * @return string
 	 */
 	protected function getUserCell( $userId, $rowSpan ) {
-		// TODO: add student removal control for instructors
 		$user = User::newFromId( $userId );
 		$name = $user->getRealName() === '' ? $user->getName() : $user->getRealName();
+
+		$html = Linker::userLink( $userId, $name );
+
+		if ( $this->getUser()->isAllowed( 'ep-remstudent' )
+			&& array_key_exists( 'course_id', $this->articleConds )
+			&& is_integer( $this->articleConds['course_id'] ) ) {
+
+			$html .= EPUtils::getToolLinks(
+				$userId,
+				$name,
+				$this->getContext(),
+				array( Html::element(
+					'a',
+					array(
+						'href' => '#',
+						'data-user-id' => $userId,
+						'data-course-id' => $this->articleConds['course_id'],
+						'class' => 'ep-rem-student',
+					),
+					wfMsg( 'ep-artciles-remstudent' )
+				) )
+			);
+		}
+		else {
+			$html .= Linker::userToolLinks( $userId, $name );
+		}
 
 		return html::rawElement(
 			'td',
@@ -145,7 +170,7 @@ class EPArticleTable extends EPPager {
 				$this->getCellAttrs( 'user_id', $userId ),
 				array( 'rowspan' => $rowSpan )
 			),
-			Linker::userLink( $userId, $name ) . Linker::userToolLinks( $userId, $name )
+			$html
 		);
 	}
 
@@ -160,7 +185,22 @@ class EPArticleTable extends EPPager {
 	 * @return string
 	 */
 	protected function getArticleCell( EPArticle $article, $rowSpan ) {
-		// TODO: add article removal control for student
+		$html = Linker::link(
+			$article->getTitle(),
+			htmlspecialchars( $article->getTitle()->getFullText() )
+		);
+
+		if ( $this->getUser()->getId() === $article->getField( 'user_id' ) ) {
+			$html .= ' (' . Html::element(
+				'a',
+				array(
+					'href' => '#',
+					'data-article-id' => $article->getId(),
+					'class' => 'ep-rem-article',
+				),
+				wfMsg( 'ep-artciles-remarticle' )
+			) . ')';
+		}
 
 		return Html::rawElement(
 			'td',
@@ -168,10 +208,7 @@ class EPArticleTable extends EPPager {
 				$this->getCellAttrs( 'articles', $article ),
 				array( 'rowspan' => $rowSpan )
 			),
-			Linker::link(
-				$article->getTitle(),
-				htmlspecialchars( $article->getTitle()->getFullText() )
-			)
+			$html
 		);
 	}
 
@@ -186,19 +223,50 @@ class EPArticleTable extends EPPager {
 	 * @return string
 	 */
 	protected function getReviewerCell( EPArticle $article, $userId ) {
-		// TODO: add reviewer removal control reviewer and instructors
 		$user = User::newFromId( $userId );
 		$name = $user->getRealName() === '' ? $user->getName() : $user->getRealName();
+
+		$html = Linker::userLink( $userId, $name );
+
+		if ( $this->getUser()->isAllowed( 'ep-remreviewer' ) ) {
+			$html .= EPUtils::getToolLinks(
+				$userId,
+				$name,
+				$this->getContext(),
+				array( Html::element(
+					'a',
+					array(
+						'href' => '#',
+						'data-user-id' => $userId,
+						'data-article-id' => $article->getId(),
+						'class' => 'ep-rem-reviewer',
+					),
+					wfMsg( 'ep-artciles-remreviewer' )
+				) )
+			);
+		}
+		elseif ( $this->getUser()->getId() === $userId ) {
+			$html .= Linker::userToolLinks( $userId, $name );
+			$html .= '<br />';
+			$html .= Html::element(
+				'button',
+				array(
+					'class' => 'ep-rem-reviewer-self',
+					'disabled' => 'disabled',
+					'data-article-id' => $article->getId(),
+				),
+				wfMsg( 'ep-artciles-remreviewer-self' )
+			);
+		}
+		else {
+			$html .= Linker::userToolLinks( $userId, $name );
+		}
 
 		return Html::rawElement(
 			'td',
 			$this->getCellAttrs( 'reviewers', $userId ),
-			Linker::userLink( $userId, $name ) . Linker::userToolLinks( $userId, $name )
+			$html
 		);
-	}
-
-	protected function addStudentRemovalControl() {
-
 	}
 
 	protected function addArticleRemovalControl() {
@@ -267,8 +335,8 @@ class EPArticleTable extends EPPager {
 			$field = EPStudents::singleton()->getPrefixedField( 'user_id' );
 			$userIds[] = $student->$field;
 			$this->articles[$student->$field] = array( // TODO
-				EPArticles::singleton()->newFromArray( array( 'page_id' => 1, 'reviewers' => array( 1, 1 ) ) ),
-				EPArticles::singleton()->newFromArray( array( 'page_id' => 2, 'reviewers' => array( 1, 1 ) ) ),
+				EPArticles::singleton()->newFromArray( array( 'page_id' => 1, 'user_id' => 1, 'reviewers' => array( 1, 1 ) ) ),
+				EPArticles::singleton()->newFromArray( array( 'page_id' => 2, 'user_id' => 1, 'reviewers' => array( 1, 1 ) ) ),
 			);
 		}
 

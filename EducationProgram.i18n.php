@@ -275,6 +275,10 @@ $messages['en'] = array(
 	'epstudentpager-header-student' => 'Student',
 	'epstudentpager-header-articles' => 'Articles',
 	'epstudentpager-header-reviewers' => 'Reviewers',
+	'ep-artciles-remstudent' => 'remove from course',
+	'ep-artciles-remreviewer-self' => 'Remove myself as reviewer',
+	'ep-artciles-remreviewer' => 'remove as reviewer',
+	'ep-artciles-remarticle' => 'remove article',
 
 	// Article pager
 	'ep-articles-noresults' => 'There are no articles to list.',

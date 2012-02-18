@@ -135,6 +135,16 @@ class EPUtils {
 		
 		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( $links ) . ')</span>';
 	}
+
+	public static function getToolLinks( $userId, $userName, IContextSource $context, array $extraLinks = array() ) {
+		$links = array();
+
+		$links[] = Linker::userTalkLink( $userId, $userName );
+
+		$links[] = Linker::link( SpecialPage::getTitleFor( 'Contributions', $userName ), wfMsgHtml( 'contribslink' ) );
+
+		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( array_merge( $links, $extraLinks ) ) . ')</span>';
+	}
 	
 	/**
 	 * Adds a navigation menu with the provided links.

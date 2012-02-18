@@ -213,6 +213,8 @@ $wgAvailableRights[] = 'ep-instructor';		// Add or remove instructors from cours
 $wgAvailableRights[] = 'ep-beonline';		// Add or remove yourself as online ambassador from terms
 $wgAvailableRights[] = 'ep-becampus';		// Add or remove yourself as campus ambassador from terms
 $wgAvailableRights[] = 'ep-beinstructor';	// Add or remove yourself as instructor from courses
+$wgAvailableRights[] = 'ep-bereviewer';		// Add or remove yourself as reviewer from articles
+$wgAvailableRights[] = 'ep-remreviewer';	// Remove reviewers from articles
 
 // User group rights
 $wgGroupPermissions['*']['ep-enroll'] = true;
@@ -226,6 +228,8 @@ $wgGroupPermissions['*']['ep-instructor'] = false;
 $wgGroupPermissions['*']['ep-beonline'] = false;
 $wgGroupPermissions['*']['ep-becampus'] = false;
 $wgGroupPermissions['*']['ep-beinstructor'] = false;
+$wgGroupPermissions['*']['ep-bereviewer'] = false;
+$wgGroupPermissions['*']['ep-remreviewer'] = false;
 
 $wgGroupPermissions['epstaff']['ep-org'] = true;
 $wgGroupPermissions['epstaff']['ep-course'] = true;
@@ -238,6 +242,8 @@ $wgGroupPermissions['epstaff']['ep-instructor'] = true;
 $wgGroupPermissions['epstaff']['ep-beonline'] = true;
 $wgGroupPermissions['epstaff']['ep-becampus'] = true;
 $wgGroupPermissions['epstaff']['ep-beinstructor'] = true;
+$wgGroupPermissions['epstaff']['ep-bereviewer'] = true;
+$wgGroupPermissions['epstaff']['ep-remreviewer'] = true;
 
 $wgGroupPermissions['epadmin']['ep-org'] = true;
 $wgGroupPermissions['epadmin']['ep-course'] = true;
@@ -250,6 +256,8 @@ $wgGroupPermissions['epadmin']['ep-instructor'] = true;
 $wgGroupPermissions['epadmin']['ep-beonline'] = true;
 $wgGroupPermissions['epadmin']['ep-becampus'] = true;
 $wgGroupPermissions['epadmin']['ep-beinstructor'] = true;
+$wgGroupPermissions['epadmin']['ep-bereviewer'] = true;
+$wgGroupPermissions['epadmin']['ep-remreviewer'] = true;
 
 $wgGroupPermissions['eponlineamb']['ep-org'] = true;
 $wgGroupPermissions['eponlineamb']['ep-course'] = true;
