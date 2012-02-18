@@ -271,7 +271,7 @@ class EPArticleTable extends EPPager {
 	 * @since 0.1
 	 *
 	 * @param EPArticle $article
-	 * @param integer $userId
+	 * @param integer $userId User id of the reviewer
 	 *
 	 * @return string
 	 */
@@ -292,6 +292,10 @@ class EPArticleTable extends EPPager {
 						'href' => '#',
 						'data-user-id' => $userId,
 						'data-article-id' => $article->getId(),
+						'data-article-name' => $article->getTitle()->getFullText(),
+						'data-student-name' => $article->getUser()->getName(),
+						'data-reviewer-name' => $user->getName(),
+						'data-reviewer-id' => $user->getId(),
 						'class' => 'ep-rem-reviewer',
 					),
 					wfMsg( 'ep-artciles-remreviewer' )
@@ -307,6 +311,8 @@ class EPArticleTable extends EPPager {
 					'class' => 'ep-rem-reviewer-self',
 					'disabled' => 'disabled',
 					'data-article-id' => $article->getId(),
+					'data-article-name' => $article->getField( 'name' ),
+					'data-student-name' => $article->getUser()->getName(),
 				),
 				wfMsg( 'ep-artciles-remreviewer-self' )
 			);
@@ -380,6 +386,8 @@ class EPArticleTable extends EPPager {
 				'class' => 'ep-become-reviewer',
 				'disabled' => 'disabled',
 				'data-article-id' => $article->getId(),
+				'data-article-name' => $article->getTitle()->getFullText(),
+				'data-user-name' => $article->getUser()->getName(),
 			),
 			wfMsg( 'ep-artciles-becomereviewer' )
 		);

@@ -432,6 +432,20 @@ $wgResourceModules['ep.articletable'] = $moduleTemplate + array(
 		'jquery.ui.button',
 		'jquery.ui.dialog',
 	),
+	'messages' => array(
+		'ep-articletable-addreviwer-title',
+		'ep-articletable-addreviwer-button',
+		'ep-articletable-addreviwer-cancel',
+		'ep-articletable-addreviwer-text',
+
+		'ep-articletable-remreviwer-title',
+		'ep-articletable-remreviwer-button',
+		'ep-articletable-remreviwer-cancel',
+		'ep-articletable-remreviwer-text',
+		'ep-articletable-remreviwer-title-self',
+		'ep-articletable-remreviwer-button-self',
+		'ep-articletable-remreviwer-text-self',
+	),
 );
 
 $wgResourceModules['ep.addorg'] = $moduleTemplate + array(

@@ -9,16 +9,39 @@
 (function( $, ep ) {
 	
 	function addReviewer() {
-		$dialog = $( '<div>' ).html( '' ).dialog( {
-			'title': ep.msg( 'ep-articletable-addreviwer-title' ),
+		var $this = $( this );
+
+		var $form = $( '<form>' ).attr( {
+			'method': 'post',
+			'action': window.location
+		} ).msg(
+			'ep-articletable-addreviwer-text',
+			mw.user.name,
+			$( '<b>' ).text( $this.attr( 'data-article-name' ) ),
+			$( '<b>' ).text( $this.attr( 'data-user-name' ) )
+		);
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'action',
+			'value': 'epaddreviewer'
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'article-id',
+			'value': $this.attr( 'data-article-id' )
+		} ) );
+
+		var $dialog = $( '<div>' ).html( '' ).dialog( {
+			'title': ep.msg('ep-articletable-addreviwer-title', mw.user.name ),
 			'minWidth': 550,
 			'buttons': [
 				{
-					'text': ep.msg( 'ep-articletable-addreviwer-button' ),
+					'text': ep.msg( 'ep-articletable-addreviwer-button', mw.user.name ),
 					'id': 'ep-addreviwer-button',
 					'click': function() {
-						alert( 'submit' );
-						// TODO
+						$form.submit();
 					}
 				},
 				{
@@ -30,6 +53,8 @@
 				}
 			]
 		} );
+
+		$dialog.append( $form );
 	}
 	
 	function addArticle() {
@@ -45,7 +70,62 @@
 	}
 	
 	function removeReviewer() {
-		// TODO
+		var $this = $( this ),
+		isSelf = $this.attr( 'data-reviewer-name' ) === undefined,
+		selfSuffix = isSelf ? '-self' : '',
+		reviewerName = isSelf ? mw.user.name : $this.attr( 'data-reviewer-name' );
+
+		var $form = $( '<form>' ).attr( {
+			'method': 'post',
+			'action': window.location
+		} ).msg(
+			'ep-articletable-remreviwer-text' + selfSuffix,
+			reviewerName,
+			$( '<b>' ).text( $this.attr( 'data-article-name' ) ),
+			$( '<b>' ).text( $this.attr( 'data-student-name' ) ),
+			$( '<b>' ).text( reviewerName )
+		);
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'action',
+			'value': 'epremreviewer'
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'article-id',
+			'value': $this.attr( 'data-article-id' )
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'user-id',
+			'value': isSelf ? mw.user.id : $this.attr( 'data-reviewer-id' )
+		} ) );
+
+		var $dialog = $( '<div>' ).html( '' ).dialog( {
+			'title': ep.msg('ep-articletable-remreviwer-title' + selfSuffix, reviewerName ),
+			'minWidth': 550,
+			'buttons': [
+				{
+					'text': ep.msg( 'ep-articletable-remreviwer-button' + selfSuffix, reviewerName ),
+					'id': 'ep-remreviwer-button',
+					'click': function() {
+						$form.submit();
+					}
+				},
+				{
+					'text': ep.msg( 'ep-articletable-remreviwer-cancel' ),
+					'id': 'ep-remreviwer-cancel',
+					'click': function() {
+						$dialog.dialog( 'close' );
+					}
+				}
+			]
+		} );
+
+		$dialog.append( $form );
 	}
 	
 	$( document ).ready( function() {
@@ -54,7 +134,7 @@
 
 		$( '.ep-become-reviewer' ).click( addReviewer );
 		
-		$( '.ep-rem-reviewer-self' ).click( removeReviewer );
+		$( '.ep-rem-reviewer, .ep-rem-reviewer-self' ).click( removeReviewer );
 		
 		// TODO
 	} );

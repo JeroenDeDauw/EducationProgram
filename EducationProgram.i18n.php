@@ -271,17 +271,31 @@ $messages['en'] = array(
 	'epstudentpager-yes' => 'Yes',
 	'epstudentpager-no' => 'No',
 
-	// Student article pager
+	// Article table
 	'epstudentpager-header-student' => 'Student',
 	'epstudentpager-header-articles' => 'Articles',
 	'epstudentpager-header-reviewers' => 'Reviewers',
 	'ep-artciles-remstudent' => 'remove from course',
-	'ep-artciles-remreviewer-self' => 'Remove myself as reviewer',
-	'ep-artciles-remreviewer' => 'remove as reviewer',
+	'ep-artciles-remreviewer-self' => 'Remove myself as {{GENDER:$1|reviewer}}',
+	'ep-artciles-remreviewer' => 'remove as {{GENDER:$1|reviewer}}',
 	'ep-artciles-remarticle' => 'remove article',
 	'ep-artciles-addarticle-text' => 'Add an article:',
 	'ep-artciles-addarticle-button' => 'Add article',
-	'ep-artciles-becomereviewer' => 'Add myself as reviewer',
+	'ep-artciles-becomereviewer' => 'Add myself as {{GENDER:$1|reviewer}}',
+
+	// ep.articletable
+	'ep-articletable-addreviwer-title' => 'Become {{GENDER:$1|reviewer}}',
+	'ep-articletable-addreviwer-button' => 'Become {{GENDER:$1|reviewer}}',
+	'ep-articletable-addreviwer-cancel' => 'Cancel',
+	'ep-articletable-addreviwer-text' => 'You are about to enlist yourself as {{GENDER:$1|reviewer}} for article $2 worked on by $3.',
+
+	'ep-articletable-remreviwer-title' => 'Remove $1 as {{GENDER:$1|reviewer}}',
+	'ep-articletable-remreviwer-title-self' => 'Remove yourself as {{GENDER:$1|reviewer}}',
+	'ep-articletable-remreviwer-button' => 'Remove {{GENDER:$1|reviewer}}',
+	'ep-articletable-remreviwer-button-self' => 'Remove yourself',
+	'ep-articletable-remreviwer-cancel' => 'Cancel',
+	'ep-articletable-remreviwer-text-self' => 'You are about to remove yourself as {{GENDER:$1|reviewer}} for article $2 worked on by $3.',
+	'ep-articletable-remreviwer-text' => 'You are about to remove $4 as {{GENDER:$1|reviewer}} for article $2 worked on by $3.',
 
 	// Article pager
 	'ep-articles-noresults' => 'There are no articles to list.',
