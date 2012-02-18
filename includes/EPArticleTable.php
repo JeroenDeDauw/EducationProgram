@@ -83,15 +83,30 @@ class EPArticleTable extends EPPager {
 
 		$student = $this->currentObject;
 		$articles = $this->articles[$student->getField( 'user_id' )];
+		$user = $this->getUser();
 
-		$articleCount = count( $articles );
-		$reviewerCount = array_reduce( $articles, function( /* integer */ $sum, EPArticle $article ) {
-			return $sum + count( $article->getField( 'reviewers' ) );
+		$rowCount = array_reduce( $articles, function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
+			$sum += count( $article->getField( 'reviewers' ) );
+
+			if ( $article->canBecomeReviewer( $user ) ) {
+				$sum++;
+			}
+
+			return $sum;
 		}, 0 );
 
 		$html = Html::openElement( 'tr', $this->getRowAttrs( $row ) );
 
-		$html .= $this->getUserCell( $student->getField( 'user_id' ), $reviewerCount );
+		$showArticleAdittion =
+			$this->getUser()->getId() === $student->getField( 'user_id' )
+			&& array_key_exists( 'course_id', $this->articleConds )
+			&& is_integer( $this->articleConds['course_id'] );
+
+		if ( $showArticleAdittion ) {
+			$rowCount++;
+		}
+
+		$html .= $this->getUserCell( $student->getField( 'user_id' ), $rowCount );
 
 		$isFirst = true;
 
@@ -104,7 +119,15 @@ class EPArticleTable extends EPPager {
 
 			$reviewers = $article->getField( 'reviewers' );
 
-			$html .= $this->getArticleCell( $article, max( 1, count( $reviewers ) )  );
+			$articleRowCount = count( $reviewers );
+
+			if ( $article->canBecomeReviewer( $user ) ) {
+				$articleRowCount++;
+			}
+
+			$articleRowCount = max( 1, $articleRowCount );
+
+			$html .= $this->getArticleCell( $article, $articleRowCount );
 
 			foreach ( $reviewers as $nr => $userId ) {
 				if ( $nr !== 0 ) {
@@ -114,10 +137,22 @@ class EPArticleTable extends EPPager {
 				$html .= $this->getReviewerCell( $article, $userId );
 			}
 
-			// TODO: add reviewer adittion control for reviewers
+			if ( $article->canBecomeReviewer( $user ) ) {
+				if ( count( $reviewers ) !== 0 ) {
+					$html .= '</tr><tr>';
+				}
+
+				$html .= $this->getReviewerAdittionControl( $article );
+			}
 		}
 
-		// TODO: add article adittion control for student
+		if ( $showArticleAdittion ) {
+			if ( !$isFirst ) {
+				$html .= '</tr><tr>';
+			}
+
+			$html .= $this->getArticleAdittionControl( $this->articleConds['course_id'] );
+		}
 
 		$html .= '</tr>';
 
@@ -269,20 +304,51 @@ class EPArticleTable extends EPPager {
 		);
 	}
 
-	protected function addArticleRemovalControl() {
+	protected function getArticleAdittionControl( $courseId ) {
+		$html = '';
 
+		$html .= Html::openElement(
+			'form',
+			array(
+				'method' => 'post',
+				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'addarticle' ) ),
+			)
+		);
+
+		$html .=  Xml::inputLabel(
+			wfMsg( 'ep-artciles-addarticle-text' ),
+			'addarticlename',
+			'addarticlename'
+		);
+
+		$html .= '&#160;' . Html::input(
+			'addarticle',
+			wfMsg( 'ep-artciles-addarticle-button' ),
+			'submit',
+			array(
+				'class' => 'ep-addarticle',
+			)
+		);
+
+		$html .= Html::hidden( 'addArticleToken', $this->getUser()->getEditToken( 'addarticle' . $courseId ) );
+
+		$html .= '</form>';
+
+		return '<td colspan="2">' . $html . '</td>';
 	}
 
-	protected function addReviwerRemovalControl() {
+	protected function getReviewerAdittionControl( EPArticle $article ) {
+		$html = Html::element(
+			'button',
+			array(
+				'class' => 'ep-become-reviewer',
+				//'disabled' => 'disabled',
+				'data-article-id' => $article->getId(),
+			),
+			wfMsg( 'ep-artciles-becomereviewer' )
+		);
 
-	}
-
-	protected function addArticleAdittionControl() {
-
-	}
-
-	protected function addReviewerAdittionControl() {
-
+		return '<td>' . $html . '</td>';
 	}
 
 	/**

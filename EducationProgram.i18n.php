@@ -279,6 +279,9 @@ $messages['en'] = array(
 	'ep-artciles-remreviewer-self' => 'Remove myself as reviewer',
 	'ep-artciles-remreviewer' => 'remove as reviewer',
 	'ep-artciles-remarticle' => 'remove article',
+	'ep-artciles-addarticle-text' => 'Add an article:',
+	'ep-artciles-addarticle-button' => 'Add article',
+	'ep-artciles-becomereviewer' => 'Add myself as reviewer',
 
 	// Article pager
 	'ep-articles-noresults' => 'There are no articles to list.',

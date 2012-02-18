@@ -86,4 +86,17 @@ class EPArticle extends DBDataObject {
 		return $this->title;
 	}
 
+	protected $canBecomeReviwer = array();
+
+	public function canBecomeReviewer( User $user ) {
+		if ( !array_key_exists( $user->getId(), $this->canBecomeReviwer ) ) {
+			$this->canBecomeReviwer[$user->getId()] = $this->getUser()->isAllowed( 'ep-bereviewer' )
+				//&& $this->getUser()->getId() !== $student->getField( 'user_id' )
+				//&& !in_array( $this->getUser()->getId(), $article->getField( 'reviewers' ) )
+			;
+		}
+
+		return $this->canBecomeReviwer[$user->getId()];
+	}
+
 }
