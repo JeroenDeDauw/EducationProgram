@@ -10,8 +10,7 @@
 
 	$( document ).ready( function() {
 
-		$( '.ep-disenroll-cancel' ).button();
-		$( '.ep-disenroll' ).button();
+		$( '.ep-disenroll-cancel, .ep-disenroll' ).button();
 
 		$( '.ep-disenroll-cancel' ).click( function( event ) {
 			window.location = $( this ).attr( 'target-url' );

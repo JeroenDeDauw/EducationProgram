@@ -424,6 +424,16 @@ $wgResourceModules['ep.imageinput'] = $moduleTemplate + array(
 	),
 );
 
+$wgResourceModules['ep.articletable'] = $moduleTemplate + array(
+	'scripts' => array(
+		'ep.articletable.js',
+	),
+	'dependencies' => array(
+		'jquery.ui.button',
+		'jquery.ui.dialog',
+	),
+);
+
 $wgResourceModules['ep.addorg'] = $moduleTemplate + array(
 	'scripts' => array(
 		'ep.addorg.js',

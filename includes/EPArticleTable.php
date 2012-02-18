@@ -45,6 +45,11 @@ class EPArticleTable extends EPPager {
 		// when MW 1.19 becomes min, we want to pass an IContextSource $context here.
 		parent::__construct( $context, $conds, EPStudents::singleton() );
 	}
+	
+	public function getBody() {
+		$this->getOutput()->addModules( 'ep.articletable' );
+		return parent::getBody();
+	}
 
 	/**
 	 * (non-PHPdoc)
@@ -108,6 +113,23 @@ class EPArticleTable extends EPPager {
 
 		$html .= $this->getUserCell( $student->getField( 'user_id' ), $rowCount );
 
+		$this->addNonStudentHTML( $html, $articles, $showArticleAdittion );
+
+		$html .= '</tr>';
+
+		return $html;
+	}
+	
+	/**
+	 * Adds the HTML for the article and reviewers to the table row.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param string $html
+	 * @param array $articles
+	 * @param boolean $showArticleAdittion
+	 */
+	protected function addNonStudentHTML( &$html, array $articles, $showArticleAdittion ) {
 		$isFirst = true;
 
 		foreach ( $articles as /* EPArticle */ $article ) {
@@ -121,7 +143,7 @@ class EPArticleTable extends EPPager {
 
 			$articleRowCount = count( $reviewers );
 
-			if ( $article->canBecomeReviewer( $user ) ) {
+			if ( $article->canBecomeReviewer( $this->getUser() ) ) {
 				$articleRowCount++;
 			}
 
@@ -137,7 +159,7 @@ class EPArticleTable extends EPPager {
 				$html .= $this->getReviewerCell( $article, $userId );
 			}
 
-			if ( $article->canBecomeReviewer( $user ) ) {
+			if ( $article->canBecomeReviewer( $this->getUser() ) ) {
 				if ( count( $reviewers ) !== 0 ) {
 					$html .= '</tr><tr>';
 				}
@@ -152,11 +174,7 @@ class EPArticleTable extends EPPager {
 			}
 
 			$html .= $this->getArticleAdittionControl( $this->articleConds['course_id'] );
-		}
-
-		$html .= '</tr>';
-
-		return $html;
+		}	
 	}
 
 	/**
@@ -304,6 +322,15 @@ class EPArticleTable extends EPPager {
 		);
 	}
 
+	/**
+	 * Returns the HTML for the article adittion control.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param integer $courseId
+	 * 
+	 * @return string
+	 */
 	protected function getArticleAdittionControl( $courseId ) {
 		$html = '';
 
@@ -337,12 +364,21 @@ class EPArticleTable extends EPPager {
 		return '<td colspan="2">' . $html . '</td>';
 	}
 
+	/**
+	 * Returns the HTML for the reviewer adittion control.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param EPArticle $article
+	 * 
+	 * @return string
+	 */
 	protected function getReviewerAdittionControl( EPArticle $article ) {
 		$html = Html::element(
 			'button',
 			array(
 				'class' => 'ep-become-reviewer',
-				//'disabled' => 'disabled',
+				'disabled' => 'disabled',
 				'data-article-id' => $article->getId(),
 			),
 			wfMsg( 'ep-artciles-becomereviewer' )
