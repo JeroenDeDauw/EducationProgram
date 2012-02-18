@@ -217,6 +217,7 @@ class EPArticleTable extends EPPager {
 						'data-course-id' => $this->articleConds['course_id'],
 						'data-user-name' => $name,
 						'data-course-name' => $this->getCourseName(),
+						'data-token' => $this->getUser()->getEditToken( $this->articleConds['course_id'] . 'remstudent' . $userId ),
 						'class' => 'ep-rem-student',
 					),
 					wfMsg( 'ep-artciles-remstudent' )
@@ -262,7 +263,7 @@ class EPArticleTable extends EPPager {
 	 * @param integer $rowSpan
 	 *
 	 * @return string
-	 */-
+	 */
 	protected function getArticleCell( EPArticle $article, $rowSpan ) {
 		$html = Linker::link(
 			$article->getTitle(),
@@ -273,6 +274,7 @@ class EPArticleTable extends EPPager {
 			'href' => '#',
 			'data-article-id' => $article->getId(),
 			'data-article-name' => $article->getTitle()->getFullText(),
+			'data-token' => $this->getUser()->getEditToken( 'remarticle' . $article->getId() ),
 			'class' => 'ep-rem-article',
 		);
 
@@ -329,6 +331,7 @@ class EPArticleTable extends EPPager {
 						'data-student-name' => $article->getUser()->getName(),
 						'data-reviewer-name' => $user->getName(),
 						'data-reviewer-id' => $user->getId(),
+						'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 						'class' => 'ep-rem-reviewer',
 					),
 					wfMsg( 'ep-artciles-remreviewer' )
@@ -346,6 +349,7 @@ class EPArticleTable extends EPPager {
 					'data-article-id' => $article->getId(),
 					'data-article-name' => $article->getField( 'name' ),
 					'data-student-name' => $article->getUser()->getName(),
+					'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 				),
 				wfMsg( 'ep-artciles-remreviewer-self' )
 			);
@@ -421,6 +425,7 @@ class EPArticleTable extends EPPager {
 				'data-article-id' => $article->getId(),
 				'data-article-name' => $article->getTitle()->getFullText(),
 				'data-user-name' => $article->getUser()->getName(),
+				'data-token' => $this->getUser()->getEditToken( 'addreviewer' . $article->getId() ),
 			),
 			wfMsg( 'ep-artciles-becomereviewer' )
 		);

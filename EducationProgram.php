@@ -64,6 +64,7 @@ $wgAutoloadClasses['EditCourseAction'] 				= dirname( __FILE__ ) . '/actions/Edi
 $wgAutoloadClasses['EditOrgAction'] 				= dirname( __FILE__ ) . '/actions/EditOrgAction.php';
 $wgAutoloadClasses['EPEditAction'] 					= dirname( __FILE__ ) . '/actions/EPEditAction.php';
 $wgAutoloadClasses['EPHistoryAction'] 				= dirname( __FILE__ ) . '/actions/EPHistoryAction.php';
+$wgAutoloadClasses['EPRemoveArticleAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveArticleAction.php';
 $wgAutoloadClasses['EPViewAction'] 					= dirname( __FILE__ ) . '/actions/EPViewAction.php';
 $wgAutoloadClasses['OrgHistoryAction'] 				= dirname( __FILE__ ) . '/actions/OrgHistoryAction.php';
 $wgAutoloadClasses['ViewCourseAction'] 				= dirname( __FILE__ ) . '/actions/ViewCourseAction.php';
@@ -185,6 +186,10 @@ $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs
 $wgHooks['ArticleFromTitle'][] 						= 'EPHooks::onArticleFromTitle';
 $wgHooks['CanonicalNamespaces'][] 					= 'EPHooks::onCanonicalNamespaces';
 $wgHooks['TitleIsAlwaysKnown'][] 					= 'EPHooks::onTitleIsAlwaysKnown';
+$wgHooks['UnknownAction'][] 						= 'EPHooks::onUnknownAction';
+
+// Actions
+$wgActions['epremarticle'] = 'EPRemoveArticleAction';
 
 // Logging
 $wgLogTypes[] = 'institution';

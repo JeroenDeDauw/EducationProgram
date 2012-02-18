@@ -29,6 +29,12 @@
 
 		$form.append( $( '<input>' ).attr( {
 			'type': 'hidden',
+			'name': 'token',
+			'value': $this.attr( 'data-token' )
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
 			'name': 'article-id',
 			'value': $this.attr( 'data-article-id' )
 		} ) );
@@ -74,6 +80,12 @@
 			'type': 'hidden',
 			'name': 'action',
 			'value': 'epremstudent'
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'token',
+			'value': $this.attr( 'data-token' )
 		} ) );
 
 		$form.append( $( '<input>' ).attr( {
@@ -133,6 +145,12 @@
 
 		$form.append( $( '<input>' ).attr( {
 			'type': 'hidden',
+			'name': 'token',
+			'value': $this.attr( 'data-token' )
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
 			'name': 'article-id',
 			'value': $this.attr( 'data-article-id' )
 		} ) );
@@ -182,6 +200,12 @@
 			'type': 'hidden',
 			'name': 'action',
 			'value': 'epremreviewer'
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'token',
+			'value': $this.attr( 'data-token' )
 		} ) );
 
 		$form.append( $( '<input>' ).attr( {

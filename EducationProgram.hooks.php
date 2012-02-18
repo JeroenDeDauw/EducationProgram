@@ -316,5 +316,20 @@ final class EPHooks {
 
 		return true;
 	}
-	
+
+	/**
+	 * Used to add new query-string actions.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnknownAction
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $action
+	 * @param Page $page
+	 *
+	 * @return true
+	 */
+	public static function onUnknownAction( $action, Page $page ) {
+		return true;
+	}
+
 }
