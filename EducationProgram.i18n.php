@@ -297,6 +297,19 @@ $messages['en'] = array(
 	'ep-articletable-remreviwer-text-self' => 'You are about to remove yourself as {{GENDER:$1|reviewer}} for article $2 worked on by $3.',
 	'ep-articletable-remreviwer-text' => 'You are about to remove $4 as {{GENDER:$1|reviewer}} for article $2 worked on by $3.',
 
+	'ep-articletable-remstudent-title' => 'Remove {{GENDER:$1|student}} from course',
+	'ep-articletable-remstudent-button' => 'Remove {{GENDER:$1|student}}',
+	'ep-articletable-remstudent-cancel' => 'Cancel',
+	'ep-articletable-remstudent-text' => 'You are about to remove $3 as {{GENDER:$1|student}} from course $2.
+
+This will permanently remove their associated articles and reviewers!',
+
+	'ep-articletable-remarticle-title' => 'Remove article $1',
+	'ep-articletable-remarticle-button' => 'Remove article',
+	'ep-articletable-remarticle-cancel' => 'Cancel',
+	'ep-articletable-remarticle-text' => 'You are about to remove article $1 from the list of articles you are working on.',
+	'ep-articletable-remarticle-text-course' => 'You are about to remove article $1 from the list of articles you are working on as part of course $2.',
+
 	// Article pager
 	'ep-articles-noresults' => 'There are no articles to list.',
 

@@ -57,16 +57,108 @@
 		$dialog.append( $form );
 	}
 	
-	function addArticle() {
-		// TODO
-	}
-	
 	function removeStudent() {
-		// TODO
+		var $this = $( this );
+
+		var $form = $( '<form>' ).attr( {
+			'method': 'post',
+			'action': window.location
+		} ).msg(
+			'ep-articletable-remstudent-text',
+			mw.user.name,
+			$( '<b>' ).text( $this.attr( 'data-course-name' ) ),
+			$( '<b>' ).text( $this.attr( 'data-user-name' ) )
+		);
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'action',
+			'value': 'epremstudent'
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'user-id',
+			'value': $this.attr( 'data-user-id' )
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'course-id',
+			'value': $this.attr( 'data-course-id' )
+		} ) );
+
+		var $dialog = $( '<div>' ).html( '' ).dialog( {
+			'title': ep.msg('ep-articletable-remstudent-title', mw.user.name ),
+			'minWidth': 550,
+			'buttons': [
+				{
+					'text': ep.msg( 'ep-articletable-remstudent-button', mw.user.name ),
+					'id': 'ep-remstudent-button',
+					'click': function() {
+						$form.submit();
+					}
+				},
+				{
+					'text': ep.msg( 'ep-articletable-remstudent-cancel' ),
+					'id': 'ep-remstudent-cancel',
+					'click': function() {
+						$dialog.dialog( 'close' );
+					}
+				}
+			]
+		} );
+
+		$dialog.append( $form );
 	}
 	
 	function removeArticle() {
-		// TODO
+		var $this = $( this ),
+		courseName = $this.attr( 'data-course-name' );
+
+		var $form = $( '<form>' ).attr( {
+			'method': 'post',
+			'action': window.location
+		} ).msg(
+			'ep-articletable-remarticle-text' + ( courseName === undefined ? '' : '-course' ),
+			$( '<b>' ).text( $this.attr( 'data-article-name' ) ),
+			$( '<b>' ).text( courseName )
+		);
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'action',
+			'value': 'epremarticle'
+		} ) );
+
+		$form.append( $( '<input>' ).attr( {
+			'type': 'hidden',
+			'name': 'article-id',
+			'value': $this.attr( 'data-article-id' )
+		} ) );
+
+		var $dialog = $( '<div>' ).html( '' ).dialog( {
+			'title': ep.msg( 'ep-articletable-remarticle-title', $this.attr( 'data-article-name' ) ),
+			'minWidth': 550,
+			'buttons': [
+				{
+					'text': ep.msg( 'ep-articletable-remarticle-button' ),
+					'id': 'ep-remarticle-button',
+					'click': function() {
+						$form.submit();
+					}
+				},
+				{
+					'text': ep.msg( 'ep-articletable-remarticle-cancel' ),
+					'id': 'ep-remarticle-cancel',
+					'click': function() {
+						$dialog.dialog( 'close' );
+					}
+				}
+			]
+		} );
+
+		$dialog.append( $form );
 	}
 	
 	function removeReviewer() {
@@ -135,8 +227,10 @@
 		$( '.ep-become-reviewer' ).click( addReviewer );
 		
 		$( '.ep-rem-reviewer, .ep-rem-reviewer-self' ).click( removeReviewer );
-		
-		// TODO
+
+		$( '.ep-rem-student' ).click( removeStudent );
+
+		$( '.ep-rem-article' ).click( removeArticle );
 	} );
 
 })( window.jQuery, mw.educationProgram );

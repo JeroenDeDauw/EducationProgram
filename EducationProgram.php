@@ -445,6 +445,17 @@ $wgResourceModules['ep.articletable'] = $moduleTemplate + array(
 		'ep-articletable-remreviwer-title-self',
 		'ep-articletable-remreviwer-button-self',
 		'ep-articletable-remreviwer-text-self',
+
+		'ep-articletable-remstudent-title',
+		'ep-articletable-remstudent-button',
+		'ep-articletable-remstudent-cancel',
+		'ep-articletable-remstudent-text',
+
+		'ep-articletable-remarticle-title',
+		'ep-articletable-remarticle-button',
+		'ep-articletable-remarticle-cancel',
+		'ep-articletable-remarticle-text',
+		'ep-articletable-remarticle-text-course',
 	),
 );
 

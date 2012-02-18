@@ -32,6 +32,14 @@ class EPArticleTable extends EPPager {
 	protected $articleConds;
 
 	/**
+	 * Cached name of the course for which students are shown (if any).
+	 *
+	 * @since 0.1
+	 * @var string|false
+	 */
+	protected $courseName = false;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
@@ -207,6 +215,8 @@ class EPArticleTable extends EPPager {
 						'href' => '#',
 						'data-user-id' => $userId,
 						'data-course-id' => $this->articleConds['course_id'],
+						'data-user-name' => $name,
+						'data-course-name' => $this->getCourseName(),
 						'class' => 'ep-rem-student',
 					),
 					wfMsg( 'ep-artciles-remstudent' )
@@ -228,6 +238,22 @@ class EPArticleTable extends EPPager {
 	}
 
 	/**
+	 * Returns title of the course for which students are shown.
+	 * Only call if there is a single course_id filter condition.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
+	protected function getCourseName() {
+		if ( $this->courseName === false ) {
+			$this->courseName = EPCourses::singleton()->selectFieldsRow( 'name', array( 'id' => $this->articleConds['course_id'] ) );
+		}
+
+		return $this->courseName;
+	}
+
+	/**
 	 * Returns the HTML for an article cell.
 	 *
 	 * @since 0.1
@@ -236,21 +262,28 @@ class EPArticleTable extends EPPager {
 	 * @param integer $rowSpan
 	 *
 	 * @return string
-	 */
+	 */-
 	protected function getArticleCell( EPArticle $article, $rowSpan ) {
 		$html = Linker::link(
 			$article->getTitle(),
 			htmlspecialchars( $article->getTitle()->getFullText() )
 		);
 
+		$attr = array(
+			'href' => '#',
+			'data-article-id' => $article->getId(),
+			'data-article-name' => $article->getTitle()->getFullText(),
+			'class' => 'ep-rem-article',
+		);
+
+		if ( array_key_exists( 'course_id', $this->articleConds ) && is_integer( $this->articleConds['course_id'] ) ) {
+			$attr['data-course-name'] = $this->getCourseName();
+		}
+
 		if ( $this->getUser()->getId() === $article->getField( 'user_id' ) ) {
 			$html .= ' (' . Html::element(
 				'a',
-				array(
-					'href' => '#',
-					'data-article-id' => $article->getId(),
-					'class' => 'ep-rem-article',
-				),
+				$attr,
 				wfMsg( 'ep-artciles-remarticle' )
 			) . ')';
 		}
@@ -344,7 +377,7 @@ class EPArticleTable extends EPPager {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'addarticle' ) ),
+				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epaddarticle' ) ),
 			)
 		);
 
