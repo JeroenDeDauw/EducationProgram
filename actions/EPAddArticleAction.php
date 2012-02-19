@@ -57,7 +57,7 @@ class EPAddArticleAction extends FormlessAction {
 			}
 		}
 
-		Action::factory( 'view', $this->page, $this->context )->show();
+		$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 		return '';
 	}
 

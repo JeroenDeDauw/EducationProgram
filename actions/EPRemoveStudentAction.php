@@ -39,7 +39,7 @@ class EPRemoveStudentAction extends FormlessAction {
 
 		try { $api->execute(); } catch ( Exception $exception ) {}
 
-		Action::factory( 'view', $this->page, $this->context )->show();
+		$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 		return '';
 	}
 

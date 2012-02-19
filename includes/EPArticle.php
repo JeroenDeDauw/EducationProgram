@@ -90,9 +90,11 @@ class EPArticle extends DBDataObject {
 
 	public function canBecomeReviewer( User $user ) {
 		if ( !array_key_exists( $user->getId(), $this->canBecomeReviwer ) ) {
-			$this->canBecomeReviwer[$user->getId()] = $this->getUser()->isAllowed( 'ep-bereviewer' )
+			$this->canBecomeReviwer[$user->getId()] =
+				$user->isLoggedIn()
+				&& $user->isAllowed( 'ep-bereviewer' )
 				&& $this->getUser()->getId() !== $user->getId()
-				&& !in_array( $this->getUser()->getId(), $this->getField( 'reviewers' ) );
+				&& !in_array( $user->getId(), $this->getField( 'reviewers' ) );
 		}
 
 		return $this->canBecomeReviwer[$user->getId()];
@@ -102,7 +104,7 @@ class EPArticle extends DBDataObject {
 		$addedIds = array_diff( $userIds, $this->getField( 'reviewers' ) );
 
 		if ( !empty( $addedIds ) ) {
-			$this->setField( 'reviewers', array_merge( $userIds, $addedIds ) );
+			$this->setField( 'reviewers', array_merge( $this->getField( 'reviewers' ), $addedIds ) );
 		}
 
 		return $addedIds;

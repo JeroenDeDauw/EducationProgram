@@ -33,16 +33,15 @@ class EPAddReviewerAction extends FormlessAction {
 
 		$salt = 'addreviewer' . $req->getInt( 'article-id' );
 
-		if ( $user->matchEditToken( $req->getText( 'token' ), $salt )
-			&& $user->isAllowed( 'ep-bereviewer' ) ) {
+		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) ) {
 
 			$article = EPArticles::singleton()->selectRow(
 				array( 'id', 'reviewers' ),
 				array( 'id' => $req->getInt( 'article-id' ) )
 			);
 
-			if ( $article !== false ) {
-				$addedReviewers = $article->addReviewers( array( $req->getInt( 'user-id' ) ) );
+			if ( $article !== false && $article->canBecomeReviewer( $user ) ) {
+				$addedReviewers = $article->addReviewers( array( $user->getId() ) );
 
 				if ( !empty( $addedReviewers ) ) {
 					if ( $article->save() ) {
@@ -52,7 +51,7 @@ class EPAddReviewerAction extends FormlessAction {
 			}
 		}
 
-		Action::factory( 'view', $this->page, $this->context )->show();
+		$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 		return '';
 	}
 

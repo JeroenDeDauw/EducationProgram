@@ -240,7 +240,7 @@ $wgGroupPermissions['*']['ep-instructor'] = false;
 $wgGroupPermissions['*']['ep-beonline'] = false;
 $wgGroupPermissions['*']['ep-becampus'] = false;
 $wgGroupPermissions['*']['ep-beinstructor'] = false;
-$wgGroupPermissions['*']['ep-bereviewer'] = false;
+$wgGroupPermissions['*']['ep-bereviewer'] = true;
 $wgGroupPermissions['*']['ep-remreviewer'] = false;
 
 $wgGroupPermissions['epstaff']['ep-org'] = true;

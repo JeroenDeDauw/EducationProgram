@@ -214,11 +214,13 @@
 			'value': $this.attr( 'data-article-id' )
 		} ) );
 
-		$form.append( $( '<input>' ).attr( {
-			'type': 'hidden',
-			'name': 'user-id',
-			'value': isSelf ? mw.user.id : $this.attr( 'data-reviewer-id' )
-		} ) );
+		if ( !isSelf ) {
+			$form.append( $( '<input>' ).attr( {
+				'type': 'hidden',
+				'name': 'user-id',
+				'value': $this.attr( 'data-reviewer-id' )
+			} ) );			
+		}
 
 		var $dialog = $( '<div>' ).html( '' ).dialog( {
 			'title': ep.msg('ep-articletable-remreviwer-title' + selfSuffix, reviewerName ),

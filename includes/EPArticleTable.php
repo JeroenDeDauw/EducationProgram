@@ -119,7 +119,7 @@ class EPArticleTable extends EPPager {
 			$rowCount++;
 		}
 
-		$html .= $this->getUserCell( $student->getField( 'user_id' ), $rowCount );
+		$html .= $this->getUserCell( $student->getField( 'user_id' ), max( 1, $rowCount ) );
 
 		$this->addNonStudentHTML( $html, $articles, $showArticleAdittion );
 
@@ -185,7 +185,10 @@ class EPArticleTable extends EPPager {
 			}
 
 			$html .= $this->getArticleAdittionControl( $this->articleConds['course_id'] );
-		}	
+		}
+		elseif ( $isFirst ) {
+			$html .= '<td></td><td></td>';
+		}
 	}
 
 	/**
@@ -350,7 +353,7 @@ class EPArticleTable extends EPPager {
 					'class' => 'ep-rem-reviewer-self',
 					'disabled' => 'disabled',
 					'data-article-id' => $article->getId(),
-					'data-article-name' => $article->getField( 'name' ),
+					'data-article-name' => $article->getTitle()->getFullText(),
 					'data-student-name' => $article->getUser()->getName(),
 					'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 				),

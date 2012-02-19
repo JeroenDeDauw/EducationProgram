@@ -29,11 +29,12 @@ class EPRemoveReviewerAction extends FormlessAction {
 	public function onView() {
 		$req = $this->getRequest();
 		$user = $this->getUser();
+		$userIdToRemove = $req->getCheck( 'user-id' ) ? $req->getInt( 'user-id' ) : $user->getId();
 
-		$salt = $req->getInt( 'user-id' ) .'remarticle' . $req->getInt( 'article-id' );
+		$salt = $userIdToRemove .'remreviewer' . $req->getInt( 'article-id' );
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt )
-			&& ( $user->getId() === $req->getInt( 'user-id' ) || $user->isAllowed( 'ep-remreviewer' ) ) ) {
+			&& ( $user->getId() === $userIdToRemove || $user->isAllowed( 'ep-remreviewer' ) ) ) {
 
 			$article = EPArticles::singleton()->selectRow(
 				array( 'id', 'reviewers' ),
@@ -41,7 +42,7 @@ class EPRemoveReviewerAction extends FormlessAction {
 			);
 
 			if ( $article !== false ) {
-				$removedReviewers = $article->removeReviewers( array( $req->getInt( 'user-id' ) ) );
+				$removedReviewers = $article->removeReviewers( array( $userIdToRemove ) );
 
 				if ( !empty( $removedReviewers ) ) {
 					if ( $article->save() ) {
@@ -51,7 +52,7 @@ class EPRemoveReviewerAction extends FormlessAction {
 			}
 		}
 
-		Action::factory( 'view', $this->page, $this->context )->show();
+		$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 		return '';
 	}
 
