@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * Remove an article-student association.
  *
  * @since 0.1
  *
@@ -31,15 +31,18 @@ class EPRemoveArticleAction extends FormlessAction {
 		$user = $this->getUser();
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), 'remarticle' . $req->getInt( 'article-id' ) ) ) {
-			EPArticles::singleton()->delete( array(
+			$article = EPArticles::singleton()->selectRow( 'id',  array(
 				'id' => $req->getInt( 'article-id' ),
 				'user_id' => $user->getId(),
 			) );
+
+			if ( $article !== false && $article->remove() ) {
+				// TODO: log
+			}
 		}
 
 		Action::factory( 'view', $this->page, $this->context )->show();
 		return '';
 	}
-
 
 }

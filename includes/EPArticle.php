@@ -98,4 +98,32 @@ class EPArticle extends DBDataObject {
 		return $this->canBecomeReviwer[$user->getId()];
 	}
 
+	public function addReviewers( array $userIds ) {
+		$addedIds = array_diff( $userIds, $this->getField( 'reviewers' ) );
+
+		if ( !empty( $addedIds ) ) {
+			$this->setField( 'reviewers', array_merge( $userIds, $addedIds ) );
+		}
+
+		return $addedIds;
+	}
+
+	public function logReviewersAdittion( array $userIds ) {
+		// TODO
+	}
+
+	public function removeReviewers( array $userIds ) {
+		$removedIds = array_intersect( $userIds, $this->getField( 'reviewers' ) );
+
+		if ( !empty( $removedIds ) ) {
+			$this->setField( 'reviewers', array_diff( $this->getField( 'reviewers' ), $userIds ) );
+		}
+
+		return $removedIds;
+	}
+
+	public function logReviewersRemoval( array $userIds ) {
+		// TODO
+	}
+
 }

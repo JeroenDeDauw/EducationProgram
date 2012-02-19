@@ -377,32 +377,37 @@ class EPArticleTable extends EPPager {
 	protected function getArticleAdittionControl( $courseId ) {
 		$html = '';
 
-		$html .= Html::openElement(
-			'form',
-			array(
-				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epaddarticle' ) ),
-			)
-		);
+		if ( $this->getUser()->isAllowed( 'ep-student' )
+			&& $this->getUser()->getId() === $this->currentObject->getField( 'user_id' ) ) {
 
-		$html .=  Xml::inputLabel(
-			wfMsg( 'ep-artciles-addarticle-text' ),
-			'addarticlename',
-			'addarticlename'
-		);
+			$html .= Html::openElement(
+				'form',
+				array(
+					'method' => 'post',
+					'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epaddarticle' ) ),
+				)
+			);
 
-		$html .= '&#160;' . Html::input(
-			'addarticle',
-			wfMsg( 'ep-artciles-addarticle-button' ),
-			'submit',
-			array(
-				'class' => 'ep-addarticle',
-			)
-		);
+			$html .=  Xml::inputLabel(
+				wfMsg( 'ep-artciles-addarticle-text' ),
+				'addarticlename',
+				'addarticlename'
+			);
 
-		$html .= Html::hidden( 'addArticleToken', $this->getUser()->getEditToken( 'addarticle' . $courseId ) );
+			$html .= '&#160;' . Html::input(
+				'addarticle',
+				wfMsg( 'ep-artciles-addarticle-button' ),
+				'submit',
+				array(
+					'class' => 'ep-addarticle',
+				)
+			);
 
-		$html .= '</form>';
+			$html .= Html::hidden( 'token', $this->getUser()->getEditToken( 'addarticle' . $courseId ) );
+
+			$html .= '</form>';
+		}
+
 
 		return '<td colspan="2">' . $html . '</td>';
 	}

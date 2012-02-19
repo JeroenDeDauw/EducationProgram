@@ -62,9 +62,13 @@ $wgAutoloadClasses['EPSettings'] 					= dirname( __FILE__ ) . '/EducationProgram
 $wgAutoloadClasses['CourseHistoryAction'] 			= dirname( __FILE__ ) . '/actions/CourseHistoryAction.php';
 $wgAutoloadClasses['EditCourseAction'] 				= dirname( __FILE__ ) . '/actions/EditCourseAction.php';
 $wgAutoloadClasses['EditOrgAction'] 				= dirname( __FILE__ ) . '/actions/EditOrgAction.php';
+$wgAutoloadClasses['EPAddArticleAction'] 			= dirname( __FILE__ ) . '/actions/EPAddArticleAction.php';
+$wgAutoloadClasses['EPAddReviewerAction'] 			= dirname( __FILE__ ) . '/actions/EPAddReviewerAction.php';
 $wgAutoloadClasses['EPEditAction'] 					= dirname( __FILE__ ) . '/actions/EPEditAction.php';
 $wgAutoloadClasses['EPHistoryAction'] 				= dirname( __FILE__ ) . '/actions/EPHistoryAction.php';
 $wgAutoloadClasses['EPRemoveArticleAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveArticleAction.php';
+$wgAutoloadClasses['EPRemoveReviewerAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveReviewerAction.php';
+$wgAutoloadClasses['EPRemoveStudentAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveStudentAction.php';
 $wgAutoloadClasses['EPViewAction'] 					= dirname( __FILE__ ) . '/actions/EPViewAction.php';
 $wgAutoloadClasses['OrgHistoryAction'] 				= dirname( __FILE__ ) . '/actions/OrgHistoryAction.php';
 $wgAutoloadClasses['ViewCourseAction'] 				= dirname( __FILE__ ) . '/actions/ViewCourseAction.php';
@@ -186,10 +190,13 @@ $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs
 $wgHooks['ArticleFromTitle'][] 						= 'EPHooks::onArticleFromTitle';
 $wgHooks['CanonicalNamespaces'][] 					= 'EPHooks::onCanonicalNamespaces';
 $wgHooks['TitleIsAlwaysKnown'][] 					= 'EPHooks::onTitleIsAlwaysKnown';
-$wgHooks['UnknownAction'][] 						= 'EPHooks::onUnknownAction';
 
 // Actions
 $wgActions['epremarticle'] = 'EPRemoveArticleAction';
+$wgActions['epremstudent'] = 'EPRemoveStudentAction';
+$wgActions['epremreviewer'] = 'EPRemoveReviewerAction';
+$wgActions['epaddarticle'] = 'EPAddArticleAction';
+$wgActions['epaddreviewer'] = 'EPAddReviewerAction';
 
 // Logging
 $wgLogTypes[] = 'institution';
