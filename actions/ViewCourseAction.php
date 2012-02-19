@@ -47,7 +47,7 @@ class ViewCourseAction extends EPViewAction {
 		);
 
 		if ( count( $studentIds ) > 0 ) {
-			$out->addElement( 'h2', array(), wfMsg( 'ep-course-articles' ) );
+			$out->addElement( 'h2', array(), wfMsg( 'ep-course-students' ) );
 
 			$pager = new EPArticleTable(
 				$this->getContext(),
@@ -64,10 +64,6 @@ class ViewCourseAction extends EPViewAction {
 					$pager->getMultipleItemControl()
 				);
 			}
-
-			// EPArticle::displayPager( $this->getContext(), array( 'course_id' => $course->getId() ) );
-			//$out->addElement( 'h2', array(), wfMsg( 'ep-course-students' ) );
-
 		}
 		else {
 			// TODO
