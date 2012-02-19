@@ -99,7 +99,7 @@ class EPArticleTable extends EPPager {
 		$user = $this->getUser();
 
 		$rowCount = array_reduce( $articles, function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
-			$sum += count( $article->getField( 'reviewers' ) );
+			$sum += max( count( $article->getField( 'reviewers' ) ), 1 );
 
 			if ( $article->canBecomeReviewer( $user ) ) {
 				$sum++;
@@ -111,7 +111,7 @@ class EPArticleTable extends EPPager {
 		$html = Html::openElement( 'tr', $this->getRowAttrs( $row ) );
 
 		$showArticleAdittion =
-			$this->getUser()->getId() === $student->getField( 'user_id' )
+			$user->getId() === $student->getField( 'user_id' )
 			&& array_key_exists( 'course_id', $this->articleConds )
 			&& is_integer( $this->articleConds['course_id'] );
 
@@ -173,6 +173,9 @@ class EPArticleTable extends EPPager {
 				}
 
 				$html .= $this->getReviewerAdittionControl( $article );
+			}
+			else if ( count( $reviewers ) === 0 ) {
+				$html .= '<td></td>';
 			}
 		}
 
@@ -377,37 +380,33 @@ class EPArticleTable extends EPPager {
 	protected function getArticleAdittionControl( $courseId ) {
 		$html = '';
 
-		if ( $this->getUser()->isAllowed( 'ep-student' )
-			&& $this->getUser()->getId() === $this->currentObject->getField( 'user_id' ) ) {
+		$html .= Html::openElement(
+			'form',
+			array(
+				'method' => 'post',
+				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epaddarticle' ) ),
+			)
+		);
 
-			$html .= Html::openElement(
-				'form',
-				array(
-					'method' => 'post',
-					'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epaddarticle' ) ),
-				)
-			);
+		$html .=  Xml::inputLabel(
+			wfMsg( 'ep-artciles-addarticle-text' ),
+			'addarticlename',
+			'addarticlename'
+		);
 
-			$html .=  Xml::inputLabel(
-				wfMsg( 'ep-artciles-addarticle-text' ),
-				'addarticlename',
-				'addarticlename'
-			);
+		$html .= '&#160;' . Html::input(
+			'addarticle',
+			wfMsg( 'ep-artciles-addarticle-button' ),
+			'submit',
+			array(
+				'class' => 'ep-addarticle',
+			)
+		);
 
-			$html .= '&#160;' . Html::input(
-				'addarticle',
-				wfMsg( 'ep-artciles-addarticle-button' ),
-				'submit',
-				array(
-					'class' => 'ep-addarticle',
-				)
-			);
+		$html .= Html::hidden( 'course-id', $courseId );
+		$html .= Html::hidden( 'token', $this->getUser()->getEditToken( 'addarticle' . $courseId ) );
 
-			$html .= Html::hidden( 'token', $this->getUser()->getEditToken( 'addarticle' . $courseId ) );
-
-			$html .= '</form>';
-		}
-
+		$html .= '</form>';
 
 		return '<td colspan="2">' . $html . '</td>';
 	}
@@ -487,10 +486,7 @@ class EPArticleTable extends EPPager {
 		while( $student = $this->mResult->fetchObject() ) {
 			$field = EPStudents::singleton()->getPrefixedField( 'user_id' );
 			$userIds[] = $student->$field;
-			$this->articles[$student->$field] = array( // TODO
-				EPArticles::singleton()->newFromArray( array( 'page_id' => 1, 'user_id' => 1, 'reviewers' => array( 1, 1 ) ) ),
-				EPArticles::singleton()->newFromArray( array( 'page_id' => 2, 'user_id' => 1, 'reviewers' => array( 1, 1 ) ) ),
-			);
+			$this->articles[$student->$field] = array();
 		}
 
 		$conditions = array_merge( array( 'user_id' => $userIds ), $this->articleConds );

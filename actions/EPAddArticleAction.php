@@ -32,21 +32,27 @@ class EPAddArticleAction extends FormlessAction {
 		$user = $this->getUser();
 
 		$salt = 'addarticle' . $req->getInt( 'course-id' );
+		$title = Title::newFromText( $req->getText( 'addarticlename' ) );
 
-		if ( $user->matchEditToken( $req->getText( 'token' ), $salt )
-			&& $user->isAllowed( 'ep-student' ) ) {
-
-			$articleData = array(
-				'user_id' => $user->getId(),
-				'course_id' => $req->getInt( 'course-id' ),
-				'page_id' => '',
+		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) && !is_null( $title ) && $title->getArticleID() !== 0 ) {
+			$course = EPCourses::singleton()->selectRow(
+				array( 'students' ),
+				array( 'id' => $req->getInt( 'course-id' ) )
 			);
 
-			if ( !EPArticles::singleton()->has( $articleData ) ) {
-				$article = EPArticles::singleton()->newFromArray( $articleData, true );
+			if ( $course !== false && in_array( $user->getId(), $course->getField( 'students' ) ) ) {
+				$articleData = array(
+					'user_id' => $user->getId(),
+					'course_id' => $req->getInt( 'course-id' ),
+					'page_id' => $title->getArticleID(),
+				);
 
-				if ( $article->save() ) {
-					// TODO: log
+				if ( !EPArticles::singleton()->has( $articleData ) ) {
+					$article = EPArticles::singleton()->newFromArray( $articleData, true );
+
+					if ( $article->save() ) {
+						// TODO: log
+					}
 				}
 			}
 		}
