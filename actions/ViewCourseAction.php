@@ -88,8 +88,8 @@ class ViewCourseAction extends EPViewAction {
 		$lang = $this->getLanguage();
 
 		$stats['term'] = htmlspecialchars( $course->getField( 'term' ) );
-		$stats['start'] = htmlspecialchars( $lang->timeanddate( $course->getField( 'start' ), true ) );
-		$stats['end'] = htmlspecialchars( $lang->timeanddate( $course->getField( 'end' ), true ) );
+		$stats['start'] = htmlspecialchars( $lang->date( $course->getField( 'start' ), true ) );
+		$stats['end'] = htmlspecialchars( $lang->date( $course->getField( 'end' ), true ) );
 
 		$stats['students'] = htmlspecialchars( $lang->formatNum( $course->getField( 'student_count' ) ) );
 
