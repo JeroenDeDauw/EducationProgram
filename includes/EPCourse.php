@@ -532,11 +532,22 @@ class EPCourse extends EPPageObject {
 	 * @see DBDataObject::setField()
 	 */
 	public function setField( $name, $value ) {
-		if ( $name === 'instructors' ) {
-			$this->instructors = false;
-		}
-		elseif ( $name === 'mc' ) {
-			$value = str_replace( '_', ' ', $value );
+		switch ( $name ) {
+			case 'mc':
+				$value = str_replace( '_', ' ', $value );
+				break;
+			case 'instructors':
+				$this->instructors = false;
+				break;
+			case 'students':
+				$this->students = false;
+				break;
+			case 'oas':
+				$this->oas = false;
+				break;
+			case 'cas':
+				$this->cas = false;
+				break;
 		}
 
 		parent::setField( $name, $value );
@@ -566,21 +577,10 @@ class EPCourse extends EPPageObject {
 
 		$field = $roleMap[$role];
 		$users = $this->getField( $field );
-		$addedUsers = array();
-
-		foreach ( (array)$newUsers as $userId ) {
-			if ( !is_integer( $userId ) ) {
-				throw new MWException( 'Provided user id is not an integer' );
-			}
-			
-			if ( !in_array( $userId, $users ) ) {
-				$users[] = $userId;
-				$addedUsers[] = $userId;
-			}
-		}
+		$addedUsers = array_diff( (array)$newUsers, $users );
 
 		if ( count( $addedUsers ) > 0 ) {
-			$this->setField( $field, $users );
+			$this->setField( $field, array_merge( $users, $addedUsers ) );
 
 			$success = true;
 

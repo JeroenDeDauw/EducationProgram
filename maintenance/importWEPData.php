@@ -154,9 +154,8 @@ class ImportWEPData extends Maintenance {
 	 * @param array $courseIds Maps course names to ids
 	 */
 	protected function insertStudents( array $students, array $courseIds ) {
-		foreach ( $students as $student => $courseNames ) {
-			$name = $student;
-			$user = User::newFromName( $student );
+		foreach ( $students as $name => $courseNames ) {
+			$user = User::newFromName( $name );
 			
 			if ( $user === false ) {
 				echo "Failed to insert student '$name'. (invalid user name)\n";
@@ -184,16 +183,18 @@ class ImportWEPData extends Maintenance {
 					
 					foreach ( $courseNames as $courseName ) {
 						if ( array_key_exists( $courseName, $courseIds ) ) {
-							$courses[] = EPCourses::singleton()->newFromArray( array(
-								'id' => $courseIds[$courseName],
-								'students' => array(),
-							) );
+							$revAction = new EPRevisionAction();
+							$revAction->setUser( $user );
+							$revAction->setComment( 'Import' );
+							
+							$course = EPCourses::singleton()->selectRow( null, array( 'id' => $courseIds[$courseName] ) );
+							$course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
 						}
 						else {
 							echo "Failed to associate student '$name' with course '$courseName'.\n";
 						}
 					}
-					
+
 					if ( $student->associateWithCourses( $courses ) ) {
 						echo "Inserted student '$name'\t\t and associated with courses: " . str_replace( '_', ' ', implode( ', ', $courseNames ) ) . "\n";
 					}
