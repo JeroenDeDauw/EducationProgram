@@ -143,7 +143,7 @@
 			ids = [],
 			names = [];
 
-			$table.find( 'input[type=checkbox]:checked' ).each( function ( i, element ) {
+			$table.find( 'tbody' ).find( 'input[type=checkbox]:checked' ).each( function ( i, element ) {
 				$element = $( element );
 				ids.push( $element.val() );
 				names.push( $element.closest( 'tr' ).find( '.ep-pager-delete' ).attr( 'data-name' ) );
@@ -157,8 +157,7 @@
 			args = {
 				'type': $( this ).attr( 'data-type' ),
 				'ids': ids,
-				'names': names,
-				'comment': $summaryInput.val()
+				'names': names
 			};
 			
 			showConfirmDialog(
