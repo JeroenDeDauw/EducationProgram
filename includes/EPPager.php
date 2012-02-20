@@ -263,7 +263,7 @@ abstract class EPPager extends TablePager {
 	}
 
 	function getDefaultSort() {
-		return $this->table->getPrefixedField( 'id' );
+		return 'id';
 	}
 
 	/**

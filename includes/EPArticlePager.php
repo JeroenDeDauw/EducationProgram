@@ -91,7 +91,7 @@ class EPArticlePager extends EPPager {
 	}
 
 	function getDefaultSort() {
-		return $this->table->getPrefixedField( 'user_id' );
+		return 'user_id';
 	}
 
 }

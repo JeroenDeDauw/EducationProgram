@@ -106,7 +106,7 @@ class EPOrgPager extends EPPager {
 	}
 
 	function getDefaultSort() {
-		return EPOrgs::singleton()->getPrefixedField( 'name' );
+		return 'name';
 	}
 
 	/**
