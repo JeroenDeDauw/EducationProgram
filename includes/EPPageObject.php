@@ -65,5 +65,17 @@ abstract class EPPageObject extends EPRevisionedObject {
 			return $this->table->getLogInfoForTitle( $this->getTitle() );
 		}
 	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::setField()
+	 */
+	public function setField( $name, $value ) {
+		if ( $name === $this->table->getIdentifierField() ) {
+			$value = str_replace( '_', ' ', $value );
+		}
+		
+		parent::setField( $name, $value );
+	}
 
 }

@@ -535,6 +535,9 @@ class EPCourse extends EPPageObject {
 		if ( $name === 'instructors' ) {
 			$this->instructors = false;
 		}
+		elseif ( $name === 'mc' ) {
+			$value = str_replace( '_', ' ', $value );
+		}
 
 		parent::setField( $name, $value );
 	}

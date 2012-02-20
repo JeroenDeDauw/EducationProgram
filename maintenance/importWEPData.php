@@ -72,9 +72,9 @@ class ImportWEPData extends Maintenance {
 		$courseIds = $this->insertCourses( $courses, $orgs );
 		echo "Inserted courses\n";
 		
-//		echo "Inserting students ...\n";
-//		$this->insertStudents( $students, $courseIds );
-//		echo "Inserted students\n";
+		echo "Inserting students ...\n";
+		$this->insertStudents( $students, $courseIds );
+		echo "Inserted students\n";
 		
 		echo "Import completed!\n\n";
 	}
@@ -131,6 +131,8 @@ class ImportWEPData extends Maintenance {
 			try{
 				$course->save();
 				$courseIds[$name] = $course->getId();
+				$name = str_replace( '_', ' ', $name );
+				echo "Inserted course '$name'.\n";
 			}
 			catch ( Exception $ex ) {
 				echo "Failed to insert course '$name'.\n";
@@ -193,7 +195,7 @@ class ImportWEPData extends Maintenance {
 					}
 					
 					if ( $student->associateWithCourses( $courses ) ) {
-						echo "Imported student $name\n";
+						echo "Inserted student '$name'\t\t and associated with courses: " . str_replace( '_', ' ', implode( ', ', $courseNames ) ) . "\n";
 					}
 					else {
 						echo "Failed to insert student '$name'. (failed to associate courses)\n";

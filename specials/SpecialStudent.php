@@ -40,7 +40,7 @@ class SpecialStudent extends SpecialEPPage {
 		else {
 			$this->displayNavigation();
 
-			$student = EPStudent::selectRow( null, array( 'id' => $this->subPage ) );
+			$student = EPStudents::singleton()->selectRow( null, array( 'id' => $this->subPage ) );
 
 			if ( $student === false ) {
 				$out->addWikiMsg( 'ep-student-none', $this->subPage );
@@ -50,8 +50,6 @@ class SpecialStudent extends SpecialEPPage {
 
 				$this->displaySummary( $student );
 
-				$out->addElement( 'h2', array(), wfMsg( 'ep-student-courses' ) );
-
 				$courseIds = array_map(
 					function( EPCourse $course ) {
 						return $course->getId();
@@ -59,7 +57,13 @@ class SpecialStudent extends SpecialEPPage {
 					$student->getCourses( 'id' )
 				);
 
-				EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ) );
+				if ( count( $courseIds ) > 0 ) {
+					$out->addElement( 'h2', array(), wfMsg( 'ep-student-courses' ) );
+					EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ) );
+				}
+				else {
+					// TODO
+				}
 			}
 		}
 	}
