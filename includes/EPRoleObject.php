@@ -137,6 +137,8 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	public function associateWithCourses( array /* of EPCourse */ $courses ) {
 		$success = true;
 
+		$courseIds = array();
+		
 		foreach ( $courses as /* EPCourse */ $course ) {
 			$courseIds[] = $course->getId();
 			$course->setUpdateSummaries( false );
