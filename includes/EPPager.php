@@ -375,9 +375,7 @@ abstract class EPPager extends TablePager {
 		foreach ( $filterOptions as $optionName => &$optionData ) {
 			if ( $req->getCheck( $this->filterPrefix . $optionName ) ) {
 				$optionData['value'] = $req->getVal( $this->filterPrefix . $optionName );
-				$req->setSessionData( $this->getNameForSession( $optionName ), $optionData['value'] );
-				$changed = true;
-
+				
 				if ( $cast && array_key_exists( 'datatype', $optionData ) ) {
 					switch ( $optionData['datatype'] ) {
 						case 'int':
@@ -388,6 +386,12 @@ abstract class EPPager extends TablePager {
 							break;
 					}
 				}
+				
+				if ( array_key_exists( $optionName, $_POST ) && $optionData['value'] !== '' ) {
+					$req->setSessionData( $this->getNameForSession( $optionName ), $optionData['value'] );
+				}
+				
+				$changed = true;
 			}
 			elseif ( !is_null( $req->getSessionData( $this->getNameForSession( $optionName ) ) ) ) {
 				$optionData['value'] = $req->getSessionData( $this->getNameForSession( $optionName ) );
