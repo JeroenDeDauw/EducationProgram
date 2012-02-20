@@ -27,7 +27,20 @@ abstract class EPPageObject extends EPRevisionedObject {
 	public function getTitle() {
 		return $this->table->getTitleFor( $this->getIdentifier() );
 	}
-
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::save()
+	 */
+	public function save() {
+		if ( $this->hasField( $this->table->getIdentifierField() ) && is_null( $this->getTitle() ) ) {
+			throw new MWException( 'The title for a EPPageObject needs to be valid when saving.' );
+			return false;
+		}
+		
+		return parent::save();
+	}
+	
 	public function getLink( $action = 'view', $html = null, $customAttribs = array(), $query = array() ) {
 		return $this->table->getLinkFor(
 			$this->getIdentifier(),
@@ -43,7 +56,14 @@ abstract class EPPageObject extends EPRevisionedObject {
 	 * @see EPRevisionedObject::getLogInfo()
 	 */
 	protected function getLogInfo( $subType ) {
-		return $this->table->getLogInfoForTitle( $this->getTitle() );
+		$title = $this->getTitle();
+		
+		if ( is_null( $title ) ) {
+			return false;
+		}
+		else {
+			return $this->table->getLogInfoForTitle( $this->getTitle() );
+		}
 	}
 
 }

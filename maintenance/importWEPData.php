@@ -37,8 +37,8 @@ class ImportWEPData extends Maintenance {
 			return;
 		}
 		
-		$orgs = array(); // org
-		$courses = array(); // course => org
+		$orgs = array(); // org name => org id
+		$courses = array(); // course => org name
 		$students = array(); // student => [ courses ]
 		
 		foreach ( explode( "\n", $text ) as $line ) {
@@ -58,29 +58,56 @@ class ImportWEPData extends Maintenance {
 				}
 				
 				$courses[$course] = $org;
-				$orgs[] = $org;
+				$orgs[$org] = false;
 			}
 		}
 		
-		$orgs = array_unique( $orgs );
-		
 		echo 'Found ' . count( $orgs ) . ' orgs, ' . count( $courses ) . ' courses and ' . count( $students ) . " students.\n";
+		
+		echo "Inserting orgs ...";
 		
 		wfGetDB( DB_MASTER )->begin();
 		
-		foreach ( $orgs as $org ) {
+		foreach ( $orgs as $org => &$id ) {
 			$org = EPOrgs::singleton()->newFromArray(
 				array(
 					'name' => $org,
-					'country' => 'us',
+					'country' => 'US',
 				),
 				true
 			);
 			
 			$org->save();
+			$id = $org->getId();
 		}
 		
 		wfGetDB( DB_MASTER )->commit();
+		
+		echo " done!\n";
+		
+		echo "Inserting courses ...\n";
+		
+		foreach ( $courses as $course => $org ) {
+			$name = $course;
+			
+			$course = EPCourses::singleton()->newFromArray(
+				array(
+					'org_id' => $orgs[$org],
+					'name' => $course,
+					'mc' => $course,
+				),
+				true
+			);
+			
+			try{
+				$course->save();
+			}
+			catch ( Exception $ex ) {
+				echo "Failed to insert course '$name'.\n";
+			}
+		}
+		
+		echo "Inserted courses\n";
 		
 		echo "\n\n";
 	}
