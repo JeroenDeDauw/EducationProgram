@@ -79,7 +79,14 @@ class ImportWEPData extends Maintenance {
 		echo "Import completed!\n\n";
 	}
 	
-	protected function insertOrgs( array $orgs ) {
+	/**
+	 * Insert the orgs.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param array $orgs Org names as keys. Values get set to the id after insertion.
+	 */
+	protected function insertOrgs( array &$orgs ) {
 		wfGetDB( DB_MASTER )->begin();
 		
 		foreach ( $orgs as $org => &$id ) {
@@ -98,6 +105,14 @@ class ImportWEPData extends Maintenance {
 		wfGetDB( DB_MASTER )->commit();	
 	}
 	
+	/**
+	 * Insert the courses.
+	 * 
+	 * @param array $courses
+	 * @param array $orgs
+	 * 
+	 * @return array Inserted courses. keys are names, values are ids
+	 */
 	protected function insertCourses( array $courses, array $orgs ) {
 		$courseIds = array();
 		
@@ -125,6 +140,17 @@ class ImportWEPData extends Maintenance {
 		return $courseIds;
 	}
 	
+	/**
+	 * Insert the students.
+	 * Create user account if none matches the name yet.
+	 * Create student profile if none matches the user yet.
+	 * Associate with courses.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param array $students Keys are names, values are arrays with course names
+	 * @param array $courseIds Maps course names to ids
+	 */
 	protected function insertStudents( array $students, array $courseIds ) {
 		foreach ( $students as $student => $courseNames ) {
 			$name = $student;
@@ -145,15 +171,7 @@ class ImportWEPData extends Maintenance {
 				else {
 					$student = EPStudent::newFromUser( $user );
 					
-					if ( $student === false ) {
-						$student = new EPStudent(
-							array(
-								'user_id' => $user->getId(),
-								'first_enroll' => wfTimestamp( TS_MW )
-							),
-							true
-						);
-						
+					if ( is_null( $student->getId() ) ) {
 						if ( !$student->save() ) {
 							echo "Failed to insert student '$name'. (failed create student profile)\n";
 							continue;

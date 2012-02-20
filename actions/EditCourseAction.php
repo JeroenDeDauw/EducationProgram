@@ -100,14 +100,16 @@ class EditCourseAction extends EPEditAction {
 	 * @return array
 	 */
 	protected function titleToNameAndTerm( $titleText ) {
-		$term = '';
-
 		$matches = array();
 		preg_match( '/(.*)\((.*)\)/', $titleText, $matches );
 
 		if ( count( $matches ) == 3 && trim( $matches[1] ) !== '' && $matches[2] !== '' ) {
 			$name = trim( $matches[1] );
 			$term = trim( $matches[2] );
+		}
+		else {
+			$name = $titleText;
+			$term = '';
 		}
 
 		return array( $name, $term );

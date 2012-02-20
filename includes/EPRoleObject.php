@@ -52,7 +52,7 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		$class = $map[get_called_class()];
 		$table = $class::singleton();
 		
-		$userRole = $table->selectRow( null, $data );
+		$userRole = $table->selectRow( $fields, $data );
 		return $userRole === false ? new static( $table, $data, true ) : $userRole;
 	}
 	
