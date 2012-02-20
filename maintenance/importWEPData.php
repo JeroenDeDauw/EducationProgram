@@ -119,11 +119,19 @@ class ImportWEPData extends Maintenance {
 		foreach ( $courses as $course => $org ) {
 			$name = $course;
 			
+			$start = wfTimestamp( TS_MW );
+			$end = wfTimestamp( TS_MW );
+			$start{3} = '1';
+			$end{3} = '3';
+			
 			$course = EPCourses::singleton()->newFromArray(
 				array(
 					'org_id' => $orgs[$org],
 					'name' => $course,
 					'mc' => $course,
+					'start' => $start,
+					'end' => $end,
+					'lang' => 'en',
 				),
 				true
 			);
