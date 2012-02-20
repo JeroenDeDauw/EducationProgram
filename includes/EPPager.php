@@ -258,7 +258,7 @@ abstract class EPPager extends TablePager {
 	function isFieldSortable( $name ) {
 		return in_array(
 			$name,
-			$this->table->getPrefixedFields( $this->getSortableFields() )
+			$this->getSortableFields()
 		);
 	}
 
@@ -503,7 +503,6 @@ abstract class EPPager extends TablePager {
 
 		# Make table header
 		foreach ( $fields as $field => $name ) {
-			$prefixedField = $this->table->getPrefixedField( $field );
 			$name = $name === '' ? '' : $this->getMsg( 'header-' . $name );
 
 			if ( $field === '_select' ) {
@@ -516,10 +515,10 @@ abstract class EPPager extends TablePager {
 			}
 			elseif ( strval( $name ) == '' ) {
 				$s .= "<th>&#160;</th>\n";
-			} elseif ( $this->isFieldSortable( $prefixedField ) ) {
-				$query = array( 'sort' => $prefixedField, 'limit' => $this->mLimit );
+			} elseif ( $this->isFieldSortable( $field ) ) {
+				$query = array( 'sort' => $field, 'limit' => $this->mLimit );
 
-				if ( $prefixedField == $this->mSort ) {
+				if ( $field == $this->mSort ) {
 					# This is the sorted column
 					# Prepare a link that goes in the other sort order
 					if ( $this->mDefaultDirection ) {
@@ -551,6 +550,14 @@ abstract class EPPager extends TablePager {
 		}
 		$s .= "</tr></thead><tbody>\n";
 		return $s;
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see IndexPager::getIndexField()
+	 */
+	public function getIndexField() {
+		return $this->table->getPrefixedField( $this->mSort );
 	}
 
 	protected $instanceNumber = null;
