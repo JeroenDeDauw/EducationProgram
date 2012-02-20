@@ -72,9 +72,9 @@ class ImportWEPData extends Maintenance {
 		$courseIds = $this->insertCourses( $courses, $orgs );
 		echo "Inserted courses\n";
 		
-		echo "Inserting students ...\n";
-		$this->insertStudents( $students, $courseIds );
-		echo "Inserted students\n";
+//		echo "Inserting students ...\n";
+//		$this->insertStudents( $students, $courseIds );
+//		echo "Inserted students\n";
 		
 		echo "Import completed!\n\n";
 	}

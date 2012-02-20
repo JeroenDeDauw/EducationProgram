@@ -309,6 +309,19 @@ abstract class EPPager extends TablePager {
 		}
 
 		$this->addFilterValues( $filterOptions );
+		
+		foreach ( $filterOptions as $key => $optionData ) {
+			if ( array_key_exists( 'datatype', $optionData ) ) {
+				switch ( $optionData['datatype'] ) {
+					case 'int':
+						$filterOptions[$key]['value'] = (int)$optionData['value'];
+						break;
+					case 'float':
+						$filterOptions[$key]['value'] = (float)$optionData['value'];
+						break;
+				}
+			}		
+		}
 
 		if ( $hideWhenNoResults && $this->getNumRows() < 1 ) {
 			$noFiltersSet = array_reduce( $filterOptions, function( $current, array $data ) {
@@ -364,30 +377,18 @@ abstract class EPPager extends TablePager {
 	 * @since 0.1
 	 *
 	 * @param array $filterOptions
-	 * @param boolean $cast Should values with non-string type be casted (ie to have a select with int values have the correct val selected).
 	 *
 	 * @return boolean If anything was changed from the default
 	 */
-	protected function addFilterValues( array &$filterOptions, $cast = true ) {
+	protected function addFilterValues( array &$filterOptions ) {
 		$req = $this->getRequest();
 		$changed = false;
 
 		foreach ( $filterOptions as $optionName => &$optionData ) {
 			if ( $req->getCheck( $this->filterPrefix . $optionName ) ) {
 				$optionData['value'] = $req->getVal( $this->filterPrefix . $optionName );
-				
-				if ( $cast && array_key_exists( 'datatype', $optionData ) ) {
-					switch ( $optionData['datatype'] ) {
-						case 'int':
-							$optionData['value'] = (int)$optionData['value'];
-							break;
-						case 'float':
-							$optionData['value'] = (float)$optionData['value'];
-							break;
-					}
-				}
-				
-				if ( array_key_exists( $optionName, $_POST ) && $optionData['value'] !== '' ) {
+
+				if ( array_key_exists( $optionName, $_POST ) ) {
 					$req->setSessionData( $this->getNameForSession( $optionName ), $optionData['value'] );
 				}
 				
