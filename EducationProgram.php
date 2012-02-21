@@ -402,6 +402,9 @@ $wgResourceModules['ep.formpage'] = $moduleTemplate + array(
 	'scripts' => array(
 		'ep.formpage.js',
 	),
+	'styles' => array(
+		'ep.formpage.css',
+	),
 	'dependencies' => array(
 		'jquery.ui.button',
 	),

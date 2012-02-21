@@ -128,6 +128,7 @@ class EditCourseAction extends EPEditAction {
 		$fields['name'] = array (
 			'type' => 'text',
 			'label-message' => 'ep-course-edit-name',
+			'help-message' => 'ep-course-help-name',
 			'required' => true,
 		);
 		
@@ -144,6 +145,7 @@ class EditCourseAction extends EPEditAction {
 		$fields['mc'] = array (
 			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-mc',
+			'help-message' => 'ep-course-help-mc',
 			'required' => true,
 			'options' => array_combine( $mcs, $mcs ),
 		);
@@ -161,6 +163,7 @@ class EditCourseAction extends EPEditAction {
 		$fields['token'] = array (
 			'type' => 'text',
 			'label-message' => 'ep-course-edit-token',
+			'help-message' => 'ep-course-help-token',
 			'maxlength' => 255,
 			'size' => 20,
 			'validation-callback' => function ( $value, array $alldata = null ) {

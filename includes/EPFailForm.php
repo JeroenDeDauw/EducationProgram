@@ -20,15 +20,15 @@ class EPFailForm extends HTMLForm {
 	 */
 	function wrapForm( $html ) {
 
-		# Include a <fieldset> wrapper for style, if requested.
+		// Include a <fieldset> wrapper for style, if requested.
 		if ( $this->mWrapperLegend !== false ) {
 			$html = Xml::fieldset( $this->mWrapperLegend, $html );
 		}
-		# Use multipart/form-data
+		// Use multipart/form-data
 		$encType = $this->mUseMultipart
 			? 'multipart/form-data'
 			: 'application/x-www-form-urlencoded';
-		# Attributes
+		// Attributes
 		$attribs = array(
 			'action'  => $this->getTitle()->getFullURL( $this->query ),
 			'method'  => $this->mMethod,
