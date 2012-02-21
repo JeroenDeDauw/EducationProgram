@@ -69,35 +69,12 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 			'id' => 'wpTextbox1',
 			'default' => $ambassador->getField( 'bio' ),
 		);
-
-//		$lang = $this->getLanguage();
-//
-//		$prefix = $this->getMsgPrefix();
+		
+		// FIXME: ambassadorCommonsUrl is not getting passed, this looks like a bug or regression in HTMLForm since nothing else passes args to help-message.
 		$fields['photo'] = array(
 			'type' => 'text',
 			'label-message' => $this->getMsgPrefix() . 'profile-photo',
-//			'validation-callback' => function ( $value, array $alldata = null ) use ( $lang, $prefix ) {
-//				if ( trim( $value ) === '' ) {
-//					return true;
-//				}
-//
-//				$domains = EPSettings::get( 'ambassadorPictureDomains' );
-//
-//				foreach ( $domains as $domain ) {
-//					$pattern = '@^https?://(([a-z0-9]+)\.)?' . str_replace( '.', '\.', $domain ) . '/.*$@i';
-//
-//					if ( preg_match( $pattern, $value ) ) {
-//						return true;
-//					}
-//				}
-//
-//				return wfMsgExt(
-//					$prefix . 'profile-invalid-photo',
-//					'parsemag',
-//					$lang->listToText( $domains ),
-//					count( $domains )
-//				);
-//			},
+			'help-message' => array( $this->getMsgPrefix() . 'profile-photo-help', EPSettings::get( 'ambassadorCommonsUrl' ) ),
 			'default' => $ambassador->getField( 'photo' ),
 			'cssclass' => 'commons-input',
 		);

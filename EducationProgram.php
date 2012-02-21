@@ -423,6 +423,9 @@ $wgResourceModules['ep.ambprofile'] = $moduleTemplate + array(
 	'scripts' => array(
 		'ep.ambprofile.js',
 	),
+	'styles' => array(
+		'ep.ambprofile.css',
+	),
 	'dependencies' => array(
 		'jquery.ui.button',
 		'ep.imageinput',

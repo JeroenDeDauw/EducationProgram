@@ -32,6 +32,7 @@ class EPSettings {
 			'ambassadorPictureDomains' => array(
 				'wikimedia.org'
 			),
+			'ambassadorCommonsUrl' => 'https://commons.wikimedia.org/wiki/Special:UploadWizard',
 		);
 	}
 
