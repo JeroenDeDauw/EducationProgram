@@ -53,8 +53,6 @@ abstract class EPPager extends TablePager {
 		$this->table = $table;
 		$this->context = $context;
 
-		$this->mDefaultDirection = true;
-
 		parent::__construct( $context );
 
 		$this->context->getOutput()->addModules( 'ep.pager' );
