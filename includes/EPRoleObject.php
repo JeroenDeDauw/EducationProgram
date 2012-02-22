@@ -252,10 +252,10 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		$result = wfGetDB( DB_SLAVE )->select(
 			array( 'ep_courses', 'ep_users_per_course' ),
 			$courseTable->getPrefixedFields( is_null( $fields ) ? $courseTable->getFieldNames() : (array)$fields ),
-			array(
+			array_merge( array(
 				'upc_role' => $this->getRoleId(),
 				'upc_user_id' => $this->getField( 'user_id' ),
-			),
+			), EPCourses::singleton()->getPrefixedValues( $conditions ) ),
 			__METHOD__,
 			array(),
 			array(
