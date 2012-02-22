@@ -6,7 +6,7 @@
  * @author Jeroen De Dauw <jeroendedauw at gmail dot com>
  */
 
-(function( $, mw ) {
+(function( $ ) {
 	
 	$( document ).ready( function() {
 
