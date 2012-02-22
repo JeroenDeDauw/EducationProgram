@@ -13,6 +13,7 @@
  */
 abstract class EPPageTable extends DBTable {
 
+	// TODO
 	protected static $info = array(
 		'EPCourses' => array(
 			'ns' => EP_NS_COURSE,

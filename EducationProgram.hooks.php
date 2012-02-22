@@ -258,6 +258,14 @@ final class EPHooks {
 					'text' => wfMsg( $exists ? 'ep-tab-edit' : 'ep-tab-create' ),
 					'href' => $title->getLocalUrl( array( 'action' => 'edit' ) )
 				);
+
+				if ( $exists ) {
+					$links['actions']['delete'] = array(
+						'class' => $type === 'delete' ? 'selected' : false,
+						'text' => wfMsg( 'ep-tab-delete' ),
+						'href' => $title->getLocalUrl( array( 'action' => 'delete' ) )
+					);
+				}
 			}
 			
 			if ( $exists ) {

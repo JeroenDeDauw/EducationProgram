@@ -35,6 +35,7 @@ $messages['en'] = array(
 	'ep-tab-history' => 'View history',
 	'ep-tab-enroll' => 'Enroll',
 	'ep-tab-disenroll' => 'Disenroll',
+	'ep-tab-delete' => 'Delete',
 
 	// Tooltips
 	'tooltip-ep-form-save' => 'Save',
@@ -445,6 +446,20 @@ The deletion log for this course is provided below for convenience:",
 	'ep-coursehistory-title' => 'Revision history of course "$1"',
 	'ep-coursehistory-norevs' => 'There is no edit history for this course.',
 	'ep-coursehistory-deleted' => 'This course has been deleted. The deletion log for the course is provided below for reference.',
+
+	// Course deletion
+	'deletecourseaction-text' => 'You are about to delete course $1. This will remove all associated students!',
+	'deletecourseaction-summary' => 'Reason for deletion:',
+	'deletecourseaction-title' => 'Delete course "$1"',
+	'deletecourseaction-cancel-button' => 'Cancel',
+	'deletecourseaction-delete-button' => 'Delete course',
+
+	// Institution deletion
+	'deleteorgaction-text' => "You are about to delete institution $1. This will remove all it's courses and their associated students!",
+	'deleteorgaction-summary' => 'Reason for deletion:',
+	'deleteorgaction-title' => 'Delete institution "$1"',
+	'deleteorgaction-cancel-button' => 'Cancel',
+	'deleteorgaction-delete-button' => 'Delete institution',
 
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',

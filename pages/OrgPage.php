@@ -19,6 +19,7 @@ class OrgPage extends EPPage {
 			'view' => 'ViewOrgAction',
 			'edit' => 'EditOrgAction',
 			'history' => 'OrgHistoryAction',
+			'delete' => 'DeleteOrgAction',
 		);
 	}
 	
