@@ -221,7 +221,36 @@ class SpecialMyCourses extends SpecialEPPage {
 		
 		$out->addElement( 'h2', array(), wfMsg( 'ep-mycourses-course-enrollment' ) );
 		
-		$out->addHTML( $this->msg( 'ep-mycourses-enrolledin', Message::rawParam( $course->getLink() ) )->text() );
+		$out->addHTML( $this->msg(
+			'ep-mycourses-enrolledin',
+			array(
+				Message::rawParam( $course->getLink() ),
+				Message::rawParam( $course->getOrg()->getLink() )
+			)
+		)->text() );
+
+		$out->addWikiMsg( 'ep-mycourses-articletable' );
+
+		$pager = new EPArticleTable(
+			$this->getContext(),
+			array( 'id' => $this->getUser()->getId() ),
+			array(
+				'course_id' => $course->getId(),
+				'user_id' => $this->getUser()->getId(),
+			)
+		);
+
+		$pager->setShowStudents( false );
+
+		if ( $pager->getNumRows() ) {
+			$out->addHTML(
+				$pager->getFilterControl() .
+					$pager->getNavigationBar() .
+					$pager->getBody() .
+					$pager->getNavigationBar() .
+					$pager->getMultipleItemControl()
+			);
+		}
 	}
 
 }

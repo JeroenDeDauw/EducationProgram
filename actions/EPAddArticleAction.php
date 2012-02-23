@@ -57,7 +57,17 @@ class EPAddArticleAction extends FormlessAction {
 			}
 		}
 
-		$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
+		$returnTo = null;
+
+		if ( $req->getCheck( 'returnto' ) ) {
+			$returnTo = Title::newFromText( $req->getText( 'returnto' ) );
+		}
+
+		if ( is_null( $returnTo ) ) {
+			$returnTo = $this->getTitle()->getLocalURL();
+		}
+
+		$this->getOutput()->redirect( $returnTo->getLocalURL() );
 		return '';
 	}
 

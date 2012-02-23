@@ -40,6 +40,14 @@ class EPArticleTable extends EPPager {
 	protected $courseName = false;
 
 	/**
+	 * Show the students column or not.
+	 *
+	 * @since 0.1
+	 * @var boolean
+	 */
+	protected $showStudents = true;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
@@ -53,6 +61,17 @@ class EPArticleTable extends EPPager {
 		// when MW 1.19 becomes min, we want to pass an IContextSource $context here.
 		parent::__construct( $context, $conds, EPStudents::singleton() );
 	}
+
+	/**
+	 * Set if the student column should be shown or not.
+	 *
+	 * @since 0.1
+	 *
+	 * @param boolean $showStudents
+	 */
+	public function setShowStudents( $showStudents ) {
+		$this->showStudents = $showStudents;
+	}
 	
 	public function getBody() {
 		$this->getOutput()->addModules( 'ep.articletable' );
@@ -64,10 +83,13 @@ class EPArticleTable extends EPPager {
 	 * @see EPPager::getFields()
 	 */
 	public function getFields() {
-		return array(
-			'id',
-			'user_id',
-		);
+		$fields = array( 'id' );
+
+		if ( $this->showStudents ) {
+			$fields[] = 'user_id';
+		}
+
+		return $fields;
 	}
 
 	/**
@@ -113,7 +135,9 @@ class EPArticleTable extends EPPager {
 			$rowCount++;
 		}
 
-		$html .= $this->getUserCell( $student->getField( 'user_id' ), max( 1, $rowCount ) );
+		if ( $this->showStudents ) {
+			$html .= $this->getUserCell( $student->getField( 'user_id' ), max( 1, $rowCount ) );
+		}
 
 		$this->addNonStudentHTML( $html, $articles, $showArticleAdittion );
 
@@ -377,11 +401,18 @@ class EPArticleTable extends EPPager {
 	protected function getArticleAdittionControl( $courseId ) {
 		$html = '';
 
+		$courseName = EPCourses::singleton()->selectFieldsRow( 'name', array( 'id' => $courseId ) );
+		$query = array( 'action' => 'epaddarticle' );
+
+		if ( $this->getTitle()->getNamespace() !== EP_NS_COURSE ) {
+			$query['returnto'] = $this->getTitle()->getFullText();
+		}
+
 		$html .= Html::openElement(
 			'form',
 			array(
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epaddarticle' ) ),
+				'action' => EPCourses::getTitleFor( $courseName )->getLocalURL( $query ),
 			)
 		);
 
@@ -466,7 +497,10 @@ class EPArticleTable extends EPPager {
 
 		unset( $fields['id'] );
 
-		$fields['user_id'] = 'student';
+		if ( $this->showStudents ) {
+			$fields['user_id'] = 'student';
+		}
+
 		$fields['_articles'] = 'articles';
 		$fields['_reviewers'] = 'reviewers';
 
