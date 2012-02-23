@@ -42,6 +42,13 @@ abstract class EPPager extends TablePager {
 	protected $context;
 
 	/**
+	 * Enable filtering on the conditions of the filter control.
+	 * @since 0.1
+	 * @var boolean
+	 */
+	protected $enableFilter = true;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
@@ -237,12 +244,14 @@ abstract class EPPager extends TablePager {
 	protected function getConditions() {
 		$conds = array();
 
-		$filterOptions = $this->getFilterOptions();
-		$this->addFilterValues( $filterOptions, false );
+		if ( $this->enableFilter ) {
+			$filterOptions = $this->getFilterOptions();
+			$this->addFilterValues( $filterOptions, false );
 
-		foreach ( $filterOptions as $optionName => $optionData ) {
-			if ( array_key_exists( 'value', $optionData ) && $optionData['value'] !== '' ) {
-				$conds[$optionName] = $optionData['value'];
+			foreach ( $filterOptions as $optionName => $optionData ) {
+				if ( array_key_exists( 'value', $optionData ) && $optionData['value'] !== '' ) {
+					$conds[$optionName] = $optionData['value'];
+				}
 			}
 		}
 
@@ -285,6 +294,17 @@ abstract class EPPager extends TablePager {
 	}
 
 	/**
+	 * Sets if the filter control should be enabled.
+	 *
+	 * @since 0.1
+	 *
+	 * @param $enableFilter
+	 */
+	public function setEnableFilter( $enableFilter ) {
+		$this->enableFilter = $enableFilter;
+	}
+
+	/**
 	 * Gets the HTML for a filter control.
 	 *
 	 * @since 0.1
@@ -294,6 +314,10 @@ abstract class EPPager extends TablePager {
 	 * @return string
 	 */
 	public function getFilterControl( $hideWhenNoResults = true ) {
+		if ( !$this->enableFilter ) {
+			return '';
+		}
+
 		$filterOptions = $this->getFilterOptions();
 
 		foreach ( $this->conds as $name => $value ) {

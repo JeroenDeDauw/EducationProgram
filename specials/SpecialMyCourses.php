@@ -86,7 +86,11 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	protected function displayCourses() {
-		$this->displayEnrollment();
+		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
+			EPStudents::singleton()->setReadDb( DB_MASTER );
+		}
+
+		$this->displayRoleAssociation( 'EPStudent' );
 		
 		if ( $this->getUser()->isAllowed( 'ep-instructor' ) ) {
 			$this->displayRoleAssociation( 'EPInstructor' );
@@ -107,10 +111,6 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	protected function displayEnrollment() {
-		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
-			EPStudents::singleton()->setReadDb( DB_MASTER );
-		}
-
 		$student = EPStudent::newFromUser( $this->getUser() );
 
 		$courses = $student->getCourses( 'id' );
@@ -155,24 +155,26 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * @param $class The name of the EPIRole implementing class
 	 */
 	protected function displayRoleAssociation( $class ) {
-		$ambassador = $class::newFromUser( $this->getUser() );
-		$courses = $ambassador->getCourses( array( 'id', 'name' ) );
+		$userRole = $class::newFromUser( $this->getUser() );
+		$courses = $userRole->getCourses( array( 'id', 'name', 'org_id' ) );
 
 		if ( count( $courses ) > 0 ) {
-			$this->getOutput()->addElement( 'h2', array(), wfMsg( 'ep-mycourses-courses-' . strtolower( $class ) ) );
+			$message = wfMsgExt( 'ep-mycourses-courses-' . strtolower( $class ), 'parsemag', count( $courses ), $this->getUser()->getName() );
+			$this->getOutput()->addElement( 'h2', array(), $message );
 
-			if ( $class == 'EPInstructor' ) {
+			if ( $class == 'EPStudent' ) {
+				if ( count( $courses ) == 1 ) {
+					$this->displayCourse( $courses[0] );
+				}
+				else {
+					$this->displayCourseList( $courses );
+				}
+			}
+			elseif ( $class == 'EPInstructor' ) {
 				$this->displayCourseTables( $courses );
 			}
 			else {
-				$courseIds = array_map(
-					function( EPCourse $course ) {
-						return $course->getId();
-					},
-					$courses
-				);
-
-				EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true, $class );
+				$this->displayCoursePager( $courses, $class );
 			}
 		}
 		else {
@@ -191,6 +193,14 @@ class SpecialMyCourses extends SpecialEPPage {
 		foreach ( $courses as /* EPCourse */ $course ) {
 			$out->addElement( 'h3', array(), $course->getField( 'name' ) );
 
+			$out->addHTML( $this->msg(
+				'ep-mycourses-course-org-links',
+				array(
+					Message::rawParam( $course->getLink() ),
+					Message::rawParam( $course->getOrg()->getLink() )
+				)
+			)->text() );
+
 			$pager = new EPArticleTable(
 				$this->getContext(),
 				array( 'id' => $this->getUser()->getId() ),
@@ -200,10 +210,10 @@ class SpecialMyCourses extends SpecialEPPage {
 			if ( $pager->getNumRows() ) {
 				$out->addHTML(
 					$pager->getFilterControl() .
-						$pager->getNavigationBar() .
-						$pager->getBody() .
-						$pager->getNavigationBar() .
-						$pager->getMultipleItemControl()
+					$pager->getNavigationBar() .
+					$pager->getBody() .
+					$pager->getNavigationBar() .
+					$pager->getMultipleItemControl()
 				);
 			}
 		}
@@ -218,8 +228,6 @@ class SpecialMyCourses extends SpecialEPPage {
 	 */
 	protected function displayCourse( EPCourse $course ) {
 		$out = $this->getOutput();
-		
-		$out->addElement( 'h2', array(), wfMsg( 'ep-mycourses-course-enrollment' ) );
 		
 		$out->addHTML( $this->msg(
 			'ep-mycourses-enrolledin',
@@ -245,11 +253,62 @@ class SpecialMyCourses extends SpecialEPPage {
 		if ( $pager->getNumRows() ) {
 			$out->addHTML(
 				$pager->getFilterControl() .
-					$pager->getNavigationBar() .
-					$pager->getBody() .
-					$pager->getNavigationBar() .
-					$pager->getMultipleItemControl()
+				$pager->getNavigationBar() .
+				$pager->getBody() .
+				$pager->getNavigationBar() .
+				$pager->getMultipleItemControl()
 			);
+		}
+	}
+
+	/**
+	 * Display enrollment info for a list of courses.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $courses
+	 */
+	protected function displayCourseList( array $courses ) {
+		foreach ( $courses as /* EPCourse */ $course ) {
+			$this->getOutput()->addElement( 'h3', array(), $course->getField( 'name' ) );
+			$this->displayCourse( $course );
+		}
+	}
+
+	/**
+	 * Display a course pager with the provided courses.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $courses
+	 * @param string $class
+	 */
+	protected function displayCoursePager( array $courses, $class ) {
+		$out = $this->getOutput();
+
+		$courseIds = array_map(
+			function( EPCourse $course ) {
+				return $course->getId();
+			},
+			$courses
+		);
+
+		$pager = new EPCoursePager( $this->getContext(), array( 'id' => $courseIds ), true );
+
+		$pager->setFilterPrefix( $class );
+		$pager->setEnableFilter( count( $courses ) > 1 );
+
+		if ( $pager->getNumRows() ) {
+			$out->addHTML(
+				$pager->getFilterControl() .
+				$pager->getNavigationBar() .
+				$pager->getBody() .
+				$pager->getNavigationBar()
+			);
+		}
+		else {
+			$out->addHTML( $pager->getFilterControl() );
+			$out->addWikiMsg( 'ep-courses-noresults' );
 		}
 	}
 
