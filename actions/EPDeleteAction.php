@@ -32,6 +32,7 @@ abstract class EPDeleteAction extends FormlessAction {
 	protected function __construct( Page $page, IContextSource $context = null, DBTable $table ) {
 		$this->table = $table;
 		parent::__construct( $page, $context );
+		$this->getOutput()->addModules( 'ep.formpage' );
 	}
 
 	/**
@@ -111,6 +112,7 @@ abstract class EPDeleteAction extends FormlessAction {
 		$out->addElement(
 			'button',
 			array(
+				'id' => 'cancelDelete',
 				'class' => 'ep-delete-cancel',
 				'target-url' => $this->getTitle()->getLocalURL(),
 			),

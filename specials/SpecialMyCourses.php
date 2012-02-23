@@ -156,20 +156,56 @@ class SpecialMyCourses extends SpecialEPPage {
 	 */
 	protected function displayRoleAssociation( $class ) {
 		$ambassador = $class::newFromUser( $this->getUser() );
-		
-		$courseIds = array_map(
-			function( EPCourse $course ) {
-				return $course->getId();
-			},
-			$ambassador->getCourses( 'id' )
-		);
-		
-		if ( count( $courseIds ) > 0 ) {
+		$courses = $ambassador->getCourses( array( 'id', 'name' ) );
+
+		if ( count( $courses ) > 0 ) {
 			$this->getOutput()->addElement( 'h2', array(), wfMsg( 'ep-mycourses-courses-' . strtolower( $class ) ) );
-			EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true, $class );
+
+			if ( $class == 'EPInstructor' ) {
+				$this->displayCourseTables( $courses );
+			}
+			else {
+				$courseIds = array_map(
+					function( EPCourse $course ) {
+						return $course->getId();
+					},
+					$courses
+				);
+
+				EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true, $class );
+			}
 		}
 		else {
 			$this->getOutput()->addWikiMsg( 'ep-mycourses-nocourses-' . strtolower( $class ) );
+		}
+	}
+
+	/**
+	 * Display a list of courses, each as a h3 section with the student/article table in it.
+	 *
+	 * @param array $courses
+	 */
+	protected function displayCourseTables( array $courses ) {
+		$out = $this->getOutput();
+
+		foreach ( $courses as /* EPCourse */ $course ) {
+			$out->addElement( 'h3', array(), $course->getField( 'name' ) );
+
+			$pager = new EPArticleTable(
+				$this->getContext(),
+				array( 'id' => $this->getUser()->getId() ),
+				array( 'course_id' => $course->getId() )
+			);
+
+			if ( $pager->getNumRows() ) {
+				$out->addHTML(
+					$pager->getFilterControl() .
+						$pager->getNavigationBar() .
+						$pager->getBody() .
+						$pager->getNavigationBar() .
+						$pager->getMultipleItemControl()
+				);
+			}
 		}
 	}
 

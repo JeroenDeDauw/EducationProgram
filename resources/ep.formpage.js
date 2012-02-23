@@ -12,10 +12,12 @@
 		
 		$( '#bodyContent' ).find( '[type="submit"]' ).button();
 		
-		$( '#cancelEdit' ).click( function( event ) {
+		$( '#cancelEdit, #cancelDelete' ).click( function( event ) {
 			window.location = $( this ).attr( 'target-url' );
 			event.preventDefault();
 		} );
+
+		$( '#cancelDelete' ).button();
 
 	} );
 	
