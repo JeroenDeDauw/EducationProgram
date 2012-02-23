@@ -235,7 +235,7 @@ class SpecialEnroll extends SpecialEPPage {
 		);
 
 		if ( !$hadStudent ) {
-			$student = new EPStudent( array( 'user_id' => $this->getUser()->getId() ), true );
+			$student = EPStudents::singleton()->newFromArray( array( 'user_id' => $this->getUser()->getId() ), true );
 			$fields['first_enroll'] = wfTimestamp( TS_MW );
 		}
 

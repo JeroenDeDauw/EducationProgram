@@ -53,7 +53,14 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		$table = $class::singleton();
 		
 		$userRole = $table->selectRow( $fields, $data );
-		return $userRole === false ? new static( $table, $data, true ) : $userRole;
+		
+		if ( $userRole === false ) {
+			return new static( $table, $data, true );
+		}
+		else {
+			$userRole->setFields( $data );
+			return $userRole;
+		}
 	}
 	
 	/**
@@ -142,7 +149,7 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		foreach ( $courses as /* EPCourse */ $course ) {
 			$courseIds[] = $course->getId();
 			$course->setUpdateSummaries( false );
-			$success = $course->enlistUsers( $this->loadAndGetField( 'user_id' ), $this->getRoleName() ) && $success;
+			$success = $course->enlistUsers( $this->getField( 'user_id' ), $this->getRoleName() ) && $success;
 			$course->setUpdateSummaries( true );
 		}
 
