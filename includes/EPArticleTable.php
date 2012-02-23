@@ -99,13 +99,7 @@ class EPArticleTable extends EPPager {
 		$user = $this->getUser();
 
 		$rowCount = array_reduce( $articles, function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
-			$sum += max( count( $article->getField( 'reviewers' ) ), 1 );
-
-			if ( $article->canBecomeReviewer( $user ) ) {
-				$sum++;
-			}
-
-			return $sum;
+			return $sum += max( count( $article->getField( 'reviewers' ) ), 1 );
 		}, 0 );
 
 		$html = Html::openElement( 'tr', $this->getRowAttrs( $row ) );
