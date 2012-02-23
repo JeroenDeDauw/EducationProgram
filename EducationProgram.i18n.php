@@ -534,6 +534,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-mycourses-nocourses-epca' => 'There are no courses you are Campus Ambassador for yet.',
 	'ep-mycourses-nocourses-epoa' => 'There are no courses you are Online Ambassador for yet.',
 	'ep-mycourses-nocourses-epinstructor' => 'There are no courses you are Instructor for yet.',
+	'ep-mycourses-enrolledin' => 'You are currently enrolled in $1.',
 
 	// ep.enlist instructor
 	'ep-instructor-remove-title' => 'Remove instructor from course',

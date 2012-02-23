@@ -221,7 +221,7 @@ class SpecialMyCourses extends SpecialEPPage {
 		
 		$out->addElement( 'h2', array(), wfMsg( 'ep-mycourses-course-enrollment' ) );
 		
-		$out->addHTML( 'You are currently enrolled in ' . $course->getField( 'name' ) ); // TODO
+		$out->addHTML( $this->msg( 'ep-mycourses-enrolledin', Message::rawParam( $course->getLink() ) )->text() );
 	}
 
 }
