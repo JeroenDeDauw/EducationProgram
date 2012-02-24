@@ -44,16 +44,6 @@ abstract class EPDeleteAction extends FormlessAction {
 	}
 
 	/**
-	 * Do something exciting on successful processing of the form.  This might be to show
-	 * a confirmation message (watch, rollback, etc) or to redirect somewhere else (edit,
-	 * protect, etc).
-	 */
-	public function onSuccess() {
-		$title = SpecialPage::getTitleFor( $this->table->getListPage() );
-		$this->getOutput()->getRedirect( $title->getLocalURL( array( 'deleted' => $this->getTitle()->getText() ) ) );
-	}
-
-	/**
 	 * (non-PHPdoc)
 	 * @see FormlessAction::onView()
 	 */
@@ -67,12 +57,54 @@ abstract class EPDeleteAction extends FormlessAction {
 			$this->getOutput()->setSubtitle( '' );
 		}
 		else {
-			$this->displayForm( $object );
+			$req = $this->getRequest();
+			
+			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'deleteToken' ), $this->getSalt() ) ) {
+				$success = $this->doDelete( $object );
+				
+				if ( $success ) {
+					$title = SpecialPage::getTitleFor( $this->table->getListPage() );
+					$query = array( 'deleted' => $this->getTitle()->getText() ); // TODO: handle
+				}
+				else {
+					$title = $this->getTitle();
+					$query = array( 'delfailed' => '1' ); // TODO: handle
+				}
+				
+				$this->getOutput()->redirect( $title->getLocalURL( $query ) );
+			}
+			else {
+				$this->displayForm( $object );
+			}
 		}
 
 		return '';
 	}
+	
+	/**
+	 * Does the actual deletion action.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return boolean Success indicator
+	 */
+	protected function doDelete( EPPageObject $object ) {
+		$revAction = new EPRevisionAction();
+		
+		$revAction->setUser( $this->getUser() );
+		$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
+		$revAction->setDelete( true );
+		
+		return $object->revisionedRemove( $revAction );
+	}
 
+	/**
+	 * Display the deletion form for the provided EPPageObject.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param EPPageObject $object
+	 */
 	protected function displayForm( EPPageObject $object ) {
 		$out = $this->getOutput();
 
@@ -82,7 +114,7 @@ abstract class EPDeleteAction extends FormlessAction {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL(),
+				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'delete' ) ),
 			)
 		) );
 
@@ -119,11 +151,24 @@ abstract class EPDeleteAction extends FormlessAction {
 			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);
 
-		$out->addHTML( Html::hidden( 'deleteToken', $this->getUser()->getEditToken( 'delete' . $this->getTitle()->getLocalURL() ) ) );
+		$out->addHTML( Html::hidden( 'deleteToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
 
 		$out->addHTML( '</form>' );
 	}
+	
+	protected function getSalt() {
+		return 'delete' . $this->getTitle()->getLocalURL();
+	}
 
+	/**
+	 * Returns a prefixed message name.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param string $name
+	 * 
+	 * @return string
+	 */
 	protected function prefixMsg( $name ) {
 		return strtolower( get_called_class() ) . '-' . $name;
 	}
