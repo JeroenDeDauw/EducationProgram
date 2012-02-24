@@ -228,7 +228,7 @@ class SpecialEnroll extends SpecialEPPage {
 	 */
 	protected function doEnroll( EPCourse $course ) {
 		$student = EPStudent::newFromUser( $this->getUser(), array( 'id' ) );
-		$hadStudent = $student !== false;
+		$hadStudent = $student->hasIdField();
 
 		$fields = array(
 			'active_enroll' => 1
