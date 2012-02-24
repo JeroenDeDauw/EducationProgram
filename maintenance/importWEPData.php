@@ -41,6 +41,12 @@ class ImportWEPData extends Maintenance {
 		$courses = array(); // course => org name
 		$students = array(); // student => [ courses ]
 		
+		$text = str_replace(
+			array( '_', '%27' ),
+			array( ' ', "'" ),
+			$text
+		);
+		
 		foreach ( explode( "\n", $text ) as $line ) {
 			$cells = explode( ',', $line );
 			
