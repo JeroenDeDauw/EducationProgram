@@ -88,6 +88,18 @@ class SpecialMyCourses extends SpecialEPPage {
 	protected function displayCourses() {
 		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
 			EPStudents::singleton()->setReadDb( DB_MASTER );
+			
+			$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
+			
+			if ( $course !== false && in_array( $this->getUser()->getId(), $course->getField( 'students' ) ) ) {
+				$this->showSuccess( wfMessage(
+					'ep-mycourses-enrolled',
+					array(
+						Message::rawParam( $course->getLink() ),
+						Message::rawParam( $course->getOrg()->getLink() )
+					)
+				) );
+			}
 		}
 
 		$this->displayRoleAssociation( 'EPStudent' );
@@ -106,43 +118,18 @@ class SpecialMyCourses extends SpecialEPPage {
 	}
 
 	/**
-	 * Display the courses the user is enrolled in (if any).
+	 * Display the courses the user is enrolled in.
 	 *
 	 * @since 0.1
+	 * 
+	 * @param array $courses
 	 */
-	protected function displayEnrollment() {
-		$student = EPStudent::newFromUser( $this->getUser() );
-
-		$courses = $student->getCourses( 'id' );
-		
-		$courseIds = array_map(
-			function( EPCourse $course ) {
-				return $course->getId();
-			},
-			$courses
-		);
-		
-		if ( $this->getRequest()->getCheck( 'enrolled' ) && in_array( $this->getRequest()->getInt( 'enrolled' ), $courseIds ) ) {
-			$course = EPCourses::singleton()->selectRow(
-				array( 'name', 'org_id' ),
-				array( 'id' => $this->getRequest()->getInt( 'enrolled' ) )
-			);
-			
-			$this->showSuccess( wfMessage(
-				'ep-mycourses-enrolled',
-				$course->getField( 'name' ),
-				$course->getOrg()->getField( 'name' )
-			) );
+	protected function displayEnrollment( array $courses ) {
+		if ( count( $courses ) == 1 ) {
+			$this->displayCourse( $courses[0] );
 		}
-		
-		if ( count( $courseIds ) === 1 ) {
-			$course = $courses[0];
-			$course->loadFields();
-			$this->displayCourse( $course );
-		}
-		elseif ( count( $courseIds ) > 1 ) {
-			$this->getOutput()->addElement( 'h2', array(), wfMsg( 'ep-mycourses-enrollment' ) );
-			EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ), true, 'enrollment' );
+		else {
+			$this->displayCourseList( $courses );
 		}
 	}
 
@@ -163,12 +150,7 @@ class SpecialMyCourses extends SpecialEPPage {
 			$this->getOutput()->addElement( 'h2', array(), $message );
 
 			if ( $class == 'EPStudent' ) {
-				if ( count( $courses ) == 1 ) {
-					$this->displayCourse( $courses[0] );
-				}
-				else {
-					$this->displayCourseList( $courses );
-				}
+				$this->displayEnrollment( $courses );
 			}
 			elseif ( $class == 'EPInstructor' ) {
 				$this->displayCourseTables( $courses );
