@@ -244,4 +244,12 @@ abstract class EPRevisionedObject extends DBDataObject {
 		return null;
 	}
 	
+	public function undelete() {
+		
+	}
+	
+	public function revert() {
+		
+	}
+	
 }

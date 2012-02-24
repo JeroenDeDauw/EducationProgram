@@ -469,6 +469,7 @@ The deletion log for this course is provided below for convenience:",
 	'deletecourseaction-title' => 'Delete course "$1"',
 	'deletecourseaction-cancel-button' => 'Cancel',
 	'deletecourseaction-delete-button' => 'Delete course',
+	'deletecourseaction-none' => 'There is no course titled "$1". Existing courses can be found in [[Special:Courses|the courses list]].',
 
 	// Institution deletion
 	'deleteorgaction-text' => "You are about to delete institution $1. This will remove all it's courses and their associated students!",
@@ -476,6 +477,7 @@ The deletion log for this course is provided below for convenience:",
 	'deleteorgaction-title' => 'Delete institution "$1"',
 	'deleteorgaction-cancel-button' => 'Cancel',
 	'deleteorgaction-delete-button' => 'Delete institution',
+	'deleteorgaction-none' => 'There is no institution titled "$1". Existing institutions can be found in [[Special:Courses|the institution list]].',
 
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',

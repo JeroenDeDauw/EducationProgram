@@ -63,8 +63,8 @@ abstract class EPDeleteAction extends FormlessAction {
 		$object = $this->table->get( $this->getTitle()->getText() );
 
 		if ( $object === false ) {
-			// TODO
-			throw new ErrorPageError( $this->getTitle(), $this->prefixMsg( 'none' ) );
+			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ), $this->getTitle()->getText() );
+			$this->getOutput()->setSubtitle( '' );
 		}
 		else {
 			$this->displayForm( $object );
