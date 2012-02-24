@@ -166,7 +166,10 @@ class EPOrgPager extends EPPager {
 	protected function getMultipleItemActions() {
 		$actions = parent::getMultipleItemActions();
 
-		if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
+		if ( $this->getUser()->isAllowed( 'ep-org' )
+			&& $this->getUser()->isAllowed( 'ep-bulkdelorgs' )
+			&& $this->getUser()->getOption( 'ep_bulkdelorgs' ) ) {
+				
 			$actions[wfMsg( 'ep-pager-delete-selected' )] = array(
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) )

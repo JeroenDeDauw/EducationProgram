@@ -217,7 +217,11 @@ class EPCoursePager extends EPPager {
 	protected function getMultipleItemActions() {
 		$actions = parent::getMultipleItemActions();
 
-		if ( !$this->readOnlyMode && $this->getUser()->isAllowed( 'ep-course' ) ) {
+		if ( !$this->readOnlyMode
+			&& $this->getUser()->isAllowed( 'ep-course' )
+			&& $this->getUser()->isAllowed( 'ep-bulkdelcourses' )
+			&& $this->getUser()->getOption( 'ep_bulkdelcourses' ) ) {
+				
 			$actions[wfMsg( 'ep-pager-delete-selected' )] = array(
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) )

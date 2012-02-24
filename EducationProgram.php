@@ -230,6 +230,8 @@ $wgAvailableRights[] = 'ep-becampus';		// Add or remove yourself as campus ambas
 $wgAvailableRights[] = 'ep-beinstructor';	// Add or remove yourself as instructor from courses
 $wgAvailableRights[] = 'ep-bereviewer';		// Add or remove yourself as reviewer from articles
 $wgAvailableRights[] = 'ep-remreviewer';	// Remove reviewers from articles
+$wgAvailableRights[] = 'ep-bulkdelorgs';	// Bulk delete institutions
+$wgAvailableRights[] = 'ep-bulkdelcourses';	// Bulk delete courses
 
 // User group rights
 $wgGroupPermissions['*']['ep-enroll'] = true;
@@ -243,8 +245,10 @@ $wgGroupPermissions['*']['ep-instructor'] = false;
 $wgGroupPermissions['*']['ep-beonline'] = false;
 $wgGroupPermissions['*']['ep-becampus'] = false;
 $wgGroupPermissions['*']['ep-beinstructor'] = false;
-$wgGroupPermissions['*']['ep-bereviewer'] = true;
+$wgGroupPermissions['*']['ep-bereviewer'] = true; // TODO: do we want this?
 $wgGroupPermissions['*']['ep-remreviewer'] = false;
+$wgGroupPermissions['*']['ep-bulkdelorgs'] = false;
+$wgGroupPermissions['*']['ep-bulkdelcourses'] = false;
 
 $wgGroupPermissions['epstaff']['ep-org'] = true;
 $wgGroupPermissions['epstaff']['ep-course'] = true;
@@ -259,6 +263,8 @@ $wgGroupPermissions['epstaff']['ep-becampus'] = true;
 $wgGroupPermissions['epstaff']['ep-beinstructor'] = true;
 $wgGroupPermissions['epstaff']['ep-bereviewer'] = true;
 $wgGroupPermissions['epstaff']['ep-remreviewer'] = true;
+$wgGroupPermissions['epstaff']['ep-bulkdelorgs'] = true;
+$wgGroupPermissions['epstaff']['ep-bulkdelcourses'] = true;
 
 $wgGroupPermissions['epadmin']['ep-org'] = true;
 $wgGroupPermissions['epadmin']['ep-course'] = true;
@@ -273,6 +279,7 @@ $wgGroupPermissions['epadmin']['ep-becampus'] = true;
 $wgGroupPermissions['epadmin']['ep-beinstructor'] = true;
 $wgGroupPermissions['epadmin']['ep-bereviewer'] = true;
 $wgGroupPermissions['epadmin']['ep-remreviewer'] = true;
+$wgGroupPermissions['epadmin']['ep-bulkdelcourses'] = true;
 
 $wgGroupPermissions['eponlineamb']['ep-org'] = true;
 $wgGroupPermissions['eponlineamb']['ep-course'] = true;
@@ -595,5 +602,7 @@ unset( $moduleTemplate );
 
 $egEPSettings = array();
 
-# The default value for the user preferences.
+// The default value for the user preferences.
 $wgDefaultUserOptions['ep_showtoplink'] = false;
+$wgDefaultUserOptions['ep_bulkdelorgs'] = false;
+$wgDefaultUserOptions['ep_bulkdelcourses'] = true;

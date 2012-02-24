@@ -118,6 +118,22 @@ final class EPHooks {
 				'section' => 'education',
 			);
 		}
+		
+		if ( $user->isAllowed( 'ep-bulkdelorgs' ) ) {
+			$preferences['ep_bulkdelorgs'] = array(
+				'type' => 'toggle',
+				'label-message' => 'ep-prefs-bulkdelorgs',
+				'section' => 'education',
+			);
+		}
+		
+		if ( $user->isAllowed( 'ep-bulkdelcourses' ) ) {
+			$preferences['ep_bulkdelcourses'] = array(
+				'type' => 'toggle',
+				'label-message' => 'ep-prefs-bulkdelcourses',
+				'section' => 'education',
+			);
+		}
 
 		return true;
 	}

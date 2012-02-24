@@ -115,6 +115,8 @@ $messages['en'] = array(
 	// Preferences
 	'prefs-education' => 'Education',
 	'ep-prefs-showtoplink' => 'Show a link to [[Special:MyCourses|your courses]] at the top of every page.',
+	'ep-prefs-bulkdelorgs' => 'Show a bulk deletion control for the [[Special:Institutions|institutions]].',
+	'ep-prefs-bulkdelcourses' => 'Show a bulk deletion control for the [[Special:Courses|courses]].',
 
 	// Rights
 	'right-ep-org' => 'Manage Education Program institutions',
@@ -125,6 +127,13 @@ $messages['en'] = array(
 	'right-ep-online' => 'Add or remove online ambassadors to courses',
 	'right-ep-campus' => 'Add or remove campus ambassadors to courses',
 	'right-ep-instructor' => 'Add or remove instructors to courses',
+	'right-ep-beonline' => 'Add or remove yourself as online ambassador from terms',
+	'right-ep-becampus' => 'Add or remove yourself as campus ambassador from terms',
+	'right-ep-beinstructor' => ' Add or remove yourself as instructor from courses',
+	'right-ep-bereviewer' => 'Add or remove yourself as reviewer from articles',
+	'right-ep-remreviewer' => 'Remove reviewers from articles',
+	'right-ep-bulkdelorgs' => 'Bulk delete institutions',
+	'right-ep-bulkdelcourses' => 'Bulk delete courses',
 
 	// Actions
 	'action-ep-org' => 'manage institutions',
@@ -135,6 +144,13 @@ $messages['en'] = array(
 	'action-ep-online' => 'add or remove online ambassadors to courses',
 	'action-ep-campus' => 'add or remove campus ambassadors to courses',
 	'action-ep-instructor' => 'add or remove instructors to courses',
+	'action-ep-beonline' => 'add or remove yourself as online ambassador from terms',
+	'action-ep-becampus' => 'add or remove yourself as campus ambassador from terms',
+	'action-ep-beinstructor' => ' add or remove yourself as instructor from courses',
+	'action-ep-bereviewer' => 'add or remove yourself as reviewer from articles',
+	'action-ep-remreviewer' => 'remove reviewers from articles',
+	'action-ep-bulkdelorgs' => 'bulk delete institutions',
+	'action-ep-bulkdelcourses' => 'bulk delete courses',
 
 	// Groups
 	'group-epadmin' => 'Education program admins',
