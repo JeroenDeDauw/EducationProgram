@@ -93,6 +93,10 @@ class ImportWEPData extends Maintenance {
 	 * @param array $orgs Org names as keys. Values get set to the id after insertion.
 	 */
 	protected function insertOrgs( array &$orgs ) {
+		$revAction = new EPRevisionAction();
+		$revAction->setUser( $GLOBALS['wgUser'] );
+		$revAction->setComment( 'Import' );
+		
 		wfGetDB( DB_MASTER )->begin();
 		
 		foreach ( $orgs as $org => &$id ) {
@@ -104,7 +108,7 @@ class ImportWEPData extends Maintenance {
 				true
 			);
 			
-			$org->save();
+			$org->revisionedSave( $revAction );
 			$id = $org->getId();
 		}
 		
@@ -120,6 +124,10 @@ class ImportWEPData extends Maintenance {
 	 * @return array Inserted courses. keys are names, values are ids
 	 */
 	protected function insertCourses( array $courses, array $orgs ) {
+		$revAction = new EPRevisionAction();
+		$revAction->setUser( $GLOBALS['wgUser'] );
+		$revAction->setComment( 'Import' );
+		
 		$courseIds = array();
 		
 		foreach ( $courses as $course => $org ) {
@@ -143,7 +151,7 @@ class ImportWEPData extends Maintenance {
 			);
 			
 			try{
-				$course->save();
+				$course->revisionedSave( $revAction );
 				$courseIds[$name] = $course->getId();
 				$name = str_replace( '_', ' ', $name );
 				echo "Inserted course '$name'.\n";
