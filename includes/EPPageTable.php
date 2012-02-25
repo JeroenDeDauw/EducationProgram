@@ -13,47 +13,18 @@
  */
 abstract class EPPageTable extends DBTable {
 
-	// TODO
-	protected static $info = array(
-		'EPCourses' => array(
-			'ns' => EP_NS_COURSE,
-			'actions' => array(
-				'view' => false,
-				'edit' => 'ep-course',
-				'history' => false,
-				'enroll' => 'ep-enroll',
-			),
-			'edit-right' => 'ep-course',
-			'identifier' => 'name',
-			'list' => 'Courses',
-			'log-type' => 'course',
-		),
-		'EPOrgs' => array(
-			'ns' => EP_NS_INSTITUTION,
-			'actions' => array(
-				'view' => false,
-				'edit' => 'ep-org',
-				'history' => false,
-			),
-			'edit-right' => 'ep-org',
-			'identifier' => 'name',
-			'list' => 'Institutions',
-			'log-type' => 'institution',
-		),
-	);
-
 	public function getIdentifierField() {
-		return self::$info[get_called_class()]['identifier'];
+		return static::$info['identifier'];
 	}
 
 	public function getEditRight() {
-		return self::$info[get_called_class()]['edit-right'];
+		return static::$info['edit-right'];
 	}
 
 	public static function getTitleFor( $identifierValue ) {
 		return Title::newFromText(
 			$identifierValue,
-			self::$info[get_called_class()]['ns']
+			static::$info['ns']
 		);
 	}
 
@@ -79,7 +50,7 @@ abstract class EPPageTable extends DBTable {
 	}
 
 	public function getListPage() {
-		return self::$info[get_called_class()]['list'];
+		return static::$info['list'];
 	}
 
 	/**
@@ -117,13 +88,13 @@ abstract class EPPageTable extends DBTable {
 	 */
 	public function getLogInfoForTitle( Title $title ) {
 		return array(
-			'type' => self::$info[get_called_class()]['log-type'],
+			'type' => static::$info['log-type'],
 			'title' => $title,
 		);
 	}
 
 	public static function getTypeForNS( $ns ) {
-		foreach ( self::$info as $type => $info ) {
+		foreach ( static::$info as $type => $info ) {
 			if ( $info['ns'] === $ns ) {
 				return $type;
 			}
@@ -146,7 +117,7 @@ abstract class EPPageTable extends DBTable {
 
 		LogEventsList::showLogExtract(
 			$out,
-			array( self::$info[get_called_class()]['log-type'] ),
+			array( static::$info['log-type'] ),
 			$context->getTitle(),
 			'',
 			array(

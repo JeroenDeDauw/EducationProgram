@@ -48,7 +48,7 @@ abstract class EPViewAction extends FormlessAction {
 			$currentObject = $this->table->get( $name, 'id' );
 
 			if ( $currentObject !== false ) {
-				$rev = EPRevision::selectRow( null, array(
+				$rev = EPRevisions::singleton()->selectRow( null, array(
 					'id' => $this->getRequest()->getInt( 'revid' ),
 					'object_id' => $currentObject->getField( 'id' )
 				) );
