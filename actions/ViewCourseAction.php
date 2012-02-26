@@ -83,7 +83,7 @@ class ViewCourseAction extends EPViewAction {
 		$stats = array();
 
 		$orgName = EPOrgs::singleton()->selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
-		$stats['org'] = OrgPage::getLinkFor( $orgName );
+		$stats['org'] = EPOrgs::singleton()->getLinkFor( $orgName );
 
 		$lang = $this->getLanguage();
 
