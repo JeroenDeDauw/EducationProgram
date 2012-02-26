@@ -19,7 +19,15 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * @var IContextSource
 	 */
 	protected $context;
+	
+	/**
+	 * @since 0.1
+	 * @var EPPageTable
+	 */
+	protected $table;
 
+	protected $rowNr = 0;
+	
 	/**
 	 * Constructor.
 	 *
@@ -27,18 +35,23 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * @param string $className
 	 * @param array $conds
 	 */
-	public function __construct( IContextSource $context, array $conds = array() ) {
-		$this->conds = $conds;
-		$this->context = $context;
-
-		$this->mDefaultDirection = true;
-
+	public function __construct( IContextSource $context, EPPageTable $table, array $conds = array() ) {
 		if ( method_exists( 'ReverseChronologicalPager', 'getUser' ) ) {
 			parent::__construct( $context );
 		}
 		else {
 			parent::__construct();
 		}
+		
+		$this->conds = $conds;
+		$this->context = $context;
+		$this->table = $table;
+
+		$this->mDefaultDirection = true;
+		$this->getDateCond( 
+			$context->getRequest()->getText( 'year', '' ),
+			$context->getRequest()->getText( 'month', '' ) 
+		);
 	}
 
 	/**
@@ -66,7 +79,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 
 		$html .= $object->getLink(
 			'view',
-			$this->getLanguage()->timeanddate( $revision->getField( 'time' ) ),
+			htmlspecialchars( $this->getLanguage()->timeanddate( $revision->getField( 'time' ) ) ),
 			array(),
 			array( 'revid' => $revision->getId() )
 		);
@@ -93,7 +106,32 @@ class EPRevisionPager extends ReverseChronologicalPager {
 				'(' . $this->getOutput()->parseInline( $revision->getField( 'comment' ) ) . ')'
 			);
 		}
+		
+		if ( $this->getUser()->isAllowed( $this->table->getEditRight() ) ) {
+			$actionLinks = array();
+			
+			if ( $this->mOffset !== '' || $this->rowNr < $this->mResult->numRows() - 1 ) {
+				$actionLinks[] = $object->getLink(
+					'undo',
+					wfMsgHtml( 'ep-revision-undo' ),
+					array(),
+					array( 'revid' => $revision->getId() )
+				);
+			}
+			
+			$actionLinks[] = $object->getLink(
+				'restore',
+				wfMsgHtml( 'ep-revision-restore' ),
+				array(),
+				array( 'revid' => $revision->getId() )
+			);
+			
+			$html .= '&#160;.&#160;.&#160;';
+			$html .= '(' .  $this->getLanguage()->pipeList( $actionLinks ) . ')';
+		}
 
+		$this->rowNr++;
+		
 		return '<li>' . $html . '</li>';
 	}
 
@@ -118,10 +156,12 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * @return Array
 	 */
 	function getQueryInfo() {
+		$table = EPRevisions::singleton();
 		return array(
-			'tables' => EPRevisions::singleton()->getDBTable(),
-			'fields' => EPRevisions::singleton()->getPrefixedFields( EPRevisions::singleton()->getFieldNames() ),
-			'conds' => EPRevisions::singleton()->getPrefixedValues( $this->conds )
+			'tables' => $table->getDBTable(),
+			'fields' => $table->getPrefixedFields( $table->getFieldNames() ),
+			'conds' => $table->getPrefixedValues( $this->conds ),
+			'options' => array( 'USE INDEX' => array( $table->getDBTable() => $table->getPrefixedField( 'time' ) ) ),
 		);
 	}
 
@@ -138,7 +178,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * @return string|Array
 	 */
 	function getIndexField() {
-		return EPRevisions::singleton()->getPrefixedField( 'id' );
+		return EPRevisions::singleton()->getPrefixedField( 'time' );
 	}
 
 }

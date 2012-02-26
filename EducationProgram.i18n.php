@@ -235,6 +235,10 @@ $messages['en'] = array(
 	'ep-pager-withselected' => 'With selected',
 	'ep-pager-delete-selected' => 'Delete',
 
+	// Revision pager
+	'ep-revision-undo' => 'undo',
+	'ep-revision-restore' => 'restore',
+
 	// Org pager
 	'eporgpager-header-name' => 'Name',
 	'eporgpager-header-city' => 'City',
