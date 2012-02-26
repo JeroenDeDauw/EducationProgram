@@ -32,7 +32,7 @@ abstract class EPEditAction extends FormlessAction {
 
 	/**
 	 * @since 0.1
-	 * @var DBTable
+	 * @var EPPageTable
 	 */
 	protected $table;
 
@@ -45,7 +45,7 @@ abstract class EPEditAction extends FormlessAction {
 	 * @param IContextSource $context
 	 * @param DBTable $table
 	 */
-	protected function __construct( Page $page, IContextSource $context = null, DBTable $table ) {
+	protected function __construct( Page $page, IContextSource $context = null, EPPageTable $table ) {
 		$this->table = $table;
 		parent::__construct( $page, $context );
 	}
@@ -247,6 +247,7 @@ abstract class EPEditAction extends FormlessAction {
 			'cancelEdit',
 			array(
 				'target-url' => $this->getReturnToTitle()->getFullURL(),
+				'class' => 'ep-cancel',
 			)
 		);
 

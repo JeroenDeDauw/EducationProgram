@@ -468,20 +468,20 @@ The deletion log for this course is provided below for convenience:",
 	'ep-coursehistory-deleted' => 'This course has been deleted. The deletion log for the course is provided below for reference.',
 
 	// Course deletion
-	'deletecourseaction-text' => 'You are about to delete course $1. This will remove all associated students!',
-	'deletecourseaction-summary' => 'Reason for deletion:',
-	'deletecourseaction-title' => 'Delete course "$1"',
-	'deletecourseaction-cancel-button' => 'Cancel',
-	'deletecourseaction-delete-button' => 'Delete course',
-	'deletecourseaction-none' => 'There is no course titled "$1". Existing courses can be found in [[Special:Courses|the courses list]].',
+	'coursepage-delete-text' => 'You are about to delete course $1. This will remove all associated students!',
+	'coursepage-delete-summary' => 'Reason for deletion:',
+	'coursepage-delete-title' => 'Delete course "$1"',
+	'coursepage-delete-cancel-button' => 'Cancel',
+	'coursepage-delete-delete-button' => 'Delete course',
+	'coursepage-delete-none' => 'There is no course titled "$1". Existing courses can be found in [[Special:Courses|the courses list]].',
 
 	// Institution deletion
-	'deleteorgaction-text' => "You are about to delete institution $1. This will remove all it's courses and their associated students!",
-	'deleteorgaction-summary' => 'Reason for deletion:',
-	'deleteorgaction-title' => 'Delete institution "$1"',
-	'deleteorgaction-cancel-button' => 'Cancel',
-	'deleteorgaction-delete-button' => 'Delete institution',
-	'deleteorgaction-none' => 'There is no institution titled "$1". Existing institutions can be found in [[Special:Courses|the institution list]].',
+	'orgpage-delete-text' => "You are about to delete institution $1. This will remove all it's courses and their associated students!",
+	'orgpage-delete-summary' => 'Reason for deletion:',
+	'orgpage-delete-title' => 'Delete institution "$1"',
+	'orgpage-delete-cancel-button' => 'Cancel',
+	'orgpage-delete-delete-button' => 'Delete institution',
+	'orgpage-delete-none' => 'There is no institution titled "$1". Existing institutions can be found in [[Special:Courses|the institution list]].',
 
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',

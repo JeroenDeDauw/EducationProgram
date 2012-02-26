@@ -60,8 +60,8 @@ $wgAutoloadClasses['EPHooks'] 						= dirname( __FILE__ ) . '/EducationProgram.h
 $wgAutoloadClasses['EPSettings'] 					= dirname( __FILE__ ) . '/EducationProgram.settings.php';
 
 $wgAutoloadClasses['CourseHistoryAction'] 			= dirname( __FILE__ ) . '/actions/CourseHistoryAction.php';
-$wgAutoloadClasses['DeleteCourseAction'] 			= dirname( __FILE__ ) . '/actions/DeleteCourseAction.php';
-$wgAutoloadClasses['DeleteOrgAction'] 				= dirname( __FILE__ ) . '/actions/DeleteOrgAction.php';
+//$wgAutoloadClasses['DeleteCourseAction'] 			= dirname( __FILE__ ) . '/actions/DeleteCourseAction.php';
+//$wgAutoloadClasses['DeleteOrgAction'] 				= dirname( __FILE__ ) . '/actions/DeleteOrgAction.php';
 $wgAutoloadClasses['EditCourseAction'] 				= dirname( __FILE__ ) . '/actions/EditCourseAction.php';
 $wgAutoloadClasses['EditOrgAction'] 				= dirname( __FILE__ ) . '/actions/EditOrgAction.php';
 $wgAutoloadClasses['EPAddArticleAction'] 			= dirname( __FILE__ ) . '/actions/EPAddArticleAction.php';
@@ -72,10 +72,16 @@ $wgAutoloadClasses['EPHistoryAction'] 				= dirname( __FILE__ ) . '/actions/EPHi
 $wgAutoloadClasses['EPRemoveArticleAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveArticleAction.php';
 $wgAutoloadClasses['EPRemoveReviewerAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveReviewerAction.php';
 $wgAutoloadClasses['EPRemoveStudentAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveStudentAction.php';
+$wgAutoloadClasses['EPRestoreAction'] 				= dirname( __FILE__ ) . '/actions/EPRestoreAction.php';
+$wgAutoloadClasses['EPUndoAction'] 					= dirname( __FILE__ ) . '/actions/EPUndoAction.php';
 $wgAutoloadClasses['EPViewAction'] 					= dirname( __FILE__ ) . '/actions/EPViewAction.php';
 $wgAutoloadClasses['OrgHistoryAction'] 				= dirname( __FILE__ ) . '/actions/OrgHistoryAction.php';
 $wgAutoloadClasses['ViewCourseAction'] 				= dirname( __FILE__ ) . '/actions/ViewCourseAction.php';
 $wgAutoloadClasses['ViewOrgAction'] 				= dirname( __FILE__ ) . '/actions/ViewOrgAction.php';
+//$wgAutoloadClasses['CourseUndoAction'] 				= dirname( __FILE__ ) . '/actions/CourseUndoAction.php';
+//$wgAutoloadClasses['OrgUndoAction'] 				= dirname( __FILE__ ) . '/actions/OrgUndoAction.php';
+//$wgAutoloadClasses['CourseRestoreAction'] 			= dirname( __FILE__ ) . '/actions/CourseRestoreAction.php';
+//$wgAutoloadClasses['OrgRestoreAction'] 				= dirname( __FILE__ ) . '/actions/OrgRestoreAction.php';
 
 $wgAutoloadClasses['ApiDeleteEducation'] 			= dirname( __FILE__ ) . '/api/ApiDeleteEducation.php';
 $wgAutoloadClasses['ApiEnlist'] 					= dirname( __FILE__ ) . '/api/ApiEnlist.php';
@@ -193,6 +199,7 @@ $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs
 $wgHooks['ArticleFromTitle'][] 						= 'EPHooks::onArticleFromTitle';
 $wgHooks['CanonicalNamespaces'][] 					= 'EPHooks::onCanonicalNamespaces';
 $wgHooks['TitleIsAlwaysKnown'][] 					= 'EPHooks::onTitleIsAlwaysKnown';
+//$wgHooks['UnknownAction'][] 						= 'EPHooks::onUnknownAction';
 
 // Actions
 $wgActions['epremarticle'] = 'EPRemoveArticleAction';
@@ -200,6 +207,8 @@ $wgActions['epremstudent'] = 'EPRemoveStudentAction';
 $wgActions['epremreviewer'] = 'EPRemoveReviewerAction';
 $wgActions['epaddarticle'] = 'EPAddArticleAction';
 $wgActions['epaddreviewer'] = 'EPAddReviewerAction';
+$wgActions['epundo'] = 'EPUndoAction';
+$wgActions['eprestore'] = 'EPRestoreAction';
 
 // Logging
 $wgLogTypes[] = 'institution';

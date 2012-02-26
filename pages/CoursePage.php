@@ -14,13 +14,26 @@
  */
 class CoursePage extends EPPage {
 	
-	protected function getActions() {
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPage::getActions()
+	 */
+	public function getActions() {
 		return array(
 			'view' => 'ViewCourseAction',
 			'edit' => 'EditCourseAction',
 			'history' => 'CourseHistoryAction',
-			'delete' => 'DeleteCourseAction',
+			'delete' => 'EPDeleteAction',
 		);
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPage::getActions()
+	 * @return EPPageTable
+	 */
+	public function getTable() {
+		return EPCourses::singleton();
 	}
 	
 }

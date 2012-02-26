@@ -112,7 +112,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 			
 			if ( $this->mOffset !== '' || $this->rowNr < $this->mResult->numRows() - 1 ) {
 				$actionLinks[] = $object->getLink(
-					'undo',
+					'epundo',
 					wfMsgHtml( 'ep-revision-undo' ),
 					array(),
 					array( 'revid' => $revision->getId() )
@@ -120,7 +120,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 			}
 			
 			$actionLinks[] = $object->getLink(
-				'restore',
+				'eprestore',
 				wfMsgHtml( 'ep-revision-restore' ),
 				array(),
 				array( 'revid' => $revision->getId() )

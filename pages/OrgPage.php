@@ -14,13 +14,26 @@
  */
 class OrgPage extends EPPage {
 	
-	protected function getActions() {
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPage::getActions()
+	 */
+	public function getActions() {
 		return array(
 			'view' => 'ViewOrgAction',
 			'edit' => 'EditOrgAction',
 			'history' => 'OrgHistoryAction',
-			'delete' => 'DeleteOrgAction',
+			'delete' => 'EPDeleteAction',
 		);
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPage::getActions()
+	 * @return EPPageTable
+	 */
+	public function getTable() {
+		return EPOrgs::singleton();
 	}
 	
 }

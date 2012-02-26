@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract Page for interacting with a DBDataObject.
+ * Abstract Page for interacting with a EPPageObject.
  *
  * @since 0.1
  *
@@ -22,7 +22,16 @@ abstract class EPPage extends Page implements IContextSource {
 	 *
 	 * @return array
 	 */
-	protected abstract function getActions();
+	public abstract function getActions();
+	
+	/**
+	 * Returns an instance of the EPPageTable class for the EPPageObject being handled.
+	 *
+	 * @since 0.1
+	 *
+	 * @return EPPageTable
+	 */
+	public abstract function getTable();
 
 	/**
 	 * @since 0.1

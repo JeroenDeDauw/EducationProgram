@@ -340,5 +340,31 @@ final class EPHooks {
 
 		return true;
 	}
+	
+	/**
+	 * Used to add new query-string actions.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnknownAction
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $action
+	 * @param Page $page
+	 *
+	 * @return true
+	 */
+	public static function onUnknownAction( $action, Page $page ) {
+		// Action does not allow us to associate actions that are not known to core
+		// with a single page, hence the less ideal handling in this hook.
+		if ( method_exists( $page, 'getActions' ) ) {
+			$actions = $page->getActions();
+			
+			if ( array_key_exists( $action, $actions ) ) {
+				$action = new $actions[$action]( $page, $page->getContext() );
+				$action->show();
+			}
+		}
+		
+		return true;
+	}
 
 }

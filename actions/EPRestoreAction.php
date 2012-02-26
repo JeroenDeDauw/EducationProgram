@@ -1,25 +1,25 @@
 <?php
 
 /**
- * Action for deleting EPPageObject items.
+ * Abstract action for restoring an EPPageObject to a previous revision.
  *
  * @since 0.1
  *
- * @file EPDeleteAction.php
+ * @file EPRestoreAction.php
  * @ingroup EducationProgram
  * @ingroup Action
  *
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPDeleteAction extends FormlessAction {
+abstract class EPRestoreAction extends FormlessAction {
 
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getName()
 	 */
 	public function getName() {
-		return 'delete';
+		return 'eprestore';
 	}
 	
 	/**
@@ -28,14 +28,6 @@ class EPDeleteAction extends FormlessAction {
 	 */
 	protected function getDescription() {
 		return $this->msg( 'backlinksubtitle' )->rawParams( Linker::link( $this->getTitle() ) );
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see Action::getRestriction()
-	 */
-	public function getRestriction() {
-		$this->page->getTable()->getEditRight();
 	}
 
 	/**
@@ -54,19 +46,17 @@ class EPDeleteAction extends FormlessAction {
 		else {
 			$req = $this->getRequest();
 			
-			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'deleteToken' ), $this->getSalt() ) ) {
-				$success = $this->doDelete( $object );
+			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'restoreToken' ), $this->getSalt() ) ) {
+				$success = $this->doRestore( $object );
 				
 				if ( $success ) {
-					$title = SpecialPage::getTitleFor( $this->table->getListPage() );
-					$query = array( 'deleted' => $this->getTitle()->getText() ); // TODO: handle
+					$query = array( 'restored' => '1' ); // TODO: handle
 				}
 				else {
-					$title = $this->getTitle();
 					$query = array( 'delfailed' => '1' ); // TODO: handle
 				}
 				
-				$this->getOutput()->redirect( $title->getLocalURL( $query ) );
+				$this->getOutput()->redirect( $object->getTitle()->getLocalURL( $query ) );
 			}
 			else {
 				$this->displayForm( $object );
@@ -77,24 +67,25 @@ class EPDeleteAction extends FormlessAction {
 	}
 	
 	/**
-	 * Does the actual deletion action.
+	 * Does the actual restore action.
 	 * 
 	 * @since 0.1
 	 * 
 	 * @return boolean Success indicator
 	 */
-	protected function doDelete( EPPageObject $object ) {
+	protected function doRestore( EPPageObject $object ) {
 		$revAction = new EPRevisionAction();
 		
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
-		$revAction->setDelete( true );
 		
-		return $object->revisionedRemove( $revAction );
+		// TODO
+		
+		return false;
 	}
 
 	/**
-	 * Display the deletion form for the provided EPPageObject.
+	 * Display the restoration form for the provided EPPageObject.
 	 * 
 	 * @since 0.1
 	 * 
@@ -102,8 +93,6 @@ class EPDeleteAction extends FormlessAction {
 	 */
 	protected function displayForm( EPPageObject $object ) {
 		$out = $this->getOutput();
-		
-		$out->addModules( 'ep.formpage' );
 
 		$out->addWikiMsg( $this->prefixMsg( 'text' ), $object->getField( 'name' ) );
 
@@ -111,7 +100,7 @@ class EPDeleteAction extends FormlessAction {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'delete' ) ),
+				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'restore' ) ),
 			)
 		) );
 
@@ -130,25 +119,25 @@ class EPDeleteAction extends FormlessAction {
 		$out->addHTML( '<br />' );
 
 		$out->addHTML( Html::input(
-			'delete',
-			wfMsg( $this->prefixMsg( 'delete-button' ) ),
+			'restore',
+			wfMsg( $this->prefixMsg( 'restore-button' ) ),
 			'submit',
 			array(
-				'class' => 'ep-delete',
+				'class' => 'ep-restore',
 			)
 		) );
 
 		$out->addElement(
 			'button',
 			array(
-				'id' => 'cancelDelete',
-				'class' => 'ep-delete-cancel ep-cancel',
+				'id' => 'cancelRestore',
+				'class' => 'ep-restore-cancel ep-cancel',
 				'target-url' => $this->getTitle()->getLocalURL(),
 			),
 			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);
 
-		$out->addHTML( Html::hidden( 'deleteToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
+		$out->addHTML( Html::hidden( 'restoreToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
 
 		$out->addHTML( '</form>' );
 	}
@@ -159,9 +148,9 @@ class EPDeleteAction extends FormlessAction {
 	 * @since 0.1
 	 * 
 	 * @return string
-	 */	
+	 */
 	protected function getSalt() {
-		return 'delete' . $this->getTitle()->getLocalURL();
+		return 'restore' . $this->getTitle()->getLocalURL();
 	}
 
 	/**

@@ -16,7 +16,7 @@ abstract class EPViewAction extends FormlessAction {
 
 	/**
 	 * @since 0.1
-	 * @var DBTable
+	 * @var EPPageTable
 	 */
 	protected $table;
 
@@ -29,7 +29,7 @@ abstract class EPViewAction extends FormlessAction {
 	 * @param IContextSource $context
 	 * @param DBTable $table
 	 */
-	protected function __construct( Page $page, IContextSource $context = null, DBTable $table ) {
+	protected function __construct( Page $page, IContextSource $context = null, EPPageTable $table ) {
 		$this->table = $table;
 		parent::__construct( $page, $context );
 	}
