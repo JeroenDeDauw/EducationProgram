@@ -100,7 +100,7 @@ abstract class EPEditAction extends FormlessAction {
 		}
 		else {
 			if ( $object === false ) {
-				$this->table->displayDeletionLog(
+				$this->page->displayDeletionLog(
 					$this->getContext(),
 					'ep-' . strtolower( $this->getName() ) . '-deleted'
 				);

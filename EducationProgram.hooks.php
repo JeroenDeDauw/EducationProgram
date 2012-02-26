@@ -255,8 +255,7 @@ final class EPHooks {
 			$links['actions'] = array();
 
 			$user = $sktemplate->getUser();
-			$class = $classes[$title->getNamespace()];
-			$exists = $class::singleton()->hasIdentifier( $title->getText() );
+			$exists = $classes[$title->getNamespace()]::singleton()->hasIdentifier( $title->getText() );
 			$type = $sktemplate->getRequest()->getText( 'action' );
 			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
 
@@ -268,7 +267,7 @@ final class EPHooks {
 				);
 			}
 			
-			if ( $user->isAllowed( $class::singleton()->getEditRight() ) ) {
+			if ( $user->isAllowed( EPPage::factory( $title )->getEditRight() ) ) {
 				$links['views']['edit'] = array(
 					'class' => $type === 'edit' ? 'selected' : false,
 					'text' => wfMsg( $exists ? 'ep-tab-edit' : 'ep-tab-create' ),
@@ -341,30 +340,4 @@ final class EPHooks {
 		return true;
 	}
 	
-	/**
-	 * Used to add new query-string actions.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnknownAction
-	 *
-	 * @since 0.1
-	 *
-	 * @param string $action
-	 * @param Page $page
-	 *
-	 * @return true
-	 */
-	public static function onUnknownAction( $action, Page $page ) {
-		// Action does not allow us to associate actions that are not known to core
-		// with a single page, hence the less ideal handling in this hook.
-		if ( method_exists( $page, 'getActions' ) ) {
-			$actions = $page->getActions();
-			
-			if ( array_key_exists( $action, $actions ) ) {
-				$action = new $actions[$action]( $page, $page->getContext() );
-				$action->show();
-			}
-		}
-		
-		return true;
-	}
-
 }

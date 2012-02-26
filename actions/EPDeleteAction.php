@@ -35,7 +35,7 @@ class EPDeleteAction extends FormlessAction {
 	 * @see Action::getRestriction()
 	 */
 	public function getRestriction() {
-		$this->page->getTable()->getEditRight();
+		$this->page->getEditRight();
 	}
 
 	/**

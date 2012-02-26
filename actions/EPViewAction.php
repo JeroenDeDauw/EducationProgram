@@ -70,13 +70,13 @@ abstract class EPViewAction extends FormlessAction {
 		if ( $object === false ) {
 			$this->displayNavigation();
 
-			if ( $this->getUser()->isAllowed( $this->table->getEditRight() ) ) {
+			if ( $this->getUser()->isAllowed( $this->page->getEditRight() ) ) {
 				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
 			}
 			else {
 				$out->addWikiMsg( strtolower( get_called_class() ) . '-none', $name );
 
-				$this->table->displayDeletionLog(
+				$this->page->displayDeletionLog(
 					$this->getContext(),
 					'ep-' . strtolower( $this->getName() ) . '-deleted' 
 				);

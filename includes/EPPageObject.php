@@ -13,12 +13,16 @@
  */
 abstract class EPPageObject extends EPRevisionedObject {
 
+	/**
+	 * (non-PHPdoc)
+	 * @see EPRevisionedObject::getIdentifier()
+	 */
 	public function getIdentifier() {
 		return $this->getField( $this->table->getIdentifierField() );
 	}
-
+	
 	/**
-	 *
+	 * Returns the title of the page representing the object.
 	 *
 	 * @since 0.1
 	 *
@@ -29,19 +33,18 @@ abstract class EPPageObject extends EPRevisionedObject {
 	}
 	
 	/**
-	 * (non-PHPdoc)
-	 * @see DBDataObject::save()
+	 * Gets a link to the page representing the object.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param string $action
+	 * @param string $html
+	 * @param array $customAttribs
+	 * @param array $query
+	 * 
+	 * @return string
 	 */
-	public function save() {
-		if ( $this->hasField( $this->table->getIdentifierField() ) && is_null( $this->getTitle() ) ) {
-			throw new MWException( 'The title for a EPPageObject needs to be valid when saving.' );
-			return false;
-		}
-		
-		return parent::save();
-	}
-	
-	public function getLink( $action = 'view', $html = null, $customAttribs = array(), $query = array() ) {
+	public function getLink( $action = 'view', $html = null, array $customAttribs = array(), array $query = array() ) {
 		return $this->table->getLinkFor(
 			$this->getIdentifier(),
 			$action,
@@ -49,6 +52,19 @@ abstract class EPPageObject extends EPRevisionedObject {
 			$customAttribs,
 			$query
 		);
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::save()
+	 */
+	public function save() {
+		if ( $this->hasField( $this->getIdentifierField() ) && is_null( $this->getTitle() ) ) {
+			throw new MWException( 'The title for a EPPageObject needs to be valid when saving.' );
+			return false;
+		}
+		
+		return parent::save();
 	}
 
 	/**

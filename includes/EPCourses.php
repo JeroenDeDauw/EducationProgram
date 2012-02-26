@@ -13,20 +13,6 @@
  */
 class EPCourses extends EPPageTable {
 
-	protected static $info = array(
-		'ns' => EP_NS_COURSE,
-		'actions' => array(
-			'view' => false,
-			'edit' => 'ep-course',
-			'history' => false,
-			'enroll' => 'ep-enroll',
-		),
-		'edit-right' => 'ep-course',
-		'identifier' => 'name',
-		'list' => 'Courses',
-		'log-type' => 'course',
-	);
-	
 	/**
 	 * (non-PHPdoc)
 	 * @see DBTable::getDBTable()
@@ -143,6 +129,22 @@ class EPCourses extends EPPageTable {
 			'end >= ' . $now,
 			'start <= ' . $now,
 		) );
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPageObject::getIdentifierField()
+	 */
+	public function getIdentifierField() {
+		return 'name';
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPageObject::getNamespace()
+	 */
+	public function getNamespace() {
+		return EP_NS_COURSE;
 	}
 	
 }

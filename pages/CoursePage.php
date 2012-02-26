@@ -14,6 +14,20 @@
  */
 class CoursePage extends EPPage {
 	
+	protected static $info = array(
+		'ns' => EP_NS_COURSE,
+		'actions' => array(
+			'view' => false,
+			'edit' => 'ep-course',
+			'history' => false,
+			'enroll' => 'ep-enroll',
+		),
+		'edit-right' => 'ep-course',
+		'identifier' => 'name',
+		'list' => 'Courses',
+		'log-type' => 'course',
+	);
+	
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPage::getActions()

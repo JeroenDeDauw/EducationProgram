@@ -107,7 +107,8 @@ class EPRevisionPager extends ReverseChronologicalPager {
 			);
 		}
 		
-		if ( $this->getUser()->isAllowed( $this->table->getEditRight() ) ) {
+		// TODO: $this->getUser()->isAllowed( $this->table->getEditRight() )
+		if ( false ) {
 			$actionLinks = array();
 			
 			if ( $this->mOffset !== '' || $this->rowNr < $this->mResult->numRows() - 1 ) {

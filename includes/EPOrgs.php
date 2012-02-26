@@ -13,19 +13,6 @@
  */
 class EPOrgs extends EPPageTable {
 
-	protected static $info = array(
-		'ns' => EP_NS_INSTITUTION,
-		'actions' => array(
-			'view' => false,
-			'edit' => 'ep-org',
-			'history' => false,
-		),
-		'edit-right' => 'ep-org',
-		'identifier' => 'name',
-		'list' => 'Institutions',
-		'log-type' => 'institution',
-	);
-	
 	/**
 	 * (non-PHPdoc)
 	 * @see DBTable::getDBTable()
@@ -139,6 +126,22 @@ class EPOrgs extends EPPageTable {
 		}
 
 		return $options;
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPageObject::getIdentifierField()
+	 */
+	public function getIdentifierField() {
+		return 'name';
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPageObject::getNamespace()
+	 */
+	public function getNamespace() {
+		return EP_NS_INSTITUTION;
 	}
 	
 }

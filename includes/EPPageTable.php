@@ -13,44 +13,30 @@
  */
 abstract class EPPageTable extends DBTable {
 
-	public function getIdentifierField() {
-		return static::$info['identifier'];
-	}
-
-	public function getEditRight() {
-		return static::$info['edit-right'];
-	}
-
-	public static function getTitleFor( $identifierValue ) {
-		return Title::newFromText(
-			$identifierValue,
-			static::$info['ns']
-		);
-	}
-
-	public static function getLinkFor( $identifierValue, $action = 'view', $html = null, $customAttribs = array(), $query = array() ) {
-		if ( $action !== 'view' ) {
-			$query['action'] = $action;
-		}
-
-		return Linker::linkKnown( // Linker has no hook that allows us to figure out if the page actually exists :(
-			self::getTitleFor( $identifierValue, $action ),
-			is_null( $html ) ? htmlspecialchars( $identifierValue ) : $html,
-			$customAttribs,
-			$query
-		);
-	}
-
+	/**
+	 * Returns the field use to identify this object, ie the part used as page title.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return string
+	 */
+	public abstract function getIdentifierField();
+	
+	/**
+	 * Returns the namespace in which objects of this type reside.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return integer
+	 */
+	public abstract function getNamespace();
+	
 	public function hasIdentifier( $identifier ) {
 		return $this->has( array( $this->getIdentifierField() => $identifier ) );
 	}
 
 	public function get( $identifier, $fields = null ) {
-		return static::selectRow( $fields, array( $this->getIdentifierField() => $identifier ) );
-	}
-
-	public function getListPage() {
-		return static::$info['list'];
+		return $this->selectRow( $fields, array( $this->getIdentifierField() => $identifier ) );
 	}
 
 	/**
@@ -92,40 +78,48 @@ abstract class EPPageTable extends DBTable {
 			'title' => $title,
 		);
 	}
+	
+	/**
+	 * Construct a new title for an object of this type with the provided identifier value.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param string $identifierValue
+	 * 
+	 * @return Title
+	 */
+	public function getTitleFor( $identifierValue ) {
+		return Title::newFromText(
+			$identifierValue,
+			$this->getNamespace()
+		);
+	}
 
-	public static function getTypeForNS( $ns ) {
-		foreach ( static::$info as $type => $info ) {
-			if ( $info['ns'] === $ns ) {
-				return $type;
-			}
+	/**
+	 * Returns a link to the page representing the object of this type with the provided identifier value.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param string $identifierValue
+	 * @param string $action
+	 * @param string $html
+	 * @param array $customAttribs
+	 * @param array $query
+	 * 
+	 * @return string
+	 */
+	public function getLinkFor( $identifierValue, $action = 'view', $html = null, array $customAttribs = array(), array $query = array() ) {
+		if ( $action !== 'view' ) {
+			$query['action'] = $action;
 		}
 
-		throw new MWException( 'Unknown EPPageObject ns' );
-	}
-
-	public static function getLatestRevForTitle( Title $title, $conditions = array() ) {
-		$conds = array(
-			'type' => self::getTypeForNS( $title->getNamespace() ),
-			'object_identifier' => $title->getText(),
-		);
-
-		return EPRevision::getLastRevision( array_merge( $conds, $conditions ) );
-	}
-
-	public static function displayDeletionLog( IContextSource $context, $messageKey ) {
-		$out = $context->getOutput();
-
-		LogEventsList::showLogExtract(
-			$out,
-			array( static::$info['log-type'] ),
-			$context->getTitle(),
-			'',
-			array(
-				'lim' => 10,
-				'conds' => array( 'log_action' => 'remove' ),
-				'showIfEmpty' => false,
-				'msgKey' => array( $messageKey )
-			)
+		// Linker has no hook that allows us to figure out if the page actually exists :(
+		// FIXME: now it does
+		return Linker::linkKnown( 
+			$this->getTitleFor( $identifierValue, $action ),
+			is_null( $html ) ? htmlspecialchars( $identifierValue ) : $html,
+			$customAttribs,
+			$query
 		);
 	}
 

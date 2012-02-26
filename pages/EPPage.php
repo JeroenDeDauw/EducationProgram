@@ -2,6 +2,8 @@
 
 /**
  * Abstract Page for interacting with a EPPageObject.
+ * 
+ * Forced to implement a bunch of stuff that better should be in Page... :/
  *
  * @since 0.1
  *
@@ -49,8 +51,32 @@ abstract class EPPage extends Page implements IContextSource {
 		$this->page = new WikiPage( $title );
 	}
 	
+	/**
+	 * Returns a new instance based on the namespace of the provided title,
+	 * or throws an exception if the namespace is not handled.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param Title $title
+	 * 
+	 * @return EPPage
+	 * @throws MWException
+	 */
+	public static function factory( Title $title ) {
+		switch ( $title->getNamespace() ) {
+			case EP_NS_COURSE:
+				return new CoursePage( $title );
+				break;
+			case EP_NS_INSTITUTION:
+				return new OrgPage( $title );
+				break;
+			default:
+				throw new MWException( 'Namespace not handled by EPPage' );
+		}
+	}
+	
 	public function view() {
-	//	MediaWiki::articleFromTitle($title, $context)
+	
 	}
 	
 	public function setContext( IContextSource $context ) {
@@ -129,6 +155,31 @@ abstract class EPPage extends Page implements IContextSource {
 	public function getLang() {
 		wfDeprecated( __METHOD__, '1.19' );
 		return $this->getLanguage();
+	}
+	
+	public function getEditRight() {
+		return static::$info['edit-right'];
+	}
+
+	public function getListPage() {
+		return static::$info['list'];
+	}
+	
+	public static function displayDeletionLog( IContextSource $context, $messageKey ) {
+		$out = $context->getOutput();
+
+		LogEventsList::showLogExtract(
+			$out,
+			array( static::$info['log-type'] ),
+			$context->getTitle(),
+			'',
+			array(
+				'lim' => 10,
+				'conds' => array( 'log_action' => 'remove' ),
+				'showIfEmpty' => false,
+				'msgKey' => array( $messageKey )
+			)
+		);
 	}
 	
 }
