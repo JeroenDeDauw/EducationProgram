@@ -143,4 +143,12 @@ class EPOrgs extends EPPageTable {
 		return EP_NS_INSTITUTION;
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPageTable::getEditRight()
+	 */
+	public function getEditRight() {
+		return 'ep-org';
+	}
+	
 }

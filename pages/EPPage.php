@@ -165,6 +165,10 @@ abstract class EPPage extends Page implements IContextSource {
 		return static::$info['list'];
 	}
 	
+	public function getLogType() {
+		return static::$info['log-type'];
+	}
+	
 	public static function displayDeletionLog( IContextSource $context, $messageKey ) {
 		$out = $context->getOutput();
 

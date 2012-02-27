@@ -31,6 +31,15 @@ abstract class EPPageTable extends DBTable {
 	 */
 	public abstract function getNamespace();
 	
+	/**
+	 * Returns the right needed to edit items in this table.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return string
+	 */
+	public abstract function getEditRight();
+	
 	public function hasIdentifier( $identifier ) {
 		return $this->has( array( $this->getIdentifierField() => $identifier ) );
 	}
@@ -68,17 +77,6 @@ abstract class EPPageTable extends DBTable {
 		return $success;
 	}
 
-	/**
-	 * (non-PHPdoc)
-	 * @see EPRevisionedObject::getLogInfo()
-	 */
-	public function getLogInfoForTitle( Title $title ) {
-		return array(
-			'type' => static::$info['log-type'],
-			'title' => $title,
-		);
-	}
-	
 	/**
 	 * Construct a new title for an object of this type with the provided identifier value.
 	 * 

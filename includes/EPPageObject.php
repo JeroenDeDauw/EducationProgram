@@ -59,7 +59,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 	 * @see DBDataObject::save()
 	 */
 	public function save() {
-		if ( $this->hasField( $this->getIdentifierField() ) && is_null( $this->getTitle() ) ) {
+		if ( $this->hasField( $this->table->getIdentifierField() ) && is_null( $this->getTitle() ) ) {
 			throw new MWException( 'The title for a EPPageObject needs to be valid when saving.' );
 			return false;
 		}
@@ -78,7 +78,10 @@ abstract class EPPageObject extends EPRevisionedObject {
 			return false;
 		}
 		else {
-			return $this->table->getLogInfoForTitle( $this->getTitle() );
+			return array(
+				'type' => EPPage::factory( $title )->getLogType(),
+				'title' => $title,
+			);
 		}
 	}
 	

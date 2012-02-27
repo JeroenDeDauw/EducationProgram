@@ -175,4 +175,12 @@ class EPCourses extends EPPageTable {
 		return $conditions;
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPageTable::getEditRight()
+	 */
+	public function getEditRight() {
+		return 'ep-course';
+	}
+	
 }
