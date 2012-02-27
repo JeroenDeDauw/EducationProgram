@@ -46,5 +46,30 @@ class EPStudent extends EPRoleObject {
 	public function getRoleName() {
 		return 'student';
 	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::loadSummaryFields()
+	 */
+	public function loadSummaryFields( $summaryFields = null ) {
+		if ( is_null( $summaryFields ) ) {
+			$summaryFields = array( 'last_active', 'active_enroll' );
+		}
+		else {
+			$summaryFields = (array)$summaryFields;
+		}
+
+		$fields = array();
+
+		if ( in_array( 'active_enroll', $summaryFields ) ) {
+			$fields['active_enroll'] = $this->hasCourse( EPCourses::getStatusConds( 'current' ) );
+		}
+
+		if ( in_array( 'last_active', $summaryFields ) ) {
+			// TODO
+		}
+		
+		$this->setFields( $fields );
+	}
 
 }

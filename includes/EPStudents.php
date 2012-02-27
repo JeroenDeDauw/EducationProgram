@@ -60,5 +60,18 @@ class EPStudents extends DBTable {
 			'active_enroll' => 'bool',
 		);
 	}
-
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see DBTable::getSummaryFields()
+	 * @since 0.1
+	 * @return array
+	 */
+	public function getSummaryFields() {
+		return array(
+			'last_active',
+			'active_enroll',
+		);
+	}
+	
 }

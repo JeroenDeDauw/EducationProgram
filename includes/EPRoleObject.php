@@ -200,37 +200,6 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	}
 
 	/**
-	 * Get the courses with a certain state.
-	 * States can be 'current', 'passed' and 'planned'
-	 *
-	 * @since 0.1
-	 *
-	 * @param string $state
-	 * @param array|null $fields
-	 * @param array $conditions
-	 *
-	 * @return array of EPCourse
-	 */
-	public function getCoursesWithState( $state, $fields = null, array $conditions = array() ) {
-		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
-
-		switch ( $state ) {
-			case 'passed':
-				$conditions[] = 'end < ' . $now;
-				break;
-			case 'planned':
-				$conditions[] = 'start > ' . $now;
-				break;
-			case 'current':
-				$conditions[] = 'end >= ' . $now;
-				$conditions[] = 'start <= ' . $now;
-				break;
-		}
-
-		return $this->getCourses( $fields, $conditions );
-	}
-
-	/**
 	 * Returns if the student has any course matching the provided conditions.
 	 *
 	 * @since 0.1
@@ -240,6 +209,7 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	 * @return boolean
 	 */
 	public function hasCourse( array $conditions = array() ) {
+		// TODO: make more efficient
 		return count( $this->getCourses( 'id', $conditions ) ) > 0;
 	}
 	

@@ -231,7 +231,7 @@ class SpecialEnroll extends SpecialEPPage {
 		$hadStudent = $student->hasIdField();
 
 		$fields = array(
-			'active_enroll' => 1
+			'active_enroll' => true
 		);
 
 		if ( !$hadStudent ) {

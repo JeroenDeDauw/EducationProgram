@@ -104,7 +104,6 @@ class EPOrgs extends EPPageTable {
 		);
 	}
 
-
 	/**
 	 * Returns a list of orgs in an array that can be fed to select inputs.
 	 *

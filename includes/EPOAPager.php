@@ -114,7 +114,7 @@ class EPOAPager extends EPPager {
 					function( EPCourse $course ) {
 						return $course->getLink();
 					},
-					$oa->getCoursesWithState( 'current', 'name' )
+					$oa->getCourses( 'name', EPCourses::getStatusConds( 'current' ) )
 				) );
 				break;
 		}

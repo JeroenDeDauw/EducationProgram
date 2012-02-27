@@ -147,4 +147,32 @@ class EPCourses extends EPPageTable {
 		return EP_NS_COURSE;
 	}
 	
+	/**
+	 * Get the conditions that will select courses with the provided state.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param string $state
+	 */
+	public static function getStatusConds( $state ) {
+		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+
+		$conditions = array();
+		
+		switch ( $state ) {
+			case 'current':
+				$conditions[] = 'end >= ' . $now;
+				$conditions[] = 'start <= ' . $now;
+				break;
+			case 'passed':
+				$conditions[] = 'end < ' . $now;
+				break;
+			case 'planned':
+				$conditions[] = 'start > ' . $now;
+				break;
+		}
+		
+		return $conditions;
+	}
+	
 }
