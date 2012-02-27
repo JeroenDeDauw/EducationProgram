@@ -483,6 +483,34 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-delete-delete-button' => 'Delete institution',
 	'orgpage-delete-none' => 'There is no institution titled "$1". Existing institutions can be found in [[Special:Courses|the institution list]].',
 
+	// Institution restoration
+	'orgpage-eprestore-title' => 'Restore institution "$1"',
+	'orgpage-eprestore-text' => 'You are about to restore institution $1 to a previous revision.', 
+	'orgpage-eprestore-summary' => 'Reason for restoration:',
+	'orgpage-eprestore-restore-button' => 'Restore revision',
+	'orgpage-eprestore-cancel-button' => 'Cancel',
+
+	// Course restoration
+	'coursepage-eprestore-title' => 'Restore course "$1"',
+	'coursepage-eprestore-text' => 'You are about to restore course $1 to a previous revision.', 
+	'coursepage-eprestore-summary' => 'Reason for restoration:',
+	'coursepage-eprestore-restore-button' => 'Restore revision',
+	'coursepage-eprestore-cancel-button' => 'Cancel',
+
+	// Institution undo revision
+	'orgpage-epundo-title' => 'Undo revision of institution "$1"',
+	'orgpage-epundo-text' => 'You are about undo a single revison of institution $1.', 
+	'orgpage-epundo-summary' => 'Reason for revert:',
+	'orgpage-epundo-undo-button' => 'Undo revision',
+	'orgpage-epundo-cancel-button' => 'Cancel',
+
+	// Course undo revision
+	'coursepage-epundo-title' => 'Undo revision of  course "$1"',
+	'coursepage-epundo-text' => 'You are about undo a single revison of course $1.', 
+	'coursepage-epundo-summary' => 'Reason for revert:',
+	'coursepage-epundo-undo-button' => 'Undo revision',
+	'coursepage-epundo-cancel-button' => 'Cancel',
+
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',
 	'ep-ambassador-title' => 'Ambassador: $1',

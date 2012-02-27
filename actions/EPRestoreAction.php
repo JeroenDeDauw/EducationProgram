@@ -12,7 +12,7 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPRestoreAction extends FormlessAction {
+class EPRestoreAction extends FormlessAction {
 
 	/**
 	 * (non-PHPdoc)
