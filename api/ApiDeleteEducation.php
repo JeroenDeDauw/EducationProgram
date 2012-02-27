@@ -54,14 +54,6 @@ class ApiDeleteEducation extends ApiBase {
 		
 		$everythingOk = true;
 
-//		foreach ( $params['ids'] as $id ) {
-//			// $instance->remove is used instead of Class::delete,
-//			// so that linked data also gets deleted.
-//			$c = self::$typeMap[$params['type']];
-//			$object = new $c( array( 'id' => $id ) );
-//			$everythingOk = $object->remove() && $everythingOk;
-//		}
-
 		$class = self::$typeMap[$params['type']];
 		
 		if ( count( $params['ids'] ) > 0 ) {
@@ -158,7 +150,7 @@ class ApiDeleteEducation extends ApiBase {
 	protected function getExamples() {
 		return array(
 			'api.php?action=deleteeducation&ids=42&type=course',
-			'api.php?action=deleteeducation&ids=4|2&type=student',
+			'api.php?action=deleteeducation&ids=4|2&type=org',
 		);
 	}
 
