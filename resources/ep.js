@@ -1,5 +1,5 @@
 /**
- * JavasSript for the Education Program MediaWiki extension.
+ * JavaScript for the Education Program MediaWiki extension.
  * @see https://www.mediawiki.org/wiki/Extension:Reviews
  *
  * @licence GNU GPL v3 or later
