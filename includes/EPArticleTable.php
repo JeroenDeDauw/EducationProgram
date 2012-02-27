@@ -412,7 +412,7 @@ class EPArticleTable extends EPPager {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => EPCourses::getTitleFor( $courseName )->getLocalURL( $query ),
+				'action' => EPCourses::singleton()->getTitleFor( $courseName )->getLocalURL( $query ),
 			)
 		);
 

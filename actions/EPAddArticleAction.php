@@ -64,7 +64,7 @@ class EPAddArticleAction extends FormlessAction {
 		}
 
 		if ( is_null( $returnTo ) ) {
-			$returnTo = $this->getTitle()->getLocalURL();
+			$returnTo = $this->getTitle();
 		}
 
 		$this->getOutput()->redirect( $returnTo->getLocalURL() );
