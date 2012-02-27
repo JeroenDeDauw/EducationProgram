@@ -89,18 +89,29 @@ class EPOrgs extends EPPageTable {
 	
 	/**
 	 * (non-PHPdoc)
+	 * @see EPPageTable::getRevertableFields()
+	 */
+	public function getRevertableFields() {
+		return array_diff( 
+			array_keys( $this->getFieldTypes() ),
+			array_merge( array( 'id', $this->getSummaryFields() ) )
+		);
+	}
+	
+	/**
+	 * (non-PHPdoc)
 	 * @see DBTable::getSummaryFields()
 	 * @since 0.1
 	 * @return array
 	 */
 	public function getSummaryFields() {
 		return array(
-			'active',
+			'active',	
 			'course_count',
 			'student_count',
 			'instructor_count',
-			'ca_count',
 			'oa_count',
+			'ca_count',
 		);
 	}
 

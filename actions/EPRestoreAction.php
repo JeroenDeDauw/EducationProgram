@@ -94,6 +94,8 @@ class EPRestoreAction extends FormlessAction {
 	protected function displayForm( EPPageObject $object ) {
 		$out = $this->getOutput();
 
+		$out->addModules( 'ep.formpage' );
+		
 		$out->addWikiMsg( $this->prefixMsg( 'text' ), $object->getField( 'name' ) );
 
 		$out->addHTML( Html::openElement(

@@ -32,6 +32,16 @@ abstract class EPPageTable extends DBTable {
 	public abstract function getNamespace();
 	
 	/**
+	 * Returns the name of the fields that can be changed
+	 * when doing a revert or restoring to a previous revision.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return array
+	 */
+	public abstract function getRevertableFields();
+	
+	/**
 	 * Returns the right needed to edit items in this table.
 	 * 
 	 * @since 0.1

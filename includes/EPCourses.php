@@ -118,6 +118,25 @@ class EPCourses extends EPPageTable {
 			'instructor_count',
 			'oa_count',
 			'ca_count',
+			'field',
+			'level',
+			'term',
+			'lang',
+			'mc',
+		);
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPPageTable::getRevertableFields()
+	 */
+	public function getRevertableFields() {
+		return array(
+			'name',
+			'start',
+			'end',
+			'description',
+			'token',
 		);
 	}
 	
