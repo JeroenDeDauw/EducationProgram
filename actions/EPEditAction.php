@@ -246,7 +246,7 @@ abstract class EPEditAction extends FormlessAction {
 			wfMsg( 'cancel' ),
 			'cancelEdit',
 			array(
-				'target-url' => $this->getReturnToTitle()->getFullURL(),
+				'data-target-url' => $this->getReturnToTitle()->getFullURL(),
 				'class' => 'ep-cancel',
 			)
 		);

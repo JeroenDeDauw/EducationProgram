@@ -47,7 +47,7 @@ class EPRestoreAction extends FormlessAction {
 			$req = $this->getRequest();
 			
 			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'restoreToken' ), $this->getSalt() ) ) {
-				$success = $this->doRestore( $object );
+				$success = $this->doRestore( $object, $req->getInt( 'revid' ) );
 				
 				if ( $success ) {
 					$query = array( 'restored' => '1' ); // TODO: handle
@@ -70,18 +70,23 @@ class EPRestoreAction extends FormlessAction {
 	 * Does the actual restore action.
 	 * 
 	 * @since 0.1
+	 *
+	 * @param EPPageObject $object
+	 * @param integer $revId
 	 * 
 	 * @return boolean Success indicator
 	 */
-	protected function doRestore( EPPageObject $object ) {
+	protected function doRestore( EPPageObject $object, $revId ) {
 		$revAction = new EPRevisionAction();
 		
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
 		
-		// TODO
+		$success = $object->restoreToRevisionId( $revId );
 		
-		return false;
+		// TODO: log
+		
+		return $success;
 	}
 
 	/**
@@ -134,7 +139,7 @@ class EPRestoreAction extends FormlessAction {
 			array(
 				'id' => 'cancelRestore',
 				'class' => 'ep-restore-cancel ep-cancel',
-				'target-url' => $this->getTitle()->getLocalURL(),
+				'data-target-url' => $this->getTitle()->getLocalURL(),
 			),
 			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);

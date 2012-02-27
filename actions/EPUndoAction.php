@@ -134,7 +134,7 @@ class EPUndoAction extends FormlessAction {
 			array(
 				'id' => 'cancelRestore',
 				'class' => 'ep-undo-cancel ep-cancel',
-				'target-url' => $this->getTitle()->getLocalURL(),
+				'data-target-url' => $this->getTitle()->getLocalURL(),
 			),
 			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);

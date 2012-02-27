@@ -244,12 +244,68 @@ abstract class EPRevisionedObject extends DBDataObject {
 		return null;
 	}
 	
+	/**
+	 * Get the revision with the provided id for this object.
+	 * Returns false if there is no revision with this id for this object.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param integer $id
+	 * 
+	 * @return EPRevision|false
+	 */
+	public function getRevisionById( $id ) {
+		$objects = $this->getRevisions( 
+			array( 'id' => $id ),
+			array( 'LIMIT' => 1 )
+		);
+
+		return count( $objects ) > 0 ? $objects[0] : false;
+	}
+	
+	/**
+	 * Returns the revisions of the object matching the provided conditions.
+	 * If you set the type or object_id fields, other revisions might be returned as well.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param array $conditions
+	 * @param array $options
+	 * 
+	 * @return array of EPRevision
+	 */
+	public function getRevisions( array $conditions = array(), array $options = array() ) {
+		return EPRevisions::singleton()->select( null, array_merge(
+			array(
+				'type' => get_called_class(),
+				'object_id' => $this->getId(),
+			),
+			$conditions
+		), $options );
+	}
+	
 	public function undelete() {
 		
 	}
 	
 	public function revert() {
 		
+	}
+	
+	public function restoreToRevision( EPRevision $revison ) {
+		// TODO
+	}
+	
+	/**
+	 * Retore the object to a revision with the provided id.
+	 * 
+	 * @param integer $revId
+	 * 
+	 * @return boolean Success indicator
+	 */
+	public function restoreToRevisionId( $revId ) {
+		$revision = $this->getRevisionById( $revId );
+		return $revision === false ? false : $this->restoreToRevision( $revision );
 	}
 	
 }

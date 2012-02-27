@@ -144,8 +144,8 @@ class SpecialDisenroll extends SpecialEPPage {
 		$out->addElement(
 			'button',
 			array(
-				'class' => 'ep-disenroll-cancel',
-				'target-url' => $course->getTitle()->getLocalURL(),
+				'class' => 'ep-disenroll-cancel ep-cancel',
+				'data-target-url' => $course->getTitle()->getLocalURL(),
 			),
 			wfMsg( 'ep-disenroll-cancel' )
 		);

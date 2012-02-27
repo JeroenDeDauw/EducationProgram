@@ -13,7 +13,7 @@
 		$( '#bodyContent' ).find( '[type="submit"]' ).button();
 		
 		$( '.ep-cancel' ).button().click( function( event ) {
-			window.location = $( this ).attr( 'target-url' );
+			window.location = $( this ).attr( 'data-target-url' );
 			event.preventDefault();
 		} );
 

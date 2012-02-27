@@ -143,7 +143,7 @@ class EPDeleteAction extends FormlessAction {
 			array(
 				'id' => 'cancelDelete',
 				'class' => 'ep-delete-cancel ep-cancel',
-				'target-url' => $this->getTitle()->getLocalURL(),
+				'data-target-url' => $this->getTitle()->getLocalURL(),
 			),
 			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);
