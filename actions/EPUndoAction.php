@@ -110,7 +110,7 @@ class EPUndoAction extends FormlessAction {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'undo' ) ),
+				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epundo' ) ),
 			)
 		) );
 

@@ -55,13 +55,18 @@ class EPRestoreAction extends FormlessAction {
 			$req = $this->getRequest();
 			
 			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'restoreToken' ), $this->getSalt() ) ) {
-				$success = $this->doRestore( $object, $req->getInt( 'revid' ) );
+				if ( $req->getCheck( 'revid' ) ) {
+					$success = $this->doRestore( $object, $req->getInt( 'revid' ) );
+				}
+				else {
+					$success = false;
+				}
 				
 				if ( $success ) {
 					$query = array( 'restored' => '1' ); // TODO: handle
 				}
 				else {
-					$query = array( 'delfailed' => '1' ); // TODO: handle
+					$query = array( 'restorefailed' => '1' ); // TODO: handle
 				}
 				
 				$this->getOutput()->redirect( $object->getTitle()->getLocalURL( $query ) );
@@ -85,14 +90,20 @@ class EPRestoreAction extends FormlessAction {
 	 * @return boolean Success indicator
 	 */
 	protected function doRestore( EPPageObject $object, $revId ) {
-		$revAction = new EPRevisionAction();
+		$success = $object->restoreToRevisionId( $revId, $object->getTable()->getRevertableFields() );
 		
-		$revAction->setUser( $this->getUser() );
-		$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
+		if ( $success ) {
+			$revAction = new EPRevisionAction();
 		
-		$success = $object->restoreToRevisionId( $revId );
-		
-		// TODO: log
+			$revAction->setUser( $this->getUser() );
+			$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
+			
+			$success = $object->revisionedSave( $revAction );
+			
+			if ( $success ) {
+				// TODO: log
+			}
+		}
 		
 		return $success;
 	}
@@ -115,7 +126,7 @@ class EPRestoreAction extends FormlessAction {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'restore' ) ),
+				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'eprestore' ) ),
 			)
 		) );
 
@@ -151,6 +162,8 @@ class EPRestoreAction extends FormlessAction {
 			),
 			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);
+		
+		$out->addHTML( Html::hidden( 'revid', $this->getRequest()->getInt( 'revid' ) ) );
 
 		$out->addHTML( Html::hidden( 'restoreToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
 

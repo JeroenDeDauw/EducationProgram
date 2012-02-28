@@ -167,7 +167,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * @param EPRevisionedObject $originalObject
 	 */
 	protected function onUpdated( EPRevisionedObject $originalObject ) {
-		$this->storeRevision( $originalObject );
+		$this->storeRevision( $this );
 		$this->log( 'update' );
 	}
 	
@@ -193,7 +193,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * @since 0.1
 	 */
 	protected function onRemoved() {
-		$this->storeRevision( $this );
+		//$this->storeRevision( $this );
 		$this->log( 'remove' );
 		parent::onRemoved();
 	}
@@ -292,18 +292,38 @@ abstract class EPRevisionedObject extends DBDataObject {
 		
 	}
 	
-	public function restoreToRevision( EPRevision $revison ) {
-		// TODO
+	/**
+	 * Restore the object to the provided revisions state.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param EPRevision $revison
+	 * @param array|null $fields
+	 * 
+	 * @return boolean Success indicator
+	 */
+	public function restoreToRevision( EPRevision $revison, array $fields = null ) {
+		$obejct = $revison->getObject();
+		$fields = is_null( $fields ) ? $obejct->getFieldNames() : $fields;
+		
+		foreach ( $fields as $fieldName ) {
+			$this->setField( $fieldName, $obejct->getField( $fieldName ) );
+		}
+		
+		return true;
 	}
 	
 	/**
 	 * Retore the object to a revision with the provided id.
 	 * 
+	 * @since 0.1
+	 * 
 	 * @param integer $revId
+	 * @param array|null $fields
 	 * 
 	 * @return boolean Success indicator
 	 */
-	public function restoreToRevisionId( $revId ) {
+	public function restoreToRevisionId( $revId, array $fields = null ) {
 		$revision = $this->getRevisionById( $revId );
 		return $revision === false ? false : $this->restoreToRevision( $revision );
 	}
