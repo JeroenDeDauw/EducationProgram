@@ -195,6 +195,7 @@ $wgActions['epaddarticle'] = 'EPAddArticleAction';
 $wgActions['epaddreviewer'] = 'EPAddReviewerAction';
 $wgActions['epundo'] = 'EPUndoAction';
 $wgActions['eprestore'] = 'EPRestoreAction';
+$wgActions['epundelete'] = 'EPUndeleteAction';
 
 // Logging
 $wgLogTypes[] = 'institution';

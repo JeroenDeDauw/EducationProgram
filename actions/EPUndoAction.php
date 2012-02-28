@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract action for undoing a change to an EPPageObject.
+ * Action for undoing a change to an EPPageObject.
  *
  * @since 0.1
  *
@@ -79,6 +79,8 @@ class EPUndoAction extends FormlessAction {
 	 * 
 	 * @since 0.1
 	 * 
+	 * @param EPPageObject $object
+	 * 
 	 * @return boolean Success indicator
 	 */
 	protected function doUndo( EPPageObject $object ) {
@@ -93,7 +95,7 @@ class EPUndoAction extends FormlessAction {
 	}
 
 	/**
-	 * Display the restoration form for the provided EPPageObject.
+	 * Display the undo revision form for the provided EPPageObject.
 	 * 
 	 * @since 0.1
 	 * 
@@ -129,7 +131,7 @@ class EPUndoAction extends FormlessAction {
 		$out->addHTML( '<br />' );
 
 		$out->addHTML( Html::input(
-			'restore',
+			'undo',
 			wfMsg( $this->prefixMsg( 'undo-button' ) ),
 			'submit',
 			array(

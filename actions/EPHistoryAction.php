@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract action for viewing the history of EPPageObject items.
+ * Action for viewing the history of EPPageObject items.
  *
  * @since 0.1
  *

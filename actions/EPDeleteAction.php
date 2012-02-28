@@ -81,6 +81,8 @@ class EPDeleteAction extends FormlessAction {
 	 * 
 	 * @since 0.1
 	 * 
+	 * @param EPPageObject $object
+	 * 
 	 * @return boolean Success indicator
 	 */
 	protected function doDelete( EPPageObject $object ) {
