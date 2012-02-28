@@ -325,7 +325,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 */
 	public function restoreToRevisionId( $revId, array $fields = null ) {
 		$revision = $this->getRevisionById( $revId );
-		return $revision === false ? false : $this->restoreToRevision( $revision );
+		return $revision === false ? false : $this->restoreToRevision( $revision, $fields );
 	}
 	
 }
