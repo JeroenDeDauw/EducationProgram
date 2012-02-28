@@ -512,6 +512,20 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-epundo-undo-button' => 'Undo revision',
 	'coursepage-epundo-cancel-button' => 'Cancel',
 
+	// Course undeletion
+	'coursepage-epundelete-title' => 'Undelete course "$1"',
+	'coursepage-epundelete-text' => 'You are about to undelete course $1',
+	'coursepage-epundelete-summary' => 'Reason for undeletion:',
+	'coursepage-epundelete-undelete-button' => 'Undelete course',
+	'coursepage-epundelete-cancel-button' => 'Cancel',
+
+	// Institution undeletion
+	'orgpage-epundelete-title' => 'Undelete institution "$1"',
+	'orgpage-epundelete-text' => 'You are about to undelete institution $1',
+	'orgpage-epundelete-summary' => 'Reason for undeletion:',
+	'orgpage-epundelete-undelete-button' => 'Undelete institution',
+	'orgpage-epundelete-cancel-button' => 'Cancel',
+
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',
 	'ep-ambassador-title' => 'Ambassador: $1',
