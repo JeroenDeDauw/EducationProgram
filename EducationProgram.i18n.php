@@ -27,6 +27,7 @@ $messages['en'] = array(
 	'ep-org-course-delete' => "Deleted institution $1 and all it's courses",
 	'ep-form-summary' => 'Summary:',
 	'ep-form-minor' => 'This is a minor edit',
+	'ep-move-error' => 'You are not allowed to move articles in or out of the education namespaces.',
 
 	// Tabs
 	'ep-tab-view' => 'Read',

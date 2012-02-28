@@ -187,6 +187,7 @@ $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs
 $wgHooks['ArticleFromTitle'][] 						= 'EPHooks::onArticleFromTitle';
 $wgHooks['CanonicalNamespaces'][] 					= 'EPHooks::onCanonicalNamespaces';
 $wgHooks['TitleIsAlwaysKnown'][] 					= 'EPHooks::onTitleIsAlwaysKnown';
+$wgHooks['AbortMove'][] 							= 'EPHooks::onAbortMove';
 
 // Actions
 $wgActions['epremarticle'] = 'EPRemoveArticleAction';

@@ -340,4 +340,29 @@ final class EPHooks {
 		return true;
 	}
 	
+	/**
+	 * Allows canceling the move of one title to another.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AbortMove
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param Title $oldTitle
+	 * @param Title $newTitle
+	 * @param User $user
+	 * @param string $error
+	 * @param string $reason
+	 * 
+	 * @return boolean
+	 */
+	public static function onAbortMove( Title $oldTitle, Title $newTitle, User $user, &$error, $reason ) {
+		$nss = array( EP_NS_COURSE, EP_NS_INSTITUTION, EP_NS_COURSE_TALK, EP_NS_INSTITUTION_TALK );
+		$allowed = !in_array( $oldTitle->getNamespace(), $nss ) && !in_array( $newTitle->getNamespace(), $nss );
+		
+		if ( !$allowed ) {
+			$error = wfMsg( 'ep-move-error' );
+		}
+		
+		return $allowed;
+	}
+	
 }
