@@ -111,7 +111,7 @@ $messages['en'] = array(
 	'logentry-student-add' => '$1 enrolled in course $3',
 	'logentry-student-remove' => '$1 removed $5 as {{GENDER:$2|student}} from course $3',
 	'logentry-student-selfadd' => '$1 enrolled in course $3',
-	'logentry-student-selfremove' => '$1 removed disenrolled from course $3',
+	'logentry-student-selfremove' => '$1 disenrolled from course $3',
 
 	// Preferences
 	'prefs-education' => 'Education',
