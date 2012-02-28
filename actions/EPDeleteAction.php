@@ -58,7 +58,7 @@ class EPDeleteAction extends FormlessAction {
 				$success = $this->doDelete( $object );
 				
 				if ( $success ) {
-					$title = SpecialPage::getTitleFor( $this->table->getListPage() );
+					$title = SpecialPage::getTitleFor( $this->page->getListPage() );
 					$query = array( 'deleted' => $this->getTitle()->getText() ); // TODO: handle
 				}
 				else {

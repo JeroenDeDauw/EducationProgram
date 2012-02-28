@@ -14,6 +14,20 @@
 class EPFailForm extends HTMLForm {
 
 	/**
+	 * The query for the action URL.
+	 * @since 0.1
+	 * @var array
+	 */
+	protected $query = array();
+	
+	/**
+	 * Should the summary field be shown or not?
+	 * @since 0.1
+	 * @var boolean
+	 */
+	protected $showSummary = true;
+	
+	/**
 	 * Wrap the form innards in an actual <form> element
 	 * @param $html String HTML contents to wrap.
 	 * @return String wrapped HTML.
@@ -42,37 +56,60 @@ class EPFailForm extends HTMLForm {
 		return Html::rawElement( 'form', $attribs, $html );
 	}
 	
-	protected $query = array();
 	
+	/**
+	 * Sets the query for the action URL.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param array $query
+	 */
 	public function setQuery( array $query ) {
 		$this->query = $query;
 	}
+	
+	/**
+	 * Sets if the summary field be shown or not.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param boolean $showSummary
+	 */
+	public function setShowSummary( $showSummary ) {
+		$this->showSummary = $showSummary;
+	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see HTMLForm::getBody()
+	 */
 	function getBody() {
 		$html = $this->displaySection( $this->mFieldTree );
 
 		$html .= '<br />';
 
-		$html .= Html::element(
-			'label',
-			array( 'for' => 'wpSummary' ),
-			wfMsg( 'ep-form-summary' )
-		) . '&#160;';
+		if ( $this->showSummary ) {
+			$html .= Html::element(
+				'label',
+				array( 'for' => 'wpSummary' ),
+				wfMsg( 'ep-form-summary' )
+			) . '&#160;';
+			
+			$attrs = array(
+				'id' => 'wpSummary',
+				'name' => 'wpSummary',
+				'size' => 60,
+				'maxlength' => 250,
+				'spellcheck' => true
+			);
+			
+			$attrs = array_merge( $attrs, Linker::tooltipAndAccesskeyAttribs( 'ep-summary' ) );
 
-		$attrs = array(
-			'id' => 'wpSummary',
-			'name' => 'wpSummary',
-			'size' => 60,
-			'maxlength' => 250,
-			'spellcheck' => true
-		);
-
-		$attrs = array_merge( $attrs, Linker::tooltipAndAccesskeyAttribs( 'ep-summary' ) );
-
-		$html .= Html::element(
-			'input',
-			$attrs
-		) . '<br />';
+			$html .= Html::element(
+				'input',
+				$attrs
+			) . '<br />';
+		}
 
 		$attrs = Linker::tooltipAndAccesskeyAttribs( 'ep-minor' );
 

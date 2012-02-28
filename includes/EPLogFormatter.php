@@ -24,7 +24,7 @@ class EPLogFormatter extends LogFormatter {
 	 */
 	protected function makePageLink( Title $title = null, $parameters = array() ) {
 		if ( !$title instanceof Title ) {
-			throw new MWException( "Expected title, got null" );
+			throw new MWException( 'Expected title, got null' );
 		}
 		
 		$text = explode( '/', $title->getText(), 2 );

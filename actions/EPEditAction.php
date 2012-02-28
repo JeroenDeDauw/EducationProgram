@@ -237,7 +237,8 @@ abstract class EPEditAction extends FormlessAction {
 		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
 		$form->setSubmitText( wfMsg( 'educationprogram-org-submit' ) );
 		$form->setSubmitTooltip( 'ep-form-save' );
-
+		$form->setShowSummary( !$this->isNew() );
+		
 		$action = $this->isNew() ? 'add' : 'edit';
 		$form->setWrapperLegend( $this->msg( strtolower( $this->getName() ) . '-' . $action . '-legend' ) );
 
@@ -355,7 +356,7 @@ abstract class EPEditAction extends FormlessAction {
 			return Title::newFromText( $this->getRequest()->getText( 'wpreturnto' ) );
 		}
 		elseif ( !$addedItem && $this->isNew() ) {
-			return SpecialPage::getTitleFor( $this->table->getListPage() );
+			return SpecialPage::getTitleFor( $this->page->getListPage() );
 		}
 		elseif ( $this->item !== false ) {
 			return $this->item->getTitle();
