@@ -24,6 +24,14 @@ class EPUndoAction extends FormlessAction {
 	
 	/**
 	 * (non-PHPdoc)
+	 * @see Action::getRestriction()
+	 */
+	public function getRestriction() {
+		return $this->page->getEditRight();
+	}
+	
+	/**
+	 * (non-PHPdoc)
 	 * @see Action::getDescription()
 	 */
 	protected function getDescription() {
