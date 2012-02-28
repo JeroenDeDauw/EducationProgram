@@ -31,7 +31,7 @@ class EditOrgAction extends EPEditAction {
 	 * @see Action::getName()
 	 */
 	public function getName() {
-		return 'editorg';
+		return 'edit';
 	}
 
 	/**

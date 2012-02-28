@@ -285,8 +285,15 @@ abstract class EPRevisionedObject extends DBDataObject {
 	}
 	
 	/**
+	 * Undeletes ab object by inserting the current object.
+	 * Only call this method when the object does not exist in
+	 * it's database table and has the current version in the revision table.
 	 * 
-	 * Enter description here ...
+	 * @since 0.1
+	 * 
+	 * @param EPRevisionAction $revAction
+	 * 
+	 * @return boolean Success indicator
 	 */
 	public function undelete( EPRevisionAction $revAction ) {
 		$this->setRevisionAction( $revAction );

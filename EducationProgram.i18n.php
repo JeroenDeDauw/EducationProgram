@@ -355,25 +355,26 @@ This will permanently remove their associated articles and reviewers!',
 	// Institution editing
 	'editinstitution-text' => 'Enter the institution details below and click submit to save your changes.',
 	'educationprogram-org-edit-name' => 'Institution name',
-	'editorg-add-legend' => 'Add institution',
-	'editorg-edit-legend' => 'Edit institution',
+	'orgpage-edit-legend-add' => 'Add institution',
+	'orgpage-edit-legend-edit' => 'Edit institution',
 	'educationprogram-org-edit-city' => 'City',
 	'educationprogram-org-edit-country' => 'Country',
 	'educationprogram-org-submit' => 'Submit',
 	'ep-addorg' => 'There is no institution with this name yet, but you can add it.',
 	'ep-editorg' => 'You are editing an existing institution.',
 	'ep-editorg-exists-already' => 'This institution already exists. You are editing it.',
-	'ep-editorg-edit' => 'Editing institution: $1',
-	'ep-editorg-add' => 'Adding institution: $1',
-	'orgpage-editorg-deleted' => "'''Warning: You are recreating an institution that was previously deleted.'''
+	'orgpage-edit-title-edit' => 'Editing institution: $1',
+	'orgpage-edit-title-add' => 'Adding institution: $1',
+	'orgpage-edit-deleted' => "'''Warning: You are recreating an institution that was previously deleted.'''
 
 You should consider whether it is appropriate to continue editing this institution.
 The deletion log for this institution is provided below for convenience:",
-	'orgpage-editorg-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
+	'orgpage-edit-undelete-revisions' => 'This institution has been deleted. You can $1.',
+	'orgpage-edit-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
 
 	// Course editing
-	'editcourse-add-legend' => 'Add course',
-	'editcourse-edit-legend' => 'Edit course',
+	'orgpage-edit-legend-add' => 'Add course',
+	'orgpage-edit-legend-edit' => 'Edit course',
 	'ep-course-edit-term' => 'Term',
 	'ep-course-edit-org' => 'Institution',
 	'ep-course-edit-start' => 'Start date',
@@ -393,9 +394,9 @@ The deletion log for this institution is provided below for convenience:",
 	'ep-addcourse' => 'There is no course with this name yet, but you can add it.',
 	'ep-editcourse' => 'You are editing an existing course.',
 	'ep-editcourse-exists-already' => 'This course already exists. You are editing it.',
-	'ep-editcourse-edit' => 'Editing course: $1',
-	'ep-editcourse-add' => 'Adding course: $1',
-	'coursepage-editcourse-deleted' => "'''Warning: You are recreating a course that was previously deleted.'''
+	'coursepage-edit-title-edit' => 'Editing course: $1',
+	'coursepage-edit-title-add' => 'Adding course: $1',
+	'coursepage-edit-deleted' => "'''Warning: You are recreating a course that was previously deleted.'''
 
 You should consider whether it is appropriate to continue editing this course.
 The deletion log for this course is provided below for convenience:",
@@ -404,8 +405,8 @@ The deletion log for this course is provided below for convenience:",
 	'ep-course-invalid-token' => 'The token needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'ep-course-invalid-description' => 'The description needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'ep-course-invalid-lang' => 'This language is not valid.',
-	'coursepage-editcourse-undelete-revisions' => 'This page has been deleted. You can $1.',
-	'coursepage-editcourse-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
+	'coursepage-edit-undelete-revisions' => 'This course has been deleted. You can $1.',
+	'coursepage-edit-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
 
 	// ep.pager
 	'ep-pager-confirm-delete' => 'Are you sure you want to delete this item?',

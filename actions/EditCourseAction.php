@@ -31,7 +31,7 @@ class EditCourseAction extends EPEditAction {
 	 * @see Action::getName()
 	 */
 	public function getName() {
-		return 'editcourse';
+		return 'edit';
 	}
 
 	/**

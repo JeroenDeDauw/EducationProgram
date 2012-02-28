@@ -77,7 +77,7 @@ abstract class EPEditAction extends EPAction {
 	protected function getPageTitle() {
 		$action = $this->isNew() ? 'add' : 'edit';
 		return wfMsgExt(
-			'ep-' . strtolower( $this->getName() ) . '-' . $action,
+			$this->prefixMsg( 'title-' . $action ),
 			'parsemag',
 			$this->getTitle()->getText()
 		);
@@ -100,6 +100,7 @@ abstract class EPEditAction extends EPAction {
 		}
 		else {
 			if ( $object === false ) {
+				$this->displayUndeletionLink();
 				$this->displayDeletionLog();
 		
 				$this->isNew = true;
@@ -237,7 +238,7 @@ abstract class EPEditAction extends EPAction {
 		$form->setShowSummary( !$this->isNew() );
 		
 		$action = $this->isNew() ? 'add' : 'edit';
-		$form->setWrapperLegend( $this->msg( strtolower( $this->getName() ) . '-' . $action . '-legend' ) );
+		$form->setWrapperLegend( $this->msg( $this->prefixMsg( 'legend-' . $action ) ) );
 
 		$form->addButton(
 			'cancelEdit',
