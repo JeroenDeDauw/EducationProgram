@@ -59,7 +59,6 @@ $wgExtensionMessagesFiles['EPNamespaces'] 			= dirname( __FILE__ ) . '/Education
 $wgAutoloadClasses['EPHooks'] 						= dirname( __FILE__ ) . '/EducationProgram.hooks.php';
 $wgAutoloadClasses['EPSettings'] 					= dirname( __FILE__ ) . '/EducationProgram.settings.php';
 
-$wgAutoloadClasses['CourseHistoryAction'] 			= dirname( __FILE__ ) . '/actions/CourseHistoryAction.php';
 $wgAutoloadClasses['EditCourseAction'] 				= dirname( __FILE__ ) . '/actions/EditCourseAction.php';
 $wgAutoloadClasses['EditOrgAction'] 				= dirname( __FILE__ ) . '/actions/EditOrgAction.php';
 $wgAutoloadClasses['EPAddArticleAction'] 			= dirname( __FILE__ ) . '/actions/EPAddArticleAction.php';
@@ -73,7 +72,6 @@ $wgAutoloadClasses['EPRemoveStudentAction'] 		= dirname( __FILE__ ) . '/actions/
 $wgAutoloadClasses['EPRestoreAction'] 				= dirname( __FILE__ ) . '/actions/EPRestoreAction.php';
 $wgAutoloadClasses['EPUndoAction'] 					= dirname( __FILE__ ) . '/actions/EPUndoAction.php';
 $wgAutoloadClasses['EPViewAction'] 					= dirname( __FILE__ ) . '/actions/EPViewAction.php';
-$wgAutoloadClasses['OrgHistoryAction'] 				= dirname( __FILE__ ) . '/actions/OrgHistoryAction.php';
 $wgAutoloadClasses['ViewCourseAction'] 				= dirname( __FILE__ ) . '/actions/ViewCourseAction.php';
 $wgAutoloadClasses['ViewOrgAction'] 				= dirname( __FILE__ ) . '/actions/ViewOrgAction.php';
 

@@ -12,26 +12,14 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPHistoryAction extends FormlessAction {
+class EPHistoryAction extends FormlessAction {
 
 	/**
-	 * @since 0.1
-	 * @var EPPageTable
+	 * (non-PHPdoc)
+	 * @see Action::getName()
 	 */
-	protected $table;
-
-	/**
-	 * Constructor.
-	 *
-	 * @since 0.1
-	 *
-	 * @param Page $page
-	 * @param IContextSource $context
-	 * @param DBTable $table
-	 */
-	protected function __construct( Page $page, IContextSource $context = null, EPPageTable $table ) {
-		$this->table = $table;
-		parent::__construct( $page, $context );
+	public function getName() {
+		return 'history';
 	}
 	
 	/**
@@ -41,7 +29,7 @@ abstract class EPHistoryAction extends FormlessAction {
 	public function onView() {
 		$this->getOutput()->setPageTitle( $this->getPageTitle() );
 		
-		$object = $this->table->get( $this->getTitle()->getText() );
+		$object = $this->page->getTable()->get( $this->getTitle()->getText() );
 
 		if ( $object === false ) {
 			$this->displayNoRevisions();
@@ -54,11 +42,11 @@ abstract class EPHistoryAction extends FormlessAction {
 	}
 	
 	protected function displayNoRevisions() {
-		$this->getOutput()->addWikiMsg( 'ep-' . strtolower( $this->getName() ) . '-norevs' );
+		$this->getOutput()->addWikiMsg( $this->prefixMsg( 'norevs' ) );
 
 		$this->page->displayDeletionLog(
 			$this->getContext(),
-			'ep-' . strtolower( $this->getName() ) . '-deleted' 
+			$this->prefixMsg( 'deleted' ) 
 		);
 	}
 	
@@ -71,7 +59,7 @@ abstract class EPHistoryAction extends FormlessAction {
 	 */
 	protected function getPageTitle() {
 		return wfMsgExt(
-			'ep-' . strtolower( $this->getName() ) . '-title',
+			$this->prefixMsg( 'title' ),
 			'parsemag',
 			$this->getTitle()->getText()
 		);
@@ -132,7 +120,7 @@ abstract class EPHistoryAction extends FormlessAction {
 				'</fieldset></form>'
 		);
 
-		$pager = new EPRevisionPager( $this->getContext(), $this->table, $conditions );
+		$pager = new EPRevisionPager( $this->getContext(), $this->page->getTable(), $conditions );
 
 		if ( $pager->getNumRows() ) {
 			$out->addHTML(
@@ -144,6 +132,32 @@ abstract class EPHistoryAction extends FormlessAction {
 		else {
 			// TODO
 		}
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getDescription()
+	 */
+	protected function getDescription() {
+		return Linker::linkKnown(
+			SpecialPage::getTitleFor( 'Log' ),
+			$this->msg( $this->prefixMsg( 'description' ) )->escaped(),
+			array(),
+			array( 'page' => $this->getTitle()->getPrefixedText() )
+		);
+	}
+	
+	/**
+	 * Returns a prefixed message name.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param string $name
+	 * 
+	 * @return string
+	 */
+	protected function prefixMsg( $name ) {
+		return strtolower( get_class( $this->page ) ) . '-' . $this->getName() . '-' . $name;
 	}
 
 }

@@ -457,16 +457,16 @@ The deletion log for this course is provided below for convenience:",
 	'ep-viewcourse-deleted' => 'This course has been deleted. The deletion log for the course is provided below for reference.',
 
 	// Institution history
-	'ep-org-history' => 'View logs for this institution',
-	'ep-orghistory-title' => 'Revision history of institution "$1"',
-	'ep-orghistory-norevs' => 'There is no edit history for this institution.',
-	'ep-orghistory-deleted' => 'This institution has been deleted. The deletion log for the institution is provided below for reference.',
+	'orgpage-history-description' => 'View logs for this institution',
+	'orgpage-history-title' => 'Revision history of institution "$1"',
+	'orgpage-history-norevs' => 'There is no edit history for this institution.',
+	'orgpage-history-deleted' => 'This institution has been deleted. The deletion log for the institution is provided below for reference.',
 
 	// Course history
-	'ep-course-history' => 'View logs for this course',
-	'ep-coursehistory-title' => 'Revision history of course "$1"',
-	'ep-coursehistory-norevs' => 'There is no edit history for this course.',
-	'ep-coursehistory-deleted' => 'This course has been deleted. The deletion log for the course is provided below for reference.',
+	'coursepage-history-description' => 'View logs for this course',
+	'coursepage-history-title' => 'Revision history of course "$1"',
+	'coursepage-history-norevs' => 'There is no edit history for this course.',
+	'coursepage-history-deleted' => 'This course has been deleted. The deletion log for the course is provided below for reference.',
 
 	// Course deletion
 	'coursepage-delete-text' => 'You are about to delete course $1. This will remove all associated students!',
