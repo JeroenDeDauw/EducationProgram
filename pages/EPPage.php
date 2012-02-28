@@ -169,9 +169,27 @@ abstract class EPPage extends Page implements IContextSource {
 		return static::$info['log-type'];
 	}
 	
+	// TODO
 	public static function displayDeletionLog( IContextSource $context, $messageKey ) {
 		$out = $context->getOutput();
 
+		if ( true ) { // $context->getUser()->isAllowed( '' )
+			$revisionCount = EPRevisions::singleton()->count( array(
+				'object_identifier' => $context->getTitle()->getText()
+			) );
+			
+			if ( $revisionCount > 0 ) {
+				$out->addHTML( $context->msg( 'thisisdeleted' )->rawParams(
+					Linker::linkKnown(
+						$context->getTitle(),
+						$context->msg( 'restorelink' )->numParams( $revisionCount )->escaped(),
+						array(),
+						array( 'action' => 'epundelete' )
+					)
+				)->text() );
+			}
+		}
+		
 		LogEventsList::showLogExtract(
 			$out,
 			array( static::$info['log-type'] ),

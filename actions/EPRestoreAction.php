@@ -102,6 +102,7 @@ class EPRestoreAction extends FormlessAction {
 			
 			if ( $success ) {
 				// TODO: log
+				// Already logged - just alter message?
 			}
 		}
 		

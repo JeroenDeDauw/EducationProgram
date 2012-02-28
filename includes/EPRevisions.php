@@ -99,4 +99,24 @@ class EPRevisions extends DBTable {
 		return new EPRevision( $this, $fields );
 	}
 	
+	/**
+	 * Returns the most recent revision matching the provided conditions. 
+	 *  
+	 * @since 0.1
+	 * 
+	 * @param array $conds
+	 * 
+	 * @return EPRevision|false
+	 */
+	public function getLatestRevision( array $conds ) {
+		return $this->selectRow(
+			null,
+			$conds,
+			array(
+				'SORT BY' => $this->getPrefixedField( 'id' ),
+				'ORDER' => 'DESC',
+			)
+		);
+	}
+	
 }

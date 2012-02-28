@@ -70,6 +70,7 @@ $wgAutoloadClasses['EPRemoveArticleAction'] 		= dirname( __FILE__ ) . '/actions/
 $wgAutoloadClasses['EPRemoveReviewerAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveReviewerAction.php';
 $wgAutoloadClasses['EPRemoveStudentAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveStudentAction.php';
 $wgAutoloadClasses['EPRestoreAction'] 				= dirname( __FILE__ ) . '/actions/EPRestoreAction.php';
+$wgAutoloadClasses['EPUndeleteAction'] 				= dirname( __FILE__ ) . '/actions/EPUndeleteAction.php';
 $wgAutoloadClasses['EPUndoAction'] 					= dirname( __FILE__ ) . '/actions/EPUndoAction.php';
 $wgAutoloadClasses['EPViewAction'] 					= dirname( __FILE__ ) . '/actions/EPViewAction.php';
 $wgAutoloadClasses['ViewCourseAction'] 				= dirname( __FILE__ ) . '/actions/ViewCourseAction.php';
