@@ -12,7 +12,7 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPEditAction extends FormlessAction {
+abstract class EPEditAction extends EPAction {
 	
 	/**
 	 * Instance of the object being edited or created.
@@ -100,10 +100,7 @@ abstract class EPEditAction extends FormlessAction {
 		}
 		else {
 			if ( $object === false ) {
-				$this->page->displayDeletionLog(
-					$this->getContext(),
-					'ep-' . strtolower( $this->getName() ) . '-deleted'
-				);
+				$this->displayDeletionLog();
 		
 				$this->isNew = true;
 				$object = $this->table->newFromArray( $data, true );

@@ -88,10 +88,12 @@ $messages['en'] = array(
 	'logentry-institution-add' => '$1 created institution $3',
 	'logentry-institution-remove' => '$1 removed institution $3',
 	'logentry-institution-update' => '$1 updated institution $3',
+	'logentry-institution-undelete' => '$1 undeleted institution $3',
 
 	'logentry-course-add' => '$1 created course $3',
 	'logentry-course-remove' => '$1 removed course $3',
 	'logentry-course-update' => '$1 updated course $3',
+	'logentry-course-undelete' => '$1 undeleted course $3',
 
 	'logentry-instructor-add' => '$1 {{GENDER:$2|added}} {{PLURAL:$4|instructor|instructors}} $5 to course $3',
 	'logentry-instructor-remove' => '$1 {{GENDER:$2|removed}} {{PLURAL:$4|instructor|instructors}} $5 from course $3',
@@ -363,10 +365,11 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-editorg-exists-already' => 'This institution already exists. You are editing it.',
 	'ep-editorg-edit' => 'Editing institution: $1',
 	'ep-editorg-add' => 'Adding institution: $1',
-	'ep-editorg-deleted' => "'''Warning: You are recreating an institution that was previously deleted.'''
+	'orgpage-editorg-deleted' => "'''Warning: You are recreating an institution that was previously deleted.'''
 
 You should consider whether it is appropriate to continue editing this institution.
 The deletion log for this institution is provided below for convenience:",
+	'orgpage-editorg-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
 
 	// Course editing
 	'editcourse-add-legend' => 'Add course',
@@ -392,7 +395,7 @@ The deletion log for this institution is provided below for convenience:",
 	'ep-editcourse-exists-already' => 'This course already exists. You are editing it.',
 	'ep-editcourse-edit' => 'Editing course: $1',
 	'ep-editcourse-add' => 'Adding course: $1',
-	'ep-editcourse-deleted' => "'''Warning: You are recreating a course that was previously deleted.'''
+	'coursepage-editcourse-deleted' => "'''Warning: You are recreating a course that was previously deleted.'''
 
 You should consider whether it is appropriate to continue editing this course.
 The deletion log for this course is provided below for convenience:",
@@ -401,6 +404,8 @@ The deletion log for this course is provided below for convenience:",
 	'ep-course-invalid-token' => 'The token needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'ep-course-invalid-description' => 'The description needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'ep-course-invalid-lang' => 'This language is not valid.',
+	'coursepage-editcourse-undelete-revisions' => 'This page has been deleted. You can $1.',
+	'coursepage-editcourse-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
 
 	// ep.pager
 	'ep-pager-confirm-delete' => 'Are you sure you want to delete this item?',

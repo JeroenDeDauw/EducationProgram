@@ -5,21 +5,21 @@
  *
  * @since 0.1
  *
- * @file EPUndoAction.php
+ * @file EPUndeleteAction.php
  * @ingroup EducationProgram
  * @ingroup Action
  *
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPUndoAction extends EPAction {
+class EPUndeleteAction extends EPAction {
 
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getName()
 	 */
 	public function getName() {
-		return 'epundo';
+		return 'epundelete';
 	}
 	
 	/**
@@ -35,7 +35,7 @@ class EPUndoAction extends EPAction {
 	 * @see Action::getDescription()
 	 */
 	protected function getDescription() {
-		return $this->msg( 'backlinksubtitle' )->rawParams( Linker::link( $this->getTitle() ) );
+		return '';
 	}
 
 	/**
@@ -48,63 +48,73 @@ class EPUndoAction extends EPAction {
 		$object = $this->page->getTable()->get( $this->getTitle()->getText() );
 
 		if ( $object === false ) {
-			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ), $this->getTitle()->getText() );
-			$this->getOutput()->setSubtitle( '' );
-		}
-		else {
-			$req = $this->getRequest();
+			$revision = EPRevisions::singleton()->getLatestRevision( array(
+				'object_identifier' => $this->getTitle()->getText()
+			) );
 			
-			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undoToken' ), $this->getSalt() ) ) {
-				$success = $this->doUndo( $object );
-				
-				if ( $success ) {
-					$query = array( 'undid' => '1' ); // TODO: handle
-				}
-				else {
-					$query = array( 'undofailed' => '1' ); // TODO: handle
-				}
-				
-				$this->getOutput()->redirect( $object->getTitle()->getLocalURL( $query ) );
+			if ( $revision === false ) {
+				$query = array( 'undeletefailed' => 'norevs' ); // TODO: handle
+				$this->getOutput()->redirect( $this->getTitle()->getLocalURL( $query ) );
 			}
 			else {
-				$this->displayForm( $object );
+				$req = $this->getRequest();
+				
+				if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undeleteToken' ), $this->getSalt() ) ) {
+					$success = $this->doUndelete( $revision );
+					
+					if ( $success ) {
+						$query = array( 'undeleted' => '1' ); // TODO: handle
+					}
+					else {
+						$query = array( 'undeletefailed' => 'fail' ); // TODO: handle
+					}
+					
+					$this->getOutput()->redirect( $this->getTitle()->getLocalURL( $query ) );
+				}
+				else {
+					$this->displayForm( $revision );
+				}
 			}
 		}
-
+		else {
+			$query = array( 'undeletefailed' => 'exists' ); // TODO: handle
+			$this->getOutput()->redirect( $this->getTitle()->getLocalURL( $query ) );
+		}
+		
 		return '';
 	}
 	
 	/**
-	 * Does the actual undo action.
+	 * Does the actual undeletion action.
 	 * 
 	 * @since 0.1
 	 * 
-	 * @param EPPageObject $object
+	 * @param EPRevision $revision
 	 * 
 	 * @return boolean Success indicator
 	 */
-	protected function doUndo( EPPageObject $object ) {
+	protected function doUndelete( EPRevision $revision ) {
 		$revAction = new EPRevisionAction();
 		
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
 		
-		// TODO
-		
-		return false;
+		return $revision->getObject()->undelete( $revAction );
 	}
 
 	/**
-	 * Display the undo revision form for the provided EPPageObject.
+	 * Display the undeletion form for the provided EPPageObject.
 	 * 
 	 * @since 0.1
 	 * 
-	 * @param EPPageObject $object
+	 * @param EPRevision $revision
 	 */
-	protected function displayForm( EPPageObject $object ) {
+	protected function displayForm( EPRevision $revision ) {
 		$out = $this->getOutput();
-
+		
 		$out->addModules( 'ep.formpage' );
+
+		$object = $revision->getObject();
 		
 		$out->addWikiMsg( $this->prefixMsg( 'text' ), $object->getField( 'name' ) );
 
@@ -112,7 +122,7 @@ class EPUndoAction extends EPAction {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epundo' ) ),
+				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epundelete' ) ),
 			)
 		) );
 
@@ -131,29 +141,29 @@ class EPUndoAction extends EPAction {
 		$out->addHTML( '<br />' );
 
 		$out->addHTML( Html::input(
-			'undo',
-			wfMsg( $this->prefixMsg( 'undo-button' ) ),
+			'undelete',
+			wfMsg( $this->prefixMsg( 'undelete-button' ) ),
 			'submit',
 			array(
-				'class' => 'ep-undo',
+				'class' => 'ep-undelete',
 			)
 		) );
 
 		$out->addElement(
 			'button',
 			array(
-				'id' => 'cancelRestore',
-				'class' => 'ep-undo-cancel ep-cancel',
+				'id' => 'cancelUndeletion',
+				'class' => 'ep-undelete-cancel ep-cancel',
 				'data-target-url' => $this->getTitle()->getLocalURL(),
 			),
 			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);
 
-		$out->addHTML( Html::hidden( 'undoToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
+		$out->addHTML( Html::hidden( 'undeleteToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
 
 		$out->addHTML( '</form>' );
 	}
-
+	
 	/**
 	 * Returns the page title.
 	 *

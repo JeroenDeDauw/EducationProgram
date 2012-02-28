@@ -61,6 +61,7 @@ $wgAutoloadClasses['EPSettings'] 					= dirname( __FILE__ ) . '/EducationProgram
 
 $wgAutoloadClasses['EditCourseAction'] 				= dirname( __FILE__ ) . '/actions/EditCourseAction.php';
 $wgAutoloadClasses['EditOrgAction'] 				= dirname( __FILE__ ) . '/actions/EditOrgAction.php';
+$wgAutoloadClasses['EPAction'] 						= dirname( __FILE__ ) . '/actions/EPAction.php';
 $wgAutoloadClasses['EPAddArticleAction'] 			= dirname( __FILE__ ) . '/actions/EPAddArticleAction.php';
 $wgAutoloadClasses['EPAddReviewerAction'] 			= dirname( __FILE__ ) . '/actions/EPAddReviewerAction.php';
 $wgAutoloadClasses['EPDeleteAction'] 				= dirname( __FILE__ ) . '/actions/EPDeleteAction.php';

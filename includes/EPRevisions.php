@@ -113,8 +113,7 @@ class EPRevisions extends DBTable {
 			null,
 			$conds,
 			array(
-				'SORT BY' => $this->getPrefixedField( 'id' ),
-				'ORDER' => 'DESC',
+				'ORDER BY' => $this->getPrefixedField( 'id' ) . ' DESC',
 			)
 		);
 	}

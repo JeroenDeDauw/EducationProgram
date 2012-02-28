@@ -12,7 +12,7 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPHistoryAction extends FormlessAction {
+class EPHistoryAction extends EPAction {
 
 	/**
 	 * (non-PHPdoc)
@@ -44,10 +44,7 @@ class EPHistoryAction extends FormlessAction {
 	protected function displayNoRevisions() {
 		$this->getOutput()->addWikiMsg( $this->prefixMsg( 'norevs' ) );
 
-		$this->page->displayDeletionLog(
-			$this->getContext(),
-			$this->prefixMsg( 'deleted' ) 
-		);
+		$this->displayDeletionLog();
 	}
 	
 	/**
@@ -147,17 +144,4 @@ class EPHistoryAction extends FormlessAction {
 		);
 	}
 	
-	/**
-	 * Returns a prefixed message name.
-	 * 
-	 * @since 0.1
-	 * 
-	 * @param string $name
-	 * 
-	 * @return string
-	 */
-	protected function prefixMsg( $name ) {
-		return strtolower( get_class( $this->page ) ) . '-' . $this->getName() . '-' . $name;
-	}
-
 }

@@ -77,16 +77,5 @@ class EPRevision extends DBDataObject {
 
 		return $this->user;
 	}
-	
-	public static function getLastRevision( array $conditions ) {
-		return EPRevision::selectRow(
-			null,
-			$conditions,
-			array(
-				'SORT BY' => EPRevision::getPrefixedField( 'time' ),
-				'ORDER' => 'DESC',
-			)
-		);
-	}
 
 }

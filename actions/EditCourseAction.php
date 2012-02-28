@@ -58,10 +58,8 @@ class EditCourseAction extends EPEditAction {
 		$this->getOutput()->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
 
 		if ( !$this->isNewPost() && !$this->table->hasIdentifier( $this->getTitle()->getText() ) ) {
-			$this->page->displayDeletionLog(
-				$this->getContext(),
-				'ep-' . strtolower( $this->getName() ) . '-deleted' 
-			);
+			$this->displayUndeletionLink();
+			$this->displayDeletionLog();
 
 			list( $name, $term ) = $this->titleToNameAndTerm( $this->getTitle()->getText() );
 			

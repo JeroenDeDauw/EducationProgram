@@ -12,7 +12,7 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPRestoreAction extends FormlessAction {
+class EPRestoreAction extends EPAction {
 
 	/**
 	 * (non-PHPdoc)
@@ -171,30 +171,6 @@ class EPRestoreAction extends FormlessAction {
 		$out->addHTML( '</form>' );
 	}
 	
-	/**
-	 * Returns a salt based on the action and the page name.
-	 * 
-	 * @since 0.1
-	 * 
-	 * @return string
-	 */
-	protected function getSalt() {
-		return 'restore' . $this->getTitle()->getLocalURL();
-	}
-
-	/**
-	 * Returns a prefixed message name.
-	 * 
-	 * @since 0.1
-	 * 
-	 * @param string $name
-	 * 
-	 * @return string
-	 */
-	protected function prefixMsg( $name ) {
-		return strtolower( get_class( $this->page ) ) . '-' . $this->getName() . '-' . $name;
-	}
-
 	/**
 	 * Returns the page title.
 	 *

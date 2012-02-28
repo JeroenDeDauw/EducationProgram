@@ -284,12 +284,22 @@ abstract class EPRevisionedObject extends DBDataObject {
 		), $options );
 	}
 	
-	public function undelete() {
+	/**
+	 * 
+	 * Enter description here ...
+	 */
+	public function undelete( EPRevisionAction $revAction ) {
+		$this->setRevisionAction( $revAction );
 		
-	}
-	
-	public function revert() {
+		$result = parent::insert();
+
+		if ( $result ) {
+			$this->log( 'undelete' );
+		}
 		
+		$this->setRevisionAction( false );
+		
+		return $result;
 	}
 	
 	/**

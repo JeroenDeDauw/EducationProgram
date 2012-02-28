@@ -12,7 +12,7 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPViewAction extends FormlessAction {
+abstract class EPViewAction extends EPAction {
 
 	/**
 	 * @since 0.1
@@ -76,10 +76,7 @@ abstract class EPViewAction extends FormlessAction {
 			else {
 				$out->addWikiMsg( strtolower( get_called_class() ) . '-none', $name );
 
-				$this->page->displayDeletionLog(
-					$this->getContext(),
-					'ep-' . strtolower( $this->getName() ) . '-deleted' 
-				);
+				$this->displayDeletionLog();
 			}
 		}
 		else {
