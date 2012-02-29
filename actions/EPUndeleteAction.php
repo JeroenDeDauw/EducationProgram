@@ -49,8 +49,9 @@ class EPUndeleteAction extends EPAction {
 
 		if ( $object === false ) {
 			$revision = EPRevisions::singleton()->getLatestRevision( array(
-				'object_identifier' => $this->getTitle()->getText()
-			) );
+				'object_identifier' => $this->getTitle()->getText(),
+				'type' => $this->page->getTable()->getDataObjectClass(),
+ 			) );
 			
 			if ( $revision === false ) {
 				$query = array( 'undeletefailed' => 'norevs' ); // TODO: handle

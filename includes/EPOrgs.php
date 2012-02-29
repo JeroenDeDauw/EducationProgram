@@ -63,6 +63,7 @@ class EPOrgs extends EPPageTable {
 			'instructor_count' => 'int',
 			'ca_count' => 'int',
 			'oa_count' => 'int',
+			'courses' => 'array',
 		);
 	}
 
@@ -84,6 +85,7 @@ class EPOrgs extends EPPageTable {
 			'instructor_count' => 0,
 			'ca_count' => 0,
 			'oa_count' => 0,
+			'courses' => array(),
 		);
 	}
 	
@@ -112,6 +114,7 @@ class EPOrgs extends EPPageTable {
 			'instructor_count',
 			'oa_count',
 			'ca_count',
+			'courses',
 		);
 	}
 

@@ -26,10 +26,18 @@ class ViewCourseAction extends EPViewAction {
 		parent::__construct( $page, $context, EPCourses::singleton() );
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getName()
+	 */
 	public function getName() {
 		return 'viewcourse';
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see EPViewAction::displayPage()
+	 */
 	protected function displayPage( DBDataObject $course ) {
 		parent::displayPage( $course );
 

@@ -193,7 +193,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * @since 0.1
 	 */
 	protected function onRemoved() {
-		//$this->storeRevision( $this );
+		$this->storeRevision( $this );
 		$this->log( 'remove' );
 		parent::onRemoved();
 	}

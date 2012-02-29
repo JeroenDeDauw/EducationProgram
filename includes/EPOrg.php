@@ -27,7 +27,7 @@ class EPOrg extends EPPageObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'course_count', 'active', 'student_count', 'instructor_count', 'oa_count', 'ca_count' );
+			$summaryFields = array( 'course_count', 'active', 'student_count', 'instructor_count', 'oa_count', 'ca_count', 'courses' );
 		}
 		else {
 			$summaryFields = (array)$summaryFields;
@@ -35,8 +35,9 @@ class EPOrg extends EPPageObject {
 
 		$fields = array();
 
-		if ( in_array( 'course_count', $summaryFields ) ) {
-			$fields['course_count'] = EPCourses::singleton()->count( array( 'org_id' => $this->getId() ) );
+		if ( in_array( 'course_count', $summaryFields ) || in_array( 'courses', $summaryFields ) ) {
+			$fields['courses'] = EPCourses::singleton()->selectFields( 'id', array( 'org_id' => $this->getId() ) );
+			$fields['course_count'] = count( $fields['courses'] );
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
@@ -103,6 +104,34 @@ class EPOrg extends EPPageObject {
 		}
 
 		return parent::save();
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see EPRevisionedObject::undelete()
+	 */
+	public function undelete( EPRevisionAction $revAction ) {
+		$success = parent::undelete( $revAction );
+		
+		if ( $success ) {
+			$courseRevAction = new EPRevisionAction();
+		
+			$courseRevAction->setUser( $revAction->getUser() );
+			$courseRevAction->setComment( '' ); // TODO
+			
+			foreach ( $this->getField( 'courses' ) as $courseId ) {
+				$courseRevision = EPRevisions::singleton()->getLatestRevision( array(
+					'object_id' => $courseId,
+					'type' => 'EPCourse',
+				) );
+				
+				if ( $courseRevision !== false ) {
+					$courseRevision->getObject()->undelete( $courseRevAction );
+				}
+			}
+		}
+		
+		return $success;
 	}
 
 	/**
@@ -201,10 +230,14 @@ class EPOrg extends EPPageObject {
 	 */
 	public function getCourses( array $fields = null ) {
 		if ( $this->courses === false ) {
-			$this->courses = EPCourses::singleton()->select( $fields, array( 'org_id' => $this->getId() ) );
+			$courses = EPCourses::singleton()->select( $fields, array( 'org_id' => $this->getId() ) );
+			
+			if ( is_null( $fields ) ) {
+				$this->courses = $courses;
+			}
 		}
 
-		return $this->courses;
+		return $this->courses === false ? $courses : $courses;
 	}
 
 }

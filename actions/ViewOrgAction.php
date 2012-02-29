@@ -26,10 +26,18 @@ class ViewOrgAction extends EPViewAction {
 		parent::__construct( $page, $context, EPOrgs::singleton() );
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see Action::getName()
+	 */
 	public function getName() {
 		return 'vieworg';
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see EPViewAction::displayPage()
+	 */
 	protected function displayPage( DBDataObject $org ) {
 		parent::displayPage( $org );
 
