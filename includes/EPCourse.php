@@ -617,8 +617,6 @@ class EPCourse extends EPPageObject {
 	 * @return boolean Success indicator
 	 */
 	public function unenlistUsers( $sadUsers, $role, $save = true, EPRevisionAction $revAction = null ) {
-		$removedUsers = array();
-		$remaimingUsers = array();
 		$sadUsers = (array)$sadUsers;
 
 		$roleMap = array(
@@ -630,17 +628,20 @@ class EPCourse extends EPPageObject {
 
 		$field = $roleMap[$role];
 		
-		foreach ( $this->getField( $field ) as $userId ) {
-			if ( in_array( $userId, $sadUsers ) ) {
-				$removedUsers[] = $userId;
-			}
-			else {
-				$remaimingUsers[] = $userId;
-			}
-		}
+		$removedUsers = array_intersect( $sadUsers, $this->getField( $field ) );
 
 		if ( count( $removedUsers ) > 0 ) {
-			$this->setField( $field, $remaimingUsers );
+			$this->setField( $field, array_diff( $this->getField( $field ), $sadUsers ) );
+
+			if ( $role === 'student' ) {
+				// Get rid of the articles asscoaite associations with the student.
+				// No revisioning is implemented here, so this cannot be undone.
+				// Might want to add revisioning or just add a 'deleted' flag at some point.
+				EPArticles::singleton()->delete( array(
+					'course_id' => $this->getId(),
+					'user_id' => $removedUsers,
+				) );
+			}
 
 			$success = true;
 
