@@ -105,7 +105,7 @@ class ViewCourseAction extends EPViewAction {
 
 		if ( $this->getUser()->isAllowed( 'ep-token' ) ) {
 			$stats['token'] = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'Enroll', $course->getId() . '/' . $course->getField( 'token' ) ),
+				SpecialPage::getTitleFor( 'Enroll', $course->getField( 'name' ) . '/' . $course->getField( 'token' ) ),
 				htmlspecialchars( $course->getField( 'token' ) )
 			);
 		}

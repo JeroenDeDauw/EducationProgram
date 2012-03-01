@@ -45,7 +45,12 @@ class SpecialEnroll extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
-		$args = explode( '/', $this->subPage, 2 );
+		$args = explode( '/', $this->subPage );
+
+		if ( count( $args ) > 2 ) {
+			$args[0] = implode( '/', array_slice( $args, 0, count( $args ) - 1 ) );
+			$args = array_slice( $args, 0, 2 );
+		}
 
 		if ( $args[0] === '' ) {
 			$this->showWarning( wfMessage(  'ep-enroll-no-id' ) );
