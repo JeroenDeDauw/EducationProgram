@@ -372,6 +372,10 @@ The deletion log for this institution is provided below for convenience:",
 	'orgpage-edit-undelete-revisions' => 'This institution has been deleted. You can $1.',
 	'orgpage-edit-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
 
+	'educationprogram-org-invalid-name' => 'The name needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
+	'educationprogram-org-invalid-city' => 'The city name needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
+	'educationprogram-org-invalid-country' => 'This is not a valid country.',
+
 	// Course editing
 	'orgpage-edit-legend-add' => 'Add course',
 	'orgpage-edit-legend-edit' => 'Edit course',

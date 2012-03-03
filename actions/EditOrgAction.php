@@ -16,7 +16,7 @@ class EditOrgAction extends EPEditAction {
 
 	/**
 	 * Constructor.
-	 *
+	 *Re
 	 * @since 0.1
 	 *
 	 * @param Page $page
@@ -71,11 +71,14 @@ class EditOrgAction extends EPEditAction {
 		$fields['city'] = array (
 			'type' => 'text',
 			'label-message' => 'educationprogram-org-edit-city',
-			'required' => true,
 			'validation-callback' => function ( $value, array $alldata = null ) {
-				return strlen( $value ) < 2 ? wfMsg( 'educationprogram-org-invalid-city' ) : true;
+				return $value !== '' && strlen( $value ) < 2 ? wfMsg( 'educationprogram-org-invalid-city' ) : true;
 			} ,
 		);
+
+		if ( !in_array( $this->getRequest()->getText( 'wpitem-country', '' ), EPSettings::get( 'citylessCountries' ) ) ) {
+			$fields['city']['required'] = true;
+		}
 
 		$fields['country'] = array (
 			'type' => 'select',

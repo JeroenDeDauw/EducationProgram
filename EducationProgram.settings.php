@@ -33,6 +33,7 @@ class EPSettings {
 				'wikimedia.org'
 			),
 			'ambassadorCommonsUrl' => 'https://commons.wikimedia.org/wiki/Special:UploadWizard',
+			'citylessCountries' => array( 'BT', 'BV', 'IO', 'VG', 'TD', 'CX', 'CC', 'KM', 'DJ', 'GQ', 'FK', 'FX', 'TF', 'GW', 'HM', 'KI', 'YT', 'MS', 'NR', 'NU', 'NF', 'PN', 'SH', 'PM', 'WS', 'SC', 'GS', 'SJ', 'TK', 'TP', 'TV', 'UM', 'VU', 'EH' ),
 		);
 	}
 
