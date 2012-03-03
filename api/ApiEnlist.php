@@ -52,26 +52,32 @@ class ApiEnlist extends ApiBase {
 			$this->dieUsage( wfMsg( 'ep-enlist-invalid-course' ), 'invalid-course' );
 		}
 		
-		$success = false;
-
 		$revAction = new EPRevisionAction();
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( $params['reason'] );
 
 		switch ( $params['subaction'] ) {
 			case 'add':
-				$success = $course->enlistUsers( array( $userId ), $params['role'], true, $revAction );
+				$enlistmentResult = $course->enlistUsers( array( $userId ), $params['role'], true, $revAction );
 				break;
 			case 'remove':
-				$success = $course->unenlistUsers( array( $userId ), $params['role'], true, $revAction );
+				$enlistmentResult = $course->unenlistUsers( array( $userId ), $params['role'], true, $revAction );
 				break;
 		}
 		
 		$this->getResult()->addValue(
 			null,
 			'success',
-			$success
+			$success = $enlistmentResult !== false
 		);
+
+		if ( $enlistmentResult !== false ) {
+			$this->getResult()->addValue(
+				null,
+				'count',
+				$enlistmentResult
+			);
+		}
 	}
 
 	/**

@@ -24,10 +24,10 @@
 				requestArgs,
 				function( data ) {
 					if ( data.hasOwnProperty( 'success' ) && data.success ) {
-						deferred.resolve();
+						deferred.resolve( data );
 					}
 					else {
-						deferred.reject();
+						deferred.reject( data );
 					}
 				}
 			);

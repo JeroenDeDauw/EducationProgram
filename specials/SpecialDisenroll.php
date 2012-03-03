@@ -172,7 +172,7 @@ class SpecialDisenroll extends SpecialEPPage {
 			'student',
 			true,
 			$revAction
-		);
+		) !== false;
 
 		if ( $success ) {
 			$this->showSuccess( wfMessage( 'ep-disenroll-success' ) );

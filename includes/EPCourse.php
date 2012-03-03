@@ -565,7 +565,7 @@ class EPCourse extends EPPageObject {
 	 * @param boolean $save
 	 * @param EPRevisionAction|null $revAction
 	 *
-	 * @return boolean Success indicator
+	 * @return integer|false The amount of enlisted users or false on failiure
 	 */
 	public function enlistUsers( $newUsers, $role, $save = true, EPRevisionAction $revAction = null ) {
 		$roleMap = array(
@@ -595,10 +595,10 @@ class EPCourse extends EPPageObject {
 				$this->logRoleChange( $action, $role, $addedUsers, $revAction->getComment() );
 			}
 
-			return $success;
+			return $success ? count( $addedUsers ) : false;
 		}
 		else {
-			return true;
+			return 0;
 		}
 	}
 
@@ -614,7 +614,7 @@ class EPCourse extends EPPageObject {
 	 * @param boolean $save
 	 * @param EPRevisionAction|null $revAction
 	 *
-	 * @return boolean Success indicator
+	 * @return integer|false The amount of unenlisted users or false on failiure
 	 */
 	public function unenlistUsers( $sadUsers, $role, $save = true, EPRevisionAction $revAction = null ) {
 		$sadUsers = (array)$sadUsers;
@@ -656,10 +656,10 @@ class EPCourse extends EPPageObject {
 				$this->logRoleChange( $action, $role, $removedUsers, $revAction->getComment() );
 			}
 
-			return $success;
+			return $success ? count( $removedUsers ) : false;
 		}
 		else {
-			return true;
+			return 0;
 		}
 	}
 

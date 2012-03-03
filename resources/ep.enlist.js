@@ -136,8 +136,8 @@
 			};
 
 			this.doAdd = function() {
-				var $add = $( '#ep-' + role + '-add-button' );
-				var $cancel = $( '#ep-' + role + '-add-cancel-button' );
+				var $add = $( '#ep-' + role + '-add-button' ),
+				$cancel = $( '#ep-' + role + '-add-cancel-button' );
 
 				$add.button( 'option', 'disabled', true );
 				$add.button( 'option', 'label', ep.msg( 'ep-' + role + '-adding' ) );
@@ -147,9 +147,18 @@
 					'username': _this.getName(),
 					'reason': _this.summaryInput.val(),
 					'role': role
-				} ).done( function() {
+				} ).done( function( data ) {
+					var	messageKey = null;
+
+					if ( data.count === 0 ) {
+						messageKey = 'ep-' + role + '-addittion-null';
+					}
+					else {
+						messageKey = this.selfMode ? 'ep-' + role + '-addittion-self-success' : 'ep-' + role + '-addittion-success';
+					}
+
 					_this.$dialog.text( ep.msg(
-						_this.selfMode ? 'ep-' + role + '-addittion-self-success' : 'ep-' + role + '-addittion-success',
+						messageKey,
 						_this.getName(),
 						_this.courseName
 					) );
@@ -158,16 +167,18 @@
 					$cancel.button( 'option', 'label', ep.msg( 'ep-' + role + '-add-close-button' ) );
 					$cancel.focus();
 
-					// TODO: link name to user page and show control links
-					$ul = $( '#ep-course-' + role ).find( 'ul' );
+					if ( data.count > 0 ) {
+						// TODO: link name to user page and show control links
+						$ul = $( '#ep-course-' + role ).find( 'ul' );
 
-					if ( $ul.length < 1 ) {
-						$ul = $( '<ul>' );
-						$( '#ep-course-' + role ).html( $ul );
+						if ( $ul.length < 1 ) {
+							$ul = $( '<ul>' );
+							$( '#ep-course-' + role ).html( $ul );
+						}
+
+						$ul.append( $( '<li>' ).text( _this.getName() ) );
 					}
-
-					$ul.append( $( '<li>' ).text( _this.getName() ) )
-				} ).fail( function() {
+				} ).fail( function( data ) {
 					// TODO: implement nicer handling for fails caused by invalid user name
 
 					$add.button( 'option', 'disabled', false );
