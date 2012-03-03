@@ -108,7 +108,8 @@
 		$( '.ep-add-role' ).click( function( event ) {
 			var $this = $( this ), 
 			_this = this,
-			role = $this.attr( 'data-role' );
+			role = $this.attr( 'data-role' ),
+			isCompletionEnter = false;
 			
 			this.courseId = $this.attr( 'data-courseid' );
 			this.courseName = $this.attr( 'data-coursename' );
@@ -137,8 +138,7 @@
 
 			this.doAdd = function() {
 				var $add = $( '#ep-' + role + '-add-button' ),
-				$cancel = $( '#ep-' + role + '-add-cancel-button' ),
-				isCompletionEnter = false;
+				$cancel = $( '#ep-' + role + '-add-cancel-button' );
 
 				$add.button( 'option', 'disabled', true );
 				$add.button( 'option', 'label', ep.msg( 'ep-' + role + '-adding' ) );
@@ -180,11 +180,16 @@
 						$ul.append( $( '<li>' ).text( _this.getName() ) );
 					}
 				} ).fail( function( data ) {
-					// TODO: implement nicer handling for fails caused by invalid user name
-
 					$add.button( 'option', 'disabled', false );
 					$add.button( 'option', 'label', ep.msg( 'ep-' + role + '-add-retry' ) );
-					alert( ep.msg( 'ep-' + role + '-addittion-failed' ) );
+
+					var msgKey = data.error ? 'ep-' + role + '-addittion-' + data.error.code : 'ep-' + role + '-addittion-failed';
+
+					alert( ep.msg(
+						msgKey,
+						_this.getName(),
+						_this.courseName
+					) );
 				} );
 			};
 
