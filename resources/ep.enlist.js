@@ -137,7 +137,8 @@
 
 			this.doAdd = function() {
 				var $add = $( '#ep-' + role + '-add-button' ),
-				$cancel = $( '#ep-' + role + '-add-cancel-button' );
+				$cancel = $( '#ep-' + role + '-add-cancel-button' ),
+				isCompletionEnter = false;
 
 				$add.button( 'option', 'disabled', true );
 				$add.button( 'option', 'label', ep.msg( 'ep-' + role + '-adding' ) );
@@ -244,6 +245,11 @@
 					},
 					close: function() {
 						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+					},
+					select: function( event, ui ) {
+						if ( ( event.keyCode ? event.keyCode : event.which ) === 13 ) {
+							isCompletionEnter = true;
+						}
 					}
 				} );
 			}
@@ -260,7 +266,13 @@
 			var enterHandler = function( event ) {
 				if ( event.which == '13' ) {
 					event.preventDefault();
-					_this.doAdd();
+
+					if ( isCompletionEnter ) {
+						isCompletionEnter = false;
+					}
+					else {
+						_this.doAdd();
+					}
 				}
 			};
 			
