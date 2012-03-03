@@ -26,6 +26,13 @@ class EPFailForm extends HTMLForm {
 	 * @var boolean
 	 */
 	protected $showSummary = true;
+
+	/**
+	 * Should the minor edit checkbox be shown or not?
+	 * @since 0.1
+	 * @var boolean
+	 */
+	protected $showMinorEdit = true;
 	
 	/**
 	 * Wrap the form innards in an actual <form> element
@@ -80,6 +87,17 @@ class EPFailForm extends HTMLForm {
 	}
 
 	/**
+	 * Sets if the minor edit checkbox be shown or not.
+	 *
+	 * @since 0.1
+	 *
+	 * @param boolean $showMinorEdit
+	 */
+	public function setShowMinorEdit( $showMinorEdit ) {
+		$this->showMinorEdit = $showMinorEdit;
+	}
+
+	/**
 	 * (non-PHPdoc)
 	 * @see HTMLForm::getBody()
 	 */
@@ -111,15 +129,17 @@ class EPFailForm extends HTMLForm {
 			) . '<br />';
 		}
 
-		$attrs = Linker::tooltipAndAccesskeyAttribs( 'ep-minor' );
+		if ( $this->showMinorEdit ) {
+			$attrs = Linker::tooltipAndAccesskeyAttribs( 'ep-minor' );
 
-		$html .= Xml::checkLabel(
-			wfMsg( 'ep-form-minor' ),
-			'wpMinoredit',
-			'wpMinoredit',
-			false,
-			$attrs
-		) . '<br />';
+			$html .= Xml::checkLabel(
+				wfMsg( 'ep-form-minor' ),
+				'wpMinoredit',
+				'wpMinoredit',
+				false,
+				$attrs
+			) . '<br />';
+		}
 
 		return $html;
 	}

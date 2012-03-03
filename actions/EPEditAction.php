@@ -236,7 +236,8 @@ abstract class EPEditAction extends EPAction {
 		$form->setSubmitText( wfMsg( 'educationprogram-org-submit' ) );
 		$form->setSubmitTooltip( 'ep-form-save' );
 		$form->setShowSummary( !$this->isNew() );
-		
+		$form->setShowMinorEdit( !$this->isNew() );
+
 		$action = $this->isNew() ? 'add' : 'edit';
 		$form->setWrapperLegend( $this->msg( $this->prefixMsg( 'legend-' . $action ) ) );
 
