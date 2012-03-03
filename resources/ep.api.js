@@ -70,6 +70,32 @@
 			);
 			
 			return deferred.promise();
+		},
+
+		getMatchingUsers: function( prefix, args ) {
+			var deferred = $.Deferred(),
+			requestArgs = $.extend( {
+				'action': 'query',
+				'list': 'allusers',
+				'format': 'json',
+				'aulimit': 8,
+				'auprefix': prefix
+			}, args );
+
+			$.getJSON(
+				wgScriptPath + '/api.php',
+				requestArgs,
+				function( data ) {
+					if ( data.query && data.query.allusers ) {
+						deferred.resolve( data.query.allusers );
+					}
+					else {
+						deferred.reject();
+					}
+				}
+			);
+
+			return deferred.promise();
 		}
 
 	};

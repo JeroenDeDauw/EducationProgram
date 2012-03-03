@@ -215,6 +215,26 @@
 						'for': 'ep-' + role + '-summaryinput'
 					} ).text( ep.msg( 'ep-' + role + '-summary-input' ) + ' ' )
 				);
+
+				this.nameInput.autocomplete( {
+					source: function( request, response ) {
+						ep.api.getMatchingUsers( _this.nameInput.val() ).done( function( users ) {
+							response( $.map( users, function( user ) {
+								return {
+									'label': user.name,
+									'value': user.name
+								};
+							} ) );
+						} );
+					},
+					minLength: 2,
+					open: function() {
+						$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+					},
+					close: function() {
+						$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+					}
+				} );
 			}
 			
 			this.$dialog.append( this.summaryInput );

@@ -512,7 +512,8 @@ $wgResourceModules['ep.enlist'] = $moduleTemplate + array(
 		'ep.core',
 		'ep.api',
 		'mediawiki.jqueryMsg',
-		'mediawiki.language'
+		'mediawiki.language',
+		'jquery.ui.autocomplete',
 	),
 	'messages' => array(
 		'ep-instructor-remove-title',
