@@ -32,9 +32,19 @@ class SpecialEducationProgram extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
+		$cache = wfGetCache( CACHE_ANYTHING );
+		$cacheKey = wfMemcKey( get_class( $this ), $this->getLanguage()->getCode() );
+		$cachedHTML = $cache->get( $cacheKey );
+
 		$out = $this->getOutput();
 
-		$this->displaySummaryTable();
+		if ( $this->getRequest()->getText( 'action' ) !== 'purge' && is_string( $cachedHTML ) ) {
+			$out->addHTML( $cachedHTML );
+		}
+		else {
+			$this->displaySummaryTable();
+			$cache->set( $cacheKey, $out->getHTML(), 3600 );
+		}
 	}
 
 	/**
