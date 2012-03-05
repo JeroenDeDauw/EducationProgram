@@ -208,11 +208,11 @@ class EPUtils {
 			$items[wfMsg( 'ep-nav-mycourses' )] = SpecialPage::getTitleFor( 'MyCourses' );
 		}
 		
-		if ( $user->isAllowed( 'ep-online' ) && EPOA::newFromUser( $user )->hasCourse() ) {
+		if ( EPOA::newFromUser( $user )->hasCourse() ) {
 			$items[wfMsg( 'ep-nav-oaprofile' )] = SpecialPage::getTitleFor( 'OnlineAmbassadorProfile' );
 		}
 		
-		if ( $user->isAllowed( 'ep-campus' ) && EPCA::newFromUser( $user )->hasCourse() ) {
+		if ( EPCA::newFromUser( $user )->hasCourse() ) {
 			$items[wfMsg( 'ep-nav-caprofile' )] = SpecialPage::getTitleFor( 'CampusAmbassadorProfile' );
 		}
 

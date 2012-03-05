@@ -19,7 +19,7 @@ class SpecialOAProfile extends SpecialAmbassadorProfile {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'OnlineAmbassadorProfile', 'ep-online', false );
+		parent::__construct( 'OnlineAmbassadorProfile' );
 	}
 
 	/**
@@ -41,6 +41,17 @@ class SpecialOAProfile extends SpecialAmbassadorProfile {
 	 */
 	protected function getClassName() {
 		return 'EPOA';
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see SpecialAmbassadorProfile::userCanAccess()
+	 */
+	protected function userCanAccess() {
+		$user = $this->getUser();
+		return $user->isAllowed( 'ep-online' )
+			|| $user->isAllowed( 'ep-beonline' )
+			|| EPOA::newFromUser( $user )->hasCourse();
 	}
 
 }

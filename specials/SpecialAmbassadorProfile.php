@@ -13,7 +13,34 @@
  */
 abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 
+	/**
+	 * Returns the name of the ambassador class.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	protected abstract function getClassName();
+
+	/**
+	 * Returns if the user can access the page or not.
+	 *
+	 * @since 0.1
+	 *
+	 * @return boolean
+	 */
+	protected abstract function userCanAccess();
+
+	/**
+	 * Returns if the special page should be listed on Special:SpecialPages and similar interfaces.
+	 *
+	 * @since 0.1
+	 *
+	 * @return boolean
+	 */
+	public function isListed() {
+		return $this->userCanAccess();
+	}
 
 	/**
 	 * Main method.
@@ -21,8 +48,15 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 	 * @since 0.1
 	 *
 	 * @param string $subPage
+	 *
+	 * @return string
 	 */
 	public function execute( $subPage ) {
+		if ( !$this->userCanAccess() ) {
+			$this->displayRestrictionError();
+			return '';
+		}
+
 		if ( $this->getRequest()->getSessionData( 'epprofilesaved' ) ) {
 			$messageKey = $this->getMsgPrefix() . 'profile-saved';
 			$this->getOutput()->addHTML(

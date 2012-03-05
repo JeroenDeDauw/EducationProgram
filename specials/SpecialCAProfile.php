@@ -19,7 +19,7 @@ class SpecialCAProfile extends SpecialAmbassadorProfile {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'CampusAmbassadorProfile', 'ep-campus', false );
+		parent::__construct( 'CampusAmbassadorProfile' );
 	}
 
 	/**
@@ -41,6 +41,17 @@ class SpecialCAProfile extends SpecialAmbassadorProfile {
 	 */
 	protected function getClassName() {
 		return 'EPCA';
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see SpecialAmbassadorProfile::userCanAccess()
+	 */
+	protected function userCanAccess() {
+		$user = $this->getUser();
+		return $user->isAllowed( 'ep-campus' )
+			|| $user->isAllowed( 'ep-becampus' )
+			|| EPCA::newFromUser( $user )->hasCourse();
 	}
 
 }
