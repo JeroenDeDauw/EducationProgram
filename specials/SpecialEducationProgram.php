@@ -39,6 +39,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 		$out = $this->getOutput();
 
 		if ( $this->getRequest()->getText( 'action' ) !== 'purge' && is_string( $cachedHTML ) ) {
+			$out->clearHTML();
 			$out->addHTML( $cachedHTML );
 		}
 		else {
