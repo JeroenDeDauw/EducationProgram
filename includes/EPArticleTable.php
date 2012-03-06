@@ -221,9 +221,9 @@ class EPArticleTable extends EPPager {
 	 */
 	protected function getUserCell( $userId, $rowSpan ) {
 		$user = User::newFromId( $userId );
-		$name = $user->getRealName() === '' ? $user->getName() : $user->getRealName();
+		$realName = $user->getRealName() === '' ? false : $user->getRealName();
 
-		$html = Linker::userLink( $userId, $name );
+		$html = Linker::userLink( $userId, $user->getName(), $realName );
 
 		if ( $this->getUser()->isAllowed( 'ep-remstudent' )
 			&& array_key_exists( 'course_id', $this->articleConds )
@@ -231,7 +231,7 @@ class EPArticleTable extends EPPager {
 
 			$html .= EPUtils::getToolLinks(
 				$userId,
-				$name,
+				$user->getName(),
 				$this->getContext(),
 				array( Html::element(
 					'a',
@@ -239,7 +239,7 @@ class EPArticleTable extends EPPager {
 						'href' => '#',
 						'data-user-id' => $userId,
 						'data-course-id' => $this->articleConds['course_id'],
-						'data-user-name' => $name,
+						'data-user-name' => $user->getName(),
 						'data-course-name' => $this->getCourseName(),
 						'data-token' => $this->getUser()->getEditToken( $this->articleConds['course_id'] . 'remstudent' . $userId ),
 						'class' => 'ep-rem-student',
@@ -249,7 +249,7 @@ class EPArticleTable extends EPPager {
 			);
 		}
 		else {
-			$html .= Linker::userToolLinks( $userId, $name );
+			$html .= Linker::userToolLinks( $userId, $user->getName() );
 		}
 
 		return html::rawElement(

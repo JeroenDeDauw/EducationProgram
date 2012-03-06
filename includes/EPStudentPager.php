@@ -70,9 +70,8 @@ class EPStudentPager extends EPPager {
 				break;
 			case 'user_id':
 				$user = User::newFromId( $value );
-				$name = $user->getRealName() === '' ? $user->getName() : $user->getRealName();
-
-				$value = Linker::userLink( $value, $name ) . Linker::userToolLinks( $value, $name );
+				$realName = $user->getRealName() === '' ? false : $user->getRealName();
+				$value = Linker::userLink( $value, $user->getName(), $realName ) . Linker::userToolLinks( $value, $user->getName() );
 				break;
 			case 'first_enroll': case 'last_active':
 				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
