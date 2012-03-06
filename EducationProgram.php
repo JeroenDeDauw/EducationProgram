@@ -292,10 +292,8 @@ $wgGroupPermissions['epcampamb']['ep-becampus'] = true;
 $wgGroupPermissions['epinstructor']['ep-org'] = true;
 $wgGroupPermissions['epinstructor']['ep-course'] = true;
 $wgGroupPermissions['epinstructor']['ep-token'] = true;
-$wgGroupPermissions['epinstructor']['ep-remstudent'] = true;
-$wgGroupPermissions['epinstructor']['ep-online'] = true;
-$wgGroupPermissions['epinstructor']['ep-campus'] = true;
 $wgGroupPermissions['epinstructor']['ep-beinstructor'] = true;
+$wgGroupPermissions['epinstructor']['ep-remstudent'] = true;
 
 $wgGroupPermissions['epstaff']['userrights'] = false;
 $wgAddGroups['epstaff'] = array( 'epstaff', 'epadmin', 'eponlineamb', 'epcampamb', 'epinstructor' );
