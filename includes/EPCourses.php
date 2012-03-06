@@ -132,11 +132,16 @@ class EPCourses extends EPPageTable {
 	 */
 	public function getRevertableFields() {
 		return array(
+			'org_id',
 			'name',
+			'mc',
 			'start',
 			'end',
 			'description',
 			'token',
+			'field',
+			'level',
+			'term'
 		);
 	}
 	

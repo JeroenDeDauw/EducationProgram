@@ -320,14 +320,18 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * @return boolean Success indicator
 	 */
 	public function restoreToRevision( EPRevision $revison, array $fields = null ) {
-		$obejct = $revison->getObject();
-		$fields = is_null( $fields ) ? $obejct->getFieldNames() : $fields;
+		$object = $revison->getObject();
+		$fields = is_null( $fields ) ? $object->getFieldNames() : $fields;
 		
 		foreach ( $fields as $fieldName ) {
-			$this->setField( $fieldName, $obejct->getField( $fieldName ) );
+			$this->restoreField( $fieldName, $object );
 		}
 		
 		return true;
+	}
+
+	protected function restoreField( $fieldName, EPRevisionedObject $object ) {
+		$this->setField( $fieldName, $object->getField( $fieldName ) );
 	}
 	
 	/**

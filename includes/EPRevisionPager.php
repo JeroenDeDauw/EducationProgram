@@ -118,14 +118,16 @@ class EPRevisionPager extends ReverseChronologicalPager {
 					array( 'revid' => $revision->getId() )
 				);
 			}
-			
-			$actionLinks[] = $object->getLink(
-				'eprestore',
-				wfMsgHtml( 'ep-revision-restore' ),
-				array(),
-				array( 'revid' => $revision->getId() )
-			);
-			
+
+			if ( $this->mOffset !== '' || $this->rowNr != 0 ) {
+				$actionLinks[] = $object->getLink(
+					'eprestore',
+					wfMsgHtml( 'ep-revision-restore' ),
+					array(),
+					array( 'revid' => $revision->getId() )
+				);
+			}
+
 			$html .= '&#160;.&#160;.&#160;';
 			$html .= '(' .  $this->getLanguage()->pipeList( $actionLinks ) . ')';
 		}

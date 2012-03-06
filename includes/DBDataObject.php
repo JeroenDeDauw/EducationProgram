@@ -610,13 +610,21 @@ abstract class DBDataObject {
 	 * @since 1.20
 	 *
 	 * @param DBDataObject $object
-	 * @param boolean $excludeSummaryFields When set to true, summary field changes are ignored.
+	 * @param boolean|array $excludeSummaryFields
+	 *  When set to true, summary field changes are ignored.
+	 *  Can also be an array of fields to ignore.
 	 *
 	 * @return boolean
 	 */
 	protected function fieldsChanged( DBDataObject $object, $excludeSummaryFields = false ) {
+		$exclusionFields = array();
+
+		if ( $excludeSummaryFields !== false ) {
+			$exclusionFields = is_array( $excludeSummaryFields ) ? $excludeSummaryFields : $this->table->getSummaryFields();
+		}
+
 		foreach ( $this->fields as $name => $value ) {
-			$excluded = $excludeSummaryFields && in_array( $name, $this->table->getSummaryFields() );
+			$excluded = $excludeSummaryFields && in_array( $name, $exclusionFields );
 
 			if ( !$excluded && $object->getField( $name ) !== $value ) {
 				return true;
