@@ -377,8 +377,8 @@ The deletion log for this institution is provided below for convenience:",
 	'educationprogram-org-invalid-country' => 'This is not a valid country.',
 
 	// Course editing
-	'orgpage-edit-legend-add' => 'Add course',
-	'orgpage-edit-legend-edit' => 'Edit course',
+	'coursepage-edit-legend-add' => 'Add course',
+	'coursepage-edit-legend-edit' => 'Edit course',
 	'ep-course-edit-term' => 'Term',
 	'ep-course-edit-org' => 'Institution',
 	'ep-course-edit-start' => 'Start date',
