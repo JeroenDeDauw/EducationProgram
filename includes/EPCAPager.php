@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPCAPager extends EPOAPager {
+
 	/**
 	 * Constructor.
 	 *
@@ -19,8 +20,7 @@ class EPCAPager extends EPOAPager {
 	 * @param array $conds
 	 */
 	public function __construct( IContextSource $context, array $conds = array() ) {
-		parent::__construct( $context, $conds );
-		$this->table = EPCAs::singleton();
+		parent::__construct( $context, $conds, EPCAs::singleton() );
 	}
 
 	/**
