@@ -53,26 +53,32 @@ class EPUndoAction extends EPAction {
 		}
 		else {
 			$req = $this->getRequest();
-			
-			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undoToken' ), $this->getSalt() ) ) {
-				if ( $req->getCheck( 'revid' ) ) {
-					$success = $this->doUndo( $object, $req->getInt( 'revid' ) );
-				}
-				else {
-					$success = false;
-				}
 
+			$success = false;
+
+			if ( $req->getCheck( 'revid' ) ) {
+				$revision = EPRevisions::singleton()->selectRow( null, array( 'id' => $req->getInt( 'revid' ) ) );
+
+				if ( $revision !== false ) {
+					if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undoToken' ), $this->getSalt() ) ) {
+						$success = $this->doUndo( $object, $revision );
+					}
+					else {
+						$this->displayForm( $object, $revision );
+						$success = null;
+					}
+				}
+			}
+
+			if ( !is_null( $success ) ) {
 				if ( $success ) {
 					$query = array( 'undid' => '1' ); // TODO: handle
 				}
 				else {
 					$query = array( 'undofailed' => '1' ); // TODO: handle
 				}
-				
+
 				$this->getOutput()->redirect( $object->getTitle()->getLocalURL( $query ) );
-			}
-			else {
-				$this->displayForm( $object );
 			}
 		}
 
@@ -85,12 +91,12 @@ class EPUndoAction extends EPAction {
 	 * @since 0.1
 	 * 
 	 * @param EPPageObject $object
-	 * @param integer $revId
+	 * @param EPRevision $revision
 	 * 
 	 * @return boolean Success indicator
 	 */
-	protected function doUndo( EPPageObject $object, $revId ) {
-		$success = $object->undoRevisionId( $revId, $object->getTable()->getRevertableFields() );
+	protected function doUndo( EPPageObject $object, EPRevision $revision ) {
+		$success = $object->undoRevision( $revision, $object->getTable()->getRevertableFields() );
 
 		if ( $success ) {
 			$revAction = new EPRevisionAction();
@@ -99,14 +105,9 @@ class EPUndoAction extends EPAction {
 			$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
 
 			$success = $object->revisionedSave( $revAction );
-
-			if ( $success ) {
-				// TODO: log
-				// Already logged - just alter message?
-			}
 		}
-		
-		return false;
+
+		return $success;
 	}
 
 	/**
@@ -115,8 +116,9 @@ class EPUndoAction extends EPAction {
 	 * @since 0.1
 	 * 
 	 * @param EPPageObject $object
+	 * @param EPRevision $revision
 	 */
-	protected function displayForm( EPPageObject $object ) {
+	protected function displayForm( EPPageObject $object, EPRevision $revision ) {
 		$out = $this->getOutput();
 
 		$out->addModules( 'ep.formpage' );
@@ -136,7 +138,12 @@ class EPUndoAction extends EPAction {
 			'summary',
 			'summary',
 			65,
-			false,
+			wfMsgExt(
+				$this->prefixMsg( 'summary-value' ),
+				'parsemag',
+				$this->getLanguage()->timeanddate( $revision->getField( 'time' ) ),
+				$revision->getUser()->getName()
+			),
 			array(
 				'maxlength' => 250,
 				'spellcheck' => true,

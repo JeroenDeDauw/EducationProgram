@@ -53,26 +53,32 @@ class EPRestoreAction extends EPAction {
 		}
 		else {
 			$req = $this->getRequest();
-			
-			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'restoreToken' ), $this->getSalt() ) ) {
-				if ( $req->getCheck( 'revid' ) ) {
-					$success = $this->doRestore( $object, $req->getInt( 'revid' ) );
+
+			$success = false;
+
+			if ( $req->getCheck( 'revid' ) ) {
+				$revision = EPRevisions::singleton()->selectRow( null, array( 'id' => $req->getInt( 'revid' ) ) );
+
+				if ( $revision !== false ) {
+					if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'restoreToken' ), $this->getSalt() ) ) {
+						$success = $this->doRestore( $object, $revision );
+					}
+					else {
+						$this->displayForm( $object, $revision );
+						$success = null;
+					}
 				}
-				else {
-					$success = false;
-				}
-				
+			}
+
+			if ( !is_null( $success ) ) {
 				if ( $success ) {
 					$query = array( 'restored' => '1' ); // TODO: handle
 				}
 				else {
 					$query = array( 'restorefailed' => '1' ); // TODO: handle
 				}
-				
+
 				$this->getOutput()->redirect( $object->getTitle()->getLocalURL( $query ) );
-			}
-			else {
-				$this->displayForm( $object );
 			}
 		}
 
@@ -85,12 +91,12 @@ class EPRestoreAction extends EPAction {
 	 * @since 0.1
 	 *
 	 * @param EPPageObject $object
-	 * @param integer $revId
+	 * @param EPRevision $revision
 	 * 
 	 * @return boolean Success indicator
 	 */
-	protected function doRestore( EPPageObject $object, $revId ) {
-		$success = $object->restoreToRevisionId( $revId, $object->getTable()->getRevertableFields() );
+	protected function doRestore( EPPageObject $object, EPRevision $revision ) {
+		$success = $object->restoreToRevision( $revision, $object->getTable()->getRevertableFields() );
 		
 		if ( $success ) {
 			$revAction = new EPRevisionAction();
@@ -99,11 +105,6 @@ class EPRestoreAction extends EPAction {
 			$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
 			
 			$success = $object->revisionedSave( $revAction );
-			
-			if ( $success ) {
-				// TODO: log
-				// Already logged - just alter message?
-			}
 		}
 		
 		return $success;
@@ -115,8 +116,9 @@ class EPRestoreAction extends EPAction {
 	 * @since 0.1
 	 * 
 	 * @param EPPageObject $object
+	 * @param EPRevision $revision
 	 */
-	protected function displayForm( EPPageObject $object ) {
+	protected function displayForm( EPPageObject $object, EPRevision $revision ) {
 		$out = $this->getOutput();
 
 		$out->addModules( 'ep.formpage' );
@@ -136,7 +138,12 @@ class EPRestoreAction extends EPAction {
 			'summary',
 			'summary',
 			65,
-			false,
+			wfMsgExt(
+				$this->prefixMsg( 'summary-value' ),
+				'parsemag',
+				$this->getLanguage()->timeanddate( $revision->getField( 'time' ) ),
+				$revision->getUser()->getName()
+			),
 			array(
 				'maxlength' => 250,
 				'spellcheck' => true,

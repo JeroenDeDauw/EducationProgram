@@ -500,6 +500,7 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-eprestore-summary' => 'Reason for restoration:',
 	'orgpage-eprestore-restore-button' => 'Restore revision',
 	'orgpage-eprestore-cancel-button' => 'Cancel',
+	'orgpage-eprestore-summary-value' => 'Restore institution to the revision made on $1 by $2',
 
 	// Course restoration
 	'coursepage-eprestore-title' => 'Restore course "$1"',
@@ -507,6 +508,7 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-eprestore-summary' => 'Reason for restoration:',
 	'coursepage-eprestore-restore-button' => 'Restore revision',
 	'coursepage-eprestore-cancel-button' => 'Cancel',
+	'coursepage-eprestore-summary-value' => 'Restore course to the revision made on $1 by $2',
 
 	// Institution undo revision
 	'orgpage-epundo-title' => 'Undo revision of institution "$1"',
@@ -514,6 +516,7 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-epundo-summary' => 'Reason for revert:',
 	'orgpage-epundo-undo-button' => 'Undo revision',
 	'orgpage-epundo-cancel-button' => 'Cancel',
+	'orgpage-epundo-summary-value' => 'Undo revision made on $1 by $2',
 
 	// Course undo revision
 	'coursepage-epundo-title' => 'Undo revision of  course "$1"',
@@ -521,6 +524,7 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-epundo-summary' => 'Reason for revert:',
 	'coursepage-epundo-undo-button' => 'Undo revision',
 	'coursepage-epundo-cancel-button' => 'Cancel',
+	'coursepage-epundo-summary-value' => 'Undo revision made on $1 by $2',
 
 	// Course undeletion
 	'coursepage-epundelete-title' => 'Undelete course "$1"',
