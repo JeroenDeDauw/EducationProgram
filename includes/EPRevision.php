@@ -78,4 +78,18 @@ class EPRevision extends DBDataObject {
 		return $this->user;
 	}
 
+	/**
+	 * Return the previous revision, ie the most recent revision of the object of this revsion
+	 * that's older then this revion. If there is none, false is returned.
+	 *
+	 * @since 0.1
+	 *
+	 * @return EPRevision|false
+	 */
+	public function getPreviousRevision() {
+		return $this->getObject()->getLatestRevision( array(
+			'id < ' . wfGetDB( DB_SLAVE )->addQuotes( $this->getId() )
+		) );
+	}
+
 }

@@ -128,8 +128,10 @@ class EPRevisionPager extends ReverseChronologicalPager {
 				);
 			}
 
-			$html .= '&#160;.&#160;.&#160;';
-			$html .= '(' .  $this->getLanguage()->pipeList( $actionLinks ) . ')';
+			if ( !empty( $actionLinks ) ) {
+				$html .= '&#160;.&#160;.&#160;';
+				$html .= '(' .  $this->getLanguage()->pipeList( $actionLinks ) . ')';
+			}
 		}
 
 		$this->rowNr++;

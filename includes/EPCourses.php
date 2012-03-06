@@ -118,11 +118,6 @@ class EPCourses extends EPPageTable {
 			'instructor_count',
 			'oa_count',
 			'ca_count',
-			'field',
-			'level',
-			'term',
-			'lang',
-			'mc',
 		);
 	}
 	

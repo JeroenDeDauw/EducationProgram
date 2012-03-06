@@ -55,8 +55,13 @@ class EPUndoAction extends EPAction {
 			$req = $this->getRequest();
 			
 			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undoToken' ), $this->getSalt() ) ) {
-				$success = $this->doUndo( $object );
-				
+				if ( $req->getCheck( 'revid' ) ) {
+					$success = $this->doUndo( $object, $req->getInt( 'revid' ) );
+				}
+				else {
+					$success = false;
+				}
+
 				if ( $success ) {
 					$query = array( 'undid' => '1' ); // TODO: handle
 				}
@@ -80,16 +85,26 @@ class EPUndoAction extends EPAction {
 	 * @since 0.1
 	 * 
 	 * @param EPPageObject $object
+	 * @param integer $revId
 	 * 
 	 * @return boolean Success indicator
 	 */
-	protected function doUndo( EPPageObject $object ) {
-		$revAction = new EPRevisionAction();
-		
-		$revAction->setUser( $this->getUser() );
-		$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
-		
-		// TODO
+	protected function doUndo( EPPageObject $object, $revId ) {
+		$success = $object->undoRevisionId( $revId, $object->getTable()->getRevertableFields() );
+
+		if ( $success ) {
+			$revAction = new EPRevisionAction();
+
+			$revAction->setUser( $this->getUser() );
+			$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
+
+			$success = $object->revisionedSave( $revAction );
+
+			if ( $success ) {
+				// TODO: log
+				// Already logged - just alter message?
+			}
+		}
 		
 		return false;
 	}
@@ -149,6 +164,7 @@ class EPUndoAction extends EPAction {
 			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);
 
+		$out->addHTML( Html::hidden( 'revid', $this->getRequest()->getInt( 'revid' ) ) );
 		$out->addHTML( Html::hidden( 'undoToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
 
 		$out->addHTML( '</form>' );

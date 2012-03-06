@@ -190,7 +190,7 @@ class EPCourse extends EPPageObject {
 			}
 		}
 
-		if ( count( $newUsers ) > 0 ) {
+		if ( !empty( $newUsers ) ) {
 			$dbw->begin();
 
 			foreach ( $newUsers as $userLink ) {
@@ -706,10 +706,14 @@ class EPCourse extends EPPageObject {
 		EPUtils::log( $info );
 	}
 
-	protected function restoreField( $fieldName, EPRevisionedObject $object ) {
+	/**
+	 * (non-PHPdoc)
+	 * @see EPRevionedObject::restoreField()
+	 */
+	protected function restoreField( $fieldName, $newValue ) {
 		if ( $fieldName !== 'org_id'
-			|| EPOrgs::singleton()->has( array( 'id' => $object->getField( 'org_id' ) ) ) ) {
-			parent::restoreField( $fieldName, $object );
+			|| EPOrgs::singleton()->has( array( 'id' => $newValue ) ) ) {
+			parent::restoreField( $fieldName, $newValue );
 		}
 	}
 

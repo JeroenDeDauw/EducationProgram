@@ -283,7 +283,30 @@ abstract class EPRevisionedObject extends DBDataObject {
 			$conditions
 		), $options );
 	}
-	
+
+	/**
+	 * Returns the most recently stored revision for this object
+	 * matching the provided contions or false if there is none.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $conditions
+	 * @param array $options
+	 *
+	 * @return EPRevision|false
+	 */
+	public function getLatestRevision( array $conditions = array(), array $options = array() ) {
+		$options['ORDER BY'] = EPRevisions::singleton()->getPrefixedField( 'id' ) . ' DESC';
+
+		return EPRevisions::singleton()->selectRow( null, array_merge(
+			array(
+				'type' => get_called_class(),
+				'object_id' => $this->getId(),
+			),
+			$conditions
+		), $options );
+	}
+
 	/**
 	 * Undeletes ab object by inserting the current object.
 	 * Only call this method when the object does not exist in
@@ -324,14 +347,58 @@ abstract class EPRevisionedObject extends DBDataObject {
 		$fields = is_null( $fields ) ? $object->getFieldNames() : $fields;
 		
 		foreach ( $fields as $fieldName ) {
-			$this->restoreField( $fieldName, $object );
+			$this->restoreField( $fieldName, $object->getField( $fieldName ) );
 		}
 		
 		return true;
 	}
 
-	protected function restoreField( $fieldName, EPRevisionedObject $object ) {
-		$this->setField( $fieldName, $object->getField( $fieldName ) );
+	/**
+	 * Undo the changes of a single revision to this object.
+	 * Changes are compared on field level. If a field is no
+	 * longer the same as in the revision being undone, it
+	 * will not be reverted.
+	 *
+	 * At some point we might want to have more fine grained
+	 * reverts for text fields.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPRevision $revison
+	 * @param array|null $fields
+	 *
+	 * @return boolean Success indicator
+	 */
+	public function undoRevision( EPRevision $revison, array $fields = null ) {
+		$oldObject = $revison->getPreviousRevision()->getObject();
+
+		if ( $oldObject === false ) {
+			return false;
+		}
+
+		$newObject = $revison->getObject();
+
+		$fields = is_null( $fields ) ? $newObject->getFieldNames() : $fields;
+
+		foreach ( $fields as $fieldName ) {
+			if ( $this->getField( $fieldName ) === $newObject->getField( $fieldName ) ) {
+				$this->restoreField( $fieldName, $oldObject->getField( $fieldName ) );
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * Set a field to the value of the corresponding field in the provided object.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $fieldName
+	 * @param mixed $newValue
+	 */
+	protected function restoreField( $fieldName, $newValue ) {
+		$this->setField( $fieldName, $newValue );
 	}
 	
 	/**
@@ -347,6 +414,21 @@ abstract class EPRevisionedObject extends DBDataObject {
 	public function restoreToRevisionId( $revId, array $fields = null ) {
 		$revision = $this->getRevisionById( $revId );
 		return $revision === false ? false : $this->restoreToRevision( $revision, $fields );
+	}
+
+	/**
+	 * Undo the changes of the revision with the provided id to this object.
+	 *
+	 * @since 0.1
+	 *
+	 * @param integer $revId
+	 * @param array|null $fields
+	 *
+	 * @return boolean Success indicator
+	 */
+	public function undoRevisionId( $revId, array $fields = null ) {
+		$revision = $this->getRevisionById( $revId );
+		return $revision === false ? false : $this->undoRevision( $revision, $fields );
 	}
 	
 }
