@@ -56,6 +56,7 @@ class EPArticles extends DBTable {
 			'course_id' => 'int',
 			'user_id' => 'int',
 			'page_id' => 'int',
+			'page_title' => 'str',
 			'reviewers' => 'array',
 		);
 	}

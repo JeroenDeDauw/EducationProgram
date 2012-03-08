@@ -34,7 +34,8 @@ class EPAddArticleAction extends FormlessAction {
 		$salt = 'addarticle' . $req->getInt( 'course-id' );
 		$title = Title::newFromText( $req->getText( 'addarticlename' ) );
 
-		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) && !is_null( $title ) && $title->getArticleID() !== 0 ) {
+		// TODO: some kind of warning when entering invalid title
+		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) && !is_null( $title ) ) {
 			$course = EPCourses::singleton()->selectRow(
 				array( 'students', 'name' ),
 				array( 'id' => $req->getInt( 'course-id' ) )
@@ -45,6 +46,7 @@ class EPAddArticleAction extends FormlessAction {
 					'user_id' => $user->getId(),
 					'course_id' => $req->getInt( 'course-id' ),
 					'page_id' => $title->getArticleID(),
+					'page_title' => $title->getFullText(),
 				);
 
 				if ( !EPArticles::singleton()->has( $articleData ) ) {

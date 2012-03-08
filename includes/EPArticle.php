@@ -39,6 +39,15 @@ class EPArticle extends DBDataObject {
 	protected $course = false;
 
 	/**
+	 * Cached list of user allowances to become reviewer.
+	 * int userId => bool canBecomereviewer
+	 *
+	 * @since 0.1
+	 * @var array
+	 */
+	protected $canBecomeReviwer = array();
+
+	/**
 	 * Returns the user that is working on this article.
 	 *
 	 * @since 0.1
@@ -88,7 +97,9 @@ class EPArticle extends DBDataObject {
 	 */
 	public function getTitle() {
 		if ( $this->title === false ) {
-			$this->title = Title::newFromID( $this->getField( 'page_id' ) );
+			$this->title = $this->getField( 'page_id' ) === 0 ?
+				Title::newFromText( $this->getField( 'page_title' ) )
+				: Title::newFromID( $this->getField( 'page_id' ) );
 		}
 
 		return $this->title;
@@ -115,8 +126,15 @@ class EPArticle extends DBDataObject {
 		return $this->course === false ? $course : $this->course;
 	}
 
-	protected $canBecomeReviwer = array();
-
+	/**
+	 * Returns if the provided User can become a reviwers for this article.
+	 *
+	 * @since 0.1
+	 *
+	 * @param User $user
+	 *
+	 * @return boolean
+	 */
 	public function canBecomeReviewer( User $user ) {
 		if ( !array_key_exists( $user->getId(), $this->canBecomeReviwer ) ) {
 			$this->canBecomeReviwer[$user->getId()] =
@@ -129,6 +147,17 @@ class EPArticle extends DBDataObject {
 		return $this->canBecomeReviwer[$user->getId()];
 	}
 
+	/**
+	 * Adds the users matching the provided ids as reviewers to this article.
+	 * USers already a reviewer will be ignored. An array with actually added user ids
+	 * is returned.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $userIds
+	 *
+	 * @return array
+	 */
 	public function addReviewers( array $userIds ) {
 		$addedIds = array_diff( $userIds, $this->getField( 'reviewers' ) );
 
@@ -139,10 +168,28 @@ class EPArticle extends DBDataObject {
 		return $addedIds;
 	}
 
+	/**
+	 * Logs the adittion of the users matching the provided ids as reviewers to this article.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $userIds
+	 */
 	public function logReviewersAdittion( array $userIds ) {
 		// TODO
 	}
 
+	/**
+	 * Removes the users matching the provided ids as reviewers from this article.
+	 * Users that are not a reviwer will just be ignored. An array with actually removed
+	 * user ids is returned.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $userIds
+	 *
+	 * @return array
+	 */
 	public function removeReviewers( array $userIds ) {
 		$removedIds = array_intersect( $userIds, $this->getField( 'reviewers' ) );
 
@@ -153,6 +200,13 @@ class EPArticle extends DBDataObject {
 		return $removedIds;
 	}
 
+	/**
+	 * Logs the removal of the users matching the provided ids as reviewers for this article.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $userIds
+	 */
 	public function logReviewersRemoval( array $userIds ) {
 		// TODO
 	}

@@ -83,6 +83,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_articles (
   article_user_id            INT unsigned        NOT NULL, -- Foreign key on user.user_id
   article_course_id          INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
   article_page_id            INT unsigned        NOT NULL, -- Foreign key on page.page_id
+  article_page_title         varchar(255) binary NOT NULL, -- Full title of the page, to allow for associating non-existing pages
 
   article_reviewers          BLOB                NOT NULL -- List of reviewers for this article (linking user.user_id)
 ) /*$wgDBTableOptions*/;
@@ -90,7 +91,8 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_articles (
 CREATE INDEX /*i*/ep_articles_user_id ON /*_*/ep_articles (article_user_id);
 CREATE INDEX /*i*/ep_articles_course_id ON /*_*/ep_articles (article_course_id);
 CREATE INDEX /*i*/ep_articles_page_id ON /*_*/ep_articles (article_page_id);
-CREATE UNIQUE INDEX /*i*/ep_articles_course_page ON /*_*/ep_articles (article_course_id, article_user_id, article_page_id);
+CREATE INDEX /*i*/ep_articles_page_title ON /*_*/ep_articles (article_page_title);
+CREATE UNIQUE INDEX /*i*/ep_articles_course_page ON /*_*/ep_articles (article_course_id, article_user_id, article_page_title);
 
 
 

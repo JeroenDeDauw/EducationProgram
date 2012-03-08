@@ -37,6 +37,14 @@ final class EPHooks {
 			true
 		) );
 
+		$updater->addExtensionUpdate( array(
+			'addField',
+			'ep_articles',
+			'article_page_title',
+			dirname( __FILE__ ) . '/sql/AddArticleTitleField.sql',
+			true
+		) );
+
 		return true;
 	}
 
