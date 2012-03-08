@@ -104,17 +104,11 @@ class SpecialMyCourses extends SpecialEPPage {
 
 		$this->displayRoleAssociation( 'EPStudent' );
 		
-		if ( $this->getUser()->isAllowed( 'ep-instructor' ) ) {
-			$this->displayRoleAssociation( 'EPInstructor' );
-		}
-		
-		if ( $this->getUser()->isAllowed( 'ep-online' ) ) {
-			$this->displayRoleAssociation( 'EPOA' );
-		}
-		
-		if ( $this->getUser()->isAllowed( 'ep-campus' ) ) {
-			$this->displayRoleAssociation( 'EPCA' );
-		}
+		$this->displayRoleAssociation( 'EPInstructor' );
+
+		$this->displayRoleAssociation( 'EPOA' );
+
+		$this->displayRoleAssociation( 'EPCA' );
 	}
 
 	/**
@@ -142,8 +136,24 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * @param $class The name of the EPIRole implementing class
 	 */
 	protected function displayRoleAssociation( $class ) {
-		$userRole = $class::newFromUser( $this->getUser() );
+		$user = $this->getUser();
+		$userRole = $class::newFromUser( $user );
 		$courses = $userRole->getCourses( array( 'id', 'name', 'org_id' ) );
+
+		switch ( $class ) {
+			case 'EPStudent':
+				$isAllowed = true;
+				break;
+			case 'EPInstructor':
+				$isAllowed = $user->isAllowed( 'ep-beinstructor' ) || $user->isAllowed( 'ep-instructor' );
+				break;
+			case 'EPOA':
+				$isAllowed = $user->isAllowed( 'ep-beonline' ) || $user->isAllowed( 'ep-online' );
+				break;
+			case 'EPCA':
+				$isAllowed = $user->isAllowed( 'ep-becampus' ) || $user->isAllowed( 'ep-campus' );
+				break;
+		}
 
 		if ( count( $courses ) > 0 ) {
 			$message = wfMsgExt( 'ep-mycourses-courses-' . strtolower( $class ), 'parsemag', count( $courses ), $this->getUser()->getName() );
@@ -159,7 +169,7 @@ class SpecialMyCourses extends SpecialEPPage {
 				$this->displayCoursePager( $courses, $class );
 			}
 		}
-		else {
+		elseif ( $isAllowed ) {
 			$this->getOutput()->addWikiMsg( 'ep-mycourses-nocourses-' . strtolower( $class ) );
 		}
 	}

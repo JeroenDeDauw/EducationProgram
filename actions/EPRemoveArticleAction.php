@@ -36,6 +36,7 @@ class EPRemoveArticleAction extends FormlessAction {
 					'id',
 					'course_id',
 					'page_id',
+					'page_title',
 				),
 				array(
 					'id' => $req->getInt( 'article-id' ),
