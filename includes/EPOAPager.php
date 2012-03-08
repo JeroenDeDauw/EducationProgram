@@ -75,35 +75,23 @@ class EPOAPager extends EPPager {
 	protected function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
 			case 'photo':
-				$title = Title::newFromText( $value, NS_FILE );
+				$value = explode( ':', $value, 2 );
+				$value = array_pop( $value );
+
+				$file = wfFindFile( $value );
 				$value = '';
 
-				if ( is_object( $title ) ) {
-					$api = new ApiMain( new FauxRequest( array(
-						'action' => 'query',
-						'format' => 'json',
-						'prop' => 'imageinfo',
-						'iiprop' => 'url',
-						'titles' => $title->getFullText(),
-						'iiurlwidth' => 200
-					), true ), true );
+				if ( $file !== false ) {
+					$thumb = $file->transform( array( 'width' => 200 ) );
 
-					$api->execute();
-					$result = $api->getResultData();
-
-					if ( array_key_exists( 'query', $result ) && array_key_exists( 'pages', $result['query'] ) ) {
-						foreach ( $result['query']['pages'] as $page ) {
-							foreach ( $page['imageinfo'] as $imageInfo ) {
-								$value = Html::element(
-									'img',
-									array(
-										'src' => $imageInfo['thumburl'],
-										'width' => '200px',
-									)
-								);
-								break;
-							}
-						}
+					if ( $thumb && !$thumb->isError() ) {
+						$value = Html::element(
+							'img',
+							array(
+								'src' => $thumb->getURL(),
+								'width' => '200px',
+							)
+						);
 					}
 				}
 				break;
