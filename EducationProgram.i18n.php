@@ -119,6 +119,7 @@ $messages['en'] = array(
 	'logentry-student-selfremove' => '$1 disenrolled from course $3',
 
 	'logentry-eparticle-add' => '$1 added article $4 to {{GENDER:$2|his|her}} list of articles at course $3',
+	'logentry-eparticle-remove' => '$1 removed article $4 from {{GENDER:$2|his|her}} list of articles at course $3',
 
 	// Preferences
 	'prefs-education' => 'Education',

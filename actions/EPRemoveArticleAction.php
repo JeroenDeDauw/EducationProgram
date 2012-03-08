@@ -31,13 +31,28 @@ class EPRemoveArticleAction extends FormlessAction {
 		$user = $this->getUser();
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), 'remarticle' . $req->getInt( 'article-id' ) ) ) {
-			$article = EPArticles::singleton()->selectRow( 'id',  array(
-				'id' => $req->getInt( 'article-id' ),
-				'user_id' => $user->getId(),
-			) );
+			$article = EPArticles::singleton()->selectRow(
+				array(
+					'id',
+					'course_id',
+					'page_id',
+				),
+				array(
+					'id' => $req->getInt( 'article-id' ),
+					'user_id' => $user->getId(),
+				)
+			);
 
 			if ( $article !== false && $article->remove() ) {
-				// TODO: log
+				EPUtils::log( array(
+					'type' => 'eparticle',
+					'subtype' => 'remove',
+					'user' => $this->getUser(),
+					'title' => $article->getCourse()->getTitle(),
+					'parameters' => array(
+						'4::articlename' => $article->getTitle()->getFullText(),
+					),
+				) );
 			}
 		}
 

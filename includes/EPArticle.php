@@ -6,7 +6,7 @@
  *
  * @since 0.1
  *
- * @file EPRevision.php
+ * @file EPArticle.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v3 or later
@@ -15,7 +15,7 @@
 class EPArticle extends DBDataObject {
 	
 	/**
-	 * Cached user object for this revision.
+	 * Cached user object for this article.
 	 *
 	 * @since 0.1
 	 * @var User|false
@@ -23,12 +23,20 @@ class EPArticle extends DBDataObject {
 	protected $user = false;
 
 	/**
-	 * Cached title object for this revision.
+	 * Cached title object for this article.
 	 *
 	 * @since 0.1
 	 * @var Title|false
 	 */
 	protected $title = false;
+
+	/**
+	 * Cached course object for this article.
+	 *
+	 * @since 0.1
+	 * @var Course|false
+	 */
+	protected $course = false;
 
 	/**
 	 * Returns the user that is working on this article.
@@ -84,6 +92,27 @@ class EPArticle extends DBDataObject {
 		}
 
 		return $this->title;
+	}
+
+	/**
+	 * Returns the course this article is linked to.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array|string|null $fields
+	 *
+	 * @return EPCourse|false
+	 */
+	public function getCourse( $fields = null ) {
+		if ( $this->course === false ) {
+			$course = EPCourses::singleton()->selectRow( $fields, array( 'id' => $this->getField( 'course_id' ) ) );
+
+			if ( is_null( $fields ) ) {
+				$this->course = $course;
+			}
+		}
+
+		return $this->course === false ? $course : $this->course;
 	}
 
 	protected $canBecomeReviwer = array();

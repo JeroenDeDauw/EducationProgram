@@ -224,7 +224,7 @@ class EPOrg extends EPPageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array|null $fields
+	 * @param array|string|null $fields
 	 *
 	 * @return array of EPCourse
 	 */
@@ -237,7 +237,7 @@ class EPOrg extends EPPageObject {
 			}
 		}
 
-		return $this->courses === false ? $courses : $courses;
+		return $this->courses === false ? $courses : $this->courses;
 	}
 
 }
