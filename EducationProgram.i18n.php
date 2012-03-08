@@ -104,11 +104,13 @@ $messages['en'] = array(
 	'logentry-online-remove' => '$1 removed {{PLURAL:$4|Online Ambassador|Online Ambassadors}} $5 from course $3',
 	'logentry-online-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as {{GENDER:$2|Online Ambassador}} to course $3',
 	'logentry-online-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as {{GENDER:$2|Online Ambassador}} from course $3',
+	'logentry-online-profilesave' => '$1 updated {{GENDER:$2|his|her}} Online Ambassador profile',
 
 	'logentry-campus-add' => '$1 added {{PLURAL:$4|Campus Ambassador|Campus Ambassadors}} $5 to course $3',
 	'logentry-campus-remove' => '$1 removed {{PLURAL:$4|Campus Ambassador|Campus Ambassadors}} $5 from course $3',
 	'logentry-campus-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as {{GENDER:$2|Campus Ambassador}} to course $3',
 	'logentry-campus-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as {{GENDER:$2|Campus Ambassador}} from course $3',
+	'logentry-campus-profilesave' => '$1 updated {{GENDER:$2|his|her}} Campus Ambassador profile',
 
 	'logentry-student-add' => '$1 enrolled in course $3',
 	'logentry-student-remove' => '$1 removed $5 as {{GENDER:$2|student}} from course $3',
@@ -724,6 +726,7 @@ The deletion log for this course is provided below for convenience:",
 	'epoa-profile-photo' => 'Profile photo',
 	'epoa-profile-photo-help' => 'A picture of you that will be shown next to your bio. Enter the name of an image on Wikimedia Commons and a preview will appear. You can type the first few letters of the image name and then select your image from the suggestion list. If you do not have a picture of you on commons yet, [$1 go upload one]!',
 	'epoa-profile-saved' => 'Your profile has been saved',
+	'epoa-profile-invalid-bio' => 'Your bio needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 
 	// Special:CampusAmbassadorProfile
 	'campusambassadorprofile' => 'Campus Ambassador profile',
@@ -734,6 +737,7 @@ The deletion log for this course is provided below for convenience:",
 	'epca-profile-photo' => 'Profile photo',
 	'epca-profile-photo-help' => 'A picture of you that will be shown next to your bio. Enter the name of an image on Wikimedia Commons and a preview will appear. You can type the first few letters of the image name and then select your image from the suggestion list. If you do not have a picture of you on commons yet, [$1 go upload one]!',
 	'epca-profile-saved' => 'Your profile has been saved',
+	'epca-profile-invalid-bio' => 'Your bio needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 );
 
 /** Message documentation (Message documentation)

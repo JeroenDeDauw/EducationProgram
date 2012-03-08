@@ -92,19 +92,20 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 		$class = $this->getClassName();
 		$ambassador = $class::newFromUser( $this->getUser() );
 
+		$msgPrefix = $this->getMsgPrefix();
+
 		$fields['bio'] = array(
 			'type' => 'textarea',
 			'label-message' => $this->getMsgPrefix() . 'profile-bio',
 			'required' => true,
-			'validation-callback' => function ( $value, array $alldata = null ) {
-				return strlen( $value ) < 10 ? wfMsgExt( $this->getMsgPrefix() . 'profile-invalid-bio', 'parsemag', 10 ) : true;
+			'validation-callback' => function ( $value, array $alldata = null ) use( $msgPrefix ) {
+				return strlen( $value ) < 10 ? wfMsgExt( $msgPrefix . 'profile-invalid-bio', 'parsemag', 10 ) : true;
 			},
 			'rows' => 10,
 			'id' => 'wpTextbox1',
 			'default' => $ambassador->getField( 'bio' ),
 		);
 		
-		// FIXME: ambassadorCommonsUrl is not getting passed, this looks like a bug or regression in HTMLForm since nothing else passes args to help-message.
 		$fields['photo'] = array(
 			'type' => 'text',
 			'label-message' => $this->getMsgPrefix() . 'profile-photo',
@@ -122,6 +123,16 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 	 * @since 0.1
 	 */
 	public function onSuccess() {
+		$class = $this->getClassName();
+		$ambassador = $class::newFromUser( $this->getUser() );
+
+		EPUtils::log( array(
+			'type' => $ambassador->getRoleName(),
+			'subtype' => 'profilesave',
+			'user' => $this->getUser(),
+			'title' => $this->getTitle(),
+		) );
+
 		$this->getRequest()->setSessionData( 'epprofilesaved', true );
 		$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 	}
