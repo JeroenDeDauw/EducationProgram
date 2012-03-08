@@ -197,7 +197,7 @@ abstract class DBTable {
 
 		$objects = $this->select( $fields, $conditions, $options );
 
-		return count( $objects ) > 0 ? $objects[0] : false;
+		return empty( $objects ) ? false : $objects[0];
 	}
 
 	/**
@@ -245,7 +245,7 @@ abstract class DBTable {
 
 		$objects = $this->selectFields( $fields, $conditions, $options, $collapse );
 
-		return count( $objects ) > 0 ? $objects[0] : false;
+		return empty( $objects ) ? false : $objects[0];
 	}
 
 	/**

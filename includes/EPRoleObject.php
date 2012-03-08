@@ -209,8 +209,23 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	 * @return boolean
 	 */
 	public function hasCourse( array $conditions = array() ) {
-		// TODO: make more efficient
-		return count( $this->getCourses( 'id', $conditions ) ) > 0;
+		$courseTable = EPCourses::singleton();
+
+		return wfGetDB( DB_SLAVE )->select(
+			array( 'ep_courses', 'ep_users_per_course' ),
+			$courseTable->getPrefixedField( 'id' ),
+			array_merge( array(
+				'upc_role' => $this->getRoleId(),
+				'upc_user_id' => $this->getField( 'user_id' ),
+			), $courseTable->getPrefixedValues( $conditions ) ),
+			__METHOD__,
+			array(
+				'LIMIT' => 1
+			),
+			array(
+				'ep_users_per_course' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
+			)
+		)->numRows() > 0;
 	}
 	
 	/**
@@ -232,7 +247,7 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 			array_merge( array(
 				'upc_role' => $this->getRoleId(),
 				'upc_user_id' => $this->getField( 'user_id' ),
-			), EPCourses::singleton()->getPrefixedValues( $conditions ) ),
+			), $courseTable->getPrefixedValues( $conditions ) ),
 			__METHOD__,
 			array(),
 			array(
@@ -243,7 +258,7 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		$courses = array();
 		
 		foreach ( $result as $course ) {
-			$courses[] = EPCourses::singleton()->newFromDBResult( $course );
+			$courses[] = $courseTable->newFromDBResult( $course );
 		}
 		
 		return $courses;
