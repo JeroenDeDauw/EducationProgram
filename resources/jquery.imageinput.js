@@ -38,6 +38,10 @@
 		};
 
 		this.findImages = function( request, response ) {
+			if ( request.term.indexOf( ':' ) !== -1 ) {
+				request.term = request.term.split( ':', 2 )[1];
+			}
+
 			$.getJSON(
 				settings.apipath,
 				{
