@@ -70,6 +70,7 @@ $messages['en'] = array(
 	'log-name-online' => 'Education Program Online Ambassador log',
 	'log-name-campus' => 'Education Program Campus Ambassador log',
 	'log-name-instructor' => 'Education Program instructor log',
+	'log-name-eparticle' => 'Education Program article log',
 
 	'log-header-institution' => 'These events track the changes that are made to Education Program institutions.',
 	'log-header-course' => 'These events track the changes that are made to Education Program courses.',
@@ -116,6 +117,8 @@ $messages['en'] = array(
 	'logentry-student-remove' => '$1 removed $5 as {{GENDER:$2|student}} from course $3',
 	'logentry-student-selfadd' => '$1 enrolled in course $3',
 	'logentry-student-selfremove' => '$1 disenrolled from course $3',
+
+	'logentry-eparticle-add' => '$1 added article $4 to {{GENDER:$2|his|her}} list of articles at course $3',
 
 	// Preferences
 	'prefs-education' => 'Education',

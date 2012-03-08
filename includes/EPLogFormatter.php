@@ -39,6 +39,10 @@ class EPLogFormatter extends LogFormatter {
 		return $link;
 	}
 
+}
+
+class EPRoleChangeFormatter extends EPLogFormatter {
+
 	/**
 	 * (non-PHPdoc)
 	 * @see LogFormatter::extractParameters()
@@ -47,10 +51,31 @@ class EPLogFormatter extends LogFormatter {
 		$params = parent::extractParameters();
 
 		if ( !empty( $params ) ) {
-			$params[4] = $this->context->getLanguage()->listToText( (array)$params[4] );
+			$lang = $this->context->getLanguage();
+
+			$params[3] = $lang->formatNum( $params[3] );
+			$params[4] = $lang->listToText( (array)$params[4] );
 		}
 
 		return $params;
 	}
-	
+
+}
+
+class EPArticleFormatter extends EPLogFormatter {
+
+	/**
+	 * (non-PHPdoc)
+	 * @see LogFormatter::extractParameters()
+	 */
+	protected function extractParameters() {
+		$params = parent::extractParameters();
+
+		if ( !empty( $params ) ) {
+			$params[3] = Message::rawParam( Linker::link( Title::newFromText( $params[3] ) ) );
+		}
+
+		return $params;
+	}
+
 }

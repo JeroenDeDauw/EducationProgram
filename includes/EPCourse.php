@@ -693,11 +693,14 @@ class EPCourse extends EPPageObject {
 			'type' => $role,
 			'subtype' => $action,
 			'title' => $this->getTitle(),
-			'parameters' => array(
+		);
+
+		if ( in_array( $action, array( 'add', 'remove' ) ) ) {
+			$info['parameters'] = array(
 				'4::usercount' => count( $names ),
 				'5::users' => $names
-			),
-		);
+			);
+		}
 
 		if ( $message !== '' ) {
 			$info['comment'] = $message;

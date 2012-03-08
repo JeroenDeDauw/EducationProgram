@@ -36,7 +36,7 @@ class EPAddArticleAction extends FormlessAction {
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) && !is_null( $title ) && $title->getArticleID() !== 0 ) {
 			$course = EPCourses::singleton()->selectRow(
-				array( 'students' ),
+				array( 'students', 'name' ),
 				array( 'id' => $req->getInt( 'course-id' ) )
 			);
 
@@ -51,7 +51,15 @@ class EPAddArticleAction extends FormlessAction {
 					$article = EPArticles::singleton()->newFromArray( $articleData, true );
 
 					if ( $article->save() ) {
-						// TODO: log
+						EPUtils::log( array(
+							'type' => 'eparticle',
+							'subtype' => 'add',
+							'user' => $this->getUser(),
+							'title' => $course->getTitle(),
+							'parameters' => array(
+								'4::articlename' => $title->getFullText(),
+							),
+						) );
 					}
 				}
 			}

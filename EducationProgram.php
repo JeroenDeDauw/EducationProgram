@@ -88,6 +88,8 @@ $wgAutoloadClasses['EPCourse'] 						= dirname( __FILE__ ) . '/includes/EPCourse
 $wgAutoloadClasses['EPCoursePager'] 				= dirname( __FILE__ ) . '/includes/EPCoursePager.php';
 $wgAutoloadClasses['EPInstructor'] 					= dirname( __FILE__ ) . '/includes/EPInstructor.php';
 $wgAutoloadClasses['EPLogFormatter'] 				= dirname( __FILE__ ) . '/includes/EPLogFormatter.php';
+$wgAutoloadClasses['EPRoleChangeFormatter'] 		= dirname( __FILE__ ) . '/includes/EPLogFormatter.php';
+$wgAutoloadClasses['EPArticleFormatter'] 			= dirname( __FILE__ ) . '/includes/EPLogFormatter.php';
 $wgAutoloadClasses['EPOrg'] 						= dirname( __FILE__ ) . '/includes/EPOrg.php';
 $wgAutoloadClasses['EPOrgPager'] 					= dirname( __FILE__ ) . '/includes/EPOrgPager.php';
 $wgAutoloadClasses['EPPager'] 						= dirname( __FILE__ ) . '/includes/EPPager.php';
@@ -209,10 +211,23 @@ $wgLogTypes[] = 'instructor';
 
 $wgLogActionsHandlers['institution/*'] = 'EPLogFormatter';
 $wgLogActionsHandlers['course/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['student/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['online/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['campus/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['instructor/*'] = 'EPLogFormatter';
+$wgLogActionsHandlers['student/selfadd'] = 'EPLogFormatter';
+$wgLogActionsHandlers['student/selfremove'] = 'EPLogFormatter';
+$wgLogActionsHandlers['student/add'] = 'EPRoleChangeFormatter';
+$wgLogActionsHandlers['student/remove'] = 'EPRoleChangeFormatter';
+$wgLogActionsHandlers['online/selfadd'] = 'EPLogFormatter';
+$wgLogActionsHandlers['online/selfremove'] = 'EPLogFormatter';
+$wgLogActionsHandlers['online/add'] = 'EPRoleChangeFormatter';
+$wgLogActionsHandlers['online/remove'] = 'EPRoleChangeFormatter';
+$wgLogActionsHandlers['campus/selfadd'] = 'EPLogFormatter';
+$wgLogActionsHandlers['campus/selfremove'] = 'EPLogFormatter';
+$wgLogActionsHandlers['campus/add'] = 'EPRoleChangeFormatter';
+$wgLogActionsHandlers['campus/remove'] = 'EPRoleChangeFormatter';
+$wgLogActionsHandlers['instructor/selfadd'] = 'EPLogFormatter';
+$wgLogActionsHandlers['instructor/selfremove'] = 'EPLogFormatter';
+$wgLogActionsHandlers['instructor/add'] = 'EPRoleChangeFormatter';
+$wgLogActionsHandlers['instructor/remove'] = 'EPRoleChangeFormatter';
+$wgLogActionsHandlers['eparticle/*'] = 'EPArticleFormatter';
 
 // Rights
 $wgAvailableRights[] = 'ep-org'; 			// Manage orgs
