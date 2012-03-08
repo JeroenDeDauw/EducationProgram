@@ -304,14 +304,19 @@ class EPArticleTable extends EPPager {
 
 		if ( array_key_exists( 'course_id', $this->articleConds ) && is_integer( $this->articleConds['course_id'] ) ) {
 			$attr['data-course-name'] = $this->getCourseName();
-		}
 
-		if ( $this->getUser()->getId() === $article->getField( 'user_id' ) ) {
-			$html .= ' (' . Html::element(
-				'a',
-				$attr,
-				wfMsg( 'ep-artciles-remarticle' )
-			) . ')';
+			$title = EPCourses::singleton()->getTitleFor( $this->getCourseName() );
+			$attr['data-remove-target'] = $title->getLocalURL( array(
+				'returnto' => $this->getTitle()->getFullText(),
+			) );
+
+			if ( $this->getUser()->getId() === $article->getField( 'user_id' ) ) {
+				$html .= ' (' . Html::element(
+					'a',
+					$attr,
+					wfMsg( 'ep-artciles-remarticle' )
+				) . ')';
+			}
 		}
 
 		return Html::rawElement(

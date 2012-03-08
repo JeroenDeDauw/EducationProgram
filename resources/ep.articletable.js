@@ -130,9 +130,9 @@
 
 		var $form = $( '<form>' ).attr( {
 			'method': 'post',
-			'action': window.location
+			'action': $this.attr( 'data-remove-target' )
 		} ).msg(
-			'ep-articletable-remarticle-text' + ( courseName === undefined ? '' : '-course' ),
+			'ep-articletable-remarticle-text-course',
 			$( '<b>' ).text( $this.attr( 'data-article-name' ) ),
 			$( '<b>' ).text( courseName )
 		);
