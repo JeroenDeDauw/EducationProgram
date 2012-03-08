@@ -23,6 +23,11 @@ class EPOAPager extends EPPager {
 	public function __construct( IContextSource $context, array $conds = array(), DBTable $table = null ) {
 		$this->mDefaultDirection = true;
 
+		$conds = array_merge(
+			array( 'visible' => true ),
+			$conds
+		);
+
 		parent::__construct(
 			$context,
 			$conds,

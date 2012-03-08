@@ -54,6 +54,8 @@ class EPOAs extends DBTable {
 			'id' => 'id',
 
 			'user_id' => 'int',
+
+			'visible' => 'bool',
 			'bio' => 'str',
 			'photo' => 'str',
 		);
@@ -69,6 +71,7 @@ class EPOAs extends DBTable {
 		return array(
 			'bio' => '',
 			'photo' => '',
+			'visible' => true,
 		);
 	}
 

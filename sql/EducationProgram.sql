@@ -142,11 +142,13 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_cas (
   ca_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
   ca_user_id                 INT unsigned        NOT NULL, -- Foreign key on user.user_id
 
+  ca_visible                 TINYINT unsigned    NOT NULL, -- If the profile should be public
   ca_bio                     TEXT                NOT NULL, -- Bio of the ambassador
   ca_photo                   VARCHAR(255)        NOT NULL -- Name of a photo of the ambassador on commons
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_cas_user_id ON /*_*/ep_cas (ca_user_id);
+CREATE INDEX /*i*/ep_cas_visible ON /*_*/ep_cas (ca_visible);
 
 
 
@@ -155,11 +157,13 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_oas (
   oa_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
   oa_user_id                 INT unsigned        NOT NULL, -- Foreign key on user.user_id
 
+  oa_visible                 TINYINT unsigned    NOT NULL, -- If the profile should be public
   oa_bio                     TEXT                NOT NULL, -- Bio of the ambassador
   oa_photo                   VARCHAR(255)        NOT NULL -- Name of a photo of the ambassador on commons
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_oas_user_id ON /*_*/ep_oas (oa_user_id);
+CREATE INDEX /*i*/ep_oas_visible ON /*_*/ep_oas (oa_visible);
 
 
 

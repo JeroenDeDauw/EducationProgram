@@ -45,6 +45,14 @@ final class EPHooks {
 			true
 		) );
 
+		$updater->addExtensionUpdate( array(
+			'addField',
+			'ep_oas',
+			'oa_visible',
+			dirname( __FILE__ ) . '/sql/AddAmbVisibleField.sql',
+			true
+		) );
+
 		return true;
 	}
 

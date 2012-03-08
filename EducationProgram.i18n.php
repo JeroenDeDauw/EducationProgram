@@ -731,6 +731,7 @@ The deletion log for this course is provided below for convenience:",
 	'epoa-profile-photo-help' => 'A picture of you that will be shown next to your bio. Enter the name of an image on Wikimedia Commons and a preview will appear. You can type the first few letters of the image name and then select your image from the suggestion list. If you do not have a picture of you on commons yet, [$1 go upload one]!',
 	'epoa-profile-saved' => 'Your profile has been saved',
 	'epoa-profile-invalid-bio' => 'Your bio needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
+	'epoa-visible' => 'Publicly list me as Online Ambassador',
 
 	// Special:CampusAmbassadorProfile
 	'campusambassadorprofile' => 'Campus Ambassador profile',
@@ -742,6 +743,7 @@ The deletion log for this course is provided below for convenience:",
 	'epca-profile-photo-help' => 'A picture of you that will be shown next to your bio. Enter the name of an image on Wikimedia Commons and a preview will appear. You can type the first few letters of the image name and then select your image from the suggestion list. If you do not have a picture of you on commons yet, [$1 go upload one]!',
 	'epca-profile-saved' => 'Your profile has been saved',
 	'epca-profile-invalid-bio' => 'Your bio needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
+	'epca-visible' => 'Publicly list me as Campus Ambassador',
 );
 
 /** Message documentation (Message documentation)

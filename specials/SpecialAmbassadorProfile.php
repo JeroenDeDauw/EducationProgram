@@ -94,6 +94,14 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 
 		$msgPrefix = $this->getMsgPrefix();
 
+		$fields['visible'] = array(
+			'type' => 'check',
+			'label-message' => $this->getMsgPrefix() . 'visible',
+			'required' => true,
+			'rows' => 10,
+			'default' => $ambassador->getField( 'visible' ),
+		);
+
 		$fields['bio'] = array(
 			'type' => 'textarea',
 			'label-message' => $this->getMsgPrefix() . 'profile-bio',
