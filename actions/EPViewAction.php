@@ -40,6 +40,7 @@ abstract class EPViewAction extends EPAction {
 	 */
 	public function onView() {
 		$out = $this->getOutput();
+
 		$name = $this->getTitle()->getText();
 
 		$object = false;
@@ -74,12 +75,15 @@ abstract class EPViewAction extends EPAction {
 				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
 			}
 			else {
+				EPUtils::displayResult( $this->getContext() );
+
 				$out->addWikiMsg( strtolower( get_called_class() ) . '-none', $name );
 
 				$this->displayDeletionLog();
 			}
 		}
 		else {
+			EPUtils::displayResult( $this->getContext() );
 			$this->displayPage( $object );
 		}
 

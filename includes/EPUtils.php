@@ -219,4 +219,25 @@ class EPUtils {
 		return $items;		
 	}
 
+	public static function displayResult( IContextSource $context ) {
+		$req = $context->getRequest();
+		$out = $context->getOutput();
+
+		if ( $req->getSessionData( 'epsuccess' ) ) {
+			$out->addHTML(
+				'<div class="successbox"><strong><p>' . $req->getSessionData( 'epsuccess' ) . '</p></strong></div>'
+					. '<hr style="display: block; clear: both; visibility: hidden;" />'
+			);
+			$req->setSessionData( 'epsuccess', false );
+		}
+
+		if ( $req->getSessionData( 'epfail' ) ) {
+			$out->addHTML(
+				'<p class="visualClear errorbox">' . $req->getSessionData( 'epfail' ). '</p>'
+					. '<hr style="display: block; clear: both; visibility: hidden;" />'
+			);
+			$req->setSessionData( 'epfail', false );
+		}
+	}
+
 }

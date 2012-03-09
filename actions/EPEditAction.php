@@ -55,6 +55,8 @@ abstract class EPEditAction extends EPAction {
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
+		EPUtils::displayResult( $this->getContext() );
+
 		$this->getOutput()->addModules( 'ep.formpage' );
 		
 		if ( $this->getRequest()->wasPosted() && $this->getUser()->matchEditToken( $this->getRequest()->getVal( 'wpEditToken' ) ) ) {

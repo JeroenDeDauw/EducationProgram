@@ -491,6 +491,8 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-delete-cancel-button' => 'Cancel',
 	'coursepage-delete-delete-button' => 'Delete course',
 	'coursepage-delete-none' => 'There is no course titled "$1". Existing courses can be found in [[Special:Courses|the courses list]].',
+	'coursepage-delete-deleted' => 'Successfully deleted course $1.',
+	'coursepage-delete-delete-failed' => 'Failed to deleted course [[Course:$1|$1]].',
 
 	// Institution deletion
 	'orgpage-delete-text' => "You are about to delete institution $1. This will remove all it's courses and their associated students!",
@@ -499,6 +501,8 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-delete-cancel-button' => 'Cancel',
 	'orgpage-delete-delete-button' => 'Delete institution',
 	'orgpage-delete-none' => 'There is no institution titled "$1". Existing institutions can be found in [[Special:Courses|the institution list]].',
+	'coursepage-delete-deleted' => 'Successfully deleted institution $1 and its associated courses.',
+	'coursepage-delete-delete-failed' => 'Failed to deleted institution [[Institution:$1|$1]].',
 
 	// Institution restoration
 	'orgpage-eprestore-title' => 'Restore institution "$1"',

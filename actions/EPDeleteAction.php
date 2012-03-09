@@ -60,13 +60,16 @@ class EPDeleteAction extends EPAction {
 				if ( $success ) {
 					$title = SpecialPage::getTitleFor( $this->page->getListPage() );
 					$this->getRequest()->setSessionData(
-						'epdeleted',
-						$this->msg( $this->prefixMsg( 'deleted' ) )
+						'epsuccess',
+						$this->msg( $this->prefixMsg( 'deleted' ), $this->getTitle()->getText() )->text()
 					);
 				}
 				else {
 					$title = $this->getTitle();
-					$this->getRequest()->setSessionData( 'epdelfailed', true );
+					$this->getRequest()->setSessionData(
+						'epfail',
+						$this->msg( $this->prefixMsg( 'delete-failed' ), $this->getTitle()->getText() )->parse()
+					);
 				}
 				
 				$this->getOutput()->redirect( $title->getLocalURL() );

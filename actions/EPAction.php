@@ -13,7 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPAction extends FormlessAction {
-	
+
 	/**
 	 * Display a warning that the page has been deleted together with the first
 	 * few items from its deletion log.
