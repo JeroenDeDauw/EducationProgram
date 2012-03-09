@@ -78,17 +78,15 @@ class EPRevisions extends DBTable {
 	 * @return EPRevision
 	 */
 	public function newFromObject( EPRevisionedObject $object, EPRevisionAction $revAction ) {
-		$fields = array(
-			'object_id' => $object->getId(),
+		$fields = array_merge( $object->getRevisionIdentifiers(), array(
 			'user_id' => $revAction->getUser()->getID(),
 			'user_text' => $revAction->getUser()->getName(),
-			'type' => get_class( $object ),
 			'comment' => $revAction->getComment(),
 			'minor_edit' => $revAction->isMinor(),
 			'time' => $revAction->getTime(),
 			'deleted' => $revAction->isDelete(),
 			'data' => serialize( $object->toArray() )
-		);
+		) );
 		
 		$identifier = $object->getIdentifier();
 		

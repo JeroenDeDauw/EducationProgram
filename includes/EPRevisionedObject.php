@@ -276,12 +276,21 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 */
 	public function getRevisions( array $conditions = array(), array $options = array() ) {
 		return EPRevisions::singleton()->select( null, array_merge(
-			array(
-				'type' => get_called_class(),
-				'object_id' => $this->getId(),
-			),
+			$this->getRevisionIdentifiers(),
 			$conditions
 		), $options );
+	}
+
+	public function getRevisionIdentifiers() {
+		$identifiers = array(
+			'type' => get_class( $this->table )
+		);
+
+		if ( $this->hasIdField() ) {
+			$identifiers['object_id'] = $this->getId();
+		}
+
+		return $identifiers;
 	}
 
 	/**
@@ -299,10 +308,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 		$options['ORDER BY'] = EPRevisions::singleton()->getPrefixedField( 'id' ) . ' DESC';
 
 		return EPRevisions::singleton()->selectRow( null, array_merge(
-			array(
-				'type' => get_called_class(),
-				'object_id' => $this->getId(),
-			),
+			$this->getRevisionIdentifiers(),
 			$conditions
 		), $options );
 	}
@@ -430,5 +436,5 @@ abstract class EPRevisionedObject extends DBDataObject {
 		$revision = $this->getRevisionById( $revId );
 		return $revision === false ? false : $this->undoRevision( $revision, $fields );
 	}
-	
+
 }

@@ -70,13 +70,7 @@ class EPHistoryAction extends EPAction {
 	 * @param EPPageObject $object
 	 */
 	protected function displayRevisions( EPPageObject $object ) {
-		$conditions = array(
-			'type' => get_class( $object ),
-		);
-
-		if ( $object->hasIdField() ) {
-			$conditions['object_id'] = $object->getId();
-		}
+		$conditions = $object->getRevisionIdentifiers();
 
 		$action = htmlspecialchars( $GLOBALS['wgScript'] );
 

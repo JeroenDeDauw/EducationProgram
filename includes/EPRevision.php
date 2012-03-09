@@ -22,6 +22,14 @@ class EPRevision extends DBDataObject {
 	protected $user = false;
 
 	/**
+	 * (non-PHPdoc)
+	 * @see DBDataObject::getTable()
+	 */
+	public function getTable() {
+		return EPRevisions::singleton();
+	}
+
+	/**
 	 * Return the object as it was at this revision.
 	 *
 	 * @since 0,1
@@ -29,8 +37,8 @@ class EPRevision extends DBDataObject {
 	 * @return EPRevisionedObject
 	 */
 	public function getObject() {
-		$class = $this->getField( 'type' ) . 's'; // TODO: refactor made this suck a lot
-		return $class::singleton()->newFromArray( $this->getField( 'data' ), true );
+		$tableClass = $this->getField( 'type' );
+		return $tableClass::singleton()->newFromArray( $this->getField( 'data' ), true );
 	}
 
 	/**
@@ -53,13 +61,13 @@ class EPRevision extends DBDataObject {
 			$conditions['object_id'] = $objectId;
 		}
 
-		$rev = EPRevision::selectRow( array( 'type', 'data' ), $conditions );
+		$rev = EPRevisions::singleton()->selectRow( array( 'type', 'data' ), $conditions );
 
 		if ( $rev === false ) {
 			return false;
 		}
 		else {
-			return $rev->getDataObject();
+			return $rev->getObject();
 		}
 	}
 
