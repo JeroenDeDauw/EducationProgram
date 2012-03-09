@@ -90,13 +90,7 @@ class EPOAPager extends EPPager {
 					$thumb = $file->transform( array( 'width' => 200 ) );
 
 					if ( $thumb && !$thumb->isError() ) {
-						$value = Html::element(
-							'img',
-							array(
-								'src' => $thumb->getURL(),
-								'width' => '200px',
-							)
-						);
+						$value = $thumb->toHtml();
 					}
 				}
 				break;
