@@ -501,8 +501,8 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-delete-cancel-button' => 'Cancel',
 	'orgpage-delete-delete-button' => 'Delete institution',
 	'orgpage-delete-none' => 'There is no institution titled "$1". Existing institutions can be found in [[Special:Courses|the institution list]].',
-	'coursepage-delete-deleted' => 'Successfully deleted institution $1 and its associated courses.',
-	'coursepage-delete-delete-failed' => 'Failed to deleted institution [[Institution:$1|$1]].',
+	'orgpage-delete-deleted' => 'Successfully deleted institution $1 and its associated courses.',
+	'orgpage-delete-delete-failed' => 'Failed to deleted institution [[Institution:$1|$1]].',
 
 	// Institution restoration
 	'orgpage-eprestore-title' => 'Restore institution "$1"',
@@ -511,6 +511,8 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-eprestore-restore-button' => 'Restore revision',
 	'orgpage-eprestore-cancel-button' => 'Cancel',
 	'orgpage-eprestore-summary-value' => 'Restore institution to the revision made on $1 by $2',
+	'orgpage-eprestore-restored' => 'Successfully restored institution $1.',
+	'orgpage-eprestore-restore-failed' => 'Failed to restore institution $1.',
 
 	// Course restoration
 	'coursepage-eprestore-title' => 'Restore course "$1"',
@@ -519,6 +521,8 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-eprestore-restore-button' => 'Restore revision',
 	'coursepage-eprestore-cancel-button' => 'Cancel',
 	'coursepage-eprestore-summary-value' => 'Restore course to the revision made on $1 by $2',
+	'coursepage-eprestore-restored' => 'Successfully restored course $1.',
+	'coursepage-eprestore-restore-failed' => 'Failed to restore course $1.',
 
 	// Institution undo revision
 	'orgpage-epundo-title' => 'Undo revision of institution "$1"',
@@ -527,6 +531,8 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-epundo-undo-button' => 'Undo revision',
 	'orgpage-epundo-cancel-button' => 'Cancel',
 	'orgpage-epundo-summary-value' => 'Undo revision made on $1 by $2',
+	'orgpage-epundo-undid' => 'Successfully undid revision of institution $1.',
+	'orgpage-epundo-undo-failed' => 'Failed to undo revision of institution $1.',
 
 	// Course undo revision
 	'coursepage-epundo-title' => 'Undo revision of  course "$1"',
@@ -535,6 +541,8 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-epundo-undo-button' => 'Undo revision',
 	'coursepage-epundo-cancel-button' => 'Cancel',
 	'coursepage-epundo-summary-value' => 'Undo revision made on $1 by $2',
+	'coursepage-epundo-undid' => 'Successfully undid revision of course $1.',
+	'coursepage-epundo-undo-failed' => 'Failed to undo revision of course $1.',
 
 	// Course undeletion
 	'coursepage-epundelete-title' => 'Undelete course "$1"',
@@ -542,6 +550,10 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-epundelete-summary' => 'Reason for undeletion:',
 	'coursepage-epundelete-undelete-button' => 'Undelete course',
 	'coursepage-epundelete-cancel-button' => 'Cancel',
+	'coursepage-epundelete-undid' => 'Successfully undeleted course $1.',
+	'coursepage-epundelete-undo-failed' => 'Failed to undelete course $1.',
+	'coursepage-epundelete-failed-norevs' => 'Failed to undelete course $1. It has no revisions to undelete.',
+	'coursepage-epundelete-failed-exists' => 'Failed to undelete course $1. It already exists.',
 
 	// Institution undeletion
 	'orgpage-epundelete-title' => 'Undelete institution "$1"',
@@ -549,6 +561,10 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-epundelete-summary' => 'Reason for undeletion:',
 	'orgpage-epundelete-undelete-button' => 'Undelete institution',
 	'orgpage-epundelete-cancel-button' => 'Cancel',
+	'orgpage-epundelete-undid' => 'Successfully undeleted institution $1.',
+	'orgpage-epundelete-undo-failed' => 'Failed to undelete institution $1.',
+	'orgpage-epundelete-failed-norevs' => 'Failed to undelete institution $1. It has no revisions to undelete.',
+	'orgpage-epundelete-failed-exists' => 'Failed to undelete institution $1. It already exists.',
 
 	// Special:Ambassador
 	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',

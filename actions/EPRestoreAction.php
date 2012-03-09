@@ -72,13 +72,19 @@ class EPRestoreAction extends EPAction {
 
 			if ( !is_null( $success ) ) {
 				if ( $success ) {
-					$query = array( 'restored' => '1' ); // TODO: handle
+					$this->getRequest()->setSessionData(
+						'epsuccess',
+						$this->msg( $this->prefixMsg( 'restored' ), $this->getTitle()->getText() )->text()
+					);
 				}
 				else {
-					$query = array( 'restorefailed' => '1' ); // TODO: handle
+					$this->getRequest()->setSessionData(
+						'epfail',
+						$this->msg( $this->prefixMsg( 'restore-failed' ), $this->getTitle()->getText() )->text()
+					);
 				}
 
-				$this->getOutput()->redirect( $object->getTitle()->getLocalURL( $query ) );
+				$this->getOutput()->redirect( $object->getTitle()->getLocalURL() );
 			}
 		}
 

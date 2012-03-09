@@ -54,8 +54,11 @@ class EPUndeleteAction extends EPAction {
  			) );
 			
 			if ( $revision === false ) {
-				$query = array( 'undeletefailed' => 'norevs' ); // TODO: handle
-				$this->getOutput()->redirect( $this->getTitle()->getLocalURL( $query ) );
+				$this->getRequest()->setSessionData(
+					'epfail',
+					$this->msg( $this->prefixMsg( 'failed-norevs' ), $this->getTitle()->getText() )->text()
+				);
+				$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 			}
 			else {
 				$req = $this->getRequest();
@@ -64,13 +67,19 @@ class EPUndeleteAction extends EPAction {
 					$success = $this->doUndelete( $revision );
 					
 					if ( $success ) {
-						$query = array( 'undeleted' => '1' ); // TODO: handle
+						$this->getRequest()->setSessionData(
+							'epsuccess',
+							$this->msg( $this->prefixMsg( 'undeleted' ), $this->getTitle()->getText() )->text()
+						);
 					}
 					else {
-						$query = array( 'undeletefailed' => 'fail' ); // TODO: handle
+						$this->getRequest()->setSessionData(
+							'epfail',
+							$this->msg( $this->prefixMsg( 'undelete-failed' ), $this->getTitle()->getText() )->text()
+						);
 					}
 					
-					$this->getOutput()->redirect( $this->getTitle()->getLocalURL( $query ) );
+					$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 				}
 				else {
 					$this->displayForm( $revision );
@@ -78,8 +87,11 @@ class EPUndeleteAction extends EPAction {
 			}
 		}
 		else {
-			$query = array( 'undeletefailed' => 'exists' ); // TODO: handle
-			$this->getOutput()->redirect( $this->getTitle()->getLocalURL( $query ) );
+			$this->getRequest()->setSessionData(
+				'epfail',
+				$this->msg( $this->prefixMsg( 'failed-exists' ), $this->getTitle()->getText() )->text()
+			);
+			$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 		}
 		
 		return '';

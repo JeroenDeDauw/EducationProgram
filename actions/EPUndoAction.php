@@ -72,13 +72,19 @@ class EPUndoAction extends EPAction {
 
 			if ( !is_null( $success ) ) {
 				if ( $success ) {
-					$query = array( 'undid' => '1' ); // TODO: handle
+					$this->getRequest()->setSessionData(
+						'epsuccess',
+						$this->msg( $this->prefixMsg( 'undid' ), $this->getTitle()->getText() )->text()
+					);
 				}
 				else {
-					$query = array( 'undofailed' => '1' ); // TODO: handle
+					$this->getRequest()->setSessionData(
+						'epfail',
+						$this->msg( $this->prefixMsg( 'undo-failed' ), $this->getTitle()->getText() )->text()
+					);
 				}
 
-				$this->getOutput()->redirect( $object->getTitle()->getLocalURL( $query ) );
+				$this->getOutput()->redirect( $object->getTitle()->getLocalURL() );
 			}
 		}
 
