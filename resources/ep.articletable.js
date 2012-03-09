@@ -257,6 +257,36 @@
 		$( '.ep-rem-student' ).click( removeStudent );
 
 		$( '.ep-rem-article' ).click( removeArticle );
+
+		$( '#addarticlename' ).autocomplete( { // TODO
+			source: function( request, response ) {
+				$.getJSON(
+					wgScriptPath + '/api.php',
+					{
+						'action': 'opensearch',
+						'format': 'json',
+						'search': request.term,
+						'limit': 8
+					},
+					function( data ) {
+						response( $.map( data[1], function( item ) {
+							return {
+								'label': item,
+								'value': item
+							};
+						} ) );
+					}
+				);
+			},
+			minLength: 2,
+			open: function() {
+				$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+			},
+			close: function() {
+				$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+			}
+		} );
+
 	} );
 
 })( window.jQuery, mw.educationProgram );

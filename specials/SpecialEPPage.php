@@ -66,6 +66,11 @@ abstract class SpecialEPPage extends SpecialPage {
 			return false;
 		}
 
+		if ( $this->getRequest()->getSessionData( 'epdeleted' ) ) {
+			$this->showSuccess( $this->getRequest()->getSessionData( 'epdeleted' ) );
+			$this->getRequest()->setSessionData( 'epdeleted', false );
+		}
+
 		return true;
 	}
 

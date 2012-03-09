@@ -466,6 +466,7 @@ $wgResourceModules['ep.articletable'] = $moduleTemplate + array(
 	'dependencies' => array(
 		'jquery.ui.button',
 		'jquery.ui.dialog',
+		'jquery.ui.autocomplete',
 	),
 	'messages' => array(
 		'ep-articletable-addreviwer-title',

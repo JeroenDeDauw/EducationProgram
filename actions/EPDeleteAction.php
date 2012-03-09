@@ -59,14 +59,17 @@ class EPDeleteAction extends EPAction {
 				
 				if ( $success ) {
 					$title = SpecialPage::getTitleFor( $this->page->getListPage() );
-					$query = array( 'deleted' => $this->getTitle()->getText() ); // TODO: handle
+					$this->getRequest()->setSessionData(
+						'epdeleted',
+						$this->msg( $this->prefixMsg( 'deleted' ) )
+					);
 				}
 				else {
 					$title = $this->getTitle();
-					$query = array( 'delfailed' => '1' ); // TODO: handle
+					$this->getRequest()->setSessionData( 'epdelfailed', true );
 				}
 				
-				$this->getOutput()->redirect( $title->getLocalURL( $query ) );
+				$this->getOutput()->redirect( $title->getLocalURL() );
 			}
 			else {
 				$this->displayForm( $object );
