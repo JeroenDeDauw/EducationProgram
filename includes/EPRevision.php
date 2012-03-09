@@ -92,4 +92,19 @@ class EPRevision extends DBDataObject {
 		) );
 	}
 
+	/**
+	 * Returns if this is the latest revision for the object contained by the revision.
+	 *
+	 * @since 0.1
+	 *
+	 * @return boolean
+	 */
+	public function isLatest() {
+		return !$this->table->has( array(
+			'type' => $this->getField( 'type' ),
+			'object_id' => $this->getField( 'object_id' ),
+			'id > ' . wfGetDB( DB_SLAVE )->addQuotes( $this->getId() )
+		) );
+	}
+
 }

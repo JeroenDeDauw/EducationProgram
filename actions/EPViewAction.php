@@ -108,7 +108,6 @@ abstract class EPViewAction extends EPAction {
 	protected function displayRevisionNotice( EPRevision $rev ) {
 		$lang = $this->getLanguage();
 
-		$current = false; // TODO
 		$td = $lang->timeanddate( $rev->getField( 'time' ), true );
 		$tddate = $lang->date( $rev->getField( 'time' ), true );
 		$tdtime = $lang->time( $rev->getField( 'time' ), true );
@@ -116,7 +115,7 @@ abstract class EPViewAction extends EPAction {
 		$userToolLinks = Linker::userLink(  $rev->getUser()->getId(), $rev->getUser()->getName() )
 			. Linker::userToolLinks( $rev->getUser()->getId(), $rev->getUser()->getName() );
 
-		$infomsg = $current && !wfMessage( 'revision-info-current' )->isDisabled()
+		$infomsg = $rev->isLatest() && !wfMessage( 'revision-info-current' )->isDisabled()
 			? 'revision-info-current'
 			: 'revision-info';
 
