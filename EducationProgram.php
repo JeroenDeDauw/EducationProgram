@@ -396,6 +396,9 @@ $wgResourceModules['ep.datepicker'] = $moduleTemplate + array(
 	'scripts' => array(
 		'ep.datepicker.js',
 	),
+	'styles' => array(
+		'ep.datepicker.css',
+	),
 	'dependencies' => array(
 		'jquery.ui.datepicker',
 	),

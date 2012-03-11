@@ -17,7 +17,7 @@ class EPHTMLDateField extends HTMLTextField {
 	public function __construct( $params ) {
 		parent::__construct( $params );
 
-		$this->mClass .= " ep-datepicker-tr";
+		$this->mClass .= " ep-datepicker-tr mwe-date";
 	}
 
 	function getSize() {

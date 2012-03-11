@@ -1,0 +1,14 @@
+/**
+ * CSS for the Education Program MediaWiki extension.
+ * @see https://www.mediawiki.org/wiki/Extension:Education_Program
+ *
+ * Code borrowed from
+ * http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/UploadWizard/resources/uploadWizard.css?revision=111665&view=co
+ */
+
+input.mwe-date {
+	/* @embed */
+	background: #ffffff url('images/calendar.gif') no-repeat right center;
+
+	direction: ltr;
+}

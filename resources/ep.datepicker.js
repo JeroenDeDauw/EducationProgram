@@ -6,12 +6,16 @@
  * @author Jeroen De Dauw <jeroendedauw at gmail dot com>
  */
 
-(function( $, mw ) { 
+(function( $ ) {
 
 	$( document ).ready( function() {
 		
 		$( '.ep-datepicker-tr' ).find( 'input' ).datepicker( {
-			'dateFormat': 'yy-mm-dd'
+			dateFormat: 'yy-mm-dd',
+			showOn: 'focus',
+			changeMonth: true,
+			changeYear: true,
+			showButtonPanel: true
 		} );
 		
 	} );
