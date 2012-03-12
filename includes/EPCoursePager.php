@@ -20,6 +20,15 @@ class EPCoursePager extends EPPager {
 	 * @var boolean
 	 */
 	protected $readOnlyMode;
+
+	/**
+	 * List of org names, looked up in batch before the rows are displayed.
+	 * org id => org name
+	 *
+	 * @since 0.1
+	 * @var array
+	 */
+	protected $orgNames;
 	
 	/**
 	 * Constructor.
@@ -72,15 +81,11 @@ class EPCoursePager extends EPPager {
 	public function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
 			case 'name':
-				$value = EPCourses::singleton()->getLinkFor( $value );
+				$value = $this->table->getLinkFor( $value );
 				break;
 			case 'org_id':
-				$org = EPOrgs::singleton()->selectRow( 'name', array( 'id' => $value ) );
-				
-				// This should not happen. A course should always have an org.
-				// But if something gets messed up somehow, just display the ID rather then throwing a fatal.
-				if ( $org !== false ) {
-					$value = $org->getLink();
+				if ( array_key_exists( $value, $this->orgNames ) ) {
+					$value = EPOrgs::singleton()->getLinkFor( $this->orgNames[$value] );
 				}
 				break;
 			case 'term':
@@ -266,6 +271,24 @@ class EPCoursePager extends EPPager {
 	 */
 	protected function hasActionsColumn() {
 		return !$this->readOnlyMode;
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see IndexPager::doBatchLookups()
+	 */
+	protected function doBatchLookups() {
+		$orgIds = array();
+		$field = $this->table->getPrefixedField( 'org_id' );
+
+		while( $course = $this->mResult->fetchObject() ) {
+			$orgIds[] = $course->$field;
+		}
+
+		$this->orgNames = EPOrgs::singleton()->selectFields(
+			array( 'id', 'name' ),
+			array( 'id' => $orgIds )
+		);
 	}
 
 }
