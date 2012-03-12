@@ -32,28 +32,14 @@ class EPRemoveArticleAction extends FormlessAction {
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), 'remarticle' . $req->getInt( 'article-id' ) ) ) {
 			$article = EPArticles::singleton()->selectRow(
-				array(
-					'id',
-					'course_id',
-					'page_id',
-					'page_title',
-				),
+				null,
 				array(
 					'id' => $req->getInt( 'article-id' ),
-					'user_id' => $user->getId(),
 				)
 			);
 
-			if ( $article !== false && $article->remove() ) {
-				EPUtils::log( array(
-					'type' => 'eparticle',
-					'subtype' => 'remove',
-					'user' => $this->getUser(),
-					'title' => $article->getCourse()->getTitle(),
-					'parameters' => array(
-						'4::articlename' => $article->getTitle()->getFullText(),
-					),
-				) );
+			if ( $article !== false && $article->userCanRemove( $this->getUser() ) && $article->remove() ) {
+				$article->logRemoval( $this->getUser() );
 			}
 		}
 

@@ -37,7 +37,7 @@ class EPRemoveReviewerAction extends FormlessAction {
 			&& ( $user->getId() === $userIdToRemove || $user->isAllowed( 'ep-remreviewer' ) ) ) {
 
 			$article = EPArticles::singleton()->selectRow(
-				array( 'id', 'reviewers' ),
+				null,
 				array( 'id' => $req->getInt( 'article-id' ) )
 			);
 

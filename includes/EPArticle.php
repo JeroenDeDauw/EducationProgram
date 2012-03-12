@@ -177,12 +177,7 @@ class EPArticle extends DBDataObject {
 	 */
 	public function logReviewersAdittion( array $userIds ) {
 		foreach ( $userIds as $userId ) {
-			EPUtils::log( array(
-				'user' => User::newFromId( $userId ),
-				'title' => $this->getTitle(),
-				'type' => 'eparticle',
-				'subtype' => 'review',
-			) );
+			$this->log( User::newFromId( $userId ), 'review' );
 		}
 	}
 
@@ -216,13 +211,68 @@ class EPArticle extends DBDataObject {
 	 */
 	public function logReviewersRemoval( array $userIds ) {
 		foreach ( $userIds as $userId ) {
-			EPUtils::log( array(
-				'user' => User::newFromId( $userId ),
-				'title' => $this->getTitle(),
-				'type' => 'eparticle',
-				'subtype' => 'unreview',
-			) );
+			$this->log( User::newFromId( $userId ), 'unreview' );
 		}
+	}
+
+	/**
+	 * Log adittion of the article.
+	 *
+	 * @param User $actionUser
+	 */
+	public function logAdittion( User $actionUser ) {
+		$this->log(
+			$actionUser,
+			$actionUser->getId() === $this->getUser()->getId() ? 'selfadd' : 'add'
+		);
+	}
+
+	/**
+	 * Log removal of the article.
+	 *
+	 * @param User $actionUser
+	 */
+	public function logRemoval( User $actionUser ) {
+		$this->log(
+			$actionUser,
+			$actionUser->getId() === $this->getUser()->getId() ? 'selfremove' : 'remove'
+		);
+	}
+
+	/**
+	 * Logging helper method.
+	 *
+	 * @since 0.1
+	 *
+	 * @param User $actionUser
+	 * @param string $subType
+	 */
+	protected function log( User $actionUser, $subType ) {
+		$articleOwner = $this->getUser();
+
+		EPUtils::log( array(
+			'user' => $actionUser,
+			'title' => $this->getTitle(),
+			'type' => 'eparticle',
+			'subtype' => $subType,
+			'parameters' => array(
+				'4::coursename' => $this->getCourse()->getTitle()->getFullText(),
+				'5::owner' => array( $articleOwner->getId(), $articleOwner->getName() ),
+			),
+		) );
+	}
+
+	/**
+	 * Returns if the provided user can remove the article.
+	 *
+	 * @since 0.1
+	 *
+	 * @param User $user
+	 *
+	 * @return boolean
+	 */
+	public function userCanRemove( User $user ) {
+		return $user->isAllowed( 'ep-remarticle' ) || $user->getId() === $this->getField( 'user_id' );
 	}
 
 }

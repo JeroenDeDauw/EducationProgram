@@ -21,6 +21,11 @@ class EPLogFormatter extends LogFormatter {
 	 * 
 	 * This is overridden to change the link text to only include the name of the object,
 	 * rather then the full name of it's page.
+	 *
+	 * @param Title $title
+	 * @param $parameters
+	 *
+	 * @return string
 	 */
 	protected function makePageLink( Title $title = null, $parameters = array() ) {
 		if ( !$title instanceof Title ) {
@@ -41,6 +46,17 @@ class EPLogFormatter extends LogFormatter {
 
 }
 
+/**
+ * Class for logging role changes. ie people gaining or losing a role.
+ *
+ * @since 0.1
+ *
+ * @file EPLogFormatter.php
+ * @ingroup EducationProgram
+ *
+ * @licence GNU GPL v3 or later
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class EPRoleChangeFormatter extends EPLogFormatter {
 
 	/**
@@ -62,6 +78,17 @@ class EPRoleChangeFormatter extends EPLogFormatter {
 
 }
 
+/**
+ * Class for logging role changes to student article associations.
+ *
+ * @since 0.1
+ *
+ * @file EPLogFormatter.php
+ * @ingroup EducationProgram
+ *
+ * @licence GNU GPL v3 or later
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class EPArticleFormatter extends EPLogFormatter {
 
 	/**
@@ -73,6 +100,12 @@ class EPArticleFormatter extends EPLogFormatter {
 
 		if ( !empty( $params ) ) {
 			$params[3] = Message::rawParam( Linker::link( Title::newFromText( $params[3] ) ) );
+
+			if ( isset( $params[4] ) ) {
+				list( $id, $name ) = $params[4];
+				$params[4] = Message::rawParam( Linker::userLink( $id, $name ) );
+				$params[5] = $name;
+			}
 		}
 
 		return $params;

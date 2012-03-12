@@ -11,6 +11,7 @@
  * * Org instead of Institution
  * * CA for campus ambassador
  * * OA for online ambassador
+ * * Article is often used to refer to "article student associations" rather then the Article class.
  *
  * @file EducationProgram.php
  * @ingroup EducationProgram
@@ -241,6 +242,8 @@ $wgAvailableRights[] = 'ep-bereviewer';		// Add or remove yourself as reviewer f
 $wgAvailableRights[] = 'ep-remreviewer';	// Remove reviewers from articles
 $wgAvailableRights[] = 'ep-bulkdelorgs';	// Bulk delete institutions
 $wgAvailableRights[] = 'ep-bulkdelcourses';	// Bulk delete courses
+$wgAvailableRights[] = 'ep-remarticle';		// Remove artiles (from being student associated)
+
 
 // User group rights
 $wgGroupPermissions['*']['ep-enroll'] = true;
@@ -254,10 +257,11 @@ $wgGroupPermissions['*']['ep-instructor'] = false;
 $wgGroupPermissions['*']['ep-beonline'] = false;
 $wgGroupPermissions['*']['ep-becampus'] = false;
 $wgGroupPermissions['*']['ep-beinstructor'] = false;
-$wgGroupPermissions['*']['ep-bereviewer'] = true; // TODO: do we want this?
+$wgGroupPermissions['*']['ep-bereviewer'] = true;
 $wgGroupPermissions['*']['ep-remreviewer'] = false;
 $wgGroupPermissions['*']['ep-bulkdelorgs'] = false;
 $wgGroupPermissions['*']['ep-bulkdelcourses'] = false;
+$wgGroupPermissions['*']['ep-remarticle'] = false;
 
 $wgGroupPermissions['epstaff']['ep-org'] = true;
 $wgGroupPermissions['epstaff']['ep-course'] = true;
@@ -274,6 +278,7 @@ $wgGroupPermissions['epstaff']['ep-bereviewer'] = true;
 $wgGroupPermissions['epstaff']['ep-remreviewer'] = true;
 $wgGroupPermissions['epstaff']['ep-bulkdelorgs'] = true;
 $wgGroupPermissions['epstaff']['ep-bulkdelcourses'] = true;
+$wgGroupPermissions['epstaff']['ep-remarticle'] = true;
 
 $wgGroupPermissions['epadmin']['ep-org'] = true;
 $wgGroupPermissions['epadmin']['ep-course'] = true;
@@ -289,22 +294,26 @@ $wgGroupPermissions['epadmin']['ep-beinstructor'] = true;
 $wgGroupPermissions['epadmin']['ep-bereviewer'] = true;
 $wgGroupPermissions['epadmin']['ep-remreviewer'] = true;
 $wgGroupPermissions['epadmin']['ep-bulkdelcourses'] = true;
+$wgGroupPermissions['epadmin']['ep-remarticle'] = true;
 
 $wgGroupPermissions['eponlineamb']['ep-org'] = true;
 $wgGroupPermissions['eponlineamb']['ep-course'] = true;
 $wgGroupPermissions['eponlineamb']['ep-token'] = true;
 $wgGroupPermissions['eponlineamb']['ep-beonline'] = true;
+$wgGroupPermissions['eponlineamb']['ep-remarticle'] = true;
 
 $wgGroupPermissions['epcampamb']['ep-org'] = true;
 $wgGroupPermissions['epcampamb']['ep-course'] = true;
 $wgGroupPermissions['epcampamb']['ep-token'] = true;
 $wgGroupPermissions['epcampamb']['ep-becampus'] = true;
+$wgGroupPermissions['epcampamb']['ep-remarticle'] = true;
 
 $wgGroupPermissions['epinstructor']['ep-org'] = true;
 $wgGroupPermissions['epinstructor']['ep-course'] = true;
 $wgGroupPermissions['epinstructor']['ep-token'] = true;
 $wgGroupPermissions['epinstructor']['ep-beinstructor'] = true;
 $wgGroupPermissions['epinstructor']['ep-remstudent'] = true;
+$wgGroupPermissions['epinstructor']['ep-remarticle'] = true;
 
 $wgGroupPermissions['epstaff']['userrights'] = false;
 $wgAddGroups['epstaff'] = array( 'epstaff', 'epadmin', 'eponlineamb', 'epcampamb', 'epinstructor' );

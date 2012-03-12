@@ -53,15 +53,7 @@ class EPAddArticleAction extends FormlessAction {
 					$article = EPArticles::singleton()->newFromArray( $articleData, true );
 
 					if ( $article->save() ) {
-						EPUtils::log( array(
-							'type' => 'eparticle',
-							'subtype' => 'add',
-							'user' => $this->getUser(),
-							'title' => $course->getTitle(),
-							'parameters' => array(
-								'4::articlename' => $title->getFullText(),
-							),
-						) );
+						$article->logAdittion( $this->getUser() );
 					}
 				}
 			}

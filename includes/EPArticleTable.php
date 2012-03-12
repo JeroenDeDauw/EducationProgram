@@ -310,7 +310,7 @@ class EPArticleTable extends EPPager {
 				'returnto' => $this->getTitle()->getFullText(),
 			) );
 
-			if ( $this->getUser()->getId() === $article->getField( 'user_id' ) ) {
+			if ( $article->userCanRemove( $this->getUser() ) ) {
 				$html .= ' (' . Html::element(
 					'a',
 					$attr,
