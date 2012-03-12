@@ -434,7 +434,7 @@ class EPCourse extends EPPageObject {
 			$this->students = array();
 
 			foreach ( $this->getField( 'students' ) as $userId ) {
-				$this->students[] = EPStudent::newFromUserId( $userId );
+				$this->students[] = EPStudent::newFromUserId( $userId, true );
 			}
 		}
 

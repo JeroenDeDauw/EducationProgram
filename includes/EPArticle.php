@@ -176,7 +176,14 @@ class EPArticle extends DBDataObject {
 	 * @param array $userIds
 	 */
 	public function logReviewersAdittion( array $userIds ) {
-		// TODO
+		foreach ( $userIds as $userId ) {
+			EPUtils::log( array(
+				'user' => User::newFromId( $userId ),
+				'title' => $this->getTitle(),
+				'type' => 'eparticle',
+				'subtype' => 'review',
+			) );
+		}
 	}
 
 	/**
@@ -208,7 +215,14 @@ class EPArticle extends DBDataObject {
 	 * @param array $userIds
 	 */
 	public function logReviewersRemoval( array $userIds ) {
-		// TODO
+		foreach ( $userIds as $userId ) {
+			EPUtils::log( array(
+				'user' => User::newFromId( $userId ),
+				'title' => $this->getTitle(),
+				'type' => 'eparticle',
+				'subtype' => 'unreview',
+			) );
+		}
 	}
 
 }

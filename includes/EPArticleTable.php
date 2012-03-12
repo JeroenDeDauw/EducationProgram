@@ -518,7 +518,7 @@ class EPArticleTable extends EPPager {
 	 */
 	protected function doBatchLookups() {
 		$userIds = array();
-		$field = $this->table->getPrefixedField( 'org_id' );
+		$field = $this->table->getPrefixedField( 'user_id' );
 
 		while( $student = $this->mResult->fetchObject() ) {
 			$userIds[] = $student->$field;

@@ -201,8 +201,6 @@ class EPStudentPager extends EPPager {
 				$this->courseNames[$courseForUser->upc_user_id][] = $courseForUser->$courseNameField;
 			}
 		}
-
-
 	}
 
 }

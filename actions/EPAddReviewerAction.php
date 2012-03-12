@@ -36,7 +36,7 @@ class EPAddReviewerAction extends FormlessAction {
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) ) {
 
 			$article = EPArticles::singleton()->selectRow(
-				array( 'id', 'reviewers' ),
+				array( 'id', 'reviewers', 'page_id', 'page_title' ),
 				array( 'id' => $req->getInt( 'article-id' ) )
 			);
 
