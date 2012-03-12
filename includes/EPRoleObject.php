@@ -35,11 +35,12 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	 * @since 0.1
 	 * 
 	 * @param integer $userId
-	 * @param null|array|string $fields
-	 * 
+	 * @param boolean $load If the object should be loaded from the db if it already exists
+	 * @param null|array|string $fields Fields to load
+	 *
 	 * @return EPRoleObject
 	 */
-	public static function newFromUserId( $userId, $fields = null ) {
+	public static function newFromUserId( $userId, $load = false, $fields = null ) {
 		$data = array( 'user_id' => $userId );
 		
 		$map = array(
@@ -52,7 +53,7 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		$class = $map[get_called_class()];
 		$table = $class::singleton();
 		
-		$userRole = $table->selectRow( $fields, $data );
+		$userRole = $load ? $table->selectRow( $fields, $data ) : false;
 		
 		if ( $userRole === false ) {
 			return new static( $table, $data, true );
@@ -69,12 +70,13 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	 * @since 0.1
 	 * 
 	 * @param User $user
-	 * @param null|array|string $fields
-	 * 
+	 * @param boolean $load If the object should be loaded from the db if it already exists
+	 * @param null|array|string $fields Fields to load
+	 *
 	 * @return EPRoleObject
 	 */
-	public static function newFromUser( User $user, $fields = null ) {
-		return static::newFromUserId( $user->getId(), $fields );
+	public static function newFromUser( User $user, $load = false, $fields = null ) {
+		return static::newFromUserId( $user->getId(), $load, $fields );
 	}
 	
 	/**

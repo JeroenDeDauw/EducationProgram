@@ -19,11 +19,12 @@ interface EPIRole {
 	 * @since 0.1
 	 * 
 	 * @param integer $userId
-	 * @param null|array|string $fields
+	 * @param boolean $load If the object should be loaded from the db if it already exists
+	 * @param null|array|string $fields Fields to load
 	 * 
 	 * @return EPIRole
 	 */
-	public static function newFromUserId( $userId, $fields = null );
+	public static function newFromUserId( $userId, $load = false, $fields = null );
 
 	/**
 	 * Create a new role object from a user object.
@@ -31,11 +32,12 @@ interface EPIRole {
 	 * @since 0.1
 	 * 
 	 * @param User $user
-	 * @param null|array|string $fields
+	 * @param boolean $load If the object should be loaded from the db if it already exists
+	 * @param null|array|string $fields Fields to load
 	 * 
 	 * @return EPIRole
 	 */
-	public static function newFromUser( User $user, $fields = null );
+	public static function newFromUser( User $user, $load = false, $fields = null );
 	
 	
 	/**
