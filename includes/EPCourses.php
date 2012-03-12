@@ -172,8 +172,11 @@ class EPCourses extends EPPageTable {
 	 * @since 0.1
 	 * 
 	 * @param string $state
+	 * @param boolean $prefix
+	 *
+	 * @return array
 	 */
-	public static function getStatusConds( $state ) {
+	public static function getStatusConds( $state, $prefix = false ) {
 		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
 		$conditions = array();
@@ -189,6 +192,10 @@ class EPCourses extends EPPageTable {
 			case 'planned':
 				$conditions[] = 'start > ' . $now;
 				break;
+		}
+
+		if ( $prefix ) {
+			$conditions = self::singleton()->getPrefixedValues( $conditions );
 		}
 		
 		return $conditions;

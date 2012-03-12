@@ -87,6 +87,9 @@ class EPCoursePager extends EPPager {
 				if ( array_key_exists( $value, $this->orgNames ) ) {
 					$value = EPOrgs::singleton()->getLinkFor( $this->orgNames[$value] );
 				}
+				else {
+					wfWarn( 'Org id not in $this->orgNames in ' . __METHOD__ );
+				}
 				break;
 			case 'term':
 				$value = htmlspecialchars( $value );

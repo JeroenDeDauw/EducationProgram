@@ -14,6 +14,25 @@
 class EPStudentPager extends EPPager {
 
 	/**
+	 * List of user ids mapped to user names and real names, set in doBatchLookups.
+	 * The real names will just hold the user name when no real name is set.
+	 * user id => array( user name, real name )
+	 *
+	 * @since 0.1
+	 * @var array
+	 */
+	protected $userNames = array();
+
+	/**
+	 * List of user ids with the names of their associated courses.
+	 * user id => array( course name 0, ... )
+	 *
+	 * @since 0.1
+	 * @var array
+	 */
+	protected $courseNames = array();
+
+	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
@@ -69,9 +88,13 @@ class EPStudentPager extends EPPager {
 				);
 				break;
 			case 'user_id':
-				$user = User::newFromId( $value );
-				$realName = $user->getRealName() === '' ? false : $user->getRealName();
-				$value = Linker::userLink( $value, $user->getName(), $realName ) . Linker::userToolLinks( $value, $user->getName() );
+				if ( array_key_exists( $value, $this->userNames ) ) {
+					list( $userName, $realName ) = $this->userNames[$value];
+					$value = Linker::userLink( $value, $userName, $realName ) . Linker::userToolLinks( $value, $userName );
+				}
+				else {
+					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );
+				}
 				break;
 			case 'first_enroll': case 'last_active':
 				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
@@ -80,12 +103,16 @@ class EPStudentPager extends EPPager {
 				$value = wfMsgHtml( $value === '1' ? 'epstudentpager-yes' : 'epstudentpager-no' );
 				break;
 			case '_courses_current':
-				$value = $this->getLanguage()->pipeList( array_map(
-					function( EPCourse $course ) {
-						return $course->getLink();
-					},
-					$this->currentObject->getCourses( 'name', EPCourses::getStatusConds( 'current' ) )
-				) );
+				$userId = $this->currentObject->getField( 'user_id' );
+
+				if ( array_key_exists( $userId, $this->courseNames ) ) {
+					$value = $this->getLanguage()->pipeList( array_map(
+						function( $courseName ) {
+							return EPCourses::singleton()->getLinkFor( $courseName );
+						},
+						$this->courseNames[$userId]
+					) );
+				}
 				break;
 		}
 
@@ -123,6 +150,59 @@ class EPStudentPager extends EPPager {
 		$fields['_courses_current'] = 'current-courses';
 
 		return $fields;
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see IndexPager::doBatchLookups()
+	 */
+	protected function doBatchLookups() {
+		$userIds = array();
+		$field = $this->table->getPrefixedField( 'user_id' );
+
+		while( $student = $this->mResult->fetchObject() ) {
+			$userIds[] = (int)$student->$field;
+		}
+
+		if ( !empty( $userIds ) ) {
+			$result = wfGetDB( DB_SLAVE )->select(
+				'user',
+				array( 'user_id', 'user_name', 'user_real_name' ),
+				array( 'user_id' => $userIds ),
+				__METHOD__
+			);
+
+			while( $user = $result->fetchObject() ) {
+				$real = $user->user_real_name === '' ? $user->user_name : $user->user_real_name;
+				$this->userNames[$user->user_id] = array( $user->user_name, $real );
+			}
+
+			$courseNameField = EPCourses::singleton()->getPrefixedField( 'name' );
+
+			$result = wfGetDB( DB_SLAVE )->select(
+				array( 'ep_courses', 'ep_users_per_course' ),
+				array( $courseNameField, 'upc_user_id' ),
+				array_merge( array(
+					'upc_role' => EP_STUDENT,
+					'upc_user_id' => $userIds,
+				), EPCourses::getStatusConds( 'current', true ) ) ,
+				__METHOD__,
+				array(),
+				array(
+					'ep_users_per_course' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
+				)
+			);
+
+			while( $courseForUser = $result->fetchObject() ) {
+				if ( !array_key_exists( $courseForUser->upc_user_id, $this->courseNames ) ) {
+					$this->courseNames[$courseForUser->upc_user_id] = array();
+				}
+
+				$this->courseNames[$courseForUser->upc_user_id][] = $courseForUser->$courseNameField;
+			}
+		}
+
+
 	}
 
 }
