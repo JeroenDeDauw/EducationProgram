@@ -302,6 +302,12 @@ class EPArticleTable extends EPPager {
 			'class' => 'ep-rem-article',
 		);
 
+		$user = $this->getUser();
+
+		if ( $user->getId() !== $article->getField( 'user_id' ) ) {
+			$attr['data-student-name'] = $user->getName();
+		}
+
 		if ( array_key_exists( 'course_id', $this->articleConds ) && is_integer( $this->articleConds['course_id'] ) ) {
 			$attr['data-course-name'] = $this->getCourseName();
 
@@ -310,7 +316,7 @@ class EPArticleTable extends EPPager {
 				'returnto' => $this->getTitle()->getFullText(),
 			) );
 
-			if ( $article->userCanRemove( $this->getUser() ) ) {
+			if ( $article->userCanRemove( $user ) ) {
 				$html .= ' (' . Html::element(
 					'a',
 					$attr,

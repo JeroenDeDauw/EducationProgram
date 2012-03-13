@@ -342,8 +342,8 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-articletable-remarticle-title' => 'Remove article $1',
 	'ep-articletable-remarticle-button' => 'Remove article',
 	'ep-articletable-remarticle-cancel' => 'Cancel',
-	'ep-articletable-remarticle-text' => 'You are about to remove article $1 from the list of articles you are working on.',
-	'ep-articletable-remarticle-text-course' => 'You are about to remove article $1 from the list of articles you are working on as part of course $2.',
+	'ep-articletable-remarticle-text-self' => 'You are about to remove article $1 from the list of articles you are working on as part of course $2.',
+	'ep-articletable-remarticle-text' => 'You are about to remove article $1 from the list of articles $3 is working on as part of course $2.',
 
 	// Article pager
 	'ep-articles-noresults' => 'There are no articles to list.',

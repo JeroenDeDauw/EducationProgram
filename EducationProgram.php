@@ -503,7 +503,7 @@ $wgResourceModules['ep.articletable'] = $moduleTemplate + array(
 		'ep-articletable-remarticle-button',
 		'ep-articletable-remarticle-cancel',
 		'ep-articletable-remarticle-text',
-		'ep-articletable-remarticle-text-course',
+		'ep-articletable-remarticle-text-self',
 	),
 );
 

@@ -126,15 +126,19 @@
 	
 	function removeArticle() {
 		var $this = $( this ),
-		courseName = $this.attr( 'data-course-name' );
+		courseName = $this.attr( 'data-course-name' ),
+		isSelf = $this.attr( 'data-student-name' ) === undefined,
+		selfSuffix = isSelf ? '-self' : '',
+		studentName = isSelf ? mw.user.name : $this.attr( 'data-student-name' );
 
 		var $form = $( '<form>' ).attr( {
 			'method': 'post',
 			'action': $this.attr( 'data-remove-target' )
 		} ).msg(
-			'ep-articletable-remarticle-text-course',
+			'ep-articletable-remarticle-text' + selfSuffix,
 			$( '<b>' ).text( $this.attr( 'data-article-name' ) ),
-			$( '<b>' ).text( courseName )
+			$( '<b>' ).text( courseName ),
+			$( '<b>' ).text( studentName )
 		);
 
 		$form.append( $( '<input>' ).attr( {
