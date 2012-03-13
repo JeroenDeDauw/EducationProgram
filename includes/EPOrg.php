@@ -98,12 +98,12 @@ class EPOrg extends EPPageObject {
 	 * (non-PHPdoc)
 	 * @see DBDataObject::save()
 	 */
-	public function save() {
+	public function save( $functionName = null ) {
 		if ( $this->hasField( 'name' ) ) {
 			$this->setField( 'name', $GLOBALS['wgLang']->ucfirst( $this->getField( 'name' ) ) );
 		}
 
-		return parent::save();
+		return parent::save( $functionName );
 	}
 	
 	/**

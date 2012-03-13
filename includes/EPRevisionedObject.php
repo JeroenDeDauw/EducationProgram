@@ -134,7 +134,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * (non-PHPdoc)
 	 * @see DBDataObject::saveExisting()
 	 */
-	protected function saveExisting() {
+	protected function saveExisting( $functionName = null ) {
 		if ( !$this->inSummaryMode ) {
 			$this->table->setReadDb( DB_MASTER );
 			$originalObject = $this->table->selectRow( null, array( 'id' => $this->getId() ) );
@@ -148,7 +148,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 		$success = true;
 
 		if ( $this->inSummaryMode || $this->fieldsChanged( $originalObject, true ) ) {
-			$success = parent::saveExisting();
+			$success = parent::saveExisting( $functionName );
 
 			if ( $success && !$this->inSummaryMode ) {
 				$this->onUpdated( $originalObject );
@@ -175,8 +175,8 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * (non-PHPdoc)
 	 * @see DBDataObject::insert()
 	 */
-	protected function insert() {
-		$result = parent::insert();
+	protected function insert( $functionName = null, array $options = null ) {
+		$result = parent::insert( $functionName, $options );
 
 		if ( $result ) {
 			$this->storeRevision( $this );

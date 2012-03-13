@@ -336,13 +336,15 @@ abstract class DBDataObject {
 	 *
 	 * @since 1.20
 	 *
+	 * @param string|null $functionName
+	 *
 	 * @return boolean Success indicator
 	 */
-	public function save() {
+	public function save( $functionName = null ) {
 		if ( $this->hasIdField() ) {
-			return $this->saveExisting();
+			return $this->saveExisting( $functionName );
 		} else {
-			return $this->insert();
+			return $this->insert( $functionName );
 		}
 	}
 
@@ -351,16 +353,18 @@ abstract class DBDataObject {
 	 *
 	 * @since 1.20
 	 *
+	 * @param string|null $functionName
+	 *
 	 * @return boolean Success indicator
 	 */
-	protected function saveExisting() {
+	protected function saveExisting( $functionName = null ) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$success = $dbw->update(
 			$this->table->getDBTable(),
 			$this->getWriteValues(),
 			array( $this->table->getPrefixedField( 'id' ) => $this->getId() ),
-			__METHOD__
+			is_null( $functionName ) ? __METHOD__ : $functionName
 		);
 
 		return $success;
@@ -371,16 +375,19 @@ abstract class DBDataObject {
 	 *
 	 * @since 1.20
 	 *
+	 * @param string|null $functionName
+	 * @param array|null $options
+	 *
 	 * @return boolean Success indicator
 	 */
-	protected function insert() {
+	protected function insert( $functionName = null, array $options = null ) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$result = $dbw->insert(
 			$this->table->getDBTable(),
 			$this->getWriteValues(),
-			__METHOD__,
-			array( 'IGNORE' )
+			is_null( $functionName ) ? __METHOD__ : $functionName,
+			is_null( $options ) ? array( 'IGNORE' ) : $options
 		);
 
 		if ( $result ) {

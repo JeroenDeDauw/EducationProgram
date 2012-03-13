@@ -120,8 +120,8 @@ class EPCourse extends EPPageObject {
 	 * (non-PHPdoc)
 	 * @see DBDataObject::insert()
 	 */
-	protected function insert() {
-		$success = parent::insert();
+	protected function insert( $functionName = null, array $options = null ) {
+		$success = parent::insert( $functionName, $options );
 
 		if ( $success && $this->updateSummaries ) {
 			EPOrgs::singleton()->updateSummaryFields( array( 'course_count', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
@@ -217,7 +217,7 @@ class EPCourse extends EPPageObject {
 	 * (non-PHPdoc)
 	 * @see DBDataObject::save()
 	 */
-	public function save() {
+	public function save( $functionName = null ) {
 		if ( $this->hasField( 'name' ) ) {
 			$this->setField( 'name', $GLOBALS['wgLang']->ucfirst( $this->getField( 'name' ) ) );
 		}
@@ -229,7 +229,7 @@ class EPCourse extends EPPageObject {
 			}
 		}
 
-		return parent::save();
+		return parent::save( $functionName );
 	}
 
 	/**

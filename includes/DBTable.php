@@ -103,11 +103,12 @@ abstract class DBTable {
 	 * @param array|string|null $fields
 	 * @param array $conditions
 	 * @param array $options
+	 * @param string|null $functionName
 	 *
 	 * @return array of self
 	 */
-	public function select( $fields = null, array $conditions = array(), array $options = array() ) {
-		$result = $this->selectFields( $fields, $conditions, $options, false );
+	public function select( $fields = null, array $conditions = array(), array $options = array(), $functionName  = null ) {
+		$result = $this->selectFields( $fields, $conditions, $options, false, $functionName );
 
 		$objects = array();
 
@@ -136,10 +137,11 @@ abstract class DBTable {
 	 * @param array $conditions
 	 * @param array $options
 	 * @param boolean $collapse Set to false to always return each result row as associative array.
+	 * @param string|null $functionName
 	 *
 	 * @return array of array
 	 */
-	public function selectFields( $fields = null, array $conditions = array(), array $options = array(), $collapse = true ) {
+	public function selectFields( $fields = null, array $conditions = array(), array $options = array(), $collapse = true, $functionName  = null ) {
 		if ( is_null( $fields ) ) {
 			$fields = array_keys( $this->getFieldTypes() );
 		}
@@ -152,7 +154,7 @@ abstract class DBTable {
 			$this->getDBTable(),
 			$this->getPrefixedFields( $fields ),
 			$this->getPrefixedValues( $conditions ),
-			__METHOD__,
+			is_null( $functionName ) ? __METHOD__ : $functionName,
 			$options
 		);
 
@@ -189,13 +191,14 @@ abstract class DBTable {
 	 * @param array|string|null $fields
 	 * @param array $conditions
 	 * @param array $options
+	 * @param string|null $functionName
 	 *
 	 * @return DBObject|bool False on failure
 	 */
-	public function selectRow( $fields = null, array $conditions = array(), array $options = array() ) {
+	public function selectRow( $fields = null, array $conditions = array(), array $options = array(), $functionName = null ) {
 		$options['LIMIT'] = 1;
 
-		$objects = $this->select( $fields, $conditions, $options );
+		$objects = $this->select( $fields, $conditions, $options, $functionName );
 
 		return empty( $objects ) ? false : $objects[0];
 	}
@@ -209,17 +212,18 @@ abstract class DBTable {
 	 * @param array $fields
 	 * @param array $conditions
 	 * @param array $options
+	 * @param string|null $functionName
 	 *
 	 * @return ResultWrapper
 	 */
-	public function rawSelectRow( array $fields, array $conditions = array(), array $options = array() ) {
+	public function rawSelectRow( array $fields, array $conditions = array(), array $options = array(), $functionName = null ) {
 		$dbr = wfGetDB( $this->getReadDb() );
 
 		return $dbr->selectRow(
 			$this->getDBTable(),
 			$fields,
 			$conditions,
-			__METHOD__,
+			is_null( $functionName ) ? __METHOD__ : $functionName,
 			$options
 		);
 	}
@@ -237,13 +241,14 @@ abstract class DBTable {
 	 * @param array $conditions
 	 * @param array $options
 	 * @param boolean $collapse Set to false to always return each result row as associative array.
+	 * @param string|null $functionName
 	 *
 	 * @return mixed|array|bool False on failure
 	 */
-	public function selectFieldsRow( $fields = null, array $conditions = array(), array $options = array(), $collapse = true ) {
+	public function selectFieldsRow( $fields = null, array $conditions = array(), array $options = array(), $collapse = true, $functionName = null ) {
 		$options['LIMIT'] = 1;
 
-		$objects = $this->selectFields( $fields, $conditions, $options, $collapse );
+		$objects = $this->selectFields( $fields, $conditions, $options, $collapse, $functionName );
 
 		return empty( $objects ) ? false : $objects[0];
 	}
@@ -292,13 +297,15 @@ abstract class DBTable {
 	 * @since 1.20
 	 *
 	 * @param array $conditions
+	 * @param string|null $functionName
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function delete( array $conditions ) {
+	public function delete( array $conditions, $functionName = null ) {
 		return wfGetDB( DB_MASTER )->delete(
 			$this->getDBTable(),
-			$this->getPrefixedValues( $conditions )
+			$this->getPrefixedValues( $conditions ),
+			$functionName
 		);
 	}
 	
