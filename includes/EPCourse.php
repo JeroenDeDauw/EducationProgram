@@ -430,15 +430,7 @@ class EPCourse extends EPPageObject {
 	 * @return array of EPStudent
 	 */
 	public function getStudents() {
-		if ( $this->students === false ) {
-			$this->students = array();
-
-			foreach ( $this->getField( 'students' ) as $userId ) {
-				$this->students[] = EPStudent::newFromUserId( $userId, true );
-			}
-		}
-
-		return $this->students;
+		return $this->getRoleList( 'students', 'EPStudents', 'students' );
 	}
 
 	/**
@@ -449,15 +441,36 @@ class EPCourse extends EPPageObject {
 	 * @return array of EPInstructor
 	 */
 	public function getInstructors() {
-		if ( $this->instructors === false ) {
-			$this->instructors = array();
+		return $this->getRoleList( 'instructors', 'EPInstructors', 'instructors' );
+	}
 
-			foreach ( $this->getField( 'instructors' ) as $userId ) {
-				$this->instructors[] = EPInstructor::newFromUserId( $userId );
+	/**
+	 * Returns the users that have the specified role.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $fieldName Name of the role field.
+	 * @param string $tableName Name of the table class in which this role is kept track of.
+	 * @param string $classField Name of the field in which the list is cached in this class.
+	 *
+	 * @return array of EPRole
+	 */
+	protected function getRoleList( $fieldName, $tableName, $classField ) {
+		if ( $this->$classField === false ) {
+			$userIds = $this->getField( $fieldName );
+
+			if ( empty( $userIds ) ) {
+				$this->$classField = array();
+			}
+			else {
+				$this->$classField = $tableName::singleton()->select(
+					null,
+					array( 'user_id' => $userIds )
+				);
 			}
 		}
 
-		return $this->instructors;
+		return $this->$classField;
 	}
 	
 	/**
@@ -468,15 +481,7 @@ class EPCourse extends EPPageObject {
 	 * @return array of EPCA
 	 */
 	public function getCampusAmbassadors() {
-		if ( $this->cas === false ) {
-			$this->cas = array();
-
-			foreach ( $this->getField( 'campus_ambs' ) as $userId ) {
-				$this->cas[] = EPCA::newFromUserId( $userId );
-			}
-		}
-
-		return $this->cas;
+		return $this->getRoleList( 'campus_ambs', 'EPCAs', 'cas' );
 	}
 	
 	/**
@@ -487,15 +492,7 @@ class EPCourse extends EPPageObject {
 	 * @return array of EPOA
 	 */
 	public function getOnlineAmbassadors() {
-		if ( $this->oas === false ) {
-			$this->oas = array();
-
-			foreach ( $this->getField( 'online_ambs' ) as $userId ) {
-				$this->oas[] = EPOA::newFromUserId( $userId );
-			}
-		}
-
-		return $this->oas;
+		return $this->getRoleList( 'online_ambs', 'EPOAs', 'oas' );
 	}
 	
 	/**

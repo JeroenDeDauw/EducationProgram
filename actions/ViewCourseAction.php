@@ -47,12 +47,7 @@ class ViewCourseAction extends EPViewAction {
 
 		$out->addHTML( $this->getOutput()->parse( $course->getField( 'description' ) ) );
 
-		$studentIds = array_map(
-			function( EPStudent $student ) {
-				return $student->getId();
-			},
-			$course->getStudents( 'id' )
-		);
+		$studentIds = $course->getField( 'students' );
 
 		if ( !empty( $studentIds ) ) {
 			$out->addElement( 'h2', array(), wfMsg( 'ep-course-students' ) );
