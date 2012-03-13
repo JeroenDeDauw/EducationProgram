@@ -59,7 +59,7 @@ class ViewCourseAction extends EPViewAction {
 
 			$pager = new EPArticleTable(
 				$this->getContext(),
-				array( 'id' => $studentIds ),
+				array( 'user_id' => $studentIds ),
 				array( 'course_id' => $course->getId() )
 			);
 

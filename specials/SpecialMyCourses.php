@@ -195,7 +195,7 @@ class SpecialMyCourses extends SpecialEPPage {
 
 			$pager = new EPArticleTable(
 				$this->getContext(),
-				array( 'id' => $this->getUser()->getId() ),
+				array( 'user_id' => $this->getUser()->getId() ),
 				array( 'course_id' => $course->getId() )
 			);
 
@@ -233,7 +233,7 @@ class SpecialMyCourses extends SpecialEPPage {
 
 		$pager = new EPArticleTable(
 			$this->getContext(),
-			array( 'id' => $this->getUser()->getId() ),
+			array( 'user_id' => $this->getUser()->getId() ),
 			array(
 				'course_id' => $course->getId(),
 				'user_id' => $this->getUser()->getId(),
