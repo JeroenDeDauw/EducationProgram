@@ -76,7 +76,7 @@ abstract class EPPageTable extends DBTable {
 
 		$success = true;
 
-		if ( count( $objects ) > 0 ) {
+		if ( !empty( $objects ) ) {
 			$revAction->setDelete( true );
 
 			foreach ( $objects as /* EPPageObject */ $object ) {

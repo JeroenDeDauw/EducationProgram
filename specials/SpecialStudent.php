@@ -57,12 +57,12 @@ class SpecialStudent extends SpecialEPPage {
 					$student->getCourses( 'id' )
 				);
 
-				if ( count( $courseIds ) > 0 ) {
-					$out->addElement( 'h2', array(), wfMsg( 'ep-student-courses' ) );
-					EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ) );
+				if ( empty( $courseIds ) ) {
+					// TODO: high
 				}
 				else {
-					// TODO
+					$out->addElement( 'h2', array(), wfMsg( 'ep-student-courses' ) );
+					EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ) );
 				}
 			}
 		}

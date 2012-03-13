@@ -117,7 +117,7 @@ class EPOrg extends EPPageObject {
 			$courseRevAction = new EPRevisionAction();
 		
 			$courseRevAction->setUser( $revAction->getUser() );
-			$courseRevAction->setComment( '' ); // TODO
+			$courseRevAction->setComment( $revAction->getComment() );
 			
 			foreach ( $this->getField( 'courses' ) as $courseId ) {
 				$courseRevision = EPRevisions::singleton()->getLatestRevision( array(

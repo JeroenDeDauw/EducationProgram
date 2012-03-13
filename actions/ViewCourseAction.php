@@ -54,7 +54,7 @@ class ViewCourseAction extends EPViewAction {
 			$course->getStudents( 'id' )
 		);
 
-		if ( count( $studentIds ) > 0 ) {
+		if ( !empty( $studentIds ) ) {
 			$out->addElement( 'h2', array(), wfMsg( 'ep-course-students' ) );
 
 			$pager = new EPArticleTable(
@@ -131,7 +131,10 @@ class ViewCourseAction extends EPViewAction {
 	protected function getRoleList( EPCourse $course, $roleName ) {
 		$users = $course->getUserWithRole( $roleName );
 
-		if ( count( $users ) > 0 ) {
+		if ( empty( $users ) ) {
+			$html = wfMsgHtml( 'ep-course-no-' . $roleName );
+		}
+		else {
 			$instList = array();
 
 			foreach ( $users as /* EPIRole */ $user ) {
@@ -144,9 +147,6 @@ class ViewCourseAction extends EPViewAction {
 			else {
 				$html = '<ul><li>' . implode( '</li><li>', $instList ) . '</li></ul>';
 			}
-		}
-		else {
-			$html = wfMsgHtml( 'ep-course-no-' . $roleName );
 		}
 
 		return Html::rawElement(
@@ -204,12 +204,12 @@ class ViewCourseAction extends EPViewAction {
 			);
 		}
 
-		if ( count( $links ) > 0 ) {
-			$this->getOutput()->addModules( 'ep.enlist' );
-			return '<br />' . $this->getLanguage()->pipeList( $links );
+		if ( empty( $links ) ) {
+			return '';
 		}
 		else {
-			return '';
+			$this->getOutput()->addModules( 'ep.enlist' );
+			return '<br />' . $this->getLanguage()->pipeList( $links );
 		}
 	}
 	

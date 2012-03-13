@@ -260,7 +260,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 			array( 'LIMIT' => 1 )
 		);
 
-		return count( $objects ) > 0 ? $objects[0] : false;
+		return empty( $objects ) ? false : $objects[0];
 	}
 	
 	/**

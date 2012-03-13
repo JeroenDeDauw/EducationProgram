@@ -47,7 +47,7 @@ class SpecialMyCourses extends SpecialEPPage {
 				$course = EPCourses::singleton()->selectRow( null, array( 'name' => $this->subPage ) );
 				
 				if ( $course === false ) {
-					// TODO
+					// TODO high
 				}
 				else {
 					$this->displayCourse( $course );
@@ -155,7 +155,7 @@ class SpecialMyCourses extends SpecialEPPage {
 				break;
 		}
 
-		if ( count( $courses ) > 0 ) {
+		if ( !empty( $courses ) ) {
 			$message = wfMsgExt( 'ep-mycourses-courses-' . strtolower( $class ), 'parsemag', count( $courses ), $this->getUser()->getName() );
 			$this->getOutput()->addElement( 'h2', array(), $message );
 

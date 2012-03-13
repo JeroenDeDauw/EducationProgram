@@ -127,7 +127,7 @@ abstract class DBDataObject {
 			$fields = array_diff( $fields, array_keys( $this->fields ) );
 		}
 
-		if ( count( $fields ) > 0 ) {
+		if ( !empty( $fields ) ) {
 			$result = $this->table->rawSelectRow(
 				$this->table->getPrefixedFields( $fields ),
 				array( $this->table->getPrefixedField( 'id' ) => $this->getId() ),

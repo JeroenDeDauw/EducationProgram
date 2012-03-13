@@ -180,7 +180,7 @@ class EPCourse extends EPPageObject {
 					$changedSummaries[] = $countMap[$usersField];
 				}
 
-				if ( count( $removedIds ) > 0 ) {
+				if ( !empty( $removedIds ) ) {
 					$dbw->delete( 'ep_users_per_course', array(
 						'upc_course_id' => $this->getId(),
 						'upc_user_id' => $removedIds,
@@ -579,7 +579,10 @@ class EPCourse extends EPPageObject {
 		$users = $this->getField( $field );
 		$addedUsers = array_diff( (array)$newUsers, $users );
 
-		if ( count( $addedUsers ) > 0 ) {
+		if ( empty( $addedUsers ) ) {
+			return 0;
+		}
+		else {
 			$this->setField( $field, array_merge( $users, $addedUsers ) );
 
 			$success = true;
@@ -596,9 +599,6 @@ class EPCourse extends EPPageObject {
 			}
 
 			return $success ? count( $addedUsers ) : false;
-		}
-		else {
-			return 0;
 		}
 	}
 
@@ -630,7 +630,10 @@ class EPCourse extends EPPageObject {
 		
 		$removedUsers = array_intersect( $sadUsers, $this->getField( $field ) );
 
-		if ( count( $removedUsers ) > 0 ) {
+		if ( empty( $removedUsers ) ) {
+			return 0;
+		}
+		else {
 			$this->setField( $field, array_diff( $this->getField( $field ), $sadUsers ) );
 
 			if ( $role === 'student' ) {
@@ -657,9 +660,6 @@ class EPCourse extends EPPageObject {
 			}
 
 			return $success ? count( $removedUsers ) : false;
-		}
-		else {
-			return 0;
 		}
 	}
 

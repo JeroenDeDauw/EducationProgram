@@ -56,7 +56,7 @@ class ApiDeleteEducation extends ApiBase {
 
 		$class = self::$typeMap[$params['type']];
 		
-		if ( count( $params['ids'] ) > 0 ) {
+		if ( !empty( $params['ids'] ) ) {
 			$revAction = new EPRevisionAction();
 			
 			$revAction->setUser( $this->getUser() );

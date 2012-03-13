@@ -262,7 +262,7 @@
 
 		$( '.ep-rem-article' ).click( removeArticle );
 
-		$( '#addarticlename' ).autocomplete( { // TODO
+		$( '#addarticlename' ).autocomplete( {
 			source: function( request, response ) {
 				$.getJSON(
 					wgScriptPath + '/api.php',

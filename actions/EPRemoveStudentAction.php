@@ -33,7 +33,7 @@ class EPRemoveStudentAction extends FormlessAction {
 			'format' => 'json',
 			'courseid' => $this->getRequest()->getInt( 'course-id' ),
 			'userid' => $this->getRequest()->getInt( 'user-id' ),
-			'reason' => '', // TODO
+			'reason' => '', // TODO high
 			'role' => 'student'
 		), true ), true );
 

@@ -55,7 +55,7 @@ abstract class EPViewAction extends EPAction {
 				) );
 
 				if ( $rev === false ) {
-					// TODO
+					// TODO high
 				}
 				else {
 					$object = $rev->getObject();
