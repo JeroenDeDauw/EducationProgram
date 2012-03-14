@@ -90,7 +90,7 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 		$fields = array();
 
 		$class = $this->getClassName();
-		$ambassador = $class::newFromUser( $this->getUser() );
+		$ambassador = $class::newFromUser( $this->getUser(), true );
 
 		$msgPrefix = $this->getMsgPrefix();
 
