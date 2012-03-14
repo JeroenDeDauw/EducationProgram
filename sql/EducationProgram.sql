@@ -36,7 +36,7 @@ CREATE INDEX /*i*/ep_org_instructor_count ON /*_*/ep_orgs (org_instructor_count)
 CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_id                  INT unsigned        NOT NULL auto_increment PRIMARY KEY,
 
-  course_org_id              INT unsigned        NOT NULL, -- Foreign key on ep_orgs.org_id. Helper field, not strictly needed.
+  course_org_id              INT unsigned        NOT NULL, -- Foreign key on ep_orgs.org_id.
   course_name                VARCHAR(255)        NOT NULL, -- Title of the course. ie "Master in Angry Birds (2012 q1)"
   course_mc                  VARCHAR(255)        NOT NULL, -- Name of the course. ie "Master in Angry Birds"
   course_start               varbinary(14)       NOT NULL, -- Start time of the course
@@ -96,6 +96,19 @@ CREATE UNIQUE INDEX /*i*/ep_articles_course_page ON /*_*/ep_articles (article_co
 
 
 
+-- Links the students with their courses.
+CREATE TABLE IF NOT EXISTS /*_*/ep_users_per_course (
+  upc_user_id                INT unsigned        NOT NULL, -- Foreign key on ep_user.user_id
+  upc_course_id              INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
+  upc_role                   TINYINT unsigned    NOT NULL -- The role the user has for the course
+) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/ep_users_per_course ON /*_*/ep_users_per_course (upc_user_id, upc_course_id, upc_role);
+CREATE INDEX /*i*/ep_upc_course_id ON /*_*/ep_users_per_course (upc_course_id);
+CREATE INDEX /*i*/ep_upc_role ON /*_*/ep_users_per_course (upc_role);
+
+
+
 -- Students. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_students (
   student_id                 INT unsigned        NOT NULL auto_increment PRIMARY KEY,
@@ -111,19 +124,6 @@ CREATE UNIQUE INDEX /*i*/ep_students_user_id ON /*_*/ep_students (student_user_i
 CREATE INDEX /*i*/ep_students_first_enroll ON /*_*/ep_students (student_first_enroll);
 CREATE INDEX /*i*/ep_students_last_active ON /*_*/ep_students (student_last_active);
 CREATE INDEX /*i*/ep_students_active_enroll ON /*_*/ep_students (student_active_enroll);
-
-
-
--- Links the students with their courses.
-CREATE TABLE IF NOT EXISTS /*_*/ep_users_per_course (
-  upc_user_id                INT unsigned        NOT NULL, -- Foreign key on ep_user.user_id
-  upc_course_id              INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
-  upc_role                   TINYINT unsigned    NOT NULL -- The role the user has for the course
-) /*$wgDBTableOptions*/;
-
-CREATE UNIQUE INDEX /*i*/ep_users_per_course ON /*_*/ep_users_per_course (upc_user_id, upc_course_id, upc_role);
-CREATE INDEX /*i*/ep_upc_course_id ON /*_*/ep_users_per_course (upc_course_id);
-CREATE INDEX /*i*/ep_upc_role ON /*_*/ep_users_per_course (upc_role);
 
 
 
@@ -172,15 +172,43 @@ CREATE INDEX /*i*/ep_oas_visible ON /*_*/ep_oas (oa_visible);
 -- as a prototype for a more general system to store this kind of data in a visioned fashion.
 CREATE TABLE IF NOT EXISTS /*_*/ep_revisions (
   rev_id                     INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+
+  -- Id of the object from it's cannonical table.
+  -- Since we can have multiple revisions of the same object, this is not unique.
+  -- Also note that for selection you need the type as well, since objects
+  -- of different types can have the same id.
   rev_object_id              INT unsigned        NOT NULL,
+
+  -- Optional identifier for the object, such as a page name.
+  -- This is needed to be able to find revisions of deleted items for which only such an identifier is provided.
   rev_object_identifier      VARCHAR(255)        NULL,
+
+  -- String idenifying the type of the object.
+  -- This is used to resolve which table it belongs to.
   rev_type                   varbinary(32)       NOT NULL,
+
+  -- Comment provided by the user that created this revision.
   rev_comment                TINYBLOB            NOT NULL,
+
+  -- Id of the user that created this revision. 0 if anon.
   rev_user_id                INT unsigned        NOT NULL default 0,
+
+  -- Name of the user that created this revision. ip address if anon.
   rev_user_text              varbinary(255)      NOT NULL,
+
+  -- Time at which the revision was made.
   rev_time                   varbinary(14)       NOT NULL,
+
+  -- If the revision is a minor edit.
   rev_minor_edit             TINYINT unsigned    NOT NULL default 0,
+
+  -- If the revision is a deletion.
   rev_deleted                TINYINT unsigned    NOT NULL default 0,
+
+  -- The actual revision content. This is a blob containing the fields
+  -- of the object (array) passed to PHPs serialize().
+  -- A new DBDataObject of it's type can be constructed by passing
+  -- it the result of unserialize on this blob.
   rev_data                   BLOB                NOT NULL
 ) /*$wgDBTableOptions*/;
 
