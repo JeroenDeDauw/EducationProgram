@@ -169,19 +169,6 @@ class EPArticle extends DBDataObject {
 	}
 
 	/**
-	 * Logs the adittion of the users matching the provided ids as reviewers to this article.
-	 *
-	 * @since 0.1
-	 *
-	 * @param array $userIds
-	 */
-	public function logReviewersAdittion( array $userIds ) {
-		foreach ( $userIds as $userId ) {
-			$this->log( User::newFromId( $userId ), 'review' );
-		}
-	}
-
-	/**
 	 * Removes the users matching the provided ids as reviewers from this article.
 	 * Users that are not a reviwer will just be ignored. An array with actually removed
 	 * user ids is returned.
@@ -203,15 +190,30 @@ class EPArticle extends DBDataObject {
 	}
 
 	/**
+	 * Logs the adittion of the users matching the provided ids as reviewers to this article.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $userIds
+	 * @param string|false $comment
+	 */
+	public function logReviewersAdittion( array $userIds, $comment = false ) {
+		foreach ( $userIds as $userId ) {
+			$this->log( User::newFromId( $userId ), 'review', $comment );
+		}
+	}
+
+	/**
 	 * Logs the removal of the users matching the provided ids as reviewers for this article.
 	 *
 	 * @since 0.1
 	 *
 	 * @param array $userIds
+	 * @param string|false $comment
 	 */
-	public function logReviewersRemoval( array $userIds ) {
+	public function logReviewersRemoval( array $userIds, $comment = false ) {
 		foreach ( $userIds as $userId ) {
-			$this->log( User::newFromId( $userId ), 'unreview' );
+			$this->log( User::newFromId( $userId ), 'unreview', $comment );
 		}
 	}
 
@@ -219,11 +221,13 @@ class EPArticle extends DBDataObject {
 	 * Log adittion of the article.
 	 *
 	 * @param User $actionUser
+	 * @param string|false $comment
 	 */
-	public function logAdittion( User $actionUser ) {
+	public function logAdittion( User $actionUser, $comment = false ) {
 		$this->log(
 			$actionUser,
-			$actionUser->getId() === $this->getUser()->getId() ? 'selfadd' : 'add'
+			$actionUser->getId() === $this->getUser()->getId() ? 'selfadd' : 'add',
+			$comment
 		);
 	}
 
@@ -231,11 +235,13 @@ class EPArticle extends DBDataObject {
 	 * Log removal of the article.
 	 *
 	 * @param User $actionUser
+	 * @param string|false $comment
 	 */
-	public function logRemoval( User $actionUser ) {
+	public function logRemoval( User $actionUser, $comment = false ) {
 		$this->log(
 			$actionUser,
-			$actionUser->getId() === $this->getUser()->getId() ? 'selfremove' : 'remove'
+			$actionUser->getId() === $this->getUser()->getId() ? 'selfremove' : 'remove',
+			$comment
 		);
 	}
 
@@ -246,11 +252,12 @@ class EPArticle extends DBDataObject {
 	 *
 	 * @param User $actionUser
 	 * @param string $subType
+	 * @param string|false $comment
 	 */
-	protected function log( User $actionUser, $subType ) {
+	protected function log( User $actionUser, $subType, $comment = false ) {
 		$articleOwner = $this->getUser();
 
-		EPUtils::log( array(
+		$logData = array(
 			'user' => $actionUser,
 			'title' => $this->getTitle(),
 			'type' => 'eparticle',
@@ -259,7 +266,13 @@ class EPArticle extends DBDataObject {
 				'4::coursename' => $this->getCourse()->getTitle()->getFullText(),
 				'5::owner' => array( $articleOwner->getId(), $articleOwner->getName() ),
 			),
-		) );
+		);
+
+		if ( $comment !== false ) {
+			$logData['comment'] = $comment;
+		}
+
+		EPUtils::log( $logData );
 	}
 
 	/**
