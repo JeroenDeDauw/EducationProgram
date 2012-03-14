@@ -208,12 +208,12 @@ $messages['en'] = array(
 
 	// Special:EducationProgram
 	'ep-summary-table-header' => 'Education Program summary',
-	'specialeducationprogram-summary-org-count' => 'Amount of [[Special:Institutions|institutions]]',
-	'specialeducationprogram-summary-course-count' => 'Amount of [[Special:Courses|courses]]',
-	'specialeducationprogram-summary-student-count' => 'Amount of [[Special:Students|students]]',
-	'specialeducationprogram-summary-instructor-count' => 'Amount of instructors',
-	'specialeducationprogram-summary-ca-count' => 'Amount of [[Special:CampusAmbassadors|Campus Ambassadors]]',
-	'specialeducationprogram-summary-oa-count' => 'Amount of [[Special:OnlineAmbassadors|Online Ambassadors]]',
+	'specialeducationprogram-summary-org-count' => 'Number of [[Special:Institutions|institutions]]',
+	'specialeducationprogram-summary-course-count' => 'Number of [[Special:Courses|courses]]',
+	'specialeducationprogram-summary-student-count' => 'Number of [[Special:Students|students]]',
+	'specialeducationprogram-summary-instructor-count' => 'Number of instructors',
+	'specialeducationprogram-summary-ca-count' => 'Number of [[Special:CampusAmbassadors|Campus Ambassadors]]',
+	'specialeducationprogram-summary-oa-count' => 'Number of [[Special:OnlineAmbassadors|Online Ambassadors]]',
 
 	// Special:Institutions
 	'ep-institutions-nosuchinstitution' => 'There is no institution with name "$1". Existing institutions are listed below.',

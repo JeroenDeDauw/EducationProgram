@@ -169,7 +169,7 @@ class EPUtils {
 				$attribs = array();
 			}
 
-			$links[] = Linker::linkKnown(
+			$links[] = Linker::link(
 				$target,
 				htmlspecialchars( $label ),
 				$attribs
@@ -188,7 +188,7 @@ class EPUtils {
 	 *
 	 * @param  IContextSource $context
 	 *
-	 * @return array
+	 * @return array of Title
 	 */
 	public static function getDefaultNavigationItems( IContextSource $context ) {
 		$items = array(
