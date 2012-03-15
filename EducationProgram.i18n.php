@@ -142,7 +142,7 @@ $messages['en'] = array(
 	'right-ep-instructor' => 'Add or remove instructors to courses',
 	'right-ep-beonline' => 'Add or remove yourself as online ambassador from terms',
 	'right-ep-becampus' => 'Add or remove yourself as campus ambassador from terms',
-	'right-ep-beinstructor' => ' Add or remove yourself as instructor from courses',
+	'right-ep-beinstructor' => 'Add or remove yourself as instructor from courses',
 	'right-ep-bereviewer' => 'Add or remove yourself as reviewer from articles',
 	'right-ep-remreviewer' => 'Remove reviewers from articles',
 	'right-ep-bulkdelorgs' => 'Bulk delete institutions',
@@ -772,21 +772,60 @@ The deletion log for this course is provided below for convenience:",
 
 /** Message documentation (Message documentation)
  * @author Jeroen De Dauw
+ *
+ * Please leave the doc headers intact, else it becomes very hard to
+ * get a decent overview of what is and what is not (yet) documented!
  */
 $messages['qqq'] = array(
-	'right-' => '{{doc-right|}}',
+	// Rights
+	'right-ep-org' => '{{doc-right|ep-org}}',
+	'right-ep-course' => '{{doc-right|ep-course}}',
+	'right-ep-token' => '{{doc-right|ep-token}}',
+	'right-ep-remstudent' => '{{doc-right|ep-remstudent}}',
+	'right-ep-enroll' => '{{doc-right|ep-enroll}}',
+	'right-ep-online' => '{{doc-right|ep-online}}',
+	'right-ep-campus' => '{{doc-right|ep-campus}}',
+	'right-ep-instructor' => '{{doc-right|ep-instructor}}',
+	'right-ep-beonline' => '{{doc-right|ep-beonline}}',
+	'right-ep-becampus' => '{{doc-right|ep-becampus}}',
+	'right-ep-beinstructor' => '{{doc-right|ep-beinstructor}}',
+	'right-ep-bereviewer' => '{{doc-right|ep-bereviewer}}',
+	'right-ep-remreviewer' => '{{doc-right|ep-remreviewer}}',
+	'right-ep-bulkdelorgs' => '{{doc-right|ep-bulkdelorgs}}',
+	'right-ep-bulkdelcourses' => '{{doc-right|ep-bulkdelcourses}}',
 
-	'action-' => '{{doc-action|}}',
+	// Actions
+	'action-ep-org' => '{{doc-action|ep-org}}',
+	'action-ep-course' => '{{doc-action|ep-course}}',
+	'action-ep-token' => '{{doc-action|ep-token}}',
+	'action-ep-remstudent' => '{{doc-action|ep-remstudent}}',
+	'action-ep-enroll' => '{{doc-action|ep-enroll}}',
+	'action-ep-online' => '{{doc-action|ep-online}}',
+	'action-ep-campus' => '{{doc-action|ep-campus}}',
+	'action-ep-instructor' => '{{doc-action|ep-instructor}}',
+	'action-ep-beonline' => '{{doc-action|ep-beonline}}',
+	'action-ep-becampus' => '{{doc-action|ep-becampus}}',
+	'action-ep-beinstructor' => '{{doc-action|ep-beinstructor}}',
+	'action-ep-bereviewer' => '{{doc-action|ep-bereviewer}}',
+	'action-ep-remreviewer' => '{{doc-action|ep-remreviewer}}',
+	'action-ep-bulkdelorgs' => '{{doc-action|ep-bulkdelorgs}}',
+	'action-ep-bulkdelcourses' => '{{doc-action|ep-bulkdelcourses}}',
 
+	// Special pages
 	'specialpages-group-education' => 'Special pages group, h2',
 	'special-mycourses' => '{{doc-special|mycourses}}',
-	'special-institution' => '{{doc-special|institution}}',
 	'special-institutions' => '{{doc-special|institutions}}',
 	'special-student' => '{{doc-special|student}}',
 	'special-students' => '{{doc-special|students}}',
-	'special-course' => '{{doc-special|course}}',
 	'special-courses' => '{{doc-special|courses}}',
 	'special-educationprogram' => '{{doc-special|educationprogram}}',
+	'special-enroll' => '{{doc-special|enroll}}',
+	'special-onlineambassadors' => '{{doc-special|onlineambassadors}}',
+	'special-campusambassadors' => '{{doc-special|campusambassadors}}',
+	'special-onlineambassador' => '{{doc-special|onlineambassador}}',
+	'special-campusambassador' => '{{doc-special|campusambassador}}',
+	'special-disenroll' => '{{doc-special|disenroll}}',
 
-	'ep-institutions-nosuchinstitution' => 'Error message stating there is no institution with name $1',
+
+
 );
