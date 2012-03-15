@@ -200,6 +200,7 @@ $messages['en'] = array(
 	'special-onlineambassador' => 'Online ambassador',
 	'special-campusambassador' => 'Campus ambassador',
 	'special-disenroll' => 'Disenroll',
+	'special-studentactivity' => 'Student activity',
 
 	// Course statuses
 	'ep-course-status-passed' => 'Passed',
@@ -361,6 +362,12 @@ This will permanently remove their associated articles and reviewers!',
 	'epoapager-header-bio' => 'Profile',
 	'epoapager-header-courses' => 'Current courses',
 	'ep-oa-noresults' => 'There are no Online Ambassadors to list.',
+
+	// Student activity pager
+	'epstudentactivitypager-header-user-id' => 'Student',
+	'epstudentactivitypager-header-org-id' => 'Institution',
+	'epstudentactivitypager-header-last-course' => 'Course',
+	'epstudentactivitypager-header-last-active' => 'Last activity',
 
 	// Institution editing
 	'editinstitution-text' => 'Enter the institution details below and click submit to save your changes.',
@@ -825,7 +832,6 @@ $messages['qqq'] = array(
 	'special-onlineambassador' => '{{doc-special|onlineambassador}}',
 	'special-campusambassador' => '{{doc-special|campusambassador}}',
 	'special-disenroll' => '{{doc-special|disenroll}}',
-
-
+	'special-studentactivity' => '{{doc-special|studentactivity}}',
 
 );

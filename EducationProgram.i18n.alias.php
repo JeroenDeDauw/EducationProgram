@@ -26,10 +26,9 @@ $specialPageAliases['en'] = array(
 	'Disenroll' => array( 'Disenroll' ),
 	'CampusAmbassadors' => array( 'CampusAmbassadors' ),
 	'OnlineAmbassadors' => array( 'OnlineAmbassadors' ),
-//	'CampusAmbassador' => array( 'CampusAmbassador' ),
-//	'OnlineAmbassador' => array( 'OnlineAmbassador' ),
 	'OnlineAmbassadorProfile' => array( 'OnlineAmbassadorProfile' ),
 	'CampusAmbassadorProfile' => array( 'CampusAmbassadorProfile' ),
+	'StudentActivity' => array( 'StudentActivity' ),
 );
 
 /** Dutch (Nederlands) */

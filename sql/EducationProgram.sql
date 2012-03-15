@@ -100,28 +100,36 @@ CREATE UNIQUE INDEX /*i*/ep_articles_course_page ON /*_*/ep_articles (article_co
 CREATE TABLE IF NOT EXISTS /*_*/ep_users_per_course (
   upc_user_id                INT unsigned        NOT NULL, -- Foreign key on ep_user.user_id
   upc_course_id              INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
-  upc_role                   TINYINT unsigned    NOT NULL -- The role the user has for the course
+  upc_role                   TINYINT unsigned    NOT NULL, -- The role the user has for the course
+  upc_time                   varbinary(14)       NOT NULL -- Time at which the link was made
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_users_per_course ON /*_*/ep_users_per_course (upc_user_id, upc_course_id, upc_role);
 CREATE INDEX /*i*/ep_upc_course_id ON /*_*/ep_users_per_course (upc_course_id);
 CREATE INDEX /*i*/ep_upc_role ON /*_*/ep_users_per_course (upc_role);
+CREATE INDEX /*i*/ep_upc_time ON /*_*/ep_users_per_course (upc_time);
 
 
 
 -- Students. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_students (
   student_id                 INT unsigned        NOT NULL auto_increment PRIMARY KEY,
-
   student_user_id            INT unsigned        NOT NULL, -- Foreign key on user.user_id
-  student_first_enroll       varbinary(14)       NOT NULL, -- Time of first enrollment
 
-  student_last_active        varbinary(14)       NOT NULL, -- Time of last activity
+  -- Summary fields - cahing data or computations on data stored elswhere
+  student_first_enroll       varbinary(14)       NOT NULL, -- Time of first enrollment
+  student_first_course       INT unsigned        NOT NULL, -- First course the user enrolled in
+  student_last_enroll        varbinary(14)       NOT NULL, -- Time of last enrollment
+  student_last_course        INT unsigned        NOT NULL, -- Last course the user enrolled in
+  student_last_active        varbinary(14)       NOT NULL, -- Time of last activity in article NS
   student_active_enroll      TINYINT unsigned    NOT NULL -- If the student is enrolled in any active courses
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_students_user_id ON /*_*/ep_students (student_user_id);
 CREATE INDEX /*i*/ep_students_first_enroll ON /*_*/ep_students (student_first_enroll);
+CREATE INDEX /*i*/ep_students_first_course ON /*_*/ep_students (student_first_course);
+CREATE INDEX /*i*/ep_students_last_enroll ON /*_*/ep_students (student_last_enroll);
+CREATE INDEX /*i*/ep_students_last_course ON /*_*/ep_students (student_last_course);
 CREATE INDEX /*i*/ep_students_last_active ON /*_*/ep_students (student_last_active);
 CREATE INDEX /*i*/ep_students_active_enroll ON /*_*/ep_students (student_active_enroll);
 

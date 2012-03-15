@@ -53,6 +53,14 @@ final class EPHooks {
 			true
 		) );
 
+		$updater->addExtensionUpdate( array(
+			'addField',
+			'ep_users_per_course',
+			'upc_time',
+			dirname( __FILE__ ) . '/sql/AddActivityStuff.sql',
+			true
+		) );
+
 		return true;
 	}
 
