@@ -55,7 +55,9 @@ class EPStudents extends DBTable {
 
 			'user_id' => 'int',
 			'first_enroll' => 'str', // TS_MW
-
+			'first_course' => 'int',
+			'last_enroll' => 'str', // TS_MW
+			'last_course' => 'int',
 			'last_active' => 'str', // TS_MW
 			'active_enroll' => 'bool',
 		);

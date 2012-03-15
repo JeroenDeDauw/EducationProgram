@@ -590,6 +590,14 @@ class EPCourse extends EPPageObject {
 				$this->enableLogging();
 			}
 
+			if ( $success && $role === 'student' ) {
+				foreach ( $addedUsers as $userId ) {
+					$student = EPStudent::newFromUserId( $userId, true, 'id' );
+					$student->onEnrolled( $this->getId() );
+					$student->save();
+				}
+			}
+
 			if ( $success && !is_null( $revAction ) ) {
 				$action = count( $addedUsers ) == 1 && $revAction->getUser()->getId() === $addedUsers[0] ? 'selfadd' : 'add';
 				$this->logRoleChange( $action, $role, $addedUsers, $revAction->getComment() );

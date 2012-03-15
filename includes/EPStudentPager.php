@@ -55,7 +55,7 @@ class EPStudentPager extends EPPager {
 			'user_id',
 			'first_enroll',
 			'last_active',
-			'active_enroll',
+			//'active_enroll',
 		);
 	}
 

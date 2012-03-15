@@ -241,21 +241,13 @@ class SpecialEnroll extends SpecialEPPage {
 
 		if ( !$hadStudent ) {
 			$student = EPStudents::singleton()->newFromArray( array( 'user_id' => $this->getUser()->getId() ), true );
-			$fields['first_enroll'] = wfTimestamp( TS_MW );
 		}
 
 		$student->setFields( $fields );
 
 		$success = $student->save();
 
-		if ( $success ) {
-			$success = $student->associateWithCourses( array( $course ) ) && $success;
-
-			if ( !$hadStudent ) {
-				$this->getUser()->setOption( 'ep_showtoplink', true );
-				$this->getUser()->saveSettings();
-			}
-		}
+		$success = $success && $student->associateWithCourses( array( $course ) );
 
 		return $success;
 	}

@@ -97,9 +97,9 @@ class EPStudentActivityPager extends EPPager {
 	public function __construct( IContextSource $context, array $conds = array() ) {
 		$this->mDefaultDirection = true;
 
-//		$conds[] = 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
-//			wfTimestamp( TS_MW, time() - ( EPSettings::get( 'recentActivityLimit' ) ) )
-//		);
+		$conds[] = 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
+			wfTimestamp( TS_MW, time() - ( EPSettings::get( 'recentActivityLimit' ) ) )
+		);
 
 		parent::__construct( $context, $conds, EPStudents::singleton() );
 	}
