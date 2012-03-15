@@ -363,11 +363,23 @@ abstract class DBDataObject {
 		$success = $dbw->update(
 			$this->table->getDBTable(),
 			$this->getWriteValues(),
-			array( $this->table->getPrefixedField( 'id' ) => $this->getId() ),
+			$this->table->getPrefixedValues( $this->getUpdateConditions() ),
 			is_null( $functionName ) ? __METHOD__ : $functionName
 		);
 
 		return $success;
+	}
+
+	/**
+	 * Returns the WHERE considtions needed to identify this object so
+	 * it can be updated.
+	 *
+	 * @since 1.20
+	 *
+	 * @return array
+	 */
+	protected function getUpdateConditions() {
+		return array( 'id' => $this->getId() );
 	}
 
 	/**

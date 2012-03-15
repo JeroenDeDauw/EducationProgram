@@ -122,6 +122,11 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 			'cssclass' => 'commons-input',
 		);
 
+		$fields['id'] = array(
+			'type' => 'hidden',
+			'default' => $ambassador->getId(),
+		);
+
 		return $fields;
 	}
 
@@ -132,10 +137,9 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 	 */
 	public function onSuccess() {
 		$class = $this->getClassName();
-		$ambassador = $class::newFromUser( $this->getUser() );
 
 		EPUtils::log( array(
-			'type' => $ambassador->getRoleName(),
+			'type' => $class::newFromUser( $this->getUser() )->getRoleName(),
 			'subtype' => 'profilesave',
 			'user' => $this->getUser(),
 			'title' => $this->getTitle(),
@@ -155,8 +159,10 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 	 */
 	public function onSubmit( array $data ) {
 		$class = $this->getClassName();
+
 		$ambassador = $class::newFromUser( $this->getUser() );
 		$ambassador->setFields( $data );
+
 		return $ambassador->save() ? true : array();
 	}
 

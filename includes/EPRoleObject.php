@@ -265,7 +265,15 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		
 		return $courses;
 	}
-	
+
+	/**
+	 * Returns the role ID for the object by looking it up
+	 * in a map using it's name.
+	 *
+	 * @since 0.1
+	 *
+	 * @return integer, part of EP_ enum.
+	 */
 	protected function getRoleId() {
 		$map = array(
 			'campus' => EP_CA,
@@ -275,6 +283,26 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		);
 
 		return $map[$this->getRoleName()];
+	}
+
+	/**
+	 * @see DBDataObject::getUpdateConditions()
+	 *
+	 * Always adding the user ID to the list of consitions,
+	 * even when not loaded yet (a new query will be done),
+	 * so that it's not possible to update an existing user
+	 * with a wrong user ID.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
+	protected function getUpdateConditions() {
+		$conds = parent::getUpdateConditions();
+
+		$conds['user_id'] = $this->loadAndGetField( 'user_id' );
+
+		return $conds;
 	}
 	
 }
