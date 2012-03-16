@@ -113,7 +113,8 @@ class EPStudentActivityPager extends EPPager {
 					$value = EPCourses::singleton()->getLinkFor( $this->courseNames[$value] );
 				}
 				else {
-					wfWarn( 'Course id not in $this->courseNames in ' . __METHOD__ );
+					// TODO: enable
+					//wfWarn( 'Course id not in $this->courseNames in ' . __METHOD__ );
 				}
 				break;
 			case 'org_id':
@@ -130,7 +131,8 @@ class EPStudentActivityPager extends EPPager {
 					}
 				}
 				else {
-					wfWarn( 'Course id not in $this->courseOrgs in ' . __METHOD__ );
+					// TODO: enable
+					//wfWarn( 'Course id not in $this->courseOrgs in ' . __METHOD__ );
 				}
 				break;
 		}
