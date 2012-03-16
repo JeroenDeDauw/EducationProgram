@@ -144,6 +144,7 @@ $wgAutoloadClasses['SpecialOAProfile'] 				= dirname( __FILE__ ) . '/specials/Sp
 $wgAutoloadClasses['SpecialCAProfile'] 				= dirname( __FILE__ ) . '/specials/SpecialCAProfile.php';
 $wgAutoloadClasses['SpecialAmbassadorProfile'] 		= dirname( __FILE__ ) . '/specials/SpecialAmbassadorProfile.php';
 $wgAutoloadClasses['SpecialStudentActivity'] 		= dirname( __FILE__ ) . '/specials/SpecialStudentActivity.php';
+$wgAutoloadClasses['SpecialCachedPage'] 			= dirname( __FILE__ ) . '/specials/SpecialCachedPage.php';
 
 // Special pages
 $wgSpecialPages['MyCourses'] 						= 'SpecialMyCourses';
