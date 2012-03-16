@@ -27,6 +27,11 @@ class EPSettings {
 	 * @return array
 	 */
 	protected static function getDefaultSettings() {
+		global $wgExtensionAssetsPath, $wgScriptPath;
+
+		$resourceDir = $egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions' : $wgExtensionAssetsPath;
+		$resourceDir .= '/EducationProgram/resources/';
+
 		return array(
 			'enableTopLink' => true,
 			'ambassadorPictureDomains' => array(
@@ -35,7 +40,9 @@ class EPSettings {
 			'ambassadorCommonsUrl' => 'https://commons.wikimedia.org/wiki/Special:UploadWizard',
 			'citylessCountries' => array( 'BT', 'BV', 'IO', 'VG', 'TD', 'CX', 'CC', 'KM', 'DJ', 'GQ', 'FK', 'FX', 'TF', 'GW', 'HM', 'KI', 'YT', 'MS', 'NR', 'NU', 'NF', 'PN', 'SH', 'PM', 'WS', 'SC', 'GS', 'SJ', 'TK', 'TP', 'TV', 'UM', 'VU', 'EH' ),
 			'ambassadorImgWidth' => 140,
-			'recentActivityLimit' => 24 * 60 * 60,
+			'recentActivityLimit' => 17 * 60 * 60,
+			'resourceDir' => $resourceDir,
+			'imageDir' => $resourceDir . 'images/',
 		);
 	}
 
