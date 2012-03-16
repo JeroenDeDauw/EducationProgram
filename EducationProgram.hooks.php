@@ -381,5 +381,35 @@ final class EPHooks {
 		
 		return $allowed;
 	}
+
+	/**
+	 * Called when a revision was inserted due to an edit.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/NewRevisionFromEditComplete
+	 *
+	 * @since 0.1
+	 *
+	 * @param weirdStuffButProbablyWikiPage $article
+	 * @param Revision $rev
+	 * @param integer $baseID
+	 * @param User $user
+	 *
+	 * @return true
+	 */
+	public static function onNewRevisionFromEditComplete( $article, Revision $rev, $baseID, User $user ) {
+		if ( $article->getTitle()->inNamespaces( NS_MAIN, NS_TALK ) ) {
+			$studentId = EPStudents::singleton()->selectFieldsRow( 'id', array( 'user_id' => $user->getId() ) );
+
+			if ( $studentId !== false ) {
+				$student = EPStudent::newFromUserId( $user->getId() );
+				$student->setFields( array(
+					'id' => $studentId,
+					'last_active' => wfTimestampNow()
+				) );
+				$student->save();
+			}
+		}
+
+		return true;
+	}
 	
 }

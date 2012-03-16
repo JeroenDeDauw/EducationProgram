@@ -194,6 +194,7 @@ $wgHooks['ArticleFromTitle'][] 						= 'EPHooks::onArticleFromTitle';
 $wgHooks['CanonicalNamespaces'][] 					= 'EPHooks::onCanonicalNamespaces';
 $wgHooks['TitleIsAlwaysKnown'][] 					= 'EPHooks::onTitleIsAlwaysKnown';
 $wgHooks['AbortMove'][] 							= 'EPHooks::onAbortMove';
+$wgHooks['NewRevisionFromEditComplete'][] 			= 'EPHooks::onNewRevisionFromEditComplete';
 
 // Actions
 $wgActions['epremarticle'] = 'EPRemoveArticleAction';

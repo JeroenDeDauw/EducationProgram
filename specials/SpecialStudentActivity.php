@@ -167,7 +167,7 @@ class EPStudentActivityPager extends EPPager {
 				}
 				break;
 			case 'last_active':
-				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
+				$value = htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
 				break;
 			case 'last_course':
 				if ( array_key_exists( $value, $this->courseNames ) ) {
