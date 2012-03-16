@@ -777,7 +777,7 @@ The deletion log for this course is provided below for convenience:",
 	'epca-visible' => 'Publicly list me as Campus Ambassador',
 
 	// Special:StudentActivity
-	'ep-studentactivity-count' => 'There {{PLURAL:$1|is|are}} currently $1 {{PLURAL:$1|student|students}} that where active in the last 24 hours.',
+	'ep-studentactivity-count' => 'There {{PLURAL:$1|is|are}} currently $1 {{PLURAL:$1|student|students}} that {{PLURAL:$1|was|where}} active in the last 24 hours.',
 );
 
 /** Message documentation (Message documentation)
