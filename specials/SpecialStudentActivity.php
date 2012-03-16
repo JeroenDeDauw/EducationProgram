@@ -80,13 +80,31 @@ class EPStudentActivityPager extends EPPager {
 	protected $userNames = array();
 
 	/**
-	 * List of user ids with the names of their associated courses.
-	 * user id => array( course name 0, ... )
+	 * List of course ids mapped to their title names.
+	 * course id => course name
 	 *
 	 * @since 0.1
 	 * @var array
 	 */
 	protected $courseNames = array();
+
+	/**
+	 * List of course ids pointing to the id of their org.
+	 * course id => org id
+	 *
+	 * @since 0.1
+	 * @var array
+	 */
+	protected $courseOrgs = array();
+
+	/**
+	 * List of org ids mapped to their title names.
+	 * org id => org name
+	 *
+	 * @since 0.1
+	 * @var array
+	 */
+	protected $orgNames = array();
 
 	/**
 	 * Constructor.
@@ -148,9 +166,36 @@ class EPStudentActivityPager extends EPPager {
 					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );
 				}
 				break;
-			case 'first_enroll': case 'last_active':
-			$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
-			break;
+			case 'last_active':
+				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
+				break;
+			case 'last_course':
+				if ( array_key_exists( $value, $this->courseNames ) ) {
+					$value = EPCourses::singleton()->getLinkFor( $this->courseNames[$value] );
+				}
+				else {
+					// TODO: enable
+					//wfWarn( 'Course id not in $this->courseNames in ' . __METHOD__ );
+				}
+				break;
+			case 'org_id':
+				$courseId = $this->currentObject->getField( 'last_course' );
+
+				if ( array_key_exists( $courseId, $this->courseOrgs ) ) {
+					$orgId = $this->courseOrgs[$courseId];
+
+					if ( array_key_exists( $orgId, $this->orgNames ) ) {
+						$value = EPOrgs::singleton()->getLinkFor( $this->orgNames[$orgId] );
+					}
+					else {
+						wfWarn( 'Org id not in $this->orgNames in ' . __METHOD__ );
+					}
+				}
+				else {
+					// TODO: enable
+					//wfWarn( 'Course id not in $this->courseOrgs in ' . __METHOD__ );
+				}
+				break;
 		}
 
 		return $value;
@@ -201,10 +246,14 @@ class EPStudentActivityPager extends EPPager {
 	 */
 	protected function doBatchLookups() {
 		$userIds = array();
-		$field = $this->table->getPrefixedField( 'user_id' );
+		$courseIds = array();
+
+		$userField = $this->table->getPrefixedField( 'user_id' );
+		$courseField = $this->table->getPrefixedField( 'last_course' );
 
 		while( $student = $this->mResult->fetchObject() ) {
-			$userIds[] = (int)$student->$field;
+			$userIds[] = (int)$student->$userField;
+			$courseIds[] = (int)$student->$courseField;
 		}
 
 		if ( !empty( $userIds ) ) {
@@ -219,10 +268,26 @@ class EPStudentActivityPager extends EPPager {
 				$real = $user->user_real_name === '' ? $user->user_name : $user->user_real_name;
 				$this->userNames[$user->user_id] = array( $user->user_name, $real );
 			}
+		}
 
-			$courseNameField = EPCourses::singleton()->getPrefixedField( 'name' );
+		if ( !empty( $courseIds ) ) {
+			$courses = EPCourses::singleton()->selectFields(
+				array( 'id', 'name', 'org_id' ),
+				array( 'id' => array_unique( $courseIds ) )
+			);
 
-			// TODO: $this->courseNames[] =
+			$orgIds = array();
+
+			foreach ( $courses as $courseData ) {
+				$this->courseNames[$courseData['id']] = $courseData['name'];
+				$orgIds[] = $courseData['org_id'];
+				$this->courseOrgs[$courseData['id']] = $courseData['org_id'];
+			}
+
+			$this->orgNames = EPOrgs::singleton()->selectFields(
+				array( 'id', 'name' ),
+				array( 'id' => array_unique( $orgIds ) )
+			);
 		}
 	}
 
