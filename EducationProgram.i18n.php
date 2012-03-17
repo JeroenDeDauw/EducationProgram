@@ -783,7 +783,7 @@ The deletion log for this course is provided below for convenience:",
 You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-studentactivity-count' => 'There {{PLURAL:$1|is|are}} currently $1 {{PLURAL:$1|student|students}} that {{PLURAL:$1|was|where}} active in the last 24 hours.',
 
-	// Cached special page
+	// Cached special page, back compat for MW < 1.20
 	'cachedspecial-viewing-cached-ttl' => 'You are viewing a cached version of this page, which can be up to $1 old.',
 	'cachedspecial-viewing-cached-ts' => 'You are viewing a cached version of this page, which might not be completely actual.',
 	'cachedspecial-refresh-now' => 'View latest.',

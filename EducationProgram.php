@@ -144,7 +144,16 @@ $wgAutoloadClasses['SpecialOAProfile'] 				= dirname( __FILE__ ) . '/specials/Sp
 $wgAutoloadClasses['SpecialCAProfile'] 				= dirname( __FILE__ ) . '/specials/SpecialCAProfile.php';
 $wgAutoloadClasses['SpecialAmbassadorProfile'] 		= dirname( __FILE__ ) . '/specials/SpecialAmbassadorProfile.php';
 $wgAutoloadClasses['SpecialStudentActivity'] 		= dirname( __FILE__ ) . '/specials/SpecialStudentActivity.php';
-$wgAutoloadClasses['SpecialCachedPage'] 			= dirname( __FILE__ ) . '/specials/SpecialCachedPage.php';
+
+// Compat classes
+foreach ( array(
+	'SpecialCachedPage' => 'SpecialCachedPage.php' // MW < 1.20
+	) as $className => $fileName ) {
+
+	if ( !array_key_exists( $className, $wgAutoloadLocalClasses ) ) {
+		$wgAutoloadClasses[$className] = dirname( __FILE__ ) . '/compat/' . $fileName;
+	}
+}
 
 // Special pages
 $wgSpecialPages['MyCourses'] 						= 'SpecialMyCourses';
