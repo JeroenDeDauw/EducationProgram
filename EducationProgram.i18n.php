@@ -805,6 +805,123 @@ You can find a full list of students on [[Special:Students|the student list]].',
  * get a decent overview of what is and what is not (yet) documented!
  */
 $messages['qqq'] = array(
+	'educationprogram-desc' => 'Extension description for on Special:Version',
+
+	// Misc
+	'ep-item-summary' => 'Table column header',
+	'ep-toplink' => 'Text of a link the the top menu (next to "My preferences")',
+	'ep-org-course-delete-comment' => "Success message. $1 is an institution name, $2 is a user provided comment",
+	'ep-org-course-delete' => "Success message. $1 is an institution name",
+	'ep-form-summary' => 'Summary input label',
+	'ep-form-minor' => 'Minor edit checkbox label',
+	'ep-move-error' => 'Error message you get when you try to move stuff in or out of an EP namespace',
+	'ep-student-view-profile' => 'Text of links to student profiles, typically used in tool link lists, next to stuff such as "talk" and "contributions"',
+
+	// Tabs
+	'ep-tab-view' => 'Tab label',
+	'ep-tab-edit' => 'Tab label',
+	'ep-tab-create' => 'Tab label',
+	'ep-tab-history' => 'Tab label',
+	'ep-tab-enroll' => 'Tab label',
+	'ep-tab-disenroll' => 'Tab label',
+	'ep-tab-delete' => 'Tab label',
+
+	// Tooltips
+	'tooltip-ep-form-save' => 'Tooltip text',
+	'tooltip-ep-edit-institution' => 'Tooltip text',
+	'tooltip-ep-edit-course' => 'Tooltip text',
+	'tooltip-ep-summary' => 'Tooltip text',
+	'tooltip-ep-minor' => 'Tooltip text',
+
+	// Access keys
+	'accesskey-ep-form-save' => 'Access key, do not translate',
+	'accesskey-ep-edit-institution' => 'Access key, do not translate',
+	'accesskey-ep-edit-course' => 'Access key, do not translate',
+	'accesskey-ep-summary' => 'Access key, do not translate',
+	'accesskey-ep-minor' => 'Access key, do not translate',
+
+	// Navigation links
+	'ep-nav-orgs' => 'Text of link to institution list',
+	'ep-nav-courses' => 'Text of link to courses list',
+	'ep-nav-mycourses' => 'Text of link to Special:MyCourses',
+	'ep-nav-students' => 'Text of link to students list',
+	'ep-nav-mentors' => 'Text of link to mentors list',
+	'ep-nav-cas' => 'Text of link to Campus Ambassadors list',
+	'ep-nav-oas' => 'Text of link to Online Ambassadors list',
+	'ep-nav-oaprofile' => 'Text of link to a users Online Ambassadors profile',
+	'ep-nav-caprofile' => 'Text of link to a users Campus Ambassadors profile',
+
+	// Logging
+	// log-name = {{Name of the $1 log group}}
+	'log-name-institution' => '{{log-name|institution}}',
+	'log-name-course' => '{{log-name|course}}',
+	'log-name-student' => '{{log-name|student}}',
+	'log-name-online' => '{{log-name|online}}',
+	'log-name-campus' => '{{log-name|campus}}',
+	'log-name-instructor' => '{{log-name|instructor}}',
+	'log-name-eparticle' => '{{log-name|eparticle}}',
+
+	// log-header = {{Header of the $1 log groups page}}
+	'log-header-institution' => '{{log-header|institution}}',
+	'log-header-course' => '{{log-header|course}}',
+	'log-header-instructor' => '{{log-header|instructor}}',
+	'log-header-campus' => '{{log-header|campus}}',
+	'log-header-online' => '{{log-header|online}}',
+	'log-header-student' => '{{log-header|student}}',
+
+	// log-description = {{Description of the $1 log group}}
+	'log-description-institution' => '{{log-description|institution}}',
+	'log-description-course' => '{{log-description|course}}',
+	'log-description-instructor' => '{{log-description|instructor}}',
+	'log-description-online' => '{{log-description|online}}',
+	'log-description-campus' => '{{log-description|campus}}',
+	'log-description-student' => '{{log-description|student}}',
+
+	'logentry-institution-add' => 'Log entry. $1 is the performing user, $3 is the name of the added institution',
+	'logentry-institution-remove' => 'Log entry. $1 is the performing user, $3 is the name of the removed institution',
+	'logentry-institution-update' => 'Log entry. $1 is the performing user, $3 is the name of the updated institution',
+	'logentry-institution-undelete' => 'Log entry. $1 is the performing user, $3 is the name of the undeleted institution',
+
+	'logentry-course-add' => 'Log entry. $1 is the performing user, $3 is the name of the added course',
+	'logentry-course-remove' => 'Log entry. $1 is the performing user, $3 is the name of the removed course',
+	'logentry-course-update' => 'Log entry. $1 is the performing user, $3 is the name of the updated course',
+	'logentry-course-undelete' => 'Log entry. $1 is the performing user, $3 is the name of the undeleted course',
+
+	'logentry-instructor-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of added people',
+	'logentry-instructor-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of removed people',
+	'logentry-instructor-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
+	'logentry-instructor-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
+
+	'logentry-online-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of added people',
+	'logentry-online-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of removed people',
+	'logentry-online-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
+	'logentry-online-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
+	'logentry-online-profilesave' => 'Log entry. User updated own ambassador profile. $1 is the performing user (link), $2 is the name of this user',
+
+	'logentry-campus-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of added people',
+	'logentry-campus-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of removed people',
+	'logentry-campus-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
+	'logentry-campus-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
+	'logentry-campus-profilesave' => 'Log entry. User updated own ambassador profile. $1 is the performing user (link), $2 is the name of this user',
+
+	'logentry-student-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the course in which the user enrolled',
+	'logentry-student-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of removed people',
+	'logentry-student-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the course in which the user enrolled',
+	'logentry-student-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the course in which the user disenrolled',
+
+	'logentry-eparticle-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course',
+	'logentry-eparticle-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course',
+	'logentry-eparticle-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course, $5 is the user that own the article (link), $6 is the name of this user',
+	'logentry-eparticle-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course, $5 is the user that own the article (link), $6 is the name of this user',
+	'logentry-eparticle-review' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course, $5 is the user that own the article (link), $6 is the name of this user',
+	'logentry-eparticle-unreview' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course, $5 is the user that own the article (link), $6 is the name of this user',
+
+	// Preferences
+	'prefs-education' => 'Preferences tab label',
+	'ep-prefs-showtoplink' => 'Preference checkbox label',
+	'ep-prefs-bulkdelorgs' => 'Preference checkbox label',
+	'ep-prefs-bulkdelcourses' => 'Preference checkbox label',
+
 	// Rights
 	'right-ep-org' => '{{doc-right|ep-org}}',
 	'right-ep-course' => '{{doc-right|ep-course}}',
