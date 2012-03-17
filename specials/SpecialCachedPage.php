@@ -96,13 +96,12 @@ abstract class SpecialCachedPage extends SpecialPage {
 		if ( $this->cacheExpiry < 1000000000 ) {
 			$message = $this->msg(
 				'cachedspecial-viewing-cached-ttl',
-				$this->getDurationText()
+				$this->getDurationText( $this->cacheExpiry )
 			)->escaped();
 		}
 		else {
 			$message = $this->msg(
-				'cachedspecial-viewing-cached-ts',
-				$this->getDurationText()
+				'cachedspecial-viewing-cached-ts'
 			)->escaped();
 		}
 
@@ -114,10 +113,37 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 *
 	 * @since 0.1
 	 *
+	 * @param integer $seconds
+	 * @param array $chosenIntervals
+	 *
 	 * @return string
 	 */
-	protected function getDurationText() {
-		return '5 minutes'; // TODO: generate and i18n
+	protected function getDurationText( $seconds, array $chosenIntervals = array( 'years', 'days', 'hours', 'minutes', 'seconds' ) ) {
+		$intervals = array(
+			'years' => 31557600, // 86400 * 365.25
+			'weeks' => 604800,
+			'days' => 86400,
+			'hours' => 3600,
+			'minutes' => 60,
+			'seconds' => 1,
+		);
+
+		if ( !empty( $chosenIntervals ) ) {
+			$intervals = array_intersect_key( $intervals, array_flip( $chosenIntervals ) );
+		}
+
+		$segments = array();
+
+		foreach ( $intervals as $name => $length ) {
+			$value = floor( $seconds / $length );
+
+			if ( $value > 0 || ( $name == 'seconds' && empty( $segments ) ) ) {
+				$seconds -= $value * $length;
+				$segments[] = wfMsgExt( 'duration-' . $name, 'parsemag', $value );
+			}
+		}
+
+		return $this->getLanguage()->listToText( $segments );
 	}
 
 	/**

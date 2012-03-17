@@ -19,7 +19,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		$this->cacheExpiry = 60;
+		$this->cacheExpiry = 180;
 		parent::__construct( 'StudentActivity' );
 	}
 
@@ -72,7 +72,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 		$pager = new EPStudentActivityPager( $this->getContext(), $conds );
 
 		if ( $pager->getNumRows() ) {
-			return
+			$html =
 				$pager->getFilterControl() .
 				$pager->getNavigationBar() .
 				$pager->getBody() .
@@ -80,10 +80,12 @@ class SpecialStudentActivity extends SpecialEPPage {
 				$pager->getMultipleItemControl();
 		}
 		else {
-			return $pager->getFilterControl( true )
+			$html = $pager->getFilterControl( true )
 				. '<br />'
 				. wfMsgExt( 'ep-studentactivity-noresults', 'parseinline' );
 		}
+
+		return '<div class="studentactivity">' . $html . '</div>';
 	}
 
 	/**

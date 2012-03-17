@@ -786,6 +786,15 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'cachedspecial-viewing-cached-ttl' => 'You are viewing a cached version of this page, which can be up to $1 old.',
 	'cachedspecial-viewing-cached-ts' => 'You are viewing a cached version of this page, which might not be completely actual.',
 	'cachedspecial-refresh-now' => 'View latest.',
+
+	// Durations
+	'duration-seconds' => '$1 {{PLURAL:$1|second|seconds}}',
+	'duration-minutes' => '$1 {{PLURAL:$1|minute|minutes}}',
+	'duration-hours' => '$1 {{PLURAL:$1|hour|hours}}',
+	'duration-days' => '$1 {{PLURAL:$1|day|days}}',
+	'duration-weeks' => '$1 {{PLURAL:$1|week|weeks}}',
+	'duration-years' => '$1 {{PLURAL:$1|year|years}}',
+	'duration-centuries' => '$1 {{PLURAL:$1|century|centuries}}',
 );
 
 /** Message documentation (Message documentation)
