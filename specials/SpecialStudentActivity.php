@@ -23,6 +23,8 @@ class SpecialStudentActivity extends SpecialEPPage {
 		$this->cacheExpiry = 600;
 	}
 
+	protected $cachedOut;
+
 	/**
 	 * Main method.
 	 *
@@ -31,31 +33,13 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 * @param string $subPage
 	 */
 	public function execute( $subPage ) {
-		//parent::execute( $subPage );
+		parent::execute( $subPage );
 
-		if ( !is_null( $this->cacheExpiry ) ) {
-			$cache = wfGetCache( CACHE_ANYTHING );
-			$cacheKey = $this->getCacheKey();
-			$cachedHTML = $cache->get( $cacheKey );
+		$this->displayNavigation();
 
-			$out = $this->getOutput();
+		$this->addCachedHTML( array( $this, 'displayCachedContent' ) );
 
-			if ( $this->getRequest()->getText( 'action' ) !== 'purge' && is_string( $cachedHTML ) ) {
-				$html = $cachedHTML;
-			}
-			else {
-				$this->displayCachedContent();
-
-				$html = $out->getHTML();
-				$cache->set( $cacheKey, $html, $this->cacheExpiry );
-			}
-
-			$out->clearHTML();
-
-			$this->displayBeforeCached();
-			$out->addHTML( $html );
-			$this->displayAfterCached();
-		}
+		$this->saveCache();
 	}
 
 	protected function displayCachedContent() {
@@ -63,27 +47,25 @@ class SpecialStudentActivity extends SpecialEPPage {
 			wfTimestamp( TS_MW, time() - ( EPSettings::get( 'recentActivityLimit' ) ) )
 		) );
 
-		$this->displayStudentMeter( $conds );
-		$this->displayPager( $conds );
+		return $this->displayStudentMeter( $conds ) .
+			$this->displayPager( $conds );
 	}
 
 	public function displayPager( array $conds ) {
-		$out = $this->getOutput();
-
 		$pager = new EPStudentActivityPager( $this->getContext(), $conds );
 
 		if ( $pager->getNumRows() ) {
-			$out->addHTML(
+			return
 				$pager->getFilterControl() .
 				$pager->getNavigationBar() .
 				$pager->getBody() .
 				$pager->getNavigationBar() .
-				$pager->getMultipleItemControl()
-			);
+				$pager->getMultipleItemControl();
 		}
 		else {
-			$out->addHTML( $pager->getFilterControl( true ) );
-			$out->addWikiMsg( 'ep-studentactivity-noresults' );
+			return $pager->getFilterControl( true )
+				. '<br />'
+				. wfMsgExt( 'ep-studentactivity-noresults', 'parseinline' );
 		}
 	}
 
@@ -99,7 +81,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 
 		$message = $this->msg( 'ep-studentactivity-count', $studentCount )->escaped();
 
-		$this->getOutput()->addElement( 'img', array(
+		return Html::element( 'img', array(
 			'src' => EPSettings::get( 'imageDir' ) . 'student-o-meter_morethan-' . $image . '.png',
 			'alt' => $message,
 			'title' => $message,
