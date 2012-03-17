@@ -523,6 +523,12 @@ $wgResourceModules['ep.addcourse'] = $moduleTemplate + array(
 	),
 );
 
+$wgResourceModules['ep.studentactivity'] = $moduleTemplate + array(
+	'styles' => array(
+		'ep.studentactivity.css',
+	),
+);
+
 if ( array_key_exists( 'WikiEditorHooks', $GLOBALS['wgAutoloadClasses'] ) ) {
 	$wgResourceModules['ep.formpage']['dependencies'][] = 'ext.wikiEditor.toolbar';
 	$wgResourceModules['ep.ambprofile']['dependencies'][] = 'ext.wikiEditor.toolbar';

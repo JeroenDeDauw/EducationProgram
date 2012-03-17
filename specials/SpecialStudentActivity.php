@@ -33,6 +33,8 @@ class SpecialStudentActivity extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
+		$this->getOutput()->addModules( 'ep.studentactivity' );
+
 		$this->displayNavigation();
 
 		$this->addCachedHTML( array( $this, 'displayCachedContent' ) );
@@ -40,15 +42,32 @@ class SpecialStudentActivity extends SpecialEPPage {
 		$this->saveCache();
 	}
 
+	/**
+	 * Displays the content of the page that should be cached.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	protected function displayCachedContent() {
 		$conds = array( 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
 			wfTimestamp( TS_MW, time() - ( EPSettings::get( 'recentActivityLimit' ) ) )
 		) );
 
 		return $this->displayStudentMeter( $conds ) .
+			'<br />' .
 			$this->displayPager( $conds );
 	}
 
+	/**
+	 * Returns the HTML for the pager.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $conds
+	 *
+	 * @return string
+	 */
 	public function displayPager( array $conds ) {
 		$pager = new EPStudentActivityPager( $this->getContext(), $conds );
 
@@ -67,6 +86,15 @@ class SpecialStudentActivity extends SpecialEPPage {
 		}
 	}
 
+	/**
+	 * Returns the HTML for the student activity meter.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $conds
+	 *
+	 * @return string
+	 */
 	public function displayStudentMeter( array $conds ) {
 		$studentCount = EPStudents::singleton()->count( $conds );
 
@@ -83,6 +111,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 			'src' => EPSettings::get( 'imageDir' ) . 'student-o-meter_morethan-' . $image . '.png',
 			'alt' => $message,
 			'title' => $message,
+			'class' => 'studentometer'
 		) );
 	}
 

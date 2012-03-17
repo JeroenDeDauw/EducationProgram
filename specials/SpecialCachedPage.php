@@ -3,6 +3,14 @@
 /**
  * Abstract special page class with scaffolding for caching the HTML output.
  *
+ * To enable the caching functionality, the cacheExpiry field should be set
+ * in the constructor.
+ *
+ * To add HTML that should be cached, use addCachedHTML like this:
+ * $this->addCachedHTML( array( $this, 'displayCachedContent' ) );
+ *
+ * After adding the last HTML that should be cached, call $this->saveCache();
+ *
  * @since 0.1
  *
  * @file SpecialCachedPage.php
@@ -45,7 +53,7 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param string $subPage
+	 * @param string|null $subPage
 	 */
 	public function execute( $subPage ) {
 		//parent::execute( $subPage );
@@ -63,25 +71,51 @@ abstract class SpecialCachedPage extends SpecialPage {
 		}
 	}
 
+	/**
+	 * Returns a message that notifies the user he/she is looking at
+	 * a cached version of the page, including a refresh link.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string|null $subPage
+	 *
+	 * @return string
+	 */
 	protected function getCachedNotice( $subPage ) {
 		$refreshArgs = $_GET;
 		unset( $refreshArgs['title'] );
 		$refreshArgs['action'] = 'purge';
 
-		return
-			$this->msg(
-				'cachedspecial-viewing-cached',
+		$refreshLink = Linker::link(
+			$this->getTitle( $subPage ),
+			$this->msg( 'cachedspecial-refresh-now' )->escaped(),
+			array(),
+			$refreshArgs
+		);
+
+		if ( $this->cacheExpiry < 1000000000 ) {
+			$message = $this->msg(
+				'cachedspecial-viewing-cached-ttl',
 				$this->getDurationText()
-			)->escaped() .
-			' ' .
-			Linker::link(
-				$this->getTitle( $subPage ),
-				$this->msg( 'cachedspecial-refresh-now' )->escaped(),
-				array(),
-				$refreshArgs
-			);
+			)->escaped();
+		}
+		else {
+			$message = $this->msg(
+				'cachedspecial-viewing-cached-ts',
+				$this->getDurationText()
+			)->escaped();
+		}
+
+		return $message . ' ' . $refreshLink;
 	}
 
+	/**
+	 * Returns a message with the time to live of the cache.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	protected function getDurationText() {
 		return '5 minutes'; // TODO: generate and i18n
 	}
