@@ -144,7 +144,7 @@ abstract class SpecialCachedPage extends SpecialPage {
 
 				if ( $value > 0 || ( $name == 'seconds' && empty( $segments ) ) ) {
 					$seconds -= $value * $length;
-					$segments[] = wfMsgExt( 'duration-' . $name, 'parsemag', $value );
+					$segments[] = $this->msg( 'duration-' . $name, array( $value ) )->escaped();
 				}
 			}
 
