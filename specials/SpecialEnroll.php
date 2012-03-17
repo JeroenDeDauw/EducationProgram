@@ -61,7 +61,7 @@ class SpecialEnroll extends SpecialEPPage {
 			if ( $course === false ) {
 				$this->showWarning( wfMessage( 'ep-enroll-invalid-id' ) );
 			}
-			elseif ( $course->getStatus() === 'current' ) {
+			elseif ( in_array( $course->getStatus(), array( 'current', 'planned' ) ) ) {
 				$this->setPageTitle( $course );
 				
 				$token = '';
@@ -119,7 +119,7 @@ class SpecialEnroll extends SpecialEPPage {
 					$this->onSuccess();
 				}
 				else {
-					$this->showEnrollmentForm( $course );
+					$this->showEnrollmentForm();
 				}
 			}
 			else {
@@ -256,10 +256,8 @@ class SpecialEnroll extends SpecialEPPage {
 	 * Create and display the enrollment form.
 	 *
 	 * @since 0.1
-	 *
-	 * @param EPCourse $course
 	 */
-	protected function showEnrollmentForm( EPCourse $course ) {
+	protected function showEnrollmentForm() {
 		$this->getOutput()->addWikiMsg( 'ep-enroll-header' );
 
 		$form = new HTMLForm( $this->getFormFields(), $this->getContext() );
