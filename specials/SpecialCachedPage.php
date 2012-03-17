@@ -21,8 +21,23 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 */
 	protected $cacheExpiry = 300;
 
+	/**
+	 * List of HTML chunks to be cached (if !hasCached) or that where cashed (of hasCached).
+	 * If no cached already, then the newly computed chunks are added here,
+	 * if it as cached already, chunks are removed from this list as they are needed.
+	 *
+	 * @since 0.1
+	 * @var array
+	 */
 	protected $cachedChunks;
 
+	/**
+	 * Indicates if the to be cached content was already cached.
+	 * Null if this information is not available yet.
+	 *
+	 * @since 0.1
+	 * @var boolean|null
+	 */
 	protected $hasCached = null;
 
 	/**
@@ -119,7 +134,7 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function saveCache() {
-		if ( !$this->hasCached && !empty( $this->cachedChunks ) ) {
+		if ( $this->hasCached === false && !empty( $this->cachedChunks ) ) {
 			wfGetCache( CACHE_ANYTHING )->set( $this->getCacheKey(), $this->cachedChunks, $this->cacheExpiry );
 		}
 	}

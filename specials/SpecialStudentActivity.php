@@ -23,8 +23,6 @@ class SpecialStudentActivity extends SpecialEPPage {
 		$this->cacheExpiry = 600;
 	}
 
-	protected $cachedOut;
-
 	/**
 	 * Main method.
 	 *
