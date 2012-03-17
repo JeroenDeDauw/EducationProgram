@@ -42,13 +42,13 @@ class EPStudentActivityPager extends EPPager {
 	protected $courseOrgs = array();
 
 	/**
-	 * List of org ids mapped to their title names.
-	 * org id => org name
+	 * List of org ids mapped with their associated names and countries.
+	 * org id => array( 'name' => org name, 'country' => country code )
 	 *
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $orgNames = array();
+	protected $orgData = array();
 
 	/**
 	 * Constructor.
@@ -113,8 +113,7 @@ class EPStudentActivityPager extends EPPager {
 					$value = EPCourses::singleton()->getLinkFor( $this->courseNames[$value] );
 				}
 				else {
-					// TODO: enable
-					//wfWarn( 'Course id not in $this->courseNames in ' . __METHOD__ );
+					wfWarn( 'Course id not in $this->courseNames in ' . __METHOD__ );
 				}
 				break;
 			case 'org_id':
@@ -123,16 +122,16 @@ class EPStudentActivityPager extends EPPager {
 				if ( array_key_exists( $courseId, $this->courseOrgs ) ) {
 					$orgId = $this->courseOrgs[$courseId];
 
-					if ( array_key_exists( $orgId, $this->orgNames ) ) {
-						$value = EPOrgs::singleton()->getLinkFor( $this->orgNames[$orgId] );
+					if ( array_key_exists( $orgId, $this->orgData ) ) {
+						$value = $this->orgData[$orgId]['flag'];
+						$value .= EPOrgs::singleton()->getLinkFor( $this->orgData[$orgId]['name'] );
 					}
 					else {
 						wfWarn( 'Org id not in $this->orgNames in ' . __METHOD__ );
 					}
 				}
 				else {
-					// TODO: enable
-					//wfWarn( 'Course id not in $this->courseOrgs in ' . __METHOD__ );
+					wfWarn( 'Course id not in $this->courseOrgs in ' . __METHOD__ );
 				}
 				break;
 		}
@@ -223,11 +222,52 @@ class EPStudentActivityPager extends EPPager {
 				$this->courseOrgs[$courseData['id']] = $courseData['org_id'];
 			}
 
-			$this->orgNames = EPOrgs::singleton()->selectFields(
-				array( 'id', 'name' ),
+			$orgs = EPOrgs::singleton()->selectFields(
+				array( 'id', 'name', 'country' ),
 				array( 'id' => array_unique( $orgIds ) )
 			);
+
+			foreach ( $orgs as $org ) {
+				$this->orgData[$org['id']] = array(
+					'name' => $org['name'],
+					'flag' => $this->getFlagHtml( $org['country'] ),
+				);
+			}
 		}
+	}
+
+	protected function getFlagHtml( $country ) {
+		$file = false;
+		$countryFlags = EPSettings::get( 'countryFlags' );
+
+		if ( array_key_exists( $country, $countryFlags )  ) {
+			$file = wfFindFile( $countryFlags[$country] );
+		}
+
+		if ( $file === false ) {
+			$file = wfFindFile( EPSettings::get( 'fallbackFlag' ) );
+		}
+
+		if ( $file === false ) {
+			wfWarn( 'Could not find fallback flag in ' . __METHOD__ );
+			$flag = '';
+		}
+		else {
+			$thumb = $file->transform( array(
+				'width' => EPSettings::get( 'flagWidth' ),
+				'height' => EPSettings::get( 'flagHeight' ),
+			) );
+
+			if ( $thumb && !$thumb->isError() ) {
+				$flag = $thumb->toHtml() . ' ';
+			}
+			else {
+				wfWarn( 'Thumb error in ' . __METHOD__ );
+				$flag = '';
+			}
+		}
+
+		return $flag;
 	}
 
 	/**

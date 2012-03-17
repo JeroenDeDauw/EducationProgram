@@ -19,7 +19,7 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 * @since 0.1
 	 * @var integer|null
 	 */
-	protected $cacheExpiry = 300;
+	protected $cacheExpiry = null;
 
 	/**
 	 * List of HTML chunks to be cached (if !hasCached) or that where cashed (of hasCached).
@@ -53,20 +53,52 @@ abstract class SpecialCachedPage extends SpecialPage {
 		if ( $this->getRequest()->getText( 'action' ) === 'purge' ) {
 			$this->hasCached = false;
 		}
+
+		if ( !is_null( $this->cacheExpiry ) ) {
+			$this->initCaching();
+
+			if ( $this->hasCached === true ) {
+				$this->getOutput()->setSubtitle( $this->getCachedNotice( $subPage ) );
+			}
+		}
+	}
+
+	protected function getCachedNotice( $subPage ) {
+		$refreshArgs = $_GET;
+		unset( $refreshArgs['title'] );
+		$refreshArgs['action'] = 'purge';
+
+		return
+			$this->msg(
+				'cachedspecial-viewing-cached',
+				$this->getDurationText()
+			)->escaped() .
+			' ' .
+			Linker::link(
+				$this->getTitle( $subPage ),
+				$this->msg( 'cachedspecial-refresh-now' )->escaped(),
+				array(),
+				$refreshArgs
+			);
+	}
+
+	protected function getDurationText() {
+		return '5 minutes'; // TODO: generate and i18n
 	}
 
 	/**
-	 * Initializes the caching.
-	 * Should be called ONCE before any of the caching functionality is used,
-	 * only when $this->hasCached is null.
+	 * Initializes the caching if not already done so.
+	 * Should be called before any of the caching functionality is used.
 	 *
 	 * @since 0.1
 	 */
 	protected function initCaching() {
-		$cachedChunks = wfGetCache( CACHE_ANYTHING )->get( $this->getCacheKey() );
+		if ( is_null( $this->hasCached ) ) {
+			$cachedChunks = wfGetCache( CACHE_ANYTHING )->get( $this->getCacheKey() );
 
-		$this->hasCached = is_array( $cachedChunks );
-		$this->cachedChunks = $this->hasCached ? $cachedChunks : array();
+			$this->hasCached = is_array( $cachedChunks );
+			$this->cachedChunks = $this->hasCached ? $cachedChunks : array();
+		}
 	}
 
 	/**
@@ -82,9 +114,7 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 * @param string|null $key
 	 */
 	public function addCachedHTML( $callback, $args = array(), $key = null ) {
-		if ( is_null( $this->hasCached ) ) {
-			$this->initCaching();
-		}
+		$this->initCaching();
 
 		if ( $this->hasCached ) {
 			$html = '';

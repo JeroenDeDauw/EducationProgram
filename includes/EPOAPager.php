@@ -87,7 +87,10 @@ class EPOAPager extends EPPager {
 				$value = '';
 
 				if ( $file !== false ) {
-					$thumb = $file->transform( array( 'width' => EPSettings::get( 'ambassadorImgWidth' ) ) );
+					$thumb = $file->transform( array(
+						'width' => EPSettings::get( 'ambassadorImgWidth' ),
+						'height' => EPSettings::get( 'ambassadorImgHeight' ),
+					) );
 
 					if ( $thumb && !$thumb->isError() ) {
 						$value = $thumb->toHtml();

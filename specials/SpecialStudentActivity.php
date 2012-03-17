@@ -19,8 +19,8 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
+		$this->cacheExpiry = 60;
 		parent::__construct( 'StudentActivity' );
-		$this->cacheExpiry = 600;
 	}
 
 	/**
