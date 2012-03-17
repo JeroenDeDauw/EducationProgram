@@ -20,6 +20,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 */
 	public function __construct() {
 		parent::__construct( 'StudentActivity' );
+		$this->cacheExpiry = 600;
 	}
 
 	/**
@@ -30,34 +31,40 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 * @param string $subPage
 	 */
 	public function execute( $subPage ) {
-		parent::execute( $subPage );
+		//parent::execute( $subPage );
 
-		$cache = wfGetCache( CACHE_ANYTHING );
-		$cacheKey = wfMemcKey( get_class( $this ), $this->getLanguage()->getCode() );
-		$cachedHTML = $cache->get( $cacheKey );
+		if ( !is_null( $this->cacheExpiry ) ) {
+			$cache = wfGetCache( CACHE_ANYTHING );
+			$cacheKey = $this->getCacheKey();
+			$cachedHTML = $cache->get( $cacheKey );
 
-		$out = $this->getOutput();
+			$out = $this->getOutput();
 
-		if ( $this->getRequest()->getText( 'action' ) !== 'purge' && is_string( $cachedHTML ) ) {
-			$html = $cachedHTML;
+			if ( $this->getRequest()->getText( 'action' ) !== 'purge' && is_string( $cachedHTML ) ) {
+				$html = $cachedHTML;
+			}
+			else {
+				$this->displayCachedContent();
+
+				$html = $out->getHTML();
+				$cache->set( $cacheKey, $html, $this->cacheExpiry );
+			}
+
+			$out->clearHTML();
+
+			$this->displayBeforeCached();
+			$out->addHTML( $html );
+			$this->displayAfterCached();
 		}
-		else {
-			$conds = array( 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
-				wfTimestamp( TS_MW, time() - ( EPSettings::get( 'recentActivityLimit' ) ) )
-			) );
+	}
 
-			$this->displayStudentMeter( $conds );
-			$this->displayPager( $conds );
+	protected function displayCachedContent() {
+		$conds = array( 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
+			wfTimestamp( TS_MW, time() - ( EPSettings::get( 'recentActivityLimit' ) ) )
+		) );
 
-			$html = $out->getHTML();
-			$cache->set( $cacheKey, $html, 3600 );
-		}
-
-		$out->clearHTML();
-
-		$this->displayNavigation();
-
-		$out->addHTML( $html );
+		$this->displayStudentMeter( $conds );
+		$this->displayPager( $conds );
 	}
 
 	public function displayPager( array $conds ) {

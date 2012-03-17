@@ -12,7 +12,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class SpecialEPPage extends SpecialPage {
+abstract class SpecialEPPage extends SpecialCachedPage {
 
 	/**
 	 * The subpage, ie the part after Special:PageName/
@@ -54,6 +54,8 @@ abstract class SpecialEPPage extends SpecialPage {
 	 * @return boolean
 	 */
 	public function execute( $subPage ) {
+		parent::execute( $subPage );
+
 		$subPage = is_null( $subPage ) ? '' : $subPage;
 		$this->subPage = trim( str_replace( '_', ' ', $subPage ) );
 
