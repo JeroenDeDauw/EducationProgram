@@ -40,7 +40,12 @@ class SpecialStudent extends SpecialEPPage {
 		else {
 			$this->displayNavigation();
 
-			$student = EPStudents::singleton()->selectRow( null, array( 'id' => $this->subPage ) );
+			$student = false;
+			$user = User::newFromName( $subPage );
+
+			if ( $user !== false && $user->getId() !== 0 ) {
+				$student = EPStudents::singleton()->selectRow( null, array( 'user_id' => $user->getId() ) );
+			}
 
 			if ( $student === false ) {
 				$out->addWikiMsg( 'ep-student-none', $this->subPage );

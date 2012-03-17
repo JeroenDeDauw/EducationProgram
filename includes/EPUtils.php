@@ -108,13 +108,11 @@ class EPUtils {
 	public static function getRoleToolLinks( EPIRole $role, IContextSource $context, EPCourse $course = null ) {
 		$roleName = $role->getRoleName();
 		$links = array();
-		
-		$links[] = Linker::userTalkLink( $role->getUser()->getId(), $role->getUser()->getName() );
-		
-		$links[] = Linker::link( SpecialPage::getTitleFor( 'Contributions', $role->getUser()->getName() ), wfMsgHtml( 'contribslink' ) );
-		
+
+		$user = $role->getUser();
+
 		if ( !is_null( $course ) &&
-			( $context->getUser()->isAllowed( 'ep-' . $roleName ) || $role->getUser()->getId() == $context->getUser()->getId() ) ) {
+			( $context->getUser()->isAllowed( 'ep-' . $roleName ) || $user->getId() == $context->getUser()->getId() ) ) {
 			$links[] = Html::element(
 				'a',
 				array(
@@ -123,8 +121,8 @@ class EPUtils {
 					'data-role' => $roleName,
 					'data-courseid' => $course->getId(),
 					'data-coursename' => $course->getField( 'name' ),
-					'data-userid' => $role->getUser()->getId(),
-					'data-username' => $role->getUser()->getName(),
+					'data-userid' => $user->getId(),
+					'data-username' => $user->getName(),
 					'data-bestname' => $role->getName(),
 				),
 				wfMsg( 'ep-' . $roleName . '-remove' )
@@ -133,9 +131,21 @@ class EPUtils {
 			$context->getOutput()->addModules( 'ep.enlist' );
 		}
 		
-		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( $links ) . ')</span>';
+		return self::getToolLinks( $user->getId(), $user->getName(), $context, $links );
 	}
 
+	/**
+	 * Returns tool links for the provided user details plus any adittional links.
+	 *
+	 * @since 0.1
+	 *
+	 * @param integer $userId
+	 * @param string $userName
+	 * @param IContextSource $context
+	 * @param array $extraLinks
+	 *
+	 * @return string
+	 */
 	public static function getToolLinks( $userId, $userName, IContextSource $context, array $extraLinks = array() ) {
 		$links = array();
 

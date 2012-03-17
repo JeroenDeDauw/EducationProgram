@@ -28,6 +28,7 @@ $messages['en'] = array(
 	'ep-form-summary' => 'Summary:',
 	'ep-form-minor' => 'This is a minor edit',
 	'ep-move-error' => 'You are not allowed to move articles in or out of the education namespaces.',
+	'ep-student-view-profile' => 'student profile',
 
 	// Tabs
 	'ep-tab-view' => 'Read',
@@ -582,7 +583,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-ambassador-title' => 'Ambassador: $1',
 
 	// Special:Student
-	'ep-student-none' => 'There is no student with id "$1". See [[Special:Students|here]] for a list of students.',
+	'ep-student-none' => 'There is no student with user name "$1". See [[Special:Students|here]] for a list of all students.',
 	'ep-student-title' => 'Student: $1',
 	'ep-student-actively-enrolled' => 'Currently enrolled',
 	'ep-student-no-active-enroll' => 'Not currently enrolled',

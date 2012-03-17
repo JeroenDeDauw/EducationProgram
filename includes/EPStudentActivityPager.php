@@ -99,7 +99,8 @@ class EPStudentActivityPager extends EPPager {
 			case 'user_id':
 				if ( array_key_exists( $value, $this->userNames ) ) {
 					list( $userName, $realName ) = $this->userNames[$value];
-					$value = Linker::userLink( $value, $userName, $realName ) . Linker::userToolLinks( $value, $userName );
+					$value = Linker::userLink( $value, $userName, $realName )
+						. EPStudent::getViewLinksFor( $this->getContext(), $value, $userName );
 				}
 				else {
 					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );

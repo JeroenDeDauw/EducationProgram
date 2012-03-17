@@ -81,16 +81,11 @@ class EPStudentPager extends EPPager {
 	 */
 	protected function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
-			case 'id':
-				$value = Linker::linkKnown(
-					SpecialPage::getTitleFor( 'Student', $value ),
-					htmlspecialchars( $this->getLanguage()->formatNum( $value, true ) )
-				);
-				break;
 			case 'user_id':
 				if ( array_key_exists( $value, $this->userNames ) ) {
 					list( $userName, $realName ) = $this->userNames[$value];
-					$value = Linker::userLink( $value, $userName, $realName ) . Linker::userToolLinks( $value, $userName );
+					$value = Linker::userLink( $value, $userName, $realName )
+						. EPStudent::getViewLinksFor( $this->getContext(), $value, $userName );
 				}
 				else {
 					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );
@@ -146,6 +141,8 @@ class EPStudentPager extends EPPager {
 	 */
 	public function getFieldNames() {
 		$fields = parent::getFieldNames();
+
+		unset( $fields['id'] );
 
 		$fields['_courses_current'] = 'current-courses';
 
