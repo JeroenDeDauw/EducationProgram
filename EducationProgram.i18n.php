@@ -787,7 +787,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'cachedspecial-viewing-cached-ts' => 'You are viewing a cached version of this page, which might not be completely actual.',
 	'cachedspecial-refresh-now' => 'View latest.',
 
-	// Durations
+	// Durations, back compat for MW < 1.20
 	'duration-seconds' => '$1 {{PLURAL:$1|second|seconds}}',
 	'duration-minutes' => '$1 {{PLURAL:$1|minute|minutes}}',
 	'duration-hours' => '$1 {{PLURAL:$1|hour|hours}}',

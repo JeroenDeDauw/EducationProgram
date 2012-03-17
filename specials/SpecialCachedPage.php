@@ -110,6 +110,7 @@ abstract class SpecialCachedPage extends SpecialPage {
 
 	/**
 	 * Returns a message with the time to live of the cache.
+	 * Takes care of compatibility with MW < 1.20, in which Language::duration was introduced.
 	 *
 	 * @since 0.1
 	 *
@@ -119,31 +120,36 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 * @return string
 	 */
 	protected function getDurationText( $seconds, array $chosenIntervals = array( 'years', 'days', 'hours', 'minutes', 'seconds' ) ) {
-		$intervals = array(
-			'years' => 31557600, // 86400 * 365.25
-			'weeks' => 604800,
-			'days' => 86400,
-			'hours' => 3600,
-			'minutes' => 60,
-			'seconds' => 1,
-		);
-
-		if ( !empty( $chosenIntervals ) ) {
-			$intervals = array_intersect_key( $intervals, array_flip( $chosenIntervals ) );
+		if ( method_exists( $this->getLanguage(), 'duration' ) ) {
+			return $this->getLanguage()->duration( $seconds, $chosenIntervals );
 		}
+		else {
+			$intervals = array(
+				'years' => 31557600, // 86400 * 365.25
+				'weeks' => 604800,
+				'days' => 86400,
+				'hours' => 3600,
+				'minutes' => 60,
+				'seconds' => 1,
+			);
 
-		$segments = array();
-
-		foreach ( $intervals as $name => $length ) {
-			$value = floor( $seconds / $length );
-
-			if ( $value > 0 || ( $name == 'seconds' && empty( $segments ) ) ) {
-				$seconds -= $value * $length;
-				$segments[] = wfMsgExt( 'duration-' . $name, 'parsemag', $value );
+			if ( !empty( $chosenIntervals ) ) {
+				$intervals = array_intersect_key( $intervals, array_flip( $chosenIntervals ) );
 			}
-		}
 
-		return $this->getLanguage()->listToText( $segments );
+			$segments = array();
+
+			foreach ( $intervals as $name => $length ) {
+				$value = floor( $seconds / $length );
+
+				if ( $value > 0 || ( $name == 'seconds' && empty( $segments ) ) ) {
+					$seconds -= $value * $length;
+					$segments[] = wfMsgExt( 'duration-' . $name, 'parsemag', $value );
+				}
+			}
+
+			return $this->getLanguage()->listToText( $segments );
+		}
 	}
 
 	/**

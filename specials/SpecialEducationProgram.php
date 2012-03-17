@@ -19,6 +19,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
+		$this->cacheExpiry = 3600;
 		parent::__construct( 'EducationProgram' );
 	}
 
@@ -32,53 +33,48 @@ class SpecialEducationProgram extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
-		$cache = wfGetCache( CACHE_ANYTHING );
-		$cacheKey = wfMemcKey( get_class( $this ), $this->getLanguage()->getCode() );
-		$cachedHTML = $cache->get( $cacheKey );
+		$this->displayNavigation();
 
-		$out = $this->getOutput();
+		$this->addCachedHTML( array( $this, 'displaySummaryTable' ) );
 
-		if ( $this->getRequest()->getText( 'action' ) !== 'purge' && is_string( $cachedHTML ) ) {
-			$out->clearHTML();
-			$out->addHTML( $cachedHTML );
-		}
-		else {
-			$this->displaySummaryTable();
-			$cache->set( $cacheKey, $out->getHTML(), 3600 );
-		}
+		$this->saveCache();
 	}
 
 	/**
+	 * Display a table with a basic summary of what the extension is handling.
+	 *
 	 * @since 0.1
+	 *
+	 * @return string
 	 */
 	protected function displaySummaryTable() {
-		$out = $this->getOutput();
+		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-summary' ) );
 
-		$out->addHTML( Html::openElement( 'table', array( 'class' => 'wikitable ep-summary' ) ) );
-
-		$out->addHTML( '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-summary-table-header' ) ) . '</tr>' );
+		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-summary-table-header' ) ) . '</tr>';
 
 		$summaryData = $this->getSummaryInfo();
 
 		foreach ( $summaryData as $stat => $value ) {
-			$out->addHTML( '<tr>' );
+			$html .= '<tr>';
 
-			$out->addHtml( Html::rawElement(
+			$html .=  Html::rawElement(
 				'th',
 				array( 'class' => 'ep-summary-name' ),
 				wfMsgExt( strtolower( get_called_class() ) . '-summary-' . $stat, 'parseinline' )
-			) );
+			);
 
-			$out->addHTML( Html::rawElement(
+			$html .=  Html::rawElement(
 				'td',
 				array( 'class' => 'ep-summary-value' ),
 				$value
-			) );
+			);
 
-			$out->addHTML( '</tr>' );
+			$html .= '</tr>';
 		}
 
-		$out->addHTML( Html::closeElement( 'table' ) );
+		$html .= Html::closeElement( 'table' );
+
+		return $html;
 	}
 
 	protected function getSummaryInfo() {
