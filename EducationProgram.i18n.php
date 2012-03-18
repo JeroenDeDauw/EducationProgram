@@ -218,7 +218,6 @@ $messages['en'] = array(
 	'specialeducationprogram-summary-oa-count' => 'Number of [[Special:OnlineAmbassadors|Online Ambassadors]]',
 
 	// Special:Institutions
-	'ep-institutions-nosuchinstitution' => 'There is no institution with name "$1". Existing institutions are listed below.',
 	'ep-institutions-noresults' => 'There are no institutions to list.',
 	'ep-institutions-addnew' => 'Add a new institution',
 	'ep-institutions-namedoc' => 'Enter the name for the new institution (which should be unique) and hit the button.',
@@ -226,7 +225,6 @@ $messages['en'] = array(
 	'ep-institutions-add' => 'Add institution',
 
 	// Special:Courses
-	'ep-courses-nosuchcourse' => 'There is no course with name "$1". Existing courses are listed below.',
 	'ep-courses-noresults' => 'There are no courses to list.',
 	'ep-courses-addnew' => 'Add a new course',
 	'ep-courses-namedoc' => 'Enter the institution the course belongs to and the year in which it is active.',
@@ -234,7 +232,6 @@ $messages['en'] = array(
 	'ep-courses-newname' => 'Course name:',
 	'ep-courses-neworg' => 'Institution:',
 	'ep-courses-add' => 'Add course',
-	'ep-courses-noorgs' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
 	'ep-courses-addorgfirst' => 'There are no institutions yet. You need to [[Special:Institutions|add an institution]] before you can create any courses.',
 
 	// Special:Students
@@ -956,6 +953,27 @@ $messages['qqq'] = array(
 	'action-ep-bulkdelorgs' => '{{doc-action|ep-bulkdelorgs}}',
 	'action-ep-bulkdelcourses' => '{{doc-action|ep-bulkdelcourses}}',
 
+	// Groups
+	'group-epadmin' => '{{group-name}}',
+	'group-epadmin-member' => '{{group-member}}',
+	'grouppage-epadmin' => '{{group-page}}',
+
+	'group-epstaff' => '{{group-name}}',
+	'group-epstaff-member' => '{{group-member}}',
+	'grouppage-epstaff' => '{{group-page}}',
+
+	'group-eponlineamb' => '{{group-name}}',
+	'group-eponlineamb-member' => '{{group-member}}',
+	'grouppage-eponlineamb' => '{{group-page}}',
+
+	'group-epcampamb' => '{{group-name}}',
+	'group-epcampamb-member' => '{{group-member}}',
+	'grouppage-epcampamb' => '{{group-page}}',
+
+	'group-epinstructor' => '{{group-name}}',
+	'group-epinstructor-member' => '{{group-member}}',
+	'grouppage-epinstructor' => '{{group-page}}',
+
 	// Special pages
 	'specialpages-group-education' => 'Special pages group, h2',
 	'special-mycourses' => '{{doc-special|mycourses}}',
@@ -971,5 +989,36 @@ $messages['qqq'] = array(
 	'special-campusambassador' => '{{doc-special|campusambassador}}',
 	'special-disenroll' => '{{doc-special|disenroll}}',
 	'special-studentactivity' => '{{doc-special|studentactivity}}',
+
+	// Course statuses
+	'ep-course-status-passed' => 'Course status',
+	'ep-course-status-current' => 'Course status',
+	'ep-course-status-planned' => 'Course status',
+
+	// Special:EducationProgram
+	'ep-summary-table-header' => 'Table header',
+	'specialeducationprogram-summary-org-count' => 'Table row header',
+	'specialeducationprogram-summary-course-count' => 'Table row header',
+	'specialeducationprogram-summary-student-count' => 'Table row header',
+	'specialeducationprogram-summary-instructor-count' => 'Table row header',
+	'specialeducationprogram-summary-ca-count' => 'Table row header',
+	'specialeducationprogram-summary-oa-count' => 'Table row header',
+
+	// Special:Institutions
+	'ep-institutions-noresults' => 'Message indicatiuon that there are no results',
+	'ep-institutions-addnew' => 'Header for an add new institution form',
+	'ep-institutions-namedoc' => 'Short description message for an add new institution form',
+	'ep-institutions-newname' => 'Text input label',
+	'ep-institutions-add' => 'Submit button text',
+
+	// Special:Courses
+	'ep-courses-noresults' => 'Message indicatiuon that there are no results',
+	'ep-courses-addnew' => 'Header for an add new course form',
+	'ep-courses-namedoc' => 'Short description message for an add new course form',
+	'ep-courses-newterm' => 'Text input label',
+	'ep-courses-newname' => 'Text input label',
+	'ep-courses-neworg' => 'Select input label',
+	'ep-courses-add' => 'Submit button text',
+	'ep-courses-addorgfirst' => 'Error message shown when trying to create a course while there are no institutions yet',
 
 );
