@@ -1005,14 +1005,14 @@ $messages['qqq'] = array(
 	'specialeducationprogram-summary-oa-count' => 'Table row header',
 
 	// Special:Institutions
-	'ep-institutions-noresults' => 'Message indicatiuon that there are no results',
+	'ep-institutions-noresults' => 'Message indicating that there are no results',
 	'ep-institutions-addnew' => 'Header for an add new institution form',
 	'ep-institutions-namedoc' => 'Short description message for an add new institution form',
 	'ep-institutions-newname' => 'Text input label',
 	'ep-institutions-add' => 'Submit button text',
 
 	// Special:Courses
-	'ep-courses-noresults' => 'Message indicatiuon that there are no results',
+	'ep-courses-noresults' => 'Message indicating that there are no results',
 	'ep-courses-addnew' => 'Header for an add new course form',
 	'ep-courses-namedoc' => 'Short description message for an add new course form',
 	'ep-courses-newterm' => 'Text input label',
