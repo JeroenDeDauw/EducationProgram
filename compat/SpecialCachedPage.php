@@ -56,8 +56,6 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 * @param string|null $subPage
 	 */
 	public function execute( $subPage ) {
-		//parent::execute( $subPage );
-
 		if ( $this->getRequest()->getText( 'action' ) === 'purge' ) {
 			$this->hasCached = false;
 		}
@@ -110,7 +108,7 @@ abstract class SpecialCachedPage extends SpecialPage {
 
 	/**
 	 * Returns a message with the time to live of the cache.
-	 * Takes care of compatibility with MW < 1.20, in which Language::duration was introduced.
+	 * Takes care of compatibility with MW < 1.20, in which Language::formatDuration was introduced.
 	 *
 	 * @since 0.1
 	 *
@@ -120,8 +118,8 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 * @return string
 	 */
 	protected function getDurationText( $seconds, array $chosenIntervals = array( 'years', 'days', 'hours', 'minutes', 'seconds' ) ) {
-		if ( method_exists( $this->getLanguage(), 'duration' ) ) {
-			return $this->getLanguage()->duration( $seconds, $chosenIntervals );
+		if ( method_exists( $this->getLanguage(), 'formatDuration' ) ) {
+			return $this->getLanguage()->formatDuration( $seconds, $chosenIntervals );
 		}
 		else {
 			$intervals = array(
