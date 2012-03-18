@@ -247,7 +247,11 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$success = $student->save();
 
-		$success = $success && $student->associateWithCourses( array( $course ) );
+		$revAction = new EPRevisionAction();
+		$revAction->setUser( $this->getUser() );
+		$revAction->setComment( '' ); // TODO?
+
+		$success = $success && $student->associateWithCourses( array( $course ), $revAction );
 
 		return $success;
 	}

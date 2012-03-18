@@ -140,10 +140,11 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	 * @since 0.1
 	 *
 	 * @param array $courses
+	 * @param EPRevisionAction|null $revAction
 	 *
 	 * @return bool Success indicator
 	 */
-	public function associateWithCourses( array /* of EPCourse */ $courses ) {
+	public function associateWithCourses( array /* of EPCourse */ $courses, EPRevisionAction $revAction = null ) {
 		$success = true;
 
 		$courseIds = array();
@@ -151,7 +152,14 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 		foreach ( $courses as /* EPCourse */ $course ) {
 			$courseIds[] = $course->getId();
 			$course->setUpdateSummaries( false );
-			$success = $course->enlistUsers( $this->getField( 'user_id' ), $this->getRoleName() ) !== false && $success;
+
+			$success = $course->enlistUsers(
+				$this->getField( 'user_id' ),
+				$this->getRoleName(),
+				true,
+				$revAction
+			) !== false && $success;
+
 			$course->setUpdateSummaries( true );
 		}
 
