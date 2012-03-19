@@ -34,11 +34,22 @@ class SpecialStudents extends SpecialEPPage {
 
 		if ( $this->subPage === '' ) {
 			$this->displayNavigation();
-			EPStudent::displayPager( $this->getContext() );
+
+			$this->startCache( 3600 );
+			$this->addCachedHTML( 'EPStudent::getPager', $this->getContext() );
+			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'Student', $this->subPage )->getLocalURL() );
 		}
+	}
+
+	/**
+	 * @see SpecialCachedPage::getCacheKey
+	 * @return array
+	 */
+	protected function getCacheKey() {
+		return array_merge( $this->getRequest()->getValues(), parent::getCacheKey() );
 	}
 
 }

@@ -34,7 +34,10 @@ class SpecialOAs extends SpecialEPPage {
 
 		if ( $this->subPage === '' ) {
 			$this->displayNavigation();
-			EPOA::displayPager( $this->getContext() );
+
+			$this->startCache( 3600 );
+			$this->addCachedHTML( 'EPOA::getPager', $this->getContext() );
+			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'OnlineAmbassador', $this->subPage )->getLocalURL() );

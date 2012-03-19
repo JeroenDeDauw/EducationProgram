@@ -20,22 +20,23 @@ class EPOA extends EPRoleObject implements EPIRole {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conditions
+	 *
+	 * @return string
 	 */
-	public static function displayPager( IContextSource $context, array $conditions = array() ) {
+	public static function getPager( IContextSource $context, array $conditions = array() ) {
 		$pager = new EPOAPager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
-			$context->getOutput()->addHTML(
+			return
 				$pager->getFilterControl() .
-					$pager->getNavigationBar() .
-					$pager->getBody() .
-					$pager->getNavigationBar() .
-					$pager->getMultipleItemControl()
-			);
+				$pager->getNavigationBar() .
+				$pager->getBody() .
+				$pager->getNavigationBar() .
+				$pager->getMultipleItemControl();
 		}
 		else {
-			$context->getOutput()->addHTML( $pager->getFilterControl( true ) );
-			$context->getOutput()->addWikiMsg( 'ep-oa-noresults' );
+			return $pager->getFilterControl( true ) .
+				$context->msg( 'ep-oa-noresults' )->escaped();
 		}
 	}
 	
