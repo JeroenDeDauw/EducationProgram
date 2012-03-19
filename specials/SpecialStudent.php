@@ -38,13 +38,20 @@ class SpecialStudent extends SpecialEPPage {
 			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'Students' )->getLocalURL() );
 		}
 		else {
+			$this->startCache( 3600 );
+
 			$this->displayNavigation();
 
 			$student = false;
 			$user = User::newFromName( $subPage );
 
 			if ( $user !== false && $user->getId() !== 0 ) {
-				$student = EPStudents::singleton()->selectRow( null, array( 'user_id' => $user->getId() ) );
+				$student = $this->getCachedValue(
+					function( $userId ) {
+						return EPStudents::singleton()->selectRow( null, array( 'user_id' => $userId ) );
+					},
+					$user->getId()
+				);
 			}
 
 			if ( $student === false ) {
@@ -53,24 +60,46 @@ class SpecialStudent extends SpecialEPPage {
 			else {
 				$out->setPageTitle( wfMsgExt( 'ep-student-title', 'parsemag', $student->getName() ) );
 
-				$this->displaySummary( $student );
+				$this->addCachedHTML( array( $this, 'getSummary' ), $student );
 
-				$courseIds = array_map(
-					function( EPCourse $course ) {
-						return $course->getId();
-					},
-					$student->getCourses( 'id' )
-				);
+				$this->addCachedHTML( function( EPStudent $student ) {
+					$courseIds = array_map(
+						function( EPCourse $course ) {
+							return $course->getId();
+						},
+						$student->getCourses( 'id' )
+					);
 
-				if ( empty( $courseIds ) ) {
-					// TODO: high
-				}
-				else {
-					$out->addElement( 'h2', array(), wfMsg( 'ep-student-courses' ) );
-					EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ) );
-				}
+					$html = '';
+
+					if ( empty( $courseIds ) ) {
+						// TODO: high
+					}
+					else {
+						$html .= Html::element( 'h2', array(), wfMsg( 'ep-student-courses' ) );
+						$html .= ''; // TODO
+							// EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ) );
+					}
+
+					return $html;
+				}, $student );
 			}
+
+			$this->saveCache();
 		}
+	}
+
+	/**
+	 * @see SpecialCachedPage::getCacheKey
+	 * @return array
+	 */
+	protected function getCacheKey() {
+		$values = $this->getRequest()->getValues();
+
+		$values[] = $this->getUser()->getId();
+		$values[] = $this->subPage;
+
+		return array_merge( $values, parent::getCacheKey() );
 	}
 
 	/**

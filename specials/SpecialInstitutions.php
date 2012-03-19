@@ -35,7 +35,7 @@ class SpecialInstitutions extends SpecialEPPage {
 		parent::execute( $subPage );
 
 		if ( $this->subPage === '' ) {
-			$this->startCache( 3600, $this->getUser()->isAnon() );
+			$this->startCache( 3600 );
 
 			$this->displayNavigation();
 
@@ -60,9 +60,7 @@ class SpecialInstitutions extends SpecialEPPage {
 	protected function getCacheKey() {
 		$values = $this->getRequest()->getValues();
 
-		if ( array_key_exists( 'action', $values ) && $values['action'] === 'purge' ) {
-			unset( $values['action'] );
-		}
+		$values[] = $this->getUser()->getId();
 
 		return array_merge( $values, parent::getCacheKey() );
 	}

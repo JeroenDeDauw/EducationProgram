@@ -150,7 +150,22 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 	 * @param array $summaryData
 	 */
 	protected function displaySummary( DBDataObject $item, $collapsed = false, array $summaryData = null ) {
-		$out = $this->getOutput();
+		$this->getOutput()->addHTML( $item, $collapsed, $summaryData );
+	}
+
+	/**
+	 * Display the summary data.
+	 *
+	 * @since 0.1
+	 *
+	 * @param DBDataObject $item
+	 * @param boolean $collapsed
+	 * @param array $summaryData
+	 *
+	 * @return string
+	 */
+	protected function getSummary( DBDataObject $item, $collapsed = false, array $summaryData = null ) {
+		$html = '';
 
 		$class = 'wikitable ep-summary mw-collapsible';
 
@@ -158,31 +173,33 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 			$class .= ' mw-collapsed';
 		}
 
-		$out->addHTML( Html::openElement( 'table', array( 'class' => $class ) ) );
+		$html .= Html::openElement( 'table', array( 'class' => $class ) );
 
-		$out->addHTML( '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-item-summary' ) ) . '</tr>' );
+		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-item-summary' ) ) . '</tr>';
 
 		$summaryData = is_null( $summaryData ) ? $this->getSummaryData( $item ) : $summaryData;
 
 		foreach ( $summaryData as $stat => $value ) {
-			$out->addHTML( '<tr>' );
+			$html .= '<tr>';
 
-			$out->addElement(
+			$html .= Html::element(
 				'th',
 				array( 'class' => 'ep-summary-name' ),
 				wfMsg( strtolower( get_called_class() ) . '-summary-' . $stat )
 			);
 
-			$out->addHTML( Html::rawElement(
+			$html .= Html::rawElement(
 				'td',
 				array( 'class' => 'ep-summary-value' ),
 				$value
-			) );
+			);
 
-			$out->addHTML( '</tr>' );
+			$html .= '</tr>';
 		}
 
-		$out->addHTML( Html::closeElement( 'table' ) );
+		$html .= Html::closeElement( 'table' );
+
+		return $html;
 	}
 
 	/**
