@@ -35,8 +35,15 @@ class SpecialCourses extends SpecialEPPage {
 
 		if ( $this->subPage === '' ) {
 			$this->displayNavigation();
-			EPCourse::displayAddNewRegion( $this->getContext() );
-			EPCourse::displayPager( $this->getContext() );
+
+			$this->addCachedHTML(
+				function( IContextSource $context ) {
+					return
+						EPCourse::getAddNewRegion( $context ) . // FIXME
+						EPCourse::getPager( $context );
+				},
+				$this->getContext()
+			);
 		}
 		else {
 			$this->getOutput()->redirect( Title::newFromText( $this->subPage, EP_NS_COURSE )->getLocalURL() );

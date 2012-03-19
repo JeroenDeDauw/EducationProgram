@@ -45,7 +45,7 @@ class EPCourse extends EPPageObject {
 	 */
 	protected $oas = false;
 	
-		/**
+	/**
 	 * Field for caching the campus ambassaords.
 	 *
 	 * @since 0.1
@@ -259,26 +259,29 @@ class EPCourse extends EPPageObject {
 	 * @param boolean $readOnlyMode
 	 * @param string|false $filterPrefix
 	 */
-	public static function displayPager( IContextSource $context, array $conditions = array(), $readOnlyMode = false, $filterPrefix = false ) {
+	public static function getPager( IContextSource $context, array $conditions = array(), $readOnlyMode = false, $filterPrefix = false ) {
 		$pager = new EPCoursePager( $context, $conditions, $readOnlyMode );
 
 		if ( $filterPrefix !== false ) {
 			$pager->setFilterPrefix( $filterPrefix );
 		}
+
+		$html = '';
 		
 		if ( $pager->getNumRows() ) {
-			$context->getOutput()->addHTML(
+			$html .=
 				$pager->getFilterControl() .
 				$pager->getNavigationBar() .
 				$pager->getBody() .
 				$pager->getNavigationBar() .
-				$pager->getMultipleItemControl()
-			);
+				$pager->getMultipleItemControl();
 		}
 		else {
-			$context->getOutput()->addHTML( $pager->getFilterControl( true ) );
-			$context->getOutput()->addWikiMsg( 'ep-courses-noresults' );
+			$html .= $pager->getFilterControl( true );
+			$html .= $context->msg( 'ep-courses-noresults' )->escaped();
 		}
+
+		return $html;
 	}
 
 	/**

@@ -59,34 +59,64 @@ class SpecialStudent extends SpecialEPPage {
 			}
 			else {
 				$out->setPageTitle( wfMsgExt( 'ep-student-title', 'parsemag', $student->getName() ) );
-
-				$this->addCachedHTML( array( $this, 'getSummary' ), $student );
-
-				$this->addCachedHTML( function( EPStudent $student ) {
-					$courseIds = array_map(
-						function( EPCourse $course ) {
-							return $course->getId();
-						},
-						$student->getCourses( 'id' )
-					);
-
-					$html = '';
-
-					if ( empty( $courseIds ) ) {
-						// TODO: high
-					}
-					else {
-						$html .= Html::element( 'h2', array(), wfMsg( 'ep-student-courses' ) );
-						$html .= ''; // TODO
-							// EPCourse::displayPager( $this->getContext(), array( 'id' => $courseIds ) );
-					}
-
-					return $html;
-				}, $student );
+				$this->addCachedHTML( array( $this, 'getPageHTML' ), $student );
 			}
 
 			$this->saveCache();
 		}
+	}
+
+	/**
+	 * Builds the HTML for the page and returns it.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPStudent $student
+	 *
+	 * @return string
+	 */
+	protected function getPageHTML( EPStudent $student ) {
+		$courseIds = array_map(
+			function( EPCourse $course ) {
+				return $course->getId();
+			},
+			$student->getCourses( 'id' )
+		);
+
+		$html = $this->getSummary( $student );
+
+		if ( empty( $courseIds ) ) {
+			// TODO: high
+		}
+		else {
+			$html .= Html::element( 'h2', array(), wfMsg( 'ep-student-courses' ) );
+
+			$html .= EPCourse::getPager( $this->getContext(), array( 'id' => $courseIds ) );
+
+			$pager = new EPArticleTable(
+				$this->getContext(),
+				array( 'user_id' => $this->getUser()->getId() ),
+				array(
+					'course_id' => $courseIds,
+					'user_id' => $this->getUser()->getId(),
+				)
+			);
+
+			$pager->setShowStudents( false );
+
+			if ( $pager->getNumRows() ) {
+				$html .= Html::element( 'h2', array(), wfMsg( 'ep-student-articles' ) );
+
+				$html .=
+					$pager->getFilterControl() .
+						$pager->getNavigationBar() .
+						$pager->getBody() .
+						$pager->getNavigationBar() .
+						$pager->getMultipleItemControl();
+			}
+		}
+
+		return $html;
 	}
 
 	/**

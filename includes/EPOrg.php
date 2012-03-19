@@ -210,7 +210,7 @@ class EPOrg extends EPPageObject {
 		}
 		else {
 			return $pager->getFilterControl( true ) .
-				$context->msg( 'ep-institutions-noresults' );
+				$context->msg( 'ep-institutions-noresults' )->escaped();
 		}
 	}
 

@@ -589,6 +589,7 @@ The deletion log for this course is provided below for convenience:",
 	'specialstudent-summary-first-enroll' => 'First enrollment',
 	'specialstudent-summary-user' => 'User',
 	'ep-student-courses' => 'Courses this student has enrolled in',
+	'ep-student-articles' => 'Articles this student is working on',
 
 	// Special:Enroll
 	'ep-enroll-title' => 'Enroll for $1 at $2',
