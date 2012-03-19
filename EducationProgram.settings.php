@@ -58,6 +58,8 @@ class EPSettings {
 				'RU' => 'Flag of Russia.svg',
 				'UK' => 'Flag of the United Kingdom.svg',
 				'DE' => 'Flag of Germany.svg',
+				'NZ' => 'Flag of New Zealand.svg',
+				'CZ' => 'Flag of the Czech Republic.svg',
 			),
 			'fallbackFlag' => 'Nuvola unknown flag.svg',
 			'courseDescPage' => 'Course description',
