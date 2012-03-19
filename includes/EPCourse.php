@@ -316,7 +316,7 @@ class EPCourse extends EPPageObject {
 
 		$html .= '<p>' . $context->msg( 'ep-courses-namedoc' )->escaped() . '</p>';
 
-		$html .= Html::element( 'label', array( 'for' => 'neworg' ), $context->msg( 'ep-courses-neworg' ) );
+		$html .= Html::element( 'label', array( 'for' => 'neworg' ), $context->msg( 'ep-courses-neworg' )->plain() );
 
 		$select = new XmlSelect(
 			'neworg',
@@ -328,7 +328,7 @@ class EPCourse extends EPPageObject {
 		$html .= $select->getHTML();
 
 		$html .= '&#160;' . Xml::inputLabel(
-			$context->msg( 'ep-courses-newname' )->escaped(),
+			$context->msg( 'ep-courses-newname' )->plain(),
 			'newname',
 			'newname',
 			20,
@@ -336,7 +336,7 @@ class EPCourse extends EPPageObject {
 		);
 
 		$html .= '&#160;' . Xml::inputLabel(
-			$context->msg( 'ep-courses-newterm' )->escaped(),
+			$context->msg( 'ep-courses-newterm' )->plain(),
 			'newterm',
 			'newterm',
 			10,
@@ -345,7 +345,7 @@ class EPCourse extends EPPageObject {
 
 		$html .= '&#160;' . Html::input(
 			'addnewcourse',
-			$context->msg( 'ep-courses-add' )->escaped(),
+			$context->msg( 'ep-courses-add' )->plain(),
 			'submit',
 			array(
 				'disabled' => 'disabled',

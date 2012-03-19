@@ -140,11 +140,12 @@ class EPOrg extends EPPageObject {
 	 *
 	 * @since 0.1
 	 *
+	 * @param IContextSource $context
 	 * @param array $args
 	 *
 	 * @return string
 	 */
-	public static function getAddNewControl( array $args = array() ) {
+	public static function getAddNewControl( IContextSource $context, array $args = array() ) {
 		$html = '';
 		
 		$html .= Html::openElement(
@@ -157,12 +158,12 @@ class EPOrg extends EPPageObject {
 
 		$html .= '<fieldset>';
 
-		$html .= '<legend>' . wfMsgHtml( 'ep-institutions-addnew' ) . '</legend>';
+		$html .= '<legend>' . $context->msg( 'ep-institutions-addnew' )->escaped() . '</legend>';
 
-		$html .= Html::element( 'p', array(), wfMsg( 'ep-institutions-namedoc' ) );
+		$html .= Html::element( 'p', array(), $context->msg( 'ep-institutions-namedoc' )->plain() );
 
 		$html .= Xml::inputLabel(
-			wfMsg( 'ep-institutions-newname' ),
+			$context->msg( 'ep-institutions-newname' )->plain(),
 			'newname',
 			'newname',
 			false,
@@ -171,7 +172,7 @@ class EPOrg extends EPPageObject {
 
 		$html .= '&#160;' . Html::input(
 			'addneworg',
-			wfMsg( 'ep-institutions-add' ),
+			$context->msg( 'ep-institutions-add' )->plain(),
 			'submit',
 			array(
 				'disabled' => 'disabled',

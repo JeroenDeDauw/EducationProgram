@@ -40,7 +40,7 @@ class SpecialInstitutions extends SpecialEPPage {
 
 			if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
 				$this->getOutput()->addModules( 'ep.addorg' );
-				$this->addCachedHTML( 'EPOrg::getAddNewControl' );
+				$this->addCachedHTML( 'EPOrg::getAddNewControl', $this->getContext() );
 			}
 
 			$this->addCachedHTML( 'EPOrg::getPager', $this->getContext() );
