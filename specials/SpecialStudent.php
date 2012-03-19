@@ -75,7 +75,7 @@ class SpecialStudent extends SpecialEPPage {
 	 *
 	 * @return string
 	 */
-	protected function getPageHTML( EPStudent $student ) {
+	public function getPageHTML( EPStudent $student ) {
 		$courseIds = array_map(
 			function( EPCourse $course ) {
 				return $course->getId();
