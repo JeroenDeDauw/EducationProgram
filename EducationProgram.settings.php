@@ -50,6 +50,8 @@ class EPSettings {
 				'US' => 'Flag_of_the_United_States.svg',
 			),
 			'fallbackFlag' => 'Nuvola unknown flag.svg',
+			'courseDescPage' => 'Course description',
+			'courseOrgDescPage' => '$2/$1', // $1 = org name, $2 = courseDescPage setting
 		);
 	}
 

@@ -252,6 +252,13 @@ class EditCourseAction extends EPEditAction {
 			);
 			
 			$data['term'] = $this->getRequest()->getVal( 'newterm' );
+
+			$data['description'] = $this->getDefaultDescription( array(
+				'institutionid' => $data['org_id'],
+				'name' => $data['mc'],
+				'title' => $data['name'],
+				'term' => $data['term'],
+			) );
 		}
 
 		return $data;
@@ -267,6 +274,58 @@ class EditCourseAction extends EPEditAction {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Returns the description to use as default, based
+	 * on the courseDescPage and courseOrgDescPage settings.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $data
+	 *
+	 * @return string
+	 */
+	protected function getDefaultDescription( array $data ) {
+		$primaryPage = EPSettings::get( 'courseDescPage' );
+		$orgPage = EPSettings::get( 'courseOrgDescPage' );
+
+		$orgTitle = EPOrgs::singleton()->selectFieldsRow( 'name', array( 'id' => $data['institutionid'] ) );
+
+		$content = false;
+
+		if ( $orgTitle !== false ) {
+			$orgPage = str_replace(
+				array( '$1', '$2' ),
+				array( $orgTitle, $primaryPage ),
+				$orgPage
+			);
+
+			$content = EPUtils::getArticleContent( $orgPage );
+		}
+
+		if ( $content === false ) {
+			$content = EPUtils::getArticleContent( $primaryPage );
+		}
+
+		if ( $content === false ) {
+			$content = '';
+		}
+		else {
+			if ( $orgTitle !== false ) {
+				$data['institution'] = $orgTitle;
+			}
+
+			$content = str_replace(
+				array_map( function( $name ) {
+					return '{{{' . $name . '}}}';
+				}, array_keys( $data ) ),
+				$data,
+				$content
+			);
+		}
+
+		return $content;
 	}
 	
 }

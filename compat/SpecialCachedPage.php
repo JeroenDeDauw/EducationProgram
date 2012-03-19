@@ -80,7 +80,7 @@ abstract class SpecialCachedPage extends SpecialPage {
 	 * @return string
 	 */
 	protected function getCachedNotice( $subPage ) {
-		$refreshArgs = $_GET;
+		$refreshArgs = $this->getRequest()->getQueryValues();
 		unset( $refreshArgs['title'] );
 		$refreshArgs['action'] = 'purge';
 
@@ -91,7 +91,7 @@ abstract class SpecialCachedPage extends SpecialPage {
 			$refreshArgs
 		);
 
-		if ( $this->cacheExpiry < 1000000000 ) {
+		if ( $this->cacheExpiry < 86400 * 3650 ) {
 			$message = $this->msg(
 				'cachedspecial-viewing-cached-ttl',
 				$this->getDurationText( $this->cacheExpiry )

@@ -249,5 +249,25 @@ class EPUtils {
 			$req->setSessionData( 'epfail', false );
 		}
 	}
+	/**
+	 * Gets the content of the article with the provided page name,
+	 * or an empty string when there is no such article.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $pageName
+	 *
+	 * @return string|false
+	 */
+	public static function getArticleContent( $pageName ) {
+		$title = Title::newFromText( $pageName );
+
+		if ( is_null( $title ) ) {
+			return '';
+		}
+
+		$article = new Article( $title, 0 );
+		return $article->fetchContent();
+	}
 
 }
