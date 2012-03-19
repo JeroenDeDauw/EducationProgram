@@ -1,0 +1,72 @@
+This page describes the database schema used by the Education Program extension
+from a high level perspective. Documentation on individual fields can be found
+in the schema file at sql/EducationProgram.sql.
+
+An online version of this document can be found at
+https://www.mediawiki.org/wiki/Extension:Education_Program/schema
+
+== Relational, denormalized and revision storage ==
+
+The extension keeps up to 3 copies of the same data, each optimized
+for a particular purpose.
+
+* Relational storage is the data in it's canonical form. All other copies of the
+  data are computed from this. This data can be found in some of the fields of
+  the main tables.
+
+* Denormalized storage is the data in a format optimized for doing queries against.
+  It is always computed from the relational storage data. This data can be found
+  in some of the fields of the main tables.
+
+* Revision storage is the ep_revisions table which contains blobs with the
+  relational data for one particular object.
+
+The extension uses the DBDataObject and DBTable classes for virtually all
+it's database interaction. These have mechanisms for distinguishing between
+relational and denormalized data (referred to as "summary data" in their docs).
+All revisioning work is done through EPRevision and EPRevisions using EPRevisionedObject.
+
+== Where to find the stuff ==
+
+=== Institutions ===
+
+Institutions are stored in the ep_orgs table. You can get the linked courses
+via the org_courses field, which is an array with course IDs and is a denormalized field.
+
+=== Courses ===
+
+Courses are stored in ep_courses. They are linked to their institution via
+the course_org_id field, which is a foreign key on ep_orgs.org_id.
+
+You can find linked users (students, instructors, ambassadors) via the
+ep_users_per_course table. This table contains the users id, the course id
+and an integer indicating the role the user has.
+
+=== Articles ===
+
+Students can associate themselves with articles they are working on.
+These are stored in the ep_articles table. It contains a course id,
+a user id and a page id (foreign key on page.page_id), which can be
+used to get all articles worked on by a course, a student, or a
+combination of both.
+
+=== Students ===
+
+Students are stored in the ep_students table. The students table
+can be through of as an "extension" to the user table. It has
+a user_id field, which is a foreign id on user.user_id and
+several other fields with student data. This is mostly denormalized
+data though, so this tables primary use is getting lists of
+students (or linked data) in a computational sane fashion.
+
+=== Ambassadors and instructors ===
+
+Like students, each of these roles have their own tables,
+which can be thought of as extensions to the user table:
+
+* ep_instructors
+* ep_oas (Online Ambassdaors)
+* ep_cas (Campus Ambassdaors)
+
+The ambassador tables contain ambassador profile info.
+The instructor table is currently not used.
