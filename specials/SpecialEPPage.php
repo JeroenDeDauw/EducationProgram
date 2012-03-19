@@ -54,7 +54,7 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 	 * @return boolean
 	 */
 	public function execute( $subPage ) {
-		parent::execute( $subPage );
+		// parent::execute( $subPage );
 
 		$subPage = is_null( $subPage ) ? '' : $subPage;
 		$this->subPage = trim( str_replace( '_', ' ', $subPage ) );

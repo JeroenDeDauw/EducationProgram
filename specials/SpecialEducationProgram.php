@@ -19,7 +19,6 @@ class SpecialEducationProgram extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		$this->cacheExpiry = 3600;
 		parent::__construct( 'EducationProgram' );
 	}
 
@@ -32,6 +31,8 @@ class SpecialEducationProgram extends SpecialEPPage {
 	 */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
+
+		$this->startCache( 3600 );
 
 		$this->displayNavigation();
 

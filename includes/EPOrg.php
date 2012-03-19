@@ -135,7 +135,7 @@ class EPOrg extends EPPageObject {
 	}
 
 	/**
-	 * Adds a control to add a new org to the provided context.
+	 * Returns thr HTML for a control to add a new org to the provided context.
 	 * Adittional arguments can be provided to set the default values for the control fields.
 	 *
 	 * @since 0.1
@@ -143,40 +143,34 @@ class EPOrg extends EPPageObject {
 	 * @param IContextSource $context
 	 * @param array $args
 	 *
-	 * @return boolean
+	 * @return string
 	 */
-	public static function displayAddNewControl( IContextSource $context, array $args = array() ) {
-		if ( !$context->getUser()->isAllowed( 'ep-org' ) ) {
-			return false;
-		}
-
-		$out = $context->getOutput();
+	public static function getAddNewControl( IContextSource $context, array $args = array() ) {
+		$html = '';
 		
-		$out->addModules( 'ep.addorg' );
-
-		$out->addHTML( Html::openElement(
+		$html .= Html::openElement(
 			'form',
 			array(
 				'method' => 'post',
 				'action' => EPOrgs::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( array( 'action' => 'edit' ) ),
 			)
-		) );
+		);
 
-		$out->addHTML( '<fieldset>' );
+		$html .= '<fieldset>';
 
-		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-institutions-addnew' ) . '</legend>' );
+		$html .= '<legend>' . wfMsgHtml( 'ep-institutions-addnew' ) . '</legend>';
 
-		$out->addElement( 'p', array(), wfMsg( 'ep-institutions-namedoc' ) );
+		$html .= Html::element( 'p', array(), wfMsg( 'ep-institutions-namedoc' ) );
 
-		$out->addHTML( Xml::inputLabel(
+		$html .= Xml::inputLabel(
 			wfMsg( 'ep-institutions-newname' ),
 			'newname',
 			'newname',
 			false,
 			array_key_exists( 'name', $args ) ? $args['name'] : false
-		) );
+		);
 
-		$out->addHTML( '&#160;' . Html::input(
+		$html .= '&#160;' . Html::input(
 			'addneworg',
 			wfMsg( 'ep-institutions-add' ),
 			'submit',
@@ -184,38 +178,39 @@ class EPOrg extends EPPageObject {
 				'disabled' => 'disabled',
 				'class' => 'ep-org-add',
 			)
-		) );
+		);
 
-		$out->addHTML( Html::hidden( 'isnew', 1 ) );
+		$html .= Html::hidden( 'isnew', 1 );
 
-		$out->addHTML( '</fieldset></form>' );
+		$html .= '</fieldset></form>';
 
-		return true;
+		return $html;
 	}
 
 	/**
-	 * Display a pager with courses.
+	 * Returns the HTML for a pager with institutions.
 	 *
 	 * @since 0.1
 	 *
 	 * @param IContextSource $context
 	 * @param array $conditions
+	 *
+	 * @return string
 	 */
-	public static function displayPager( IContextSource $context, array $conditions = array() ) {
+	public static function getPager( IContextSource $context, array $conditions = array() ) {
 		$pager = new EPOrgPager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
-			$context->getOutput()->addHTML(
+			return
 				$pager->getFilterControl() .
 				$pager->getNavigationBar() .
 				$pager->getBody() .
 				$pager->getNavigationBar() .
-				$pager->getMultipleItemControl()
-			);
+				$pager->getMultipleItemControl();
 		}
 		else {
-			$context->getOutput()->addHTML( $pager->getFilterControl( true ) );
-			$context->getOutput()->addWikiMsg( 'ep-institutions-noresults' );
+			return $pager->getFilterControl( true ) .
+				$context->msg( 'ep-institutions-noresults' );
 		}
 	}
 

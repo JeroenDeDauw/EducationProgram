@@ -31,16 +31,40 @@ class SpecialInstitutions extends SpecialEPPage {
 	 * @param string|null $subPage
 	 */
 	public function execute( $subPage ) {
+
 		parent::execute( $subPage );
 
 		if ( $this->subPage === '' ) {
+			$this->startCache( 3600, $this->getUser()->isAnon() );
+
 			$this->displayNavigation();
-			EPOrg::displayAddNewControl( $this->getContext() );
-			EPOrg::displayPager( $this->getContext() );
+
+			if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
+				$this->getOutput()->addModules( 'ep.addorg' );
+				$this->addCachedHTML( 'EPOrg::getAddNewControl', array( $this->getContext() ) );
+			}
+
+			$this->addCachedHTML( 'EPOrg::getPager', array( $this->getContext() ) );
+
+			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->redirect( Title::newFromText( $this->subPage, EP_NS_INSTITUTION )->getLocalURL() );
 		}
+	}
+
+	/**
+	 * @see SpecialCachedPage::getCacheKey
+	 * @return array
+	 */
+	protected function getCacheKey() {
+		$values = $this->getRequest()->getValues();
+
+		if ( array_key_exists( 'action', $values ) && $values['action'] === 'purge' ) {
+			unset( $values['action'] );
+		}
+
+		return array_merge( $values, parent::getCacheKey() );
 	}
 
 }
