@@ -140,12 +140,11 @@ class EPOrg extends EPPageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param IContextSource $context
 	 * @param array $args
 	 *
 	 * @return string
 	 */
-	public static function getAddNewControl( IContextSource $context, array $args = array() ) {
+	public static function getAddNewControl( array $args = array() ) {
 		$html = '';
 		
 		$html .= Html::openElement(

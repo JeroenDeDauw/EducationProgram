@@ -45,12 +45,13 @@ class ViewOrgAction extends EPViewAction {
 
 		$out->addElement( 'h2', array(), wfMsg( 'ep-institution-courses' ) );
 
-		$out->addHTML( EPCourse::displayPager( $this->getContext(), array( 'org_id' => $org->getId() ) ) );
+		$out->addHTML( EPCourse::getPager( $this->getContext(), array( 'org_id' => $org->getId() ) ) );
 
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$out->addElement( 'h2', array(), wfMsg( 'ep-institution-add-course' ) );
 
-			EPCourse::displayAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
+			$out->addModules( 'ep.addcourse' );
+			$out->addHTML( EPCourse::getAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) ) );
 		}
 	}
 

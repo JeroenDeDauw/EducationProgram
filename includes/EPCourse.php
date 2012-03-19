@@ -293,32 +293,30 @@ class EPCourse extends EPPageObject {
 	 * @param IContextSource $context
 	 * @param array $args
 	 *
-	 * @return boolean
+	 * @return string
 	 */
-	public static function displayAddNewControl( IContextSource $context, array $args ) {
+	public static function getAddNewControl( IContextSource $context, array $args ) {
 		if ( !$context->getUser()->isAllowed( 'ep-course' ) ) {
-			return false;
+			return '';
 		}
 
-		$out = $context->getOutput();
-		
-		$out->addModules( 'ep.addcourse' );
+		$html = '';
 
-		$out->addHTML( Html::openElement(
+		$html .= Html::openElement(
 			'form',
 			array(
 				'method' => 'post',
 				'action' => EPCourses::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( array( 'action' => 'edit' ) ),
 			)
-		) );
+		);
 
-		$out->addHTML( '<fieldset>' );
+		$html .= '<fieldset>';
 
-		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-courses-addnew' ) . '</legend>' );
+		$html .= '<legend>' . $context->msg( 'ep-courses-addnew' )->escaped() . '</legend>';
 
-		$out->addElement( 'p', array(), wfMsg( 'ep-courses-namedoc' ) );
+		$html .= '<p>' . $context->msg( 'ep-courses-namedoc' )->escaped() . '</p>';
 
-		$out->addElement( 'label', array( 'for' => 'neworg' ), wfMsg( 'ep-courses-neworg' ) );
+		$html .= Html::element( 'label', array( 'for' => 'neworg' ), $context->msg( 'ep-courses-neworg' ) );
 
 		$select = new XmlSelect(
 			'neworg',
@@ -327,39 +325,39 @@ class EPCourse extends EPPageObject {
 		);
 
 		$select->addOptions( EPOrgs::singleton()->getOrgOptions() );
-		$out->addHTML( $select->getHTML() );
+		$html .= $select->getHTML();
 
-		$out->addHTML( '&#160;' . Xml::inputLabel(
-			wfMsg( 'ep-courses-newname' ),
+		$html .= '&#160;' . Xml::inputLabel(
+			$context->msg( 'ep-courses-newname' )->escaped(),
 			'newname',
 			'newname',
 			20,
 			array_key_exists( 'name', $args ) ? $args['name'] : false
-		) );
+		);
 
-		$out->addHTML( '&#160;' . Xml::inputLabel(
-			wfMsg( 'ep-courses-newterm' ),
+		$html .= '&#160;' . Xml::inputLabel(
+			$context->msg( 'ep-courses-newterm' )->escaped(),
 			'newterm',
 			'newterm',
 			10,
 			array_key_exists( 'term', $args ) ? $args['term'] : false
-		) );
+		);
 
-		$out->addHTML( '&#160;' . Html::input(
+		$html .= '&#160;' . Html::input(
 			'addnewcourse',
-			wfMsg( 'ep-courses-add' ),
+			$context->msg( 'ep-courses-add' )->escaped(),
 			'submit',
 			array(
 				'disabled' => 'disabled',
 				'class' => 'ep-course-add',
 			)
-		) );
+		);
 
-		$out->addHTML( Html::hidden( 'isnew', 1 ) );
+		$html .= Html::hidden( 'isnew', 1 );
 
-		$out->addHTML( '</fieldset></form>' );
+		$html .= '</fieldset></form>';
 
-		return true;
+		return $html;
 	}
 
 	/**
@@ -370,13 +368,15 @@ class EPCourse extends EPPageObject {
 	 *
 	 * @param IContextSource $context
 	 * @param array $args
+	 *
+	 * @return string
 	 */
-	public static function displayAddNewRegion( IContextSource $context, array $args = array() ) {
+	public static function getAddNewRegion( IContextSource $context, array $args = array() ) {
 		if ( EPOrgs::singleton()->has() ) {
-			EPCourse::displayAddNewControl( $context, $args );
+			return EPCourse::getAddNewControl( $context, $args );
 		}
-		elseif ( $context->getUser()->isAllowed( 'ep-course' ) ) {
-			$context->getOutput()->addWikiMsg( 'ep-courses-addorgfirst' );
+		else {
+			return $context->msg( 'ep-courses-addorgfirst' )->escaped();
 		}
 	}
 

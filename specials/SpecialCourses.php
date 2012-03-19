@@ -36,18 +36,42 @@ class SpecialCourses extends SpecialEPPage {
 		if ( $this->subPage === '' ) {
 			$this->displayNavigation();
 
-			$this->addCachedHTML(
-				function( IContextSource $context ) {
-					return
-						EPCourse::getAddNewRegion( $context ) . // FIXME
-						EPCourse::getPager( $context );
-				},
-				$this->getContext()
-			);
+			$this->startCache( 900 );
+
+			if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
+				$this->getOutput()->addModules( 'ep.addcourse' );
+
+				$this->addCachedHTML(
+					function( IContextSource $context ) {
+						return
+							EPCourse::getAddNewRegion( $context ) . // FIXME
+							EPCourse::getPager( $context );
+					},
+					$this->getContext()
+				);
+			}
+
+			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->redirect( Title::newFromText( $this->subPage, EP_NS_COURSE )->getLocalURL() );
 		}
+	}
+
+	/**
+	 * @see SpecialCachedPage::getCacheKey
+	 * @return array
+	 */
+	protected function getCacheKey() {
+		$values = $this->getRequest()->getValues();
+
+		$user = $this->getUser();
+
+		$values[] = $user->isAllowed( 'ep-course' );
+		$values[] = $user->isAllowed( 'ep-bulkdelcourses' );
+		$values[] = $user->getOption( 'ep_bulkdelcourses' );
+
+		return array_merge( $values, parent::getCacheKey() );
 	}
 
 }

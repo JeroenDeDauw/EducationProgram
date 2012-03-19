@@ -31,7 +31,6 @@ class SpecialInstitutions extends SpecialEPPage {
 	 * @param string|null $subPage
 	 */
 	public function execute( $subPage ) {
-
 		parent::execute( $subPage );
 
 		if ( $this->subPage === '' ) {
@@ -41,10 +40,10 @@ class SpecialInstitutions extends SpecialEPPage {
 
 			if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
 				$this->getOutput()->addModules( 'ep.addorg' );
-				$this->addCachedHTML( 'EPOrg::getAddNewControl', array( $this->getContext() ) );
+				$this->addCachedHTML( 'EPOrg::getAddNewControl' );
 			}
 
-			$this->addCachedHTML( 'EPOrg::getPager', array( $this->getContext() ) );
+			$this->addCachedHTML( 'EPOrg::getPager', $this->getContext() );
 
 			$this->saveCache();
 		}
@@ -60,7 +59,11 @@ class SpecialInstitutions extends SpecialEPPage {
 	protected function getCacheKey() {
 		$values = $this->getRequest()->getValues();
 
-		$values[] = $this->getUser()->getId();
+		$user = $this->getUser();
+
+		$values[] = $user->isAllowed( 'ep-org' );
+		$values[] = $user->isAllowed( 'ep-bulkdelorgs' );
+		$values[] = $user->getOption( 'ep_bulkdelorgs' );
 
 		return array_merge( $values, parent::getCacheKey() );
 	}
