@@ -776,10 +776,10 @@ The deletion log for this course is provided below for convenience:",
 	'epca-visible' => 'Publicly list me as Campus Ambassador',
 
 	// Special:StudentActivity
-	'ep-studentactivity-noresults' => 'There are no students that where active in the last 24 hours :(
+	'ep-studentactivity-noresults' => 'There are no students that where active in the last $1 :(
 
 You can find a full list of students on [[Special:Students|the student list]].',
-	'ep-studentactivity-count' => 'There {{PLURAL:$1|is|are}} currently $1 {{PLURAL:$1|student|students}} that {{PLURAL:$1|was|where}} active in the last 24 hours.',
+	'ep-studentactivity-count' => '{{PLURAL:$1|One student was|$1 students were}} active in the last $2.',
 
 	// Cached special page, back compat for MW < 1.20
 	'cachedspecial-viewing-cached-ttl' => 'You are viewing a cached version of this page, which can be up to $1 old.',

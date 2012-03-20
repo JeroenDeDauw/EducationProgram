@@ -50,14 +50,16 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 *
 	 * @return string
 	 */
-	protected function displayCachedContent() {
+	public function displayCachedContent() {
+		$duration = EPSettings::get( 'recentActivityLimit' );
+
 		$conds = array( 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
-			wfTimestamp( TS_MW, time() - ( EPSettings::get( 'recentActivityLimit' ) ) )
+			wfTimestamp( TS_MW, time() - $duration )
 		) );
 
-		return $this->displayStudentMeter( $conds ) .
+		return $this->displayStudentMeter( $conds, $duration ) .
 			'<br />' .
-			$this->displayPager( $conds );
+			$this->displayPager( $conds, $duration );
 	}
 
 	/**
@@ -69,7 +71,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 *
 	 * @return string
 	 */
-	public function displayPager( array $conds ) {
+	public function displayPager( array $conds, $duration ) {
 		$pager = new EPStudentActivityPager( $this->getContext(), $conds );
 
 		if ( $pager->getNumRows() ) {
@@ -83,7 +85,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 		else {
 			$html = $pager->getFilterControl( true )
 				. '<br />'
-				. wfMsgExt( 'ep-studentactivity-noresults', 'parseinline' );
+				. wfMsgExt( 'ep-studentactivity-noresults', 'parseinline', EPUtils::formatDuration( $duration, array( 'hours' ) ) );
 		}
 
 		return '<div class="studentactivity">' . $html . '</div>';
@@ -95,10 +97,11 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 * @since 0.1
 	 *
 	 * @param array $conds
+	 * @param integer $duration
 	 *
 	 * @return string
 	 */
-	public function displayStudentMeter( array $conds ) {
+	public function displayStudentMeter( array $conds, $duration ) {
 		$studentCount = EPStudents::singleton()->count( $conds );
 
 		if ( $studentCount < 10 ) {
@@ -108,7 +111,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 			$image = min( round( $studentCount / 10 ) * 10, 60 );
 		}
 
-		$message = $this->msg( 'ep-studentactivity-count', $studentCount )->escaped();
+		$message = $this->msg( 'ep-studentactivity-count', $studentCount, EPUtils::formatDuration( $duration, array( 'hours' ) ) )->escaped();
 
 		return Html::element( 'img', array(
 			'src' => EPSettings::get( 'imageDir' ) . 'student-o-meter_morethan-' . $image . '.png',

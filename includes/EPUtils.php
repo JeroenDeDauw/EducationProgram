@@ -270,4 +270,9 @@ class EPUtils {
 		return $article->fetchContent();
 	}
 
+	public static function formatDuration( $seconds, $units = array( 'days', 'hours', 'minutes', 'seconds' ) ) {
+		// TODO: compat
+		return $GLOBALS['wgLang']->formatDuration( $seconds, $units );
+	}
+
 }
