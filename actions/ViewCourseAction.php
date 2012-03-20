@@ -36,21 +36,31 @@ class ViewCourseAction extends EPViewAction {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPViewAction::displayPage()
+	 * @see FormlessAction::onView()
 	 */
-	protected function displayPage( DBDataObject $course ) {
-		parent::displayPage( $course );
+	public function onView() {
+		// Only cache for anon users. Else we need to cache per user,
+		// since the page has an EPArticleTable, which has per user stuff.
+		$this->cacheEnabled = $this->getUser()->isAnon();
 
-		$out = $this->getOutput();
+		return parent::onView();
+	}
 
-		$out->addElement( 'h2', array(), wfMsg( 'ep-course-description' ) );
+	/**
+	 * (non-PHPdoc)
+	 * @see EPViewAction::getPageHTML()
+	 */
+	public function getPageHTML( DBDataObject $course ) {
+		$html = parent::getPageHTML( $course );
 
-		$out->addHTML( $this->getOutput()->parse( $course->getField( 'description' ) ) );
+		$html .= Html::element( 'h2', array(), wfMsg( 'ep-course-description' ) );
+
+		$html .= $this->getOutput()->parse( $course->getField( 'description' ) );
 
 		$studentIds = $course->getField( 'students' );
 
 		if ( !empty( $studentIds ) ) {
-			$out->addElement( 'h2', array(), wfMsg( 'ep-course-students' ) );
+			$html .= Html::element( 'h2', array(), wfMsg( 'ep-course-students' ) );
 
 			$pager = new EPArticleTable(
 				$this->getContext(),
@@ -59,18 +69,19 @@ class ViewCourseAction extends EPViewAction {
 			);
 
 			if ( $pager->getNumRows() ) {
-				$out->addHTML(
+				$html .=
 					$pager->getFilterControl() .
 					$pager->getNavigationBar() .
 					$pager->getBody() .
 					$pager->getNavigationBar() .
-					$pager->getMultipleItemControl()
-				);
+					$pager->getMultipleItemControl();
 			}
 		}
 		else {
 			// TODO
 		}
+
+		return $html;
 	}
 
 	/**
@@ -206,6 +217,20 @@ class ViewCourseAction extends EPViewAction {
 			$this->getOutput()->addModules( 'ep.enlist' );
 			return '<br />' . $this->getLanguage()->pipeList( $links );
 		}
+	}
+
+	/**
+	 * @see CachedAction::getCacheKey
+	 * @return array
+	 */
+	protected function getCacheKey() {
+		$user = $this->getUser();
+
+		return array_merge( array(
+			$user->isAllowed( 'ep-course' ),
+			$user->isAllowed( 'ep-bulkdelcourses' ),
+			$user->getOption( 'ep_bulkdelcourses' ),
+		), parent::getCacheKey() );
 	}
 	
 }

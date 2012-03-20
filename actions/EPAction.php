@@ -12,7 +12,7 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPAction extends FormlessAction {
+abstract class EPAction extends CachedAction {
 
 	/**
 	 * Display a warning that the page has been deleted together with the first

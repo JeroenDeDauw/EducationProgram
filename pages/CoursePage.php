@@ -31,6 +31,7 @@ class CoursePage extends EPPage {
 			'edit' => 'EditCourseAction',
 			'history' => 'EPHistoryAction',
 			'delete' => 'EPDeleteAction',
+			'purge' => 'ViewCourseAction',
 		);
 	}
 	

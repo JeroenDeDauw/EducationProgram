@@ -84,7 +84,14 @@ abstract class EPViewAction extends EPAction {
 		}
 		else {
 			EPUtils::displayResult( $this->getContext() );
-			$this->displayPage( $object );
+
+			$this->displayNavigation();
+
+			$this->startCache( 3600 );
+
+			$this->addCachedHTML( array( $this, 'getPageHTML' ), $object );
+
+			$this->saveCache();
 		}
 
 		return '';
@@ -137,10 +144,11 @@ abstract class EPViewAction extends EPAction {
 	 * @since 0.1
 	 * 
 	 * @param DBDataObject $object
+	 *
+	 * @return string
 	 */
-	protected function displayPage( DBDataObject $object ) {
-		$this->displayNavigation();
-		$this->displaySummary( $object );
+	public function getPageHTML( DBDataObject $object ) {
+		return $this->getSummary( $object );
 	}
 
 	/**
@@ -176,9 +184,11 @@ abstract class EPViewAction extends EPAction {
 	 * @param DBDataObject $item
 	 * @param boolean $collapsed
 	 * @param array $summaryData
+	 *
+	 * @return string
 	 */
-	protected function displaySummary( DBDataObject $item, $collapsed = false, array $summaryData = null ) {
-		$out = $this->getOutput();
+	protected function getSummary( DBDataObject $item, $collapsed = false, array $summaryData = null ) {
+		$html = '';
 
 		$class = 'wikitable ep-summary mw-collapsible';
 
@@ -186,31 +196,33 @@ abstract class EPViewAction extends EPAction {
 			$class .= ' mw-collapsed';
 		}
 
-		$out->addHTML( Html::openElement( 'table', array( 'class' => $class ) ) );
+		$html .= Html::openElement( 'table', array( 'class' => $class ) );
 
-		$out->addHTML( '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-item-summary' ) ) . '</tr>' );
+		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-item-summary' ) ) . '</tr>';
 
 		$summaryData = is_null( $summaryData ) ? $this->getSummaryData( $item ) : $summaryData;
 
 		foreach ( $summaryData as $stat => $value ) {
-			$out->addHTML( '<tr>' );
+			$html .= '<tr>';
 
-			$out->addElement(
+			$html .= Html::element(
 				'th',
 				array( 'class' => 'ep-summary-name' ),
 				wfMsg( strtolower( get_called_class() ) . '-summary-' . $stat )
 			);
 
-			$out->addHTML( Html::rawElement(
+			$html .= Html::rawElement(
 				'td',
 				array( 'class' => 'ep-summary-value' ),
 				$value
-			) );
+			);
 
-			$out->addHTML( '</tr>' );
+			$html .= '</tr>';
 		}
 
-		$out->addHTML( Html::closeElement( 'table' ) );
+		$html .= Html::closeElement( 'table' );
+
+		return $html;
 	}
 
 	/**
@@ -225,6 +237,14 @@ abstract class EPViewAction extends EPAction {
 	 */
 	protected function getSummaryData( DBDataObject $item ) {
 		return array();
+	}
+
+	/**
+	 * @see CachedAction::getCacheKey
+	 * @return array
+	 */
+	protected function getCacheKey() {
+		return array_merge( $this->getRequest()->getValues(), parent::getCacheKey() );
 	}
 	
 }

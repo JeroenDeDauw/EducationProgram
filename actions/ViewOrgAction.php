@@ -28,6 +28,18 @@ class ViewOrgAction extends EPViewAction {
 
 	/**
 	 * (non-PHPdoc)
+	 * @see FormlessAction::onView()
+	 */
+	public function onView() {
+		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
+			$this->getOutput()->addModules( 'ep.addcourse' );
+		}
+
+		return parent::onView();
+	}
+
+	/**
+	 * (non-PHPdoc)
 	 * @see Action::getName()
 	 */
 	public function getName() {
@@ -36,23 +48,22 @@ class ViewOrgAction extends EPViewAction {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPViewAction::displayPage()
+	 * @see EPViewAction::getPageHTML()
+	 * @return string
 	 */
-	protected function displayPage( DBDataObject $org ) {
-		parent::displayPage( $org );
+	public function getPageHTML( DBDataObject $org ) {
+		$html = parent::getPageHTML( $org );
 
-		$out = $this->getOutput();
+		$html .= Html::element( 'h2', array(), wfMsg( 'ep-institution-courses' ) );
 
-		$out->addElement( 'h2', array(), wfMsg( 'ep-institution-courses' ) );
-
-		$out->addHTML( EPCourse::getPager( $this->getContext(), array( 'org_id' => $org->getId() ) ) );
+		$html .= EPCourse::getPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
 
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-			$out->addElement( 'h2', array(), wfMsg( 'ep-institution-add-course' ) );
-
-			$out->addModules( 'ep.addcourse' );
-			$out->addHTML( EPCourse::getAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) ) );
+			$html .= Html::element( 'h2', array(), wfMsg( 'ep-institution-add-course' ) );
+			$html .= EPCourse::getAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
 		}
+
+		return $html;
 	}
 
 	/**
@@ -92,6 +103,21 @@ class ViewOrgAction extends EPViewAction {
 		}
 
 		return $stats;
+	}
+
+	/**
+	 * @see CachedAction::getCacheKey
+	 * @return array
+	 */
+	protected function getCacheKey() {
+		$user = $this->getUser();
+
+		return array_merge( array(
+			$user->isAllowed( 'ep-org' ),
+			$user->isAllowed( 'ep-course' ),
+			$user->isAllowed( 'ep-bulkdelcourses' ),
+			$user->getOption( 'ep_bulkdelcourses' ),
+		), parent::getCacheKey() );
 	}
 	
 }

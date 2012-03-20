@@ -31,6 +31,7 @@ class OrgPage extends EPPage {
 			'edit' => 'EditOrgAction',
 			'history' => 'EPHistoryAction',
 			'delete' => 'EPDeleteAction',
+			'purge' => 'ViewOrgAction',
 		);
 	}
 	
