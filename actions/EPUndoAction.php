@@ -64,8 +64,21 @@ class EPUndoAction extends EPAction {
 						$success = $this->doUndo( $object, $revision );
 					}
 					else {
-						$this->displayForm( $object, $revision );
-						$success = null;
+						$diff = $object->getUndoDiff( $revision );
+
+						if ( $diff->isValid() ) {
+							if ( $diff->hasChanges() ) {
+								$diff->setContext( $this->getContext() );
+								$diff->display();
+
+								$this->displayForm( $object, $revision );
+							}
+							else {
+								// TODO
+							}
+
+							$success = null;
+						}
 					}
 				}
 			}

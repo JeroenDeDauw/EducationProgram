@@ -376,26 +376,17 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * @return boolean Success indicator
 	 */
 	public function undoRevision( EPRevision $revison, array $fields = null ) {
-		$oldObject = $revison->getPreviousRevision()->getObject();
+		$diff = $this->getUndoDiff( $revison, $fields );
 
-		if ( $oldObject === false ) {
-			return false;
+		foreach ( $diff->getChangedFields() as $fieldName => $values ) {
+			$this->restoreField( $fieldName, $values[1] );
 		}
 
-		$newObject = $revison->getObject();
-
-		$fields = is_null( $fields ) ? $newObject->getFieldNames() : $fields;
-
-		foreach ( $fields as $fieldName ) {
-			if ( $this->getField( $fieldName ) === $newObject->getField( $fieldName ) ) {
-				$this->restoreField( $fieldName, $oldObject->getField( $fieldName ) );
-			}
-		}
-
-		return true;
+		return $diff->isValid();
 	}
 
 	/**
+	 * Get a diff for the changes that will happen when undoing the provided revision.
 	 *
 	 * @since 0.1
 	 *
@@ -405,21 +396,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * @return EPRevisionDiff
 	 */
 	public function getUndoDiff( EPRevision $revison, array $fields = null ) {
-		$oldObject = $revison->getPreviousRevision()->getObject();
-
-		if ( $oldObject === false ) {
-			return false;
-		}
-
-		$newObject = $revison->getObject();
-
-		$fields = is_null( $fields ) ? $newObject->getFieldNames() : $fields;
-
-		foreach ( $fields as $fieldName ) {
-			if ( $this->getField( $fieldName ) === $newObject->getField( $fieldName ) ) {
-				$this->restoreField( $fieldName, $oldObject->getField( $fieldName ) );
-			}
-		}
+		return EPRevisionDiff::newFromUndoRevision( $this, $revison, $fields );
 	}
 
 	/**

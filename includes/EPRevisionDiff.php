@@ -17,40 +17,49 @@ class EPRevisionDiff extends ContextSource {
 
 	protected $changedFields = array();
 
-	public static function newFromUndoRevision( IContextSource $context, EPRevision $revison, array $fields = null ) {
+	protected $isValid = true;
+
+	public static function newFromUndoRevision( EPRevisionedObject $currentObject, EPRevision $revison, array $fields = null ) {
 		$changedFields = array();
 
-		$oldObject = $revison->getPreviousRevision()->getObject();
+		$targetObject = $revison->getPreviousRevision()->getObject();
 
-		if ( $oldObject !== false ) {
-			$newObject = $revison->getObject();
+		if ( $targetObject !== false ) {
+			$sourceObject = $revison->getObject();
 
-			$fields = is_null( $fields ) ? $newObject->getFieldNames() : $fields;
+			$fields = is_null( $fields ) ? $sourceObject->getFieldNames() : $fields;
 
 			foreach ( $fields as $fieldName ) {
-				if ( $this->getField( $fieldName ) === $newObject->getField( $fieldName ) ) {
-					$changedFields[$fieldName] = array(  );
-					$this->restoreField( $fieldName, $oldObject->getField( $fieldName ) );
+				if ( $currentObject->getField( $fieldName ) === $sourceObject->getField( $fieldName )
+					&& $sourceObject->getField( $fieldName ) !== $targetObject->getField( $fieldName ) ) {
+
+					$changedFields[$fieldName] = array(
+						$sourceObject->getField( $fieldName ),
+						$targetObject->getField( $fieldName )
+					);
 				}
 			}
 		}
 
-		return new self( $context, $changedFields );
+		$diff = new self( $changedFields );
+
+		$diff->setIsValid( $targetObject !== false );
+
+		return $diff;
 	}
 
-	public function __construct( IContextSource $context, array $changedFields ) {
-		$this->setContext( $context );
+	public function __construct( array $changedFields ) {
 		$this->changedFields = $changedFields;
 	}
 
 	public function display() {
 		$out = $this->getOutput();
 
-		$out->addHTML( '<table><tr>' );
+		$out->addHTML( '<table class="wikitable sortable"><tr>' );
 
 		$out->addElement( 'th', array(), '' );
-		$out->addElement( 'th', array(), $this->msg()->plain( 'ep-diff-old' ) );
-		$out->addElement( 'th', array(), $this->msg()->plain( 'ep-diff-new' ) );
+		$out->addElement( 'th', array(), $this->msg( 'ep-diff-old' )->plain() );
+		$out->addElement( 'th', array(), $this->msg( 'ep-diff-new' )->plain() );
 
 		$out->addHTML( '</tr>' );
 
@@ -59,12 +68,33 @@ class EPRevisionDiff extends ContextSource {
 
 			$out->addHtml( '<tr>' );
 
-			$out->addElement( '<th>', array(), $field );
-			$out->addElement( '<td>', array(), $old );
-			$out->addElement( '<td>', array(), $new );
+			$out->addElement( 'th', array(), $field );
+			$out->addElement( 'td', array(), $old );
+			$out->addElement( 'td', array(), $new );
 
 			$out->addHtml( '</tr>' );
 		}
+
+		$out->addHTML( '</table>' );
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getChangedFields() {
+		return $this->changedFields;
+	}
+
+	public function isValid() {
+		return $this->isValid;
+	}
+
+	public function setIsValid( $isValid ) {
+		$this->isValid = $isValid;
+	}
+
+	public function hasChanges() {
+		return !empty( $this->changedFields );
 	}
 
 

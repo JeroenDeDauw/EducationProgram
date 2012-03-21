@@ -121,6 +121,7 @@ $wgAutoloadClasses['EPInstructors'] 				= dirname( __FILE__ ) . '/includes/EPIns
 $wgAutoloadClasses['EPRevisions'] 					= dirname( __FILE__ ) . '/includes/EPRevisions.php';
 $wgAutoloadClasses['EPArticles'] 					= dirname( __FILE__ ) . '/includes/EPArticles.php';
 $wgAutoloadClasses['EPStudentActivityPager'] 		= dirname( __FILE__ ) . '/includes/EPStudentActivityPager.php';
+$wgAutoloadClasses['EPRevisionDiff'] 				= dirname( __FILE__ ) . '/includes/EPRevisionDiff.php';
 
 $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';

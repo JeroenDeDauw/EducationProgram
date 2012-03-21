@@ -794,6 +794,10 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'duration-weeks' => '$1 {{PLURAL:$1|week|weeks}}',
 	'duration-years' => '$1 {{PLURAL:$1|year|years}}',
 	'duration-centuries' => '$1 {{PLURAL:$1|century|centuries}}',
+
+	// Diffs
+	'ep-diff-old' => 'Old value',
+	'ep-diff-new' => 'New value',
 );
 
 /** Message documentation (Message documentation)
