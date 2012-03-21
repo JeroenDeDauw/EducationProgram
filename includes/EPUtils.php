@@ -270,9 +270,57 @@ class EPUtils {
 		return $article->fetchContent();
 	}
 
-	public static function formatDuration( $seconds, $units = array( 'days', 'hours', 'minutes', 'seconds' ) ) {
-		// TODO: compat
-		return $GLOBALS['wgLang']->formatDuration( $seconds, $units );
+	/**
+	 * Takes a number of seconds and turns it into a text using values such as hours and minutes.
+	 * Compatibility method. As of MW 1.20, this can be found at Language::formatDuration
+	 *
+	 * @since 0.1
+	 *
+	 * @param integer $seconds The amount of seconds.
+	 * @param array $chosenIntervals The intervals to enable.
+	 *
+	 * @return string
+	 */
+	public static function formatDuration( $seconds, array $chosenIntervals = array() ) {
+		global $wgLang;
+
+		if ( method_exists( $wgLang, 'formatDuration' ) ) {
+			return $wgLang->formatDuration( $seconds, $chosenIntervals );
+		}
+
+		$intervals = array(
+			'millennia' => 1000 * 31557600,
+			'centuries' => 100 * 31557600,
+			'decades' => 10 * 31557600,
+			'years' => 31557600, // 86400 * 365.25
+			'weeks' => 604800,
+			'days' => 86400,
+			'hours' => 3600,
+			'minutes' => 60,
+			'seconds' => 1,
+		);
+
+		if ( empty( $chosenIntervals ) ) {
+			$chosenIntervals = array( 'millennia', 'centuries', 'decades', 'years', 'days', 'hours', 'minutes', 'seconds' );
+		}
+
+		$intervals = array_intersect_key( $intervals, array_flip( $chosenIntervals ) );
+		$sortedNames = array_keys( $intervals );
+		$smallestInterval = array_pop( $sortedNames );
+
+		$segments = array();
+
+		foreach ( $intervals as $name => $length ) {
+			$value = floor( $seconds / $length );
+
+			if ( $value > 0 || ( $name == $smallestInterval && empty( $segments ) ) ) {
+				$seconds -= $value * $length;
+				$message = new Message( 'duration-' . $name, array( $value ) );
+				$segments[] = $message->inLanguage( $wgLang )->escaped();
+			}
+		}
+
+		return $wgLang->listToText( $segments );
 	}
 
 }

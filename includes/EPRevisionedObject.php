@@ -396,6 +396,33 @@ abstract class EPRevisionedObject extends DBDataObject {
 	}
 
 	/**
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPRevision $revison
+	 * @param array|null $fields
+	 *
+	 * @return EPRevisionDiff
+	 */
+	public function getUndoDiff( EPRevision $revison, array $fields = null ) {
+		$oldObject = $revison->getPreviousRevision()->getObject();
+
+		if ( $oldObject === false ) {
+			return false;
+		}
+
+		$newObject = $revison->getObject();
+
+		$fields = is_null( $fields ) ? $newObject->getFieldNames() : $fields;
+
+		foreach ( $fields as $fieldName ) {
+			if ( $this->getField( $fieldName ) === $newObject->getField( $fieldName ) ) {
+				$this->restoreField( $fieldName, $oldObject->getField( $fieldName ) );
+			}
+		}
+	}
+
+	/**
 	 * Set a field to the value of the corresponding field in the provided object.
 	 *
 	 * @since 0.1

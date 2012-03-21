@@ -82,9 +82,6 @@ $wgAutoloadClasses['ApiDeleteEducation'] 			= dirname( __FILE__ ) . '/api/ApiDel
 $wgAutoloadClasses['ApiEnlist'] 					= dirname( __FILE__ ) . '/api/ApiEnlist.php';
 $wgAutoloadClasses['ApiRefreshEducation'] 			= dirname( __FILE__ ) . '/api/ApiRefreshEducation.php';
 
-$wgAutoloadClasses['DBDataObject'] 					= dirname( __FILE__ ) . '/includes/DBDataObject.php';
-$wgAutoloadClasses['DBTable'] 						= dirname( __FILE__ ) . '/includes/DBTable.php';
-
 $wgAutoloadClasses['EPCourse'] 						= dirname( __FILE__ ) . '/includes/EPCourse.php';
 $wgAutoloadClasses['EPCoursePager'] 				= dirname( __FILE__ ) . '/includes/EPCoursePager.php';
 $wgAutoloadClasses['EPInstructor'] 					= dirname( __FILE__ ) . '/includes/EPInstructor.php';
@@ -147,6 +144,11 @@ $wgAutoloadClasses['SpecialStudentActivity'] 		= dirname( __FILE__ ) . '/special
 
 // Compat classes
 foreach ( array(
+	'DBDataObject' => 'DBDataObject.php',
+	'DBTable' => 'DBTable.php',
+	'CacheHelper' => 'CacheHelper.php',
+	'ICacheHelper' => 'CacheHelper.php',
+	'CachedAction' => 'CachedAction.php',
 	'SpecialCachedPage' => 'SpecialCachedPage.php' // MW < 1.20
 	) as $className => $fileName ) {
 
