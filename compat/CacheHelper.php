@@ -194,7 +194,7 @@ class CacheHelper implements ICacheHelper {
 		if ( $this->cacheExpiry < 86400 * 3650 ) {
 			$message = $context->msg(
 				'cachedspecial-viewing-cached-ttl',
-				$context->getLanguage()->formatDuration( $this->cacheExpiry )
+				EPUtils::formatDuration( $this->cacheExpiry ) // TODO: $context->getLanguage()->
 			)->escaped();
 		}
 		else {
