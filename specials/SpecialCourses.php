@@ -40,16 +40,10 @@ class SpecialCourses extends SpecialEPPage {
 
 			if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 				$this->getOutput()->addModules( 'ep.addcourse' );
-
-				$this->addCachedHTML(
-					function( IContextSource $context ) {
-						return
-							EPCourse::getAddNewRegion( $context ) . // FIXME
-							EPCourse::getPager( $context );
-					},
-					$this->getContext()
-				);
+				$this->addCachedHTML( 'EPCourse::getAddNewRegion', $this->getContext() );
 			}
+
+			$this->addCachedHTML( 'EPCourse::getPager', $this->getContext() );
 
 			$this->saveCache();
 		}

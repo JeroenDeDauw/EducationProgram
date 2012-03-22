@@ -402,8 +402,8 @@ abstract class EPRevisionedObject extends DBDataObject {
 	/**
 	 * Set a field to the value of the corresponding field in the provided object.
 	 *
-	 * @since 0.1
 	 *
+	 * @since 0.1
 	 * @param string $fieldName
 	 * @param mixed $newValue
 	 */
