@@ -29,9 +29,23 @@ $specialPageAliases['en'] = array(
 	'OnlineAmbassadorProfile' => array( 'OnlineAmbassadorProfile' ),
 	'CampusAmbassadorProfile' => array( 'CampusAmbassadorProfile' ),
 	'StudentActivity' => array( 'StudentActivity' ),
+	'Articles' => array( 'Articles' ),
 );
 
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'MyCourses' => array( 'MijnCursusen' ),
+	'Institutions' => array( 'Instituten' ),
+	'Student' => array( 'Student' ),
+	'Students' => array( 'Studenten' ),
+	'Courses' => array( 'Cursusen' ),
+	'EducationProgram' => array( 'EducationProgram' ),
+	'Enroll' => array( 'Inschrijven' ),
+	'Disenroll' => array( 'Uitschrijven' ),
+	'CampusAmbassadors' => array( 'CampusAmbassadeurs' ),
+	'OnlineAmbassadors' => array( 'OnlineAmbassadeurs' ),
+	'OnlineAmbassadorProfile' => array( 'OnlineAmbassadeurProfiel' ),
+	'CampusAmbassadorProfile' => array( 'CampusAmbassadeurProfiel' ),
+	'StudentActivity' => array( 'StudentActiviteit' ),
+	'Articles' => array( 'Artiekels' ),
 );

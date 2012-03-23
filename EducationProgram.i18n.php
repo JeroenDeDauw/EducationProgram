@@ -206,6 +206,7 @@ $messages['en'] = array(
 	'special-campusambassador' => 'Campus ambassador',
 	'special-disenroll' => 'Disenroll',
 	'special-studentactivity' => 'Student activity',
+	'special-articles' => 'Articles (Education Program)',
 
 	// Course statuses
 	'ep-course-status-passed' => 'Passed',
@@ -983,6 +984,7 @@ $messages['qqq'] = array(
 	'special-campusambassador' => '{{doc-special|campusambassador}}',
 	'special-disenroll' => '{{doc-special|disenroll}}',
 	'special-studentactivity' => '{{doc-special|studentactivity}}',
+	'special-articles' => '{{doc-special|articles}}',
 
 	// Course statuses
 	'ep-course-status-passed' => 'Course status',
