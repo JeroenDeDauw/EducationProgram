@@ -170,7 +170,7 @@ class SpecialMyCourses extends SpecialEPPage {
 			}
 		}
 		elseif ( $isAllowed ) {
-			$this->getOutput()->addWikiMsg( 'ep-mycourses-nocourses-' . strtolower( $class ) );
+			$this->getOutput()->addWikiMsg( 'ep-mycourses-nocourses-' . strtolower( $class ), $this->getUser()->getName() );
 		}
 	}
 
