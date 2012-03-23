@@ -571,10 +571,6 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-epundelete-failed-norevs' => 'Failed to undelete institution $1. It has no revisions to undelete.',
 	'orgpage-epundelete-failed-exists' => 'Failed to undelete institution $1. It already exists.',
 
-	// Special:Ambassador
-	'ep-ambassador-does-not-exist' => 'There is no ambassador with name "$1". See [[Special:Ambassadors|here]] for a list of ambassadors.',
-	'ep-ambassador-title' => 'Ambassador: $1',
-
 	// Special:Student
 	'ep-student-none' => 'There is no student with user name "$1". See [[Special:Students|here]] for a list of all students.',
 	'ep-student-title' => 'Student: $1',
@@ -1290,5 +1286,79 @@ This will permanently remove their associated articles and reviewers!',
 	'orgpage-delete-none' => 'Shown when trying to delete non-existing institution with title $1',
 	'orgpage-delete-deleted' => 'Shown after successfull deleteion of institution $1 at the top of the page in a success box',
 	'orgpage-delete-delete-failed' => 'Shown after failed deleteion of institution $1 at the top of the page in an error box',
+
+	// Institution restoration
+	'orgpage-eprestore-title' => 'Page title. $1 is institution name',
+	'orgpage-eprestore-text' => 'Indicates what the user is about to do if they continue. $1 is institution name.',
+	'orgpage-eprestore-summary' => 'Summary text input label',
+	'orgpage-eprestore-restore-button' => 'Submission button text',
+	'orgpage-eprestore-cancel-button' => 'Cancel button text',
+	'orgpage-eprestore-summary-value' => 'Default value for the summary. $1 it time, $2 is user name',
+	'orgpage-eprestore-restored' => 'Succes message, shown at top of page in success box. $1 is institution name.',
+	'orgpage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
+
+	// Course restoration
+	'coursepage-eprestore-title' => 'Page title. $1 is course name',
+	'coursepage-eprestore-text' => 'Indicates what the user is about to do if they continue. $1 is course name.',
+	'coursepage-eprestore-summary' => 'Summary text input label',
+	'coursepage-eprestore-restore-button' => 'Submission button text',
+	'coursepage-eprestore-cancel-button' => 'Cancel button text',
+	'coursepage-eprestore-summary-value' => 'Default value for the summary. $1 it time, $2 is user name',
+	'coursepage-eprestore-restored' => 'SSucces message, shown at top of page in success box. $1 is course name.',
+	'coursepage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. $1 is course name.',
+
+	// Institution undo revision
+	'orgpage-epundo-title' => 'Page title. $1 is institution name',
+	'orgpage-epundo-text' => 'Indicates what the user is about to do if they continue. $1 is institution name.',
+	'orgpage-epundo-summary' => 'Summary text input label',
+	'orgpage-epundo-undo-button' => 'Submission button text',
+	'orgpage-epundo-cancel-button' => 'Cancel button text',
+	'orgpage-epundo-summary-value' => 'Default value for the summary. $1 it time, $2 is user name',
+	'orgpage-epundo-undid' => 'Succes message, shown at top of page in success box. $1 is institution name.',
+	'orgpage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
+
+	// Course undo revision
+	'coursepage-epundo-title' => 'Page title. $1 is course name',
+	'coursepage-epundo-text' => 'Indicates what the user is about to do if they continue. $1 is course name.',
+	'coursepage-epundo-summary' => 'Summary text input label',
+	'coursepage-epundo-undo-button' => 'Submission button text',
+	'coursepage-epundo-cancel-button' => 'Cancel button text',
+	'coursepage-epundo-summary-value' => 'Default value for the summary. $1 it time, $2 is user name',
+	'coursepage-epundo-undid' => 'Succes message, shown at top of page in success box. $1 is course name.',
+	'coursepage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. $1 is course name.',
+
+	// Course undeletion
+	'coursepage-epundelete-title' => 'Page title. $1 is course name',
+	'coursepage-epundelete-text' => 'Indicates what the user is about to do if they continue. $1 is course name.',
+	'coursepage-epundelete-summary' => 'Summary text input label',
+	'coursepage-epundelete-undelete-button' => 'Submission button text',
+	'coursepage-epundelete-cancel-button' => 'Cancel button text',
+	'coursepage-epundelete-undid' => 'Succes message, shown at top of page in success box. $1 is course name.',
+	'coursepage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. $1 is course name.',
+	'coursepage-epundelete-failed-norevs' => 'Fail message, shown at top of page in an error box. $1 is course name.',
+	'coursepage-epundelete-failed-exists' => 'Fail message, shown at top of page in an error box. $1 is course name.',
+
+	// Institution undeletion
+	'orgpage-epundelete-title' => 'Page title. $1 is institution name',
+	'orgpage-epundelete-text' => 'Indicates what the user is about to do if they continue. $1 is institution name.',
+	'orgpage-epundelete-summary' => 'Summary text input label',
+	'orgpage-epundelete-undelete-button' => 'Submission button text',
+	'orgpage-epundelete-cancel-button' => 'Cancel button text',
+	'orgpage-epundelete-undid' => 'Succes message, shown at top of page in success box. $1 is institution name.',
+	'orgpage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
+	'orgpage-epundelete-failed-norevs' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
+	'orgpage-epundelete-failed-exists' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
+
+	// Special:Student
+	'ep-student-none' => 'Shown when the user tries to view profile for non-existing student with name $1',
+	'ep-student-title' => 'Page title. $1 is student name',
+	'ep-student-actively-enrolled' => 'Enrollment status',
+	'ep-student-no-active-enroll' => 'Enrollment status',
+	'specialstudent-summary-active-enroll' => 'Table row header',
+	'specialstudent-summary-last-active' => 'Table row header',
+	'specialstudent-summary-first-enroll' => 'Table row header',
+	'specialstudent-summary-user' => 'Table row header',
+	'ep-student-courses' => 'h2 section header',
+	'ep-student-articles' => 'h2 section header',
 
 );
