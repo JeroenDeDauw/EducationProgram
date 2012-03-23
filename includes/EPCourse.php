@@ -173,6 +173,7 @@ class EPCourse extends EPPageObject {
 						'upc_course_id' => $this->getId(),
 						'upc_user_id' => $addedId,
 						'upc_role' => $roleMap[$usersField],
+						'upc_time' => wfTimestampNow(),
 					);
 				}
 
