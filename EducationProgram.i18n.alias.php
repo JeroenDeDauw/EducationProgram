@@ -38,7 +38,7 @@ $specialPageAliases['nl'] = array(
 	'Institutions' => array( 'Instituten' ),
 	'Student' => array( 'Student' ),
 	'Students' => array( 'Studenten' ),
-	'Courses' => array( 'Cursusen' ),
+	'Courses' => array( 'Cursussen' ),
 	'EducationProgram' => array( 'EducationProgram' ),
 	'Enroll' => array( 'Inschrijven' ),
 	'Disenroll' => array( 'Uitschrijven' ),
@@ -47,5 +47,5 @@ $specialPageAliases['nl'] = array(
 	'OnlineAmbassadorProfile' => array( 'OnlineAmbassadeurProfiel' ),
 	'CampusAmbassadorProfile' => array( 'CampusAmbassadeurProfiel' ),
 	'StudentActivity' => array( 'StudentActiviteit' ),
-	'Articles' => array( 'Artiekels' ),
+	'Articles' => array( 'Artikels' ),
 );
