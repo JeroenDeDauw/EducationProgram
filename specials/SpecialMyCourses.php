@@ -138,7 +138,7 @@ class SpecialMyCourses extends SpecialEPPage {
 	protected function displayRoleAssociation( $class ) {
 		$user = $this->getUser();
 		$userRole = $class::newFromUser( $user );
-		$courses = $userRole->getCourses( array( 'id', 'name', 'org_id' ) );
+		$courses = $userRole->getCourses( array( 'id', 'name', 'org_id', 'students' ) );
 
 		switch ( $class ) {
 			case 'EPStudent':
@@ -195,7 +195,7 @@ class SpecialMyCourses extends SpecialEPPage {
 
 			$pager = new EPArticleTable(
 				$this->getContext(),
-				array( 'user_id' => $this->getUser()->getId() ),
+				array( 'user_id' => $course->getField( 'students' ) ),
 				array( 'course_id' => $course->getId() )
 			);
 
