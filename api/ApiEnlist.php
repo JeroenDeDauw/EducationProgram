@@ -102,8 +102,8 @@ class ApiEnlist extends ApiBase {
 
 		switch ( $role ) {
 			case 'student':
-				return ( $user->isAllowed( 'ep-enroll' ) && $isSelf )
-					|| ( $isRemove && $user->isAllowed( 'ep-remstudent' ) );
+				return ( $isRemove && $user->isAllowed( 'ep-remstudent' ) )
+					|| ( ( $user->isAllowed( 'ep-enroll' ) && $isSelf ) || $user->isAllowed( 'ep-addstudent' ) );
 				break;
 			case 'instructor':
 				return $user->isAllowed( 'ep-instructor' )

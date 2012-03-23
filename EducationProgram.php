@@ -261,6 +261,7 @@ $wgAvailableRights[] = 'ep-remreviewer';	// Remove reviewers from articles
 $wgAvailableRights[] = 'ep-bulkdelorgs';	// Bulk delete institutions
 $wgAvailableRights[] = 'ep-bulkdelcourses';	// Bulk delete courses
 $wgAvailableRights[] = 'ep-remarticle';		// Remove artiles (from being student associated)
+$wgAvailableRights[] = 'ep-addstudent';		// Enroll users as student
 
 
 // User group rights
@@ -280,6 +281,7 @@ $wgGroupPermissions['*']['ep-remreviewer'] = false;
 $wgGroupPermissions['*']['ep-bulkdelorgs'] = false;
 $wgGroupPermissions['*']['ep-bulkdelcourses'] = false;
 $wgGroupPermissions['*']['ep-remarticle'] = false;
+$wgGroupPermissions['*']['ep-addstudent'] = false;
 
 $wgGroupPermissions['epstaff']['ep-org'] = true;
 $wgGroupPermissions['epstaff']['ep-course'] = true;
@@ -297,6 +299,7 @@ $wgGroupPermissions['epstaff']['ep-remreviewer'] = true;
 $wgGroupPermissions['epstaff']['ep-bulkdelorgs'] = true;
 $wgGroupPermissions['epstaff']['ep-bulkdelcourses'] = true;
 $wgGroupPermissions['epstaff']['ep-remarticle'] = true;
+$wgGroupPermissions['epstaff']['ep-addstudent'] = true;
 
 $wgGroupPermissions['epadmin']['ep-org'] = true;
 $wgGroupPermissions['epadmin']['ep-course'] = true;

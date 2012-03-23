@@ -148,6 +148,8 @@ $messages['en'] = array(
 	'right-ep-remreviewer' => 'Remove reviewers from articles',
 	'right-ep-bulkdelorgs' => 'Bulk delete institutions',
 	'right-ep-bulkdelcourses' => 'Bulk delete courses',
+	'right-ep-remarticle' => 'Dissasociate articles from students',
+	'right-ep-addstudent' => 'Enroll users as student',
 
 	// Actions
 	'action-ep-org' => 'manage institutions',
@@ -165,6 +167,8 @@ $messages['en'] = array(
 	'action-ep-remreviewer' => 'remove reviewers from articles',
 	'action-ep-bulkdelorgs' => 'bulk delete institutions',
 	'action-ep-bulkdelcourses' => 'bulk delete courses',
+	'action-ep-remarticle' => 'dissasociate articles from students',
+	'action-ep-addstudent' => 'enroll users as student',
 
 	// Groups
 	'group-epadmin' => 'Education program admins',
@@ -921,6 +925,8 @@ $messages['qqq'] = array(
 	'right-ep-remreviewer' => '{{doc-right|ep-remreviewer}}',
 	'right-ep-bulkdelorgs' => '{{doc-right|ep-bulkdelorgs}}',
 	'right-ep-bulkdelcourses' => '{{doc-right|ep-bulkdelcourses}}',
+	'right-ep-remarticle' => '{{doc-right|ep-remarticle}}',
+	'right-ep-addstudent' => '{{doc-right|ep-addstudent}}',
 
 	// Actions
 	'action-ep-org' => '{{doc-action|ep-org}}',
@@ -938,6 +944,8 @@ $messages['qqq'] = array(
 	'action-ep-remreviewer' => '{{doc-action|ep-remreviewer}}',
 	'action-ep-bulkdelorgs' => '{{doc-action|ep-bulkdelorgs}}',
 	'action-ep-bulkdelcourses' => '{{doc-action|ep-bulkdelcourses}}',
+	'action-ep-remarticle' => '{{doc-action|ep-remarticle}}',
+	'action-ep-addstudent' => '{{doc-action|ep-addstudent}}',
 
 	// Groups
 	'group-epadmin' => '{{group-name}}',
