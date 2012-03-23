@@ -19,6 +19,34 @@ class EPRevisionDiff extends ContextSource {
 
 	protected $isValid = true;
 
+	public static function newFromRestoreRevision( EPRevisionedObject $sourceObject, EPRevision $revison, array $fields = null ) {
+		$changedFields = array();
+
+		$targetObject = $revison->getObject();
+		$fields = is_null( $fields ) ? $targetObject->getFieldNames() : $fields;
+
+		foreach ( $fields as $fieldName ) {
+			$sourceHasField = $sourceObject->hasField( $fieldName );
+			$targetHasField = $targetObject->hasField( $fieldName );
+
+			if ( ( $sourceHasField XOR $targetHasField )
+				|| $sourceObject->getField( $fieldName, null ) !== $targetObject->getField( $fieldName, null ) ) {
+
+				$changedFields[$fieldName] = array();
+
+				if ( $sourceHasField ) {
+					$changedFields[$fieldName]['source'] = $sourceObject->getField( $fieldName );
+				}
+
+				if ( $targetHasField ) {
+					$changedFields[$fieldName]['target'] = $targetObject->getField( $fieldName );
+				}
+			}
+		}
+
+		return new self( $changedFields );
+	}
+
 	public static function newFromUndoRevision( EPRevisionedObject $currentObject, EPRevision $revison, array $fields = null ) {
 		$changedFields = array();
 
@@ -30,13 +58,25 @@ class EPRevisionDiff extends ContextSource {
 			$fields = is_null( $fields ) ? $sourceObject->getFieldNames() : $fields;
 
 			foreach ( $fields as $fieldName ) {
-				if ( $currentObject->getField( $fieldName ) === $sourceObject->getField( $fieldName )
-					&& $sourceObject->getField( $fieldName ) !== $targetObject->getField( $fieldName ) ) {
+				$sourceHasField = $sourceObject->hasField( $fieldName );
+				$targetHasField = $targetObject->hasField( $fieldName );
 
-					$changedFields[$fieldName] = array(
-						$sourceObject->getField( $fieldName ),
-						$targetObject->getField( $fieldName )
-					);
+				if ( $currentObject->getField( $fieldName, null ) === $sourceObject->getField( $fieldName, null )
+					&&
+					( 	( $sourceHasField XOR $targetHasField )
+						||
+						$sourceObject->getField( $fieldName, null ) !== $targetObject->getField( $fieldName, null )
+					) ) {
+
+					$changedFields[$fieldName] = array();
+
+					if ( $sourceHasField ) {
+						$changedFields[$fieldName]['source'] = $sourceObject->getField( $fieldName );
+					}
+
+					if ( $targetHasField ) {
+						$changedFields[$fieldName]['target'] = $targetObject->getField( $fieldName );
+					}
 				}
 			}
 		}
@@ -64,13 +104,14 @@ class EPRevisionDiff extends ContextSource {
 		$out->addHTML( '</tr>' );
 
 		foreach ( $this->changedFields as $field => $values ) {
-			list( $old, $new ) = $values;
-
 			$out->addHtml( '<tr>' );
 
+			$source = array_key_exists( 'source', $values ) ? $values['source'] : '';
+			$target = array_key_exists( 'target', $values ) ? $values['target'] : '';
+
 			$out->addElement( 'th', array(), $field );
-			$out->addElement( 'td', array(), $old );
-			$out->addElement( 'td', array(), $new );
+			$out->addElement( 'td', array(), $source );
+			$out->addElement( 'td', array(), $target );
 
 			$out->addHtml( '</tr>' );
 		}

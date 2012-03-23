@@ -64,8 +64,21 @@ class EPRestoreAction extends EPAction {
 						$success = $this->doRestore( $object, $revision );
 					}
 					else {
-						$this->displayForm( $object, $revision );
-						$success = null;
+						$diff = $object->getRestoreDiff( $revision );
+
+						if ( $diff->isValid() ) {
+							if ( $diff->hasChanges() ) {
+								$diff->setContext( $this->getContext() );
+								$diff->display();
+
+								$this->displayForm( $object, $revision );
+							}
+							else {
+								// TODO
+							}
+
+							$success = null;
+						}
 					}
 				}
 			}
@@ -102,7 +115,7 @@ class EPRestoreAction extends EPAction {
 	 * @return boolean Success indicator
 	 */
 	protected function doRestore( EPPageObject $object, EPRevision $revision ) {
-		$success = $object->restoreToRevision( $revision, $object->getTable()->getRevertableFields() );
+		$success = $object->restoreToRevision( $revision );
 		
 		if ( $success ) {
 			$revAction = new EPRevisionAction();

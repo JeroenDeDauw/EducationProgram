@@ -115,7 +115,7 @@ class EPUndoAction extends EPAction {
 	 * @return boolean Success indicator
 	 */
 	protected function doUndo( EPPageObject $object, EPRevision $revision ) {
-		$success = $object->undoRevision( $revision, $object->getTable()->getRevertableFields() );
+		$success = $object->undoRevision( $revision );
 
 		if ( $success ) {
 			$revAction = new EPRevisionAction();

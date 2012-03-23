@@ -345,18 +345,28 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * 
 	 * @param EPRevision $revison
 	 * @param array|null $fields
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	public function restoreToRevision( EPRevision $revison, array $fields = null ) {
-		$object = $revison->getObject();
-		$fields = is_null( $fields ) ? $object->getFieldNames() : $fields;
-		
-		foreach ( $fields as $fieldName ) {
-			$this->restoreField( $fieldName, $object->getField( $fieldName ) );
-		}
-		
-		return true;
+		$diff = $this->getRestoreDiff( $revison, $fields );
+		$this->applyDiff( $diff );
+		return $diff->isValid();
+	}
+
+	/**
+	 * Get a diff for the changes that will happen when retoring to the provided revision.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPRevision $revison
+	 * @param array|null $fields
+	 *
+	 * @return EPRevisionDiff
+	 */
+	public function getRestoreDiff( EPRevision $revison, array $fields = null ) {
+		$fields = is_null( $fields ) ? $this->table->getRevertableFields() : $fields;
+		return EPRevisionDiff::newFromRestoreRevision( $this, $revison, $fields );
 	}
 
 	/**
@@ -377,12 +387,19 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 */
 	public function undoRevision( EPRevision $revison, array $fields = null ) {
 		$diff = $this->getUndoDiff( $revison, $fields );
-
-		foreach ( $diff->getChangedFields() as $fieldName => $values ) {
-			$this->restoreField( $fieldName, $values[1] );
-		}
-
+		$this->applyDiff( $diff );
 		return $diff->isValid();
+	}
+
+	public function applyDiff( EPRevisionDiff $diff ) {
+		foreach ( $diff->getChangedFields() as $fieldName => $values ) {
+			if ( array_key_exists( 'target', $values ) ) {
+				$this->restoreField( $fieldName, $values['target'] );
+			}
+			else {
+				$this->removeField( $fieldName );
+			}
+		}
 	}
 
 	/**
@@ -396,6 +413,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * @return EPRevisionDiff
 	 */
 	public function getUndoDiff( EPRevision $revison, array $fields = null ) {
+		$fields = is_null( $fields ) ? $this->table->getRevertableFields() : $fields;
 		return EPRevisionDiff::newFromUndoRevision( $this, $revison, $fields );
 	}
 
