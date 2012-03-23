@@ -237,9 +237,6 @@ $messages['en'] = array(
 	// Special:Students
 	'ep-students-noresults' => 'There are no students to list.',
 
-    // Special:Ambassadors
-    'ep-mentors-noresults' => 'There are no ambassadors to list.',
-
 	// Pager
 	'ep-pager-showonly' => 'Show only items with',
 	'ep-pager-clear' => 'Clear filters',
@@ -1025,5 +1022,62 @@ $messages['qqq'] = array(
 	'ep-courses-neworg' => 'Select input label',
 	'ep-courses-add' => 'Submit button text',
 	'ep-courses-addorgfirst' => 'Error message shown when trying to create a course while there are no institutions yet',
+
+	// Special:Students
+	'ep-students-noresults' => 'Shown instead of a pager as notification that there are no results',
+
+	// Pager
+	'ep-pager-showonly' => 'Header of a section with controls that allow filtering the result set',
+	'ep-pager-clear' => 'Clear button text',
+	'ep-pager-go' => 'Submit button text',
+	'ep-pager-withselected' => 'Header of a section with controls that allow doing bulk actions (ie affect the selected items)',
+	'ep-pager-delete-selected' => 'Delete button text',
+
+	// Revision pager
+	'ep-revision-undo' => 'Undo link shown next to revisions on history pages',
+	'ep-revision-restore' => 'Restore link shown next to revisions on history pages',
+
+	// Org pager
+	'eporgpager-header-name' => 'Table column header',
+	'eporgpager-header-city' => 'Table column header',
+	'eporgpager-header-country' => 'Table column header',
+	'eporgpager-filter-country' => 'Filter control label',
+	'eporgpager-header-course-count' => 'Table column header',
+	'eporgpager-header-student-count' => 'Table column header',
+	'eporgpager-header-active' => 'Table column header',
+	'eporgpager-filter-active' => 'Filter control label',
+	'eporgpager-yes' => 'Select option text, also displayed in table cells',
+	'eporgpager-no' => 'Select option text, also displayed in table cells',
+	'ep-pager-cancel-button-org' => 'Cancel button text',
+	'ep-pager-delete-button-org' => 'Remove button text. $1 indicates the amount of affected institutions.',
+	'ep-pager-confirm-delete-org' => 'Deletion confirmation dialog title. $1 indicates the amount of affected institutions.',
+	'ep-pager-retry-button-org' => 'Retry button text',
+	'ep-pager-summary-message-org' => 'Summary input label',
+	// Yeah we need two of these - having a jQuery node in PLURAL breaks, at least at r110788.
+	'ep-pager-confirm-message-org' => 'Notifies the user they are about to delete institution $1.',
+	'ep-pager-confirm-message-org-many' => 'Notifies the user they are about to delete the institutions in list $1.',
+
+	// Course pager
+	'epcoursepager-header-name' => 'Table column header',
+	'epcoursepager-header-term' => 'Table column header',
+	'epcoursepager-header-start' => 'Table column header',
+	'epcoursepager-header-org-id' => 'Table column header',
+	'epcoursepager-header-end' => 'Table column header',
+	'epcoursepager-header-status' => 'Table column header',
+	'epcoursepager-header-student-count' => 'Table column header',
+	'epcoursepager-header-lang' => 'Table column header',
+	'epcoursepager-filter-term' => 'Filter control label',
+	'epcoursepager-filter-lang' => 'Filter control label',
+	'epcoursepager-filter-org-id' => 'Filter control label',
+	'epcoursepager-filter-status' => 'Filter control label',
+	'epcoursepager-invalid-lang' => 'Indicates the selected language is not valid',
+	'ep-pager-cancel-button-course' => 'Cancel button text',
+	'ep-pager-delete-button-course' => 'Remove button text. $1 indicates the amount of affected courses.',
+	'ep-pager-confirm-delete-course' => 'Deletion confirmation dialog title. $1 indicates the amount of affected courses.',
+	'ep-pager-retry-button-course' => 'Retry button text',
+	'ep-pager-summary-message-course' => 'Summary input label',
+	// Yeah we need two of these - having a jQuery node in PLURAL breaks, at least at r110788.
+	'ep-pager-confirm-message-course' => 'Notifies the user they are about to delete course $1.',
+	'ep-pager-confirm-message-course-many' => 'Notifies the user they are about to delete the courses in list $1.',
 
 );
