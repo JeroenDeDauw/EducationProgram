@@ -1080,4 +1080,54 @@ $messages['qqq'] = array(
 	'ep-pager-confirm-message-course' => 'Notifies the user they are about to delete course $1.',
 	'ep-pager-confirm-message-course-many' => 'Notifies the user they are about to delete the courses in list $1.',
 
+	// Student pager
+	'epstudentpager-header-user-id' => 'Table column header',
+	'epstudentpager-header-id' => 'Table column header',
+	'epstudentpager-header-current-courses' => 'Table column header',
+	'epstudentpager-header-passed-courses' => 'Table column header',
+	'epstudentpager-header-first-enroll' => 'Table column header',
+	'epstudentpager-header-last-active' => 'Table column header',
+	'epstudentpager-header-active-enroll' => 'Table column header',
+	'epstudentpager-yes' => 'Select option text, also displayed in table cells',
+	'epstudentpager-no' => 'Select option text, also displayed in table cells',
+
+	// Article table
+	'epstudentpager-header-student' => 'Table column header',
+	'epstudentpager-header-articles' => 'Table column header',
+	'epstudentpager-header-reviewers' => 'Table column header',
+	'ep-artciles-remstudent' => 'Link text shown in user tool links section',
+	'ep-artciles-remreviewer-self' => 'Link text, displayed next to a reviewer that is the current user. $1 is the user name',
+	'ep-artciles-remreviewer' => 'Link text, displayed next to a reviewer. $1 is reviewer user name',
+	'ep-artciles-remarticle' => 'Link text, displayed next to an article',
+	'ep-artciles-addarticle-text' => 'Text input label',
+	'ep-artciles-addarticle-button' => 'Submit button text',
+	'ep-artciles-becomereviewer' => 'Button text. $1 is the user name',
+
+	// ep.articletable
+	'ep-articletable-addreviwer-title' => 'Dialog title. $1 is the name of the user',
+	'ep-articletable-addreviwer-button' => 'Link text. $1 is the name of the user',
+	'ep-articletable-addreviwer-cancel' => 'Cancel button text',
+	'ep-articletable-addreviwer-text' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is user name. $2 is an article. $3 is another user',
+
+	'ep-articletable-remreviwer-title' => 'Dialog title. $1 is the name of the user',
+	'ep-articletable-remreviwer-title-self' => 'Dialog title. $1 is the name of the user',
+	'ep-articletable-remreviwer-button' => 'Remove button text. $1 is the name of the user',
+	'ep-articletable-remreviwer-button-self' => 'Remove button text. $1 is the name of the user',
+	'ep-articletable-remreviwer-cancel' => 'Cancel button text',
+	'ep-articletable-remreviwer-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is user name. $2 is an article. $3 is another user',
+	'ep-articletable-remreviwer-text' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is user name. $2 is an article. $3 is another user. $4 is a link to user $1',
+
+	'ep-articletable-remstudent-title' => 'Dialog title. $1 is the name of the user',
+	'ep-articletable-remstudent-button' => 'Link text. $1 is the name of the user',
+	'ep-articletable-remstudent-cancel' => 'Cancel button text',
+	'ep-articletable-remstudent-text' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is user name. $2 is a course. $3 is a link to user $1.
+
+This will permanently remove their associated articles and reviewers!',
+
+	'ep-articletable-remarticle-title' => 'Dialog title. $1 is the name of the affected article',
+	'ep-articletable-remarticle-button' => 'Remove button text',
+	'ep-articletable-remarticle-cancel' => 'Cancel button text',
+	'ep-articletable-remarticle-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is article name, $2 is course name',
+	'ep-articletable-remarticle-text' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is article name, $2 is course name, $3 is the student working on the article',
+
 );
