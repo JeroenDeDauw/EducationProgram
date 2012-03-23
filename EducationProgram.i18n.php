@@ -1130,4 +1130,81 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-articletable-remarticle-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is article name, $2 is course name',
 	'ep-articletable-remarticle-text' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is article name, $2 is course name, $3 is the student working on the article',
 
+	// Article pager
+	'ep-articles-noresults' => 'Shown instead of a pager as notification that there are no results',
+
+	// Campus ambassador pager
+	'epcapager-header-photo' => 'Table column header',
+	'epcapager-header-user-id' => 'Table column header',
+	'epcapager-header-bio' => 'Table column header',
+	'epcapager-header-courses' => 'Table column header',
+	'ep-ca-noresults' => 'Shown instead of a pager as notification that there are no results',
+
+	// Online ambassador pager
+	'epoapager-header-photo' => 'Table column header',
+	'epoapager-header-user-id' => 'Table column header',
+	'epoapager-header-bio' => 'Table column header',
+	'epoapager-header-courses' => 'Table column header',
+	'ep-oa-noresults' => 'Shown instead of a pager as notification that there are no results',
+
+	// Student activity pager
+	'epstudentactivitypager-header-user-id' => 'Table column header',
+	'epstudentactivitypager-header-org-id' => 'Table column header',
+	'epstudentactivitypager-header-last-course' => 'Table column header',
+	'epstudentactivitypager-header-last-active' => 'Table column header',
+
+	// Institution editing
+	'editinstitution-text' => 'Small description at the top of the edit form',
+	'educationprogram-org-edit-name' => 'Text input label',
+	'orgpage-edit-legend-add' => 'Form header',
+	'orgpage-edit-legend-edit' => 'Form header',
+	'educationprogram-org-edit-city' => 'Text input label',
+	'educationprogram-org-edit-country' => 'Text input label',
+	'educationprogram-org-submit' => 'Submit button text',
+	'ep-addorg' => 'Message shown when viewing an non-existing institution page',
+	'ep-editorg' => 'Message shown when editing an institution page',
+	'ep-editorg-exists-already' => 'Message shown when the user tries to create a new institution with a name that already exists, and so ends up editing that one',
+	'orgpage-edit-title-edit' => 'Page title. $1 is insitution name',
+	'orgpage-edit-title-add' => 'Page title. $1 is insitution name',
+	'orgpage-edit-deleted' => 'Warning shown when recreating a deleted institution',
+	'orgpage-edit-undelete-revisions' => 'message indicating the institution has been deleted. $1 is a restore link',
+	'orgpage-edit-undelete-link' => 'Restore link text. $1 is the amount of revisions to be restored',
+
+	'educationprogram-org-invalid-name' => 'Error message indicating the value must be at least $1 characters long.',
+	'educationprogram-org-invalid-city' => 'Error message indicating the value must be at least $1 characters long.',
+	'educationprogram-org-invalid-country' => 'Error message indicating that the enetered value is not a valid country.',
+
+	// Course editing
+	'coursepage-edit-legend-add' => 'Form header',
+	'coursepage-edit-legend-edit' => 'Form header',
+	'ep-course-edit-term' => 'Text input label',
+	'ep-course-edit-org' => 'Input label',
+	'ep-course-edit-start' => 'Input label',
+	'ep-course-edit-end' => 'Input label',
+	'ep-course-edit-token' => 'Input label',
+	'ep-course-help-token' => 'Extra description for the token input field',
+	'ep-course-edit-description' => 'Input label',
+	'ep-course-edit-name-format' => '$1 ($2)',
+	'ep-course-edit-name' => 'Input label',
+	'ep-course-help-name' => 'Extra description for the title input field',
+	'ep-course-edit-field' => 'Input label',
+	'ep-course-edit-level' => 'Input label',
+	'ep-course-edit-term' => 'Input label',
+	'ep-course-edit-mc' => 'Input label',
+	'ep-course-help-mc' => 'Extra description for the name input field',
+	'ep-course-edit-lang' => 'Input label',
+	'ep-addcourse' => 'Message shown when viewing an non-existing course page',
+	'ep-editcourse' => 'Message shown when editing an institution page',
+	'ep-editcourse-exists-already' => 'Message shown when the user tries to create a new course with a name that already exists, and so ends up editing that one',
+	'coursepage-edit-title-edit' => 'Page title. $1 is the course name',
+	'coursepage-edit-title-add' => 'Page title. $1 is the course name',
+	'coursepage-edit-deleted' => 'Warning shown when recreating a deleted course',
+
+	'ep-course-invalid-org' => 'Error message shown when selecting an invalid institution',
+	'ep-course-invalid-token' => 'Error message indicating the value should contain at least $1 characters',
+	'ep-course-invalid-description' => 'Error message indicating the value should contain at least $1 characters',
+	'ep-course-invalid-lang' => 'error message shown when selecting an invalid language',
+	'coursepage-edit-undelete-revisions' => 'message indicating the course has been deleted. $1 is a restore link',
+	'coursepage-edit-undelete-link' => 'Restore link text. $1 is the amount of revisions to be restored',
+
 );
