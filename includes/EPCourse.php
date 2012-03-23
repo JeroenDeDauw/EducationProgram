@@ -466,10 +466,25 @@ class EPCourse extends EPPageObject {
 				$this->$classField = array();
 			}
 			else {
-				$this->$classField = $tableName::singleton()->select(
+				$table = $tableName::singleton();
+
+				$this->$classField = $table->select(
 					null,
 					array( 'user_id' => $userIds )
 				);
+
+				// At this point we will have all users that actually have an entry in the role table.
+				// But it's possible they do not have such an entry, so create new objects for those.
+
+				$addedIds = array();
+
+				foreach ( $this->$classField as /* EPRole */ $userInRole ) {
+					$addedIds[] = $userInRole->getField( 'user_id' );
+				}
+
+				foreach ( array_diff( $userIds, $addedIds ) as $remainingId ) {
+					array_push( $this->$classField, $table->newFromArray( array( 'user_id' => $remainingId ) ) );
+				}
 			}
 		}
 
