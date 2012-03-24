@@ -127,11 +127,71 @@ class SpecialEducationProgram extends SpecialEPPage {
 	}
 
 	public function displayByTerm() {
-		$terms = $this->getTermData();
+		$termsData = $this->getTermData();
 
 		$html = Html::element( 'h2', array(), $this->msgTxt( 'by-term' ) );
 
-		$html .= Html::openElement( 'table', array( 'class' => 'wikitable ep-termbreakdown' ) );
+		$html .= $this->getByTermTable( $termsData['terms'] );
+
+		$html .= Html::element( 'h2', array(), $this->msgTxt( 'genders' ) );
+
+		$html .= $this->getByGenderTable( $termsData['bygender'] );
+
+		return $html;
+	}
+
+	protected function getByGenderTable( $terms ) {
+		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-termbreakdown' ) );
+
+		$term = array_shift( $terms );
+		$rows = array_keys( $term );
+		array_unshift( $terms, $term );
+
+		$html .= '<tr>';
+
+		$html .= Html::element( 'th', array( 'colspan' => 2 ), '' );
+
+		foreach ( $terms as $termName => $term ) {
+			$html .= Html::element(
+				'th',
+				array(),
+				$termName
+			);
+		}
+
+		$html .= '</tr>';
+
+		foreach ( $rows as $row ) {
+			$html .= '<tr>';
+
+			$html .= Html::element( 'th', array( 'rowspan' => 3 ), $this->msgTxt( 'gender-' . $row ) );
+
+			foreach ( array( 'male', 'female', 'unknown' ) as $gender ) {
+				if ( $gender !== 'male' ) {
+					$html .= '</tr><tr>';
+				}
+
+				$html .= Html::element( 'th', array(), $this->msgTxt( $gender ) );
+
+				foreach ( $terms as $term ) {
+					$html .= Html::element(
+						'td',
+						array(),
+						$this->getLanguage()->formatNum( round( $term[$row][$gender], 2 ) * 100 ) . '%'
+					);
+				}
+			}
+
+			$html .= '</tr>';
+		}
+
+		$html .= Html::closeElement( 'table' );
+
+		return $html;
+	}
+
+	protected function getByTermTable( $terms ) {
+		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-termbreakdown' ) );
 
 		$term = array_shift( $terms );
 		$rows = array_keys( $term );
@@ -165,6 +225,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 	protected function getTermData() {
 		$termNames = EPCourses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ) );
 		$terms = array();
+		$byGender = array();
 
 		foreach ( $termNames as $termName ) {
 			$courses = EPCourses::singleton()->select( null, array( 'term' => $termName ) );
@@ -205,9 +266,56 @@ class SpecialEducationProgram extends SpecialEPPage {
 			);
 
 			$terms[$termName] = $term;
+			$byGender[$termName] = $this->getByGender( $students, $oas, $cas, $instructors );
 		}
 
-		return $terms;
+		return array( 'terms' => $terms, 'bygender' => $byGender );
+	}
+
+	protected function getByGender( array $students, array $oas, array $cas, array $instructors ) {
+		$genders = $this->getGenders( array_unique( array_merge( $students, $oas, $cas, $instructors ) ) );
+
+		return array(
+			'students' => $this->getGenderDistribution( $students, $genders ),
+			'oas' => $this->getGenderDistribution( $oas, $genders ),
+			'cas' => $this->getGenderDistribution( $cas, $genders ),
+			'instructors' => $this->getGenderDistribution( $instructors, $genders ),
+		);
+	}
+
+	protected function getGenderDistribution( array $users, array $genders ) {
+		$distibution = array( 'unknown' => 0, 'male' => 0, 'female' => 0 );
+
+		foreach ( $users as $userId ) {
+			$distibution[$genders[$userId]]++;
+		}
+
+		$userCount = count( $users );
+
+		foreach ( $distibution as &$amount ) {
+			$amount = $userCount === 0 ? 1 : $amount / $userCount;
+		}
+
+		return $distibution;
+	}
+
+	protected function getGenders( $userIds ) {
+		$dbr = wfGetDB( DB_SLAVE );
+
+		$users = $dbr->select(
+			'user_properties',
+			array( 'up_user', 'up_value' ),
+			array( 'up_property' => 'gender' ),
+			__METHOD__
+		);
+
+		$genders = array_fill_keys( $userIds, 'unknown' );
+
+		while ( $user = $users->fetchObject() ) {
+			$genders[$user->up_user] = $user->up_value;
+		}
+
+		return $genders;
 	}
 
 	protected function msgTxt() {

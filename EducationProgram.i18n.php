@@ -231,6 +231,14 @@ $messages['en'] = array(
 	'ep-educationprogram-cas' => 'Number of Campus Ambassadors',
 	'ep-educationprogram-orgs' => 'Number of institutions',
 	'ep-educationprogram-articles' => 'Number of articles',
+	'ep-educationprogram-gender-students' => 'Students',
+	'ep-educationprogram-gender-oas' => 'Online Ambassadors',
+	'ep-educationprogram-gender-cas' => 'Campus Ambassadors',
+	'ep-educationprogram-gender-instructors' => 'Instructors',
+	'ep-educationprogram-male' => 'Male',
+	'ep-educationprogram-female' => 'Female',
+	'ep-educationprogram-unknown' => 'Unknown',
+	'ep-educationprogram-genders' => 'Gender breakdown',
 
 	// Special:Institutions
 	'ep-institutions-noresults' => 'There are no institutions to list.',
