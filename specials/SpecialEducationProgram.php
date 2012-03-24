@@ -87,12 +87,43 @@ class SpecialEducationProgram extends SpecialEPPage {
 
 		$data['org-count'] = $lang->formatNum( EPOrgs::singleton()->count() );
 		$data['course-count'] = $lang->formatNum( EPCourses::singleton()->count() );
-		$data['student-count'] = $lang->formatNum( EPStudents::singleton()->count() );
-		$data['instructor-count'] = $lang->formatNum( EPInstructors::singleton()->count() );
-		$data['oa-count'] = $lang->formatNum( EPOAs::singleton()->count() );
-		$data['ca-count'] = $lang->formatNum( EPCAs::singleton()->count() );
+		$data['active-course-count'] = $lang->formatNum( EPCourses::singleton()->count( EPCourses::getStatusConds( 'current' ) ) );
+
+		$data['student-count'] = $this->getRoleCount( EP_STUDENT );
+
+		// What do you mean? "to much nesting"? :)
+		$data['current-student-count'] = $lang->formatNum( count( array_unique( call_user_func_array(
+			'array_merge',
+			array_map( 'unserialize', EPCourses::singleton()->selectFields( 'students', EPCourses::getStatusConds( 'current' ) ) )
+		) ) ) );
+
+		$data['instructor-count'] = $this->getRoleCount( EP_INSTRUCTOR );
+		$data['oa-count'] = $this->getRoleCount( EP_OA );
+		$data['ca-count'] = $this->getRoleCount( EP_CA );
 
 		return $data;
+	}
+
+	/**
+	 * Returns the amount of people that currently have a role for at least one course.
+	 * So users that have not enlisted for a single course are not counted.
+	 *
+	 * @since 0.1
+	 *
+	 * @param integer $roleId
+	 *
+	 * @return integer
+	 */
+	protected function getRoleCount( $roleId ) {
+		$dbr = wfGetDB( DB_SLAVE );
+
+		return $dbr->selectRow(
+			'ep_users_per_course',
+			array( 'COUNT(upc_user_id) AS rowcount' ),
+			array( 'upc_role' => $roleId ),
+			__METHOD__,
+			array( 'DISTINCT' )
+		)->rowcount;
 	}
 
 	public function displayByTerm() {
@@ -116,7 +147,11 @@ class SpecialEducationProgram extends SpecialEPPage {
 			$html .= Html::element( 'th', array(), $isHeader ? '' : $this->msgTxt( $row ) );
 
 			foreach ( $terms as $termName => $term ) {
-				$html .= Html::element( $isHeader ? 'th' : 'td', array(), $isHeader ? $termName : $term[$row] );
+				$html .= Html::element(
+					$isHeader ? 'th' : 'td',
+					array(),
+					$isHeader ? $termName : $this->getLanguage()->formatNum( $term[$row] )
+				);
 			}
 
 			$html .= '</tr>';

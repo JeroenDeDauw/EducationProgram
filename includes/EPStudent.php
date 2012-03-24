@@ -66,10 +66,6 @@ class EPStudent extends EPRoleObject {
 			$fields['active_enroll'] = $this->hasCourse( EPCourses::getStatusConds( 'current' ) );
 		}
 
-		if ( in_array( 'last_active', $summaryFields ) ) {
-			// TODO
-		}
-		
 		$this->setFields( $fields );
 	}
 
