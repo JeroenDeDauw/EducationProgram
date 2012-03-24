@@ -214,13 +214,21 @@ $messages['en'] = array(
 	'ep-course-status-planned' => 'Planned',
 
 	// Special:EducationProgram
-	'ep-summary-table-header' => 'Education Program summary',
+	'ep-summary-table-header' => 'Education Program totals',
 	'specialeducationprogram-summary-org-count' => 'Number of [[Special:Institutions|institutions]]',
 	'specialeducationprogram-summary-course-count' => 'Number of [[Special:Courses|courses]]',
 	'specialeducationprogram-summary-student-count' => 'Number of [[Special:Students|students]]',
 	'specialeducationprogram-summary-instructor-count' => 'Number of instructors',
 	'specialeducationprogram-summary-ca-count' => 'Number of [[Special:CampusAmbassadors|Campus Ambassadors]]',
 	'specialeducationprogram-summary-oa-count' => 'Number of [[Special:OnlineAmbassadors|Online Ambassadors]]',
+	'ep-educationprogram-by-term' => 'Totals per term',
+	'ep-educationprogram-courses' => 'Number of courses',
+	'ep-educationprogram-students' => 'Number of students',
+	'ep-educationprogram-instructors' => 'Number of instructors',
+	'ep-educationprogram-oas' => 'Number of Online Ambassadors',
+	'ep-educationprogram-cas' => 'Number of Campus Ambassadors',
+	'ep-educationprogram-orgs' => 'Number of institutions',
+	'ep-educationprogram-articles' => 'Number of articles',
 
 	// Special:Institutions
 	'ep-institutions-noresults' => 'There are no institutions to list.',

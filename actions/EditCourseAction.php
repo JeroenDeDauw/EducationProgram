@@ -170,10 +170,13 @@ class EditCourseAction extends EPEditAction {
 			} ,
 		);
 
+		$fieldFields = $this->table->selectFields( 'term', array(), array( 'DISTINCT' ) );
+		$fieldFields = array_merge( array( '' => '' ), $fieldFields );
 		$fields['term'] = array (
-			'type' => 'text',
+			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-term',
 			'required' => true,
+			'options' => array_combine( $fieldFields, $fieldFields ),
 		);
 
 		$fields['start'] = array (

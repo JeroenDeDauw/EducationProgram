@@ -115,8 +115,7 @@ class ViewOrgAction extends EPViewAction {
 		return array_merge( array(
 			$user->isAllowed( 'ep-org' ),
 			$user->isAllowed( 'ep-course' ),
-			$user->isAllowed( 'ep-bulkdelcourses' ),
-			$user->getOption( 'ep_bulkdelcourses' ),
+			$user->isAllowed( 'ep-bulkdelcourses' ) && $user->getOption( 'ep_bulkdelcourses' ),
 		), parent::getCacheKey() );
 	}
 	
