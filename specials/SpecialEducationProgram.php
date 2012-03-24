@@ -32,7 +32,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
-		$this->startCache( 1 );
+		$this->startCache( 3600 );
 
 		$this->displayNavigation();
 
@@ -83,23 +83,27 @@ class SpecialEducationProgram extends SpecialEPPage {
 	protected function getSummaryInfo() {
 		$data = array();
 
-		$lang = $this->getLanguage();
-
-		$data['org-count'] = $lang->formatNum( EPOrgs::singleton()->count() );
-		$data['course-count'] = $lang->formatNum( EPCourses::singleton()->count() );
-		$data['active-course-count'] = $lang->formatNum( EPCourses::singleton()->count( EPCourses::getStatusConds( 'current' ) ) );
+		$data['org-count'] = EPOrgs::singleton()->count();
+		$data['course-count'] = EPCourses::singleton()->count();
+		$data['active-course-count'] = EPCourses::singleton()->count( EPCourses::getStatusConds( 'current' ) );
 
 		$data['student-count'] = $this->getRoleCount( EP_STUDENT );
 
 		// What do you mean? "to much nesting"? :)
-		$data['current-student-count'] = $lang->formatNum( count( array_unique( call_user_func_array(
+		$data['current-student-count'] = count( array_unique( call_user_func_array(
 			'array_merge',
 			array_map( 'unserialize', EPCourses::singleton()->selectFields( 'students', EPCourses::getStatusConds( 'current' ) ) )
-		) ) ) );
+		) ) );
 
 		$data['instructor-count'] = $this->getRoleCount( EP_INSTRUCTOR );
 		$data['oa-count'] = $this->getRoleCount( EP_OA );
 		$data['ca-count'] = $this->getRoleCount( EP_CA );
+
+		$lang = $this->getLanguage();
+
+		foreach ( $data as &$number ) {
+			$number = $lang->formatNum( $number );
+		}
 
 		return $data;
 	}
