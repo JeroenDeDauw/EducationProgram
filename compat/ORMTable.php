@@ -5,12 +5,12 @@
  * 
  * @since 1.20
  *
- * @file DBTable.php
+ * @file ORMTable.php
  *
  * @licence GNU GPL v2 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class DBTable {
+abstract class ORMTable {
 	
 	/**
 	 * Returns the name of the database table objects of this type are stored in.
@@ -19,17 +19,17 @@ abstract class DBTable {
 	 *
 	 * @return string
 	 */
-	public abstract function getDBTable();
+	public abstract function getName();
 
 	/**
-	 * Returns the name of a DBDataObject deriving class that
+	 * Returns the name of a ORMRow deriving class that
 	 * represents single rows in this table.
 	 * 
 	 * @since 1.20
 	 * 
 	 * @return string
 	 */
-	public abstract function getDataObjectClass();
+	public abstract function getRowClass();
 	
 	/**
 	 * Gets the db field prefix.
@@ -58,7 +58,7 @@ abstract class DBTable {
 	 *
 	 * @return array
 	 */
-	public abstract function getFieldTypes();
+	public abstract function getFields();
 
 	/**
 	 * The database connection to use for read operations.
@@ -96,7 +96,7 @@ abstract class DBTable {
 	
 	/**
 	 * Selects the the specified fields of the records matching the provided
-	 * conditions and returns them as DBDataObject. Field names get prefixed.
+	 * conditions and returns them as ORMRow. Field names get prefixed.
 	 *
 	 * @since 1.20
 	 *
@@ -143,7 +143,7 @@ abstract class DBTable {
 	 */
 	public function selectFields( $fields = null, array $conditions = array(), array $options = array(), $collapse = true, $functionName  = null ) {
 		if ( is_null( $fields ) ) {
-			$fields = array_keys( $this->getFieldTypes() );
+			$fields = array_keys( $this->getFields() );
 		}
 		else {
 			$fields = (array)$fields;
@@ -151,7 +151,7 @@ abstract class DBTable {
 		
 		$dbr = wfGetDB( $this->getReadDb() );
 		$result = $dbr->select(
-			$this->getDBTable(),
+			$this->getName(),
 			$this->getPrefixedFields( $fields ),
 			$this->getPrefixedValues( $conditions ),
 			is_null( $functionName ) ? __METHOD__ : $functionName,
@@ -220,7 +220,7 @@ abstract class DBTable {
 		$dbr = wfGetDB( $this->getReadDb() );
 
 		return $dbr->selectRow(
-			$this->getDBTable(),
+			$this->getName(),
 			$fields,
 			$conditions,
 			is_null( $functionName ) ? __METHOD__ : $functionName,
@@ -233,7 +233,7 @@ abstract class DBTable {
 	 * conditions and returns it as an associative array, or false when nothing matches.
 	 * This method makes use of selectFields and expects the same parameters and
 	 * returns the same results (if there are any, if there are none, this method returns false).
-	 * @see DBDataObject::selectFields
+	 * @see ORMTable::selectFields
 	 *
 	 * @since 1.20
 	 *
@@ -303,7 +303,7 @@ abstract class DBTable {
 	 */
 	public function delete( array $conditions, $functionName = null ) {
 		return wfGetDB( DB_MASTER )->delete(
-			$this->getDBTable(),
+			$this->getName(),
 			$this->getPrefixedValues( $conditions ),
 			$functionName
 		);
@@ -333,7 +333,7 @@ abstract class DBTable {
 		$params = array();
 		$defaults = $this->getDefaults();
 
-		foreach ( $this->getFieldTypes() as $field => $type ) {
+		foreach ( $this->getFields() as $field => $type ) {
 			if ( $field == 'id' ) {
 				continue;
 			}
@@ -409,7 +409,7 @@ abstract class DBTable {
 		$dbw = wfGetDB( DB_MASTER );
 
 		return $dbw->update(
-			$this->getDBTable(),
+			$this->getName(),
 			$this->getPrefixedValues( $values ),
 			$this->getPrefixedValues( $conditions ),
 			__METHOD__
@@ -427,7 +427,7 @@ abstract class DBTable {
 	public function updateSummaryFields( $summaryFields = null, array $conditions = array() ) {
 		$this->setReadDb( DB_MASTER );
 
-		foreach ( $this->select( null, $conditions ) as /* DBDataObject */ $item ) {
+		foreach ( $this->select( null, $conditions ) as /* ORMRow */ $item ) {
 			$item->loadSummaryFields( $summaryFields );
 			$item->setSummaryMode( true );
 			$item->save();
@@ -541,7 +541,7 @@ abstract class DBTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return DBtable
+	 * @return ORMTable
 	 */
 	public static function singleton() {
 		static $instance;
@@ -610,7 +610,7 @@ abstract class DBTable {
 	 *
 	 * @param stdClass $result
 	 *
-	 * @return DBDataObject
+	 * @return ORMRow
 	 */
 	public function newFromDBResult( stdClass $result ) {
 		return $this->newFromArray( $this->getFieldsFromDBResult( $result ) );
@@ -624,10 +624,10 @@ abstract class DBTable {
 	 * @param array $data
 	 * @param boolean $loadDefaults
 	 *
-	 * @return DBDataObject
+	 * @return ORMRow
 	 */
 	public function newFromArray( array $data, $loadDefaults = false ) {
-		$class = $this->getDataObjectClass();
+		$class = $this->getRowClass();
 		return new $class( $this, $data, $loadDefaults );
 	}
 
@@ -639,7 +639,7 @@ abstract class DBTable {
 	 * @return array
 	 */
 	public function getFieldNames() {
-		return array_keys( $this->getFieldTypes() );
+		return array_keys( $this->getFields() );
 	}
 
 	/**
@@ -652,7 +652,7 @@ abstract class DBTable {
 	 * @return boolean
 	 */
 	public function canHaveField( $name ) {
-		return array_key_exists( $name, $this->getFieldTypes() );
+		return array_key_exists( $name, $this->getFields() );
 	}
 	
 }

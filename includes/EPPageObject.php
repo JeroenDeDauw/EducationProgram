@@ -56,7 +56,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::save()
+	 * @see ORMRow::save()
 	 */
 	public function save( $functionName = null ) {
 		if ( $this->hasField( $this->table->getIdentifierField() ) && is_null( $this->getTitle() ) ) {
@@ -87,7 +87,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::setField()
+	 * @see ORMRow::setField()
 	 */
 	public function setField( $name, $value ) {
 		if ( $name === $this->table->getIdentifierField() ) {

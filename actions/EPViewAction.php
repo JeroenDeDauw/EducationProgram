@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract action for viewing DBDataObject items.
+ * Abstract action for viewing ORMRow items.
  *
  * @since 0.1
  *
@@ -27,7 +27,7 @@ abstract class EPViewAction extends EPAction {
 	 *
 	 * @param Page $page
 	 * @param IContextSource $context
-	 * @param DBTable $table
+	 * @param ORMTable $table
 	 */
 	protected function __construct( Page $page, IContextSource $context = null, EPPageTable $table ) {
 		$this->table = $table;
@@ -143,11 +143,11 @@ abstract class EPViewAction extends EPAction {
 	 * 
 	 * @since 0.1
 	 * 
-	 * @param DBDataObject $object
+	 * @param ORMRow $object
 	 *
 	 * @return string
 	 */
-	public function getPageHTML( DBDataObject $object ) {
+	public function getPageHTML( ORMRow $object ) {
 		return $this->getSummary( $object );
 	}
 
@@ -181,13 +181,13 @@ abstract class EPViewAction extends EPAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param DBDataObject $item
+	 * @param ORMRow $item
 	 * @param boolean $collapsed
 	 * @param array $summaryData
 	 *
 	 * @return string
 	 */
-	protected function getSummary( DBDataObject $item, $collapsed = false, array $summaryData = null ) {
+	protected function getSummary( ORMRow $item, $collapsed = false, array $summaryData = null ) {
 		$html = '';
 
 		$class = 'wikitable ep-summary mw-collapsible';
@@ -231,11 +231,11 @@ abstract class EPViewAction extends EPAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param DBDataObject $item
+	 * @param ORMRow $item
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( DBDataObject $item ) {
+	protected function getSummaryData( ORMRow $item ) {
 		return array();
 	}
 

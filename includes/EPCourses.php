@@ -15,17 +15,17 @@ class EPCourses extends EPPageTable {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getDBTable()
+	 * @see ORMTable::getName()
 	 * @since 0.1
 	 * @return string
 	 */
-	public function getDBTable() {
+	public function getName() {
 		return 'ep_courses';
 	}
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getFieldPrefix()
+	 * @see ORMTable::getFieldPrefix()
 	 * @since 0.1
 	 * @return string
 	 */
@@ -35,21 +35,21 @@ class EPCourses extends EPPageTable {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getDataObjectClass()
+	 * @see ORMTable::getRowClass()
 	 * @since 0.1
 	 * @return string
 	 */
-	public function getDataObjectClass() {
+	public function getRowClass() {
 		return 'EPCourse';
 	}
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getFieldTypes()
+	 * @see ORMTable::getFields()
 	 * @since 0.1
 	 * @return array
 	 */
-	public function getFieldTypes() {
+	public function getFields() {
 		return array(
 			'id' => 'id',
 
@@ -78,7 +78,7 @@ class EPCourses extends EPPageTable {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getDefaults()
+	 * @see ORMTable::getDefaults()
 	 * @since 0.1
 	 * @return array
 	 */
@@ -108,7 +108,7 @@ class EPCourses extends EPPageTable {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getSummaryFields()
+	 * @see ORMTable::getSummaryFields()
 	 * @since 0.1
 	 * @return array
 	 */

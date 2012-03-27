@@ -97,7 +97,7 @@ class EPCourse extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::loadSummaryFields()
+	 * @see ORMRow::loadSummaryFields()
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
@@ -118,7 +118,7 @@ class EPCourse extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::insert()
+	 * @see ORMRow::insert()
 	 */
 	protected function insert( $functionName = null, array $options = null ) {
 		$success = parent::insert( $functionName, $options );
@@ -216,7 +216,7 @@ class EPCourse extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::save()
+	 * @see ORMRow::save()
 	 */
 	public function save( $functionName = null ) {
 		if ( $this->hasField( 'name' ) ) {
@@ -325,7 +325,7 @@ class EPCourse extends EPPageObject {
 			array_key_exists( 'org', $args ) ? $args['org'] : false
 		);
 
-		$select->addOptions( EPOrgs::singleton()->getOrgOptions() );
+		$select->addOptions( EPOrgs::singleton()->selectFields( array( 'name', 'id' ) ) );
 		$html .= $select->getHTML();
 
 		$html .= '&#160;' . Xml::inputLabel(
@@ -545,7 +545,7 @@ class EPCourse extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::setField()
+	 * @see ORMRow::setField()
 	 */
 	public function setField( $name, $value ) {
 		switch ( $name ) {

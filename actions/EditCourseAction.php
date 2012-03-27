@@ -121,7 +121,7 @@ class EditCourseAction extends EPEditAction {
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-		$orgOptions = EPOrgs::singleton()->getOrgOptions();
+		$orgOptions = EPOrgs::singleton()->selectFields( array( 'name', 'id' ) );
 
 		$fields['name'] = array (
 			'type' => 'text',

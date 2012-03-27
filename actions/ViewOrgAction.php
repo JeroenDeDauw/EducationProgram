@@ -51,7 +51,7 @@ class ViewOrgAction extends EPViewAction {
 	 * @see EPViewAction::getPageHTML()
 	 * @return string
 	 */
-	public function getPageHTML( DBDataObject $org ) {
+	public function getPageHTML( ORMRow $org ) {
 		$html = parent::getPageHTML( $org );
 
 		$html .= Html::element( 'h2', array(), wfMsg( 'ep-institution-courses' ) );
@@ -75,7 +75,7 @@ class ViewOrgAction extends EPViewAction {
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( DBDataObject $org ) {
+	protected function getSummaryData( ORMRow $org ) {
 		$stats = array();
 
 		$stats['name'] = $org->getField( 'name' );

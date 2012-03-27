@@ -260,7 +260,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 			$orgs = array_unique( $orgs );
 
 			$term = array(
-				'courses' => count( $courses ),
+				'courses' => $courses->count(),
 				'students' => count( $students ),
 				'instructors' => count( $instructors ),
 				'oas' => count( $oas ),

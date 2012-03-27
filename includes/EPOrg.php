@@ -23,7 +23,7 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::loadSummaryFields()
+	 * @see ORMRow::loadSummaryFields()
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
@@ -96,7 +96,7 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::save()
+	 * @see ORMRow::save()
 	 */
 	public function save( $functionName = null ) {
 		if ( $this->hasField( 'name' ) ) {
@@ -225,7 +225,7 @@ class EPOrg extends EPPageObject {
 	 */
 	public function getCourses( array $fields = null ) {
 		if ( $this->courses === false ) {
-			$courses = EPCourses::singleton()->select( $fields, array( 'org_id' => $this->getId() ) );
+			$courses = EPCourses::singleton()->selectObjects( $fields, array( 'org_id' => $this->getId() ) );
 			
 			if ( is_null( $fields ) ) {
 				$this->courses = $courses;

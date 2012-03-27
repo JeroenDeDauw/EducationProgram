@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract base class for DBDataObjects with revision history and logging support.
+ * Abstract base class for ORMRows with revision history and logging support.
  *
  * @since 0.1
  *
@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPRevisionedObject extends DBDataObject {
+abstract class EPRevisionedObject extends ORMRow {
 	
 	/**
 	 * If the object should log changes.
@@ -132,7 +132,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::saveExisting()
+	 * @see ORMRow::saveExisting()
 	 */
 	protected function saveExisting( $functionName = null ) {
 		if ( !$this->inSummaryMode ) {
@@ -173,7 +173,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::insert()
+	 * @see ORMRow::insert()
 	 */
 	protected function insert( $functionName = null, array $options = null ) {
 		$result = parent::insert( $functionName, $options );
@@ -188,7 +188,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	
 	/**
 	 * Do logging and revision storage after a removal.
-	 * @see DBDataObject::onRemoved()
+	 * @see ORMRow::onRemoved()
 	 * 
 	 * @since 0.1
 	 */
@@ -238,7 +238,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::getBeforeRemoveFields()
+	 * @see ORMRow::getBeforeRemoveFields()
 	 */
 	protected function getBeforeRemoveFields() {
 		return null;
@@ -260,7 +260,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 			array( 'LIMIT' => 1 )
 		);
 
-		return empty( $objects ) ? false : $objects[0];
+		return $objects->isEmpty() ? false : $objects->current();
 	}
 	
 	/**
@@ -272,7 +272,7 @@ abstract class EPRevisionedObject extends DBDataObject {
 	 * @param array $conditions
 	 * @param array $options
 	 * 
-	 * @return array of EPRevision
+	 * @return ORMResult
 	 */
 	public function getRevisions( array $conditions = array(), array $options = array() ) {
 		return EPRevisions::singleton()->select( null, array_merge(

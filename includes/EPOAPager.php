@@ -18,9 +18,9 @@ class EPOAPager extends EPPager {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conds
-	 * @param DBTable|null $table
+	 * @param ORMTable|null $table
 	 */
-	public function __construct( IContextSource $context, array $conds = array(), DBTable $table = null ) {
+	public function __construct( IContextSource $context, array $conds = array(), ORMTable $table = null ) {
 		$this->mDefaultDirection = true;
 
 		$conds = array_merge(

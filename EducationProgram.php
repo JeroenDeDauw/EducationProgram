@@ -146,8 +146,9 @@ $wgAutoloadClasses['SpecialArticles'] 				= dirname( __FILE__ ) . '/specials/Spe
 
 // Compat classes
 foreach ( array(
-	'DBDataObject' => 'DBDataObject.php',
-	'DBTable' => 'DBTable.php',
+	'ORMResult' => 'ORMResult.php',
+	'ORMRow' => 'ORMRow.php',
+	'ORMTable' => 'ORMTable.php',
 	'CacheHelper' => 'CacheHelper.php',
 	'ICacheHelper' => 'CacheHelper.php',
 	'CachedAction' => 'CachedAction.php',

@@ -2,7 +2,7 @@
 
 /**
  * Abstract class extending the TablePager with common functions
- * for pagers listing DBDataObject deriving classes and some compatibility helpers.
+ * for pagers listing ORMRow deriving classes and some compatibility helpers.
  *
  * @since 0.1
  *
@@ -23,14 +23,14 @@ abstract class EPPager extends TablePager {
 
 	/**
 	 * @since 0.1
-	 * @var DBTable
+	 * @var ORMTable
 	 */
 	protected $table;
 
 	/**
-	 * DBDataObject object constructed from $this->currentRow.
+	 * ORMRow object constructed from $this->currentRow.
 	 * @since 0.1
-	 * @var DBDataObject
+	 * @var ORMRow
 	 */
 	protected $currentObject;
 
@@ -53,9 +53,9 @@ abstract class EPPager extends TablePager {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conds
-	 * @param DBTable $table
+	 * @param ORMTable $table
 	 */
-	public function __construct( IContextSource $context, array $conds, DBTable $table ) {
+	public function __construct( IContextSource $context, array $conds, ORMTable $table ) {
 		$this->conds = $conds;
 		$this->table = $table;
 		$this->context = $context;
@@ -227,7 +227,7 @@ abstract class EPPager extends TablePager {
 	 */
 	function getQueryInfo() {
 		return array(
-			'tables' => array( $this->table->getDBTable() ),
+			'tables' => array( $this->table->getName() ),
 			'fields' => $this->table->getPrefixedFields( $this->table->getFieldNames() ),
 			'conds' => $this->table->getPrefixedValues( $this->getConditions() ),
 		);
@@ -446,7 +446,7 @@ abstract class EPPager extends TablePager {
 	 * @return string
 	 */
 	protected function getMsg( $messageKey ) {
-		return wfMsg( strtolower( $this->table->getDataObjectClass() ) . 'pager-' . str_replace( '_', '-', $messageKey ) );
+		return wfMsg( strtolower( $this->table->getRowClass() ) . 'pager-' . str_replace( '_', '-', $messageKey ) );
 	}
 
 	/**
@@ -475,11 +475,11 @@ abstract class EPPager extends TablePager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param DBDataObject $item
+	 * @param ORMRow $item
 	 *
 	 * @return array
 	 */
-	protected function getControlLinks( DBDataObject $item ) {
+	protected function getControlLinks( ORMRow $item ) {
 		return array();
 	}
 

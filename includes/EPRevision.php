@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPRevision extends DBDataObject {
+class EPRevision extends ORMRow {
 	
 	/**
 	 * Cached user object for this revision.
@@ -23,7 +23,7 @@ class EPRevision extends DBDataObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::getTable()
+	 * @see ORMRow::getTable()
 	 */
 	public function getTable() {
 		return EPRevisions::singleton();

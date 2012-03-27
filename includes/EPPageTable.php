@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Abstract base class DBDataObjects that have associated page views.
+ * Abstract base class ORMRows that have associated page views.
  *
  * @since 0.1
  *
@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPPageTable extends DBTable {
+abstract class EPPageTable extends ORMTable {
 
 	/**
 	 * Returns the field use to identify this object, ie the part used as page title.

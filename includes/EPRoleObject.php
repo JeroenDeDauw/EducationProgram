@@ -11,7 +11,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EPRoleObject extends DBDataObject implements EPIRole {
+abstract class EPRoleObject extends ORMRow implements EPIRole {
 	
 	/**
 	 * Field for caching the linked user.
@@ -294,7 +294,7 @@ abstract class EPRoleObject extends DBDataObject implements EPIRole {
 	}
 
 	/**
-	 * @see DBDataObject::getUpdateConditions()
+	 * @see ORMRow::getUpdateConditions()
 	 *
 	 * Always adding the user ID to the list of consitions,
 	 * even when not loaded yet (a new query will be done),

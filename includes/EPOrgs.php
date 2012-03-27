@@ -15,17 +15,17 @@ class EPOrgs extends EPPageTable {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getDBTable()
+	 * @see ORMTable::getName()
 	 * @since 0.1
 	 * @return string
 	 */
-	public function getDBTable() {
+	public function getName() {
 		return 'ep_orgs';
 	}
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getFieldPrefix()
+	 * @see ORMTable::getFieldPrefix()
 	 * @since 0.1
 	 * @return string
 	 */
@@ -35,21 +35,21 @@ class EPOrgs extends EPPageTable {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getDataObjectClass()
+	 * @see ORMTable::getRowClass()
 	 * @since 0.1
 	 * @return string
 	 */
-	public function getDataObjectClass() {
+	public function getRowClass() {
 		return 'EPOrg';
 	}
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getFieldTypes()
+	 * @see ORMTable::getFields()
 	 * @since 0.1
 	 * @return array
 	 */
-	public function getFieldTypes() {
+	public function getFields() {
 		return array(
 			'id' => 'id',
 
@@ -69,7 +69,7 @@ class EPOrgs extends EPPageTable {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getDefaults()
+	 * @see ORMTable::getDefaults()
 	 * @since 0.1
 	 * @return array
 	 */
@@ -95,14 +95,14 @@ class EPOrgs extends EPPageTable {
 	 */
 	public function getRevertableFields() {
 		return array_diff( 
-			array_keys( $this->getFieldTypes() ),
+			array_keys( $this->getFields() ),
 			array_merge( array( 'id', $this->getSummaryFields() ) )
 		);
 	}
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getSummaryFields()
+	 * @see ORMTable::getSummaryFields()
 	 * @since 0.1
 	 * @return array
 	 */
@@ -118,29 +118,6 @@ class EPOrgs extends EPPageTable {
 		);
 	}
 
-	/**
-	 * Returns a list of orgs in an array that can be fed to select inputs.
-	 *
-	 * @since 0.1
-	 *
-	 * @param array|null $orgs
-	 *
-	 * @return array
-	 */
-	public function getOrgOptions( array /* EPOrg */ $orgs = null ) {
-		$options = array();
-
-		if ( is_null( $orgs ) ) {
-			$orgs = $this->select( array( 'name', 'id' ) );
-		}
-
-		foreach ( $orgs as /* EPOrg */ $org ) {
-			$options[$org->getField( 'name' )] = $org->getId();
-		}
-
-		return $options;
-	}
-	
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPageObject::getIdentifierField()

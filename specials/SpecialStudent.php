@@ -141,7 +141,7 @@ class SpecialStudent extends SpecialEPPage {
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( DBDataObject $student ) {
+	protected function getSummaryData( ORMRow $student ) {
 		$stats = array();
 
 		$id = $student->getUser()->getId();

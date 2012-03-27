@@ -155,7 +155,7 @@ class EPCoursePager extends EPPager {
 			'type' => 'select',
 			'options' => array_merge(
 				array( '' => '' ),
-				$orgs->getOrgOptions( $orgs->select( array( 'name', 'id' ) ) )
+				$orgs->selectFields( array( 'name', 'id' ) )
 			),
 			'value' => '',
 			'datatype' => 'int',
@@ -195,7 +195,7 @@ class EPCoursePager extends EPPager {
 	 * (non-PHPdoc)
 	 * @see EPPager::getControlLinks()
 	 */
-	protected function getControlLinks( DBDataObject $item ) {
+	protected function getControlLinks( ORMRow $item ) {
 		$links = parent::getControlLinks( $item );
 
 		$links[] = $item->getLink( 'view', wfMsgHtml( 'view' ) );

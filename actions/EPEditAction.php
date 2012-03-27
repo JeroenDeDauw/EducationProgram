@@ -43,7 +43,7 @@ abstract class EPEditAction extends EPAction {
 	 *
 	 * @param Page $page
 	 * @param IContextSource $context
-	 * @param DBTable $table
+	 * @param ORMTable $table
 	 */
 	protected function __construct( Page $page, IContextSource $context = null, EPPageTable $table ) {
 		$this->table = $table;
@@ -432,11 +432,11 @@ abstract class EPEditAction extends EPAction {
 	 *$title = SpecialPage::getTitleFor( $this->itemPage, $this->subPage )->getLocalURL();
 	 * @since 0.1
 	 *
-	 * @param DBDataObject $item
+	 * @param ORMRow $item
 	 * @param string $name
 	 * @param string $value This is a string, since it comes from request data, but might be a number or other type.
 	 */
-	protected function handleUnknownField( DBDataObject $item, $name, $value ) {
+	protected function handleUnknownField( ORMRow $item, $name, $value ) {
 		// Override to use.
 	}
 

@@ -21,7 +21,7 @@ for a particular purpose.
 * Revision storage is the ep_revisions table which contains blobs with the
   relational data for one particular object.
 
-The extension uses the DBDataObject and DBTable classes for virtually all
+The extension uses the ORMRow and ORMTable classes for virtually all
 it's database interaction. These have mechanisms for distinguishing between
 relational and denormalized data (referred to as "summary data" in their docs).
 All revisioning work is done through EPRevision and EPRevisions using EPRevisionedObject.

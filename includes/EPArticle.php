@@ -12,7 +12,7 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPArticle extends DBDataObject {
+class EPArticle extends ORMRow {
 	
 	/**
 	 * Cached user object for this article.

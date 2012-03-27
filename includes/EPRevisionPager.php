@@ -162,10 +162,10 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	function getQueryInfo() {
 		$table = EPRevisions::singleton();
 		return array(
-			'tables' => $table->getDBTable(),
+			'tables' => $table->getName(),
 			'fields' => $table->getPrefixedFields( $table->getFieldNames() ),
 			'conds' => $table->getPrefixedValues( $this->conds ),
-			'options' => array( 'USE INDEX' => array( $table->getDBTable() => $table->getPrefixedField( 'time' ) ) ),
+			'options' => array( 'USE INDEX' => array( $table->getName() => $table->getPrefixedField( 'time' ) ) ),
 		);
 	}
 

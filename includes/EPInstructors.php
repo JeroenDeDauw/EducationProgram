@@ -11,21 +11,21 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPInstructors extends DBTable {
+class EPInstructors extends ORMTable {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getDBTable()
+	 * @see ORMTable::getName()
 	 * @since 0.1
 	 * @return string
 	 */
-	public function getDBTable() {
+	public function getName() {
 		return 'ep_instructors';
 	}
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getFieldPrefix()
+	 * @see ORMTable::getFieldPrefix()
 	 * @since 0.1
 	 * @return string
 	 */
@@ -35,21 +35,21 @@ class EPInstructors extends DBTable {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getDataObjectClass()
+	 * @see ORMTable::getRowClass()
 	 * @since 0.1
 	 * @return string
 	 */
-	public function getDataObjectClass() {
+	public function getRowClass() {
 		return 'EPInstructor';
 	}
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBTable::getFieldTypes()
+	 * @see ORMTable::getFields()
 	 * @since 0.1
 	 * @return array
 	 */
-	public function getFieldTypes() {
+	public function getFields() {
 		return array(
 			'id' => 'id',
 

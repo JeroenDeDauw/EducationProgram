@@ -6,11 +6,6 @@
  * aims to be both simple and very flexible. It is centered around an associative
  * array of fields and various methods to do common interaction with the database.
  *
- * These methods must be implemented in deriving classes:
- * * getDBTable
- * * getFieldPrefix
- * * getFieldTypes
- *
  * These methods are likely candidates for overriding:
  * * getDefaults
  * * remove
@@ -37,12 +32,12 @@
  *
  * @since 1.20
  *
- * @file DBDataObject.php
+ * @file ORMRow.php
  *
  * @licence GNU GPL v2 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class DBDataObject {
+abstract class ORMRow {
 
 	/**
 	 * The fields of the object.
@@ -55,7 +50,7 @@ abstract class DBDataObject {
 
 	/**
 	 * @since 1.20
-	 * @var DBTable
+	 * @var ORMTable
 	 */
 	protected $table;
 	
@@ -85,11 +80,11 @@ abstract class DBDataObject {
 	 *
 	 * @since 1.20
 	 *
-	 * @param DBTable $table
+	 * @param ORMTable $table
 	 * @param array|null $fields
 	 * @param boolean $loadDefaults
 	 */
-	public function __construct( DBTable $table, $fields = null, $loadDefaults = false ) {
+	public function __construct( ORMTable $table, $fields = null, $loadDefaults = false ) {
 		$this->table = $table;
 		
 		if ( !is_array( $fields ) ) {
@@ -120,7 +115,7 @@ abstract class DBDataObject {
 		}
 
 		if ( is_null( $fields ) ) {
-			$fields = array_keys( $this->table->getFieldTypes() );
+			$fields = array_keys( $this->table->getFields() );
 		}
 
 		if ( $skipLoaded ) {
@@ -267,7 +262,7 @@ abstract class DBDataObject {
 	protected function getWriteValues() {
 		$values = array();
 
-		foreach ( $this->table->getFieldTypes() as $name => $type ) {
+		foreach ( $this->table->getFields() as $name => $type ) {
 			if ( array_key_exists( $name, $this->fields ) ) {
 				$value = $this->fields[$name];
 
@@ -361,7 +356,7 @@ abstract class DBDataObject {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$success = $dbw->update(
-			$this->table->getDBTable(),
+			$this->table->getName(),
 			$this->getWriteValues(),
 			$this->table->getPrefixedValues( $this->getUpdateConditions() ),
 			is_null( $functionName ) ? __METHOD__ : $functionName
@@ -396,7 +391,7 @@ abstract class DBDataObject {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$result = $dbw->insert(
-			$this->table->getDBTable(),
+			$this->table->getName(),
 			$this->getWriteValues(),
 			is_null( $functionName ) ? __METHOD__ : $functionName,
 			is_null( $options ) ? array( 'IGNORE' ) : $options
@@ -495,7 +490,7 @@ abstract class DBDataObject {
 	 * @throws MWException
 	 */
 	public function setField( $name, $value ) {
-		$fields = $this->table->getFieldTypes();
+		$fields = $this->table->getFields();
 
 		if ( array_key_exists( $name, $fields ) ) {
 			switch ( $fields[$name] ) {
@@ -566,7 +561,7 @@ abstract class DBDataObject {
 		$fullField = $this->table->getPrefixedField( $field );
 
 		$success = $dbw->update(
-			$this->table->getDBTable(),
+			$this->table->getName(),
 			array( "$fullField=$fullField" . ( $isNegative ? '-' : '+' ) . $absoluteAmount ),
 			array( $this->table->getPrefixedField( 'id' ) => $this->getId() ),
 			__METHOD__
@@ -587,7 +582,7 @@ abstract class DBDataObject {
 	 * @return array
 	 */
 	public function getFieldNames() {
-		return array_keys( $this->table->getFieldTypes() );
+		return array_keys( $this->table->getFields() );
 	}
 
 	/**
@@ -628,14 +623,14 @@ abstract class DBDataObject {
 	 *
 	 * @since 1.20
 	 *
-	 * @param DBDataObject $object
+	 * @param ORMRow $object
 	 * @param boolean|array $excludeSummaryFields
 	 *  When set to true, summary field changes are ignored.
 	 *  Can also be an array of fields to ignore.
 	 *
 	 * @return boolean
 	 */
-	protected function fieldsChanged( DBDataObject $object, $excludeSummaryFields = false ) {
+	protected function fieldsChanged( ORMRow $object, $excludeSummaryFields = false ) {
 		$exclusionFields = array();
 
 		if ( $excludeSummaryFields !== false ) {
@@ -654,11 +649,11 @@ abstract class DBDataObject {
 	}
 
 	/**
-	 * Returns the table this DBDataObject is a row in.
+	 * Returns the table this ORMRow is a row in.
 	 * 
 	 * @since 1.20
 	 * 
-	 * @return DBTable
+	 * @return ORMTable
 	 */
 	public function getTable() {
 		return $this->table;

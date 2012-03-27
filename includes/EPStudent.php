@@ -50,7 +50,7 @@ class EPStudent extends EPRoleObject {
 	
 	/**
 	 * (non-PHPdoc)
-	 * @see DBDataObject::loadSummaryFields()
+	 * @see ORMRow::loadSummaryFields()
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
