@@ -44,7 +44,7 @@ class ImportWEPFromDB extends Maintenance {
 		require_once $basePath . '/extensions/EducationProgram/EducationProgram.php';
 
 		$conds = array(
-			'orgs' => array(),//array( 'university_country <> "India"' ),
+			'orgs' => array( 'university_country <> "India"' ),
 			'courses'=> array(),
 			'students' => array(),
 		);
@@ -210,59 +210,69 @@ class ImportWEPFromDB extends Maintenance {
 	 *
 	 * @since 0.1
 	 *
-	 * @param ResultWrapper $courses
+	 * @param ResultWrapper $students
 	 */
-	public function insertStudents( ResultWrapper $courses ) {
-//		foreach ( $students as $name => $courseNames ) {
-//			$user = User::newFromName( $name );
-//
-//			if ( $user === false ) {
-//				echo "Failed to insert student '$name'. (invalid user name)\n";
-//			}
-//			else {
-//				if ( $user->getId() === 0 ) {
-//					$user->setPassword( 'ohithere' );
-//					$user->addToDatabase();
-//				}
-//
-//				if ( $user->getId() === 0 ) {
-//					echo "Failed to insert student '$name'. (failed to create user)\n";
-//				}
-//				else {
-//					$student = EPStudent::newFromUser( $user );
-//
-//					if ( is_null( $student->getId() ) ) {
-//						if ( !$student->save() ) {
-//							echo "Failed to insert student '$name'. (failed create student profile)\n";
-//							continue;
-//						}
-//					}
-//
-//					$courses = array();
-//
-//					foreach ( $courseNames as $courseName ) {
-//						if ( array_key_exists( $courseName, $courseIds ) ) {
-//							$revAction = new EPRevisionAction();
-//							$revAction->setUser( $user );
-//							$revAction->setComment( 'Import' );
-//
-//							$course = EPCourses::singleton()->selectRow( null, array( 'id' => $courseIds[$courseName] ) );
-//							$course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
-//						}
-//						else {
-//							echo "Failed to associate student '$name' with course '$courseName'.\n";
-//						}
-//					}
-//
-//					if ( $student->associateWithCourses( $courses ) ) {
-//						echo "Inserted student '$name'\t\t and associated with courses: " . str_replace( '_', ' ', implode( ', ', $courseNames ) ) . "\n";
-//					}
-//					else {
-//						echo "Failed to insert student '$name'. (failed to associate courses)\n";
-//					}
-//				}
-//			}
-//		}
+	public function insertStudents( ResultWrapper $students ) {
+		foreach ( $students as $student ) {
+			$name  = $student->student_username;
+
+			$this->msg( 'Importing student ' . $name );
+
+			$user = User::newFromName( $name );
+
+			if ( $user === false ) {
+				$this->msg( "\tERROR: Failed to insert student '$name'. (invalid user name)" );
+			}
+			else {
+				if ( $user->getId() === 0 ) {
+					$user->setPassword( 'ohithere' );
+					
+					if ( $student->student_lastname !== '' && $student->student_firstname !== '' ) {
+						$user->setRealName( $student->student_firstname . ' ' . $student->student_lastname );
+					}
+
+					if ( $student->student_email !== '' ) {
+						$user->setEmail( $student->student_email );
+					}
+
+					$user->addToDatabase();
+				}
+
+				if ( $user->getId() === 0 ) {
+					$this->msg( "\tERROR: Failed to insert student '$name'. (failed to create user)" );
+				}
+				else {
+					$studentObject = EPStudent::newFromUser( $user );
+
+					if ( is_null( $studentObject->getId() ) ) {
+						if ( !$studentObject->save() ) {
+							$this->msg( "\tERROR: Failed to insert student '$name'. (failed create student profile)" );
+							continue;
+						}
+					}
+
+					foreach ( array( $student->student_course_id ) as $courseId ) {
+						$success = false;
+
+						if ( array_key_exists( $courseId, $this->courseIds ) ) {
+							$revAction = new EPRevisionAction();
+							$revAction->setUser( $user );
+							$revAction->setComment( 'Import' );
+
+							$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->courseIds[$courseId] ) );
+							$success = $course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
+						}
+
+						if ( $success !== false ) {
+							$this->msg( "\tAsscoaited student '$name' with course '$courseId'.", 2 );
+						}
+						else {
+							$this->msg( "\tFailed to associate student '$name' with course '$courseId'." );
+						}
+					}
+				}
+			}
+		}
 	}
 
 }

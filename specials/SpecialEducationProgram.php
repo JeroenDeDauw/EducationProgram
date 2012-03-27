@@ -89,10 +89,10 @@ class SpecialEducationProgram extends SpecialEPPage {
 
 		$data['student-count'] = $this->getRoleCount( EP_STUDENT );
 
-		// What do you mean? "to much nesting"? :)
-		$data['current-student-count'] = count( array_unique( call_user_func_array(
+		$studentLists = array_map( 'unserialize', EPCourses::singleton()->selectFields( 'students', EPCourses::getStatusConds( 'current' ) ) );
+		$data['current-student-count'] = empty( $studentLists ) ? 0 : count( array_unique( call_user_func_array(
 			'array_merge',
-			array_map( 'unserialize', EPCourses::singleton()->selectFields( 'students', EPCourses::getStatusConds( 'current' ) ) )
+			$studentLists
 		) ) );
 
 		$data['instructor-count'] = $this->getRoleCount( EP_INSTRUCTOR );
