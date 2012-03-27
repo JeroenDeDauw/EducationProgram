@@ -1,5 +1,5 @@
 -- MySQL patch for the Education Program extension.
--- Licence: GNU GPL v3+
+-- Licence: GNU GPL v2+
 -- Author: Jeroen De Dauw < jeroendedauw@gmail.com >
 
 ALTER TABLE /*_*/ep_articles ADD COLUMN article_page_title varchar(255) binary NOT NULL;

@@ -1,5 +1,5 @@
 -- MySQL version of the database schema for the Education Program extension.
--- Licence: GNU GPL v3+
+-- Licence: GNU GPL v2+
 -- Author: Jeroen De Dauw < jeroendedauw@gmail.com >
 
 -- Organizations, ie universities

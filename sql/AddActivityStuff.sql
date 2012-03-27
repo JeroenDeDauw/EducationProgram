@@ -1,5 +1,5 @@
 -- MySQL patch for the Education Program extension.
--- Licence: GNU GPL v3+
+-- Licence: GNU GPL v2+
 -- Author: Jeroen De Dauw < jeroendedauw@gmail.com >
 
 ALTER TABLE /*_*/ep_users_per_course ADD COLUMN upc_time varbinary(14) NOT NULL;
