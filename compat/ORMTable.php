@@ -2,7 +2,7 @@
 
 /**
  * Abstract base class for representing a single database table.
- * 
+ *
  * @since 1.20
  *
  * @file ORMTable.php
@@ -11,7 +11,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class ORMTable {
-	
+
 	/**
 	 * Returns the name of the database table objects of this type are stored in.
 	 *
@@ -24,13 +24,13 @@ abstract class ORMTable {
 	/**
 	 * Returns the name of a ORMRow deriving class that
 	 * represents single rows in this table.
-	 * 
+	 *
 	 * @since 1.20
-	 * 
+	 *
 	 * @return string
 	 */
 	public abstract function getRowClass();
-	
+
 	/**
 	 * Gets the db field prefix.
 	 *
@@ -61,6 +61,14 @@ abstract class ORMTable {
 	public abstract function getFields();
 
 	/**
+	 * Cache for instances, used by the singleton method.
+	 *
+	 * @since 1.20
+	 * @var array of DBTable
+	 */
+	protected static $instanceCache = array();
+
+	/**
 	 * The database connection to use for read operations.
 	 * Can be changed via @see setReadDb.
 	 *
@@ -68,7 +76,7 @@ abstract class ORMTable {
 	 * @var integer DB_ enum
 	 */
 	protected $readDb = DB_SLAVE;
-	
+
 	/**
 	 * Returns a list of default field values.
 	 * field name => field value
@@ -80,7 +88,7 @@ abstract class ORMTable {
 	public function getDefaults() {
 		return array();
 	}
-	
+
 	/**
 	 * Returns a list of the summary fields.
 	 * These are fields that cache computed values, such as the amount of linked objects of $type.
@@ -93,10 +101,28 @@ abstract class ORMTable {
 	public function getSummaryFields() {
 		return array();
 	}
-	
+
 	/**
 	 * Selects the the specified fields of the records matching the provided
-	 * conditions and returns them as ORMRow. Field names get prefixed.
+	 * conditions and returns them as DBDataObject. Field names get prefixed.
+	 *
+	 * @since 1.20
+	 *
+	 * @param array|string|null $fields
+	 * @param array $conditions
+	 * @param array $options
+	 * @param string|null $functionName
+	 *
+	 * @return ORMResult
+	 */
+	public function select( $fields = null, array $conditions = array(),
+							array $options = array(), $functionName  = null ) {
+		return new ORMResult( $this, $this->rawSelect( $fields, $conditions, $options, $functionName ) );
+	}
+
+	/**
+	 * Selects the the specified fields of the records matching the provided
+	 * conditions and returns them as DBDataObject. Field names get prefixed.
 	 *
 	 * @since 1.20
 	 *
@@ -107,7 +133,8 @@ abstract class ORMTable {
 	 *
 	 * @return array of self
 	 */
-	public function select( $fields = null, array $conditions = array(), array $options = array(), $functionName  = null ) {
+	public function selectObjects( $fields = null, array $conditions = array(),
+								   array $options = array(), $functionName  = null ) {
 		$result = $this->selectFields( $fields, $conditions, $options, false, $functionName );
 
 		$objects = array();
@@ -117,6 +144,36 @@ abstract class ORMTable {
 		}
 
 		return $objects;
+	}
+
+	/**
+	 * Do the actual select.
+	 *
+	 * @since 1.20
+	 *
+	 * @param null|string|array $fields
+	 * @param array $conditions
+	 * @param array $options
+	 * @param null|string $functionName
+	 *
+	 * @return ResultWrapper
+	 */
+	public function rawSelect( $fields = null, array $conditions = array(),
+							   array $options = array(), $functionName  = null ) {
+		if ( is_null( $fields ) ) {
+			$fields = array_keys( $this->getFields() );
+		}
+		else {
+			$fields = (array)$fields;
+		}
+
+		return wfGetDB( $this->getReadDb() )->select(
+			$this->getName(),
+			$this->getPrefixedFields( $fields ),
+			$this->getPrefixedValues( $conditions ),
+			is_null( $functionName ) ? __METHOD__ : $functionName,
+			$options
+		);
 	}
 
 	/**
@@ -141,24 +198,11 @@ abstract class ORMTable {
 	 *
 	 * @return array of array
 	 */
-	public function selectFields( $fields = null, array $conditions = array(), array $options = array(), $collapse = true, $functionName  = null ) {
-		if ( is_null( $fields ) ) {
-			$fields = array_keys( $this->getFields() );
-		}
-		else {
-			$fields = (array)$fields;
-		}
-		
-		$dbr = wfGetDB( $this->getReadDb() );
-		$result = $dbr->select(
-			$this->getName(),
-			$this->getPrefixedFields( $fields ),
-			$this->getPrefixedValues( $conditions ),
-			is_null( $functionName ) ? __METHOD__ : $functionName,
-			$options
-		);
-
+	public function selectFields( $fields = null, array $conditions = array(),
+								  array $options = array(), $collapse = true, $functionName  = null ) {
 		$objects = array();
+
+		$result = $this->rawSelect( $fields, $conditions, $options, $functionName );
 
 		foreach ( $result as $record ) {
 			$objects[] = $this->getFieldsFromDBResult( $record );
@@ -195,12 +239,13 @@ abstract class ORMTable {
 	 *
 	 * @return DBObject|bool False on failure
 	 */
-	public function selectRow( $fields = null, array $conditions = array(), array $options = array(), $functionName = null ) {
+	public function selectRow( $fields = null, array $conditions = array(),
+							   array $options = array(), $functionName = null ) {
 		$options['LIMIT'] = 1;
 
 		$objects = $this->select( $fields, $conditions, $options, $functionName );
 
-		return empty( $objects ) ? false : $objects[0];
+		return $objects->isEmpty() ? false : $objects->current();
 	}
 
 	/**
@@ -216,7 +261,8 @@ abstract class ORMTable {
 	 *
 	 * @return ResultWrapper
 	 */
-	public function rawSelectRow( array $fields, array $conditions = array(), array $options = array(), $functionName = null ) {
+	public function rawSelectRow( array $fields, array $conditions = array(),
+								  array $options = array(), $functionName = null ) {
 		$dbr = wfGetDB( $this->getReadDb() );
 
 		return $dbr->selectRow(
@@ -245,7 +291,8 @@ abstract class ORMTable {
 	 *
 	 * @return mixed|array|bool False on failure
 	 */
-	public function selectFieldsRow( $fields = null, array $conditions = array(), array $options = array(), $collapse = true, $functionName = null ) {
+	public function selectFieldsRow( $fields = null, array $conditions = array(),
+									 array $options = array(), $collapse = true, $functionName = null ) {
 		$options['LIMIT'] = 1;
 
 		$objects = $this->selectFields( $fields, $conditions, $options, $collapse, $functionName );
@@ -308,7 +355,7 @@ abstract class ORMTable {
 			$functionName
 		);
 	}
-	
+
 	/**
 	 * Get API parameters for the fields supported by this object.
 	 *
@@ -357,7 +404,7 @@ abstract class ORMTable {
 
 		return $params;
 	}
-	
+
 	/**
 	 * Returns an array with the fields and their descriptions.
 	 *
@@ -370,12 +417,12 @@ abstract class ORMTable {
 	public function getFieldDescriptions() {
 		return array();
 	}
-	
+
 	/**
 	 * Get the database type used for read operations.
 	 *
 	 * @since 1.20
-	 * 
+	 *
 	 * @return integer DB_ enum
 	 */
 	public function getReadDb() {
@@ -392,7 +439,7 @@ abstract class ORMTable {
 	public function setReadDb( $db ) {
 		$this->readDb = $db;
 	}
-	
+
 	/**
 	 * Update the records matching the provided conditions by
 	 * setting the fields that are keys in the $values param to
@@ -415,7 +462,7 @@ abstract class ORMTable {
 			__METHOD__
 		);
 	}
-	
+
 	/**
 	 * Computes the values of the summary fields of the objects matching the provided conditions.
 	 *
@@ -435,7 +482,7 @@ abstract class ORMTable {
 
 		$this->setReadDb( DB_SLAVE );
 	}
-	
+
 	/**
 	 * Takes in an associative array with field names as keys and
 	 * their values as value. The field names are prefixed with the
@@ -474,7 +521,7 @@ abstract class ORMTable {
 
 		return $prefixedValues;
 	}
-	
+
 	/**
 	 * Takes in a field or array of fields and returns an
 	 * array with their prefixed versions, ready for db usage.
@@ -505,7 +552,7 @@ abstract class ORMTable {
 	public function getPrefixedField( $field ) {
 		return $this->getFieldPrefix() . $field;
 	}
-	
+
 	/**
 	 * Takes an array of field names with prefix and returns the unprefixed equivalent.
 	 *
@@ -518,7 +565,7 @@ abstract class ORMTable {
 	public function unprefixFieldNames( array $fieldNames ) {
 		return array_map( array( $this, 'unprefixFieldName' ), $fieldNames );
 	}
-	
+
 	/**
 	 * Takes a field name with prefix and returns the unprefixed equivalent.
 	 *
@@ -531,11 +578,7 @@ abstract class ORMTable {
 	public function unprefixFieldName( $fieldName ) {
 		return substr( $fieldName, strlen( $this->getFieldPrefix() ) );
 	}
-	
-	public function __construct() {
-	
-	}
-	
+
 	/**
 	 * Get an instance of this class.
 	 *
@@ -544,14 +587,13 @@ abstract class ORMTable {
 	 * @return ORMTable
 	 */
 	public static function singleton() {
-		static $instance;
-		
-		if ( !isset( $instance ) ) {
-			$class = function_exists( 'get_called_class' ) ? get_called_class() : self::get_called_class();
-			$instance = new $class;
+		$class = function_exists( 'get_called_class' ) ? get_called_class() : self::get_called_class();
+
+		if ( !array_key_exists( $class, self::$instanceCache ) ) {
+			self::$instanceCache[$class] = new $class;
 		}
-		
-		return $instance;
+
+		return self::$instanceCache[$class];
 	}
 
 	/**
@@ -654,5 +696,5 @@ abstract class ORMTable {
 	public function canHaveField( $name ) {
 		return array_key_exists( $name, $this->getFields() );
 	}
-	
+
 }

@@ -19,7 +19,7 @@
  * * setField(s)
  * * save
  * * remove
- * 
+ *
  * Main static methods:
  * * select
  * * update
@@ -53,7 +53,7 @@ abstract class ORMRow {
 	 * @var ORMTable
 	 */
 	protected $table;
-	
+
 	/**
 	 * If the object should update summaries of linked items when changed.
 	 * For example, update the course_count field in universities when a course in courses is deleted.
@@ -64,7 +64,7 @@ abstract class ORMRow {
 	 * @var bool
 	 */
 	protected $updateSummaries = true;
-	
+
 	/**
 	 * Indicates if the object is in summary mode.
 	 * This mode indicates that only summary fields got updated,
@@ -86,7 +86,7 @@ abstract class ORMRow {
 	 */
 	public function __construct( ORMTable $table, $fields = null, $loadDefaults = false ) {
 		$this->table = $table;
-		
+
 		if ( !is_array( $fields ) ) {
 			$fields = array();
 		}
@@ -133,7 +133,7 @@ abstract class ORMRow {
 				$this->setFields( $this->table->getFieldsFromDBResult( $result ), $override );
 				return true;
 			}
-	
+
 			return false;
 		}
 
@@ -413,7 +413,7 @@ abstract class ORMRow {
 	 */
 	public function remove() {
 		$this->beforeRemove();
-		
+
 		$success = $this->table->delete( array( 'id' => $this->getId() ) );
 
 		if ( $success ) {
@@ -422,10 +422,10 @@ abstract class ORMRow {
 
 		return $success;
 	}
-	
+
 	/**
 	 * Gets called before an object is removed from the database.
-	 * 
+	 *
 	 * @since 1.20
 	 */
 	protected function beforeRemove() {
@@ -436,19 +436,19 @@ abstract class ORMRow {
 	 * Before removal of an object happens, @see beforeRemove gets called.
 	 * This method loads the fields of which the names have been returned by this one (or all fields if null is returned).
 	 * This allows for loading info needed after removal to get rid of linked data and the like.
-	 * 
+	 *
 	 * @since 1.20
-	 * 
+	 *
 	 * @return array|null
 	 */
 	protected function getBeforeRemoveFields() {
 		return array();
 	}
-	
+
 	/**
 	 * Gets called after successfull removal.
 	 * Can be overriden to get rid of linked data.
-	 * 
+	 *
 	 * @since 1.20
 	 */
 	protected function onRemoved() {
@@ -511,7 +511,7 @@ abstract class ORMRow {
 					if ( is_string( $value ) ) {
 						$value = unserialize( $value );
 					}
-					
+
 					if ( !is_array( $value ) ) {
 						$value = array();
 					}
@@ -650,9 +650,9 @@ abstract class ORMRow {
 
 	/**
 	 * Returns the table this ORMRow is a row in.
-	 * 
+	 *
 	 * @since 1.20
-	 * 
+	 *
 	 * @return ORMTable
 	 */
 	public function getTable() {
