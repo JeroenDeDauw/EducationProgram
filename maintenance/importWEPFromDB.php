@@ -171,34 +171,43 @@ class ImportWEPFromDB extends Maintenance {
 			$course->course_startdate = str_replace( '-', '', $course->course_startdate );
 			$course->course_enddate = str_replace( '-', '', $course->course_enddate );
 
-			if ( $currentId === false || $this->override ) {
-				$data = array(
-					'org_id' => $this->orgIds[$course->course_university_id],
-					'name' => $name,
-					'mc' => $course->course_coursename,
-					'start' => $course->course_startdate . '000000',
-					'end' => ( $course->course_enddate === '' ? $course->course_startdate : $course->course_enddate ) . '000000',
-					'lang' => $course->course_language,
-					'term' => $term,
-				);
-
-				if ( $currentId !== false ) {
-					$data['id'] = $currentId;
-				}
-
-				$courseObject = $courseTable->newFromArray(
-					$data,
-					$currentId === false
-				);
-
-				try{
-					$courseObject->revisionedSave( $revAction );
-					$this->courseIds[$course->course_id] = $courseObject->getId();
-				}
-				catch ( Exception $ex ) {
-					$this->msg( "\t ERROR: Failed to insert course '$name'.\n" );
+			if ( array_key_exists( $course->course_university_id, $this->orgIds ) ) {
+				if ( $currentId === false || $this->override ) {
+					$this->insertCourse( $currentId, $course, $name, $term, $revAction );
 				}
 			}
+			else {
+				$this->msg( "\t ERROR: Failed to insert course '$name'. Linked org does not exist!\n" );
+			}
+		}
+	}
+
+	protected function insertCourse( $currentId, $course, $name, $term, $revAction ) {
+		$data = array(
+			'org_id' => $this->orgIds[$course->course_university_id],
+			'name' => $name,
+			'mc' => $course->course_coursename,
+			'start' => $course->course_startdate . '000000',
+			'end' => ( $course->course_enddate === '' ? $course->course_startdate : $course->course_enddate ) . '000000',
+			'lang' => $course->course_language,
+			'term' => $term,
+		);
+
+		if ( $currentId !== false ) {
+			$data['id'] = $currentId;
+		}
+
+		$courseObject = EPCourses::singleton()->newFromArray(
+			$data,
+			$currentId === false
+		);
+
+		try{
+			$courseObject->revisionedSave( $revAction );
+			$this->courseIds[$course->course_id] = $courseObject->getId();
+		}
+		catch ( Exception $ex ) {
+			$this->msg( "\t ERROR: Failed to insert course '$name'.\n" );
 		}
 	}
 
