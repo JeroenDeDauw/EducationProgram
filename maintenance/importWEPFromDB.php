@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Maintenance scrtip for importing Wikipedia Education Program data from before this extension was used.
+ * Maintenance script for importing Wikipedia Education Program data from before this extension was used.
  *
  * @since 0.1
  *
@@ -37,7 +37,11 @@ class ImportWEPFromDB extends Maintenance {
 	protected $orgIds = array();
 	protected $courseIds = array();
 
+	protected $errors = array();
+
 	protected $override = true;
+
+	protected $msgLevel = 2;
 
 	public function execute() {
 		global $basePath;
@@ -86,13 +90,32 @@ class ImportWEPFromDB extends Maintenance {
 		}
 
 		$this->msg( 'Import done!', 0 );
+
+		$this->showErrors();
 	}
 
+	/**
+	 * Show a message.
+	 *
+	 * @param string $msg
+	 * @param integer $level
+	 */
 	protected function msg( $msg, $level = 1 ) {
-		if ( $level <= 2 ) {
+		if ( $level <= $this->msgLevel ) {
 			echo $msg;
 			echo "\n";
 		}
+	}
+
+	/**
+	 * Show an error.
+	 *
+	 * @param string $msg
+	 * @param integer $level
+	 */
+	protected function err( $msg, $level = 1 ) {
+		$this->errors[] = $msg;
+		$this>msg( "\tERROR: $msg", $level );
 	}
 
 	/**
@@ -177,12 +200,21 @@ class ImportWEPFromDB extends Maintenance {
 				}
 			}
 			else {
-				$this->msg( "\t ERROR: Failed to insert course '$name'. Linked org does not exist!\n" );
+				$this->err( "Failed to insert course '$name'. Linked org ($course->course_university_id) does not exist!\n" );
 			}
 		}
 	}
 
-	protected function insertCourse( $currentId, $course, $name, $term, $revAction ) {
+	/**
+	 * Inset the provided course.
+	 *
+	 * @param integer $currentId
+	 * @param stdClass $course
+	 * @param string $name
+	 * @param string $term
+	 * @param EPRevisionAction $revAction
+	 */
+	protected function insertCourse( $currentId, $course, $name, $term, EPRevisionAction $revAction ) {
 		$data = array(
 			'org_id' => $this->orgIds[$course->course_university_id],
 			'name' => $name,
@@ -207,7 +239,7 @@ class ImportWEPFromDB extends Maintenance {
 			$this->courseIds[$course->course_id] = $courseObject->getId();
 		}
 		catch ( Exception $ex ) {
-			$this->msg( "\t ERROR: Failed to insert course '$name'.\n" );
+			$this->err( "Failed to insert course '$name'.\n" );
 		}
 	}
 
@@ -230,7 +262,7 @@ class ImportWEPFromDB extends Maintenance {
 			$user = User::newFromName( $name );
 
 			if ( $user === false ) {
-				$this->msg( "\tERROR: Failed to insert student '$name'. (invalid user name)" );
+				$this->err( "Failed to insert student '$name'. (invalid user name)" );
 			}
 			else {
 				if ( $user->getId() === 0 ) {
@@ -248,14 +280,14 @@ class ImportWEPFromDB extends Maintenance {
 				}
 
 				if ( $user->getId() === 0 ) {
-					$this->msg( "\tERROR: Failed to insert student '$name'. (failed to create user)" );
+					$this->err( "Failed to insert student '$name'. (failed to create user)" );
 				}
 				else {
 					$studentObject = EPStudent::newFromUser( $user );
 
 					if ( is_null( $studentObject->getId() ) ) {
 						if ( !$studentObject->save() ) {
-							$this->msg( "\tERROR: Failed to insert student '$name'. (failed create student profile)" );
+							$this->err( "Failed to insert student '$name'. (failed create student profile)" );
 							continue;
 						}
 					}
@@ -273,13 +305,27 @@ class ImportWEPFromDB extends Maintenance {
 						}
 
 						if ( $success !== false ) {
-							$this->msg( "\tAsscoaited student '$name' with course '$courseId'.", 2 );
+							$this->msg( "\tAssociated student '$name' with course '$courseId'.", 2 );
 						}
 						else {
 							$this->msg( "\tFailed to associate student '$name' with course '$courseId'." );
 						}
 					}
 				}
+			}
+		}
+	}
+
+	/**
+	 * Show the errors encountered by the script.
+	 */
+	protected function showErrors() {
+		if ( !empty( $this->errors ) ) {
+			$count = count( $this->errors );
+			$this->msg( "\nThe import script encountered some errors ($count)" );
+
+			foreach ( $this->errors as $error ) {
+				$this->msg( "* $error" );
 			}
 		}
 	}
