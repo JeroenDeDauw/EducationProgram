@@ -147,9 +147,8 @@ class SpecialEducationProgram extends SpecialEPPage {
 	protected function getByGenderTable( $terms ) {
 		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-termbreakdown' ) );
 
-		$term = array_shift( $terms );
-		$rows = array_keys( $term );
-		array_unshift( $terms, $term );
+		reset( $terms );
+		$rows = array_keys( $terms[key( $terms )] );
 
 		$html .= '<tr>';
 
