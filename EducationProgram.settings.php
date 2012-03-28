@@ -62,7 +62,7 @@ class EPSettings {
 				'CZ' => 'Flag of the Czech Republic.svg',
 			),
 			'fallbackFlag' => 'Nuvola unknown flag.svg',
-			'courseDescPage' => 'Course description',
+			'courseDescPage' => 'MediaWiki:Course description',
 			'courseOrgDescPage' => '$2/$1', // $1 = org name, $2 = courseDescPage setting
 		);
 	}

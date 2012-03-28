@@ -194,7 +194,16 @@ class SpecialEducationProgram extends SpecialEPPage {
 		return $html;
 	}
 
-	protected function getByTermTable( $terms ) {
+	/**
+	 * Returns the HTML for the term table.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $terms
+	 *
+	 * @return string
+	 */
+	protected function getByTermTable( array $terms ) {
 		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-termbreakdown' ) );
 
 		reset( $terms );
@@ -224,6 +233,15 @@ class SpecialEducationProgram extends SpecialEPPage {
 		return $html;
 	}
 
+	/**
+	 * Returns the term data.
+	 * It's an array. Element with key 'terms' contains an array with the terms.
+	 * Element with key 'bygender' contains gender breakdown data.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
 	protected function getTermData() {
 		$termNames = EPCourses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ) );
 		$terms = array();
@@ -274,6 +292,18 @@ class SpecialEducationProgram extends SpecialEPPage {
 		return array( 'terms' => $terms, 'bygender' => $byGender );
 	}
 
+	/**
+	 * Returns gender breakdowns for the provided lists of users.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $students
+	 * @param array $oas
+	 * @param array $cas
+	 * @param array $instructors
+	 *
+	 * @return array
+	 */
 	protected function getByGender( array $students, array $oas, array $cas, array $instructors ) {
 		$genders = $this->getGenders( array_unique( array_merge( $students, $oas, $cas, $instructors ) ) );
 
@@ -285,6 +315,16 @@ class SpecialEducationProgram extends SpecialEPPage {
 		);
 	}
 
+	/**
+	 * Returns a gender breakdown for the provided users and their associated genders.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $users The users
+	 * @param array $genders An array mapping user id to gender
+	 *
+	 * @return array
+	 */
 	protected function getGenderDistribution( array $users, array $genders ) {
 		$distribution = array( 'unknown' => 0, 'male' => 0, 'female' => 0 );
 
@@ -301,7 +341,16 @@ class SpecialEducationProgram extends SpecialEPPage {
 		return $distribution;
 	}
 
-	protected function getGenders( $userIds ) {
+	/**
+	 * Returns the genders for the provided user ids.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $userIds
+	 *
+	 * @return array
+	 */
+	protected function getGenders( array $userIds ) {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$users = $dbr->select(
@@ -320,12 +369,28 @@ class SpecialEducationProgram extends SpecialEPPage {
 		return $genders;
 	}
 
+	/**
+	 * Returns the message text for the provided message key after the key gets prefixed.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	protected function msgTxt() {
 		$args = func_get_args();
 		array_unshift( $args, $this->prefixKey( array_shift( $args ) ) );
-		return call_user_func_array( array( $this, 'msg' ), $args );
+		return call_user_func_array( array( $this, 'msg' ), $args )->text();
 	}
 
+	/**
+	 * Returns the prefixed version of the provided message key.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $key
+	 *
+	 * @return string
+	 */
 	protected function prefixKey( $key ) {
 		return  'ep-' . strtolower( $this->mName ) . '-' . $key;
 	}
