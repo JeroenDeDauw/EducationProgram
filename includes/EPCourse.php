@@ -377,7 +377,7 @@ class EPCourse extends EPPageObject {
 			return EPCourse::getAddNewControl( $context, $args );
 		}
 		else {
-			return $context->msg( 'ep-courses-addorgfirst' )->escaped();
+			return $context->msg( 'ep-courses-addorgfirst' )->parse();
 		}
 	}
 
