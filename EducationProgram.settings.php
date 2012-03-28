@@ -64,6 +64,7 @@ class EPSettings {
 			'fallbackFlag' => 'Nuvola unknown flag.svg',
 			'courseDescPage' => 'MediaWiki:Course description',
 			'courseOrgDescPage' => '$2/$1', // $1 = org name, $2 = courseDescPage setting
+			'useStudentRealNames' => false,
 		);
 	}
 

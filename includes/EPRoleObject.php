@@ -95,14 +95,15 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	}
 	
 	/**
-	 * Returns the name of the instroctor, using their real name when available.
+	 * Returns the name of the user, possibly using their real name when available.
 	 * 
 	 * @since 0.1
 	 * 
 	 * @return string
 	 */
 	public function getName() {
-		return $this->getUser()->getRealName() === '' ? $this->getUser()->getName() : $this->getUser()->getRealName();
+		return !EPSettings::get( 'useStudentRealNames' ) || $this->getUser()->getRealName() === '' ?
+			$this->getUser()->getName() : $this->getUser()->getRealName();
 	}
 	
 	/**
