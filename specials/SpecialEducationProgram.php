@@ -197,10 +197,8 @@ class SpecialEducationProgram extends SpecialEPPage {
 	protected function getByTermTable( $terms ) {
 		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-termbreakdown' ) );
 
-		$term = array_shift( $terms );
-		$rows = array_keys( $term );
-		array_unshift( $terms, $term );
-
+		reset( $terms );
+		$rows = array_keys( $terms[key( $terms )] );
 		array_unshift( $rows, 'header' );
 
 		foreach ( $rows as $row ) {
@@ -288,19 +286,19 @@ class SpecialEducationProgram extends SpecialEPPage {
 	}
 
 	protected function getGenderDistribution( array $users, array $genders ) {
-		$distibution = array( 'unknown' => 0, 'male' => 0, 'female' => 0 );
+		$distribution = array( 'unknown' => 0, 'male' => 0, 'female' => 0 );
 
 		foreach ( $users as $userId ) {
-			$distibution[$genders[$userId]]++;
+			$distribution[$genders[$userId]]++;
 		}
 
 		$userCount = count( $users );
 
-		foreach ( $distibution as &$amount ) {
+		foreach ( $distribution as &$amount ) {
 			$amount = $userCount === 0 ? 1 : $amount / $userCount;
 		}
 
-		return $distibution;
+		return $distribution;
 	}
 
 	protected function getGenders( $userIds ) {
