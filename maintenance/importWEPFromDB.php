@@ -65,7 +65,9 @@ class ImportWEPFromDB extends Maintenance {
 			$nr = $dbr->select(
 				$tables[$name],
 				array( 'COUNT(*) AS rowcount' ),
-				$cond
+				$cond,
+				__METHOD__,
+				array() //array( 'LIMIT' => 200 )
 			)->fetchObject()->rowcount;
 
 			$this->msg( "Found $nr $name...", 0 );
@@ -115,7 +117,7 @@ class ImportWEPFromDB extends Maintenance {
 	 */
 	protected function err( $msg, $level = 1 ) {
 		$this->errors[] = $msg;
-		$this>msg( "\tERROR: $msg", $level );
+		$this->msg( "\tERROR: $msg", $level );
 	}
 
 	/**
@@ -200,7 +202,7 @@ class ImportWEPFromDB extends Maintenance {
 				}
 			}
 			else {
-				$this->err( "Failed to insert course '$name'. Linked org ($course->course_university_id) does not exist!\n" );
+				$this->err( "Failed to insert course '$name'. Linked org ($course->course_university_id) does not exist!" );
 			}
 		}
 	}
@@ -239,7 +241,7 @@ class ImportWEPFromDB extends Maintenance {
 			$this->courseIds[$course->course_id] = $courseObject->getId();
 		}
 		catch ( Exception $ex ) {
-			$this->err( "Failed to insert course '$name'.\n" );
+			$this->err( "Failed to insert course '$name'." );
 		}
 	}
 
