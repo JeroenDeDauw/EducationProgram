@@ -239,6 +239,7 @@ $messages['en'] = array(
 	'ep-educationprogram-female' => 'Female',
 	'ep-educationprogram-unknown' => 'Unknown',
 	'ep-educationprogram-genders' => 'Gender breakdown',
+	'ep-educationprogram-nodata' => 'There is no data to display yet!',
 
 	// Special:Institutions
 	'ep-institutions-noresults' => 'There are no institutions to list.',

@@ -133,15 +133,20 @@ class SpecialEducationProgram extends SpecialEPPage {
 	public function displayByTerm() {
 		$termsData = $this->getTermData();
 
-		$html = Html::element( 'h2', array(), $this->msgTxt( 'by-term' ) );
+        if ( empty( $termsData['terms'] ) ) {
+            $html = $this->msgTxt( 'nodata' );
+        }
+        else {
+            $html = Html::element( 'h2', array(), $this->msgTxt( 'by-term' ) );
 
-		$html .= $this->getByTermTable( $termsData['terms'] );
+            $html .= $this->getByTermTable( $termsData['terms'] );
 
-		$html .= Html::element( 'h2', array(), $this->msgTxt( 'genders' ) );
+            $html .= Html::element( 'h2', array(), $this->msgTxt( 'genders' ) );
 
-		$html .= $this->getByGenderTable( $termsData['bygender'] );
+            $html .= $this->getByGenderTable( $termsData['bygender'] );
+        }
 
-		return $html;
+        return $html;
 	}
 
 	protected function getByGenderTable( $terms ) {

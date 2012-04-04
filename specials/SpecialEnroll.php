@@ -146,12 +146,13 @@ class SpecialEnroll extends SpecialEPPage {
 				'action' => $this->getTitle( $this->subPage )->getLocalURL(),
 			)
 		) );
+        $lang = $this->getLanguage();
 
 		$out->addHTML( '<fieldset>' );
 
 		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-enroll-add-token' ) . '</legend>' );
 
-		$out->addElement( 'p', array(), wfMsg( 'ep-enroll-add-token-doc' ) );
+		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-enroll-add-token-doc' ) ) );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-enroll-token' ), 'wptoken', 'wptoken' ) );
 
