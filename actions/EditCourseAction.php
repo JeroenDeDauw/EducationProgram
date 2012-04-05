@@ -208,7 +208,7 @@ class EditCourseAction extends EPEditAction {
 			'required' => true,
 			'options' => array_combine( $levels, $levels ),
 		);
-
+XML::languageSelector()
 		$langOptions = EPUtils::getLanguageOptions( $this->getLanguage()->getCode() );
 		$fields['lang'] = array (
 			'type' => 'select',

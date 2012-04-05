@@ -9,7 +9,7 @@
  * @file SpecialCourses.php
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v3 or later
+ * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialCourses extends SpecialEPPage {

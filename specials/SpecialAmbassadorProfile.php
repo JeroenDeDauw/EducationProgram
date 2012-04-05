@@ -8,7 +8,7 @@
  * @file SpecialOAProfile.php
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v3 or later
+ * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class SpecialAmbassadorProfile extends FormSpecialPage {

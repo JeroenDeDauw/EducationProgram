@@ -8,7 +8,7 @@
  * @file EPLogFormatter.php
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v3 or later
+ * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPLogFormatter extends LogFormatter {
@@ -54,7 +54,7 @@ class EPLogFormatter extends LogFormatter {
  * @file EPLogFormatter.php
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v3 or later
+ * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPRoleChangeFormatter extends EPLogFormatter {
@@ -86,7 +86,7 @@ class EPRoleChangeFormatter extends EPLogFormatter {
  * @file EPLogFormatter.php
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v3 or later
+ * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPArticleFormatter extends EPLogFormatter {

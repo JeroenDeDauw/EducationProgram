@@ -8,7 +8,7 @@
  * @file EPAticlePager.php
  * @ingroup EductaionProgram
  *
- * @licence GNU GPL v3 or later
+ * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPArticlePager extends EPPager {
