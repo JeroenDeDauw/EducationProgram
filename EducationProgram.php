@@ -122,6 +122,8 @@ $wgAutoloadClasses['EPRevisions'] 					= dirname( __FILE__ ) . '/includes/EPRevi
 $wgAutoloadClasses['EPArticles'] 					= dirname( __FILE__ ) . '/includes/EPArticles.php';
 $wgAutoloadClasses['EPStudentActivityPager'] 		= dirname( __FILE__ ) . '/includes/EPStudentActivityPager.php';
 $wgAutoloadClasses['EPRevisionDiff'] 				= dirname( __FILE__ ) . '/includes/EPRevisionDiff.php';
+$wgAutoloadClasses['EPDiffTable'] 					= dirname( __FILE__ ) . '/includes/EPDiffTable.php';
+$wgAutoloadClasses['EPMenu'] 						= dirname( __FILE__ ) . '/includes/EPMenu.php';
 
 $wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
 $wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';
@@ -146,12 +148,12 @@ $wgAutoloadClasses['SpecialArticles'] 				= dirname( __FILE__ ) . '/specials/Spe
 
 // Compat classes
 foreach ( array(
-	'ORMResult' => 'ORMResult.php',
-	'ORMRow' => 'ORMRow.php',
-	'ORMTable' => 'ORMTable.php',
-	'CacheHelper' => 'CacheHelper.php',
-	'ICacheHelper' => 'CacheHelper.php',
-	'CachedAction' => 'CachedAction.php',
+	'ORMResult' => 'ORMResult.php', // MW < 1.20
+	'ORMRow' => 'ORMRow.php', // MW < 1.20
+	'ORMTable' => 'ORMTable.php', // MW < 1.20
+	'CacheHelper' => 'CacheHelper.php', // MW < 1.20
+	'ICacheHelper' => 'CacheHelper.php', // MW < 1.20
+	'CachedAction' => 'CachedAction.php', // MW < 1.20
 	'SpecialCachedPage' => 'SpecialCachedPage.php' // MW < 1.20
 	) as $className => $fileName ) {
 

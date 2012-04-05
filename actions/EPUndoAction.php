@@ -68,8 +68,8 @@ class EPUndoAction extends EPAction {
 
 						if ( $diff->isValid() ) {
 							if ( $diff->hasChanges() ) {
-								$diff->setContext( $this->getContext() );
-								$diff->display();
+								$diffTable = new EPDiffTable( $this->getContext(), $diff );
+								$diffTable->display();
 
 								$this->displayForm( $object, $revision );
 							}
