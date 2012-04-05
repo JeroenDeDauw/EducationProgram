@@ -801,7 +801,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'duration-centuries' => '$1 {{PLURAL:$1|century|centuries}}',
 
 	// Diffs
-	'ep-diff-old' => 'Old value',
+	'ep-diff-old' => 'Current value',
 	'ep-diff-new' => 'New value',
 );
 
