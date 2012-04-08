@@ -16,23 +16,23 @@ class EPUtils {
 	/**
 	 * Create a log entry using the provided info.
 	 * Takes care about the logging interface changes in MediaWiki 1.19.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param array $info
 	 */
 	public static function log( array $info ) {
 		$user = array_key_exists( 'user', $info ) ? $info['user'] : $GLOBALS['wgUser'];
-		
+
 		$logEntry = new ManualLogEntry( $info['type'], $info['subtype'] );
 
 		$logEntry->setPerformer( $user );
 		$logEntry->setTarget( $info['title'] );
-		
+
 		if ( array_key_exists( 'comment', $info ) ) {
 			$logEntry->setComment( $info['comment'] );
 		}
-		
+
 		if ( array_key_exists( 'parameters', $info ) ) {
 			$logEntry->setParameters( $info['parameters'] );
 		}
@@ -40,15 +40,15 @@ class EPUtils {
 		$logid = $logEntry->insert();
 		$logEntry->publish( $logid );
 	}
-	
+
 	/**
 	 * Returns a list of country names that can be used by
 	 * a select input localized in the lang of which the code is provided.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param string $langCode
-	 * 
+	 *
 	 * @return array
 	 */
 	public static function getCountryOptions( $langCode ) {
@@ -93,16 +93,16 @@ class EPUtils {
 			)
 		);
 	}
-	
+
 	/**
 	 * Returns the tool links for this ambassador.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPIRole $role
 	 * @param IContextSource $context
 	 * @param EPCourse|null $course
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function getRoleToolLinks( EPIRole $role, IContextSource $context, EPCourse $course = null ) {
@@ -127,10 +127,10 @@ class EPUtils {
 				),
 				wfMsg( 'ep-' . $roleName . '-remove' )
 			);
-			
+
 			$context->getOutput()->addModules( 'ep.enlist' );
 		}
-		
+
 		return self::getToolLinks( $user->getId(), $user->getName(), $context, $links );
 	}
 
@@ -155,18 +155,18 @@ class EPUtils {
 
 		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( array_merge( $links, $extraLinks ) ) . ')</span>';
 	}
-	
+
 	/**
 	 * Adds a navigation menu with the provided links.
 	 * Links should be provided in an array with:
 	 * label => Title (object)
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param IContextSource $context
 	 * @param array $items
 	 */
-	public static function displayNavigation( IContextSource $context, array $items = array() ) {
+	public static function displayNavigation( IContextSource $context, array $items = array() ) { // TODO
 		$links = array();
 
 		foreach ( $items as $label => $data ) {
@@ -190,7 +190,7 @@ class EPUtils {
 			Html::rawElement( 'p', array(), $context->getLanguage()->pipeList( $links ) )
 		);
 	}
-	
+
 	/**
 	 * Returns the default nav items for @see displayNavigation.
 	 *
@@ -200,7 +200,7 @@ class EPUtils {
 	 *
 	 * @return array of Title
 	 */
-	public static function getDefaultNavigationItems( IContextSource $context ) {
+	public static function getDefaultNavigationItems( IContextSource $context ) { // TODO
 		$items = array(
 			wfMsg( 'ep-nav-orgs' ) => SpecialPage::getTitleFor( 'Institutions' ),
 			wfMsg( 'ep-nav-courses' ) => SpecialPage::getTitleFor( 'Courses' ),
@@ -213,22 +213,30 @@ class EPUtils {
 		$items[wfMsg( 'ep-nav-cas' )] = SpecialPage::getTitleFor( 'CampusAmbassadors' );
 
 		$user = $context->getUser();
-		
+
 		if ( EPStudents::singleton()->has( array( 'user_id' => $user->getId() ) ) ) {
 			$items[wfMsg( 'ep-nav-mycourses' )] = SpecialPage::getTitleFor( 'MyCourses' );
 		}
-		
+
 		if ( EPOA::newFromUser( $user )->hasCourse() ) {
 			$items[wfMsg( 'ep-nav-oaprofile' )] = SpecialPage::getTitleFor( 'OnlineAmbassadorProfile' );
 		}
-		
+
 		if ( EPCA::newFromUser( $user )->hasCourse() ) {
 			$items[wfMsg( 'ep-nav-caprofile' )] = SpecialPage::getTitleFor( 'CampusAmbassadorProfile' );
 		}
 
-		return $items;		
+		return $items;
 	}
 
+	/**
+	 * Displays any epsuccess or epfail message and then clears the session value so it does not get displayed again.
+	 * Should typically be called before anything else is outputted.
+	 *
+	 * @since 0.1
+	 *
+	 * @param IContextSource $context
+	 */
 	public static function displayResult( IContextSource $context ) {
 		$req = $context->getRequest();
 		$out = $context->getOutput();
