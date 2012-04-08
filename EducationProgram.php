@@ -145,6 +145,7 @@ $wgAutoloadClasses['SpecialCAProfile'] 				= dirname( __FILE__ ) . '/specials/Sp
 $wgAutoloadClasses['SpecialAmbassadorProfile'] 		= dirname( __FILE__ ) . '/specials/SpecialAmbassadorProfile.php';
 $wgAutoloadClasses['SpecialStudentActivity'] 		= dirname( __FILE__ ) . '/specials/SpecialStudentActivity.php';
 $wgAutoloadClasses['SpecialArticles'] 				= dirname( __FILE__ ) . '/specials/SpecialArticles.php';
+$wgAutoloadClasses['SpecialManageCourses'] 			= dirname( __FILE__ ) . '/specials/SpecialManageCourses.php';
 
 // Compat classes
 foreach ( array(
@@ -177,6 +178,7 @@ $wgSpecialPages['CampusAmbassadorProfile'] 			= 'SpecialCAProfile';
 $wgSpecialPages['OnlineAmbassadorProfile'] 			= 'SpecialOAProfile';
 $wgSpecialPages['StudentActivity'] 					= 'SpecialStudentActivity';
 $wgSpecialPages['Articles'] 						= 'SpecialArticles';
+$wgSpecialPages['ManageCourses'] 					= 'SpecialManageCourses';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';
 $wgSpecialPageGroups['Institutions'] 				= 'education';
@@ -192,6 +194,7 @@ $wgSpecialPageGroups['Enroll'] 						= 'education';
 $wgSpecialPageGroups['Disenroll'] 					= 'education';
 $wgSpecialPageGroups['StudentActivity'] 			= 'education';
 $wgSpecialPageGroups['Articles'] 					= 'education';
+$wgSpecialPageGroups['ManageCourses'] 				= 'education';
 
 define( 'EP_STUDENT', 0 );
 define( 'EP_INSTRUCTOR', 1 );

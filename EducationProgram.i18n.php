@@ -194,6 +194,7 @@ $messages['en'] = array(
 	// Special pages
 	'specialpages-group-education' => 'Education',
 	'special-mycourses' => 'My courses',
+	'special-managecourses' => 'Manage my courses',
 	'special-institutions' => 'Institutions',
 	'special-student' => 'Student',
 	'special-students' => 'Students',
@@ -991,6 +992,7 @@ $messages['qqq'] = array(
 	// Special pages
 	'specialpages-group-education' => 'Special pages group, h2',
 	'special-mycourses' => '{{doc-special|mycourses}}',
+	'special-managecourses' => '{{doc-special|managecourses}}',
 	'special-institutions' => '{{doc-special|institutions}}',
 	'special-student' => '{{doc-special|student}}',
 	'special-students' => '{{doc-special|students}}',
