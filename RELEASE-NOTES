@@ -10,9 +10,15 @@ Latest version of the release notes: http://svn.wikimedia.org/viewvc/mediawiki/t
 
 Initial release with these features:
 
-* Management and browsing interfaces for institutions, courses and terms.
+* Browsing interfaces for institutions, courses and terms.
 * Pages with summaries and linked items for all institutions, courses and terms.
+* Edit page for institutions, courses and terms.
+* History pages for institutions, courses and terms.
 * Enrollment page for students with optional token requirement.
 * Sortable and filterable list of students.
 * Personal courses overview at Special:MyCourses for students.
+* Overview of the program status on Special:EducationProgram.
+* Overview of student activity on Special:StudentActivity.
+* Online Ambassador and Campus Ambassador profiles.
+* Lists of Online Ambassadors and Campus Ambassadors.
 * ...
