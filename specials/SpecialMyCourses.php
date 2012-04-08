@@ -67,17 +67,17 @@ class SpecialMyCourses extends SpecialEPPage {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see SpecialEPPage::getDefaultNavigationItems()
+	 * Displays the navigation menu.
+	 *
+	 * @since 0.1
 	 */
-	protected function getDefaultNavigationItems() {
-		$items = parent::getDefaultNavigationItems();
-		
-		if ( $this->subPage === '' ) {
-			unset( $items[wfMsg( 'ep-nav-mycourses' )] );			
-		}
-		
-		return $items;
+	protected function displayNavigation() {
+		$menu = new EPMenu( $this->getContext() );
+		$menu->setItemFunction( function( array $items ) {
+			unset( $items['ep-nav-mycourses'] );
+			return $items;
+		} );
+		$menu->display();
 	}
 
 	/**

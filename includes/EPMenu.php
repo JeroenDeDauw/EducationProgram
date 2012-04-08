@@ -13,6 +13,14 @@
 class EPMenu extends ContextSource {
 
 	/**
+	 * Function called before the HTML is build that allows altering the menu items.
+	 *
+	 * @since 0.1
+	 * @var function|null
+	 */
+	protected $itemFunction = null;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 0.1
@@ -24,13 +32,24 @@ class EPMenu extends ContextSource {
 	}
 
 	/**
+	 * Sets a function called before the HTML is build that allows altering the menu items.
+	 *
+	 * @since 0.1
+	 *
+	 * @param function $itemFunction
+	 */
+	public function setItemFunction( $itemFunction ) {
+		$this->itemFunction = $itemFunction;
+	}
+
+	/**
 	 * Builds and returns the HTML for the menu.
 	 *
 	 * @since 0.1
 	 *
 	 * @return string
 	 */
-	public function getHTML() { // TODO
+	public function getHTML() {
 		$links = array();
 
 		foreach ( $this->getMenuItems() as $label => $data ) {
@@ -69,33 +88,43 @@ class EPMenu extends ContextSource {
 	 *
 	 * @return array of Title
 	 */
-	protected function getMenuItems() { // TODO
+	protected function getMenuItems() {
 		$items = array(
-			wfMsg( 'ep-nav-orgs' ) => SpecialPage::getTitleFor( 'Institutions' ),
-			wfMsg( 'ep-nav-courses' ) => SpecialPage::getTitleFor( 'Courses' ),
+			'ep-nav-orgs' => SpecialPage::getTitleFor( 'Institutions' ),
+			'ep-nav-courses' => SpecialPage::getTitleFor( 'Courses' ),
 		);
 
-		$items[wfMsg( 'ep-nav-students' )] = SpecialPage::getTitleFor( 'Students' );
+		$items['ep-nav-students'] = SpecialPage::getTitleFor( 'Students' );
 
-		$items[wfMsg( 'ep-nav-oas' )] = SpecialPage::getTitleFor( 'OnlineAmbassadors' );
+		$items['ep-nav-oas'] = SpecialPage::getTitleFor( 'OnlineAmbassadors' );
 
-		$items[wfMsg( 'ep-nav-cas' )] = SpecialPage::getTitleFor( 'CampusAmbassadors' );
+		$items['ep-nav-cas'] = SpecialPage::getTitleFor( 'CampusAmbassadors' );
 
 		$user = $this->getUser();
 
 		if ( EPStudents::singleton()->has( array( 'user_id' => $user->getId() ) ) ) {
-			$items[wfMsg( 'ep-nav-mycourses' )] = SpecialPage::getTitleFor( 'MyCourses' );
+			$items['ep-nav-mycourses'] = SpecialPage::getTitleFor( 'MyCourses' );
 		}
 
 		if ( EPOA::newFromUser( $user )->hasCourse() ) {
-			$items[wfMsg( 'ep-nav-oaprofile' )] = SpecialPage::getTitleFor( 'OnlineAmbassadorProfile' );
+			$items['ep-nav-oaprofile'] = SpecialPage::getTitleFor( 'OnlineAmbassadorProfile' );
 		}
 
 		if ( EPCA::newFromUser( $user )->hasCourse() ) {
-			$items[wfMsg( 'ep-nav-caprofile' )] = SpecialPage::getTitleFor( 'CampusAmbassadorProfile' );
+			$items['ep-nav-caprofile'] = SpecialPage::getTitleFor( 'CampusAmbassadorProfile' );
 		}
 
-		return $items;
+		if ( !is_null( $this->itemFunction ) ) {
+			$items = call_user_func( $this->itemFunction, $items );
+		}
+
+		$menuItems = array();
+
+		foreach ( $items as $messageKey => $title ) {
+			$menuItems[wfMsg( $messageKey )] = $title;
+		}
+
+		return $menuItems;
 	}
 
 }

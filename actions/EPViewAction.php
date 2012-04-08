@@ -152,17 +152,13 @@ abstract class EPViewAction extends EPAction {
 	}
 
 	/**
-	 * Adds a navigation menu with the provided links.
-	 * Links should be provided in an array with:
-	 * label => Title (object)
+	 * Displays the navigation menu.
 	 *
 	 * @since 0.1
-	 *
-	 * @param array $items
 	 */
-	protected function displayNavigation( array $items = array() ) {
-		$items = array_merge( $this->getDefaultNavigationItems(), $items );
-		EPUtils::displayNavigation( $this->getContext(), $items );
+	protected function displayNavigation() {
+		$menu = new EPMenu( $this->getContext() );
+		$menu->display();
 	}
 
 	/**
