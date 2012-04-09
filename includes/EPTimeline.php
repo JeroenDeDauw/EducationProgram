@@ -46,14 +46,10 @@ class EPTimeline extends ContextSource {
 		$segments = array();
 
 		foreach ( $this->events as /* EPEvent */ $event ) {
-			$segments[] = $this->getEventHTML( $event );
+			$segments[] = $event->getEventContext()->getHTML();
 		}
 
 		return implode( '<br />', $segments ); // TODO
-	}
-
-	protected function getEventHTML( EPEvent $event ) {
-		return json_encode( $event ); // TODO
 	}
 
 	/**

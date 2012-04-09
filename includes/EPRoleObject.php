@@ -30,7 +30,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	protected $courses = false;
 
 	/**
-	 * Create a new instructor object from a user id.
+	 * Create a new role object from a user id.
 	 * 
 	 * @since 0.1
 	 * 
@@ -80,7 +80,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	}
 	
 	/**
-	 * Returns the user that this instructor is.
+	 * Returns the user.
 	 * 
 	 * @since 0.1
 	 * 

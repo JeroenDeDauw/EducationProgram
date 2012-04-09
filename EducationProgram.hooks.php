@@ -403,20 +403,54 @@ final class EPHooks {
 	 * @return true
 	 */
 	public static function onNewRevisionFromEditComplete( $article, Revision $rev, $baseID, User $user ) {
-		if ( $article->getTitle()->inNamespaces( NS_MAIN, NS_TALK ) ) {
-			$studentId = EPStudents::singleton()->selectFieldsRow( 'id', array( 'user_id' => $user->getId() ) );
+		if ( $user->isLoggedIn() ) {
+			$namespace = $article->getTitle()->getNamespace;
 
-			if ( $studentId !== false ) {
-				$student = EPStudent::newFromUserId( $user->getId() );
-				$student->setFields( array(
-					'id' => $studentId,
-					'last_active' => wfTimestampNow()
-				) );
-				$student->save();
+			if ( in_array( $namespace, array( NS_MAIN, NS_TALK, NS_USER, NS_USER_TALK ) ) ) {
+				$conds = array( 'upc_user_id' => $user->getId() );
+
+				$upc = wfGetDB( DB_SLAVE )->select(
+					array( 'ep_users_per_course', 'ep_courses' ),
+					array( 'upc_course_id' ),
+					array_merge( $conds, EPCourses::getStatusConds( 'current', true ) ),
+					__METHOD__,
+					array(),
+					array(
+						'ep_courses' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
+					)
+				);
+
+				$hasCourses = $upc->numRows() !== 0;
+
+				if ( $hasCourses ) {
+					$event = EPEvent::newFromRevision( $rev, $user );
+
+					$dbw = wfGetDB( DB_MASTER );
+
+					$dbw->begin();
+
+					while ( $link = $upc->fetchObject() ) {
+						$eventForCourse = clone $event;
+						$eventForCourse->setField( 'course_id', $link->upc_course_id );
+						$eventForCourse->save();
+					}
+
+					if ( in_array( $namespace, array( NS_MAIN, NS_TALK ) ) ) {
+						$student = EPStudent::newFromUserId( $user->getId(), true );
+
+						$student->setFields( array(
+							'last_active' => wfTimestampNow()
+						) );
+
+						$student->save();
+					}
+
+					$dbw->commit();
+				}
 			}
 		}
 
 		return true;
 	}
-	
+
 }

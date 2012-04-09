@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_events (
   event_course_id            INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
   event_user_id              INT unsigned        NOT NULL, -- The user creating the event. Foreign key on user.user_id
   event_time                 varbinary(14)       NOT NULL, -- Time the event took place
-  event_type                 TINYINT unsigned    NOT NULL, -- Type of the event
+  event_type                 VARCHAR(25)         NOT NULL, -- Type of the event
   event_info                 BLOB                NOT NULL -- Event info, can be different fields depending on event type
 ) /*$wgDBTableOptions*/;
 

@@ -40,10 +40,8 @@ class EPOrg extends EPPageObject {
 			$fields['course_count'] = count( $fields['courses'] );
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
-
 		if ( in_array( 'active', $summaryFields ) ) {
-			$now = $dbr->addQuotes( wfTimestampNow() );
+			$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
 			$fields['active'] = EPCourses::singleton()->has( array(
 				'org_id' => $this->getId(),

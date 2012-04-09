@@ -176,12 +176,15 @@ CREATE INDEX /*i*/ep_oas_visible ON /*_*/ep_oas (oa_visible);
 
 
 -- Education timeline events.
+-- This is something in between recent changes and watchlists.
+-- Events are stored in such a way that each course has a timeline of events.
+-- Events are typically edits to pages, but this is not nececerily the case.
 CREATE TABLE IF NOT EXISTS /*_*/ep_events (
   event_id                   INT unsigned        NOT NULL auto_increment PRIMARY KEY,
   event_course_id            INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
   event_user_id              INT unsigned        NOT NULL, -- The user creating the event. Foreign key on user.user_id
   event_time                 varbinary(14)       NOT NULL, -- Time the event took place
-  event_type                 TINYINT unsigned    NOT NULL, -- Type of the event
+  event_type                 VARCHAR(25)         NOT NULL, -- Type of the event
   event_info                 BLOB                NOT NULL -- Event info, can be different fields depending on event type
 ) /*$wgDBTableOptions*/;
 
