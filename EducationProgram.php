@@ -105,6 +105,7 @@ $wgAutoloadClasses['OrgPage'] 						= dirname( __FILE__ ) . '/includes/pages/Org
 $wgAutoloadClasses['EPArticle'] 					= dirname( __FILE__ ) . '/includes/rows/EPArticle.php';
 $wgAutoloadClasses['EPCA'] 							= dirname( __FILE__ ) . '/includes/rows/EPCA.php';
 $wgAutoloadClasses['EPCourse'] 						= dirname( __FILE__ ) . '/includes/rows/EPCourse.php';
+$wgAutoloadClasses['EPEvent'] 						= dirname( __FILE__ ) . '/includes/rows/EPEvent.php';
 $wgAutoloadClasses['EPInstructor'] 					= dirname( __FILE__ ) . '/includes/rows/EPInstructor.php';
 $wgAutoloadClasses['EPOA'] 							= dirname( __FILE__ ) . '/includes/rows/EPOA.php';
 $wgAutoloadClasses['EPOrg'] 						= dirname( __FILE__ ) . '/includes/rows/EPOrg.php';
@@ -136,6 +137,7 @@ $wgAutoloadClasses['SpecialManageCourses'] 			= dirname( __FILE__ ) . '/includes
 $wgAutoloadClasses['EPArticles'] 					= dirname( __FILE__ ) . '/includes/tables/EPArticles.php';
 $wgAutoloadClasses['EPCAs'] 						= dirname( __FILE__ ) . '/includes/tables/EPCAs.php';
 $wgAutoloadClasses['EPCourses'] 					= dirname( __FILE__ ) . '/includes/tables/EPCourses.php';
+$wgAutoloadClasses['EPEvents'] 						= dirname( __FILE__ ) . '/includes/tables/EPEvents.php';
 $wgAutoloadClasses['EPInstructors'] 				= dirname( __FILE__ ) . '/includes/tables/EPInstructors.php';
 $wgAutoloadClasses['EPOAs'] 						= dirname( __FILE__ ) . '/includes/tables/EPOAs.php';
 $wgAutoloadClasses['EPPageTable'] 					= dirname( __FILE__ ) . '/includes/tables/EPPageTable.php';
@@ -157,6 +159,7 @@ $wgAutoloadClasses['EPOrgs'] 						= dirname( __FILE__ ) . '/includes/EPOrgs.php
 $wgAutoloadClasses['EPRevisionDiff'] 				= dirname( __FILE__ ) . '/includes/EPRevisionDiff.php';
 $wgAutoloadClasses['EPDiffTable'] 					= dirname( __FILE__ ) . '/includes/EPDiffTable.php';
 $wgAutoloadClasses['EPMenu'] 						= dirname( __FILE__ ) . '/includes/EPMenu.php';
+$wgAutoloadClasses['EPTimeline'] 					= dirname( __FILE__ ) . '/includes/EPTimeline.php';
 
 // Compat classes
 foreach ( array(

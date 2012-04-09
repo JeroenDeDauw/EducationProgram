@@ -33,7 +33,11 @@ class SpecialMyCourses extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
-		// TODO
+		$events = EPEvents::singleton()->select();
+
+		$timeline = new EPTimeline( $this->getContext(), $events );
+
+		$timeline->display();
 	}
 
 	/**
