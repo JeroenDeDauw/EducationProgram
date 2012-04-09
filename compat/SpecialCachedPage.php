@@ -135,8 +135,8 @@ abstract class SpecialCachedPage extends SpecialPage implements ICacheHelper {
 	 *
 	 * @param integer $cacheExpiry
 	 */
-	public function setExpirey( $cacheExpiry ) {
-		$this->cacheHelper->setExpirey( $cacheExpiry );
+	public function setExpiry( $cacheExpiry ) {
+		$this->cacheHelper->setExpiry( $cacheExpiry );
 	}
 
 	/**

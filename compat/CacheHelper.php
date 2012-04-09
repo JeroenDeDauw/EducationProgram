@@ -60,7 +60,7 @@ interface ICacheHelper {
 	 *
 	 * @param integer $cacheExpiry
 	 */
-	function setExpirey( $cacheExpiry );
+	function setExpiry( $cacheExpiry );
 
 }
 
@@ -308,7 +308,7 @@ class CacheHelper implements ICacheHelper {
 	 *
 	 * @param integer $cacheExpiry
 	 */
-	public function setExpirey( $cacheExpiry ) {
+	public function setExpiry( $cacheExpiry ) {
 		$this->cacheExpiry = $cacheExpiry;
 	}
 
