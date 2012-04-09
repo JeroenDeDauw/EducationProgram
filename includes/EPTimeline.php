@@ -43,7 +43,49 @@ class EPTimeline extends ContextSource {
 	 * @return string
 	 */
 	public function getHTML() {
+		$groups = array();
+
+		foreach ( $this->events as $index => /* EPEvent */ $event ) {
+			$eventInfo = $event->getField( 'info' );
+
+			if ( array_key_exists( 'page', $eventInfo ) ) {
+				if ( array_key_exists( $eventInfo['page'], $groups ) ) {
+					$groups[$eventInfo['page']]['events'][] = $event;
+
+					if ( $event->getField( 'time' ) > $groups[$eventInfo['page']]['time'] ) {
+						$groups[$eventInfo['page']]['time'] = $event->getField( 'time' );
+					}
+				}
+				else {
+					$groups[$eventInfo['page']] = array(
+						'time' => $event->getField( 'time' ),
+						'events' => array( $event ),
+					);
+				}
+			}
+			else {
+				$groups[] = array(
+					'time' => $event->getField( 'time' ),
+					'events' => array( $event ),
+				);
+			}
+		}
+
+		$groupTimes = array();
+
+		foreach ( $groups as $index => $group ) {
+			$groupTimes[$index] = $group['time'];
+		}
+
+		arsort( $groupTimes );
+
 		$segments = array();
+
+		foreach ( $groupTimes as $groupIndex => $time ) {
+			$group = $groups[$groupIndex];
+
+
+		}
 
 		foreach ( $this->events as /* EPEvent */ $event ) {
 			$segments[] = $event->getEventDisplay()->getHTML();
