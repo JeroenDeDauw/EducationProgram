@@ -804,6 +804,11 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	// Diffs
 	'ep-diff-old' => 'Current value',
 	'ep-diff-new' => 'New value',
+
+	// Events
+	'ep-event-unknown' => '$1 did something at $2',
+
+	// Timeline
 );
 
 /** Message documentation (Message documentation)
@@ -1578,4 +1583,8 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-diff-old' => 'Table column header',
 	'ep-diff-new' => 'Table column header',
 
+	// Events
+	'ep-event-unknown' => '$1 is user name, $2 is a date and time',
+
+	// Timeline
 );

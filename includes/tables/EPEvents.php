@@ -56,7 +56,7 @@ class EPEvents extends ORMTable {
 			'course_id' => 'int',
 			'user_id' => 'int',
 			'time' => 'str', // TS_MW
-			'type' => 'int',
+			'type' => 'str',
 			'info' => 'blob',
 		);
 	}

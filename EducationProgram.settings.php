@@ -68,6 +68,8 @@ class EPSettings {
 			'courseDescPage' => 'MediaWiki:Course description',
 			'courseOrgDescPage' => '$2/$1', // $1 = org name, $2 = courseDescPage setting
 			'useStudentRealNames' => false,
+			'timelineDurationLimit' => 2 *24 * 60 *60,
+			'timelineCountLimit' => 42,
 		);
 	}
 

@@ -21,6 +21,16 @@ class EPEvent extends ORMRow {
 	 */
 	protected $user = false;
 
+	/**
+	 * Create a new edit event from a revision.
+	 *
+	 * @since 0.1
+	 *
+	 * @param Revision $revision
+	 * @param User $user
+	 *
+	 * @return EPEvent
+	 */
 	public static function newFromRevision( Revision $revision, User $user ) {
 		$title = $revision->getTitle();
 
@@ -38,7 +48,14 @@ class EPEvent extends ORMRow {
 		return EPEvents::singleton()->newFromArray( $fields );
 	}
 
-	public function getEventContext() {
+	/**
+	 * Returns an event display object for visualizing the event.
+	 *
+	 * @since 0.1
+	 *
+	 * @return EPEventDisplay
+	 */
+	public function getEventDisplay() {
 		$typeMap = array(
 			'edit-' . NS_MAIN => 'EPEditEvent',
 			'edit-' . NS_TALK => 'EPEditEvent',
@@ -46,11 +63,18 @@ class EPEvent extends ORMRow {
 			'edit-' . NS_USER_TALK => 'EPEditEvent',
 		);
 
-		$class = $typeMap[$this->getField( 'type' )];
+		$class = array_key_exists( $this->getField( 'type' ), $typeMap ) ? $typeMap[$this->getField( 'type' )] : 'EPUnknownEvent';
 
 		return new $class( $this );
 	}
 
+	/**
+	 * Returns the user that made the event.
+	 *
+	 * @since 0.1
+	 *
+	 * @return User
+	 */
 	public function getUser() {
 		if ( $this->user === false ) {
 			$this->user = User::newFromId( $this->getField( 'user_id' ) );
@@ -72,10 +96,34 @@ class EPEvent extends ORMRow {
 
 }
 
-abstract class EPEventContext extends ContextSource {
+/**
+ * Class for displaying a single Education Program event.
+ * This used used by EPTimeline which creates regions in which this content is put.
+ *
+ * @since 0.1
+ *
+ * @file EPEvent.php
+ * @ingroup EducationProgram
+ *
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
+abstract class EPEventDisplay extends ContextSource {
 
+	/**
+	 * @since 0.1
+	 * @var EPEvent
+	 */
 	protected $event;
 
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPEvent $event
+	 * @param IContextSource|null $context
+	 */
 	public function __construct( EPEvent $event, IContextSource $context = null ) {
 		if ( !is_null( $context ) ) {
 			$this->setContext( $context );
@@ -84,15 +132,51 @@ abstract class EPEventContext extends ContextSource {
 		$this->event = $event;
 	}
 
+	/**
+	 * Display the event.
+	 *
+	 * @since 0.1
+	 */
 	public function display() {
 		$this->getOutput()->addHTML( $this->getHTML() );
 	}
 
+	/**
+	 * Returns the event.
+	 *
+	 * @since 0.1
+	 *
+	 * @return EPEvent
+	 */
+	public function getEvent() {
+		return $this->event;
+	}
+
+	/**
+	 * Builds and returns the HTML for the event.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	public abstract function getHTML();
 
 }
 
-class EPEditEvent extends EPEventContext {
+class EPUnknownEvent extends EPEventDisplay {
+
+	public function getHTML() {
+		return $this->msg(
+			'ep-event-unknown',
+			$this->event->getUser()->getName(),
+			$this->getLanguage()->timeanddate( $this->event->getField( 'time' ) )
+
+		)->escaped();
+	}
+
+}
+
+class EPEditEvent extends EPEventDisplay {
 
 	public function getHTML() {
 		$html = '';
@@ -111,6 +195,14 @@ class EPEditEvent extends EPEventContext {
 		$html .= EPUtils::formatDuration( $this->event->getAge(), array( 'days', 'hours', 'minutes' ) );
 
 		return $html;
+	}
+
+}
+
+class EPEnlistEvent extends EPEventDisplay {
+
+	public function getHTML() {
+		return '';
 	}
 
 }

@@ -17,7 +17,7 @@ class EPTimeline extends ContextSource {
 	 * List of events to display in this timeline.
 	 *
 	 * @since 0.1
-	 * @var ORMResult|array
+	 * @var array
 	 */
 	protected $events;
 
@@ -27,9 +27,9 @@ class EPTimeline extends ContextSource {
 	 * @since 0.1
 	 *
 	 * @param IContextSource $context
-	 * @param array|ORMResult $events
+	 * @param array $events
 	 */
-	public function __construct( IContextSource $context, /* array of EPEvent */ $events ) {
+	public function __construct( IContextSource $context, array /* of EPEvent */ $events ) {
 		$this->setContext( $context );
 		$this->events = $events;
 	}
@@ -46,7 +46,7 @@ class EPTimeline extends ContextSource {
 		$segments = array();
 
 		foreach ( $this->events as /* EPEvent */ $event ) {
-			$segments[] = $event->getEventContext()->getHTML();
+			$segments[] = $event->getEventDisplay()->getHTML();
 		}
 
 		return implode( '<br />', $segments ); // TODO

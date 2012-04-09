@@ -86,7 +86,7 @@ class SpecialManageCourses extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	protected function displayCourses() {
-		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
+		if ( $this->getRequest()->getCheck( 'enrolled' ) ) { // TODO: move to mycourses
 			EPStudents::singleton()->setReadDb( DB_MASTER );
 
 			$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
