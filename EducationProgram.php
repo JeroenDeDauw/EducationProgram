@@ -60,92 +60,103 @@ $wgExtensionMessagesFiles['EPNamespaces'] 			= dirname( __FILE__ ) . '/Education
 $wgAutoloadClasses['EPHooks'] 						= dirname( __FILE__ ) . '/EducationProgram.hooks.php';
 $wgAutoloadClasses['EPSettings'] 					= dirname( __FILE__ ) . '/EducationProgram.settings.php';
 
-$wgAutoloadClasses['EditCourseAction'] 				= dirname( __FILE__ ) . '/actions/EditCourseAction.php';
-$wgAutoloadClasses['EditOrgAction'] 				= dirname( __FILE__ ) . '/actions/EditOrgAction.php';
-$wgAutoloadClasses['EPAction'] 						= dirname( __FILE__ ) . '/actions/EPAction.php';
-$wgAutoloadClasses['EPAddArticleAction'] 			= dirname( __FILE__ ) . '/actions/EPAddArticleAction.php';
-$wgAutoloadClasses['EPAddReviewerAction'] 			= dirname( __FILE__ ) . '/actions/EPAddReviewerAction.php';
-$wgAutoloadClasses['EPDeleteAction'] 				= dirname( __FILE__ ) . '/actions/EPDeleteAction.php';
-$wgAutoloadClasses['EPEditAction'] 					= dirname( __FILE__ ) . '/actions/EPEditAction.php';
-$wgAutoloadClasses['EPHistoryAction'] 				= dirname( __FILE__ ) . '/actions/EPHistoryAction.php';
-$wgAutoloadClasses['EPRemoveArticleAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveArticleAction.php';
-$wgAutoloadClasses['EPRemoveReviewerAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveReviewerAction.php';
-$wgAutoloadClasses['EPRemoveStudentAction'] 		= dirname( __FILE__ ) . '/actions/EPRemoveStudentAction.php';
-$wgAutoloadClasses['EPRestoreAction'] 				= dirname( __FILE__ ) . '/actions/EPRestoreAction.php';
-$wgAutoloadClasses['EPUndeleteAction'] 				= dirname( __FILE__ ) . '/actions/EPUndeleteAction.php';
-$wgAutoloadClasses['EPUndoAction'] 					= dirname( __FILE__ ) . '/actions/EPUndoAction.php';
-$wgAutoloadClasses['EPViewAction'] 					= dirname( __FILE__ ) . '/actions/EPViewAction.php';
-$wgAutoloadClasses['ViewCourseAction'] 				= dirname( __FILE__ ) . '/actions/ViewCourseAction.php';
-$wgAutoloadClasses['ViewOrgAction'] 				= dirname( __FILE__ ) . '/actions/ViewOrgAction.php';
+// includes/actions (deriving from Action)
+$wgAutoloadClasses['EditCourseAction'] 				= dirname( __FILE__ ) . '/includes/actions/EditCourseAction.php';
+$wgAutoloadClasses['EditOrgAction'] 				= dirname( __FILE__ ) . '/includes/actions/EditOrgAction.php';
+$wgAutoloadClasses['EPAction'] 						= dirname( __FILE__ ) . '/includes/actions/EPAction.php';
+$wgAutoloadClasses['EPAddArticleAction'] 			= dirname( __FILE__ ) . '/includes/actions/EPAddArticleAction.php';
+$wgAutoloadClasses['EPAddReviewerAction'] 			= dirname( __FILE__ ) . '/includes/actions/EPAddReviewerAction.php';
+$wgAutoloadClasses['EPDeleteAction'] 				= dirname( __FILE__ ) . '/includes/actions/EPDeleteAction.php';
+$wgAutoloadClasses['EPEditAction'] 					= dirname( __FILE__ ) . '/includes/actions/EPEditAction.php';
+$wgAutoloadClasses['EPHistoryAction'] 				= dirname( __FILE__ ) . '/includes/actions/EPHistoryAction.php';
+$wgAutoloadClasses['EPRemoveArticleAction'] 		= dirname( __FILE__ ) . '/includes/actions/EPRemoveArticleAction.php';
+$wgAutoloadClasses['EPRemoveReviewerAction'] 		= dirname( __FILE__ ) . '/includes/actions/EPRemoveReviewerAction.php';
+$wgAutoloadClasses['EPRemoveStudentAction'] 		= dirname( __FILE__ ) . '/includes/actions/EPRemoveStudentAction.php';
+$wgAutoloadClasses['EPRestoreAction'] 				= dirname( __FILE__ ) . '/includes/actions/EPRestoreAction.php';
+$wgAutoloadClasses['EPUndeleteAction'] 				= dirname( __FILE__ ) . '/includes/actions/EPUndeleteAction.php';
+$wgAutoloadClasses['EPUndoAction'] 					= dirname( __FILE__ ) . '/includes/actions/EPUndoAction.php';
+$wgAutoloadClasses['EPViewAction'] 					= dirname( __FILE__ ) . '/includes/actions/EPViewAction.php';
+$wgAutoloadClasses['ViewCourseAction'] 				= dirname( __FILE__ ) . '/includes/actions/ViewCourseAction.php';
+$wgAutoloadClasses['ViewOrgAction'] 				= dirname( __FILE__ ) . '/includes/actions/ViewOrgAction.php';
 
-$wgAutoloadClasses['ApiDeleteEducation'] 			= dirname( __FILE__ ) . '/api/ApiDeleteEducation.php';
-$wgAutoloadClasses['ApiEnlist'] 					= dirname( __FILE__ ) . '/api/ApiEnlist.php';
-$wgAutoloadClasses['ApiRefreshEducation'] 			= dirname( __FILE__ ) . '/api/ApiRefreshEducation.php';
+// includes/api (deriving from ApiBase)
+$wgAutoloadClasses['ApiDeleteEducation'] 			= dirname( __FILE__ ) . '/includes/api/ApiDeleteEducation.php';
+$wgAutoloadClasses['ApiEnlist'] 					= dirname( __FILE__ ) . '/includes/api/ApiEnlist.php';
+$wgAutoloadClasses['ApiRefreshEducation'] 			= dirname( __FILE__ ) . '/includes/api/ApiRefreshEducation.php';
 
-$wgAutoloadClasses['EPCourse'] 						= dirname( __FILE__ ) . '/includes/EPCourse.php';
-$wgAutoloadClasses['EPCoursePager'] 				= dirname( __FILE__ ) . '/includes/EPCoursePager.php';
-$wgAutoloadClasses['EPInstructor'] 					= dirname( __FILE__ ) . '/includes/EPInstructor.php';
+// includes/pagers (implementing Pager)
+$wgAutoloadClasses['EPArticlePager'] 				= dirname( __FILE__ ) . '/includes/pagers/EPArticlePager.php';
+$wgAutoloadClasses['EPArticleTable'] 				= dirname( __FILE__ ) . '/includes/pagers/EPArticleTable.php';
+$wgAutoloadClasses['EPCAPager'] 					= dirname( __FILE__ ) . '/includes/pagers/EPCAPager.php';
+$wgAutoloadClasses['EPCoursePager'] 				= dirname( __FILE__ ) . '/includes/pagers/EPCoursePager.php';
+$wgAutoloadClasses['EPOAPager'] 					= dirname( __FILE__ ) . '/includes/pagers/EPOAPager.php';
+$wgAutoloadClasses['EPOrgPager'] 					= dirname( __FILE__ ) . '/includes/pagers/EPOrgPager.php';
+$wgAutoloadClasses['EPPager'] 						= dirname( __FILE__ ) . '/includes/pagers/EPPager.php';
+$wgAutoloadClasses['EPRevisionPager'] 				= dirname( __FILE__ ) . '/includes/pagers/EPRevisionPager.php';
+$wgAutoloadClasses['EPStudentPager'] 				= dirname( __FILE__ ) . '/includes/pagers/EPStudentPager.php';
+$wgAutoloadClasses['EPStudentActivityPager'] 		= dirname( __FILE__ ) . '/includes/pagers/EPStudentActivityPager.php';
+
+// includes/pages (here core is a mess :)
+$wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/includes/pages/CoursePage.php';
+$wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/includes/pages/EPPage.php';
+$wgAutoloadClasses['OrgPage'] 						= dirname( __FILE__ ) . '/includes/pages/OrgPage.php';
+
+// includes/rows (deriving from ORMRow)
+$wgAutoloadClasses['EPArticle'] 					= dirname( __FILE__ ) . '/includes/rows/EPArticle.php';
+$wgAutoloadClasses['EPCA'] 							= dirname( __FILE__ ) . '/includes/rows/EPCA.php';
+$wgAutoloadClasses['EPCourse'] 						= dirname( __FILE__ ) . '/includes/rows/EPCourse.php';
+$wgAutoloadClasses['EPInstructor'] 					= dirname( __FILE__ ) . '/includes/rows/EPInstructor.php';
+$wgAutoloadClasses['EPOA'] 							= dirname( __FILE__ ) . '/includes/rows/EPOA.php';
+$wgAutoloadClasses['EPOrg'] 						= dirname( __FILE__ ) . '/includes/rows/EPOrg.php';
+$wgAutoloadClasses['EPPageObject'] 					= dirname( __FILE__ ) . '/includes/rows/EPPageObject.php';
+$wgAutoloadClasses['EPRevision'] 					= dirname( __FILE__ ) . '/includes/rows/EPRevision.php';
+$wgAutoloadClasses['EPRevisionedObject'] 			= dirname( __FILE__ ) . '/includes/rows/EPRevisionedObject.php';
+$wgAutoloadClasses['EPStudent'] 					= dirname( __FILE__ ) . '/includes/rows/EPStudent.php';
+
+// includes/specials (deriving from SpecialPage)
+$wgAutoloadClasses['SpecialCourses'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialCourses.php';
+$wgAutoloadClasses['SpecialEducationProgram'] 		= dirname( __FILE__ ) . '/includes/specials/SpecialEducationProgram.php';
+$wgAutoloadClasses['SpecialEPPage'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialEPPage.php';
+$wgAutoloadClasses['SpecialInstitutions'] 			= dirname( __FILE__ ) . '/includes/specials/SpecialInstitutions.php';
+$wgAutoloadClasses['SpecialMyCourses'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialMyCourses.php';
+$wgAutoloadClasses['SpecialStudent'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialStudent.php';
+$wgAutoloadClasses['SpecialStudents'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialStudents.php';
+$wgAutoloadClasses['SpecialEnroll'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialEnroll.php';
+$wgAutoloadClasses['SpecialDisenroll'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialDisenroll.php';
+$wgAutoloadClasses['SpecialCAs'] 					= dirname( __FILE__ ) . '/includes/specials/SpecialCAs.php';
+$wgAutoloadClasses['SpecialOAs'] 					= dirname( __FILE__ ) . '/includes/specials/SpecialOAs.php';
+$wgAutoloadClasses['SpecialOAProfile'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialOAProfile.php';
+$wgAutoloadClasses['SpecialCAProfile'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialCAProfile.php';
+$wgAutoloadClasses['SpecialAmbassadorProfile'] 		= dirname( __FILE__ ) . '/includes/specials/SpecialAmbassadorProfile.php';
+$wgAutoloadClasses['SpecialStudentActivity'] 		= dirname( __FILE__ ) . '/includes/specials/SpecialStudentActivity.php';
+$wgAutoloadClasses['SpecialArticles'] 				= dirname( __FILE__ ) . '/includes/specials/SpecialArticles.php';
+$wgAutoloadClasses['SpecialManageCourses'] 			= dirname( __FILE__ ) . '/includes/specials/SpecialManageCourses.php';
+
+// includes/tables (deriving from ORMTable)
+$wgAutoloadClasses['EPArticles'] 					= dirname( __FILE__ ) . '/includes/tables/EPArticles.php';
+$wgAutoloadClasses['EPCAs'] 						= dirname( __FILE__ ) . '/includes/tables/EPCAs.php';
+$wgAutoloadClasses['EPCourses'] 					= dirname( __FILE__ ) . '/includes/tables/EPCourses.php';
+$wgAutoloadClasses['EPInstructors'] 				= dirname( __FILE__ ) . '/includes/tables/EPInstructors.php';
+$wgAutoloadClasses['EPOAs'] 						= dirname( __FILE__ ) . '/includes/tables/EPOAs.php';
+$wgAutoloadClasses['EPPageTable'] 					= dirname( __FILE__ ) . '/includes/tables/EPPageTable.php';
+$wgAutoloadClasses['EPRevisions'] 					= dirname( __FILE__ ) . '/includes/tables/EPRevisions.php';
+$wgAutoloadClasses['EPStudents'] 					= dirname( __FILE__ ) . '/includes/tables/EPStudents.php';
+
+// includes
 $wgAutoloadClasses['EPLogFormatter'] 				= dirname( __FILE__ ) . '/includes/EPLogFormatter.php';
 $wgAutoloadClasses['EPRoleChangeFormatter'] 		= dirname( __FILE__ ) . '/includes/EPLogFormatter.php';
 $wgAutoloadClasses['EPArticleFormatter'] 			= dirname( __FILE__ ) . '/includes/EPLogFormatter.php';
-$wgAutoloadClasses['EPOrg'] 						= dirname( __FILE__ ) . '/includes/EPOrg.php';
-$wgAutoloadClasses['EPOrgPager'] 					= dirname( __FILE__ ) . '/includes/EPOrgPager.php';
-$wgAutoloadClasses['EPPager'] 						= dirname( __FILE__ ) . '/includes/EPPager.php';
-$wgAutoloadClasses['EPStudent'] 					= dirname( __FILE__ ) . '/includes/EPStudent.php';
-$wgAutoloadClasses['EPStudentPager'] 				= dirname( __FILE__ ) . '/includes/EPStudentPager.php';
 $wgAutoloadClasses['EPUtils'] 						= dirname( __FILE__ ) . '/includes/EPUtils.php';
-$wgAutoloadClasses['EPOA'] 							= dirname( __FILE__ ) . '/includes/EPOA.php';
-$wgAutoloadClasses['EPOAPager'] 					= dirname( __FILE__ ) . '/includes/EPOAPager.php';
-$wgAutoloadClasses['EPCA'] 							= dirname( __FILE__ ) . '/includes/EPCA.php';
-$wgAutoloadClasses['EPCAPager'] 					= dirname( __FILE__ ) . '/includes/EPCAPager.php';
 $wgAutoloadClasses['EPHTMLDateField'] 				= dirname( __FILE__ ) . '/includes/EPHTMLDateField.php';
 $wgAutoloadClasses['EPHTMLCombobox'] 				= dirname( __FILE__ ) . '/includes/EPHTMLCombobox.php';
-$wgAutoloadClasses['EPRevision'] 					= dirname( __FILE__ ) . '/includes/EPRevision.php';
-$wgAutoloadClasses['EPRevisionPager'] 				= dirname( __FILE__ ) . '/includes/EPRevisionPager.php';
-$wgAutoloadClasses['EPPageObject'] 					= dirname( __FILE__ ) . '/includes/EPPageObject.php';
-$wgAutoloadClasses['EPPageTable'] 					= dirname( __FILE__ ) . '/includes/EPPageTable.php';
 $wgAutoloadClasses['EPFailForm'] 					= dirname( __FILE__ ) . '/includes/EPFailForm.php';
 $wgAutoloadClasses['EPIRole'] 						= dirname( __FILE__ ) . '/includes/EPIRole.php';
-$wgAutoloadClasses['EPRevisionedObject'] 			= dirname( __FILE__ ) . '/includes/EPRevisionedObject.php';
 $wgAutoloadClasses['EPRoleObject'] 					= dirname( __FILE__ ) . '/includes/EPRoleObject.php';
-$wgAutoloadClasses['EPArticle'] 					= dirname( __FILE__ ) . '/includes/EPArticle.php';
-$wgAutoloadClasses['EPArticlePager'] 				= dirname( __FILE__ ) . '/includes/EPArticlePager.php';
-$wgAutoloadClasses['EPArticleTable'] 				= dirname( __FILE__ ) . '/includes/EPArticleTable.php';
 $wgAutoloadClasses['EPRevisionAction'] 				= dirname( __FILE__ ) . '/includes/EPRevisionAction.php';
 $wgAutoloadClasses['EPOrgs'] 						= dirname( __FILE__ ) . '/includes/EPOrgs.php';
-$wgAutoloadClasses['EPCourses'] 					= dirname( __FILE__ ) . '/includes/EPCourses.php';
-$wgAutoloadClasses['EPStudents'] 					= dirname( __FILE__ ) . '/includes/EPStudents.php';
-$wgAutoloadClasses['EPOAs'] 						= dirname( __FILE__ ) . '/includes/EPOAs.php';
-$wgAutoloadClasses['EPCAs'] 						= dirname( __FILE__ ) . '/includes/EPCAs.php';
-$wgAutoloadClasses['EPInstructors'] 				= dirname( __FILE__ ) . '/includes/EPInstructors.php';
-$wgAutoloadClasses['EPRevisions'] 					= dirname( __FILE__ ) . '/includes/EPRevisions.php';
-$wgAutoloadClasses['EPArticles'] 					= dirname( __FILE__ ) . '/includes/EPArticles.php';
-$wgAutoloadClasses['EPStudentActivityPager'] 		= dirname( __FILE__ ) . '/includes/EPStudentActivityPager.php';
 $wgAutoloadClasses['EPRevisionDiff'] 				= dirname( __FILE__ ) . '/includes/EPRevisionDiff.php';
 $wgAutoloadClasses['EPDiffTable'] 					= dirname( __FILE__ ) . '/includes/EPDiffTable.php';
 $wgAutoloadClasses['EPMenu'] 						= dirname( __FILE__ ) . '/includes/EPMenu.php';
-
-$wgAutoloadClasses['CoursePage'] 					= dirname( __FILE__ ) . '/pages/CoursePage.php';
-$wgAutoloadClasses['EPPage'] 						= dirname( __FILE__ ) . '/pages/EPPage.php';
-$wgAutoloadClasses['OrgPage'] 						= dirname( __FILE__ ) . '/pages/OrgPage.php';
-
-$wgAutoloadClasses['SpecialCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialCourses.php';
-$wgAutoloadClasses['SpecialEducationProgram'] 		= dirname( __FILE__ ) . '/specials/SpecialEducationProgram.php';
-$wgAutoloadClasses['SpecialEPPage'] 				= dirname( __FILE__ ) . '/specials/SpecialEPPage.php';
-$wgAutoloadClasses['SpecialInstitutions'] 			= dirname( __FILE__ ) . '/specials/SpecialInstitutions.php';
-$wgAutoloadClasses['SpecialMyCourses'] 				= dirname( __FILE__ ) . '/specials/SpecialMyCourses.php';
-$wgAutoloadClasses['SpecialStudent'] 				= dirname( __FILE__ ) . '/specials/SpecialStudent.php';
-$wgAutoloadClasses['SpecialStudents'] 				= dirname( __FILE__ ) . '/specials/SpecialStudents.php';
-$wgAutoloadClasses['SpecialEnroll'] 				= dirname( __FILE__ ) . '/specials/SpecialEnroll.php';
-$wgAutoloadClasses['SpecialDisenroll'] 				= dirname( __FILE__ ) . '/specials/SpecialDisenroll.php';
-$wgAutoloadClasses['SpecialCAs'] 					= dirname( __FILE__ ) . '/specials/SpecialCAs.php';
-$wgAutoloadClasses['SpecialOAs'] 					= dirname( __FILE__ ) . '/specials/SpecialOAs.php';
-$wgAutoloadClasses['SpecialOAProfile'] 				= dirname( __FILE__ ) . '/specials/SpecialOAProfile.php';
-$wgAutoloadClasses['SpecialCAProfile'] 				= dirname( __FILE__ ) . '/specials/SpecialCAProfile.php';
-$wgAutoloadClasses['SpecialAmbassadorProfile'] 		= dirname( __FILE__ ) . '/specials/SpecialAmbassadorProfile.php';
-$wgAutoloadClasses['SpecialStudentActivity'] 		= dirname( __FILE__ ) . '/specials/SpecialStudentActivity.php';
-$wgAutoloadClasses['SpecialArticles'] 				= dirname( __FILE__ ) . '/specials/SpecialArticles.php';
-$wgAutoloadClasses['SpecialManageCourses'] 			= dirname( __FILE__ ) . '/specials/SpecialManageCourses.php';
 
 // Compat classes
 foreach ( array(

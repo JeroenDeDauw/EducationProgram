@@ -2,6 +2,8 @@
 
 /**
  * Education Program menu.
+ * TODO: make configurable via wiki somehow
+ *
  * @since 0.1
  *
  * @file EPMenu.php
