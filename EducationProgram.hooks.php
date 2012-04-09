@@ -61,6 +61,13 @@ final class EPHooks {
 			true
 		) );
 
+		$updater->addExtensionUpdate( array(
+			'addTable',
+			'ep_events',
+			dirname( __FILE__ ) . '/sql/AddEventsTable.sql',
+			true
+		) );
+
 		return true;
 	}
 

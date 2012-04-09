@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_orgs (
   org_ca_count               INT unsigned        NOT NULL, -- Amount of campus ambassadors
   org_student_count          INT unsigned        NOT NULL, -- Amount of students
   org_courses                BLOB                NOT NULL -- The ids of the courses (linking ep_courses.course_id)
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_org_name ON /*_*/ep_orgs (org_name);
 CREATE INDEX /*i*/ep_org_city ON /*_*/ep_orgs (org_city);
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_oa_count            SMALLINT unsigned   NOT NULL, -- Amount of online ambassadors
   course_ca_count            SMALLINT unsigned   NOT NULL, -- Amount of campus ambassadors
   course_student_count       SMALLINT unsigned   NOT NULL -- Amount of students
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/ep_course_org_id ON /*_*/ep_courses (course_org_id);
 CREATE INDEX /*i*/ep_course_name ON /*_*/ep_courses (course_name);
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_articles (
   article_page_title         varchar(255) binary NOT NULL, -- Full title of the page, to allow for associating non-existing pages
 
   article_reviewers          BLOB                NOT NULL -- List of reviewers for this article (linking user.user_id)
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/ep_articles_user_id ON /*_*/ep_articles (article_user_id);
 CREATE INDEX /*i*/ep_articles_course_id ON /*_*/ep_articles (article_course_id);
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_users_per_course (
   upc_course_id              INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
   upc_role                   TINYINT unsigned    NOT NULL, -- The role the user has for the course
   upc_time                   varbinary(14)       NOT NULL -- Time at which the link was made
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_users_per_course ON /*_*/ep_users_per_course (upc_user_id, upc_course_id, upc_role);
 CREATE INDEX /*i*/ep_upc_course_id ON /*_*/ep_users_per_course (upc_course_id);
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_students (
   student_last_course        INT unsigned        NOT NULL, -- Last course the user enrolled in
   student_last_active        varbinary(14)       NOT NULL, -- Time of last activity in article NS
   student_active_enroll      TINYINT unsigned    NOT NULL -- If the student is enrolled in any active courses
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_students_user_id ON /*_*/ep_students (student_user_id);
 CREATE INDEX /*i*/ep_students_first_enroll ON /*_*/ep_students (student_first_enroll);
@@ -139,7 +139,7 @@ CREATE INDEX /*i*/ep_students_active_enroll ON /*_*/ep_students (student_active_
 CREATE TABLE IF NOT EXISTS /*_*/ep_instructors (
   instructor_id              INT unsigned        NOT NULL auto_increment PRIMARY KEY,
   instructor_user_id         INT unsigned        NOT NULL -- Foreign key on user.user_id
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_instructors_user_id ON /*_*/ep_instructors (instructor_user_id);
 
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_cas (
   ca_visible                 TINYINT unsigned    NOT NULL, -- If the profile should be public
   ca_bio                     TEXT                NOT NULL, -- Bio of the ambassador
   ca_photo                   VARCHAR(255)        NOT NULL -- Name of a photo of the ambassador on commons
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_cas_user_id ON /*_*/ep_cas (ca_user_id);
 CREATE INDEX /*i*/ep_cas_visible ON /*_*/ep_cas (ca_visible);
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_oas (
   oa_visible                 TINYINT unsigned    NOT NULL, -- If the profile should be public
   oa_bio                     TEXT                NOT NULL, -- Bio of the ambassador
   oa_photo                   VARCHAR(255)        NOT NULL -- Name of a photo of the ambassador on commons
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_oas_user_id ON /*_*/ep_oas (oa_user_id);
 CREATE INDEX /*i*/ep_oas_visible ON /*_*/ep_oas (oa_visible);
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_events (
   event_time                 varbinary(14)       NOT NULL, -- Time the event took place
   event_type                 TINYINT unsigned    NOT NULL, -- Type of the event
   event_info                 BLOB                NOT NULL -- Event info, can be different fields depending on event type
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/ep_events_course_id ON /*_*/ep_events (event_course_id);
 CREATE INDEX /*i*/ep_events_user_id ON /*_*/ep_events (event_user_id);
@@ -235,7 +235,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_revisions (
   -- A new ORMRow of it's type can be constructed by passing
   -- it the result of unserialize on this blob.
   rev_data                   BLOB                NOT NULL
-) /*$wgORMTableOptions*/;
+) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/ep_revision_object_id ON /*_*/ep_revisions (rev_object_id);
 CREATE INDEX /*i*/ep_revision_type ON /*_*/ep_revisions (rev_type);

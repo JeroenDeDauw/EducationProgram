@@ -53,6 +53,7 @@ abstract class ORMTable {
 	 * * float
 	 * * bool
 	 * * array
+	 * * blob
 	 *
 	 * @since 1.20
 	 *

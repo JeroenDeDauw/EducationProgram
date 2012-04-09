@@ -19,8 +19,9 @@ class EPTimeline extends ContextSource {
 	 * @since 0.1
 	 *
 	 * @param IContextSource $context
+	 * @param array $events
 	 */
-	public function __construct( IContextSource $context ) {
+	public function __construct( IContextSource $context, array /* of EPEvent */ $events ) {
 		$this->setContext( $context );
 	}
 
