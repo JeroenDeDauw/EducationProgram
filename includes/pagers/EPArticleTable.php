@@ -221,7 +221,7 @@ class EPArticleTable extends EPPager {
 	 */
 	protected function getUserCell( $userId, $rowSpan ) {
 		$user = User::newFromId( $userId );
-		$realName = $user->getRealName() === '' ? false : $user->getRealName();
+		$realName = !EPSettings::get( 'useStudentRealNames' ) || $user->getRealName() === '' ? false : $user->getRealName();
 
 		$html = Linker::userLink( $userId, $user->getName(), $realName );
 
@@ -347,7 +347,7 @@ class EPArticleTable extends EPPager {
 	 */
 	protected function getReviewerCell( EPArticle $article, $userId ) {
 		$user = User::newFromId( $userId );
-		$name = $user->getRealName() === '' ? $user->getName() : $user->getRealName();
+		$name = !EPSettings::get( 'useStudentRealNames' ) || $user->getRealName() === '' ? $user->getName() : $user->getRealName();
 
 		$html = Linker::userLink( $userId, $name );
 

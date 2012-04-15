@@ -64,7 +64,7 @@ class EPArticlePager extends EPPager {
 		switch ( $name ) {
 			case 'user_id':
 				$user = User::newFromId( $value );
-				$name = $user->getRealName() === '' ? $user->getName() : $user->getRealName();
+				$name = !EPSettings::get( 'useStudentRealNames' ) || $user->getRealName() === '' ? $user->getName() : $user->getRealName();
 
 				$value = Linker::userLink( $value, $name ) . Linker::userToolLinks( $value, $name );
 				break;
