@@ -117,26 +117,63 @@ abstract class EPTimelineGroup extends ContextSource {
 			);
 	}
 
+	/**
+	 * Returns the HTML for the groups header.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	protected function getHeaderHTML() {
 		return '';
 	}
 
+	/**
+	 * Returns HTML that holds the actual event list.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	protected function getClusterHTML() {
 		return implode( '', array_map( array( $this, 'getSegment' ), $this->events ) );
 	}
 
+	/**
+	 * Returns the HTML tag attributes for the groups header element.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
 	protected function getHeaderAttributes() {
 		return array(
 			'class' => 'ep-timeline-group-header'
 		);
 	}
 
+	/**
+	 * Returns the HTML tag attributes for the groups events container element.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
 	protected function getClusterAttributes() {
 		return array(
 			'class' => 'ep-timeline-group'
 		);
 	}
 
+	/**
+	 * Returns the HTML representing a single event.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPEvent $event
+	 *
+	 * @return string
+	 */
 	protected function getSegment( EPEvent $event ) {
 		return Html::rawElement(
 			'div',
@@ -145,6 +182,15 @@ abstract class EPTimelineGroup extends ContextSource {
 		);
 	}
 
+	/**
+	 * Returns the HTML tag attributes for the event container element.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPEvent $event
+	 *
+	 * @return array
+	 */
 	protected function getSegmentAttributes( EPEvent $event ) {
 		return array(
 			'class' => 'ep-event-item',
@@ -164,8 +210,29 @@ abstract class EPTimelineGroup extends ContextSource {
 
 }
 
+/**
+ * Represents a group of events that have an unknown type.
+ * Displays them as "something happened at that time" :)
+ *
+ * @since 0.1
+ *
+ * @file EPTimelineGroup.php
+ * @ingroup EducationProgram
+ *
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class EPUnknownGroup extends EPTimelineGroup {
 
+	/**
+	 * Builds and returns the HTML for a single of the event segments.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPEvent $event
+	 *
+	 * @return string
+	 */
 	protected function getSegmentHTML( EPEvent $event ) {
 		return $this->msg(
 			'ep-timeline-unknown',
@@ -177,8 +244,29 @@ class EPUnknownGroup extends EPTimelineGroup {
 
 }
 
+/**
+ * Represents a group of edit events.
+ * Distinguishes between edits to different namespaces.
+ *
+ * @since 0.1
+ *
+ * @file EPTimelineGroup.php
+ * @ingroup EducationProgram
+ *
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class EPEditGroup extends EPTimelineGroup {
 
+	/**
+	 * Builds and returns the HTML for a single of the event segments.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPEvent $event
+	 *
+	 * @return string
+	 */
 	protected function getSegmentHTML( EPEvent $event ) {
 		$html = '';
 
@@ -201,6 +289,13 @@ class EPEditGroup extends EPTimelineGroup {
 		return $html;
 	}
 
+	/**
+	 * Returns the HTML for the groups header.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
 	protected function getHeaderHTML() {
 		$userIds = array();
 
@@ -264,8 +359,29 @@ class EPEditGroup extends EPTimelineGroup {
 
 }
 
+/**
+ * Represents a group of enlistment events.
+ * Enlistment events are people becoming associated as $role with a course, or losing this association.
+ *
+ * @since 0.1
+ *
+ * @file EPTimelineGroup.php
+ * @ingroup EducationProgram
+ *
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class EPEnlistGroup extends EPTimelineGroup {
 
+	/**
+	 * Builds and returns the HTML for a single of the event segments.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPEvent $event
+	 *
+	 * @return string
+	 */
 	protected function getSegmentHTML( EPEvent $event ) {
 		return '';
 	}
