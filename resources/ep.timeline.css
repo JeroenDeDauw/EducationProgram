@@ -7,13 +7,16 @@
  */
 
 div.ep-timeline-group {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    min-width: 450px;
+    width: 42%;
 }
 
 div.ep-event-item {
-    background-color: #EDEFF4;
-    border-bottom: 1px solid #D2D9E7;
+    background-color: #EDEFF5;
+    border-bottom: 1px solid #D2D9E6;
     margin-top: 1px;
+    margin-left: 25px;
     padding: 5px 5px 4px;
 }
 

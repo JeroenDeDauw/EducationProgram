@@ -811,7 +811,10 @@ You can find a full list of students on [[Special:Students|the student list]].',
 
 	// Timeline
 	'ep-timeline-remaining' => '$1 {{PLURAL:$1|other|others}}',
-	'ep-timeline-users-edit-0' => '$1 edited the article $2',
+	'ep-timeline-users-edit-0' => '$1 edited the article $2.',
+	'ep-timeline-users-edit-1' => '$1 left a message on the talk page of $2.',
+	'ep-timeline-users-edit-2' => '$1 edited the user page of $2.',
+	'ep-timeline-users-edit-3' => '$3 received a message on {{GENDER:$4|his|her}} talk page.',
 
 	// Dashboard
 	'ep-dashboard-login-first' => 'You need to login before you can view your courses.',

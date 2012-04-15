@@ -33,6 +33,10 @@ class SpecialMyCourses extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
+		$this->displayNavigation();
+
+		$out = $this->getOutput();
+
 		if ( $this->getUser()->isLoggedIn() ) {
 			$student = EPStudent::newFromUser( $this->getUser() );
 			$courses = $student->getCourses( null, EPCourses::getStatusConds( 'current' ) );
@@ -51,6 +55,8 @@ class SpecialMyCourses extends SpecialEPPage {
 					'ORDER BY' => $eventTable->getPrefixedField( 'time' ) . ' DESC'
 				);
 
+				$out->addElement( 'h2', array(), $course->getField( 'name' ) );
+
 				$timeline = new EPTimeline(
 					$this->getContext(),
 					$eventTable->select( null, $conds, $options )->toArray()
@@ -60,7 +66,7 @@ class SpecialMyCourses extends SpecialEPPage {
 			}
 		}
 		else {
-			$this->getOutput()->addHTML( Linker::linkKnown(
+			$out->addHTML( Linker::linkKnown(
 				SpecialPage::getTitleFor( 'Userlogin' ),
 				wfMsgHtml( 'ep-dashboard-login-first' ), // TODO
 				array(),

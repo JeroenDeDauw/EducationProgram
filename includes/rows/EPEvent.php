@@ -42,30 +42,11 @@ class EPEvent extends ORMRow {
 				'page' => $title->getFullText(),
 				'comment' => $revision->getComment(),
 				'minoredit' => $revision->isMinor(),
+				'parent' => $revision->getParentId()
 			),
 		);
 
 		return EPEvents::singleton()->newFromArray( $fields );
-	}
-
-	/**
-	 * Returns an event display object for visualizing the event.
-	 *
-	 * @since 0.1
-	 *
-	 * @return EPEventDisplay
-	 */
-	public function getEventDisplay() {
-		$typeMap = array(
-			'edit-' . NS_MAIN => 'EPEditEvent',
-			'edit-' . NS_TALK => 'EPEditEvent',
-			'edit-' . NS_USER => 'EPEditEvent',
-			'edit-' . NS_USER_TALK => 'EPEditEvent',
-		);
-
-		$class = array_key_exists( $this->getField( 'type' ), $typeMap ) ? $typeMap[$this->getField( 'type' )] : 'EPUnknownEvent';
-
-		return new $class( $this );
 	}
 
 	/**
@@ -97,8 +78,7 @@ class EPEvent extends ORMRow {
 }
 
 /**
- * Class for displaying a single Education Program event.
- * This used used by EPTimeline which creates regions in which this content is put.
+ * Class for displaying a group of Education Program events.
  *
  * @since 0.1
  *
@@ -112,24 +92,65 @@ abstract class EPEventDisplay extends ContextSource {
 
 	/**
 	 * @since 0.1
-	 * @var EPEvent
+	 * @var array of EPEvent
 	 */
-	protected $event;
+	protected $events;
+
+	/**
+	 * Creates a new EPEventDisplay from a list of events.
+	 * This list needs to be non-empty and contain events with the same type.
+	 * If this is not the case, an exception will be thrown.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $events
+	 * @param IContextSource|null $context
+	 *
+	 * @return mixed
+	 * @throws MWException
+	 */
+	public static function newFromEvents( array /* of EPEvent */ $events, IContextSource $context = null ) {
+		if ( empty( $events ) ) {
+			throw new MWException( 'Need at least one event to build a ' . __CLASS__ );
+		}
+
+		$type = null;
+
+		foreach ( $events as /* EPEvent */ $event ) {
+			if ( is_null( $type ) ) {
+				$type = $event->getField( 'type' );
+			}
+			elseif ( $type !== $event->getField( 'type' ) ) {
+				throw new MWException( 'Got events of different types when trying to build a ' . __CLASS__ );
+			}
+		}
+
+		$typeMap = array(
+			'edit-' . NS_MAIN => 'EPEditEvent',
+			'edit-' . NS_TALK => 'EPEditEvent',
+			'edit-' . NS_USER => 'EPEditEvent',
+			'edit-' . NS_USER_TALK => 'EPEditEvent',
+		);
+
+		$class = array_key_exists( $type, $typeMap ) ? $typeMap[$type] : 'EPUnknownEvent';
+
+		return new $class( $events, $context );
+	}
 
 	/**
 	 * Constructor.
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPEvent $event
+	 * @param array $events
 	 * @param IContextSource|null $context
 	 */
-	public function __construct( EPEvent $event, IContextSource $context = null ) {
+	protected function __construct( array /* of EPEvent */ $events, IContextSource $context = null ) {
 		if ( !is_null( $context ) ) {
 			$this->setContext( $context );
 		}
 
-		$this->event = $event;
+		$this->events = $events;
 	}
 
 	/**
@@ -142,14 +163,14 @@ abstract class EPEventDisplay extends ContextSource {
 	}
 
 	/**
-	 * Returns the event.
+	 * Returns the events.
 	 *
 	 * @since 0.1
 	 *
-	 * @return EPEvent
+	 * @return array of EPEvent
 	 */
-	public function getEvent() {
-		return $this->event;
+	public function getEvents() {
+		return $this->events;
 	}
 
 	/**
@@ -160,37 +181,73 @@ abstract class EPEventDisplay extends ContextSource {
 	 * @return string
 	 */
 	public function getHTML() {
-		return Html::rawElement(
-			'div',
-			$this->getDivAttributes(),
-			$this->getInnerHTML()
+		return
+			Html::rawElement(
+				'span',
+				$this->getHeaderAttributes(),
+				$this->getHeaderHTML()
+			) .
+			Html::rawElement(
+				'div',
+				$this->getClusterAttributes(),
+				$this->getClusterHTML()
+			);
+	}
+
+	protected function getHeaderHTML() {
+		return '';
+	}
+
+	protected function getClusterHTML() {
+		return implode( '', array_map( array( $this, 'getSegment' ), $this->events ) );
+	}
+
+	protected function getHeaderAttributes() {
+		return array(
+			'class' => 'ep-timeline-group-header'
 		);
 	}
 
-	protected function getDivAttributes() {
+	protected function getClusterAttributes() {
+		return array(
+			'class' => 'ep-timeline-group'
+		);
+	}
+
+	protected function getSegment( EPEvent $event ) {
+		return Html::rawElement(
+			'div',
+			$this->getSegmentAttributes( $event ),
+			$this->getSegmentHTML( $event )
+		);
+	}
+
+	protected function getSegmentAttributes( EPEvent $event ) {
 		return array(
 			'class' => 'ep-event-item',
 		);
 	}
 
 	/**
-	 * Builds and returns the HTML for the event.
+	 * Builds and returns the HTML for a single of the event segments.
 	 *
 	 * @since 0.1
 	 *
+	 * @param EPEvent $event
+	 *
 	 * @return string
 	 */
-	protected abstract function getInnerHTML();
+	protected abstract function getSegmentHTML( EPEvent $event );
 
 }
 
 class EPUnknownEvent extends EPEventDisplay {
 
-	protected function getInnerHTML() {
+	protected function getSegmentHTML( EPEvent $event ) {
 		return $this->msg(
 			'ep-event-unknown',
-			$this->event->getUser()->getName(),
-			$this->getLanguage()->timeanddate( $this->event->getField( 'time' ) )
+			$event->getUser()->getName(),
+			$this->getLanguage()->timeanddate( $event->getField( 'time' ) )
 
 		)->escaped();
 	}
@@ -199,11 +256,11 @@ class EPUnknownEvent extends EPEventDisplay {
 
 class EPEditEvent extends EPEventDisplay {
 
-	protected function getInnerHTML() {
+	protected function getSegmentHTML( EPEvent $event ) {
 		$html = '';
 
-		$user = $this->event->getUser();
-		$info = $this->event->getField( 'info' );
+		$user = $event->getUser();
+		$info = $event->getField( 'info' );
 
 		$html .= Linker::userLink( $user->getId(), $user->getName() );
 
@@ -215,17 +272,66 @@ class EPEditEvent extends EPEventDisplay {
 
 		$html .= '<span class="ep-event-ago">' . $this->msg(
 			'ep-event-ago',
-			EPUtils::formatDuration( $this->event->getAge(), array( 'days', 'hours', 'minutes' ) )
+			EPUtils::formatDuration( $event->getAge(), array( 'days', 'hours', 'minutes' ) )
 		)->escaped() . '</span>';
 
 		return $html;
+	}
+
+	protected function getHeaderHTML() {
+		$userIds = array();
+
+		foreach ( $this->events as /* EPEvent */ $event ) {
+			$userIds[] = $event->getField( 'user_id' );
+		}
+
+		$userIds = array_unique( $userIds );
+
+		$userLinks = array();
+
+		foreach ( array_slice( $userIds, 0, EPSettings::get( 'timelineUserLimit' ) ) as $userId ) {
+			$userLinks[] = '<b>' . Linker::userLink( $userId, User::newFromId( $userId )->getName() ) . '</b>';
+		}
+
+		$remainingUsers = count( $userIds ) - count( $userLinks );
+
+		$language = $this->getLanguage();
+
+		if ( !empty( $remainingUsers ) ) {
+			$userLinks[] = $this->msg(
+				'ep-timeline-remaining',
+				$language->formatNum( $remainingUsers )
+			)->escaped();
+		}
+
+		$info = $this->events[0]->getField( 'info' );
+		$type = explode( '-', $this->events[0]->getField( 'type' ) );
+		$type = (int)array_pop( $type );
+
+		$messageKey = 'ep-timeline-users-edit-';
+
+		switch ( $type ) {
+			case '':
+				$messageKey .= '';
+				break;
+			case '':
+				break;
+
+		}
+
+		return $this->msg(
+			'' . $type
+		)->rawParams(
+			$language->listToText( $userLinks ),
+			'<b>' . Linker::link( Title::newFromText( $info['page'] ) ) . '</b>'
+		)->escaped() . '<br />';
 	}
 
 }
 
 class EPEnlistEvent extends EPEventDisplay {
 
-	protected function getInnerHTML() {
+	protected function getSegmentHTML( EPEvent $event ) {
 		return '';
 	}
 

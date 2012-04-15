@@ -43,61 +43,12 @@ class EPTimeline extends ContextSource {
 	 * @return string
 	 */
 	public function getHTML() {
-		$groups = $this->getSortedGroups();
-
-		$clusters = array();
-
-		foreach ( $groups as $group ) {
-			$segments = array();
-			$userIds = array();
-
-			foreach ( $group['events'] as /* EPEvent */ $event ) {
-				$segments[] = $event->getEventDisplay()->getHTML();
-				$userIds[] = $event->getField( 'user_id' );
-			}
-
-			$userIds = array_unique( $userIds );
-
-			$userLinks = array();
-
-			foreach ( array_slice( $userIds, 0, EPSettings::get( 'timelineUserLimit' ) ) as $userId ) {
-				$userLinks[] = '<b>' . Linker::userLink( $userId, User::newFromId( $userId )->getName() ) . '</b>';
-			}
-
-			$remainingUsers = count( $userIds ) - count( $userLinks );
-
-			$language = $this->getLanguage();
-
-			if ( !empty( $remainingUsers ) ) {
-				$userLinks[] = $this->msg(
-					'ep-timeline-remaining',
-					$language->formatNum( $remainingUsers )
-				)->escaped();
-			}
-
-			$cluster = '';
-
-			// TODO: this is evil, event display class should be group display
-			$info = $group['events'][0]->getField( 'info' );
-			$type = $group['events'][0]->getField( 'type' );
-
-			$cluster .= $this->msg(
-				'ep-timeline-users-' . $type
-			)->rawParams(
-				$language->listToText( $userLinks ),
-				'<b>' . Linker::link( Title::newFromText( $info['page'] ) ) . '</b>'
-			)->escaped() . '<br />';
-
-			$cluster .= implode( '', $segments );
-
-			$clusters[] = Html::rawElement(
-				'div',
-				array( 'class' => 'ep-timeline-group ep-timeline-' . $type ),
-				$cluster
-			);
-		}
-
-		return implode( '<br />', $clusters );
+		return implode(
+			'<br />',
+			array_map( function( array $group ) {
+				return EPEventDisplay::newFromEvents( $group['events'] )->getHTML();
+			}, $this->getSortedGroups() )
+		);
 	}
 
 	/**
@@ -115,15 +66,18 @@ class EPTimeline extends ContextSource {
 			$eventInfo = $event->getField( 'info' );
 
 			if ( array_key_exists( 'page', $eventInfo ) ) {
+				$groupId = $eventInfo['page'] . '|';
+				$groupId .=
+
 				if ( array_key_exists( $eventInfo['page'], $groups ) ) {
-					$groups[$eventInfo['page']]['events'][] = $event;
+					$groups[$groupId]['events'][] = $event;
 
 					if ( $event->getField( 'time' ) > $groups[$eventInfo['page']]['time'] ) {
-						$groups[$eventInfo['page']]['time'] = $event->getField( 'time' );
+						$groups[$groupId]['time'] = $event->getField( 'time' );
 					}
 				}
 				else {
-					$groups[$eventInfo['page']] = array(
+					$groups[$groupId] = array(
 						'time' => $event->getField( 'time' ),
 						'events' => array( $event ),
 					);
