@@ -160,6 +160,7 @@ $wgAutoloadClasses['EPRevisionDiff'] 				= dirname( __FILE__ ) . '/includes/EPRe
 $wgAutoloadClasses['EPDiffTable'] 					= dirname( __FILE__ ) . '/includes/EPDiffTable.php';
 $wgAutoloadClasses['EPMenu'] 						= dirname( __FILE__ ) . '/includes/EPMenu.php';
 $wgAutoloadClasses['EPTimeline'] 					= dirname( __FILE__ ) . '/includes/EPTimeline.php';
+$wgAutoloadClasses['EPTimelineGroup'] 				= dirname( __FILE__ ) . '/includes/EPTimelineGroup.php';
 
 // Compat classes
 foreach ( array(

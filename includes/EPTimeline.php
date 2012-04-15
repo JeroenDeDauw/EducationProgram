@@ -46,7 +46,7 @@ class EPTimeline extends ContextSource {
 		return implode(
 			'<br />',
 			array_map( function( array $group ) {
-				return EPEventDisplay::newFromEvents( $group['events'] )->getHTML();
+				return EPTimelineGroup::newFromEvents( $group['events'] )->getHTML();
 			}, $this->getSortedGroups() )
 		);
 	}
