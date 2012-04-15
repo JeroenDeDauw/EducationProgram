@@ -43,9 +43,75 @@ class EPTimeline extends ContextSource {
 	 * @return string
 	 */
 	public function getHTML() {
+		$groups = $this->getSortedGroups();
+
+		$clusters = array();
+
+		foreach ( $groups as $group ) {
+			$segments = array();
+			$userIds = array();
+
+			foreach ( $group['events'] as /* EPEvent */ $event ) {
+				$segments[] = $event->getEventDisplay()->getHTML();
+				$userIds[] = $event->getField( 'user_id' );
+			}
+
+			$userIds = array_unique( $userIds );
+
+			$userLinks = array();
+
+			foreach ( array_slice( $userIds, 0, EPSettings::get( 'timelineUserLimit' ) ) as $userId ) {
+				$userLinks[] = Linker::userLink( $userId, User::newFromId( $userId )->getName() );
+			}
+
+			$remainingUsers = count( $userIds ) - count( $userLinks );
+
+			$language = $this->getLanguage();
+
+			if ( !empty( $remainingUsers ) ) {
+				$userLinks[] = $this->msg(
+					'ep-timeline-remaining',
+					$language->formatNum( $remainingUsers )
+				)->escaped();
+			}
+
+			$cluster = '';
+
+			// TODO: this is evil, event display class should be group display
+			$info = $group['events'][0]->getField( 'info' );
+			$type = $group['events'][0]->getField( 'type' );
+
+			$cluster .= $this->msg(
+				'ep-timeline-users-' . $type
+			)->rawParams(
+				$language->listToText( $userLinks ),
+				Linker::link( Title::newFromText( $info['page'] ) )
+			)->escaped() . '<br />';
+
+			$cluster .= implode( '<br />', $segments );
+
+			$clusters[] = Html::rawElement(
+				'div',
+				array( 'class' => 'ep-timeline-group ep-timeline-' . $type ),
+				$cluster
+			);
+		}
+
+		return implode( '<br />', $clusters );
+	}
+
+	/**
+	 * Groups the events by affected page and sorts the groups by
+	 * the last change they contain, most recent first.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array of EPEvent
+	 */
+	protected function getSortedGroups() {
 		$groups = array();
 
-		foreach ( $this->events as $index => /* EPEvent */ $event ) {
+		foreach ( $this->events as /* EPEvent */ $event ) {
 			$eventInfo = $event->getField( 'info' );
 
 			if ( array_key_exists( 'page', $eventInfo ) ) {
@@ -79,19 +145,13 @@ class EPTimeline extends ContextSource {
 
 		arsort( $groupTimes );
 
-		$segments = array();
+		$sortedGroups = array();
 
 		foreach ( $groupTimes as $groupIndex => $time ) {
-			$group = $groups[$groupIndex];
-
-
+			$sortedGroups[] = $groups[$groupIndex];
 		}
 
-		foreach ( $this->events as /* EPEvent */ $event ) {
-			$segments[] = $event->getEventDisplay()->getHTML();
-		}
-
-		return implode( '<br />', $segments ); // TODO
+		return $sortedGroups;
 	}
 
 	/**
@@ -100,7 +160,10 @@ class EPTimeline extends ContextSource {
 	 * @since 0.1
 	 */
 	public function display() {
-		$this->getOutput()->addHTML( $this->getHTML() );
+		$out = $this->getOutput();
+
+		$out->addModules( 'ep.timeline' );
+		$out->addHTML( $this->getHTML() );
 	}
 
 }

@@ -1,0 +1,15 @@
+/**
+ * CSS for the Education Program MediaWiki extension.
+ * @see https://www.mediawiki.org/wiki/Extension:Education_Program
+ *
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw <jeroendedauw at gmail dot com>
+ */
+
+.ep-timeline-group {
+    border: 1px solid black;
+}
+
+.ep-event-item {
+    background-color: #add8e6;
+}

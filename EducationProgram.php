@@ -561,6 +561,12 @@ $wgResourceModules['ep.addcourse'] = $moduleTemplate + array(
 	),
 );
 
+$wgResourceModules['ep.timeline'] = $moduleTemplate + array(
+	'styles' => array(
+		'ep.timeline.css',
+	),
+);
+
 $wgResourceModules['ep.studentactivity'] = $moduleTemplate + array(
 	'styles' => array(
 		'ep.studentactivity.css',

@@ -188,11 +188,14 @@ class EPEditEvent extends EPEventDisplay {
 
 		$html .= '&#160;';
 
-		$html .= htmlspecialchars( $info['comment'] );
+		$html .= $this->getOutput()->parseInline( $info['comment'] );
 
 		$html .= '<br />';
 
-		$html .= EPUtils::formatDuration( $this->event->getAge(), array( 'days', 'hours', 'minutes' ) );
+		$html .= $this->msg(
+			'ep-event-ago',
+			EPUtils::formatDuration( $this->event->getAge(), array( 'days', 'hours', 'minutes' ) )
+		)->escaped();
 
 		return $html;
 	}

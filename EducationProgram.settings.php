@@ -70,6 +70,7 @@ class EPSettings {
 			'useStudentRealNames' => false,
 			'timelineDurationLimit' => 2 *24 * 60 *60,
 			'timelineCountLimit' => 42,
+			'timelineUserLimit' => 3,
 		);
 	}
 

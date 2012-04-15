@@ -807,8 +807,14 @@ You can find a full list of students on [[Special:Students|the student list]].',
 
 	// Events
 	'ep-event-unknown' => '$1 did something at $2',
+	'ep-event-ago' => '$1 ago',
 
 	// Timeline
+	'ep-timeline-remaining' => '$1 {{PLURAL:$1|other|others}}',
+	'ep-timeline-users-edit-0' => '$1 edited the article $2',
+
+	// Dashboard
+	'ep-dashboard-login-first' => 'You need to login before you can view your courses.',
 );
 
 /** Message documentation (Message documentation)
@@ -1585,6 +1591,12 @@ This will permanently remove their associated articles and reviewers!',
 
 	// Events
 	'ep-event-unknown' => '$1 is user name, $2 is a date and time',
+	'ep-event-ago' => '$1 is the duration (ie 42 minutes) in "42 minutes ago"',
 
 	// Timeline
+	'ep-timeline-remaining' => 'Shown in "user0, user1, user2 and 42 others". $1 is the amount of other users',
+	'ep-timeline-users-edit-0' => 'Event group header stating which users edited an article',
+
+	// Dashboard
+	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',
 );
