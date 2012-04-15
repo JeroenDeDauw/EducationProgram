@@ -1605,7 +1605,24 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-timeline-unknown' => '$1 is user name, $2 is a date and time',
 	'ep-timeline-ago' => '$1 is the duration (ie 42 minutes) in "42 minutes ago"',
 
-	// TODO
+	'ep-timeline-users-edit-article' => 'Header for a group of events in a timeline.
+$1 is html for a user link of list of user links.
+$2 is the full name of the edited article.
+$3 is the name of the article (without namespace).
+$4 is the amount of events in the group.
+$5 is the amount of editors.',
+	'ep-timeline-users-edit-talk' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-edit-user' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-edit-usertalk' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-edit-user-self' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-edit-usertalk-self' => '{{Identical|ep-timeline-users-edit-article}}',
+
+	'ep-timeline-users-create-article' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-talk' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-user' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-usertalk' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-user-self' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-usertalk-self' => '{{Identical|ep-timeline-users-edit-article}}',
 
 	// Dashboard
 	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',
