@@ -6,10 +6,17 @@
  * @author Jeroen De Dauw <jeroendedauw at gmail dot com>
  */
 
-.ep-timeline-group {
+div.ep-timeline-group {
     border: 1px solid black;
 }
 
-.ep-event-item {
-    background-color: #add8e6;
+div.ep-event-item {
+    background-color: #EDEFF4;
+    border-bottom: 1px solid #D2D9E7;
+    margin-top: 1px;
+    padding: 5px 5px 4px;
+}
+
+span.ep-event-ago {
+    color: #797979;
 }

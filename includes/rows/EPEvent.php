@@ -159,13 +159,34 @@ abstract class EPEventDisplay extends ContextSource {
 	 *
 	 * @return string
 	 */
-	public abstract function getHTML();
+	public function getHTML() {
+		return Html::rawElement(
+			'div',
+			$this->getDivAttributes(),
+			$this->getInnerHTML()
+		);
+	}
+
+	protected function getDivAttributes() {
+		return array(
+			'class' => 'ep-event-item',
+		);
+	}
+
+	/**
+	 * Builds and returns the HTML for the event.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
+	protected abstract function getInnerHTML();
 
 }
 
 class EPUnknownEvent extends EPEventDisplay {
 
-	public function getHTML() {
+	protected function getInnerHTML() {
 		return $this->msg(
 			'ep-event-unknown',
 			$this->event->getUser()->getName(),
@@ -178,7 +199,7 @@ class EPUnknownEvent extends EPEventDisplay {
 
 class EPEditEvent extends EPEventDisplay {
 
-	public function getHTML() {
+	protected function getInnerHTML() {
 		$html = '';
 
 		$user = $this->event->getUser();
@@ -192,10 +213,10 @@ class EPEditEvent extends EPEventDisplay {
 
 		$html .= '<br />';
 
-		$html .= $this->msg(
+		$html .= '<span class="ep-event-ago">' . $this->msg(
 			'ep-event-ago',
 			EPUtils::formatDuration( $this->event->getAge(), array( 'days', 'hours', 'minutes' ) )
-		)->escaped();
+		)->escaped() . '</span>';
 
 		return $html;
 	}
@@ -204,7 +225,7 @@ class EPEditEvent extends EPEventDisplay {
 
 class EPEnlistEvent extends EPEventDisplay {
 
-	public function getHTML() {
+	protected function getInnerHTML() {
 		return '';
 	}
 

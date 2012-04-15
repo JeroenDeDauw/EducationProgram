@@ -61,7 +61,7 @@ class EPTimeline extends ContextSource {
 			$userLinks = array();
 
 			foreach ( array_slice( $userIds, 0, EPSettings::get( 'timelineUserLimit' ) ) as $userId ) {
-				$userLinks[] = Linker::userLink( $userId, User::newFromId( $userId )->getName() );
+				$userLinks[] = '<b>' . Linker::userLink( $userId, User::newFromId( $userId )->getName() ) . '</b>';
 			}
 
 			$remainingUsers = count( $userIds ) - count( $userLinks );
@@ -85,10 +85,10 @@ class EPTimeline extends ContextSource {
 				'ep-timeline-users-' . $type
 			)->rawParams(
 				$language->listToText( $userLinks ),
-				Linker::link( Title::newFromText( $info['page'] ) )
+				'<b>' . Linker::link( Title::newFromText( $info['page'] ) ) . '</b>'
 			)->escaped() . '<br />';
 
-			$cluster .= implode( '<br />', $segments );
+			$cluster .= implode( '', $segments );
 
 			$clusters[] = Html::rawElement(
 				'div',
