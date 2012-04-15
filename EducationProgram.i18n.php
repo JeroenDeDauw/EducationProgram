@@ -805,16 +805,24 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-diff-old' => 'Current value',
 	'ep-diff-new' => 'New value',
 
-	// Events
-	'ep-event-unknown' => '$1 did something at $2',
-	'ep-event-ago' => '$1 ago',
-
 	// Timeline
 	'ep-timeline-remaining' => '$1 {{PLURAL:$1|other|others}}',
-	'ep-timeline-users-edit-0' => '$1 edited the article $2.',
-	'ep-timeline-users-edit-1' => '$1 left a message on the talk page of $2.',
-	'ep-timeline-users-edit-2' => '$1 edited the user page of $2.',
-	'ep-timeline-users-edit-3' => '$3 received a message on {{GENDER:$4|his|her}} talk page.',
+	'ep-timeline-unknown' => '$1 did something at $2',
+	'ep-timeline-ago' => '$1 ago',
+
+	'ep-timeline-users-edit-article' => "$1 edited the article '''[[$2]]'''.",
+	'ep-timeline-users-edit-talk' => "$1 left {{PLURAL:$4|a message|messages}} on the '''[[$2|talk page]]''' of '''[[$3]]'''.",
+	'ep-timeline-users-edit-user' => "$1 edited the user page of '''[[$2|$3]]'''.",
+	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' received {{PLURAL:$4|a message|messages}} on {{GENDER:$3|his|her}} '''[[$2|talk page]]'''.",
+	'ep-timeline-users-edit-user-self' => "$1 edited {{GENDER:$3|his|her}} '''[[$2|user page]]'''.",
+	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' posted {{PLURAL:$4|a message|messages}} on {{GENDER:$3|his|her}} '''[[$2|talk page]]'''.",
+
+	'ep-timeline-users-create-article' => "$1 created the article '''[[$2]]'''.",
+	'ep-timeline-users-create-talk' => "$1 created the '''[[$2|talk page]]''' of '''[[$3]]''' and left {{PLURAL:$4|a message|several messages}} on it.",
+	'ep-timeline-users-create-user' => "$1 created the user page of '''[[$2|$3]]'''.",
+	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' received {{PLURAL:$4|a message|messages}} on {{GENDER:$3|his|her}} newly created '''[[$2|talk page]]'''.",
+	'ep-timeline-users-create-user-self' => "$1 created {{GENDER:$3|his|her}} '''[[$2|user page]]'''.",
+	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' created {{GENDER:$3|his|her}} '''[[$2|talk page]]''' and posted {{PLURAL:$4|a message|several messages}} on.",
 
 	// Dashboard
 	'ep-dashboard-login-first' => 'You need to login before you can view your courses.',
@@ -1592,13 +1600,12 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-diff-old' => 'Table column header',
 	'ep-diff-new' => 'Table column header',
 
-	// Events
-	'ep-event-unknown' => '$1 is user name, $2 is a date and time',
-	'ep-event-ago' => '$1 is the duration (ie 42 minutes) in "42 minutes ago"',
-
 	// Timeline
 	'ep-timeline-remaining' => 'Shown in "user0, user1, user2 and 42 others". $1 is the amount of other users',
-	'ep-timeline-users-edit-0' => 'Event group header stating which users edited an article',
+	'ep-timeline-unknown' => '$1 is user name, $2 is a date and time',
+	'ep-timeline-ago' => '$1 is the duration (ie 42 minutes) in "42 minutes ago"',
+
+	// TODO
 
 	// Dashboard
 	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',

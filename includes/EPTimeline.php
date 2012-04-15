@@ -67,12 +67,12 @@ class EPTimeline extends ContextSource {
 
 			if ( array_key_exists( 'page', $eventInfo ) ) {
 				$groupId = $eventInfo['page'] . '|';
-				$groupId .=
+				$groupId .= array_key_exists( 'parent', $eventInfo ) && is_null( $eventInfo['parent'] ) ? 'create' : 'edit';
 
-				if ( array_key_exists( $eventInfo['page'], $groups ) ) {
+				if ( array_key_exists( $groupId, $groups ) ) {
 					$groups[$groupId]['events'][] = $event;
 
-					if ( $event->getField( 'time' ) > $groups[$eventInfo['page']]['time'] ) {
+					if ( $event->getField( 'time' ) > $groups[$groupId]['time'] ) {
 						$groups[$groupId]['time'] = $event->getField( 'time' );
 					}
 				}

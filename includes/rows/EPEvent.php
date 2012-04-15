@@ -245,7 +245,7 @@ class EPUnknownEvent extends EPEventDisplay {
 
 	protected function getSegmentHTML( EPEvent $event ) {
 		return $this->msg(
-			'ep-event-unknown',
+			'ep-timeline-unknown',
 			$event->getUser()->getName(),
 			$this->getLanguage()->timeanddate( $event->getField( 'time' ) )
 
@@ -271,7 +271,7 @@ class EPEditEvent extends EPEventDisplay {
 		$html .= '<br />';
 
 		$html .= '<span class="ep-event-ago">' . $this->msg(
-			'ep-event-ago',
+			'ep-timeline-ago',
 			EPUtils::formatDuration( $event->getAge(), array( 'days', 'hours', 'minutes' ) )
 		)->escaped() . '</span>';
 
@@ -308,23 +308,35 @@ class EPEditEvent extends EPEventDisplay {
 		$type = explode( '-', $this->events[0]->getField( 'type' ) );
 		$type = (int)array_pop( $type );
 
-		$messageKey = 'ep-timeline-users-edit-';
+		$keys = array(
+			NS_MAIN => 'article',
+			NS_TALK => 'talk',
+			NS_USER => 'user',
+			NS_USER_TALK => 'usertalk',
+		);
 
-		switch ( $type ) {
-			case '':
-				$messageKey .= '';
-				break;
-			case '':
-				break;
+		$isNew = array_key_exists( 'parent', $info ) && is_null( $info['parent'] );
+		$messageKey = 'ep-timeline-users-' . ( $isNew ? 'create' : 'edit' ) . '-' . $keys[$type];
 
+		$subjectText = Title::newFromText( $info['page'] )->getSubjectPage()->getText();
+
+		$messageArgs = array(
+			Message::rawParam( $language->listToText( $userLinks ) ),
+			$info['page'],
+			$subjectText,
+			count( $this->events ),
+			count( $userIds ),
+		);
+
+		if ( in_array( $type, array( NS_USER, NS_USER_TALK ) )
+			&& count( $userIds ) == 1 && $userIds[0] == User::newFromName( $subjectText )->getId() ) {
+			$messageKey .= '-self';
 		}
 
 		return $this->msg(
-			'' . $type
-		)->rawParams(
-			$language->listToText( $userLinks ),
-			'<b>' . Linker::link( Title::newFromText( $info['page'] ) ) . '</b>'
-		)->escaped() . '<br />';
+			$messageKey,
+			$messageArgs
+		)->parse() . '<br />';
 	}
 
 }
