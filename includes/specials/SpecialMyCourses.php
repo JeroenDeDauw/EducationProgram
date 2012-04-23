@@ -73,7 +73,7 @@ class SpecialMyCourses extends SpecialEPPage {
 
 				$out->addElement( 'h2', array(), $course->getField( 'name' ) );
 
-				$events = $eventTable->select( null, $conds, $options )->toArray();
+				$events = iterator_to_array( $eventTable->select( null, $conds, $options ) );
 
 				if ( empty( $events ) ) {
 					$out->addWikiMsg( 'ep-dashboard-timeline-empty' );

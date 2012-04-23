@@ -122,10 +122,12 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 			'cssclass' => 'commons-input',
 		);
 
-		$fields['id'] = array(
-			'type' => 'hidden',
-			'default' => $ambassador->getId(),
-		);
+		if ( !is_null( $ambassador->getId() ) ) {
+			$fields['id'] = array(
+				'type' => 'hidden',
+				'default' => $ambassador->getId(),
+			);
+		}
 
 		return $fields;
 	}
