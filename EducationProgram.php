@@ -162,22 +162,6 @@ $wgAutoloadClasses['EPMenu'] 						= dirname( __FILE__ ) . '/includes/EPMenu.php
 $wgAutoloadClasses['EPTimeline'] 					= dirname( __FILE__ ) . '/includes/EPTimeline.php';
 $wgAutoloadClasses['EPTimelineGroup'] 				= dirname( __FILE__ ) . '/includes/EPTimelineGroup.php';
 
-// Compat classes
-foreach ( array(
-	'ORMResult' => 'ORMResult.php', // MW < 1.20
-	'ORMRow' => 'ORMRow.php', // MW < 1.20
-	'ORMTable' => 'ORMTable.php', // MW < 1.20
-	'CacheHelper' => 'CacheHelper.php', // MW < 1.20
-	'ICacheHelper' => 'CacheHelper.php', // MW < 1.20
-	'CachedAction' => 'CachedAction.php', // MW < 1.20
-	'SpecialCachedPage' => 'SpecialCachedPage.php' // MW < 1.20
-	) as $className => $fileName ) {
-
-	if ( !array_key_exists( $className, $wgAutoloadLocalClasses ) ) {
-		$wgAutoloadClasses[$className] = dirname( __FILE__ ) . '/compat/' . $fileName;
-	}
-}
-
 // Special pages
 $wgSpecialPages['MyCourses'] 						= 'SpecialMyCourses';
 $wgSpecialPages['Institutions'] 					= 'SpecialInstitutions';
