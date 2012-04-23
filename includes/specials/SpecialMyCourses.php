@@ -38,6 +38,22 @@ class SpecialMyCourses extends SpecialEPPage {
 		$out = $this->getOutput();
 
 		if ( $this->getUser()->isLoggedIn() ) {
+			if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
+				EPStudents::singleton()->setReadDb( DB_MASTER );
+
+				$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
+
+				if ( $course !== false && in_array( $this->getUser()->getId(), $course->getField( 'students' ) ) ) {
+					$this->showSuccess( wfMessage(
+						'ep-mycourses-enrolled',
+						array(
+							Message::rawParam( $course->getLink() ),
+							Message::rawParam( $course->getOrg()->getLink() )
+						)
+					) );
+				}
+			}
+
 			$student = EPStudent::newFromUser( $this->getUser() );
 			$courses = $student->getCourses( null, EPCourses::getStatusConds( 'current' ) );
 

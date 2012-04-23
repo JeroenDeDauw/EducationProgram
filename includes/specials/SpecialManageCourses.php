@@ -86,22 +86,6 @@ class SpecialManageCourses extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	protected function displayCourses() {
-		if ( $this->getRequest()->getCheck( 'enrolled' ) ) { // TODO: move to mycourses
-			EPStudents::singleton()->setReadDb( DB_MASTER );
-
-			$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
-
-			if ( $course !== false && in_array( $this->getUser()->getId(), $course->getField( 'students' ) ) ) {
-				$this->showSuccess( wfMessage(
-					'ep-mycourses-enrolled',
-					array(
-						Message::rawParam( $course->getLink() ),
-						Message::rawParam( $course->getOrg()->getLink() )
-					)
-				) );
-			}
-		}
-
 		$this->displayRoleAssociation( 'EPStudent' );
 
 		$this->displayRoleAssociation( 'EPInstructor' );
