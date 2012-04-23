@@ -826,6 +826,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
 
 	// Dashboard
 	'ep-dashboard-login-first' => 'You need to login before you can view your courses.',
+	'ep-dashboard-timeline-empty' => 'There was no recent activity for this course.',
 );
 
 /** Message documentation (Message documentation)
@@ -1626,4 +1627,5 @@ $5 is the amount of editors.',
 
 	// Dashboard
 	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',
+	'ep-dashboard-timeline-empty' => 'Shown instead of an event timeline when there are no events',
 );
