@@ -404,7 +404,7 @@ final class EPHooks {
 	 */
 	public static function onNewRevisionFromEditComplete( $article, Revision $rev, $baseID, User $user ) {
 		if ( $user->isLoggedIn() ) {
-			$namespace = $article->getTitle()->getNamespace;
+			$namespace = $article->getTitle()->getNamespace();
 
 			if ( in_array( $namespace, array( NS_MAIN, NS_TALK, NS_USER, NS_USER_TALK ) ) ) {
 				$conds = array( 'upc_user_id' => $user->getId() );
