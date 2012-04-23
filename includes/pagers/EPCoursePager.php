@@ -158,7 +158,6 @@ class EPCoursePager extends EPPager {
 				$orgs->selectFields( array( 'name', 'id' ) )
 			),
 			'value' => '',
-			'datatype' => 'int',
 		);
 
 		$terms = EPCourses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ), true );
