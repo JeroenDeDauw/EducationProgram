@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Namespace internationalizationfor the Education Program extension.
+ * Namespace internationalization for the Education Program extension.
  *
  * @since 0.1
  *
