@@ -40,8 +40,17 @@ class EPCoursePager extends EPPager {
 	public function __construct( IContextSource $context, array $conds = array(), $readOnlyMode = false ) {
 		$this->readOnlyMode = $readOnlyMode;
 		parent::__construct( $context, $conds, EPCourses::singleton() );
-		
-		$this->context->getOutput()->addModules( 'ep.pager.course' );
+	}
+
+	/**
+	 * Returns the resource loader modules used by the pager.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
+	public function getModules() {
+		return array_merge( parent::getModules(), array( 'ep.pager.course' ) );
 	}
 
 	/**

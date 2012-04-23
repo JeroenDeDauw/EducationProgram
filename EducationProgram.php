@@ -30,7 +30,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-if ( version_compare( $wgVersion, '1.20c', '<' ) ) { // Needs to be 1.19c because version_compare() works in confusing ways.
+if ( version_compare( $wgVersion, '1.20c', '<' ) ) { // Needs to be 1.20c because version_compare() works in confusing ways.
 	die( '<b>Error:</b> Education Program requires MediaWiki 1.20 or above.' );
 }
 

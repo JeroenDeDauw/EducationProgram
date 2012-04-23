@@ -57,6 +57,7 @@ class SpecialCourses extends SpecialEPPage {
 	 * @return array
 	 */
 	protected function getCacheKey() {
+		// TODO: fix session issue
 		$values = $this->getRequest()->getValues();
 
 		$user = $this->getUser();

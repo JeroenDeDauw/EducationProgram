@@ -62,7 +62,19 @@ abstract class EPPager extends TablePager {
 
 		parent::__construct( $context );
 
-		$this->context->getOutput()->addModules( 'ep.pager' );
+		$this->context->getOutput()->addModules( $this->getModules() );
+	}
+
+	/**
+	 * Returns the resource loader modules used by the pager.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
+	public function getModules() {
+		// FIXME: various callers are njust obtaining HTML for caching and don't always add the modules
+		return array( 'ep.pager' );
 	}
 
 	/**
