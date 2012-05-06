@@ -71,6 +71,8 @@ class EPSettings {
 			'timelineDurationLimit' => 2 *24 * 60 *60,
 			'timelineCountLimit' => 42,
 			'timelineUserLimit' => 3,
+			'dykCategory' => 'Education Program tips',
+			'dykOrgCategory' => '$2/$1', // $1 = org name, $2 = dykCategory setting
 		);
 	}
 

@@ -37,13 +37,20 @@ class SpecialMyCourses extends SpecialEPPage {
 
 		if ( $this->getUser()->isLoggedIn() ) {
 			$this->displayEnrollmentMessage();
-			$this->displayDidYouKnow();
-			$this->displayTimelines();
+
+			$student = EPStudent::newFromUser( $this->getUser() );
+			$courses = $student->getCourses( null, EPCourses::getStatusConds( 'current' ) );
+
+			if ( defined( 'DYK_VERSION' ) ) {
+				$this->displayDidYouKnow( $courses );
+			}
+
+			$this->displayTimelines( $courses );
 		}
 		else {
 			$this->getOutput()->addHTML( Linker::linkKnown(
 				SpecialPage::getTitleFor( 'Userlogin' ),
-				wfMsgHtml( 'ep-dashboard-login-first' ), // TODO
+				wfMsgHtml( 'ep-dashboard-login-first' ),
 				array(),
 				array(
 					'returnto' => $this->getTitle( $this->subPage )->getFullText()
@@ -56,22 +63,45 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * Display the did you know box.
 	 *
 	 * @since 0.1
+	 *
+	 * @param array of EPCourse $courses
 	 */
-	protected function displayDidYouKnow() {
-//		$box = new DYKBox( $this->getContext() );
-//		$box->display();
+	protected function displayDidYouKnow( array $courses ) {
+		$specificCategory = false;
+		$course = array_shift( $courses );
+
+		if ( !is_null( $course ) ) {
+			$specificCategory = EPOrgs::singleton()->selectFieldsRow(
+				array( 'name' ),
+				array( 'id' => $course->getField( 'org_id' ) )
+			);
+
+			if ( is_string( $specificCategory ) ) {
+				$specificCategory = str_replace(
+					array( '$1', '$2' ),
+					array( $specificCategory, EPSettings::get( 'dykCategory' ) ),
+					EPSettings::get( 'dykOrgCategory' )
+				);
+			}
+		}
+
+		$box = new DYKBox(
+			EPSettings::get( 'dykCategory' ),
+			$specificCategory,
+			$this->getContext()
+		);
+		$box->display();
 	}
 
 	/**
 	 * Display the course activity timelines.
 	 *
 	 * @since 0.1
+	 *
+	 * @param array of EPCourse $courses
 	 */
-	protected function displayTimelines() {
+	protected function displayTimelines( array $courses ) {
 		$out = $this->getOutput();
-
-		$student = EPStudent::newFromUser( $this->getUser() );
-		$courses = $student->getCourses( null, EPCourses::getStatusConds( 'current' ) );
 
 		$dbr = wfGetDB( DB_SLAVE );
 		$eventTable = EPEvents::singleton();
