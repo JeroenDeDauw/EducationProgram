@@ -40,3 +40,91 @@ http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/EducationProgram/Educ
 You should NOT modify the settings file, but can have a look at it to get an idea of
 how to use the settings, in case the below descriptions do not suffice.
 
+{| class="wikitable sortable"
+! Name
+! Type
+! Default
+! Description
+|-
+| enableTopLink
+| boolean
+| true
+| Enabled the link to Special:MyCourses in the menu on the top (next to the link to MyPreferences).
+|-
+| ambassadorCommonsUrl
+| string
+| https://commons.wikimedia.org/wiki/Special:UploadWizard
+| Link to the upload interface for ambassador profile pictures.
+|-
+| citylessCountries
+| array
+| ''see settings file''
+| List of countries for which to not require a city for institutions.
+|-
+| ambassadorImgWidth
+| integer
+| 140
+| Maximum width of ambassador profile images in the ambassador profile lists.
+
+|-
+| ambassadorImgHeight
+| integer
+| 140
+| Maximum height of ambassador profile images in the ambassador profile lists.
+|-
+| recentActivityLimit
+| integer
+| 24 * 60 * 60
+| The length of the time period for which to show activity on Special:StudentActivity.
+|-
+| flagWidth
+| integer
+| 25
+| The maximum width of flag icons on Special:StudentActivity.
+|-
+| flagHeight
+| integer
+| 25
+| The maximum width of flag icons on Special:StudentActivity.
+|-
+| countryFlags
+| array
+| ''see settings file''
+| List of country codes pointing to image names used to figure out which image to use for country flag icons.
+|-
+| fallbackFlag
+| string
+| Nuvola unknown flag.svg
+| A flag image to show for countries that do not have an associated flag set in the countryFlags settings.
+|-
+| courseDescPage
+| string
+| MediaWiki:Course description
+| Name of the page on which the default initial description for courses can be specified.
+|-
+| courseOrgDescPage
+| string
+| $2/$1
+| Name of the page on which the initial description for courses belonging to a specific institution can be specified.
+$1 is replaced by the name of the institution and $2 is replaced by the value of the courseDescPage setting.
+|-
+| useStudentRealNames
+| boolean
+| false
+| If real names should be shown instead of usernames for students in the education interfaces.
+|-
+| timelineDurationLimit
+| integer
+| 2 *24 * 60 *60
+| The length of the time period for which to show activity in the course activity timelines (ie on Special:MyCourses).
+|-
+| timelineCountLimit
+| integer
+| 42
+| Maximum number of items to show in the course activity timelines.
+|-
+| timelineUserLimit
+| integer
+| 3
+| Maximum number of users to list in an event group in course activity timelines.
+|}
