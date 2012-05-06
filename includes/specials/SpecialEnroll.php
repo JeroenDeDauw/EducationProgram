@@ -128,7 +128,7 @@ class SpecialEnroll extends SpecialEPPage {
 		}
 		else {
 			$this->showSignupLink();
-		}	
+		}
 	}
 	
 	/**
