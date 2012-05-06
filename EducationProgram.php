@@ -5,7 +5,7 @@
  *
  * Documentation:	 		https://www.mediawiki.org/wiki/Extension:Education_Program
  * Support					https://www.mediawiki.org/wiki/Extension_talk:Education_Program
- * Source code:				http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/EducationProgram
+ * Source code:				https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/EducationProgram.git
  *
  * The source code makes use of a number of terms different from but corresponding to those in the UI:
  * * Org instead of Institution
