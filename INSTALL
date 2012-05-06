@@ -36,7 +36,7 @@ require_once( "$IP/extensions/EducationProgram/EducationProgram.php" );
 Configuration of Reviews is done by assigning to $egEPSettings in your
 [[Manual:LocalSettings.php|LocalSettings.php]] file, AFTER the inclusion of the
 extension. The options are listed below and their default is set in the Education Program settings file:
-http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/EducationProgram/EducationProgram.settings.php?view=markup
+https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/EducationProgram.git;a=blob;f=EducationProgram.settings.php
 You should NOT modify the settings file, but can have a look at it to get an idea of
 how to use the settings, in case the below descriptions do not suffice.
 
