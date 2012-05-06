@@ -474,6 +474,8 @@ class EPCourse extends EPPageObject {
 					array( 'user_id' => $userIds )
 				);
 
+				$this->$classField = iterator_to_array( $this->$classField );
+
 				// At this point we will have all users that actually have an entry in the role table.
 				// But it's possible they do not have such an entry, so create new objects for those.
 
