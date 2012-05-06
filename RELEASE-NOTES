@@ -14,11 +14,12 @@ Initial release with these features:
 * Pages with summaries and linked items for all institutions, courses and terms.
 * Edit page for institutions, courses and terms.
 * History pages for institutions, courses and terms.
-* Enrollment page for students with optional token requirement.
+* Enrollment page for students with optional token requirement (and associated disenroll page).
 * Sortable and filterable list of students.
-* Personal courses overview at Special:MyCourses for students.
+* Personal courses overview at Special:ManageCourses for students, ambassadors and instructors.
+* Personal course activity overview at Special:MyCourses.
 * Overview of the program status on Special:EducationProgram.
 * Overview of student activity on Special:StudentActivity.
 * Online Ambassador and Campus Ambassador profiles.
 * Lists of Online Ambassadors and Campus Ambassadors.
-* ...
+* Logging of all special education events, such as enrollment and courses association.

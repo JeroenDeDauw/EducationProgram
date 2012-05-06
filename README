@@ -5,7 +5,10 @@ Latest version of the readme file: http://svn.wikimedia.org/viewvc/mediawiki/tru
 
 == About ==
 
-Education Program is a MediaWiki extension...
+Facilitates educational programs by adding various interfaces to manage courses,
+students, institutions, mentors, ect, as well as improving workflow for everyone involved
+(enrolment, seeing changes of other students, article and reviewer association)
+and proving several analysis/statistics interfaces.
 
 === Feature overview ===
 
