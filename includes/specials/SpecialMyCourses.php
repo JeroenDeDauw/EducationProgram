@@ -35,61 +35,13 @@ class SpecialMyCourses extends SpecialEPPage {
 
 		$this->displayNavigation();
 
-		$out = $this->getOutput();
-
 		if ( $this->getUser()->isLoggedIn() ) {
-			if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
-				EPStudents::singleton()->setReadDb( DB_MASTER );
-
-				$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
-
-				if ( $course !== false && in_array( $this->getUser()->getId(), $course->getField( 'students' ) ) ) {
-					$this->showSuccess( wfMessage(
-						'ep-mycourses-enrolled',
-						array(
-							Message::rawParam( $course->getLink() ),
-							Message::rawParam( $course->getOrg()->getLink() )
-						)
-					) );
-				}
-			}
-
-			$student = EPStudent::newFromUser( $this->getUser() );
-			$courses = $student->getCourses( null, EPCourses::getStatusConds( 'current' ) );
-
-			$dbr = wfGetDB( DB_SLAVE );
-			$eventTable = EPEvents::singleton();
-
-			foreach ( $courses as /* EPCourse */ $course ) {
-				$conds = array(
-					'course_id' => $course->getId(),
-					'time > ' . $dbr->addQuotes( wfTimestamp( TS_MW, time() - EPSettings::get( 'timelineDurationLimit' ) ) ),
-				);
-
-				$options = array(
-					'LIMIT' => EPSettings::get( 'timelineCountLimit' ),
-					'ORDER BY' => $eventTable->getPrefixedField( 'time' ) . ' DESC'
-				);
-
-				$out->addElement( 'h2', array(), $course->getField( 'name' ) );
-
-				$events = iterator_to_array( $eventTable->select( null, $conds, $options ) );
-
-				if ( empty( $events ) ) {
-					$out->addWikiMsg( 'ep-dashboard-timeline-empty' );
-				}
-				else {
-					$timeline = new EPTimeline(
-						$this->getContext(),
-						$events
-					);
-
-					$timeline->display();
-				}
-			}
+			$this->displayEnrollmentMessage();
+			$this->displayDidYouKnow();
+			$this->displayTimelines();
 		}
 		else {
-			$out->addHTML( Linker::linkKnown(
+			$this->getOutput()->addHTML( Linker::linkKnown(
 				SpecialPage::getTitleFor( 'Userlogin' ),
 				wfMsgHtml( 'ep-dashboard-login-first' ), // TODO
 				array(),
@@ -97,6 +49,82 @@ class SpecialMyCourses extends SpecialEPPage {
 					'returnto' => $this->getTitle( $this->subPage )->getFullText()
 				)
 			) );
+		}
+	}
+
+	/**
+	 * Display the did you know box.
+	 *
+	 * @since 0.1
+	 */
+	protected function displayDidYouKnow() {
+//		$box = new DYKBox( $this->getContext() );
+//		$box->display();
+	}
+
+	/**
+	 * Display the course activity timelines.
+	 *
+	 * @since 0.1
+	 */
+	protected function displayTimelines() {
+		$out = $this->getOutput();
+
+		$student = EPStudent::newFromUser( $this->getUser() );
+		$courses = $student->getCourses( null, EPCourses::getStatusConds( 'current' ) );
+
+		$dbr = wfGetDB( DB_SLAVE );
+		$eventTable = EPEvents::singleton();
+
+		foreach ( $courses as /* EPCourse */ $course ) {
+			$conds = array(
+				'course_id' => $course->getId(),
+				'time > ' . $dbr->addQuotes( wfTimestamp( TS_MW, time() - EPSettings::get( 'timelineDurationLimit' ) ) ),
+			);
+
+			$options = array(
+				'LIMIT' => EPSettings::get( 'timelineCountLimit' ),
+				'ORDER BY' => $eventTable->getPrefixedField( 'time' ) . ' DESC'
+			);
+
+			$out->addElement( 'h2', array(), $course->getField( 'name' ) );
+
+			$events = iterator_to_array( $eventTable->select( null, $conds, $options ) );
+
+			if ( empty( $events ) ) {
+				$out->addWikiMsg( 'ep-dashboard-timeline-empty' );
+			}
+			else {
+				$timeline = new EPTimeline(
+					$this->getContext(),
+					$events
+				);
+
+				$timeline->display();
+			}
+		}
+	}
+
+	/**
+	 * Display the enrollment sucecss message if needed.
+	 *
+	 * @since 0.1
+	 */
+	protected function displayEnrollmentMessage() {
+		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
+			EPStudents::singleton()->setReadDb( DB_MASTER );
+
+			$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
+
+			if ( $course !== false && in_array( $this->getUser()->getId(), $course->getField( 'students' ) ) ) {
+				$this->showSuccess( wfMessage(
+					'ep-mycourses-enrolled',
+					array(
+						Message::rawParam( $course->getLink() ),
+						Message::rawParam( $course->getOrg()->getLink() )
+					)
+				) );
+			}
 		}
 	}
 
