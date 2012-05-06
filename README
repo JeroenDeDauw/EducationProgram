@@ -1,7 +1,7 @@
 These is the readme file for the Education Program extension.
 
 Extension page on mediawiki.org: https://www.mediawiki.org/wiki/Extension:Education_Program
-Latest version of the readme file: http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/EducationProgram/README?view=co
+Latest version of the readme file: https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/EducationProgram.git;a=blob;f=README
 
 == About ==
 
@@ -12,7 +12,19 @@ and proving several analysis/statistics interfaces.
 
 === Feature overview ===
 
-* ...
+* Browsing interfaces for institutions, courses and terms.
+* Pages with summaries and linked items for all institutions, courses and terms.
+* Edit page for institutions, courses and terms.
+* History pages for institutions, courses and terms.
+* Enrollment page for students with optional token requirement (and associated disenroll page).
+* Sortable and filterable list of students.
+* Personal courses overview at Special:ManageCourses for students, ambassadors and instructors.
+* Personal course activity overview at Special:MyCourses.
+* Overview of the program status on Special:EducationProgram.
+* Overview of student activity on Special:StudentActivity.
+* Online Ambassador and Campus Ambassador profiles.
+* Lists of Online Ambassadors and Campus Ambassadors.
+* Logging of all special education events, such as enrollment and courses association.
 
 == Credits to other projects ==
 
