@@ -279,7 +279,7 @@ class EPEditGroup extends EPTimelineGroup {
 
 		$html .= strip_tags(
 			$this->getOutput()->parseInline( $info['comment'] ),
-			array( '<a><b><i>' )
+			'<a><b><i>'
 		);
 
 		$html .= '<br />';
