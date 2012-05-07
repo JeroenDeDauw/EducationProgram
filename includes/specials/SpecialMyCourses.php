@@ -45,7 +45,12 @@ class SpecialMyCourses extends SpecialEPPage {
 				$this->displayDidYouKnow( $courses );
 			}
 
-			$this->displayTimelines( $courses );
+			if ( $courses === array() ) {
+				$this->getOutput()->addWikiMsg( 'ep-dashboard-enroll-first' );
+			}
+			else {
+				$this->displayTimelines( $courses );
+			}
 		}
 		else {
 			$this->getOutput()->addHTML( Linker::linkKnown(
@@ -117,11 +122,18 @@ class SpecialMyCourses extends SpecialEPPage {
 				'ORDER BY' => $eventTable->getPrefixedField( 'time' ) . ' DESC'
 			);
 
-			$out->addElement( 'h2', array(), $course->getField( 'name' ) );
+			$out->addHTML( Linker::link(
+				$course->getTitle(),
+				Html::element(
+					'h2',
+					array(),
+					$course->getField( 'name' )
+				)
+			) );
 
 			$events = iterator_to_array( $eventTable->select( null, $conds, $options ) );
 
-			if ( empty( $events ) ) {
+			if ( $events === array() ) {
 				$out->addWikiMsg( 'ep-dashboard-timeline-empty' );
 			}
 			else {
