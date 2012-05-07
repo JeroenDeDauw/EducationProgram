@@ -64,9 +64,9 @@ class SpecialMyCourses extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array of EPCourse $courses
+	 * @param array $courses
 	 */
-	protected function displayDidYouKnow( array $courses ) {
+	protected function displayDidYouKnow( array /* of EPCourse  */ $courses ) {
 		$specificCategory = false;
 		$course = array_shift( $courses );
 
