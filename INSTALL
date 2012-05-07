@@ -127,4 +127,15 @@ $1 is replaced by the name of the institution and $2 is replaced by the value of
 | integer
 | 3
 | Maximum number of users to list in an event group in course activity timelines.
+|-
+| dykCategory
+| string
+| Wikipedia:Education Program Did You Know
+| The name of the category from which to use pages as content for the did you know box.
+|-
+| dykOrgCategory
+| string
+| $2/$1
+| The name of the category from which to use pages as content for the did you know box for a specific institution.
+$1 is replaced by the name of the institution and $2 is replaced by the value of the dykCategory setting.
 |}
