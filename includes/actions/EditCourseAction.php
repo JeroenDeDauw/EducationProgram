@@ -55,15 +55,17 @@ class EditCourseAction extends EPEditAction {
 	 * @see EPEditAction::onView()
 	 */
 	public function onView() {
-		$this->getOutput()->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
+		$out = $this->getOutput();
+
+		$out->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
 
 		if ( !$this->isNewPost() && !$this->table->hasIdentifier( $this->getTitle()->getText() ) ) {
 			$this->displayUndeletionLink();
 			$this->displayDeletionLog();
 
 			list( $name, $term ) = $this->titleToNameAndTerm( $this->getTitle()->getText() );
-			
-			EPCourse::displayAddNewRegion(
+
+			$out->addHTML( EPCourse::getAddNewRegion(
 				$this->getContext(),
 				array(
 					'name' => $this->getRequest()->getText(
@@ -75,11 +77,13 @@ class EditCourseAction extends EPEditAction {
 						$term
 					),
 				)
-			);
+			) );
+
+			$out->addModules( 'ep.addcourse' );
 
 			$this->isNew = true;
-			$this->getOutput()->setSubtitle( $this->getDescription() );
-			$this->getOutput()->setPageTitle( $this->getPageTitle() );
+			$out->setSubtitle( $this->getDescription() );
+			$out->setPageTitle( $this->getPageTitle() );
 			
 			return '';
 		}

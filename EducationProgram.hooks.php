@@ -390,6 +390,25 @@ final class EPHooks {
 	}
 
 	/**
+	 * Allows overriding if the pages in a certain namespace can be moved or not.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/NamespaceIsMovable
+	 *
+	 * @since 0.1
+	 *
+	 * @param integer $index
+	 * @param boolean $movable
+	 *
+	 * @return boolean
+	 */
+	public static function onNamespaceIsMovable( $index, &$movable ) {
+		if ( in_array( $index, array( EP_NS_COURSE, EP_NS_INSTITUTION, EP_NS_COURSE_TALK, EP_NS_INSTITUTION_TALK ) ) ) {
+			$movable = false;
+		}
+
+		return false;
+	}
+
+	/**
 	 * Called when a revision was inserted due to an edit.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/NewRevisionFromEditComplete
 	 *
