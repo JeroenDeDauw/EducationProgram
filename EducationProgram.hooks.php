@@ -405,7 +405,7 @@ final class EPHooks {
 			$movable = false;
 		}
 
-		return false;
+		return true;
 	}
 
 	/**
