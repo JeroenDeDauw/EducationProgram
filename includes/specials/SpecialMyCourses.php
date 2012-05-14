@@ -15,6 +15,11 @@
 class SpecialMyCourses extends SpecialEPPage {
 
 	/**
+	 * @var array of EPCourse
+	 */
+	protected $courses;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 0.1
@@ -41,16 +46,22 @@ class SpecialMyCourses extends SpecialEPPage {
 			$student = EPStudent::newFromUser( $this->getUser() );
 			$courses = $student->getCourses( null, EPCourses::getStatusConds( 'current' ) );
 
+			$this->courses = $courses;
+
+			$this->startCache( 60 );
+
 			if ( defined( 'DYK_VERSION' ) ) {
-				$this->displayDidYouKnow( $courses );
+				$this->displayDidYouKnow();
 			}
 
 			if ( $courses === array() ) {
 				$this->getOutput()->addWikiMsg( 'ep-dashboard-enroll-first' );
 			}
 			else {
-				$this->displayTimelines( $courses );
+				$this->displayTimelines();
 			}
+
+			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->addHTML( Linker::linkKnown(
@@ -68,83 +79,126 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * Display the did you know box.
 	 *
 	 * @since 0.1
-	 *
-	 * @param array $courses
 	 */
-	protected function displayDidYouKnow( array /* of EPCourse  */ $courses ) {
-		$specificCategory = false;
-		$course = array_shift( $courses );
+	protected function displayDidYouKnow() {
+		$this->addCachedHTML(
+			function( IContextSource $context, array $courses ) {
+				$specificCategory = false;
 
-		if ( !is_null( $course ) ) {
-			$specificCategory = EPOrgs::singleton()->selectFieldsRow(
-				array( 'name' ),
-				array( 'id' => $course->getField( 'org_id' ) )
-			);
+				$course = array_shift( $courses );
 
-			if ( is_string( $specificCategory ) ) {
-				$specificCategory = str_replace(
-					array( '$1', '$2' ),
-					array( $specificCategory, EPSettings::get( 'dykCategory' ) ),
-					EPSettings::get( 'dykOrgCategory' )
+				if ( !is_null( $course ) ) {
+					$specificCategory = EPOrgs::singleton()->selectFieldsRow(
+						array( 'name' ),
+						array( 'id' => $course->getField( 'org_id' ) )
+					);
+
+					if ( is_string( $specificCategory ) ) {
+						$specificCategory = str_replace(
+							array( '$1', '$2' ),
+							array( $specificCategory, EPSettings::get( 'dykCategory' ) ),
+							EPSettings::get( 'dykOrgCategory' )
+						);
+					}
+				}
+
+				$box = new DYKBox(
+					EPSettings::get( 'dykCategory' ),
+					$specificCategory,
+					$context
 				);
-			}
-		}
 
-		$box = new DYKBox(
-			EPSettings::get( 'dykCategory' ),
-			$specificCategory,
-			$this->getContext()
+				return $box->getHTML();
+			},
+			array( $this->getContext(), $this->courses )
 		);
-		$box->display();
+
+		$this->getOutput()->addModules( DYKBox::getModules() );
 	}
 
 	/**
 	 * Display the course activity timelines.
 	 *
 	 * @since 0.1
-	 *
-	 * @param array of EPCourse $courses
 	 */
-	protected function displayTimelines( array $courses ) {
-		$out = $this->getOutput();
+	protected function displayTimelines() {
+		foreach ( $this->courses as $course ) {
+			$this->displayTimeline( $course );
+		}
 
-		$dbr = wfGetDB( DB_SLAVE );
-		$eventTable = EPEvents::singleton();
+		if ( $this->courses !== array() ) {
+			$this->getOutput()->addModules( EPTimeline::getModules() );
+		}
+	}
 
-		foreach ( $courses as /* EPCourse */ $course ) {
-			$conds = array(
-				'course_id' => $course->getId(),
-				'time > ' . $dbr->addQuotes( wfTimestamp( TS_MW, time() - EPSettings::get( 'timelineDurationLimit' ) ) ),
-			);
+	/**
+	 * Returns the variables used to constructed the cache key in an array.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
+	protected function getCacheKey() {
+		return array_merge(
+			parent::getCacheKey(),
+			array_map(
+				function( EPCourse $course ) {
+					return $course->getId();
+				},
+				$this->courses
+			)
+		);
+	}
 
-			$options = array(
-				'LIMIT' => EPSettings::get( 'timelineCountLimit' ),
-				'ORDER BY' => $eventTable->getPrefixedField( 'time' ) . ' DESC'
-			);
+	/**
+	 * Displays the activity timeline for a single course.
+	 *
+	 * @since 0.1
+	 *
+	 * @param EPCourse $course
+	 */
+	protected function displayTimeline( EPCourse $course ) {
+		$this->addCachedHTML(
+			function( EPCourse $course, IContextSource $context ) {
+				$eventTable = EPEvents::singleton();
 
-			$out->addHTML( Linker::link(
-				$course->getTitle(),
-				Html::element(
-					'h2',
-					array(),
-					$course->getField( 'name' )
-				)
-			) );
-
-			$events = iterator_to_array( $eventTable->select( null, $conds, $options ) );
-
-			if ( $events === array() ) {
-				$out->addWikiMsg( 'ep-dashboard-timeline-empty' );
-			}
-			else {
-				$timeline = new EPTimeline(
-					$this->getContext(),
-					$events
+				$conds = array(
+					'course_id' => $course->getId(),
+					'time > ' . wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, time() - EPSettings::get( 'timelineDurationLimit' ) ) ),
 				);
 
-				$timeline->display();
-			}
-		}
+				$options = array(
+					'LIMIT' => EPSettings::get( 'timelineCountLimit' ),
+					'ORDER BY' => $eventTable->getPrefixedField( 'time' ) . ' DESC'
+				);
+
+				$html = Linker::link(
+					$course->getTitle(),
+					Html::element(
+						'h2',
+						array(),
+						$course->getField( 'name' )
+					)
+				);
+
+				$events = iterator_to_array( $eventTable->select( null, $conds, $options ) );
+
+				if ( $events === array() ) {
+					$html .= $context->msg( 'ep-dashboard-timeline-empty' )->escaped();
+				}
+				else {
+					$timeline = new EPTimeline(
+						$context,
+						$events
+					);
+
+					$html .= $timeline->getHTML();
+				}
+
+				return $html;
+			},
+			array( $course, $this->getContext() )
+		);
 	}
 
 	/**

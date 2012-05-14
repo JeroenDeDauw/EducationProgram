@@ -116,8 +116,21 @@ class EPTimeline extends ContextSource {
 	public function display() {
 		$out = $this->getOutput();
 
-		$out->addModules( 'ep.timeline' );
+		$out->addModules( self::getModules() );
 		$out->addHTML( $this->getHTML() );
+	}
+
+	/**
+	 * Returns the modules needed for display.
+	 *
+	 * @since 0.1
+	 *
+	 * @return array
+	 */
+	public static function getModules() {
+		return array(
+			'ep.timeline'
+		);
 	}
 
 }
