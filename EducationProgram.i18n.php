@@ -131,6 +131,7 @@ $messages['en'] = array(
 	'ep-prefs-showtoplink' => 'Show a link to [[Special:MyCourses|your courses]] at the top of every page.',
 	'ep-prefs-bulkdelorgs' => 'Show a bulk deletion control for the [[Special:Institutions|institutions]].',
 	'ep-prefs-bulkdelcourses' => 'Show a bulk deletion control for the [[Special:Courses|courses]].',
+	'ep-prefs-showdyk' => 'Show the "Did you know box" on [[Special:MyCourses|your courses]] page.',
 
 	// Rights
 	'right-ep-org' => 'Manage Education Program institutions',
@@ -1550,8 +1551,6 @@ This will permanently remove their associated articles and reviewers!',
 
 	// EPOA
 	'ep-online-remove' => 'User tool link text',
-
-	// TODO
 
 	// API enlist
 	'ep-enlist-invalid-user-args' => 'API error message',

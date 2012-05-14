@@ -146,7 +146,8 @@ class SpecialMyCourses extends SpecialEPPage {
 					return $course->getId();
 				},
 				$this->courses
-			)
+			),
+			array( $this->getUser()->getOption( 'ep_showdyk' ) )
 		);
 	}
 

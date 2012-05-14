@@ -674,3 +674,4 @@ $egEPSettings = array();
 $wgDefaultUserOptions['ep_showtoplink'] = false;
 $wgDefaultUserOptions['ep_bulkdelorgs'] = false;
 $wgDefaultUserOptions['ep_bulkdelcourses'] = true;
+$wgDefaultUserOptions['ep_showdyk'] = true;

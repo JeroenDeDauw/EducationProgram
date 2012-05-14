@@ -142,6 +142,14 @@ final class EPHooks {
 				'section' => 'education',
 			);
 		}
+
+		if ( EPSettings::get( 'enableDykSetting' ) ) {
+			$preferences['ep_showdyk'] = array(
+				'type' => 'toggle',
+				'label-message' => 'ep-prefs-showdyk',
+				'section' => 'education',
+			);
+		}
 		
 		if ( $user->isAllowed( 'ep-bulkdelorgs' ) ) {
 			$preferences['ep_bulkdelorgs'] = array(

@@ -73,6 +73,7 @@ class EPSettings {
 			'timelineUserLimit' => 3,
 			'dykCategory' => 'Wikipedia:Education Program Did You Know',
 			'dykOrgCategory' => '$2/$1', // $1 = org name, $2 = dykCategory setting
+			'enableDykSetting' => true,
 		);
 	}
 
