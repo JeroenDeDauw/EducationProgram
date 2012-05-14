@@ -34,16 +34,43 @@ class EPEvent extends ORMRow {
 	public static function newFromRevision( Revision $revision, User $user ) {
 		$title = $revision->getTitle();
 
+		$info = array(
+			'page' => $title->getFullText(),
+			'comment' => $revision->getComment(),
+			'minoredit' => $revision->isMinor(),
+			'parent' => $revision->getParentId()
+		);
+
+		if ( MWNamespace::isTalk( $title->getNamespace() ) ) {
+			$diff = new Diff(
+				explode( "\n", Revision::newFromId( $revision->getParentId() )->getText() ),
+				explode( "\n", $revision->getText() )
+			);
+
+			// Only an order of magnitude more lines then the python equivalent, but oh well... >_>
+			// lines = [ diffOp->closing for diffOp in diff->edits if diffOp->type == 'add' ]
+			$lines = array_map(
+				function( _DiffOp $diffOp ) {
+					return $diffOp->closing;
+				},
+				array_filter(
+					$diff->edits,
+					function( _DiffOp $diffOp ) {
+						return $diffOp->type == 'add';
+					}
+				)
+			);
+
+			$lines = call_user_func_array( 'array_merge', $lines );
+
+			$info['addedlines'] = $lines;
+		}
+
 		$fields = array(
 			'user_id' => $user->getId(),
 			'time' => $revision->getTimestamp(),
 			'type' => 'edit-' . $title->getNamespace(),
-			'info' => array(
-				'page' => $title->getFullText(),
-				'comment' => $revision->getComment(),
-				'minoredit' => $revision->isMinor(),
-				'parent' => $revision->getParentId()
-			),
+			'info' => $info,
 		);
 
 		return EPEvents::singleton()->newFromArray( $fields );

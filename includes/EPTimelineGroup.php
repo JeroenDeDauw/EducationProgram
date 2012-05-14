@@ -277,8 +277,20 @@ class EPEditGroup extends EPTimelineGroup {
 
 		$html .= '&#160;';
 
+		if ( array_key_exists( 'addedlines', $info ) ) {
+			$text = implode( ' ', $info['addedlines'] );
+
+			if ( strlen( $text ) > EPSettings::get( 'timelineMessageLengthLimit' ) ) {
+				$text = substr( $text, 0, EPSettings::get( 'timelineMessageLengthLimit' ) );
+				$text = $this->msg( 'ep-timeline-cutoff', $text )->plain();
+			}
+		}
+		else {
+			$text = $info['comment'];
+		}
+
 		$html .= strip_tags(
-			$this->getOutput()->parseInline( $info['comment'] ),
+			$this->getOutput()->parseInline( $text ),
 			'<a><b><i>'
 		);
 

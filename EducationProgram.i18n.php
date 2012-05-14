@@ -810,6 +810,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-timeline-remaining' => '$1 {{PLURAL:$1|other|others}}',
 	'ep-timeline-unknown' => '$1 did something at $2',
 	'ep-timeline-ago' => '$1 ago',
+	'ep-timeline-cutoff' => '$1 ...',
 
 	'ep-timeline-users-edit-article' => "$1 edited the article '''[[$2]]'''.",
 	'ep-timeline-users-edit-talk' => "$1 left {{PLURAL:$4|a message|messages}} on the '''[[$2|talk page]]''' of '''[[$3]]'''.",
@@ -1605,6 +1606,7 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-timeline-remaining' => 'Shown in "user0, user1, user2 and 42 others". $1 is the amount of other users',
 	'ep-timeline-unknown' => '$1 is user name, $2 is a date and time',
 	'ep-timeline-ago' => '$1 is the duration (ie 42 minutes) in "42 minutes ago"',
+	'ep-timeline-cutoff' => 'Used when a to long text is cut off. $1 is the text fragment to display.',
 
 	'ep-timeline-users-edit-article' => 'Header for a group of events in a timeline.
 $1 is html for a user link of list of user links.
