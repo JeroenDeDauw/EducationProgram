@@ -41,7 +41,7 @@ class EPEvent extends ORMRow {
 			'parent' => $revision->getParentId()
 		);
 
-		if ( MWNamespace::isTalk( $title->getNamespace() ) ) {
+		if ( MWNamespace::isTalk( $title->getNamespace() ) && !is_null( $revision->getParentId() ) ) {
 			$diff = new Diff(
 				explode( "\n", Revision::newFromId( $revision->getParentId() )->getText() ),
 				explode( "\n", $revision->getText() )
