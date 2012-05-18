@@ -21,14 +21,14 @@ class EPHistoryAction extends EPAction {
 	public function getName() {
 		return 'history';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
 		$this->getOutput()->setPageTitle( $this->getPageTitle() );
-		
+
 		$object = $this->page->getTable()->get( $this->getTitle()->getText() );
 
 		if ( $object === false ) {
@@ -37,16 +37,16 @@ class EPHistoryAction extends EPAction {
 		else {
 			$this->displayRevisions( $object );
 		}
-		
+
 		return '';
 	}
-	
+
 	protected function displayNoRevisions() {
 		$this->getOutput()->addWikiMsg( $this->prefixMsg( 'norevs' ) );
 
 		$this->displayDeletionLog();
 	}
-	
+
 	/**
 	 * Returns the page title.
 	 *
@@ -61,7 +61,7 @@ class EPHistoryAction extends EPAction {
 			$this->getTitle()->getText()
 		);
 	}
-	
+
 	/**
 	 * Display a list with the passed revisions.
 	 *
@@ -124,7 +124,7 @@ class EPHistoryAction extends EPAction {
 			// TODO
 		}
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getDescription()
@@ -137,5 +137,5 @@ class EPHistoryAction extends EPAction {
 			array( 'page' => $this->getTitle()->getPrefixedText() )
 		);
 	}
-	
+
 }

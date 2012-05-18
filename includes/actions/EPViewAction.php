@@ -96,7 +96,7 @@ abstract class EPViewAction extends EPAction {
 
 		return '';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getDescription()
@@ -107,9 +107,9 @@ abstract class EPViewAction extends EPAction {
 
 	/**
 	 * Display a revision notice as subtitle.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPRevision $rev
 	 */
 	protected function displayRevisionNotice( EPRevision $rev ) {
@@ -140,9 +140,9 @@ abstract class EPViewAction extends EPAction {
 
 	/**
 	 * Display the actual page.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param ORMRow $object
 	 *
 	 * @return string
@@ -242,5 +242,5 @@ abstract class EPViewAction extends EPAction {
 	protected function getCacheKey() {
 		return array_merge( $this->getRequest()->getValues(), parent::getCacheKey() );
 	}
-	
+
 }

@@ -13,14 +13,14 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class OrgPage extends EPPage {
-	
+
 	protected static $info = array(
 		'ns' => EP_NS_INSTITUTION,
 		'edit-right' => 'ep-org',
 		'list' => 'Institutions',
 		'log-type' => 'institution',
 	);
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPage::getActions()
@@ -34,7 +34,7 @@ class OrgPage extends EPPage {
 			'purge' => 'ViewOrgAction',
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPage::getActions()
@@ -43,5 +43,5 @@ class OrgPage extends EPPage {
 	public function getTable() {
 		return EPOrgs::singleton();
 	}
-	
+
 }

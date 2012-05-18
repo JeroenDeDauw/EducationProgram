@@ -13,14 +13,14 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class CoursePage extends EPPage {
-	
+
 	protected static $info = array(
 		'ns' => EP_NS_COURSE,
 		'edit-right' => 'ep-course',
 		'list' => 'Courses',
 		'log-type' => 'course',
 	);
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPage::getActions()
@@ -34,7 +34,7 @@ class CoursePage extends EPPage {
 			'purge' => 'ViewCourseAction',
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPage::getActions()
@@ -43,6 +43,6 @@ class CoursePage extends EPPage {
 	public function getTable() {
 		return EPCourses::singleton();
 	}
-	
+
 }
 

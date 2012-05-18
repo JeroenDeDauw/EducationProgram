@@ -178,7 +178,7 @@ class ViewCourseAction extends EPViewAction {
 		$links = array();
 
 		$field = $roleName === 'instructor' ? 'instructors' : $roleName . '_ambs';
-		
+
 		if ( ( $user->isAllowed( 'ep-' . $roleName ) || $user->isAllowed( 'ep-be' . $roleName ) )
 			&& !in_array( $user->getId(), $course->getField( $field ) )
 		) {
@@ -231,5 +231,5 @@ class ViewCourseAction extends EPViewAction {
 			$user->isAllowed( 'ep-bulkdelcourses' ) && $user->getOption( 'ep_bulkdelcourses' ),
 		), parent::getCacheKey() );
 	}
-	
+
 }

@@ -51,17 +51,17 @@ class ApiDeleteEducation extends ApiBase {
 		if ( !$this->userIsAllowed( $params['type'], $params ) || $this->getUser()->isBlocked() ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
-		
+
 		$everythingOk = true;
 
 		$class = self::$typeMap[$params['type']];
-		
+
 		if ( !empty( $params['ids'] ) ) {
 			$revAction = new EPRevisionAction();
-			
+
 			$revAction->setUser( $this->getUser() );
 			$revAction->setComment( $params['comment'] );
-			
+
 			$class::singleton()->deleteAndLog( $revAction, array( 'id' =>  $params['ids'] ) );
 		}
 

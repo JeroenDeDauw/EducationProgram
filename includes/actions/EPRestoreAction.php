@@ -21,7 +21,7 @@ class EPRestoreAction extends EPAction {
 	public function getName() {
 		return 'eprestore';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getRestriction()
@@ -29,7 +29,7 @@ class EPRestoreAction extends EPAction {
 	public function getRestriction() {
 		return $this->page->getEditRight();
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getDescription()
@@ -103,37 +103,37 @@ class EPRestoreAction extends EPAction {
 
 		return '';
 	}
-	
+
 	/**
 	 * Does the actual restore action.
-	 * 
+	 *
 	 * @since 0.1
 	 *
 	 * @param EPPageObject $object
 	 * @param EPRevision $revision
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	protected function doRestore( EPPageObject $object, EPRevision $revision ) {
 		$success = $object->restoreToRevision( $revision );
-		
+
 		if ( $success ) {
 			$revAction = new EPRevisionAction();
-		
+
 			$revAction->setUser( $this->getUser() );
 			$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
-			
+
 			$success = $object->revisionedSave( $revAction );
 		}
-		
+
 		return $success;
 	}
 
 	/**
 	 * Display the restoration form for the provided EPPageObject.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPPageObject $object
 	 * @param EPRevision $revision
 	 */
@@ -141,7 +141,7 @@ class EPRestoreAction extends EPAction {
 		$out = $this->getOutput();
 
 		$out->addModules( 'ep.formpage' );
-		
+
 		$out->addWikiMsg( $this->prefixMsg( 'text' ), $object->getField( 'name' ) );
 
 		$out->addHTML( Html::openElement(
@@ -189,13 +189,13 @@ class EPRestoreAction extends EPAction {
 			),
 			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);
-		
+
 		$out->addHTML( Html::hidden( 'revid', $this->getRequest()->getInt( 'revid' ) ) );
 		$out->addHTML( Html::hidden( 'restoreToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
 
 		$out->addHTML( '</form>' );
 	}
-	
+
 	/**
 	 * Returns the page title.
 	 *

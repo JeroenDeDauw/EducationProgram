@@ -19,7 +19,7 @@ class EPFailForm extends HTMLForm {
 	 * @var array
 	 */
 	protected $query = array();
-	
+
 	/**
 	 * Should the summary field be shown or not?
 	 * @since 0.1
@@ -33,7 +33,7 @@ class EPFailForm extends HTMLForm {
 	 * @var boolean
 	 */
 	protected $showMinorEdit = true;
-	
+
 	/**
 	 * Wrap the form innards in an actual <form> element
 	 * @param $html String HTML contents to wrap.
@@ -62,24 +62,24 @@ class EPFailForm extends HTMLForm {
 
 		return Html::rawElement( 'form', $attribs, $html );
 	}
-	
-	
+
+
 	/**
 	 * Sets the query for the action URL.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param array $query
 	 */
 	public function setQuery( array $query ) {
 		$this->query = $query;
 	}
-	
+
 	/**
 	 * Sets if the summary field be shown or not.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param boolean $showSummary
 	 */
 	public function setShowSummary( $showSummary ) {
@@ -112,7 +112,7 @@ class EPFailForm extends HTMLForm {
 				array( 'for' => 'wpSummary' ),
 				wfMsg( 'ep-form-summary' )
 			) . '&#160;';
-			
+
 			$attrs = array(
 				'id' => 'wpSummary',
 				'name' => 'wpSummary',
@@ -120,7 +120,7 @@ class EPFailForm extends HTMLForm {
 				'maxlength' => 250,
 				'spellcheck' => true
 			);
-			
+
 			$attrs = array_merge( $attrs, Linker::tooltipAndAccesskeyAttribs( 'ep-summary' ) );
 
 			$html .= Html::element(

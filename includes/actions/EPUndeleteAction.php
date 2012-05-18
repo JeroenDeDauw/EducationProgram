@@ -21,7 +21,7 @@ class EPUndeleteAction extends EPAction {
 	public function getName() {
 		return 'epundelete';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getRestriction()
@@ -29,7 +29,7 @@ class EPUndeleteAction extends EPAction {
 	public function getRestriction() {
 		return $this->page->getEditRight();
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getDescription()
@@ -52,7 +52,7 @@ class EPUndeleteAction extends EPAction {
 				'object_identifier' => $this->getTitle()->getText(),
 				'type' => $this->page->getTable()->getRowClass(),
  			) );
-			
+
 			if ( $revision === false ) {
 				$this->getRequest()->setSessionData(
 					'epfail',
@@ -62,10 +62,10 @@ class EPUndeleteAction extends EPAction {
 			}
 			else {
 				$req = $this->getRequest();
-				
+
 				if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undeleteToken' ), $this->getSalt() ) ) {
 					$success = $this->doUndelete( $revision );
-					
+
 					if ( $success ) {
 						$this->getRequest()->setSessionData(
 							'epsuccess',
@@ -78,7 +78,7 @@ class EPUndeleteAction extends EPAction {
 							$this->msg( $this->prefixMsg( 'undelete-failed' ), $this->getTitle()->getText() )->text()
 						);
 					}
-					
+
 					$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 				}
 				else {
@@ -93,42 +93,42 @@ class EPUndeleteAction extends EPAction {
 			);
 			$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 		}
-		
+
 		return '';
 	}
-	
+
 	/**
 	 * Does the actual undeletion action.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPRevision $revision
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	protected function doUndelete( EPRevision $revision ) {
 		$revAction = new EPRevisionAction();
-		
+
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
-		
+
 		return $revision->getObject()->undelete( $revAction );
 	}
 
 	/**
 	 * Display the undeletion form for the provided EPPageObject.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPRevision $revision
 	 */
 	protected function displayForm( EPRevision $revision ) {
 		$out = $this->getOutput();
-		
+
 		$out->addModules( 'ep.formpage' );
 
 		$object = $revision->getObject();
-		
+
 		$out->addWikiMsg( $this->prefixMsg( 'text' ), $object->getField( 'name' ) );
 
 		$out->addHTML( Html::openElement(
@@ -176,7 +176,7 @@ class EPUndeleteAction extends EPAction {
 
 		$out->addHTML( '</form>' );
 	}
-	
+
 	/**
 	 * Returns the page title.
 	 *

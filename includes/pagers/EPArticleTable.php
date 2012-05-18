@@ -72,7 +72,7 @@ class EPArticleTable extends EPPager {
 	public function setShowStudents( $showStudents ) {
 		$this->showStudents = $showStudents;
 	}
-	
+
 	public function getBody() {
 		$this->getOutput()->addModules( 'ep.articletable' );
 		return parent::getBody();
@@ -145,12 +145,12 @@ class EPArticleTable extends EPPager {
 
 		return $html;
 	}
-	
+
 	/**
 	 * Adds the HTML for the article and reviewers to the table row.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param string $html
 	 * @param array $articles
 	 * @param boolean $showArticleAdittion
@@ -402,11 +402,11 @@ class EPArticleTable extends EPPager {
 
 	/**
 	 * Returns the HTML for the article adittion control.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param integer $courseId
-	 * 
+	 *
 	 * @return string
 	 */
 	protected function getArticleAdittionControl( $courseId ) {
@@ -452,11 +452,11 @@ class EPArticleTable extends EPPager {
 
 	/**
 	 * Returns the HTML for the reviewer adittion control.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPArticle $article
-	 * 
+	 *
 	 * @return string
 	 */
 	protected function getReviewerAdittionControl( EPArticle $article ) {

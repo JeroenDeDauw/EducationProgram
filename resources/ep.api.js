@@ -53,7 +53,7 @@
 				'ids': data.ids.join( '|' ),
 				'type': data.type
 			}, args );
-			
+
 			var deferred = $.Deferred();
 
 			$.post(
@@ -68,7 +68,7 @@
 					}
 				}
 			);
-			
+
 			return deferred.promise();
 		},
 

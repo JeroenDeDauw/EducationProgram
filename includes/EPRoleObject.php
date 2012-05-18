@@ -12,7 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPRoleObject extends ORMRow implements EPIRole {
-	
+
 	/**
 	 * Field for caching the linked user.
 	 *
@@ -20,7 +20,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	 * @var User|false
 	 */
 	protected $user = false;
-	
+
 	/**
 	 * Cached array of the linked EPCourse objects.
 	 *
@@ -31,9 +31,9 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 
 	/**
 	 * Create a new role object from a user id.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param integer $userId
 	 * @param boolean $load If the object should be loaded from the db if it already exists
 	 * @param null|array|string $fields Fields to load
@@ -42,19 +42,19 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	 */
 	public static function newFromUserId( $userId, $load = false, $fields = null ) {
 		$data = array( 'user_id' => $userId );
-		
+
 		$map = array(
 			'EPOA' => 'EPOAs',
 			'EPCA' => 'EPCAs',
 			'EPStudent' => 'EPStudents',
 			'EPInstructor' => 'EPInstructors',
 		); // TODO: this is lame
-		
+
 		$class = $map[get_called_class()];
 		$table = $class::singleton();
-		
+
 		$userRole = $load ? $table->selectRow( $fields, $data ) : false;
-		
+
 		if ( $userRole === false ) {
 			return new static( $table, $data, true );
 		}
@@ -63,12 +63,12 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 			return $userRole;
 		}
 	}
-	
+
 	/**
 	 * Create a new instructor object from a User object.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param User $user
 	 * @param boolean $load If the object should be loaded from the db if it already exists
 	 * @param null|array|string $fields Fields to load
@@ -78,42 +78,42 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	public static function newFromUser( User $user, $load = false, $fields = null ) {
 		return static::newFromUserId( $user->getId(), $load, $fields );
 	}
-	
+
 	/**
 	 * Returns the user.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return User
 	 */
 	public function getUser() {
 		if ( $this->user === false ) {
 			$this->user = User::newFromId( $this->getField( 'user_id' ) );
 		}
-		
+
 		return $this->user;
 	}
-	
+
 	/**
 	 * Returns the name of the user, possibly using their real name when available.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getName() {
 		return !EPSettings::get( 'useStudentRealNames' ) || $this->getUser()->getRealName() === '' ?
 			$this->getUser()->getName() : $this->getUser()->getRealName();
 	}
-	
+
 	/**
 	 * Returns the tool links for this ambassador.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param IContextSource $context
 	 * @param EPCourse|null $course
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getToolLinks( IContextSource $context, EPCourse $course = null ) {
@@ -122,9 +122,9 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 
 	/**
 	 * Retruns the user link for this ambassador, using their real name when available.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getUserLink() {
@@ -134,7 +134,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 			$this->getName()
 		);
 	}
-	
+
 	/**
 	 * Associate the user with the provided courses.
 	 *
@@ -149,7 +149,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 		$success = true;
 
 		$courseIds = array();
-		
+
 		foreach ( $courses as /* EPCourse */ $course ) {
 			$courseIds[] = $course->getId();
 			$course->setUpdateSummaries( false );
@@ -238,7 +238,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 			)
 		)->numRows() > 0;
 	}
-	
+
 	/**
 	 * Returns the courses this campus ambassdor is associated with.
 	 *
@@ -251,7 +251,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	 */
 	protected function doGetCourses( $fields, array $conditions ) {
 		$courseTable = EPCourses::singleton();
-		
+
 		$result = wfGetDB( DB_SLAVE )->select(
 			array( 'ep_courses', 'ep_users_per_course' ),
 			$courseTable->getPrefixedFields( is_null( $fields ) ? $courseTable->getFieldNames() : (array)$fields ),
@@ -265,13 +265,13 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 				'ep_users_per_course' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
 			)
 		);
-		
+
 		$courses = array();
-		
+
 		foreach ( $result as $course ) {
 			$courses[] = $courseTable->newFromDBResult( $course );
 		}
-		
+
 		return $courses;
 	}
 
@@ -313,5 +313,5 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 
 		return $conds;
 	}
-	
+
 }

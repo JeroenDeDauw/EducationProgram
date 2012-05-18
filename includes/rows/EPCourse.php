@@ -36,7 +36,7 @@ class EPCourse extends EPPageObject {
 	 * @var {array of EPInstructor}|false
 	 */
 	protected $instructors = false;
-	
+
 	/**
 	 * Field for caching the online ambassaords.
 	 *
@@ -44,7 +44,7 @@ class EPCourse extends EPPageObject {
 	 * @var {array of EPOA}|false
 	 */
 	protected $oas = false;
-	
+
 	/**
 	 * Field for caching the campus ambassaords.
 	 *
@@ -129,7 +129,7 @@ class EPCourse extends EPPageObject {
 
 		return $success;
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPRevisionedObject::onRemoved()
@@ -268,7 +268,7 @@ class EPCourse extends EPPageObject {
 		}
 
 		$html = '';
-		
+
 		if ( $pager->getNumRows() ) {
 			$html .=
 				$pager->getFilterControl() .
@@ -493,7 +493,7 @@ class EPCourse extends EPPageObject {
 
 		return $this->$classField;
 	}
-	
+
 	/**
 	 * Returns the campus ambassadors as a list of EPCA objects.
 	 *
@@ -504,7 +504,7 @@ class EPCourse extends EPPageObject {
 	public function getCampusAmbassadors() {
 		return $this->getRoleList( 'campus_ambs', 'EPCAs', 'cas' );
 	}
-	
+
 	/**
 	 * Returns the online ambassadors as a list of EPOA objects.
 	 *
@@ -515,14 +515,14 @@ class EPCourse extends EPPageObject {
 	public function getOnlineAmbassadors() {
 		return $this->getRoleList( 'online_ambs', 'EPOAs', 'oas' );
 	}
-	
+
 	/**
 	 * Returns the users that have a certain role as list of EPIRole objects.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param string $roleName
-	 * 
+	 *
 	 * @return array of EPIRole
 	 * @throws MWException
 	 */
@@ -541,7 +541,7 @@ class EPCourse extends EPPageObject {
 				return $this->getStudents();
 				break;
 		}
-		
+
 		throw new MWException( 'Invalid role name: ' . $roleName );
 	}
 
@@ -653,7 +653,7 @@ class EPCourse extends EPPageObject {
 		);
 
 		$field = $roleMap[$role];
-		
+
 		$removedUsers = array_intersect( $sadUsers, $this->getField( $field ) );
 
 		if ( empty( $removedUsers ) ) {
@@ -708,9 +708,9 @@ class EPCourse extends EPPageObject {
 			'online' => 'EPOA',
 			'student' => 'EPStudent',
 		);
-		
+
 		$class = $classes[$role];
-		
+
 		foreach ( $users as $userId ) {
 			$names[] = $class::newFromUserId( $userId )->getName();
 		}

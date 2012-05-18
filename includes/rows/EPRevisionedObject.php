@@ -12,7 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPRevisionedObject extends ORMRow {
-	
+
 	/**
 	 * If the object should log changes.
 	 * Can be changed via disableLogging and enableLogging.
@@ -76,7 +76,7 @@ abstract class EPRevisionedObject extends ORMRow {
 	public function disableLogging() {
 		$this->log = false;
 	}
-	
+
 	/**
 	 * Returns the info for the log entry or false if no entry should be created.
 	 *
@@ -89,7 +89,7 @@ abstract class EPRevisionedObject extends ORMRow {
 	protected function getLogInfo( $subType ) {
 		return false;
 	}
-	
+
 	/**
 	 * Store the current version of the object in the revisions table.
 	 *
@@ -106,7 +106,7 @@ abstract class EPRevisionedObject extends ORMRow {
 
 		return true;
 	}
-	
+
 	/**
 	 * Log an action.
 	 *
@@ -129,7 +129,7 @@ abstract class EPRevisionedObject extends ORMRow {
 			}
 		}
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMRow::saveExisting()
@@ -170,7 +170,7 @@ abstract class EPRevisionedObject extends ORMRow {
 		$this->storeRevision( $this );
 		$this->log( 'update' );
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMRow::insert()
@@ -185,11 +185,11 @@ abstract class EPRevisionedObject extends ORMRow {
 
 		return $result;
 	}
-	
+
 	/**
 	 * Do logging and revision storage after a removal.
 	 * @see ORMRow::onRemoved()
-	 * 
+	 *
 	 * @since 0.1
 	 */
 	protected function onRemoved() {
@@ -197,19 +197,19 @@ abstract class EPRevisionedObject extends ORMRow {
 		$this->log( 'remove' );
 		parent::onRemoved();
 	}
-	
+
 	public function getIdentifier() {
 		return null;
 	}
-	
+
 	/**
 	 * Save the object using the provided revision action info for logging and revision storage.
 	 * PHP does not support method overloading, else this would be just "save" :/
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPRevisionAction $revAction
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	public function revisionedSave( EPRevisionAction $revAction ) {
@@ -218,15 +218,15 @@ abstract class EPRevisionedObject extends ORMRow {
 		$this->setRevisionAction( false );
 		return $success;
 	}
-	
+
 	/**
 	 * Remove the object using the provided revision action info for logging and revision storage.
 	 * PHP does not support method overloading, else this would be just "remove" :/
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPRevisionAction $revAction
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	public function revisionedRemove( EPRevisionAction $revAction ) {
@@ -235,7 +235,7 @@ abstract class EPRevisionedObject extends ORMRow {
 		$this->setRevisionAction( false );
 		return $success;
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMRow::getBeforeRemoveFields()
@@ -243,35 +243,35 @@ abstract class EPRevisionedObject extends ORMRow {
 	protected function getBeforeRemoveFields() {
 		return null;
 	}
-	
+
 	/**
 	 * Get the revision with the provided id for this object.
 	 * Returns false if there is no revision with this id for this object.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param integer $id
-	 * 
+	 *
 	 * @return EPRevision|false
 	 */
 	public function getRevisionById( $id ) {
-		$objects = $this->getRevisions( 
+		$objects = $this->getRevisions(
 			array( 'id' => $id ),
 			array( 'LIMIT' => 1 )
 		);
 
 		return $objects->isEmpty() ? false : $objects->current();
 	}
-	
+
 	/**
 	 * Returns the revisions of the object matching the provided conditions.
 	 * If you set the type or object_id fields, other revisions might be returned as well.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param array $conditions
 	 * @param array $options
-	 * 
+	 *
 	 * @return ORMResult
 	 */
 	public function getRevisions( array $conditions = array(), array $options = array() ) {
@@ -317,32 +317,32 @@ abstract class EPRevisionedObject extends ORMRow {
 	 * Undeletes ab object by inserting the current object.
 	 * Only call this method when the object does not exist in
 	 * it's database table and has the current version in the revision table.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPRevisionAction $revAction
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	public function undelete( EPRevisionAction $revAction ) {
 		$this->setRevisionAction( $revAction );
-		
+
 		$result = parent::insert();
 
 		if ( $result ) {
 			$this->log( 'undelete' );
 		}
-		
+
 		$this->setRevisionAction( false );
-		
+
 		return $result;
 	}
-	
+
 	/**
 	 * Restore the object to the provided revisions state.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPRevision $revison
 	 * @param array|null $fields
 	 *
@@ -428,15 +428,15 @@ abstract class EPRevisionedObject extends ORMRow {
 	protected function restoreField( $fieldName, $newValue ) {
 		$this->setField( $fieldName, $newValue );
 	}
-	
+
 	/**
 	 * Retore the object to a revision with the provided id.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param integer $revId
 	 * @param array|null $fields
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	public function restoreToRevisionId( $revId, array $fields = null ) {

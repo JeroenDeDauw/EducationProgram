@@ -22,7 +22,7 @@ class EPCAs extends ORMTable {
 	public function getName() {
 		return 'ep_cas';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFieldPrefix()
@@ -32,7 +32,7 @@ class EPCAs extends ORMTable {
 	public function getFieldPrefix() {
 		return 'ca_';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getRowClass()
@@ -42,7 +42,7 @@ class EPCAs extends ORMTable {
 	public function getRowClass() {
 		return 'EPCA';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFields()
@@ -60,7 +60,7 @@ class EPCAs extends ORMTable {
 			'photo' => 'str',
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getDefaults()

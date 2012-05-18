@@ -12,7 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPOA extends EPRoleObject implements EPIRole {
-	
+
 	/**
 	 * Display a pager with online ambassadors.
 	 *
@@ -39,7 +39,7 @@ class EPOA extends EPRoleObject implements EPIRole {
 				$context->msg( 'ep-oa-noresults' )->escaped();
 		}
 	}
-	
+
 	/**
 	 * @since 0.1
 	 * @see EPIRole::getRoleName

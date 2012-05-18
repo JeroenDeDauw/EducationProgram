@@ -7,7 +7,7 @@
  */
 
 (function( $, ep ) {
-	
+
 	function addReviewer() {
 		var $this = $( this );
 
@@ -62,7 +62,7 @@
 
 		$dialog.append( $form );
 	}
-	
+
 	function removeStudent() {
 		var $this = $( this );
 
@@ -123,7 +123,7 @@
 
 		$dialog.append( $form );
 	}
-	
+
 	function removeArticle() {
 		var $this = $( this ),
 		courseName = $this.attr( 'data-course-name' ),
@@ -182,7 +182,7 @@
 
 		$dialog.append( $form );
 	}
-	
+
 	function removeReviewer() {
 		var $this = $( this ),
 		isSelf = $this.attr( 'data-reviewer-name' ) === undefined,
@@ -223,7 +223,7 @@
 				'type': 'hidden',
 				'name': 'user-id',
 				'value': $this.attr( 'data-reviewer-id' )
-			} ) );			
+			} ) );
 		}
 
 		var $dialog = $( '<div>' ).html( '' ).dialog( {
@@ -249,13 +249,13 @@
 
 		$dialog.append( $form );
 	}
-	
+
 	$( document ).ready( function() {
 
 		$( '.ep-rem-reviewer-self, .ep-become-reviewer' ).removeAttr( 'disabled' );
 
 		$( '.ep-become-reviewer' ).click( addReviewer );
-		
+
 		$( '.ep-rem-reviewer, .ep-rem-reviewer-self' ).click( removeReviewer );
 
 		$( '.ep-rem-student' ).click( removeStudent );

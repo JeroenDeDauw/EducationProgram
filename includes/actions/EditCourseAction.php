@@ -49,7 +49,7 @@ class EditCourseAction extends EPEditAction {
 	public function getRestriction() {
 		return 'ep-course';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPEditAction::onView()
@@ -84,7 +84,7 @@ class EditCourseAction extends EPEditAction {
 			$this->isNew = true;
 			$out->setSubtitle( $this->getDescription() );
 			$out->setPageTitle( $this->getPageTitle() );
-			
+
 			return '';
 		}
 		else {
@@ -133,9 +133,9 @@ class EditCourseAction extends EPEditAction {
 			'help-message' => 'ep-course-help-name',
 			'required' => true,
 		);
-		
+
 		$mcs = $this->table->selectFields( 'mc', array(), array( 'DISTINCT' ) );
-		
+
 		if ( $this->getRequest()->getCheck( 'newname' ) ) {
 			$newName = $this->getRequest()->getText( 'newname' );
 			$mcs = array_merge( array( $newName => $newName ), $mcs );
@@ -143,7 +143,7 @@ class EditCourseAction extends EPEditAction {
 		else {
 			$mcs = array_merge( array( '' => '' ), $mcs );
 		}
-		
+
 		$fields['mc'] = array (
 			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-mc',
@@ -257,7 +257,7 @@ class EditCourseAction extends EPEditAction {
 				$data['name'],
 				$this->getRequest()->getVal( 'newterm' )
 			);
-			
+
 			$data['term'] = $this->getRequest()->getVal( 'newterm' );
 
 			$data['description'] = $this->getDefaultDescription( array(
@@ -334,5 +334,5 @@ class EditCourseAction extends EPEditAction {
 
 		return $content;
 	}
-	
+
 }

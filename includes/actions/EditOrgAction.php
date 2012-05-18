@@ -49,7 +49,7 @@ class EditOrgAction extends EPEditAction {
 	public function getRestriction() {
 		return 'ep-org';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPEditAction::getFormFields()
@@ -111,5 +111,5 @@ class EditOrgAction extends EPEditAction {
 
 		return in_array( $value, $countries ) ? true : wfMsg( 'educationprogram-org-invalid-country' );
 	}
-	
+
 }

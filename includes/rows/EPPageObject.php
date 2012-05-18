@@ -20,7 +20,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 	public function getIdentifier() {
 		return $this->getField( $this->table->getIdentifierField() );
 	}
-	
+
 	/**
 	 * Returns the title of the page representing the object.
 	 *
@@ -31,17 +31,17 @@ abstract class EPPageObject extends EPRevisionedObject {
 	public function getTitle() {
 		return $this->table->getTitleFor( $this->getIdentifier() );
 	}
-	
+
 	/**
 	 * Gets a link to the page representing the object.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param string $action
 	 * @param string $html
 	 * @param array $customAttribs
 	 * @param array $query
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getLink( $action = 'view', $html = null, array $customAttribs = array(), array $query = array() ) {
@@ -53,7 +53,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 			$query
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMRow::save()
@@ -63,7 +63,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 			throw new MWException( 'The title for a EPPageObject needs to be valid when saving.' );
 			return false;
 		}
-		
+
 		return parent::save( $functionName );
 	}
 
@@ -73,7 +73,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 	 */
 	protected function getLogInfo( $subType ) {
 		$title = $this->getTitle();
-		
+
 		if ( is_null( $title ) ) {
 			return false;
 		}
@@ -84,7 +84,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 			);
 		}
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMRow::setField()
@@ -93,7 +93,7 @@ abstract class EPPageObject extends EPRevisionedObject {
 		if ( $name === $this->table->getIdentifierField() ) {
 			$value = str_replace( '_', ' ', $value );
 		}
-		
+
 		parent::setField( $name, $value );
 	}
 

@@ -39,7 +39,7 @@ class EPCA extends EPRoleObject implements EPIRole {
 				$context->msg( 'ep-ca-noresults' )->escaped();
 		}
 	}
-	
+
 	/**
 	 * @since 0.1
 	 * @see EPIRole::getRoleName
@@ -47,5 +47,5 @@ class EPCA extends EPRoleObject implements EPIRole {
 	public function getRoleName() {
 		return 'campus';
 	}
-	
+
 }

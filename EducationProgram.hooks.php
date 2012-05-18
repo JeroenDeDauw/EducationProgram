@@ -85,7 +85,7 @@ final class EPHooks {
 		$testDir = dirname( __FILE__ ) . '/test/';
 
 		//$files[] = $testDir . 'EPTests.php';
-		
+
 		return true;
 	}
 
@@ -150,7 +150,7 @@ final class EPHooks {
 				'section' => 'education',
 			);
 		}
-		
+
 		if ( $user->isAllowed( 'ep-bulkdelorgs' ) ) {
 			$preferences['ep_bulkdelorgs'] = array(
 				'type' => 'toggle',
@@ -158,7 +158,7 @@ final class EPHooks {
 				'section' => 'education',
 			);
 		}
-		
+
 		if ( $user->isAllowed( 'ep-bulkdelcourses' ) ) {
 			$preferences['ep_bulkdelcourses'] = array(
 				'type' => 'toggle',
@@ -169,16 +169,16 @@ final class EPHooks {
 
 		return true;
 	}
-	
+
 	/**
 	 * Called to determine the class to handle the article rendering, based on title.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleFromTitle
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param Title $title
 	 * @param Article|null $article
-	 * 
+	 *
 	 * @return true
 	 */
 	public static function onArticleFromTitle( Title &$title, &$article ) {
@@ -188,18 +188,18 @@ final class EPHooks {
 		elseif ( $title->getNamespace() == EP_NS_INSTITUTION ) {
 			$article = new OrgPage( $title );
 		}
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * For extensions adding their own namespaces or altering the defaults.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/CanonicalNamespaces
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param array $list
-	 * 
+	 *
 	 * @return true
 	 */
 	public static function onCanonicalNamespaces( array &$list ) {
@@ -209,7 +209,7 @@ final class EPHooks {
 		$list[EP_NS_INSTITUTION_TALK] = 'Institution_talk';
 		return true;
 	}
-	
+
 	/**
 	 * Alter the structured navigation links in SkinTemplates.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation
@@ -226,7 +226,7 @@ final class EPHooks {
 
 		return false;
 	}
-	
+
 	/**
 	 * Called on special pages after the special tab is added but before variants have been added.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation::SpecialPage
@@ -281,7 +281,7 @@ final class EPHooks {
 		);
 
 		$exists = null;
-		
+
 		if ( array_key_exists( $title->getNamespace(), $classes ) ) {
 			$links['views'] = array();
 			$links['actions'] = array();
@@ -298,7 +298,7 @@ final class EPHooks {
 					'href' => $title->getLocalUrl()
 				);
 			}
-			
+
 			if ( $user->isAllowed( EPPage::factory( $title )->getEditRight() ) ) {
 				$links['views']['edit'] = array(
 					'class' => $type === 'edit' ? 'selected' : false,
@@ -314,7 +314,7 @@ final class EPHooks {
 					);
 				}
 			}
-			
+
 			if ( $exists ) {
 				$links['views']['history'] = array(
 					'class' => $type === 'history' ? 'selected' : false,
@@ -371,29 +371,29 @@ final class EPHooks {
 
 		return true;
 	}
-	
+
 	/**
 	 * Allows canceling the move of one title to another.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AbortMove
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param Title $oldTitle
 	 * @param Title $newTitle
 	 * @param User $user
 	 * @param string $error
 	 * @param string $reason
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public static function onAbortMove( Title $oldTitle, Title $newTitle, User $user, &$error, $reason ) {
 		$nss = array( EP_NS_COURSE, EP_NS_INSTITUTION, EP_NS_COURSE_TALK, EP_NS_INSTITUTION_TALK );
 		$allowed = !in_array( $oldTitle->getNamespace(), $nss ) && !in_array( $newTitle->getNamespace(), $nss );
-		
+
 		if ( !$allowed ) {
 			$error = wfMsg( 'ep-move-error' );
 		}
-		
+
 		return $allowed;
 	}
 

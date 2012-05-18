@@ -9,7 +9,7 @@
 (function( $ ) {
 
 	$( document ).ready( function() {
-		
+
 		$( '.ep-datepicker-tr' ).find( 'input' ).datepicker( {
 			dateFormat: 'yy-mm-dd',
 			showOn: 'focus',
@@ -17,7 +17,7 @@
 			changeYear: true,
 			showButtonPanel: true
 		} );
-		
+
 	} );
-	
+
 })( window.jQuery );

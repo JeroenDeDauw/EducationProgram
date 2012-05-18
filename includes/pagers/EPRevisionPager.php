@@ -19,7 +19,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * @var IContextSource
 	 */
 	protected $context;
-	
+
 	/**
 	 * @since 0.1
 	 * @var EPPageTable
@@ -27,7 +27,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	protected $table;
 
 	protected $rowNr = 0;
-	
+
 	/**
 	 * Constructor.
 	 *
@@ -42,15 +42,15 @@ class EPRevisionPager extends ReverseChronologicalPager {
 		else {
 			parent::__construct();
 		}
-		
+
 		$this->conds = $conds;
 		$this->context = $context;
 		$this->table = $table;
 
 		$this->mDefaultDirection = true;
-		$this->getDateCond( 
+		$this->getDateCond(
 			$context->getRequest()->getText( 'year', '' ),
-			$context->getRequest()->getText( 'month', '' ) 
+			$context->getRequest()->getText( 'month', '' )
 		);
 	}
 
@@ -106,10 +106,10 @@ class EPRevisionPager extends ReverseChronologicalPager {
 				'(' . $this->getOutput()->parseInline( $revision->getField( 'comment' ) ) . ')'
 			);
 		}
-		
+
 		if ( $this->getUser()->isAllowed( $this->table->getEditRight() ) ) {
 			$actionLinks = array();
-			
+
 			if ( $this->mOffset !== '' || $this->rowNr < $this->mResult->numRows() - 1 ) {
 				$actionLinks[] = $object->getLink(
 					'epundo',
@@ -135,7 +135,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 		}
 
 		$this->rowNr++;
-		
+
 		return '<li>' . $html . '</li>';
 	}
 

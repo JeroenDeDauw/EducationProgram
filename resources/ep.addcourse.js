@@ -7,26 +7,26 @@
  */
 
 (function( $ ) {
-	
+
 	$( document ).ready( function() {
 
 		$( '.ep-course-add' ).closest( 'form' ).submit( function() {
 			$( this ).attr(
-				'action', 
+				'action',
 				$( this ).attr( 'action' ).replace(
 					'NAME_PLACEHOLDER',
 					$( '#newname' ).val() + ' (' + $( '#newterm' ).val() + ')'
 				)
 			);
 		} );
-		
+
 		var list = [ 'neworg', 'newname', 'newterm' ];
-		
+
 		for ( i in list ) {
 			if ( list.hasOwnProperty( i ) ) {
 				var $element = $( '#' + list[i] ),
 				val = $element.val();
-				
+
 				$element.removeAttr( 'value' );
 				$element.val( val );
 			}

@@ -15,7 +15,7 @@ class EPCoursePager extends EPPager {
 
 	/**
 	 * When in read only mode, the pager should not show any course editing controls.
-	 * 
+	 *
 	 * @since 0.1
 	 * @var boolean
 	 */
@@ -29,7 +29,7 @@ class EPCoursePager extends EPPager {
 	 * @var array
 	 */
 	protected $orgNames;
-	
+
 	/**
 	 * Constructor.
 	 *
@@ -170,7 +170,7 @@ class EPCoursePager extends EPPager {
 		);
 
 		$terms = EPCourses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ), true );
-		
+
 		natcasesort( $terms );
 		$terms = array_merge( array( '' ), $terms );
 		$terms = array_combine( $terms, $terms );
@@ -180,7 +180,7 @@ class EPCoursePager extends EPPager {
 			'options' => $terms,
 			'value' => '',
 		);
-		
+
 //		$options['lang'] = array(
 //			'type' => 'select',
 //			'options' => EPUtils::getLanguageOptions( $this->getLanguage()->getCode() ),
@@ -237,13 +237,13 @@ class EPCoursePager extends EPPager {
 			&& $this->getUser()->isAllowed( 'ep-course' )
 			&& $this->getUser()->isAllowed( 'ep-bulkdelcourses' )
 			&& $this->getUser()->getOption( 'ep_bulkdelcourses' ) ) {
-				
+
 			$actions[wfMsg( 'ep-pager-delete-selected' )] = array(
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) )
 			);
 		}
-		
+
 		return $actions;
 	}
 
@@ -275,7 +275,7 @@ class EPCoursePager extends EPPager {
 
 		return $conds;
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPager::hasActionsColumn()

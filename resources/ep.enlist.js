@@ -11,7 +11,7 @@
 	var ep = mw.educationProgram;
 
 	$( document ).ready( function() {
-		
+
 		$( '.ep-remove-role' ).click( function( event ) {
 			var $this = $( this ),
 			courseId = $this.attr( 'data-courseid' ),
@@ -21,7 +21,7 @@
 			bestName = $this.attr( 'data-bestname' ),
 			role = $this.attr( 'data-role' ),
 			$dialog = undefined;
-			
+
 			var doRemove = function() {
 				var $remove = $( '#ep-' + role + '-remove-button' );
 				var $cancel = $( '#ep-' + role + '-cancel-button' );
@@ -57,14 +57,14 @@
 			var summaryLabel = $( '<label>' ).attr( {
 				'for': 'epenlistsummary'
 			} ).msg( 'ep-' + role + '-summary' ).append( '&#160;' );
-			
+
 			var summaryInput = $( '<input>' ).attr( {
 				'type': 'text',
 				'size': 60,
 				'maxlength': 250,
 				'id': 'epenlistsummary'
 			} );
-			
+
 			$dialog = $( '<div>' ).html( '' ).dialog( {
 				'title': ep.msg( 'ep-' + role + '-remove-title' ),
 				'minWidth': 550,
@@ -83,7 +83,7 @@
 					}
 				]
 			} );
-			
+
 			$dialog.append( $( '<p>' ).msg(
 				'ep-' + role + '-remove-text',
 				mw.html.escape( userName ),
@@ -94,9 +94,9 @@
 			//$dialog.append( $( '<p>' ).msg( 'ep-instructor-remove-title' ) );
 
 			$dialog.append( summaryLabel, summaryInput );
-			
+
 			summaryInput.focus();
-			
+
 			summaryInput.keypress( function( event ) {
 				if ( event.which == '13' ) {
 					event.preventDefault();
@@ -104,18 +104,18 @@
 				}
 			} );
 		} );
-		
+
 		$( '.ep-add-role' ).click( function( event ) {
-			var $this = $( this ), 
+			var $this = $( this ),
 			_this = this,
 			role = $this.attr( 'data-role' ),
 			isCompletionEnter = false;
-			
+
 			this.courseId = $this.attr( 'data-courseid' );
 			this.courseName = $this.attr( 'data-coursename' );
 			this.selfMode = $this.attr( 'data-mode' ) === 'self';
 			this.$dialog = undefined;
-			
+
 			this.nameInput = $( '<input>' ).attr( {
 				'type': 'text',
 				'size': 30,
@@ -123,7 +123,7 @@
 				'id': 'ep-' + role + '-nameinput',
 				'name': 'ep-' + role + '-nameinput'
 			} );
-			
+
 			this.summaryInput = $( '<input>' ).attr( {
 				'type': 'text',
 				'size': 60,
@@ -214,13 +214,13 @@
 					}
 				]
 			} );
-			
+
 			this.$dialog.append( $( '<p>' ).text( gM(
 				this.selfMode ? 'ep-' + role + '-add-self-text' : 'ep-' + role + '-add-text',
 				this.courseName,
 				this.getName()
 			) ) );
-			
+
 			if ( !this.selfMode ) {
 				this.$dialog.append(
 					$( '<label>' ).attr( {
@@ -258,16 +258,16 @@
 					}
 				} );
 			}
-			
+
 			this.$dialog.append( this.summaryInput );
-			
+
 			if ( this.selfMode ) {
 				this.summaryInput.focus();
 			}
 			else {
 				this.nameInput.focus();
 			}
-			
+
 			var enterHandler = function( event ) {
 				if ( event.which == '13' ) {
 					event.preventDefault();
@@ -280,11 +280,11 @@
 					}
 				}
 			};
-			
+
 			this.nameInput.keypress( enterHandler );
 			this.summaryInput.keypress( enterHandler );
 		} );
-		
+
 	} );
-	
+
 })( window.jQuery, window.mediaWiki );

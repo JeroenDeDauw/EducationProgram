@@ -21,7 +21,7 @@ class EPUndoAction extends EPAction {
 	public function getName() {
 		return 'epundo';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getRestriction()
@@ -29,7 +29,7 @@ class EPUndoAction extends EPAction {
 	public function getRestriction() {
 		return $this->page->getEditRight();
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getDescription()
@@ -103,15 +103,15 @@ class EPUndoAction extends EPAction {
 
 		return '';
 	}
-	
+
 	/**
 	 * Does the actual undo action.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPPageObject $object
 	 * @param EPRevision $revision
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	protected function doUndo( EPPageObject $object, EPRevision $revision ) {
@@ -131,9 +131,9 @@ class EPUndoAction extends EPAction {
 
 	/**
 	 * Display the undo revision form for the provided EPPageObject.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPPageObject $object
 	 * @param EPRevision $revision
 	 */
@@ -141,7 +141,7 @@ class EPUndoAction extends EPAction {
 		$out = $this->getOutput();
 
 		$out->addModules( 'ep.formpage' );
-		
+
 		$out->addWikiMsg( $this->prefixMsg( 'text' ), $object->getField( 'name' ) );
 
 		$out->addHTML( Html::openElement(

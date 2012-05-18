@@ -13,7 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPArticle extends ORMRow {
-	
+
 	/**
 	 * Cached user object for this article.
 	 *

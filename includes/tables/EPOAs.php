@@ -22,7 +22,7 @@ class EPOAs extends ORMTable {
 	public function getName() {
 		return 'ep_oas';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFieldPrefix()
@@ -32,7 +32,7 @@ class EPOAs extends ORMTable {
 	public function getFieldPrefix() {
 		return 'oa_';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getRowClass()
@@ -42,7 +42,7 @@ class EPOAs extends ORMTable {
 	public function getRowClass() {
 		return 'EPOA';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFields()
@@ -60,7 +60,7 @@ class EPOAs extends ORMTable {
 			'photo' => 'str',
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getDefaults()

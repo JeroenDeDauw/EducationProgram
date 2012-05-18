@@ -69,7 +69,7 @@ class EPOrg extends EPPageObject {
 	protected function onRemoved() {
 		foreach ( EPCourses::singleton()->select( null, array( 'org_id' => $this->getId() ) ) as /* EPCourse */ $course ) {
 			$revAction = clone $this->revAction;
-			
+
 			if ( trim( $revAction->getComment() ) === '' ) {
 				$revAction->setComment( wfMsgExt(
 					'ep-org-course-delete',
@@ -85,10 +85,10 @@ class EPOrg extends EPPageObject {
 					$revAction->getComment()
 				) );
 			}
-			
+
 			$course->revisionedRemove( $revAction );
 		}
-		
+
 		parent::onRemoved();
 	}
 
@@ -103,32 +103,32 @@ class EPOrg extends EPPageObject {
 
 		return parent::save( $functionName );
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPRevisionedObject::undelete()
 	 */
 	public function undelete( EPRevisionAction $revAction ) {
 		$success = parent::undelete( $revAction );
-		
+
 		if ( $success ) {
 			$courseRevAction = new EPRevisionAction();
-		
+
 			$courseRevAction->setUser( $revAction->getUser() );
 			$courseRevAction->setComment( $revAction->getComment() );
-			
+
 			foreach ( $this->getField( 'courses' ) as $courseId ) {
 				$courseRevision = EPRevisions::singleton()->getLatestRevision( array(
 					'object_id' => $courseId,
 					'type' => 'EPCourse',
 				) );
-				
+
 				if ( $courseRevision !== false ) {
 					$courseRevision->getObject()->undelete( $courseRevAction );
 				}
 			}
 		}
-		
+
 		return $success;
 	}
 
@@ -145,7 +145,7 @@ class EPOrg extends EPPageObject {
 	 */
 	public static function getAddNewControl( IContextSource $context, array $args = array() ) {
 		$html = '';
-		
+
 		$html .= Html::openElement(
 			'form',
 			array(
@@ -224,7 +224,7 @@ class EPOrg extends EPPageObject {
 	public function getCourses( array $fields = null ) {
 		if ( $this->courses === false ) {
 			$courses = EPCourses::singleton()->selectObjects( $fields, array( 'org_id' => $this->getId() ) );
-			
+
 			if ( is_null( $fields ) ) {
 				$this->courses = $courses;
 			}

@@ -28,11 +28,11 @@ class ApiEnlist extends ApiBase {
 		else {
 			$userId = $params['userid'];
 		}
-		
+
 		if ( $userId < 1 ) {
 			$this->dieUsage( wfMsg( 'ep-enlist-invalid-user' ), 'invalid-user' );
 		}
-		
+
 		if ( !$this->userIsAllowed( $userId, $params['role'], $params['subaction'] ) ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
@@ -51,7 +51,7 @@ class ApiEnlist extends ApiBase {
 		if ( $course === false ) {
 			$this->dieUsage( wfMsg( 'ep-enlist-invalid-course' ), 'invalid-course' );
 		}
-		
+
 		$revAction = new EPRevisionAction();
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( $params['reason'] );
@@ -64,7 +64,7 @@ class ApiEnlist extends ApiBase {
 				$enlistmentResult = $course->unenlistUsers( array( $userId ), $params['role'], true, $revAction );
 				break;
 		}
-		
+
 		$this->getResult()->addValue(
 			null,
 			'success',
@@ -82,9 +82,9 @@ class ApiEnlist extends ApiBase {
 
 	/**
 	 * Returns if the user is allowed to do the requested action.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param integer $userId User id of the mentor affected
 	 * @param string $role
 	 * @param string $subAction

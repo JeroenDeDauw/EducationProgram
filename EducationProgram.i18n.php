@@ -537,7 +537,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Institution restoration
 	'orgpage-eprestore-title' => 'Restore institution "$1"',
-	'orgpage-eprestore-text' => 'You are about to restore institution $1 to a previous revision.', 
+	'orgpage-eprestore-text' => 'You are about to restore institution $1 to a previous revision.',
 	'orgpage-eprestore-summary' => 'Reason for restoration:',
 	'orgpage-eprestore-restore-button' => 'Restore revision',
 	'orgpage-eprestore-cancel-button' => 'Cancel',
@@ -547,7 +547,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Course restoration
 	'coursepage-eprestore-title' => 'Restore course "$1"',
-	'coursepage-eprestore-text' => 'You are about to restore course $1 to a previous revision.', 
+	'coursepage-eprestore-text' => 'You are about to restore course $1 to a previous revision.',
 	'coursepage-eprestore-summary' => 'Reason for restoration:',
 	'coursepage-eprestore-restore-button' => 'Restore revision',
 	'coursepage-eprestore-cancel-button' => 'Cancel',
@@ -557,7 +557,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Institution undo revision
 	'orgpage-epundo-title' => 'Undo revision of institution "$1"',
-	'orgpage-epundo-text' => 'You are about undo a single revison of institution $1.', 
+	'orgpage-epundo-text' => 'You are about undo a single revison of institution $1.',
 	'orgpage-epundo-summary' => 'Reason for revert:',
 	'orgpage-epundo-undo-button' => 'Undo revision',
 	'orgpage-epundo-cancel-button' => 'Cancel',
@@ -567,7 +567,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Course undo revision
 	'coursepage-epundo-title' => 'Undo revision of  course "$1"',
-	'coursepage-epundo-text' => 'You are about undo a single revison of course $1.', 
+	'coursepage-epundo-text' => 'You are about undo a single revison of course $1.',
 	'coursepage-epundo-summary' => 'Reason for revert:',
 	'coursepage-epundo-undo-button' => 'Undo revision',
 	'coursepage-epundo-cancel-button' => 'Cancel',

@@ -13,7 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPEditAction extends EPAction {
-	
+
 	/**
 	 * Instance of the object being edited or created.
 	 *
@@ -24,7 +24,7 @@ abstract class EPEditAction extends EPAction {
 
 	/**
 	 * If the action is in insert mode rather then edit mode.
-	 * 
+	 *
 	 * @since 0.1
 	 * @var boolean|null
 	 */
@@ -58,17 +58,17 @@ abstract class EPEditAction extends EPAction {
 		EPUtils::displayResult( $this->getContext() );
 
 		$this->getOutput()->addModules( 'ep.formpage' );
-		
+
 		if ( $this->getRequest()->wasPosted() && $this->getUser()->matchEditToken( $this->getRequest()->getVal( 'wpEditToken' ) ) ) {
 			$this->showForm();
 		}
 		else {
 			$this->showContent();
 		}
-		
+
 		return '';
 	}
-	
+
 	/**
 	 * Returns the page title.
 	 *
@@ -94,7 +94,7 @@ abstract class EPEditAction extends EPAction {
 		$out = $this->getOutput();
 
 		$data = $this->getNewData();
-		
+
 		$object = $this->table->selectRow( null, $data );
 
 		if ( $object !== false && $this->getRequest()->getText( 'redlink' ) === '1' ) {
@@ -104,7 +104,7 @@ abstract class EPEditAction extends EPAction {
 			if ( $object === false ) {
 				$this->displayUndeletionLink();
 				$this->displayDeletionLog();
-		
+
 				$this->isNew = true;
 				$object = $this->table->newFromArray( $data, true );
 			}
@@ -119,7 +119,7 @@ abstract class EPEditAction extends EPAction {
 			$this->showForm();
 		}
 	}
-	
+
 	/**
 	 * Show a message in a warning box.
 	 *
@@ -148,7 +148,7 @@ abstract class EPEditAction extends EPAction {
 
 		return $this->isNew;
 	}
-	
+
 	protected function isNewPost() {
 		return $this->getRequest()->wasPosted() &&
 			( $this->getRequest()->getCheck( 'isnew' ) || $this->getRequest()->getCheck( 'wpisnew' ) );
@@ -233,7 +233,7 @@ abstract class EPEditAction extends EPAction {
 		$form = new EPFailForm( $fields, $this->getContext() );
 
 		$form->setQuery( array( 'action' => 'edit' ) );
-		
+
 		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
 		$form->setSubmitText( wfMsg( 'educationprogram-org-submit' ) );
 		$form->setSubmitTooltip( 'ep-form-save' );
@@ -341,15 +341,15 @@ abstract class EPEditAction extends EPAction {
 	public function onSuccess() {
 		$this->getOutput()->redirect( $this->getReturnToTitle( true )->getLocalURL() );
 	}
-	
+
 	/**
 	 * Returns the title to return to after the form has been submitted,
 	 * or when form use is aborted for some other reason.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param boolean $addedItem
-	 * 
+	 *
 	 * @return Title
 	 */
 	protected function getReturnToTitle( $addedItem = false ) {
@@ -364,7 +364,7 @@ abstract class EPEditAction extends EPAction {
 		}
 		else {
 			$fieldName = 'wpitem-' . $this->table->getIdentifierField();
-			
+
 			if ( $this->getRequest()->getCheck( $fieldName ) ) {
 				return $this->table->getTitleFor( $this->getRequest()->getText( $fieldName ) );
 			}
@@ -454,6 +454,6 @@ abstract class EPEditAction extends EPAction {
 		// Override to use.
 		return $value;
 	}
-	
-	
+
+
 }

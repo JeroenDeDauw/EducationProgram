@@ -20,7 +20,7 @@ class EPTests extends MediaWikiTestCase {
 			' key   ' => ' value ',
 			'- key 2 -' => '- value 2 -',
 		);
-		
+
 		$output = array(
 			'key' => 'key - value',
 			' key   ' => ' key    -  value ',

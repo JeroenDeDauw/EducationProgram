@@ -47,7 +47,7 @@ class EPStudent extends EPRoleObject {
 	public function getRoleName() {
 		return 'student';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMRow::loadSummaryFields()

@@ -22,7 +22,7 @@ class EPInstructors extends ORMTable {
 	public function getName() {
 		return 'ep_instructors';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFieldPrefix()
@@ -32,7 +32,7 @@ class EPInstructors extends ORMTable {
 	public function getFieldPrefix() {
 		return 'instructor_';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getRowClass()
@@ -42,7 +42,7 @@ class EPInstructors extends ORMTable {
 	public function getRowClass() {
 		return 'EPInstructor';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFields()

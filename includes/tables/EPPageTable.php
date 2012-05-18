@@ -15,41 +15,41 @@ abstract class EPPageTable extends ORMTable {
 
 	/**
 	 * Returns the field use to identify this object, ie the part used as page title.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return string
 	 */
 	public abstract function getIdentifierField();
-	
+
 	/**
 	 * Returns the namespace in which objects of this type reside.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return integer
 	 */
 	public abstract function getNamespace();
-	
+
 	/**
 	 * Returns the name of the fields that can be changed
 	 * when doing a revert or restoring to a previous revision.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return array
 	 */
 	public abstract function getRevertableFields();
-	
+
 	/**
 	 * Returns the right needed to edit items in this table.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return string
 	 */
 	public abstract function getEditRight();
-	
+
 	public function hasIdentifier( $identifier ) {
 		return $this->has( array( $this->getIdentifierField() => $identifier ) );
 	}
@@ -89,11 +89,11 @@ abstract class EPPageTable extends ORMTable {
 
 	/**
 	 * Construct a new title for an object of this type with the provided identifier value.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param string $identifierValue
-	 * 
+	 *
 	 * @return Title
 	 */
 	public function getTitleFor( $identifierValue ) {
@@ -105,15 +105,15 @@ abstract class EPPageTable extends ORMTable {
 
 	/**
 	 * Returns a link to the page representing the object of this type with the provided identifier value.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param string $identifierValue
 	 * @param string $action
 	 * @param string $html
 	 * @param array $customAttribs
 	 * @param array $query
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getLinkFor( $identifierValue, $action = 'view', $html = null, array $customAttribs = array(), array $query = array() ) {
@@ -123,7 +123,7 @@ abstract class EPPageTable extends ORMTable {
 
 		// Linker has no hook that allows us to figure out if the page actually exists :(
 		// FIXME: now it does
-		return Linker::linkKnown( 
+		return Linker::linkKnown(
 			$this->getTitleFor( $identifierValue, $action ),
 			is_null( $html ) ? htmlspecialchars( $identifierValue ) : $html,
 			$customAttribs,

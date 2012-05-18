@@ -18,20 +18,20 @@
 			$form.submit();
 			return false;
 		} );
-		
+
 		var $dialog = undefined,
 		$remove = undefined,
 		$summaryInput = undefined;
-		
+
 		var showConfirmDialog = function( args, onConfirm ) {
 			var args = $.extend( {
 				'type': 'unknown',
 				'ids': [],
 				'names': []
 			}, args );
-			
+
 			var deferred = $.Deferred();
-			
+
 			$dialog = $( '<div>' ).html( '' ).dialog( {
 				'title': ep.msg( 'ep-pager-confirm-delete-' + args.type, args.ids.length ),
 				'minWidth': 550,
@@ -55,48 +55,48 @@
 					}
 				]
 			} );
-			
+
 			$remove = $( '#ep-pager-remove-button' );
-			
+
 			var names = args.names.map( function( name ) {
 				return '<b>' + mw.html.escape( name ) + '</b>';
 			} ).join( ', ' );
-			
+
 			$dialog.msg(
 				'ep-pager-confirm-message-' + args.type + ( args.names.length > 1 ? '-many' : '' ),
 				$( '<span>' ).html( names ),
 				args.names.length
 			);
-			
+
 			var summaryLabel = $( '<label>' ).attr( {
 				'for': 'epsummaryinput'
 			} ).msg( 'ep-pager-summary-message-' + args.type ).append( '&#160;' );
-			
+
 			$summaryInput = $( '<input>' ).attr( {
 				'type': 'text',
 				'size': 60,
 				'maxlength': 250,
 				'id': 'epsummaryinput'
 			} );
-			
+
 			$dialog.append( '<br /><br />', summaryLabel, $summaryInput );
-			
+
 			$summaryInput.keypress( function( event ) {
 				if ( event.which == '13' ) {
 					event.preventDefault();
 					onConfirm();
 				}
 			} );
-			
+
 			$summaryInput.focus();
-			
+
 			return deferred.promise();
 		};
-		
+
 		var onFail = function( type ) {
 			$remove.button( 'option', 'disabled', false );
 			$remove.button( 'option', 'label', ep.msg( 'ep-pager-retry-button-' + type ) );
-		}; 
+		};
 
 		$( '.ep-pager-delete' ).click( function () {
 			var $this = $( this ),
@@ -105,13 +105,13 @@
 				'ids': [ $this.attr( 'data-id' ) ],
 				'names': [ $this.attr( 'data-name' ) ]
 			};
-			
+
 			showConfirmDialog(
 				args,
 				function() {
 					ep.api.remove( args, { 'comment': $summaryInput.val() } ).done( function() {
 						$dialog.dialog( 'close' );
-						
+
 						var $tr = $this.closest( 'tr' );
 						var $table = $tr.closest( 'table' );
 
@@ -159,13 +159,13 @@
 				'ids': ids,
 				'names': names
 			};
-			
+
 			showConfirmDialog(
 				args,
 				function() {
 					ep.api.remove( args, { 'comment': $summaryInput.val() } ).done( function() {
 						$dialog.dialog( 'close' );
-						
+
 						if ( $table.find( 'tr' ).length - ids.length > 1 ) {
 							for ( i in ids ) {
 								if ( ids.hasOwnProperty( i ) ) {

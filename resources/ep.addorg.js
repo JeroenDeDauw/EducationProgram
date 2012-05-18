@@ -7,13 +7,13 @@
  */
 
 (function( $ ) {
-	
+
 	$( document ).ready( function() {
 
 		$( '.ep-org-add' ).closest( 'form' ).submit( function() {
 			$( this ).attr( 'action', $( this ).attr( 'action' ).replace( 'NAME_PLACEHOLDER', $( '#newname' ).val() ) );
 		} );
-		
+
 		$( '.ep-org-add' ).removeAttr( 'disabled' );
 
 	} );

@@ -17,12 +17,12 @@ abstract class EPAction extends CachedAction {
 	/**
 	 * Display a warning that the page has been deleted together with the first
 	 * few items from its deletion log.
-	 * 
+	 *
 	 * @since 0.1
 	 */
 	public function displayDeletionLog() {
 		$out = $this->getOutput();
-		
+
 		LogEventsList::showLogExtract(
 			$out,
 			array( $this->page->getLogType() ),
@@ -36,11 +36,11 @@ abstract class EPAction extends CachedAction {
 			)
 		);
 	}
-	
+
 	/**
-	 * Display an undeletion link if the user is alloed to undelete and 
+	 * Display an undeletion link if the user is alloed to undelete and
 	 * if there are any previous revions that can be used to undelete.
-	 * 
+	 *
 	 * @since 0.1
 	 */
 	public function displayUndeletionLink() {
@@ -48,7 +48,7 @@ abstract class EPAction extends CachedAction {
 			$revisionCount = EPRevisions::singleton()->count( array(
 				'object_identifier' => $this->getTitle()->getText()
 			) );
-			
+
 			if ( $revisionCount > 0 ) {
 				$this->getOutput()->addHTML( $this->msg(
 					$this->prefixMsg( 'undelete-revisions' ),
@@ -62,29 +62,29 @@ abstract class EPAction extends CachedAction {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns a prefixed message name.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param string $name
-	 * 
+	 *
 	 * @return string
 	 */
 	protected function prefixMsg( $name ) {
 		return strtolower( get_class( $this->page ) ) . '-' . $this->getName() . '-' . $name;
 	}
-	
+
 	/**
 	 * Returns a salt based on the action and the page name.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return string
 	 */
 	protected function getSalt() {
 		return get_class( $this->page ) . $this->getTitle()->getLocalURL();
 	}
-		
+
 }

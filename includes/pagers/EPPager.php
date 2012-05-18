@@ -84,7 +84,7 @@ abstract class EPPager extends TablePager {
 	function formatRow( $row ) {
 		$this->mCurrentRow = $row;
 		$this->currentObject = $this->table->newFromDBResult( $row );
-		
+
 		$cells = array();
 
 		foreach ( $this->getFieldNames() as $field => $name ) {
@@ -343,7 +343,7 @@ abstract class EPPager extends TablePager {
 		}
 
 		$this->addFilterValues( $filterOptions );
-		
+
 		foreach ( $filterOptions as $key => $optionData ) {
 			if ( array_key_exists( 'datatype', $optionData ) ) {
 				switch ( $optionData['datatype'] ) {
@@ -354,7 +354,7 @@ abstract class EPPager extends TablePager {
 						$filterOptions[$key]['value'] = (float)$optionData['value'];
 						break;
 				}
-			}		
+			}
 		}
 
 		if ( $hideWhenNoResults && $this->getNumRows() < 1 ) {
@@ -372,7 +372,7 @@ abstract class EPPager extends TablePager {
 		foreach ( $filterOptions as $optionName => $optionData ) {
 			switch ( $optionData['type'] ) {
 				case 'select':
-					$select = new XmlSelect( 
+					$select = new XmlSelect(
 						$this->filterPrefix . $optionName,
 						$this->filterPrefix . $optionName,
 						$optionData['value']
@@ -425,7 +425,7 @@ abstract class EPPager extends TablePager {
 				if ( array_key_exists( $optionName, $_POST ) ) {
 					$req->setSessionData( $this->getNameForSession( $optionName ), $optionData['value'] );
 				}
-				
+
 				$changed = true;
 			}
 			elseif ( !is_null( $req->getSessionData( $this->getNameForSession( $optionName ) ) ) ) {
@@ -436,13 +436,13 @@ abstract class EPPager extends TablePager {
 
 		return $changed;
 	}
-	
+
 	protected function getNameForSession( $optionName ) {
 		return $this->filterPrefix . get_called_class() . $optionName;
 	}
-	
+
 	protected $filterPrefix = '';
-	
+
 	public function setFilterPrefix( $filterPrefix ) {
 		$this->filterPrefix = $filterPrefix;
 	}
@@ -585,7 +585,7 @@ abstract class EPPager extends TablePager {
 		$s .= "</tr></thead><tbody>\n";
 		return $s;
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see IndexPager::getIndexField()

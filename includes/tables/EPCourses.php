@@ -22,7 +22,7 @@ class EPCourses extends EPPageTable {
 	public function getName() {
 		return 'ep_courses';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFieldPrefix()
@@ -32,7 +32,7 @@ class EPCourses extends EPPageTable {
 	public function getFieldPrefix() {
 		return 'course_';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getRowClass()
@@ -42,7 +42,7 @@ class EPCourses extends EPPageTable {
 	public function getRowClass() {
 		return 'EPCourse';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFields()
@@ -105,7 +105,7 @@ class EPCourses extends EPPageTable {
 			'ca_count' => 0,
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getSummaryFields()
@@ -120,7 +120,7 @@ class EPCourses extends EPPageTable {
 			'ca_count',
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPageTable::getRevertableFields()
@@ -139,7 +139,7 @@ class EPCourses extends EPPageTable {
 			'term'
 		);
 	}
-	
+
 	public function hasActiveName( $courseName ) {
 		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
@@ -149,7 +149,7 @@ class EPCourses extends EPPageTable {
 			'start <= ' . $now,
 		) );
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPageObject::getIdentifierField()
@@ -157,7 +157,7 @@ class EPCourses extends EPPageTable {
 	public function getIdentifierField() {
 		return 'name';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPageObject::getNamespace()
@@ -165,12 +165,12 @@ class EPCourses extends EPPageTable {
 	public function getNamespace() {
 		return EP_NS_COURSE;
 	}
-	
+
 	/**
 	 * Get the conditions that will select courses with the provided state.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param string $state
 	 * @param boolean $prefix
 	 *
@@ -180,7 +180,7 @@ class EPCourses extends EPPageTable {
 		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
 		$conditions = array();
-		
+
 		switch ( $state ) {
 			case 'current':
 				$conditions[] = 'end >= ' . $now;
@@ -197,10 +197,10 @@ class EPCourses extends EPPageTable {
 		if ( $prefix ) {
 			$conditions = self::singleton()->getPrefixedValues( $conditions );
 		}
-		
+
 		return $conditions;
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPageTable::getEditRight()
@@ -208,5 +208,5 @@ class EPCourses extends EPPageTable {
 	public function getEditRight() {
 		return 'ep-course';
 	}
-	
+
 }

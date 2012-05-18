@@ -22,7 +22,7 @@ class EPOrgs extends EPPageTable {
 	public function getName() {
 		return 'ep_orgs';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFieldPrefix()
@@ -32,7 +32,7 @@ class EPOrgs extends EPPageTable {
 	public function getFieldPrefix() {
 		return 'org_';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getRowClass()
@@ -42,7 +42,7 @@ class EPOrgs extends EPPageTable {
 	public function getRowClass() {
 		return 'EPOrg';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFields()
@@ -88,18 +88,18 @@ class EPOrgs extends EPPageTable {
 			'courses' => array(),
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPageTable::getRevertableFields()
 	 */
 	public function getRevertableFields() {
-		return array_diff( 
+		return array_diff(
 			array_keys( $this->getFields() ),
 			array_merge( array( 'id', $this->getSummaryFields() ) )
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getSummaryFields()
@@ -108,7 +108,7 @@ class EPOrgs extends EPPageTable {
 	 */
 	public function getSummaryFields() {
 		return array(
-			'active',	
+			'active',
 			'course_count',
 			'student_count',
 			'instructor_count',
@@ -125,7 +125,7 @@ class EPOrgs extends EPPageTable {
 	public function getIdentifierField() {
 		return 'name';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPageObject::getNamespace()
@@ -133,7 +133,7 @@ class EPOrgs extends EPPageTable {
 	public function getNamespace() {
 		return EP_NS_INSTITUTION;
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see EPPageTable::getEditRight()
@@ -141,5 +141,5 @@ class EPOrgs extends EPPageTable {
 	public function getEditRight() {
 		return 'ep-org';
 	}
-	
+
 }

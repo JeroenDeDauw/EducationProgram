@@ -57,13 +57,13 @@ class SpecialEnroll extends SpecialEPPage {
 		}
 		else {
 			$course = EPCourses::singleton()->get( $args[0] );
-			
+
 			if ( $course === false ) {
 				$this->showWarning( wfMessage( 'ep-enroll-invalid-id' ) );
 			}
 			elseif ( in_array( $course->getStatus(), array( 'current', 'planned' ) ) ) {
 				$this->setPageTitle( $course );
-				
+
 				$token = '';
 				$tokenIsValid = $course->getField( 'token' ) === '';
 
@@ -78,7 +78,7 @@ class SpecialEnroll extends SpecialEPPage {
 					$tokenIsValid = $course->getField( 'token' ) === $token;
 					$this->token = $token;
 				}
-				
+
 				if ( $tokenIsValid ) {
 					$this->showEnrollmentView( $course );
 				}
@@ -86,24 +86,24 @@ class SpecialEnroll extends SpecialEPPage {
 					if ( $token !== '' ) {
 						$this->showWarning( wfMessage( 'ep-enroll-invalid-token' ) );
 					}
-					
+
 					$this->showTokenInput();
 				}
 			}
 			else {
 				$this->setPageTitle( $course );
-				
+
 				$this->showWarning( wfMessage( 'ep-enroll-course-' . $course->getStatus() ) );
 			}
 		}
 	}
-	
+
 	/**
 	 * Shows the actual enrollment view.
 	 * Should only be called after everything checks out, ie the user can enroll in the course.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPCourse $course
 	 */
 	protected function showEnrollmentView( EPCourse $course ) {
@@ -130,15 +130,15 @@ class SpecialEnroll extends SpecialEPPage {
 			$this->showSignupLink();
 		}
 	}
-	
+
 	/**
 	 * Show an input for a token.
-	 * 
+	 *
 	 * @since 0.1
 	 */
 	protected function showTokenInput() {
 		$out = $this->getOutput();
-		
+
 		$out->addHTML( Html::openElement(
 			'form',
 			array(
@@ -320,7 +320,7 @@ class SpecialEnroll extends SpecialEPPage {
 				)
 			);
 		}
-		
+
 		if ( $this->getRequest()->getCheck( 'wptoken' ) ) {
 			$fields['token'] = array(
 				'type' => 'hidden',

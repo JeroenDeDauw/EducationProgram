@@ -269,7 +269,7 @@ class ImportWEPFromDB extends Maintenance {
 			else {
 				if ( $user->getId() === 0 ) {
 					$user->setPassword( 'ohithere' );
-					
+
 					if ( $student->student_lastname !== '' && $student->student_firstname !== '' ) {
 						$user->setRealName( $student->student_firstname . ' ' . $student->student_lastname );
 					}

@@ -22,7 +22,7 @@ class EPRevisions extends ORMTable {
 	public function getName() {
 		return 'ep_revisions';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFieldPrefix()
@@ -32,7 +32,7 @@ class EPRevisions extends ORMTable {
 	public function getFieldPrefix() {
 		return 'rev_';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getRowClass()
@@ -42,7 +42,7 @@ class EPRevisions extends ORMTable {
 	public function getRowClass() {
 		return 'EPRevision';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFields()
@@ -65,7 +65,7 @@ class EPRevisions extends ORMTable {
 			'data' => 'blob',
 		);
 	}
-	
+
 	/**
 	 * Create a new revision object for the provided EPRevisionedObject.
 	 * The EPRevisionedObject should have all it's fields loaded.
@@ -87,23 +87,23 @@ class EPRevisions extends ORMTable {
 			'deleted' => $revAction->isDelete(),
 			'data' => serialize( $object->toArray() )
 		) );
-		
+
 		$identifier = $object->getIdentifier();
-		
+
 		if ( !is_null( $identifier ) ) {
 			$fields['object_identifier'] = $identifier;
 		}
 
 		return new EPRevision( $this, $fields );
 	}
-	
+
 	/**
-	 * Returns the most recent revision matching the provided conditions. 
-	 *  
+	 * Returns the most recent revision matching the provided conditions.
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param array $conds
-	 * 
+	 *
 	 * @return EPRevision|false
 	 */
 	public function getLatestRevision( array $conds ) {
@@ -115,5 +115,5 @@ class EPRevisions extends ORMTable {
 			)
 		);
 	}
-	
+
 }

@@ -22,7 +22,7 @@ class EPStudents extends ORMTable {
 	public function getName() {
 		return 'ep_students';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFieldPrefix()
@@ -32,7 +32,7 @@ class EPStudents extends ORMTable {
 	public function getFieldPrefix() {
 		return 'student_';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getRowClass()
@@ -42,7 +42,7 @@ class EPStudents extends ORMTable {
 	public function getRowClass() {
 		return 'EPStudent';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getFields()
@@ -62,7 +62,7 @@ class EPStudents extends ORMTable {
 			'active_enroll' => 'bool',
 		);
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see ORMTable::getSummaryFields()
@@ -75,5 +75,5 @@ class EPStudents extends ORMTable {
 			'active_enroll',
 		);
 	}
-	
+
 }

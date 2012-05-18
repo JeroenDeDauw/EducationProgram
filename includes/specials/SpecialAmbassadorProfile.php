@@ -113,7 +113,7 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 			'id' => 'wpTextbox1',
 			'default' => $ambassador->getField( 'bio' ),
 		);
-		
+
 		$fields['photo'] = array(
 			'type' => 'text',
 			'label-message' => $this->getMsgPrefix() . 'profile-photo',

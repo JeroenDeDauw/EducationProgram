@@ -21,7 +21,7 @@ class EPDeleteAction extends EPAction {
 	public function getName() {
 		return 'delete';
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getDescription()
@@ -29,7 +29,7 @@ class EPDeleteAction extends EPAction {
 	protected function getDescription() {
 		return $this->msg( 'backlinksubtitle' )->rawParams( Linker::link( $this->getTitle() ) );
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getRestriction()
@@ -53,10 +53,10 @@ class EPDeleteAction extends EPAction {
 		}
 		else {
 			$req = $this->getRequest();
-			
+
 			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'deleteToken' ), $this->getSalt() ) ) {
 				$success = $this->doDelete( $object );
-				
+
 				if ( $success ) {
 					$title = SpecialPage::getTitleFor( $this->page->getListPage() );
 					$this->getRequest()->setSessionData(
@@ -71,7 +71,7 @@ class EPDeleteAction extends EPAction {
 						$this->msg( $this->prefixMsg( 'delete-failed' ), $this->getTitle()->getText() )->parse()
 					);
 				}
-				
+
 				$this->getOutput()->redirect( $title->getLocalURL() );
 			}
 			else {
@@ -81,36 +81,36 @@ class EPDeleteAction extends EPAction {
 
 		return '';
 	}
-	
+
 	/**
 	 * Does the actual deletion action.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPPageObject $object
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	protected function doDelete( EPPageObject $object ) {
 		$revAction = new EPRevisionAction();
-		
+
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( $this->getRequest()->getText( 'summary', '' ) );
 		$revAction->setDelete( true );
-		
+
 		return $object->revisionedRemove( $revAction );
 	}
 
 	/**
 	 * Display the deletion form for the provided EPPageObject.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param EPPageObject $object
 	 */
 	protected function displayForm( EPPageObject $object ) {
 		$out = $this->getOutput();
-		
+
 		$out->addModules( 'ep.formpage' );
 
 		$out->addWikiMsg( $this->prefixMsg( 'text' ), $object->getField( 'name' ) );
@@ -160,7 +160,7 @@ class EPDeleteAction extends EPAction {
 
 		$out->addHTML( '</form>' );
 	}
-	
+
 	/**
 	 * Returns the page title.
 	 *
