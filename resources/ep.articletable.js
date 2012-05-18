@@ -265,7 +265,7 @@
 		$( '#addarticlename' ).autocomplete( {
 			source: function( request, response ) {
 				$.getJSON(
-					wgScriptPath + '/api.php',
+					mw.config.get( 'wgScriptPath' ) + '/api.php',
 					{
 						'action': 'opensearch',
 						'format': 'json',

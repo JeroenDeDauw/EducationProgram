@@ -20,7 +20,7 @@
 			var deferred = $.Deferred();
 
 			$.post(
-				wgScriptPath + '/api.php',
+				mw.config.get( 'wgScriptPath' ) + '/api.php',
 				requestArgs,
 				function( data ) {
 					if ( data.hasOwnProperty( 'success' ) && data.success ) {
@@ -57,7 +57,7 @@
 			var deferred = $.Deferred();
 
 			$.post(
-				wgScriptPath + '/api.php',
+				mw.config.get( 'wgScriptPath' ) + '/api.php',
 				requestArgs,
 				function( data ) {
 					if ( data.hasOwnProperty( 'success' ) && data.success ) {
@@ -83,7 +83,7 @@
 			}, args );
 
 			$.getJSON(
-				wgScriptPath + '/api.php',
+				mw.config.get( 'wgScriptPath' ) + '/api.php',
 				requestArgs,
 				function( data ) {
 					if ( data.query && data.query.allusers ) {

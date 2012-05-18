@@ -9,7 +9,7 @@
 (function( $, mw ) { $.fn.imageInput = function( options ) {
 
 	var settings = $.extend( {
-		'apipath': wgScriptPath + '/api.php'
+		'apipath': mw.config.get( 'wgScriptPath' ) + '/api.php'
 	}, options );
 
 	return this.each( function() {
