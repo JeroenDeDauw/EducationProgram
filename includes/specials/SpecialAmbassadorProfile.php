@@ -57,6 +57,8 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 			return '';
 		}
 
+		$this->displayNavigation();
+
 		if ( $this->getRequest()->getSessionData( 'epprofilesaved' ) ) {
 			$messageKey = $this->getMsgPrefix() . 'profile-saved';
 			$this->getOutput()->addHTML(
@@ -166,6 +168,16 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 		$ambassador->setFields( $data );
 
 		return $ambassador->save() ? true : array();
+	}
+
+	/**
+	 * Displays the navigation menu.
+	 *
+	 * @since 0.1
+	 */
+	protected function displayNavigation() {
+		$menu = new EPMenu( $this->getContext() );
+		$menu->display();
 	}
 
 }

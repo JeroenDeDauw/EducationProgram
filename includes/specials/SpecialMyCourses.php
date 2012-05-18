@@ -233,7 +233,7 @@ class SpecialMyCourses extends SpecialEPPage {
 	protected function displayNavigation() {
 		$menu = new EPMenu( $this->getContext() );
 		$menu->setItemFunction( function( array $items ) {
-			unset( $items['ep-nav-dashboard'] ); // TODO
+			unset( $items['ep-nav-mycourses'] );
 			return $items;
 		} );
 		$menu->display();
