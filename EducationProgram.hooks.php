@@ -21,7 +21,7 @@ final class EPHooks {
 	 *
 	 * @param DatabaseUpdater $updater
 	 *
-	 * @return true
+	 * @return bool
 	 */
 	public static function onSchemaUpdate( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable(
@@ -79,16 +79,14 @@ final class EPHooks {
 	 *
 	 * @param array $files
 	 *
-	 * @return true
+	 * @return bool
 	 */
 	public static function registerUnitTests( array &$files ) {
-		$testDir = dirname( __FILE__ ) . '/test/';
-
+		//$testDir = dirname( __FILE__ ) . '/test/';
 		//$files[] = $testDir . 'EPTests.php';
 
 		return true;
 	}
-
 
 	/**
 	 * Called after the personal URLs have been set up, before they are shown.
@@ -99,7 +97,7 @@ final class EPHooks {
 	 * @param array $personal_urls
 	 * @param Title $title
 	 *
-	 * @return true
+	 * @return bool
 	 */
 	public static function onPersonalUrls( array &$personal_urls, Title &$title ) {
 		if ( EPSettings::get( 'enableTopLink' ) ) {
@@ -132,9 +130,10 @@ final class EPHooks {
 	 * @param User $user
 	 * @param array $preferences
 	 *
-	 * @return true
+	 * @return bool
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
+		wfProfileIn( __METHOD__ );
 		if ( EPSettings::get( 'enableTopLink' ) ) {
 			$preferences['ep_showtoplink'] = array(
 				'type' => 'toggle',
@@ -167,6 +166,7 @@ final class EPHooks {
 			);
 		}
 
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -179,7 +179,7 @@ final class EPHooks {
 	 * @param Title $title
 	 * @param Article|null $article
 	 *
-	 * @return true
+	 * @return bool
 	 */
 	public static function onArticleFromTitle( Title &$title, &$article ) {
 		if ( $title->getNamespace() == EP_NS_COURSE ) {
@@ -200,7 +200,7 @@ final class EPHooks {
 	 *
 	 * @param array $list
 	 *
-	 * @return true
+	 * @return bool
 	 */
 	public static function onCanonicalNamespaces( array &$list ) {
 		$list[EP_NS_COURSE] = 'Course';
@@ -219,7 +219,7 @@ final class EPHooks {
 	 * @param SkinTemplate $sktemplate
 	 * @param array $links
 	 *
-	 * @return false
+	 * @return bool
 	 */
 	public static function onPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		self::displayTabs( $sktemplate, $links, $sktemplate->getTitle() );
@@ -236,9 +236,10 @@ final class EPHooks {
 	 * @param SkinTemplate $sktemplate
 	 * @param array $links
 	 *
-	 * @return false
+	 * @return bool
 	 */
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
+		wfProfileIn( __METHOD__ );
 		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
 
 		if ( in_array( $textParts[0], array( 'Enroll', 'Disenroll' ) )
@@ -262,6 +263,7 @@ final class EPHooks {
 			}
 		}
 
+		wfProfileOut( __METHOD__ );
 		return false;
 	}
 
@@ -275,6 +277,7 @@ final class EPHooks {
 	 * @param Title $title
 	 */
 	protected static function displayTabs( SkinTemplate &$sktemplate, array &$links, Title $title ) {
+		wfProfileIn( __METHOD__ );
 		$classes = array(
 			EP_NS_INSTITUTION => 'EPOrgs',
 			EP_NS_COURSE => 'EPCourses',
@@ -346,6 +349,7 @@ final class EPHooks {
 				}
 			}
 		}
+		wfProfileIn( __METHOD__ );
 	}
 
 	/**
@@ -357,9 +361,10 @@ final class EPHooks {
 	 * @param Title $title
 	 * @param boolean|null $isKnown
 	 *
-	 * @return true
+	 * @return bool
 	 */
 	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
+		wfProfileIn( __METHOD__ );
 		if ( in_array( $title->getNamespace(), array( EP_NS_COURSE, EP_NS_INSTITUTION ) ) ) {
 			$classes = array(
 				EP_NS_COURSE => 'EPCourses',
@@ -369,6 +374,7 @@ final class EPHooks {
 			$isKnown = $classes[$title->getNamespace()]::singleton()->hasIdentifier( $title->getText() );
 		}
 
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -422,61 +428,69 @@ final class EPHooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param weirdStuffButProbablyWikiPage $article
+	 * @param Article $article
 	 * @param Revision $rev
 	 * @param integer $baseID
 	 * @param User $user
 	 *
-	 * @return true
+	 * @return bool
 	 */
 	public static function onNewRevisionFromEditComplete( $article, Revision $rev, $baseID, User $user ) {
-		if ( $user->isLoggedIn() ) {
-			$namespace = $article->getTitle()->getNamespace();
-
-			if ( in_array( $namespace, array( NS_MAIN, NS_TALK, NS_USER, NS_USER_TALK ) ) ) {
-				$conds = array( 'upc_user_id' => $user->getId() );
-
-				$upc = wfGetDB( DB_SLAVE )->select(
-					array( 'ep_users_per_course', 'ep_courses' ),
-					array( 'upc_course_id' ),
-					array_merge( $conds, EPCourses::getStatusConds( 'current', true ) ),
-					__METHOD__,
-					array(),
-					array(
-						'ep_courses' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
-					)
-				);
-
-				$hasCourses = $upc->numRows() !== 0;
-
-				if ( $hasCourses ) {
-					$event = EPEvent::newFromRevision( $rev, $user );
-
-					$dbw = wfGetDB( DB_MASTER );
-
-					$dbw->begin();
-
-					while ( $link = $upc->fetchObject() ) {
-						$eventForCourse = clone $event;
-						$eventForCourse->setField( 'course_id', $link->upc_course_id );
-						$eventForCourse->save();
-					}
-
-					if ( in_array( $namespace, array( NS_MAIN, NS_TALK ) ) ) {
-						$student = EPStudent::newFromUserId( $user->getId(), true );
-
-						$student->setFields( array(
-							'last_active' => wfTimestampNow()
-						) );
-
-						$student->save();
-					}
-
-					$dbw->commit();
-				}
-			}
+		if ( !$user->isLoggedIn() ) {
+			return true;
 		}
+		wfProfileIn( __METHOD__ );
+		$namespace = $article->getTitle()->getNamespace();
 
+		if ( !in_array( $namespace, array( NS_MAIN, NS_TALK, NS_USER, NS_USER_TALK ) ) ) {
+			wfProfileOut( __METHOD__ );
+			return true;
+		}
+		wfProfileIn( __METHOD__ . '-ns' );
+		$conds = array( 'upc_user_id' => $user->getId() );
+
+		$upc = wfGetDB( DB_SLAVE )->select(
+			array( 'ep_users_per_course', 'ep_courses' ),
+			array( 'upc_course_id' ),
+			array_merge( $conds, EPCourses::getStatusConds( 'current', true ) ),
+			__METHOD__,
+			array(),
+			array(
+				'ep_courses' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
+			)
+		);
+
+		$hasCourses = $upc->numRows() !== 0;
+		wfProfileOut( __METHOD__ . '-ns' );
+
+		if ( $hasCourses ) {
+			wfProfileIn( __METHOD__ . '-courses' );
+			$event = EPEvent::newFromRevision( $rev, $user );
+
+			$dbw = wfGetDB( DB_MASTER );
+
+			$dbw->begin();
+
+			while ( $link = $upc->fetchObject() ) {
+				$eventForCourse = clone $event;
+				$eventForCourse->setField( 'course_id', $link->upc_course_id );
+				$eventForCourse->save();
+			}
+
+			if ( in_array( $namespace, array( NS_MAIN, NS_TALK ) ) ) {
+				$student = EPStudent::newFromUserId( $user->getId(), true );
+
+				$student->setFields( array(
+					'last_active' => wfTimestampNow()
+				) );
+
+				$student->save();
+			}
+
+			$dbw->commit();
+			wfProfileIn( __METHOD__ . '-courses' );
+		}
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
