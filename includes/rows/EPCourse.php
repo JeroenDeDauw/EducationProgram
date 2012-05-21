@@ -325,7 +325,11 @@ class EPCourse extends EPPageObject {
 			array_key_exists( 'org', $args ) ? $args['org'] : false
 		);
 
-		$select->addOptions( EPOrgs::singleton()->selectFields( array( 'name', 'id' ) ) );
+		$orgs = EPOrgs::singleton()->selectFields( array( 'id', 'name' ) );
+		natcasesort( $orgs );
+		$orgs = array_flip( $orgs );
+
+		$select->addOptions( $orgs );
 		$html .= $select->getHTML();
 
 		$html .= '&#160;' . Xml::inputLabel(
