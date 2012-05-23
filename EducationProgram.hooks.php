@@ -86,6 +86,8 @@ final class EPHooks {
 
 		$files[] = $testDir . 'EPUtilsTest.php';
 
+		$files[] = $testDir . 'tables/EPOrgsTest.php';
+
 		return true;
 	}
 

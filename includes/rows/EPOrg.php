@@ -94,14 +94,14 @@ class EPOrg extends EPPageObject {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see ORMRow::save()
+	 * @see ORMRow::setField()
 	 */
-	public function save( $functionName = null ) {
-		if ( $this->hasField( 'name' ) ) {
-			$this->setField( 'name', $GLOBALS['wgLang']->ucfirst( $this->getField( 'name' ) ) );
+	public function setField( $name, $value ) {
+		if ( $name === 'name' ) {
+			$value = $GLOBALS['wgLang']->ucfirst( $value );
 		}
 
-		return parent::save( $functionName );
+		parent::setField( $name, $value );
 	}
 
 	/**
