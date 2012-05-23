@@ -52,7 +52,10 @@ class EPUtils {
 	 * @return array
 	 */
 	public static function getCountryOptions( $langCode ) {
-		return self::getKeyPrefixedValues( CountryNames::getNames( $langCode ) );
+		return array_merge(
+			array( '' => '' ),
+			self::getValuesAppendedKeys( CountryNames::getNames( $langCode ) )
+		);
 	}
 
 	/**
@@ -66,11 +69,14 @@ class EPUtils {
 	 * @return array
 	 */
 	public static function getLanguageOptions( $langCode ) {
-		return self::getKeyPrefixedValues( LanguageNames::getNames( $langCode ) );
+		return array_merge(
+			array( '' => '' ),
+			self::getValuesAppendedKeys( LanguageNames::getNames( $langCode ) )
+		);
 	}
 
 	/**
-	 * Returns the array but with each value prefixed by it's provided key.
+	 * Returns the array but with each key postfixed by the value and the value replaced by the original key.
 	 *
 	 * @since 0.1
 	 *
@@ -78,19 +84,16 @@ class EPUtils {
 	 *
 	 * @return array
 	 */
-	protected static function getKeyPrefixedValues( array $list ) {
-		return array_merge(
-			array( '' => '' ),
-			array_combine(
-				array_map(
-					function( $value, $key ) {
-						return $key . ' - ' . $value;
-					} ,
-					array_values( $list ),
-					array_keys( $list )
-				),
+	public static function getValuesAppendedKeys( array $list ) {
+		return array_combine(
+			array_map(
+				function( $value, $key ) {
+					return $key . ' - ' . $value;
+				} ,
+				array_values( $list ),
 				array_keys( $list )
-			)
+			),
+			array_keys( $list )
 		);
 	}
 
