@@ -29,45 +29,6 @@ final class EPHooks {
 			dirname( __FILE__ ) . '/sql/EducationProgram.sql'
 		);
 
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_orgs',
-			'org_courses',
-			dirname( __FILE__ ) . '/sql/AddCoursesField.sql',
-			true
-		) );
-
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_articles',
-			'article_page_title',
-			dirname( __FILE__ ) . '/sql/AddArticleTitleField.sql',
-			true
-		) );
-
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_oas',
-			'oa_visible',
-			dirname( __FILE__ ) . '/sql/AddAmbVisibleField.sql',
-			true
-		) );
-
-		$updater->addExtensionUpdate( array(
-			'addField',
-			'ep_users_per_course',
-			'upc_time',
-			dirname( __FILE__ ) . '/sql/AddActivityStuff.sql',
-			true
-		) );
-
-		$updater->addExtensionUpdate( array(
-			'addTable',
-			'ep_events',
-			dirname( __FILE__ ) . '/sql/AddEventsTable.sql',
-			true
-		) );
-
 		return true;
 	}
 
