@@ -35,18 +35,19 @@ $specialPageAliases['en'] = array(
 
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
-	'MyCourses' => array( 'MijnCursusen' ),
-	'Institutions' => array( 'Instituten' ),
+	'MyCourses' => array( 'MijnCursussen' ),
+	'Institutions' => array( 'Organisaties' ),
 	'Student' => array( 'Student' ),
 	'Students' => array( 'Studenten' ),
 	'Courses' => array( 'Cursussen' ),
-	'EducationProgram' => array( 'EducationProgram' ),
+	'EducationProgram' => array( 'Opleidingsprogramma' ),
 	'Enroll' => array( 'Inschrijven' ),
 	'Disenroll' => array( 'Uitschrijven' ),
-	'CampusAmbassadors' => array( 'CampusAmbassadeurs' ),
+	'CampusAmbassadors' => array( 'Campusambassadeurs' ),
 	'OnlineAmbassadors' => array( 'OnlineAmbassadeurs' ),
-	'OnlineAmbassadorProfile' => array( 'OnlineAmbassadeurProfiel' ),
-	'CampusAmbassadorProfile' => array( 'CampusAmbassadeurProfiel' ),
-	'StudentActivity' => array( 'StudentActiviteit' ),
-	'Articles' => array( 'Artikels' ),
+	'OnlineAmbassadorProfile' => array( 'OnlineAmbassadeurprofiel' ),
+	'CampusAmbassadorProfile' => array( 'Campusambassadeurprofiel' ),
+	'StudentActivity' => array( 'Studentactiviteit' ),
+	'Articles' => array( 'Artikelen' ),
 );
+
