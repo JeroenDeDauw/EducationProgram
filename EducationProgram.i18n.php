@@ -788,20 +788,6 @@ The deletion log for this course is provided below for convenience:",
 You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-studentactivity-count' => '{{PLURAL:$1|One student was|$1 students were}} active in the last $2.',
 
-	// Cached special page, back compat for MW < 1.20
-	'cachedspecial-viewing-cached-ttl' => 'You are viewing a cached version of this page, which can be up to $1 old.',
-	'cachedspecial-viewing-cached-ts' => 'You are viewing a cached version of this page, which might not be completely actual.',
-	'cachedspecial-refresh-now' => 'View latest.',
-
-	// Durations, back compat for MW < 1.20
-	'duration-seconds' => '$1 {{PLURAL:$1|second|seconds}}',
-	'duration-minutes' => '$1 {{PLURAL:$1|minute|minutes}}',
-	'duration-hours' => '$1 {{PLURAL:$1|hour|hours}}',
-	'duration-days' => '$1 {{PLURAL:$1|day|days}}',
-	'duration-weeks' => '$1 {{PLURAL:$1|week|weeks}}',
-	'duration-years' => '$1 {{PLURAL:$1|year|years}}',
-	'duration-centuries' => '$1 {{PLURAL:$1|century|centuries}}',
-
 	// Diffs
 	'ep-diff-old' => 'Current value',
 	'ep-diff-new' => 'New value',
@@ -1583,20 +1569,6 @@ This will permanently remove their associated articles and reviewers!',
 	// Special:StudentActivity
 	'ep-studentactivity-noresults' => 'Message shown when there are no students that where recently active. $1 is a duration',
 	'ep-studentactivity-count' => '$1 is student amount, $2 is a duration',
-
-	// Cached special page, back compat for MW < 1.20
-	'cachedspecial-viewing-cached-ttl' => 'Notifies the user they are watching a cached page. $1 is a duration',
-	'cachedspecial-viewing-cached-ts' => 'Notifies the user they are watching a cached page.',
-	'cachedspecial-refresh-now' => 'Refresh link text.',
-
-	// Durations, back compat for MW < 1.20
-	'duration-seconds' => 'Duration. $1 is the amount of seconds',
-	'duration-minutes' => 'Duration. $1 is the amount of minutes',
-	'duration-hours' => 'Duration. $1 is the amount of hours',
-	'duration-days' => 'Duration. $1 is the amount of days',
-	'duration-weeks' => 'Duration. $1 is the amount of weeks',
-	'duration-years' => 'Duration. $1 is the amount of years',
-	'duration-centuries' => 'Duration. $1 is the amount of centuries',
 
 	// Diffs
 	'ep-diff-old' => 'Table column header',
