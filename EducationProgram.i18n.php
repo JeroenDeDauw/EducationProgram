@@ -820,24 +820,21 @@ You can find a full list of students on [[Special:Students|the student list]].',
 
 /** Message documentation (Message documentation)
  * @author Jeroen De Dauw
- *
- * Please leave the doc headers intact, else it becomes very hard to
- * get a decent overview of what is and what is not (yet) documented!
+ * @author Siebrand
  */
 $messages['qqq'] = array(
 	'educationprogram-desc' => 'Extension description for on Special:Version',
-
-	// Misc
 	'ep-item-summary' => 'Table column header',
 	'ep-toplink' => 'Text of a link the the top menu (next to "My preferences")',
-	'ep-org-course-delete-comment' => "Success message. $1 is an institution name, $2 is a user provided comment",
-	'ep-org-course-delete' => "Success message. $1 is an institution name",
+	'ep-org-course-delete-comment' => 'Success message. Parameters:
+* $1 is an institution name,
+$2 is a user provided comment',
+	'ep-org-course-delete' => 'Success message. Parameters:
+* $1 is an institution name',
 	'ep-form-summary' => 'Summary input label',
 	'ep-form-minor' => 'Minor edit checkbox label',
 	'ep-move-error' => 'Error message you get when you try to move stuff in or out of an EP namespace',
 	'ep-student-view-profile' => 'Text of links to student profiles, typically used in tool link lists, next to stuff such as "talk" and "contributions"',
-
-	// Tabs
 	'ep-tab-view' => 'Tab label',
 	'ep-tab-edit' => 'Tab label',
 	'ep-tab-create' => 'Tab label',
@@ -845,22 +842,16 @@ $messages['qqq'] = array(
 	'ep-tab-enroll' => 'Tab label',
 	'ep-tab-disenroll' => 'Tab label',
 	'ep-tab-delete' => 'Tab label',
-
-	// Tooltips
 	'tooltip-ep-form-save' => 'Tooltip text',
 	'tooltip-ep-edit-institution' => 'Tooltip text',
 	'tooltip-ep-edit-course' => 'Tooltip text',
 	'tooltip-ep-summary' => 'Tooltip text',
 	'tooltip-ep-minor' => 'Tooltip text',
-
-	// Access keys
 	'accesskey-ep-form-save' => 'Access key, do not translate',
 	'accesskey-ep-edit-institution' => 'Access key, do not translate',
 	'accesskey-ep-edit-course' => 'Access key, do not translate',
 	'accesskey-ep-summary' => 'Access key, do not translate',
 	'accesskey-ep-minor' => 'Access key, do not translate',
-
-	// Navigation links
 	'ep-nav-orgs' => 'Text of link to institution list',
 	'ep-nav-courses' => 'Text of link to courses list',
 	'ep-nav-mycourses' => 'Text of link to Special:MyCourses',
@@ -870,9 +861,6 @@ $messages['qqq'] = array(
 	'ep-nav-oas' => 'Text of link to Online Ambassadors list',
 	'ep-nav-oaprofile' => 'Text of link to a users Online Ambassadors profile',
 	'ep-nav-caprofile' => 'Text of link to a users Campus Ambassadors profile',
-
-	// Logging
-	// log-name = {{Name of the $1 log group}}
 	'log-name-institution' => '{{log-name|institution}}',
 	'log-name-course' => '{{log-name|course}}',
 	'log-name-student' => '{{log-name|student}}',
@@ -880,69 +868,83 @@ $messages['qqq'] = array(
 	'log-name-campus' => '{{log-name|campus}}',
 	'log-name-instructor' => '{{log-name|instructor}}',
 	'log-name-eparticle' => '{{log-name|eparticle}}',
-
-	// log-header = {{Header of the $1 log groups page}}
 	'log-header-institution' => '{{log-header|institution}}',
 	'log-header-course' => '{{log-header|course}}',
 	'log-header-instructor' => '{{log-header|instructor}}',
 	'log-header-campus' => '{{log-header|campus}}',
 	'log-header-online' => '{{log-header|online}}',
 	'log-header-student' => '{{log-header|student}}',
-
-	// log-description = {{Description of the $1 log group}}
 	'log-description-institution' => '{{log-description|institution}}',
 	'log-description-course' => '{{log-description|course}}',
 	'log-description-instructor' => '{{log-description|instructor}}',
 	'log-description-online' => '{{log-description|online}}',
 	'log-description-campus' => '{{log-description|campus}}',
 	'log-description-student' => '{{log-description|student}}',
-
-	'logentry-institution-add' => 'Log entry. $1 is the performing user, $3 is the name of the added institution',
-	'logentry-institution-remove' => 'Log entry. $1 is the performing user, $3 is the name of the removed institution',
-	'logentry-institution-update' => 'Log entry. $1 is the performing user, $3 is the name of the updated institution',
-	'logentry-institution-undelete' => 'Log entry. $1 is the performing user, $3 is the name of the undeleted institution',
-
-	'logentry-course-add' => 'Log entry. $1 is the performing user, $3 is the name of the added course',
-	'logentry-course-remove' => 'Log entry. $1 is the performing user, $3 is the name of the removed course',
-	'logentry-course-update' => 'Log entry. $1 is the performing user, $3 is the name of the updated course',
-	'logentry-course-undelete' => 'Log entry. $1 is the performing user, $3 is the name of the undeleted course',
-
-	'logentry-instructor-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of added people',
-	'logentry-instructor-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of removed people',
-	'logentry-instructor-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
-	'logentry-instructor-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
-
-	'logentry-online-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of added people',
-	'logentry-online-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of removed people',
-	'logentry-online-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
-	'logentry-online-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
-	'logentry-online-profilesave' => 'Log entry. User updated own ambassador profile. $1 is the performing user (link), $2 is the name of this user',
-
-	'logentry-campus-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of added people',
-	'logentry-campus-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of removed people',
-	'logentry-campus-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
-	'logentry-campus-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course',
-	'logentry-campus-profilesave' => 'Log entry. User updated own ambassador profile. $1 is the performing user (link), $2 is the name of this user',
-
-	'logentry-student-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the course in which the user enrolled',
-	'logentry-student-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the name of the course, $4 is the amount of added people, $5 is a list of removed people',
-	'logentry-student-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the course in which the user enrolled',
-	'logentry-student-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the course in which the user disenrolled',
-
-	'logentry-eparticle-selfadd' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course',
-	'logentry-eparticle-selfremove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course',
-	'logentry-eparticle-add' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course, $5 is the user that own the article (link), $6 is the name of this user',
-	'logentry-eparticle-remove' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course, $5 is the user that own the article (link), $6 is the name of this user',
-	'logentry-eparticle-review' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course, $5 is the user that own the article (link), $6 is the name of this user',
-	'logentry-eparticle-unreview' => 'Log entry. $1 is the performing user (link), $2 is the name of this user, $3 is the article, $4 is the course, $5 is the user that own the article (link), $6 is the name of this user',
-
-	// Preferences
+	'logentry-institution-add' => '{{logentry}}',
+	'logentry-institution-remove' => '{{logentry}}',
+	'logentry-institution-update' => '{{logentry}}',
+	'logentry-institution-undelete' => '{{logentry}}',
+	'logentry-course-add' => '{{logentry}}',
+	'logentry-course-remove' => '{{logentry}}',
+	'logentry-course-update' => '{{logentry}}',
+	'logentry-course-undelete' => '{{logentry}}',
+	'logentry-instructor-add' => '{{logentry}} Additional parameters:
+* $4 is the amount of added people,
+* $5 is a list of added people',
+	'logentry-instructor-remove' => '{{logentry}} Additional parameters:
+* $4 is the amount of added people,
+* $5 is a list of removed people',
+	'logentry-instructor-selfadd' => '{{logentry}}',
+	'logentry-instructor-selfremove' => '{{logentry}}',
+	'logentry-online-add' => '{{logentry}} Additional parameters:
+* $4 is the amount of added people,
+* $5 is a list of added people',
+	'logentry-online-remove' => '{{logentry}} Additional parameters:
+* $4 is the amount of added people,
+* $5 is a list of removed people',
+	'logentry-online-selfadd' => '{{logentry}}',
+	'logentry-online-selfremove' => '{{logentry}}',
+	'logentry-online-profilesave' => '{{logentry}}',
+	'logentry-campus-add' => '{{logentry}} Additional parameters:
+* $4 is the amount of added people,
+* $5 is a list of added people',
+	'logentry-campus-remove' => '{{logentry}} Additional parameters:
+* $4 is the amount of added people,
+* $5 is a list of removed people',
+	'logentry-campus-selfadd' => '{{logentry}}',
+	'logentry-campus-selfremove' => '{{logentry}}',
+	'logentry-campus-profilesave' => '{{logentry}}',
+	'logentry-student-add' => '{{logentry}}',
+	'logentry-student-remove' => '{{logentry}} Additional parameters:
+* $4 is the amount of added people,
+* $5 is a list of removed people',
+	'logentry-student-selfadd' => '{{logentry}}',
+	'logentry-student-selfremove' => '{{logentry}}',
+	'logentry-eparticle-selfadd' => '{{logentry}} Additional parameters:
+* $4 is the course',
+	'logentry-eparticle-selfremove' => '{{logentry}} Additional parameters:
+* $4 is the course',
+	'logentry-eparticle-add' => '{{logentry}} Additional parameters:
+* $4 is the course,
+* $5 is the user that own the article (link),
+* $6 is the name of this user',
+	'logentry-eparticle-remove' => '{{logentry}} Additional parameters:
+* $4 is the course,
+* $5 is the user that own the article (link),
+* $6 is the name of this user',
+	'logentry-eparticle-review' => '{{logentry}} Additional parameters:
+* $4 is the course,
+* $5 is the user that own the article (link),
+* $6 is the name of this user',
+	'logentry-eparticle-unreview' => '{{logentry}} Additional parameters:
+* $4 is the course,
+* $5 is the user that own the article (link),
+* $6 is the name of this user',
 	'prefs-education' => 'Preferences tab label',
 	'ep-prefs-showtoplink' => 'Preference checkbox label',
 	'ep-prefs-bulkdelorgs' => 'Preference checkbox label',
 	'ep-prefs-bulkdelcourses' => 'Preference checkbox label',
-
-	// Rights
+	'ep-prefs-showdyk' => 'Message shown next to the user preference checkbox that allows controlling if the "Did you know box" should show up on Special:MyCourses.',
 	'right-ep-org' => '{{doc-right|ep-org}}',
 	'right-ep-course' => '{{doc-right|ep-course}}',
 	'right-ep-token' => '{{doc-right|ep-token}}',
@@ -960,8 +962,6 @@ $messages['qqq'] = array(
 	'right-ep-bulkdelcourses' => '{{doc-right|ep-bulkdelcourses}}',
 	'right-ep-remarticle' => '{{doc-right|ep-remarticle}}',
 	'right-ep-addstudent' => '{{doc-right|ep-addstudent}}',
-
-	// Actions
 	'action-ep-org' => '{{doc-action|ep-org}}',
 	'action-ep-course' => '{{doc-action|ep-course}}',
 	'action-ep-token' => '{{doc-action|ep-token}}',
@@ -979,29 +979,21 @@ $messages['qqq'] = array(
 	'action-ep-bulkdelcourses' => '{{doc-action|ep-bulkdelcourses}}',
 	'action-ep-remarticle' => '{{doc-action|ep-remarticle}}',
 	'action-ep-addstudent' => '{{doc-action|ep-addstudent}}',
-
-	// Groups
 	'group-epadmin' => '{{group-name}}',
 	'group-epadmin-member' => '{{group-member}}',
 	'grouppage-epadmin' => '{{group-page}}',
-
 	'group-epstaff' => '{{group-name}}',
 	'group-epstaff-member' => '{{group-member}}',
 	'grouppage-epstaff' => '{{group-page}}',
-
 	'group-eponlineamb' => '{{group-name}}',
 	'group-eponlineamb-member' => '{{group-member}}',
 	'grouppage-eponlineamb' => '{{group-page}}',
-
 	'group-epcampamb' => '{{group-name}}',
 	'group-epcampamb-member' => '{{group-member}}',
 	'grouppage-epcampamb' => '{{group-page}}',
-
 	'group-epinstructor' => '{{group-name}}',
 	'group-epinstructor-member' => '{{group-member}}',
 	'grouppage-epinstructor' => '{{group-page}}',
-
-	// Special pages
 	'specialpages-group-education' => 'Special pages group, h2',
 	'special-mycourses' => '{{doc-special|mycourses}}',
 	'special-managecourses' => '{{doc-special|managecourses}}',
@@ -1018,29 +1010,40 @@ $messages['qqq'] = array(
 	'special-disenroll' => '{{doc-special|disenroll}}',
 	'special-studentactivity' => '{{doc-special|studentactivity}}',
 	'special-articles' => '{{doc-special|articles}}',
-
-	// Course statuses
 	'ep-course-status-passed' => 'Course status',
 	'ep-course-status-current' => 'Course status',
 	'ep-course-status-planned' => 'Course status',
-
-	// Special:EducationProgram
 	'ep-summary-table-header' => 'Table header',
 	'specialeducationprogram-summary-org-count' => 'Table row header',
 	'specialeducationprogram-summary-course-count' => 'Table row header',
+	'specialeducationprogram-summary-active-course-count' => 'Table row header',
 	'specialeducationprogram-summary-student-count' => 'Table row header',
+	'specialeducationprogram-summary-current-student-count' => 'Table row header',
 	'specialeducationprogram-summary-instructor-count' => 'Table row header',
 	'specialeducationprogram-summary-ca-count' => 'Table row header',
 	'specialeducationprogram-summary-oa-count' => 'Table row header',
-
-	// Special:Institutions
+	'ep-educationprogram-by-term' => 'level 2 header',
+	'ep-educationprogram-courses' => 'Table row header',
+	'ep-educationprogram-students' => 'Table row header',
+	'ep-educationprogram-instructors' => 'Table row header',
+	'ep-educationprogram-oas' => 'Table row header',
+	'ep-educationprogram-cas' => 'Table row header',
+	'ep-educationprogram-orgs' => 'Table row header',
+	'ep-educationprogram-articles' => 'Table row header',
+	'ep-educationprogram-gender-students' => 'Table row header on Special:EducationProgram',
+	'ep-educationprogram-gender-oas' => 'Table row header on Special:EducationProgram',
+	'ep-educationprogram-gender-cas' => 'Table row header on Special:EducationProgram',
+	'ep-educationprogram-gender-instructors' => 'Table row header on Special:EducationProgram',
+	'ep-educationprogram-male' => 'Table row header on Special:EducationProgram',
+	'ep-educationprogram-female' => 'Table row header on Special:EducationProgram',
+	'ep-educationprogram-unknown' => 'Table row header on Special:EducationProgram. Indicates that the gender is unknown',
+	'ep-educationprogram-genders' => 'Section 2 header on Special:EducationProgram',
+	'ep-educationprogram-nodata' => 'Message shown when there are no statistics to display on Special:EducationProgram',
 	'ep-institutions-noresults' => 'Message indicating that there are no results',
 	'ep-institutions-addnew' => 'Header for an add new institution form',
 	'ep-institutions-namedoc' => 'Short description message for an add new institution form',
 	'ep-institutions-newname' => 'Text input label',
 	'ep-institutions-add' => 'Submit button text',
-
-	// Special:Courses
 	'ep-courses-noresults' => 'Message indicating that there are no results',
 	'ep-courses-addnew' => 'Header for an add new course form',
 	'ep-courses-namedoc' => 'Short description message for an add new course form',
@@ -1049,22 +1052,14 @@ $messages['qqq'] = array(
 	'ep-courses-neworg' => 'Select input label',
 	'ep-courses-add' => 'Submit button text',
 	'ep-courses-addorgfirst' => 'Error message shown when trying to create a course while there are no institutions yet',
-
-	// Special:Students
 	'ep-students-noresults' => 'Shown instead of a pager as notification that there are no results',
-
-	// Pager
 	'ep-pager-showonly' => 'Header of a section with controls that allow filtering the result set',
 	'ep-pager-clear' => 'Clear button text',
 	'ep-pager-go' => 'Submit button text',
 	'ep-pager-withselected' => 'Header of a section with controls that allow doing bulk actions (ie affect the selected items)',
 	'ep-pager-delete-selected' => 'Delete button text',
-
-	// Revision pager
 	'ep-revision-undo' => 'Undo link shown next to revisions on history pages',
 	'ep-revision-restore' => 'Restore link shown next to revisions on history pages',
-
-	// Org pager
 	'eporgpager-header-name' => 'Table column header',
 	'eporgpager-header-city' => 'Table column header',
 	'eporgpager-header-country' => 'Table column header',
@@ -1076,15 +1071,16 @@ $messages['qqq'] = array(
 	'eporgpager-yes' => 'Select option text, also displayed in table cells',
 	'eporgpager-no' => 'Select option text, also displayed in table cells',
 	'ep-pager-cancel-button-org' => 'Cancel button text',
-	'ep-pager-delete-button-org' => 'Remove button text. $1 indicates the amount of affected institutions.',
-	'ep-pager-confirm-delete-org' => 'Deletion confirmation dialog title. $1 indicates the amount of affected institutions.',
+	'ep-pager-delete-button-org' => 'Remove button text. Parameters:
+* $1 indicates the number of affected institutions.',
+	'ep-pager-confirm-delete-org' => 'Deletion confirmation dialog title. Parameters:
+* $1 indicates the number of affected institutions.',
 	'ep-pager-retry-button-org' => 'Retry button text',
 	'ep-pager-summary-message-org' => 'Summary input label',
-	// Yeah we need two of these - having a jQuery node in PLURAL breaks, at least at r110788.
-	'ep-pager-confirm-message-org' => 'Notifies the user they are about to delete institution $1.',
-	'ep-pager-confirm-message-org-many' => 'Notifies the user they are about to delete the institutions in list $1.',
-
-	// Course pager
+	'ep-pager-confirm-message-org' => 'Notifies the user they are about to delete an institution. Parameters:
+* $1 is the institution name.',
+	'ep-pager-confirm-message-org-many' => 'Notifies the user they are about to delete institutions. Parameters:
+* $1 is a list of institutions.',
 	'epcoursepager-header-name' => 'Table column header',
 	'epcoursepager-header-term' => 'Table column header',
 	'epcoursepager-header-start' => 'Table column header',
@@ -1099,15 +1095,16 @@ $messages['qqq'] = array(
 	'epcoursepager-filter-status' => 'Filter control label',
 	'epcoursepager-invalid-lang' => 'Indicates the selected language is not valid',
 	'ep-pager-cancel-button-course' => 'Cancel button text',
-	'ep-pager-delete-button-course' => 'Remove button text. $1 indicates the amount of affected courses.',
-	'ep-pager-confirm-delete-course' => 'Deletion confirmation dialog title. $1 indicates the amount of affected courses.',
+	'ep-pager-delete-button-course' => 'Remove button text. Parameters:
+* $1 indicates the number of affected courses.',
+	'ep-pager-confirm-delete-course' => 'Deletion confirmation dialog title. Parameters:
+* $1 indicates the number of affected courses.',
 	'ep-pager-retry-button-course' => 'Retry button text',
 	'ep-pager-summary-message-course' => 'Summary input label',
-	// Yeah we need two of these - having a jQuery node in PLURAL breaks, at least at r110788.
-	'ep-pager-confirm-message-course' => 'Notifies the user they are about to delete course $1.',
-	'ep-pager-confirm-message-course-many' => 'Notifies the user they are about to delete the courses in list $1.',
-
-	// Student pager
+	'ep-pager-confirm-message-course' => 'Notifies the user they are about to delete a course Parameters:
+* $1 is a course name.',
+	'ep-pager-confirm-message-course-many' => 'Notifies the user they are about to delete multiple courses. Parameters:
+* $1 is a list of to be deleted courses.',
 	'epstudentpager-header-user-id' => 'Table column header',
 	'epstudentpager-header-id' => 'Table column header',
 	'epstudentpager-header-current-courses' => 'Table column header',
@@ -1117,70 +1114,80 @@ $messages['qqq'] = array(
 	'epstudentpager-header-active-enroll' => 'Table column header',
 	'epstudentpager-yes' => 'Select option text, also displayed in table cells',
 	'epstudentpager-no' => 'Select option text, also displayed in table cells',
-
-	// Article table
 	'epstudentpager-header-student' => 'Table column header',
 	'epstudentpager-header-articles' => 'Table column header',
 	'epstudentpager-header-reviewers' => 'Table column header',
 	'ep-artciles-remstudent' => 'Link text shown in user tool links section',
-	'ep-artciles-remreviewer-self' => 'Link text, displayed next to a reviewer that is the current user. $1 is the user name',
-	'ep-artciles-remreviewer' => 'Link text, displayed next to a reviewer. $1 is reviewer user name',
+	'ep-artciles-remreviewer-self' => 'Link text, displayed next to a reviewer that is the current user. Parameters:
+* $1 is the user name',
+	'ep-artciles-remreviewer' => 'Link text, displayed next to a reviewer. Parameters:
+* $1 is reviewer user name',
 	'ep-artciles-remarticle' => 'Link text, displayed next to an article',
 	'ep-artciles-addarticle-text' => 'Text input label',
 	'ep-artciles-addarticle-button' => 'Submit button text',
-	'ep-artciles-becomereviewer' => 'Button text. $1 is the user name',
-
-	// ep.articletable
-	'ep-articletable-addreviwer-title' => 'Dialog title. $1 is the name of the user',
-	'ep-articletable-addreviwer-button' => 'Link text. $1 is the name of the user',
+	'ep-artciles-becomereviewer' => 'Button text. Parameters:
+* $1 is the user name',
+	'ep-articletable-addreviwer-title' => 'Dialog title. Parameters:
+* $1 is the name of the user',
+	'ep-articletable-addreviwer-button' => 'Link text. Parameters:
+* $1 is the name of the user.',
 	'ep-articletable-addreviwer-cancel' => 'Cancel button text',
-	'ep-articletable-addreviwer-text' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is user name. $2 is an article. $3 is another user',
-
-	'ep-articletable-remreviwer-title' => 'Dialog title. $1 is the name of the user',
-	'ep-articletable-remreviwer-title-self' => 'Dialog title. $1 is the name of the user',
-	'ep-articletable-remreviwer-button' => 'Remove button text. $1 is the name of the user',
-	'ep-articletable-remreviwer-button-self' => 'Remove button text. $1 is the name of the user',
+	'ep-articletable-addreviwer-text' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
+* $1 is user name.
+* $2 is an article.
+* $3 is another user.',
+	'ep-articletable-remreviwer-title' => 'Dialog title. Parameters:
+* $1 is the name of the user',
+	'ep-articletable-remreviwer-title-self' => 'Dialog title. Parameters:
+* $1 is the name of the user',
+	'ep-articletable-remreviwer-button' => 'Remove button text. Parameters:
+* $1 is the name of the user',
+	'ep-articletable-remreviwer-button-self' => 'Remove button text. Parameters:
+* $1 is the name of the user.',
 	'ep-articletable-remreviwer-cancel' => 'Cancel button text',
-	'ep-articletable-remreviwer-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is user name. $2 is an article. $3 is another user',
-	'ep-articletable-remreviwer-text' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is user name. $2 is an article. $3 is another user. $4 is a link to user $1',
-
-	'ep-articletable-remstudent-title' => 'Dialog title. $1 is the name of the user',
+	'ep-articletable-remreviwer-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
+* $1 is user name.
+* $2 is an article.
+* $3 is another user.',
+	'ep-articletable-remreviwer-text' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
+* $1 is user name.
+* $2 is an article.
+* $3 is another user.
+* $4 is a link to user $1',
+	'ep-articletable-remstudent-title' => 'Dialog title. Parameters:
+* $1 is the name of the user',
 	'ep-articletable-remstudent-button' => 'Link text. $1 is the name of the user',
 	'ep-articletable-remstudent-cancel' => 'Cancel button text',
-	'ep-articletable-remstudent-text' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is user name. $2 is a course. $3 is a link to user $1.
-
-This will permanently remove their associated articles and reviewers!',
-
-	'ep-articletable-remarticle-title' => 'Dialog title. $1 is the name of the affected article',
+	'ep-articletable-remstudent-text' => 'Message explaining what the user is about to do in a confirmation dialog. This will permanently remove their associated articles and reviewers! Parameters:
+* $1 is user name.
+* $2 is a course.
+* $3 is a link to user $1.',
+	'ep-articletable-remarticle-title' => 'Dialog title. Parameters:
+* $1 is the name of the affected article',
 	'ep-articletable-remarticle-button' => 'Remove button text',
 	'ep-articletable-remarticle-cancel' => 'Cancel button text',
-	'ep-articletable-remarticle-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is article name, $2 is course name',
-	'ep-articletable-remarticle-text' => 'Message explaining what the user is about to do in a confirmation dialog. $1 is article name, $2 is course name, $3 is the student working on the article',
-
-	// Article pager
-	'ep-articles-noresults' => 'Shown instead of a pager as notification that there are no results',
-
-	// Campus ambassador pager
+	'ep-articletable-remarticle-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
+* $1 is article name,
+* $2 is course name',
+	'ep-articletable-remarticle-text' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
+* $1 is article name,
+* $2 is course name,
+* $3 is the student working on the article',
+	'ep-articles-noresults' => 'Shown instead of a pager as notification that there are no results.',
 	'epcapager-header-photo' => 'Table column header',
 	'epcapager-header-user-id' => 'Table column header',
 	'epcapager-header-bio' => 'Table column header',
 	'epcapager-header-courses' => 'Table column header',
 	'ep-ca-noresults' => 'Shown instead of a pager as notification that there are no results',
-
-	// Online ambassador pager
 	'epoapager-header-photo' => 'Table column header',
 	'epoapager-header-user-id' => 'Table column header',
 	'epoapager-header-bio' => 'Table column header',
 	'epoapager-header-courses' => 'Table column header',
 	'ep-oa-noresults' => 'Shown instead of a pager as notification that there are no results',
-
-	// Student activity pager
 	'epstudentactivitypager-header-user-id' => 'Table column header',
 	'epstudentactivitypager-header-org-id' => 'Table column header',
 	'epstudentactivitypager-header-last-course' => 'Table column header',
 	'epstudentactivitypager-header-last-active' => 'Table column header',
-
-	// Institution editing
 	'editinstitution-text' => 'Small description at the top of the edit form',
 	'educationprogram-org-edit-name' => 'Text input label',
 	'orgpage-edit-legend-add' => 'Form header',
@@ -1191,20 +1198,23 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-addorg' => 'Message shown when viewing an non-existing institution page',
 	'ep-editorg' => 'Message shown when editing an institution page',
 	'ep-editorg-exists-already' => 'Message shown when the user tries to create a new institution with a name that already exists, and so ends up editing that one',
-	'orgpage-edit-title-edit' => 'Page title. $1 is insitution name',
-	'orgpage-edit-title-add' => 'Page title. $1 is insitution name',
+	'orgpage-edit-title-edit' => 'Page title. Parameters:
+* $1 is insitution name',
+	'orgpage-edit-title-add' => 'Page title. Parameters:
+* $1 is insitution name',
 	'orgpage-edit-deleted' => 'Warning shown when recreating a deleted institution',
-	'orgpage-edit-undelete-revisions' => 'message indicating the institution has been deleted. $1 is a restore link',
-	'orgpage-edit-undelete-link' => 'Restore link text. $1 is the amount of revisions to be restored',
-
-	'educationprogram-org-invalid-name' => 'Error message indicating the value must be at least $1 characters long.',
-	'educationprogram-org-invalid-city' => 'Error message indicating the value must be at least $1 characters long.',
-	'educationprogram-org-invalid-country' => 'Error message indicating that the enetered value is not a valid country.',
-
-	// Course editing
+	'orgpage-edit-undelete-revisions' => 'message indicating the institution has been deleted. Parameters:
+* $1 is a restore link.',
+	'orgpage-edit-undelete-link' => 'Restore link text. Parameters:
+* $1 is the number of revisions to be restored',
+	'educationprogram-org-invalid-name' => 'Error message indicating that a value is too short. Parameters:
+* $1 is the minimum number of characters required for the field.',
+	'educationprogram-org-invalid-city' => 'Error message indicating that a value is too short. Parameters:
+* $1 is the minimum number of characters required for the field.',
+	'educationprogram-org-invalid-country' => 'Error message indicating that the entered value is not a valid country.',
 	'coursepage-edit-legend-add' => 'Form header',
 	'coursepage-edit-legend-edit' => 'Form header',
-	'ep-course-edit-term' => 'Text input label',
+	'ep-course-edit-term' => 'Input label',
 	'ep-course-edit-org' => 'Input label',
 	'ep-course-edit-start' => 'Input label',
 	'ep-course-edit-end' => 'Input label',
@@ -1216,34 +1226,38 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-course-help-name' => 'Extra description for the title input field',
 	'ep-course-edit-field' => 'Input label',
 	'ep-course-edit-level' => 'Input label',
-	'ep-course-edit-term' => 'Input label',
 	'ep-course-edit-mc' => 'Input label',
 	'ep-course-help-mc' => 'Extra description for the name input field',
 	'ep-course-edit-lang' => 'Input label',
 	'ep-addcourse' => 'Message shown when viewing an non-existing course page',
 	'ep-editcourse' => 'Message shown when editing an institution page',
 	'ep-editcourse-exists-already' => 'Message shown when the user tries to create a new course with a name that already exists, and so ends up editing that one',
-	'coursepage-edit-title-edit' => 'Page title. $1 is the course name',
-	'coursepage-edit-title-add' => 'Page title. $1 is the course name',
+	'coursepage-edit-title-edit' => 'Page title. Parameters:
+* $1 is the course name.',
+	'coursepage-edit-title-add' => 'Page title. Parameters:
+* $1 is the course name',
 	'coursepage-edit-deleted' => 'Warning shown when recreating a deleted course',
-
 	'ep-course-invalid-org' => 'Error message shown when selecting an invalid institution',
-	'ep-course-invalid-token' => 'Error message indicating the value should contain at least $1 characters',
-	'ep-course-invalid-description' => 'Error message indicating the value should contain at least $1 characters',
-	'ep-course-invalid-lang' => 'error message shown when selecting an invalid language',
-	'coursepage-edit-undelete-revisions' => 'message indicating the course has been deleted. $1 is a restore link',
-	'coursepage-edit-undelete-link' => 'Restore link text. $1 is the amount of revisions to be restored',
-
-	// ep.pager
+	'ep-course-invalid-token' => 'Error message indicating that a value is too short. Parameters:
+* $1 is the minimum number of characters required for the field.',
+	'ep-course-invalid-description' => 'Error message indicating that a value is too short. Parameters:
+* $1 is the minimum number of characters required for the field.',
+	'ep-course-invalid-lang' => 'Error message shown when selecting an invalid language.',
+	'coursepage-edit-undelete-revisions' => 'message indicating the course has been deleted. Parameters:
+* $1 is a restore link',
+	'coursepage-edit-undelete-link' => 'Restore link text. Parameters:
+* $1 is the amount of number to be restored',
 	'ep-pager-confirm-delete' => 'Asks for deletion confirmation',
 	'ep-pager-delete-fail' => 'Error message saying stuff could not be deleted',
-	'ep-pager-confirm-delete-selected' => 'Deletion confirmation. $1 is amount of items to be deleted',
-	'ep-pager-delete-selected-fail' => 'Error message saying items could not be deleted. $1 is amount of items',
-
-	// Institution viewing
-	'vieworgaction-none' => 'States there is no such institution. $1 is the institution name',
+	'ep-pager-confirm-delete-selected' => 'Deletion confirmation. Parameters:
+* $1 is the number of items to be deleted',
+	'ep-pager-delete-selected-fail' => 'Error message saying items could not be deleted. Parameters:
+* $1 an item count.',
+	'vieworgaction-none' => 'States there is no such institution. Parameters:
+* $1 is the institution name.',
 	'ep-institution-create' => 'There is no institution with name "$1" yet, but you can create it.',
-	'ep-institution-title' => 'Page title. $1 is institution name',
+	'ep-institution-title' => 'Page title. Parameters:
+* $1 is an institution name',
 	'vieworgaction-summary-name' => 'Tabel row header',
 	'vieworgaction-summary-city' => 'Tabel row header',
 	'vieworgaction-summary-country' => 'Tabel row header',
@@ -1255,13 +1269,14 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-institution-active' => 'Course state, displayed in selection menues and in tables',
 	'ep-institution-courses' => 'Course state, displayed in selection menues and in tables',
 	'ep-vieworg-deleted' => 'Message notifying the institution has been deleted and that a deletion log is shown',
-
-	// Course viewing
-	'ep-course-title' => 'Page title. $1 is course name',
+	'ep-course-title' => 'Page title. Parameters:
+* $1 is course name',
 	'ep-course-students' => 'h2 section header',
 	'ep-course-articles' => 'h2 section header',
-	'viewcourseaction-none' => 'States there is no such course. $1 is the course name',
-	'ep-course-create' => 'States there is no such course but that it can be cerated. $1 is the course name',
+	'viewcourseaction-none' => 'States there is no such course. Parameters:
+* $1 is the course name',
+	'ep-course-create' => 'States there is no such course but that it can be created.Parameters:
+*  $1 is the course name.',
 	'ep-course-description' => 'h2 section header',
 	'viewcourseaction-summary-org' => 'Tabel row header',
 	'viewcourseaction-summary-term' => 'Tabel row header',
@@ -1286,122 +1301,150 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-online-summary' => 'Summary text input label',
 	'ep-campus-summary' => 'Summary text input label',
 	'ep-viewcourse-deleted' => 'Message notifying the course has been deleted and that a deletion log is shown',
-
-	// Institution history
 	'orgpage-history-description' => 'Subtitle text linking to logs',
-	'orgpage-history-title' => 'Page title. $1 is institution name',
-	'orgpage-history-norevs' => 'Message shown when there are no revisions to list',
-	'orgpage-history-deleted' => 'Shown when the item was deleted so no history can be shown',
-
-	// Course history
-	'coursepage-history-description' => 'Subtitle text linking to logs',
-	'coursepage-history-title' => 'Page title. $1 is course name',
-	'coursepage-history-norevs' => 'Message shown when there are no revisions to list',
-	'coursepage-history-deleted' => 'Shown when the item was deleted so no history can be shown',
-
-	// Course deletion
-	'coursepage-delete-text' => 'Warns that the user is about to delete course $1',
+	'orgpage-history-title' => 'Page title. Parameters:
+* $1 is an institution name.',
+	'orgpage-history-norevs' => 'Message shown when there are no revisions to list.',
+	'orgpage-history-deleted' => 'Shown when the item was deleted so no history can be shown.',
+	'coursepage-history-description' => 'Subtitle text linking to logs.',
+	'coursepage-history-title' => 'Page title. Parameters:
+* $1 is a course name.',
+	'coursepage-history-norevs' => 'Message shown when there are no revisions to list.',
+	'coursepage-history-deleted' => 'Shown when the item was deleted so no history can be shown.',
+	'coursepage-delete-text' => 'Warns that the user is about to delete a course. Parameters:
+* $1 is a course name.',
 	'coursepage-delete-summary' => 'Summary text input label',
-	'coursepage-delete-title' => 'Page title. $1 is course name',
-	'coursepage-delete-cancel-button' => 'Cancel button text',
-	'coursepage-delete-delete-button' => 'Delete button text',
-	'coursepage-delete-none' => 'Shown when trying to delete non-existing course with title $1',
-	'coursepage-delete-deleted' => 'Shown after successfull deleteion of course $1 at the top of the page in a success box',
-	'coursepage-delete-delete-failed' => 'Shown after failed deleteion of course $1 at the top of the page in an error box',
-
-	// Institution deletion
-	'orgpage-delete-text' => "Warns that the user is about to institution course $1",
-	'orgpage-delete-summary' => 'Summary text input label',
-	'orgpage-delete-title' => 'Page title. $1 is institution name',
-	'orgpage-delete-cancel-button' => 'Cancel button text',
+	'coursepage-delete-title' => 'Page title. Parameters:
+* $1 is a course name.',
+	'coursepage-delete-cancel-button' => 'Cancel button text.',
+	'coursepage-delete-delete-button' => 'Delete button text.',
+	'coursepage-delete-none' => 'Shown when trying to delete a non-existing course. Parameters:
+* $1 is a course title.',
+	'coursepage-delete-deleted' => 'Shown after successfull deleteion of a course at the top of the page in a success box. Parameters:
+* $1 is a course title.',
+	'coursepage-delete-delete-failed' => 'Shown after failed deletion of a course at the top of the page in an error box. Parameters:
+* $1 is a course title.',
+	'orgpage-delete-text' => 'Warns that the user is about to delete and institution and all associated courses. Parameters:
+* $1 is the name of an institution.',
+	'orgpage-delete-summary' => 'Summary text input label.',
+	'orgpage-delete-title' => 'Page title. Parameters:
+* $1 is institution name',
+	'orgpage-delete-cancel-button' => 'Cancel button text.',
 	'orgpage-delete-delete-button' => 'Delete button text',
-	'orgpage-delete-none' => 'Shown when trying to delete non-existing institution with title $1',
-	'orgpage-delete-deleted' => 'Shown after successfull deleteion of institution $1 at the top of the page in a success box',
-	'orgpage-delete-delete-failed' => 'Shown after failed deleteion of institution $1 at the top of the page in an error box',
-
-	// Institution restoration
-	'orgpage-eprestore-title' => 'Page title. $1 is institution name',
-	'orgpage-eprestore-text' => 'Indicates what the user is about to do if they continue. $1 is institution name.',
-	'orgpage-eprestore-summary' => 'Summary text input label',
-	'orgpage-eprestore-restore-button' => 'Submission button text',
-	'orgpage-eprestore-cancel-button' => 'Cancel button text',
-	'orgpage-eprestore-summary-value' => 'Default value for the summary. $1 it time, $2 is user name',
-	'orgpage-eprestore-restored' => 'Succes message, shown at top of page in success box. $1 is institution name.',
-	'orgpage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
-
-	// Course restoration
-	'coursepage-eprestore-title' => 'Page title. $1 is course name',
-	'coursepage-eprestore-text' => 'Indicates what the user is about to do if they continue. $1 is course name.',
-	'coursepage-eprestore-summary' => 'Summary text input label',
-	'coursepage-eprestore-restore-button' => 'Submission button text',
-	'coursepage-eprestore-cancel-button' => 'Cancel button text',
-	'coursepage-eprestore-summary-value' => 'Default value for the summary. $1 it time, $2 is user name',
-	'coursepage-eprestore-restored' => 'SSucces message, shown at top of page in success box. $1 is course name.',
-	'coursepage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. $1 is course name.',
-
-	// Institution undo revision
-	'orgpage-epundo-title' => 'Page title. $1 is institution name',
-	'orgpage-epundo-text' => 'Indicates what the user is about to do if they continue. $1 is institution name.',
-	'orgpage-epundo-summary' => 'Summary text input label',
-	'orgpage-epundo-undo-button' => 'Submission button text',
-	'orgpage-epundo-cancel-button' => 'Cancel button text',
-	'orgpage-epundo-summary-value' => 'Default value for the summary. $1 it time, $2 is user name',
-	'orgpage-epundo-undid' => 'Succes message, shown at top of page in success box. $1 is institution name.',
-	'orgpage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
-
-	// Course undo revision
-	'coursepage-epundo-title' => 'Page title. $1 is course name',
-	'coursepage-epundo-text' => 'Indicates what the user is about to do if they continue. $1 is course name.',
-	'coursepage-epundo-summary' => 'Summary text input label',
-	'coursepage-epundo-undo-button' => 'Submission button text',
-	'coursepage-epundo-cancel-button' => 'Cancel button text',
-	'coursepage-epundo-summary-value' => 'Default value for the summary. $1 it time, $2 is user name',
-	'coursepage-epundo-undid' => 'Succes message, shown at top of page in success box. $1 is course name.',
-	'coursepage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. $1 is course name.',
-
-	// Course undeletion
-	'coursepage-epundelete-title' => 'Page title. $1 is course name',
-	'coursepage-epundelete-text' => 'Indicates what the user is about to do if they continue. $1 is course name.',
-	'coursepage-epundelete-summary' => 'Summary text input label',
-	'coursepage-epundelete-undelete-button' => 'Submission button text',
-	'coursepage-epundelete-cancel-button' => 'Cancel button text',
-	'coursepage-epundelete-undid' => 'Succes message, shown at top of page in success box. $1 is course name.',
-	'coursepage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. $1 is course name.',
-	'coursepage-epundelete-failed-norevs' => 'Fail message, shown at top of page in an error box. $1 is course name.',
-	'coursepage-epundelete-failed-exists' => 'Fail message, shown at top of page in an error box. $1 is course name.',
-
-	// Institution undeletion
-	'orgpage-epundelete-title' => 'Page title. $1 is institution name',
-	'orgpage-epundelete-text' => 'Indicates what the user is about to do if they continue. $1 is institution name.',
-	'orgpage-epundelete-summary' => 'Summary text input label',
-	'orgpage-epundelete-undelete-button' => 'Submission button text',
-	'orgpage-epundelete-cancel-button' => 'Cancel button text',
-	'orgpage-epundelete-undid' => 'Succes message, shown at top of page in success box. $1 is institution name.',
-	'orgpage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
-	'orgpage-epundelete-failed-norevs' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
-	'orgpage-epundelete-failed-exists' => 'Fail message, shown at top of page in an error box. $1 is institution name.',
-
-	// Special:Student
-	'ep-student-none' => 'Shown when the user tries to view profile for non-existing student with name $1',
-	'ep-student-title' => 'Page title. $1 is student name',
-	'ep-student-actively-enrolled' => 'Enrollment status',
-	'ep-student-no-active-enroll' => 'Enrollment status',
-	'specialstudent-summary-active-enroll' => 'Table row header',
-	'specialstudent-summary-last-active' => 'Table row header',
-	'specialstudent-summary-first-enroll' => 'Table row header',
-	'specialstudent-summary-user' => 'Table row header',
-	'ep-student-courses' => 'h2 section header',
-	'ep-student-articles' => 'h2 section header',
-
-	// Special:Enroll
-	'ep-enroll-title' => 'Page title. $1 is course name, $2 is institution name',
-	'ep-enroll-login-first' => 'States you need to login before you can enroll',
-	'ep-enroll-login-and-enroll' => 'Link text. Links to login page',
-	'ep-enroll-signup-and-enroll' => 'Link text. Links to signup page',
-	'ep-enroll-not-allowed' => 'Shown when user is not allowed to enroll',
-	'ep-enroll-invalid-id' => 'Error message when the user tries to enroll for a course that does not exist',
-	'ep-enroll-no-id' => 'Error message shown when the user does not specify a coutse',
-	'ep-enroll-invalid-token' => 'Error message shown when the user provides an invalid enrollment token',
+	'orgpage-delete-none' => 'Shown when trying to delete a non-existing institution. Parameters:
+* $1 is the given institution name.',
+	'orgpage-delete-deleted' => 'Shown after successful deletion of an institution at the top of the page in a success box. Parameters:
+* $1 is an institution name.',
+	'orgpage-delete-delete-failed' => 'Shown after failed deletion of an institution at the top of the page in an error box. Parameters:
+* $1 is an institution name.',
+	'orgpage-eprestore-title' => 'Page title. Parameters:
+* $1 is an institution name.',
+	'orgpage-eprestore-text' => 'Indicates what the user is about to do if they continue. Parameters:
+* $1 is an institution name.',
+	'orgpage-eprestore-summary' => 'Summary text input label.',
+	'orgpage-eprestore-restore-button' => 'Submission button text.',
+	'orgpage-eprestore-cancel-button' => 'Cancel button text.',
+	'orgpage-eprestore-summary-value' => 'Default value for the summary. Parameters:
+* $1 is a time,
+* $2 is a user name.',
+	'orgpage-eprestore-restored' => 'Succes message, shown at top of page in success box. Parameters:
+* $1 is an institution name.',
+	'orgpage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. Parameters:
+* $1 is an institution name.',
+	'coursepage-eprestore-title' => 'Page title. Parameters:
+* $1 is a course name.',
+	'coursepage-eprestore-text' => 'Indicates what the user is about to do if they continue. Parameters:
+* $1 is a course name.',
+	'coursepage-eprestore-summary' => 'Summary text input label.',
+	'coursepage-eprestore-restore-button' => 'Submission button text.',
+	'coursepage-eprestore-cancel-button' => 'Cancel button text.',
+	'coursepage-eprestore-summary-value' => 'Default value for the summary. Parameters:
+* $1 it time,
+$2 is user name.',
+	'coursepage-eprestore-restored' => 'SSucces message, shown at top of page in success box. Parameters:
+* $1 is a course name.',
+	'coursepage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. Parameters:
+* $1 is a course name.',
+	'orgpage-epundo-title' => 'Page title. Parameters:
+* $1 is an institution name.',
+	'orgpage-epundo-text' => 'Indicates what the user is about to do if they continue. Parameters:
+* $1 is an institution name.',
+	'orgpage-epundo-summary' => 'Summary text input label.',
+	'orgpage-epundo-undo-button' => 'Submission button text.',
+	'orgpage-epundo-cancel-button' => 'Cancel button text.',
+	'orgpage-epundo-summary-value' => 'Default value for the summary. Parameters:
+* $1 is a time,
+* $2 is user name.',
+	'orgpage-epundo-undid' => 'Succes message, shown at top of page in success box. Parameters:
+* $1 is an institution name.',
+	'orgpage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters:
+* $1 is an institution name.',
+	'coursepage-epundo-title' => 'Page title. Parameters:
+* $1 is a course name.',
+	'coursepage-epundo-text' => 'Indicates what the user is about to do if they continue. Parameters:
+* $1 is a course name.',
+	'coursepage-epundo-summary' => 'Summary text input label.',
+	'coursepage-epundo-undo-button' => 'Submission button text.',
+	'coursepage-epundo-cancel-button' => 'Cancel button text.',
+	'coursepage-epundo-summary-value' => 'Default value for the summary. Parameters: 
+* $1 is a time,
+* $2 is a user name.',
+	'coursepage-epundo-undid' => 'Succes message, shown at top of page in success box. Parameters: 
+* $1 is a course name.',
+	'coursepage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters: 
+* $1 is a course name.',
+	'coursepage-epundelete-title' => 'Page title. Parameters: 
+* $1 is a course name',
+	'coursepage-epundelete-text' => 'Indicates what the user is about to do if they continue. Parameters: 
+* $1 is a course name.',
+	'coursepage-epundelete-summary' => 'Summary text input label.',
+	'coursepage-epundelete-undelete-button' => 'Submission button text.',
+	'coursepage-epundelete-cancel-button' => 'Cancel button text.',
+	'coursepage-epundelete-undid' => 'Succes message, shown at top of page in success box. Parameters: 
+* $1 is a course name.',
+	'coursepage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters: 
+* $1 is a course name.',
+	'coursepage-epundelete-failed-norevs' => 'Fail message, shown at top of page in an error box. Parameters: 
+* $1 is a course name.',
+	'coursepage-epundelete-failed-exists' => 'Fail message, shown at top of page in an error box. Parameters: 
+* $1 is a course name.',
+	'orgpage-epundelete-title' => 'Page title. Parameters: 
+* $1 is an institution name.',
+	'orgpage-epundelete-text' => 'Indicates what the user is about to do if they continue. Parameters: 
+* $1 is an institution name.',
+	'orgpage-epundelete-summary' => 'Summary text input label.',
+	'orgpage-epundelete-undelete-button' => 'Submission button text.',
+	'orgpage-epundelete-cancel-button' => 'Cancel button text.',
+	'orgpage-epundelete-undid' => 'Succes message, shown at top of page in success box. Parameters:
+* $1 is institution name.',
+	'orgpage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters:
+* $1 is institution name.',
+	'orgpage-epundelete-failed-norevs' => 'Fail message, shown at top of page in an error box. Parameters:
+* $1 is an institution name.',
+	'orgpage-epundelete-failed-exists' => 'Fail message, shown at top of page in an error box. Parameters:
+* $1 is an institution name.',
+	'ep-student-none' => 'Shown when the user tries to view profile for a non-existing student. Parameters:
+* $1 is a name.',
+	'ep-student-title' => 'Page title. Parameters:
+* $1 is a student name.',
+	'ep-student-actively-enrolled' => 'Enrollment status.',
+	'ep-student-no-active-enroll' => 'Enrollment status.',
+	'specialstudent-summary-active-enroll' => 'Table row header.',
+	'specialstudent-summary-last-active' => 'Table row header.',
+	'specialstudent-summary-first-enroll' => 'Table row header.',
+	'specialstudent-summary-user' => 'Table row header.',
+	'ep-student-courses' => 'h2 section header.',
+	'ep-student-articles' => 'h2 section header.',
+	'ep-enroll-title' => 'Page title. Parameters:
+* $1 is a course name,
+* $2 is an institution name',
+	'ep-enroll-login-first' => 'States you need to login before you can enroll.',
+	'ep-enroll-login-and-enroll' => 'Link text. Links to login page.',
+	'ep-enroll-signup-and-enroll' => 'Link text. Links to signup page.',
+	'ep-enroll-not-allowed' => 'Shown when user is not allowed to enroll.',
+	'ep-enroll-invalid-id' => 'Error message when the user tries to enroll for a course that does not exist.',
+	'ep-enroll-no-id' => 'Error message shown when the user does not specify a course.',
+	'ep-enroll-invalid-token' => 'Error message shown when the user provides an invalid enrolment token.',
 	'ep-enroll-legend' => 'Enroll form header',
 	'ep-enroll-header' => 'Enroll form description',
 	'ep-enroll-gender' => 'Input label',
@@ -1414,8 +1457,6 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-enroll-submit-token' => 'Submission button text for enrollment token form',
 	'ep-enroll-course-passed' => 'Shown when the user tries to enroll for ended course',
 	'ep-enroll-course-planned' => 'Shown when the user tries to enroll for planned course',
-
-	// Special:Disenroll
 	'ep-disenroll-no-name' => 'Error message shown when the user tries to unroll from an unspecified course',
 	'ep-disenroll-invalid-name' => 'Error message shown when the user tries to unroll from a non-existing course',
 	'ep-disenroll-course-passed' => 'Error message shown when the user tries to unroll from an ended course',
@@ -1428,8 +1469,6 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-disenroll-fail' => 'Error message shown in error box at top of page',
 	'ep-disenroll-success' => 'Success message shown in success box at top of page',
 	'ep-disenroll-returnto' => 'Return to text with link. $1 is course name',
-
-	// Special:MyCourses
 	'ep-mycourses-enrolled' => 'Success message shown after enrollment in success box at top of page. $1 is course name, $2 is institution name',
 	'ep-mycourses-not-enrolled' => 'Shown when the user goes to their courses page while not enrolled in any',
 	'ep-mycourses-no-such-course' => 'Shown when the stutent tries to view their enrollment for course with name $1 while they are not enrolled in it.',
@@ -1445,8 +1484,6 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-mycourses-enrolledin' => '$1 is course name. $2 is institution name',
 	'ep-mycourses-course-org-links' => '$1 is course name. $2 is institution name',
 	'ep-mycourses-articletable' => 'Mesage shown above a list of articles',
-
-	// ep.enlist instructor
 	'ep-instructor-remove-title' => 'Dialog title',
 	'ep-instructor-remove-button' => 'Remove button text',
 	'ep-instructor-removing' => 'Remove button text while removal is in progress',
@@ -1473,8 +1510,6 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-instructor-add-cancel-button' => 'Cancel button text',
 	'ep-instructor-summary-input' => 'Text input label',
 	'ep-instructor-name-input' => 'Text input label',
-
-	// ep.enlist online
 	'ep-online-remove-title' => 'Dialog title',
 	'ep-online-remove-button' => 'Remove button text',
 	'ep-online-removing' => 'Remove button text while removal is in progress',
@@ -1501,8 +1536,6 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-online-add-cancel-button' => 'Cancel button text',
 	'ep-online-summary-input' => 'Text input label',
 	'ep-online-name-input' => 'Text input label',
-
-	// ep.enlist campus
 	'ep-campus-remove-title' => 'Dialog title',
 	'ep-campus-remove-button' => 'Remove button text',
 	'ep-campus-removing' => 'Remove button text while removal is in progress',
@@ -1529,22 +1562,12 @@ This will permanently remove their associated articles and reviewers!',
 	'ep-campus-add-cancel-button' => 'Cancel button text',
 	'ep-campus-summary-input' => 'Text input label',
 	'ep-campus-name-input' => 'Text input label',
-
-	// EPInstrucor
 	'ep-instructor-remove' => 'User tool link text',
-
-	// EPCA
 	'ep-campus-remove' => 'User tool link text',
-
-	// EPOA
 	'ep-online-remove' => 'User tool link text',
-
-	// API enlist
 	'ep-enlist-invalid-user-args' => 'API error message',
 	'ep-enlist-invalid-user' => 'API error message',
 	'ep-enlist-invalid-course' => 'API error message',
-
-	// Special:OnlineAmbassadorProfile
 	'onlineambassadorprofile' => 'Page title',
 	'onlineambassadorprofile-legend' => 'Ambassador form legend',
 	'onlineambassadorprofile-text' => 'Ambassador form description',
@@ -1554,8 +1577,6 @@ This will permanently remove their associated articles and reviewers!',
 	'epoa-profile-saved' => 'Success message shown in sucecss box at top of page after save',
 	'epoa-profile-invalid-bio' => 'Error message stating the bio must contain at least $1 characters',
 	'epoa-visible' => 'Checbbox input label',
-
-	// Special:CampusAmbassadorProfile
 	'campusambassadorprofile' => 'Page title',
 	'campusambassadorprofile-legend' => 'Ambassador form legend',
 	'campusambassadorprofile-text' => 'Ambassador form description',
@@ -1565,21 +1586,14 @@ This will permanently remove their associated articles and reviewers!',
 	'epca-profile-saved' => 'Success message shown in sucecss box at top of page after save',
 	'epca-profile-invalid-bio' => 'Error message stating the bio must contain at least $1 characters',
 	'epca-visible' => 'Checbbox input label',
-
-	// Special:StudentActivity
 	'ep-studentactivity-noresults' => 'Message shown when there are no students that where recently active. $1 is a duration',
 	'ep-studentactivity-count' => '$1 is student amount, $2 is a duration',
-
-	// Diffs
 	'ep-diff-old' => 'Table column header',
 	'ep-diff-new' => 'Table column header',
-
-	// Timeline
 	'ep-timeline-remaining' => 'Shown in "user0, user1, user2 and 42 others". $1 is the amount of other users',
 	'ep-timeline-unknown' => '$1 is user name, $2 is a date and time',
 	'ep-timeline-ago' => '$1 is the duration (ie 42 minutes) in "42 minutes ago"',
 	'ep-timeline-cutoff' => 'Used when a to long text is cut off. $1 is the text fragment to display.',
-
 	'ep-timeline-users-edit-article' => 'Header for a group of events in a timeline.
 $1 is html for a user link of list of user links.
 $2 is the full name of the edited article.
@@ -1591,15 +1605,114 @@ $5 is the amount of editors.',
 	'ep-timeline-users-edit-usertalk' => '{{Identical|ep-timeline-users-edit-article}}',
 	'ep-timeline-users-edit-user-self' => '{{Identical|ep-timeline-users-edit-article}}',
 	'ep-timeline-users-edit-usertalk-self' => '{{Identical|ep-timeline-users-edit-article}}',
-
 	'ep-timeline-users-create-article' => '{{Identical|ep-timeline-users-edit-article}}',
 	'ep-timeline-users-create-talk' => '{{Identical|ep-timeline-users-edit-article}}',
 	'ep-timeline-users-create-user' => '{{Identical|ep-timeline-users-edit-article}}',
 	'ep-timeline-users-create-usertalk' => '{{Identical|ep-timeline-users-edit-article}}',
 	'ep-timeline-users-create-user-self' => '{{Identical|ep-timeline-users-edit-article}}',
 	'ep-timeline-users-create-usertalk-self' => '{{Identical|ep-timeline-users-edit-article}}',
-
-	// Dashboard
 	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',
 	'ep-dashboard-timeline-empty' => 'Shown instead of an event timeline when there are no events',
+	'ep-dashboard-enroll-first' => 'Message shown when the user is not enrolled in any courses and views their education dashboard.',
 );
+
+/** Macedonian (Македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'ep-item-summary' => 'Опис',
+	'ep-form-summary' => 'Опис:',
+	'ep-form-minor' => 'Ова е ситна промена',
+	'ep-tab-view' => 'Читај',
+	'ep-tab-edit' => 'Уреди',
+	'ep-tab-create' => 'Создај',
+	'ep-tab-history' => 'Историја',
+	'ep-tab-enroll' => 'Запиши се',
+	'ep-tab-disenroll' => 'Отпиши се',
+	'ep-tab-delete' => 'Избриши',
+	'tooltip-ep-summary' => 'Внесете краток опис',
+	'logentry-institution-add' => '$1 ја создаде установата $3',
+	'logentry-institution-remove' => '$1 ја отстрани установата $3',
+	'logentry-institution-update' => '$1 ја измени установата $3',
+	'logentry-institution-undelete' => '$1 ја врати избришаната установа $3',
+	'logentry-course-undelete' => '$1 го врати избришаниот курс $3',
+	'logentry-student-selfremove' => '$1 се отпиша од курсот $3',
+	'special-disenroll' => 'Отпис',
+	'ep-pager-cancel-button-org' => 'Откажи',
+	'ep-pager-summary-message-org' => 'Опис:',
+	'epcoursepager-header-lang' => 'Јазик',
+	'epcoursepager-filter-lang' => 'Јазик',
+	'ep-pager-cancel-button-course' => 'Откажи',
+	'ep-pager-summary-message-course' => 'Опис:',
+	'ep-articletable-addreviwer-cancel' => 'Откажи',
+	'ep-articletable-remreviwer-cancel' => 'Откажи',
+	'ep-articletable-remstudent-cancel' => 'Откажи',
+	'ep-articletable-remarticle-cancel' => 'Откажи',
+	'orgpage-edit-deleted' => "Внимание: Повторно создавате установа што претходно била бришена.'''
+
+Размислете дали е правилно да продолжите со уредување на оваа установа.
+Подолу е прикажан дневникот на бришења и преместувања на установата:",
+	'orgpage-edit-undelete-revisions' => 'Оваа установа е избришана. Можете да $1.',
+	'orgpage-edit-undelete-link' => 'вратите $1 {{PLURAL:$1|ревизија|ревизии}}',
+	'ep-course-edit-lang' => 'Јазик на курсот',
+	'coursepage-edit-deleted' => "Внимание: Повторно создавате курс што претходно бил бришен.'''
+
+Размислете дали е правилно да продолжите со уредување на овој курс.
+Подолу е прикажан дневникот на бришења и преместувања на курсот:",
+	'ep-course-invalid-lang' => 'Ова не е важечки јазик.',
+	'coursepage-edit-undelete-revisions' => 'Овој курс е избришан. Можете да $1.',
+	'coursepage-edit-undelete-link' => 'вратите $1 {{PLURAL:$1|ревизија|ревизии}}',
+	'ep-instructor-summary' => 'Опис:',
+	'ep-online-summary' => 'Опис:',
+	'ep-campus-summary' => 'Опис:',
+	'coursepage-delete-cancel-button' => 'Откажи',
+	'orgpage-delete-cancel-button' => 'Откажи',
+	'orgpage-eprestore-cancel-button' => 'Откажи',
+	'coursepage-eprestore-cancel-button' => 'Откажи',
+	'orgpage-epundo-cancel-button' => 'Откажи',
+	'coursepage-epundo-cancel-button' => 'Откажи',
+	'coursepage-epundelete-title' => 'Враќање на избришаниот курс „$1“',
+	'coursepage-epundelete-text' => 'На пат сте да го вратите избришаниот курс $1',
+	'coursepage-epundelete-summary' => 'Причина за враќањето:',
+	'coursepage-epundelete-undelete-button' => 'Врати',
+	'coursepage-epundelete-cancel-button' => 'Откажи',
+	'coursepage-epundelete-undid' => 'Курсот $1 е успешно вратен.',
+	'coursepage-epundelete-undo-failed' => 'Не успеав да го вратам курсот $1.',
+	'coursepage-epundelete-failed-norevs' => 'Не успеав да го вратам курсот $1. Нема ревизии за враќање.',
+	'coursepage-epundelete-failed-exists' => 'Не успеав да го вратам курсот $1. Веќе постои.',
+	'orgpage-epundelete-title' => 'Враќање на избришаната установа „$1“',
+	'orgpage-epundelete-text' => 'На пат сте да ја вратите избришаната установа $1',
+	'orgpage-epundelete-summary' => 'Причина за враќањето:',
+	'orgpage-epundelete-undelete-button' => 'Врати',
+	'orgpage-epundelete-cancel-button' => 'Откажи',
+	'orgpage-epundelete-undid' => 'Установата $1 е успешно вратена.',
+	'orgpage-epundelete-undo-failed' => 'Не успеав да ја вратам установата $1.',
+	'orgpage-epundelete-failed-norevs' => 'Не успеав да ја вратам установата $1. Нема ревизии за враќање.',
+	'orgpage-epundelete-failed-exists' => 'Не успеав да ја вратам установата $1. Веќе постои.',
+	'ep-disenroll-no-name' => 'Треба да го наведете името на курсот од којшто сакате да се отпишете.',
+	'ep-disenroll-course-passed' => 'Овој курс е поминат, па затоа не можете да се отпишете од него.',
+	'ep-disenroll-not-enrolled' => 'Не сте запишани на овој курс, па затоа не можете ни да се отпишете од него.',
+	'ep-disenroll-title' => 'Отпис од курсот „$1“',
+	'ep-disenroll-text' => 'На пат сте да се отпишете од курсот „$1“. Со ова од вашиот ученички профил ќе ги отстраните и статиите на коишто работите за овој курс.',
+	'ep-disenroll-button' => 'Отпиши ме',
+	'ep-disenroll-summary' => 'Зошто се отпишувате?',
+	'ep-disenroll-cancel' => 'Откажи',
+	'ep-disenroll-fail' => 'Нешто не е во ред - не можев да ве отпишам од курсот.',
+	'ep-disenroll-success' => 'Успешно сте отпишани од курсот!',
+	'ep-disenroll-returnto' => 'Назад на [[Course:$1|курсот $1]].',
+	'ep-instructor-cancel-button' => 'Откажи',
+	'ep-instructor-add-cancel-button' => 'Откажи',
+	'ep-instructor-summary-input' => 'Опис:',
+	'ep-online-cancel-button' => 'Откажи',
+	'ep-online-summary-input' => 'Опис:',
+	'ep-campus-cancel-button' => 'Откажи',
+	'ep-campus-add-cancel-button' => 'Откажи',
+	'ep-campus-summary-input' => 'Опис:',
+	'epoa-profile-photo-help' => 'До биографијата ќе стои ваша слика. Внесете име на слика од Заедничката Ризница, и ќе се појави преглед на истата. Можете да ги внесете првите неколку букви од името, а потоа одберете ја сликата од списокот со предлози. Доколку сè уште немате ваша слика на Ризницата, тогаш [$1 подигнете]!',
+	'ep-studentactivity-noresults' => 'Нема ученици активни во последниве $1 :(
+
+Еве [[Special:Students|список на сите ученици]].',
+	'ep-timeline-ago' => 'пред $1',
+	'ep-timeline-cutoff' => '$1 ...',
+);
+
