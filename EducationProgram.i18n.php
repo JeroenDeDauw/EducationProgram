@@ -121,8 +121,8 @@ $messages['en'] = array(
 
 	'logentry-eparticle-selfadd' => '$1 added article $3 to {{GENDER:$2|his|her}} list of articles at course $4',
 	'logentry-eparticle-selfremove' => '$1 removed article $3 from {{GENDER:$2|his|her}} list of articles at course $4',
-	'logentry-eparticle-add' => '$1 added article $3 to $5 {{GENDER:$6|his|her}} list of articles at course $4',
-	'logentry-eparticle-remove' => '$1 removed article $3 from $5 {{GENDER:$6|his|her}} list of articles at course $4',
+	'logentry-eparticle-add' => "$1 added article $3 to {{GENDER:$6|$5}}'s list of articles for course $4",
+	'logentry-eparticle-remove' => "$1 removed article $3 from {{GENDER:$6|$5}}'s list of articles for course $4",
 	'logentry-eparticle-review' => '$1 added {{GENDER:$2|himself|herself}} as reviewer to article $3 worked upon by $5 as part of course $4',
 	'logentry-eparticle-unreview' => '$1 removed {{GENDER:$2|himself|herself}} as reviewer to article $3 worked upon by $5 as part of course $4',
 
