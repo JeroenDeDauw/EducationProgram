@@ -44,18 +44,6 @@ class ApiRefreshEducation extends ApiBase {
 		);
 	}
 
-	/**
-	 * Get the User being used for this instance.
-	 * ApiBase extends ContextSource as of 1.19.
-	 *
-	 * @since 0.1
-	 *
-	 * @return User
-	 */
-	public function getUser() {
-		return method_exists( 'ApiBase', 'getUser' ) ? parent::getUser() : $GLOBALS['wgUser'];
-	}
-
 	public function needsToken() {
 		return true;
 	}
@@ -96,6 +84,7 @@ class ApiRefreshEducation extends ApiBase {
 
 	public function getPossibleErrors() {
 		return array_merge( parent::getPossibleErrors(), array(
+			array( 'badaccess-groups' ),
 		) );
 	}
 
