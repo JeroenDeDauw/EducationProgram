@@ -18,8 +18,7 @@ $messages = array();
  * @author Jeroen De Dauw
  */
 $messages['en'] = array(
-	'educationprogram-desc' => 'Facilitates educational programs by adding various interfaces to manage courses, institutions and the various education user roles.
-It also improves workflow for everyone involved and has several special pages providing analysis and statistics',
+	'educationprogram-desc' => 'Facilitates educational programs by adding various interfaces to manage courses, institutions and the various education user roles.',
 
 	// Misc
 	'ep-item-summary' => 'Summary',
