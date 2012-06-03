@@ -99,7 +99,7 @@ $messages['en'] = array(
 
 	'logentry-instructor-add' => '$1 {{GENDER:$2|added}} {{PLURAL:$4|instructor|instructors}} $5 to course $3',
 	'logentry-instructor-remove' => '$1 {{GENDER:$2|removed}} {{PLURAL:$4|instructor|instructors}} $5 from course $3',
-	'logentry-instructor-selfadd' => '$1 added {{GENDER:$2|added himself|herself}} as {{GENDER:$2|instructor}} to course $3',
+	'logentry-instructor-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as {{GENDER:$2|instructor}} to course $3',
 	'logentry-instructor-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as {{GENDER:$2|instructor}} from course $3',
 
 	'logentry-online-add' => '$1 added {{PLURAL:$4|Online Ambassador|Online Ambassadors}} $5 to course $3',
