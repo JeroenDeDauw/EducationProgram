@@ -1692,7 +1692,7 @@ Header for a group of events in a timeline.
 	'ep-dashboard-enroll-first' => 'Message shown when the user is not enrolled in any courses and views their education dashboard.',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
@@ -1730,7 +1730,7 @@ $messages['bg'] = array(
 	'ep-campus-summary-input' => 'Резюме:',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -1875,6 +1875,9 @@ $messages['br'] = array(
 	'ep-instructor-add-close-button' => 'Serriñ',
 	'ep-instructor-add-retry' => 'Adklask',
 	'ep-instructor-add-cancel-button' => 'Nullañ',
+	'ep-instructor-summary-input' => 'Diverrañ :',
+	'ep-instructor-name-input' => 'Anv implijer :',
+	'ep-online-removing' => 'O lemel...',
 	'ep-online-close-button' => 'Serriñ',
 	'ep-online-remove-retry' => 'Adklask',
 	'ep-online-cancel-button' => 'Nullañ',
@@ -1893,6 +1896,8 @@ $messages['br'] = array(
 	'ep-campus-add-cancel-button' => 'Nullañ',
 	'ep-campus-summary-input' => 'Diverrañ :',
 	'ep-campus-name-input' => 'Anv implijer :',
+	'ep-diff-old' => 'Talvoud red',
+	'ep-diff-new' => 'Talvoud nevez',
 	'ep-timeline-ago' => '$1 zo',
 );
 
@@ -2586,7 +2591,7 @@ $messages['diq'] = array(
 	'ep-timeline-users-create-user-self' => "{{GENDER:$3|ena|ena}} '''[[$2|pela karberi]]''' $1 vıraşt .",
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Invadinado
  */
@@ -3152,10 +3157,73 @@ El registro de borrado para este curso se indica a continuación por convenienci
 	'ep-online-add-self-title' => 'Convertirse en {{GENDER:$1|un Embajador en línea|una Embajadora en línea}} para este curso',
 	'ep-online-add-button' => 'Agregar un embajador en línea',
 	'ep-online-add-self-button' => 'Convertirse en {{GENDER:$1|Embajador en línea|Embajadora en línea}}',
+	'ep-online-add-text' => 'Estás agregando un embajador en línea para el curso $1. Introduce el nombre de usuario del embajador en línea y una breve descripción de por qué esta persona está siendo agregada.',
+	'ep-online-add-self-text' => 'Estás agregando {{GENDER:$2|un embajador en línea|una embajadora en línea}} para el curso $1. Agrega una breve descripción de los motivos.',
 	'ep-online-add-cancel-button' => 'Cancelar',
+	'ep-online-summary-input' => 'Resumen:',
+	'ep-online-name-input' => 'Nombre de usuario:',
+	'ep-campus-remove-title' => 'Quitar al Embajador de campus del curso',
+	'ep-campus-remove-button' => 'Quitar al Embajador de campus',
+	'ep-campus-removing' => 'Eliminando...',
+	'ep-campus-removal-success' => 'Este Embajador de campus fue quitado correctamente de este curso.',
+	'ep-campus-close-button' => 'Cerrar',
+	'ep-campus-remove-retry' => 'Reintentar',
+	'ep-campus-remove-failed' => 'Algo salió mal, no se pudo quitar al Embajador de campus del curso.',
 	'ep-campus-cancel-button' => 'Cancelar',
+	'ep-campus-remove-text' => 'Estás a punto de quitar a $2  (nombre de usuario: $1) como  {{GENDER:$1|Embajador de campus|Embajadora de campus}} del curso $3. Escribe un breve resumen con el motivo de esta eliminación.',
+	'ep-campus-adding' => 'Agregando...',
+	'ep-campus-addittion-success' => '¡Se ha agregado correctamente a $1 como {{GENDER:$1|Embajador de campus|Embajador de campus}} del curso $2!',
+	'ep-campus-addittion-self-success' => '¡Has sido agregado exitosamente como {{GENDER:$1|Embajador de campus|Embajadora de campus}} del curso $2!',
+	'ep-campus-addittion-null' => 'Ya se ha agregado a $1 como {{GENDER:$1|Embajador de campus|Embajadora de campus}} del curso $2',
+	'ep-campus-addittion-invalid-user' => 'No hay ningún usuario con el nombre $1, por lo que no se ha agregado nadie al curso $2',
+	'ep-campus-add-close-button' => 'Cerrar',
+	'ep-campus-add-retry' => 'Reintentar',
+	'ep-campus-addittion-failed' => 'Algo salió mal, no se pudo agregar al Embajador de campus del curso.',
+	'ep-campus-add-title' => 'Agregar un embajador de campus al curso',
+	'ep-campus-add-self-title' => 'Convertirse en {{GENDER:$1|un Embajador de campus|una Embajadora de campus}} para este curso',
+	'ep-campus-add-button' => 'Agregar un embajador de campus',
+	'ep-campus-add-self-button' => 'Convertirse en {{GENDER:$1|Embajador de campus|Embajadora de campus}}',
+	'ep-campus-add-text' => 'Estás agregando un embajador de campus para el curso $1. Introduce el nombre de usuario del embajador de campus y una breve descripción de por qué esta persona está siendo agregada.',
+	'ep-campus-add-self-text' => 'Te estás agregando como {{GENDER:$2|embajador de campus|embajadora de campus}} para el curso $1. Agrega una breve descripción de los motivos.',
+	'ep-campus-add-cancel-button' => 'Cancelar',
+	'ep-campus-summary-input' => 'Resumen:',
+	'ep-campus-name-input' => 'Nombre de usuario:',
+	'ep-instructor-remove' => 'quitar como instructor',
+	'ep-campus-remove' => 'quitar como Embajador de Campus',
+	'ep-online-remove' => 'quitar como Embajador en línea',
+	'ep-enlist-invalid-user-args' => 'Necesitas proporcionar el nombre de usuario o el parámetro identificador de usuario',
+	'ep-enlist-invalid-user' => 'El nombre o identificador de usuario proporcionado no es válido y, por tanto, no puede ser asociado como instructor o embajador en el curso especificado',
+	'ep-enlist-invalid-course' => 'No hay ningún curso con el identificador proporcionado',
+	'onlineambassadorprofile' => 'Perfil de embajador en línea',
+	'onlineambassadorprofile-legend' => 'Mi perfil de Embajador en línea',
+	'onlineambassadorprofile-text' => 'Tu perfil de Embajador en línea es el que los estudiantes van a ver cuando hojean los embajadores disponibles.',
+	'epoa-profile-bio' => 'Breve biografía',
+	'epoa-profile-photo' => 'Foto de perfil',
+	'epoa-profile-photo-help' => 'Una imagen tuya se mostrará junto a tu biografía. Introduce el nombre de una imagen de Wikimedia Commons y aparecerá una vista previa. Puedes escribir las primeras letras del nombre de la imagen y, a continuación, selecciona tu imagen en la lista de sugerencias. Si aún no tienes una imagen tuya en Commons, ¡[$1 sube una]!',
+	'epoa-profile-saved' => 'Se ha guardado tu perfil',
+	'epoa-profile-invalid-bio' => 'Tu biografía debe contener al menos  $1 {{PLURAL:$1|carácter|caracteres}}.',
+	'epoa-visible' => 'Incluirme en lista pública como Embajador en línea',
+	'campusambassadorprofile' => 'Perfil de Embajador de campus',
+	'campusambassadorprofile-legend' => 'Mi perfil de Embajador de campus',
+	'campusambassadorprofile-text' => 'Tu perfil de Embajador de campus es el que los alumnos van a ver cuando hojean los embajadores disponibles.',
+	'epca-profile-bio' => 'Breve biografía',
+	'epca-profile-photo' => 'Foto del perfil',
+	'epca-profile-photo-help' => 'Una imagen tuya se mostrará junto a tu biografía. Introduce el nombre de una imagen de Wikimedia Commons y aparecerá una vista previa. Puedes escribir las primeras letras del nombre de la imagen y, a continuación, selecciona tu imagen en la lista de sugerencias. Si aún no tienes una imagen tuya en Commons, ¡[$1 sube una]!',
+	'epca-profile-saved' => 'Se ha guardado tu perfil',
+	'epca-profile-invalid-bio' => 'Tu biografía debe contener al menos  $1 {{PLURAL:$1|carácter|caracteres}}.',
+	'epca-visible' => 'Incluirme en lista pública como Embajador de campus',
+	'ep-studentactivity-noresults' => 'No hay ningún alumno que esté activo en los últimos $1 :(
+
+Puedes encontrar una lista completa de alumnos en [[Special:Students|la lista de alumnos]].',
+	'ep-studentactivity-count' => '{{PLURAL:$1|Un estudiante estuvo activo|$1 estudiantes estuvieron activos}} en el último $2 .',
+	'ep-diff-old' => 'Valor actual',
+	'ep-diff-new' => 'Nuevo valor',
+	'ep-timeline-remaining' => '$1 {{PLURAL:$1|otro|más}}',
+	'ep-timeline-unknown' => '$1 hizo algo el $2',
 	'ep-timeline-ago' => 'hace $1',
+	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-users-edit-article' => "$1 editó el artículo «'''[[$2]]'''»",
+	'ep-timeline-users-edit-talk' => "$1 ha dejado {{PLURAL:$4|un mensaje|mensajes}} en la '''[[$2|página de discusión]]''' de '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "$1 editó la página de usuario de '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' recibió {{PLURAL:$4|un mensaje|mensajes}} en su '''[[$2|página de discusión]]'''.",
 	'ep-timeline-users-edit-user-self' => "$1 editó su '''[[$2|página de usuari{{GENDER:$3|o|a}}]]'''.",
@@ -3163,12 +3231,19 @@ El registro de borrado para este curso se indica a continuación por convenienci
 	'ep-timeline-users-create-article' => "$1 creó el artículo «'''[[$2]]'''».",
 	'ep-timeline-users-create-talk' => "$1 creó la '''[[$2|página de discusión]]''' de '''[[$3]]''' y dejó {{PLURAL:$4|un mensaje|varios mensajes}}.",
 	'ep-timeline-users-create-user' => "$1 creó la página de usuari{{GENDER:$3|o|a}} de '''[[$2|$3]]'''.",
+	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' ha recibido {{PLURAL:$4|un mensaje|mensajes}} en {{GENDER:$3|su|su}} recién creada '''[[$2|página de discusión]]'''.",
+	'ep-timeline-users-create-user-self' => "$1 ha creado su '''[[$2|página de usuari{{GENDER:$3|o|a}}]]'''.",
+	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' ha creado su '''[[$2|página de usuari{{GENDER:$3|o|a}}]]''' y ha publicado {{PLURAL:$4|un mensaje|varios mensajes}}.",
+	'ep-dashboard-login-first' => 'Necesitas iniciar sesión antes de poder ver tus cursos.',
+	'ep-dashboard-timeline-empty' => 'No ha habido ninguna actividad reciente para este curso.',
+	'ep-dashboard-enroll-first' => 'No estás actualmente inscrito en ningún curso activo. Puedes ver la [[Special:Courses|lista de cursos]] e inscribirte en uno.',
 );
 
-/** French (Français)
+/** French (français)
  * @author Cquoi
  * @author DavidL
  * @author McDutchie
+ * @author Tititou36
  */
 $messages['fr'] = array(
 	'educationprogram-desc' => "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles d'utilisateur de l'éducation.",
@@ -3325,9 +3400,15 @@ $messages['fr'] = array(
 	'ep-institutions-add' => "Ajouter l'institution",
 	'ep-courses-noresults' => "Il n'y a pas de cours à lister.",
 	'ep-courses-addnew' => 'Ajouter un nouveau cours',
+	'eporgpager-header-city' => 'Ville',
+	'eporgpager-header-country' => 'Pays',
+	'eporgpager-filter-country' => 'Pays',
+	'eporgpager-yes' => 'Oui',
+	'eporgpager-no' => 'Non',
+	'ep-pager-cancel-button-org' => 'Annuler',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -3734,7 +3815,7 @@ $messages['lb'] = array(
 	'ep-timeline-users-edit-article' => "$1 huet den Artikel '''[[$2]]''' geännert.",
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
