@@ -27,7 +27,7 @@ abstract class EPViewAction extends EPAction {
 	 *
 	 * @param Page $page
 	 * @param IContextSource $context
-	 * @param ORMTable $table
+	 * @param IORMTable $table
 	 */
 	protected function __construct( Page $page, IContextSource $context = null, EPPageTable $table ) {
 		$this->table = $table;
@@ -143,11 +143,11 @@ abstract class EPViewAction extends EPAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param ORMRow $object
+	 * @param IORMRow $object
 	 *
 	 * @return string
 	 */
-	public function getPageHTML( ORMRow $object ) {
+	public function getPageHTML( IORMRow $object ) {
 		return $this->getSummary( $object );
 	}
 
@@ -177,13 +177,13 @@ abstract class EPViewAction extends EPAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param ORMRow $item
+	 * @param IORMRow $item
 	 * @param boolean $collapsed
 	 * @param array $summaryData
 	 *
 	 * @return string
 	 */
-	protected function getSummary( ORMRow $item, $collapsed = false, array $summaryData = null ) {
+	protected function getSummary( IORMRow $item, $collapsed = false, array $summaryData = null ) {
 		$html = '';
 
 		$class = 'wikitable ep-summary mw-collapsible';
@@ -227,11 +227,11 @@ abstract class EPViewAction extends EPAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param ORMRow $item
+	 * @param IORMRow $item
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( ORMRow $item ) {
+	protected function getSummaryData( IORMRow $item ) {
 		return array();
 	}
 

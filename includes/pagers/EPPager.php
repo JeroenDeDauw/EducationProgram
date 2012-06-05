@@ -53,9 +53,9 @@ abstract class EPPager extends TablePager {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conds
-	 * @param ORMTable $table
+	 * @param IORMTable $table
 	 */
-	public function __construct( IContextSource $context, array $conds, ORMTable $table ) {
+	public function __construct( IContextSource $context, array $conds, IORMTable $table ) {
 		$this->conds = $conds;
 		$this->table = $table;
 		$this->context = $context;
@@ -487,11 +487,11 @@ abstract class EPPager extends TablePager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param ORMRow $item
+	 * @param IORMRow $item
 	 *
 	 * @return array
 	 */
-	protected function getControlLinks( ORMRow $item ) {
+	protected function getControlLinks( IORMRow $item ) {
 		return array();
 	}
 

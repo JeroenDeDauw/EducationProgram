@@ -50,7 +50,7 @@ class ViewCourseAction extends EPViewAction {
 	 * (non-PHPdoc)
 	 * @see EPViewAction::getPageHTML()
 	 */
-	public function getPageHTML( ORMRow $course ) {
+	public function getPageHTML( IORMRow $course ) {
 		$html = parent::getPageHTML( $course );
 
 		$html .= Html::element( 'h2', array(), wfMsg( 'ep-course-description' ) );
@@ -93,7 +93,7 @@ class ViewCourseAction extends EPViewAction {
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( ORMRow $course ) {
+	protected function getSummaryData( IORMRow $course ) {
 		$stats = array();
 
 		$orgName = EPOrgs::singleton()->selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );

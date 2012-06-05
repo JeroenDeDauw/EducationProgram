@@ -72,7 +72,7 @@ class EPRevisions extends ORMTable {
 	 *
 	 * @since 0.1
 	 *
-	 * @param ORMRow $object
+	 * @param IORMRow $object
 	 * @param EPRevisionAction $revAction
 	 *
 	 * @return EPRevision
