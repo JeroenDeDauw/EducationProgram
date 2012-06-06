@@ -43,7 +43,8 @@ class SpecialCourses extends SpecialEPPage {
 				$this->addCachedHTML( 'EPCourse::getAddNewRegion', $this->getContext() );
 			}
 
-			$this->addCachedHTML( 'EPCourse::getPager', $this->getContext() );
+			$this->addCachedHTML( 'EPCoursePager::getPager', $this->getContext() );
+			$this->getOutput()->addModules( EPCoursePager::getModules() );
 
 			$this->saveCache();
 		}

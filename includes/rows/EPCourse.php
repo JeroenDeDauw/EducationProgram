@@ -251,41 +251,6 @@ class EPCourse extends EPPageObject {
 	}
 
 	/**
-	 * Display a pager with terms.
-	 *
-	 * @since 0.1
-	 *
-	 * @param IContextSource $context
-	 * @param array $conditions
-	 * @param boolean $readOnlyMode
-	 * @param string|false $filterPrefix
-	 */
-	public static function getPager( IContextSource $context, array $conditions = array(), $readOnlyMode = false, $filterPrefix = false ) {
-		$pager = new EPCoursePager( $context, $conditions, $readOnlyMode );
-
-		if ( $filterPrefix !== false ) {
-			$pager->setFilterPrefix( $filterPrefix );
-		}
-
-		$html = '';
-
-		if ( $pager->getNumRows() ) {
-			$html .=
-				$pager->getFilterControl() .
-				$pager->getNavigationBar() .
-				$pager->getBody() .
-				$pager->getNavigationBar() .
-				$pager->getMultipleItemControl();
-		}
-		else {
-			$html .= $pager->getFilterControl( true );
-			$html .= $context->msg( 'ep-courses-noresults' )->escaped();
-		}
-
-		return $html;
-	}
-
-	/**
 	 * Adds a control to add a term org to the provided context.
 	 * Additional arguments can be provided to set the default values for the control fields.
 	 *

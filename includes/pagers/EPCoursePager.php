@@ -49,8 +49,45 @@ class EPCoursePager extends EPPager {
 	 *
 	 * @return array
 	 */
-	public function getModules() {
+	public static function getModules() {
 		return array_merge( parent::getModules(), array( 'ep.pager.course' ) );
+	}
+
+	/**
+	 * Display a pager with terms.
+	 *
+	 * @since 0.1
+	 *
+	 * @param IContextSource $context
+	 * @param array $conditions
+	 * @param boolean $readOnlyMode
+	 * @param string|false $filterPrefix
+	 *
+	 * @return string
+	 */
+	public static function getPager( IContextSource $context, array $conditions = array(), $readOnlyMode = false, $filterPrefix = false ) {
+		$pager = new static( $context, $conditions, $readOnlyMode );
+
+		if ( $filterPrefix !== false ) {
+			$pager->setFilterPrefix( $filterPrefix );
+		}
+
+		$html = '';
+
+		if ( $pager->getNumRows() ) {
+			$html .=
+				$pager->getFilterControl() .
+					$pager->getNavigationBar() .
+					$pager->getBody() .
+					$pager->getNavigationBar() .
+					$pager->getMultipleItemControl();
+		}
+		else {
+			$html .= $pager->getFilterControl( true );
+			$html .= $context->msg( 'ep-courses-noresults' )->escaped();
+		}
+
+		return $html;
 	}
 
 	/**

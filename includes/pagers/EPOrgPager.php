@@ -14,6 +14,33 @@
 class EPOrgPager extends EPPager {
 
 	/**
+	 * Returns the HTML for a pager with institutions.
+	 *
+	 * @since 0.1
+	 *
+	 * @param IContextSource $context
+	 * @param array $conditions
+	 *
+	 * @return string
+	 */
+	public static function getPager( IContextSource $context, array $conditions = array() ) {
+		$pager = new EPOrgPager( $context, $conditions );
+
+		if ( $pager->getNumRows() ) {
+			return
+				$pager->getFilterControl() .
+				$pager->getNavigationBar() .
+				$pager->getBody() .
+				$pager->getNavigationBar() .
+				$pager->getMultipleItemControl();
+		}
+		else {
+			return $pager->getFilterControl( true ) .
+				$context->msg( 'ep-institutions-noresults' )->escaped();
+		}
+	}
+
+	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
