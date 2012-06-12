@@ -160,8 +160,9 @@ class EPRestoreAction extends EPAction {
 			wfMsgExt(
 				$this->prefixMsg( 'summary-value' ),
 				'parsemag',
-				$this->getLanguage()->timeanddate( $revision->getField( 'time' ) ),
-				$revision->getUser()->getName()
+				$this->getLanguage()->date( $revision->getField( 'time' ) ),
+				$revision->getUser()->getName(),
+				$this->getLanguage()->time( $revision->getField( 'time' ) )
 			),
 			array(
 				'maxlength' => 250,

@@ -237,7 +237,8 @@ class EPUnknownGroup extends EPTimelineGroup {
 		return $this->msg(
 			'ep-timeline-unknown',
 			$event->getUser()->getName(),
-			$this->getLanguage()->timeanddate( $event->getField( 'time' ) )
+			$this->getLanguage()->time( $event->getField( 'time' ) ),
+			$this->getLanguage()->date( $event->getField( 'time' ) )
 
 		)->escaped();
 	}

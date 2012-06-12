@@ -540,7 +540,7 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-eprestore-summary' => 'Reason for restoration:',
 	'orgpage-eprestore-restore-button' => 'Restore revision',
 	'orgpage-eprestore-cancel-button' => 'Cancel',
-	'orgpage-eprestore-summary-value' => 'Restore institution to the revision made on $1 by $2',
+	'orgpage-eprestore-summary-value' => 'Restore institution to the revision made on $3, $1 by $2',
 	'orgpage-eprestore-restored' => 'Successfully restored institution $1.',
 	'orgpage-eprestore-restore-failed' => 'Failed to restore institution $1.',
 
@@ -550,7 +550,7 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-eprestore-summary' => 'Reason for restoration:',
 	'coursepage-eprestore-restore-button' => 'Restore revision',
 	'coursepage-eprestore-cancel-button' => 'Cancel',
-	'coursepage-eprestore-summary-value' => 'Restore course to the revision made on $1 by $2',
+	'coursepage-eprestore-summary-value' => 'Restore course to the revision made on $3, $1 by $2',
 	'coursepage-eprestore-restored' => 'Successfully restored course $1.',
 	'coursepage-eprestore-restore-failed' => 'Failed to restore course $1.',
 
@@ -560,7 +560,7 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-epundo-summary' => 'Reason for revert:',
 	'orgpage-epundo-undo-button' => 'Undo revision',
 	'orgpage-epundo-cancel-button' => 'Cancel',
-	'orgpage-epundo-summary-value' => 'Undo revision made on $1 by $2',
+	'orgpage-epundo-summary-value' => 'Undo revision made on $3, $1 by $2',
 	'orgpage-epundo-undid' => 'Successfully undid revision of institution $1.',
 	'orgpage-epundo-undo-failed' => 'Failed to undo revision of institution $1.',
 
@@ -570,7 +570,7 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-epundo-summary' => 'Reason for revert:',
 	'coursepage-epundo-undo-button' => 'Undo revision',
 	'coursepage-epundo-cancel-button' => 'Cancel',
-	'coursepage-epundo-summary-value' => 'Undo revision made on $1 by $2',
+	'coursepage-epundo-summary-value' => 'Undo revision made on $3, $1 by $2',
 	'coursepage-epundo-undid' => 'Successfully undid revision of course $1.',
 	'coursepage-epundo-undo-failed' => 'Failed to undo revision of course $1.',
 
@@ -793,7 +793,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
 
 	// Timeline
 	'ep-timeline-remaining' => '$1 {{PLURAL:$1|other|others}}',
-	'ep-timeline-unknown' => '$1 did something at $2',
+	'ep-timeline-unknown' => '$1 did something at $2, $3',
 	'ep-timeline-ago' => '$1 ago',
 	'ep-timeline-cutoff' => '$1 ...',
 
@@ -1345,8 +1345,9 @@ $2 is a user provided comment',
 	'orgpage-eprestore-restore-button' => 'Submission button text.',
 	'orgpage-eprestore-cancel-button' => 'Cancel button text.',
 	'orgpage-eprestore-summary-value' => 'Default value for the summary. Parameters:
-* $1 is a time,
-* $2 is a user name.',
+* $1 is a date,
+* $2 is a user name,
+* $3 is a time.',
 	'orgpage-eprestore-restored' => 'Succes message, shown at top of page in success box. Parameters:
 * $1 is an institution name.',
 	'orgpage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. Parameters:
@@ -1359,8 +1360,9 @@ $2 is a user provided comment',
 	'coursepage-eprestore-restore-button' => 'Submission button text.',
 	'coursepage-eprestore-cancel-button' => 'Cancel button text.',
 	'coursepage-eprestore-summary-value' => 'Default value for the summary. Parameters:
-* $1 it time,
-* $2 is user name.',
+* $1 is a date,
+* $2 is a user name,
+* $3 is a time.',
 	'coursepage-eprestore-restored' => 'SSucces message, shown at top of page in success box. Parameters:
 * $1 is a course name.',
 	'coursepage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. Parameters:
@@ -1373,8 +1375,9 @@ $2 is a user provided comment',
 	'orgpage-epundo-undo-button' => 'Submission button text.',
 	'orgpage-epundo-cancel-button' => 'Cancel button text.',
 	'orgpage-epundo-summary-value' => 'Default value for the summary. Parameters:
-* $1 is a time,
-* $2 is user name.',
+* $1 is a date,
+* $2 is a user name,
+* $3 is a time.',
 	'orgpage-epundo-undid' => 'Succes message, shown at top of page in success box. Parameters:
 * $1 is an institution name.',
 	'orgpage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters:
@@ -1667,7 +1670,8 @@ Check box input label.',
 	'ep-timeline-unknown' => 'Split date and time: at $2 and $3.
 Parameters:
 * $1 is a user name,
-* $2 is a date and time.',
+* $2 is a time,
+* $3 is a date.',
 	'ep-timeline-ago' => 'Parameters:
 * $1 is the duration (ie 42 minutes) in "42 minutes ago"',
 	'ep-timeline-cutoff' => 'Used when a to long text is cut off. Parameters:

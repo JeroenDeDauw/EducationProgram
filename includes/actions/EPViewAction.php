@@ -130,8 +130,8 @@ abstract class EPViewAction extends EPAction {
 			"<div id=\"mw-{$infomsg}\">" .
 				wfMessage( $infomsg, $td )->rawParams( $userToolLinks )->params(
 					$rev->getId(),
-					$tddate,
 					$tdtime,
+					$tddate,
 					$rev->getUser()
 				)->parse() .
 				"</div>"
