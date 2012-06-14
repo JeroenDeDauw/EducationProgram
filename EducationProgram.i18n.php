@@ -522,7 +522,7 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-delete-delete-button' => 'Delete course',
 	'coursepage-delete-none' => 'There is no course titled "$1". See the [[Special:Courses|list of courses]].',
 	'coursepage-delete-deleted' => 'Successfully deleted course $1.',
-	'coursepage-delete-delete-failed' => 'Failed to deleted course [[Course:$1|$1]].',
+	'coursepage-delete-delete-failed' => 'Failed to delete course [[Course:$1|$1]].',
 
 	// Institution deletion
 	'orgpage-delete-text' => "You are about to delete institution $1. This will remove all it's courses and their associated students!",
@@ -532,7 +532,7 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-delete-delete-button' => 'Delete institution',
 	'orgpage-delete-none' => 'There is no institution titled "$1". See the [[Special:Courses|list of institutions]].',
 	'orgpage-delete-deleted' => 'Successfully deleted institution $1 and its associated courses.',
-	'orgpage-delete-delete-failed' => 'Failed to deleted institution [[Institution:$1|$1]].',
+	'orgpage-delete-delete-failed' => 'Failed to delete institution [[Institution:$1|$1]].',
 
 	// Institution restoration
 	'orgpage-eprestore-title' => 'Restore institution "$1"',
@@ -1386,31 +1386,31 @@ $2 is a user provided comment',
 	'coursepage-epundo-summary' => 'Summary text input label.',
 	'coursepage-epundo-undo-button' => 'Submission button text.',
 	'coursepage-epundo-cancel-button' => 'Cancel button text.',
-	'coursepage-epundo-summary-value' => 'Default value for the summary. Parameters: 
+	'coursepage-epundo-summary-value' => 'Default value for the summary. Parameters:
 * $1 is a time,
 * $2 is a user name.',
-	'coursepage-epundo-undid' => 'Succes message, shown at top of page in success box. Parameters: 
+	'coursepage-epundo-undid' => 'Succes message, shown at top of page in success box. Parameters:
 * $1 is a course name.',
-	'coursepage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters: 
+	'coursepage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters:
 * $1 is a course name.',
-	'coursepage-epundelete-title' => 'Page title. Parameters: 
+	'coursepage-epundelete-title' => 'Page title. Parameters:
 * $1 is a course name',
-	'coursepage-epundelete-text' => 'Indicates what the user is about to do if they continue. Parameters: 
+	'coursepage-epundelete-text' => 'Indicates what the user is about to do if they continue. Parameters:
 * $1 is a course name.',
 	'coursepage-epundelete-summary' => 'Summary text input label.',
 	'coursepage-epundelete-undelete-button' => 'Submission button text.',
 	'coursepage-epundelete-cancel-button' => 'Cancel button text.',
-	'coursepage-epundelete-undid' => 'Succes message, shown at top of page in success box. Parameters: 
+	'coursepage-epundelete-undid' => 'Succes message, shown at top of page in success box. Parameters:
 * $1 is a course name.',
-	'coursepage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters: 
+	'coursepage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters:
 * $1 is a course name.',
-	'coursepage-epundelete-failed-norevs' => 'Fail message, shown at top of page in an error box. Parameters: 
+	'coursepage-epundelete-failed-norevs' => 'Fail message, shown at top of page in an error box. Parameters:
 * $1 is a course name.',
-	'coursepage-epundelete-failed-exists' => 'Fail message, shown at top of page in an error box. Parameters: 
+	'coursepage-epundelete-failed-exists' => 'Fail message, shown at top of page in an error box. Parameters:
 * $1 is a course name.',
-	'orgpage-epundelete-title' => 'Page title. Parameters: 
+	'orgpage-epundelete-title' => 'Page title. Parameters:
 * $1 is an institution name.',
-	'orgpage-epundelete-text' => 'Indicates what the user is about to do if they continue. Parameters: 
+	'orgpage-epundelete-text' => 'Indicates what the user is about to do if they continue. Parameters:
 * $1 is an institution name.',
 	'orgpage-epundelete-summary' => 'Summary text input label.',
 	'orgpage-epundelete-undelete-button' => 'Submission button text.',
@@ -3692,7 +3692,7 @@ Le journal des suppressions de cette institution est affiché ci-dessous :",
 	'coursepage-edit-title-add' => 'Ajouter le cours : $1',
 	'coursepage-edit-deleted' => "'''Attention : vous êtes en train de recréer un cours qui a été précédemment supprimé.'''
 
-Assurez-vous qu’il est pertinent de poursuivre les modifications de ce cours. 
+Assurez-vous qu’il est pertinent de poursuivre les modifications de ce cours.
 Le journal des suppressions de ce cours est affiché ci-dessous pour plus de commodité :",
 	'ep-course-invalid-org' => 'Cette institution n’existe pas.',
 	'ep-course-invalid-token' => 'Le texte doit contenir au moins $1 {{PLURAL:$1|caractère|caractères}}',
