@@ -250,29 +250,12 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	 * @return array of EPCourse
 	 */
 	protected function doGetCourses( $fields, array $conditions ) {
-		$courseTable = EPCourses::singleton();
-
-		$result = wfGetDB( DB_SLAVE )->select(
-			array( 'ep_courses', 'ep_users_per_course' ),
-			$courseTable->getPrefixedFields( is_null( $fields ) ? $courseTable->getFieldNames() : (array)$fields ),
-			array_merge( array(
-				'upc_role' => $this->getRoleId(),
-				'upc_user_id' => $this->getField( 'user_id' ),
-			), $courseTable->getPrefixedValues( $conditions ) ),
-			__METHOD__,
-			array(),
-			array(
-				'ep_users_per_course' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
-			)
-		);
-
-		$courses = array();
-
-		foreach ( $result as $course ) {
-			$courses[] = $courseTable->newFromDBResult( $course );
-		}
-
-		return $courses;
+		return iterator_to_array( EPCourses::singleton()->getCoursesForUser(
+			$this->getField( 'user_id' ),
+			$this->getRoleId(),
+			$conditions,
+			$fields
+		) );
 	}
 
 	/**
