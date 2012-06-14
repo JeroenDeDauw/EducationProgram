@@ -418,7 +418,7 @@ final class EPHooks {
 			array( 'upc_course_id' ),
 			array_merge( $conds, EPCourses::getStatusConds( 'current', true ) ),
 			__METHOD__,
-			array(),
+			array( 'DISTINCT' ),
 			array(
 				'ep_courses' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
 			)
