@@ -23,9 +23,10 @@ class EPLogFormatter extends LogFormatter {
 	 * rather then the full name of it's page.
 	 *
 	 * @param Title $title
-	 * @param $parameters
+	 * @param array $parameters
 	 *
-	 * @return string
+	 * @throws MWException
+	 * @return String
 	 */
 	protected function makePageLink( Title $title = null, $parameters = array() ) {
 		if ( !$title instanceof Title ) {

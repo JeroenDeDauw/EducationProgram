@@ -26,6 +26,7 @@ class EPDiffTable extends ContextSource {
 	 *
 	 * @param IContextSource $context
 	 * @param EPRevisionDiff $diff
+	 * @throws MWException
 	 */
 	public function __construct( IContextSource $context, EPRevisionDiff $diff ) {
 		if ( !$diff->isValid() ) {

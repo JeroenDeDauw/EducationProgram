@@ -61,7 +61,6 @@ abstract class EPPageObject extends EPRevisionedObject {
 	public function save( $functionName = null ) {
 		if ( $this->hasField( $this->table->getIdentifierField() ) && is_null( $this->getTitle() ) ) {
 			throw new MWException( 'The title for a EPPageObject needs to be valid when saving.' );
-			return false;
 		}
 
 		return parent::save( $functionName );

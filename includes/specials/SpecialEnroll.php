@@ -146,7 +146,6 @@ class SpecialEnroll extends SpecialEPPage {
 				'action' => $this->getTitle( $this->subPage )->getLocalURL(),
 			)
 		) );
-        $lang = $this->getLanguage();
 
 		$out->addHTML( '<fieldset>' );
 

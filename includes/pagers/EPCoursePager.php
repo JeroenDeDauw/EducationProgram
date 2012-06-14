@@ -118,6 +118,7 @@ class EPCoursePager extends EPPager {
 				break;
 			case '_status':
 				$value = htmlspecialchars( EPCourse::getStatusMessage( $this->currentObject->getStatus() ) );
+				break;
 			case 'student_count':
 				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
 				break;

@@ -417,7 +417,6 @@ The deletion log for this institution is provided below for convenience:",
 	// Course editing
 	'coursepage-edit-legend-add' => 'Add course',
 	'coursepage-edit-legend-edit' => 'Edit course',
-	'ep-course-edit-term' => 'Term',
 	'ep-course-edit-org' => 'Institution',
 	'ep-course-edit-start' => 'Start date',
 	'ep-course-edit-end' => 'End date',

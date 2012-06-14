@@ -54,7 +54,7 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 	public function execute( $subPage ) {
 		if ( !$this->userCanAccess() ) {
 			$this->displayRestrictionError();
-			return '';
+			return;
 		}
 
 		$this->displayNavigation();
