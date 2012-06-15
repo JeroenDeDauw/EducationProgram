@@ -38,7 +38,7 @@ if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version c
 	die( '<b>Error:</b> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
 }
 
-define( 'EP_VERSION', '0.1 alpha' );
+define( 'EP_VERSION', '0.1' );
 
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
