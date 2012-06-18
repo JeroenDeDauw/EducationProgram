@@ -291,8 +291,8 @@ $messages['en'] = array(
 	'ep-pager-retry-button-org' => 'Retry',
 	'ep-pager-summary-message-org' => 'Summary:',
 	// Yeah we need two of these - having a jQuery node in PLURAL breaks, at least at r110788.
-	'ep-pager-confirm-message-org' => 'You are about to remove institution $1. This will remove all associated courses and their student data!',
-	'ep-pager-confirm-message-org-many' => 'You are about to remove these institutions: $1. This will remove all associated courses and their student data!',
+	'ep-pager-confirm-message-org' => 'You are about to remove institution $1. This will remove all associated courses and student data!',
+	'ep-pager-confirm-message-org-many' => 'You are about to remove these institutions: $1. This will remove all associated courses and student data!',
 
 	// Course pager
 	'epcoursepager-header-name' => 'Name',
@@ -525,12 +525,12 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-delete-delete-failed' => 'Failed to delete course [[Course:$1|$1]].',
 
 	// Institution deletion
-	'orgpage-delete-text' => "You are about to delete institution $1. This will remove all it's courses and their associated students!",
+	'orgpage-delete-text' => "You are about to delete institution $1. This will remove all associated courses and students!",
 	'orgpage-delete-summary' => 'Reason for deletion:',
 	'orgpage-delete-title' => 'Delete institution "$1"',
 	'orgpage-delete-cancel-button' => 'Cancel',
 	'orgpage-delete-delete-button' => 'Delete institution',
-	'orgpage-delete-none' => 'There is no institution titled "$1". See the [[Special:Courses|list of institutions]].',
+	'orgpage-delete-none' => 'There is no institution titled "$1". See the [[Special:Institutions|list of institutions]].',
 	'orgpage-delete-deleted' => 'Successfully deleted institution $1 and its associated courses.',
 	'orgpage-delete-delete-failed' => 'Failed to delete institution [[Institution:$1|$1]].',
 
