@@ -3818,7 +3818,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'ep-timeline-users-create-article' => "$1 a créé l’article '''[[$2]]'''.",
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -4140,6 +4140,7 @@ $messages['ia'] = array(
 	'logentry-online-remove' => '$1 removeva le {{PLURAL:$4|ambassador|ambassadores}} in linea $5 del curso $3',
 	'logentry-online-selfadd' => '$1 se addeva como {{GENDER:$2|ambassador|ambassadrice}} in linea al curso $3',
 	'logentry-online-selfremove' => '$1 se removeva como {{GENDER:$2|ambassador|ambassadrice}} in linea del curso $3',
+	'logentry-online-profilesave' => '$1 actualisava su profilo de {{GENDER:$2|ambassador|ambassadrice}} in linea',
 );
 
 /** Italian (italiano)
@@ -4555,7 +4556,7 @@ L'elenco delle relative cancellazioni e degli spostamenti viene riportato di seg
 	'coursepage-delete-none' => 'Non c\'è alcun corso con il nome "$1". Vedi la [[Special:Courses|lista dei corsi]].',
 	'coursepage-delete-deleted' => 'Corso $1 cancellato con successo.',
 	'coursepage-delete-delete-failed' => 'Errore durante la cancellazione del corso [[Course:$1|$1]].',
-	'orgpage-delete-text' => "Si sta per cancellare l'istituto $1. Questa operazione rimuoverà tutti i corsi associati ed i dati relativi degli studenti!",
+	'orgpage-delete-text' => "Si sta per cancellare l'istituto $1. Questa operazione rimuoverà tutti i corsi ed i studenti associati ad esso!",
 	'orgpage-delete-summary' => 'Motivo della cancellazione:',
 	'orgpage-delete-title' => 'Cancellazione istituto "$1"',
 	'orgpage-delete-cancel-button' => 'Annulla',
@@ -6119,6 +6120,37 @@ $messages['mk'] = array(
 	'ep-dashboard-enroll-first' => 'Моментално не сте запишани на ниеден активен курс. Можете да го погледате [[Special:Courses|списокот на курсеви]] и да се запишете на некој.',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Praveenp
+ */
+$messages['ml'] = array(
+	'ep-item-summary' => 'ചുരുക്കം',
+	'ep-form-summary' => 'ചുരുക്കം:',
+	'ep-form-minor' => 'ഇതൊരു ചെറിയ തിരുത്താണ്',
+	'ep-tab-view' => 'വായിക്കുക',
+	'ep-tab-edit' => 'തിരുത്തുക',
+	'ep-tab-create' => 'സൃഷ്ടിക്കുക',
+	'ep-tab-history' => 'നാൾവഴി കാണുക',
+	'ep-tab-delete' => 'മായ്ക്കുക',
+	'ep-nav-students' => 'വിദ്യാർത്ഥികളുടെ പട്ടിക',
+	'ep-educationprogram-male' => 'പുരുഷൻ',
+	'ep-educationprogram-female' => 'സ്ത്രീ',
+	'ep-educationprogram-unknown' => 'അജ്ഞാതം',
+	'ep-educationprogram-genders' => 'ലിംഗവ്യത്യാസം',
+	'ep-pager-go' => 'പോകൂ',
+	'ep-pager-delete-selected' => 'മായ്ക്കുക',
+	'ep-revision-undo' => 'തിരസ്കരിക്കുക',
+	'ep-revision-restore' => 'പുനഃസ്ഥാപിക്കുക',
+	'eporgpager-header-name' => 'പേര്‌',
+	'eporgpager-header-city' => 'പട്ടണം',
+	'eporgpager-header-country' => 'രാജ്യം',
+	'eporgpager-filter-country' => 'രാജ്യം',
+	'ep-pager-retry-button-org' => 'വീണ്ടും ശ്രമിക്കുക',
+	'epcoursepager-header-lang' => 'ഭാഷ',
+	'ep-articletable-remreviwer-cancel' => 'റദ്ദാക്കുക',
+	'epcapager-header-photo' => 'ഫോട്ടോ',
+);
+
 /** Dutch (Nederlands)
  * @author McDutchie
  * @author SPQRobin
@@ -6534,7 +6566,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'coursepage-delete-none' => 'Er is geen cursus met de naam "$1". Zie de [[Special:Courses|lijst met cursussen]].',
 	'coursepage-delete-deleted' => 'De cursus $1 is verwijderd.',
 	'coursepage-delete-delete-failed' => 'Het verwijderen van de cursus [[Course:$1|$1]] is mislukt.',
-	'orgpage-delete-text' => 'U staat op het punt de organisatie $1 te verwijderen. Hiermee worden ook alle gekoppelde cursussen en de gegevens van gekoppelde studenten verwijderd.',
+	'orgpage-delete-text' => 'U staat op het punt de organisatie $1 te verwijderen. Hiermee worden alle gekoppelde cursussen en studenten verwijderd.',
 	'orgpage-delete-summary' => 'Reden voor verwijderen:',
 	'orgpage-delete-title' => 'Organisatie "$1" verwijderen',
 	'orgpage-delete-cancel-button' => 'Annuleren',
