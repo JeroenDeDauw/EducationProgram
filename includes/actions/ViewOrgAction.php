@@ -56,7 +56,8 @@ class ViewOrgAction extends EPViewAction {
 
 		$html .= Html::element( 'h2', array(), wfMsg( 'ep-institution-courses' ) );
 
-		$html .= EPCourse::getPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
+		$html .= EPCoursePager::getPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
+		$this->getOutput()->addModules( EPCoursePager::getModules() );
 
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$html .= Html::element( 'h2', array(), wfMsg( 'ep-institution-add-course' ) );

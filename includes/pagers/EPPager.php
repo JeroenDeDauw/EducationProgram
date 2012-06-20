@@ -61,8 +61,6 @@ abstract class EPPager extends TablePager {
 		$this->context = $context;
 
 		parent::__construct( $context );
-
-		$this->context->getOutput()->addModules( $this->getModules() );
 	}
 
 	/**
@@ -72,8 +70,7 @@ abstract class EPPager extends TablePager {
 	 *
 	 * @return array
 	 */
-	public function getModules() {
-		// FIXME: various callers are njust obtaining HTML for caching and don't always add the modules
+	public static function getModules() {
 		return array( 'ep.pager' );
 	}
 

@@ -43,7 +43,8 @@ class SpecialInstitutions extends SpecialEPPage {
 				$this->addCachedHTML( 'EPOrg::getAddNewControl', $this->getContext() );
 			}
 
-			$this->addCachedHTML( 'EPOrg::getPager', $this->getContext() );
+			$this->addCachedHTML( 'EPOrgPager::getPager', $this->getContext() );
+			$this->getOutput()->addModules( EPOrgPager::getModules() );
 
 			$this->saveCache();
 		}

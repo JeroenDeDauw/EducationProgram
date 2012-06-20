@@ -85,13 +85,14 @@ class SpecialStudent extends SpecialEPPage {
 
 		$html = $this->getSummary( $student );
 
-		if ( empty( $courseIds ) ) {
+		if ( $courseIds === array() ) {
 			// TODO: high
 		}
 		else {
 			$html .= Html::element( 'h2', array(), wfMsg( 'ep-student-courses' ) );
 
-			$html .= EPCourse::getPager( $this->getContext(), array( 'id' => $courseIds ) );
+			$html .= EPCoursePager::getPager( $this->getContext(), array( 'id' => $courseIds ) );
+			$this->getOutput()->addModules( EPCoursePager::getModules() );
 
 			$pager = new EPArticleTable(
 				$this->getContext(),
