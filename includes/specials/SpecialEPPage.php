@@ -130,11 +130,11 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param ORMRow $item
+	 * @param IORMRow $item
 	 * @param boolean $collapsed
 	 * @param array $summaryData
 	 */
-	protected function displaySummary( ORMRow $item, $collapsed = false, array $summaryData = null ) {
+	protected function displaySummary( IORMRow $item, $collapsed = false, array $summaryData = null ) {
 		$this->getOutput()->addHTML( $item, $collapsed, $summaryData );
 	}
 
@@ -143,13 +143,13 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param ORMRow $item
+	 * @param IORMRow $item
 	 * @param boolean $collapsed
 	 * @param array $summaryData
 	 *
 	 * @return string
 	 */
-	protected function getSummary( ORMRow $item, $collapsed = false, array $summaryData = null ) {
+	protected function getSummary( IORMRow $item, $collapsed = false, array $summaryData = null ) {
 		$html = '';
 
 		$class = 'wikitable ep-summary mw-collapsible';
@@ -193,11 +193,11 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param ORMRow $item
+	 * @param IORMRow $item
 	 *
 	 * @return array
 	 */
-	protected function getSummaryData( ORMRow $item ) {
+	protected function getSummaryData( IORMRow $item ) {
 		return array();
 	}
 

@@ -204,7 +204,7 @@ class EPCoursePager extends EPPager {
 	 * (non-PHPdoc)
 	 * @see EPPager::getControlLinks()
 	 */
-	protected function getControlLinks( ORMRow $item ) {
+	protected function getControlLinks( IORMRow $item ) {
 		$links = parent::getControlLinks( $item );
 
 		$links[] = $item->getLink( 'view', wfMsgHtml( 'view' ) );
