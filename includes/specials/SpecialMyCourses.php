@@ -43,10 +43,7 @@ class SpecialMyCourses extends SpecialEPPage {
 		if ( $this->getUser()->isLoggedIn() ) {
 			$this->displayEnrollmentMessage();
 
-			$student = EPStudent::newFromUser( $this->getUser() );
-			$courses = $student->getCourses( null, EPCourses::getStatusConds( 'current' ) );
-
-			$this->courses = $courses;
+			$this->fetchCourses();
 
 			$this->startCache( 60 );
 
@@ -54,7 +51,7 @@ class SpecialMyCourses extends SpecialEPPage {
 				$this->displayDidYouKnow();
 			}
 
-			if ( $courses === array() ) {
+			if ( $this->courses === array() ) {
 				$this->getOutput()->addWikiMsg( 'ep-dashboard-enroll-first' );
 			}
 			else {
@@ -73,6 +70,22 @@ class SpecialMyCourses extends SpecialEPPage {
 				)
 			) );
 		}
+	}
+
+	/**
+	 * Gets the active courses the current user is associated with (in any role)
+	 * and stores them in the courses field.
+	 *
+	 * @since 0.1
+	 */
+	protected function fetchCourses() {
+		$courses = EPCourses::singleton()->getCoursesForUsers(
+			$this->getUser()->getId(),
+			array(),
+			EPCourses::getStatusConds( 'current' )
+		);
+
+		$this->courses = iterator_to_array( $courses );
 	}
 
 	/**

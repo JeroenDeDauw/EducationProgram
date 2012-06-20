@@ -202,6 +202,47 @@ class EPCourses extends EPPageTable {
 	}
 
 	/**
+	 * Returns a set of courses for the specified users or roles.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array|integer $userIds
+	 * @param array|integer $roleIds
+	 * @param array $conditions
+	 * @param array|string|null $fields
+	 * @param array $options
+	 *
+	 * @return IORMResult
+	 */
+	public function getCoursesForUsers( $userIds = array(), $roleIds = array(),
+										array $conditions = array(), $fields = null, array $options = array() ) {
+		$conditions = $this->getPrefixedValues( $conditions );
+
+		if ( $userIds !== array() ) {
+			$conditions['upc_user_id'] = (array)$userIds;
+		}
+
+		if ( $roleIds !== array() ) {
+			$conditions['upc_role'] = (array)$roleIds;
+		}
+
+		$options[] = 'DISTINCT';
+
+		$courses = wfGetDB( DB_SLAVE )->select(
+			array( 'ep_courses', 'ep_users_per_course' ),
+			$this->getPrefixedFields( is_null( $fields ) ? $this->getFieldNames() : (array)$fields ),
+			$conditions,
+			__METHOD__,
+			$options,
+			array(
+				'ep_users_per_course' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
+			)
+		);
+
+		return new ORMResult( $this, $courses );
+	}
+
+	/**
 	 * (non-PHPdoc)
 	 * @see EPPageTable::getEditRight()
 	 */
