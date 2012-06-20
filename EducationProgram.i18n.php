@@ -6149,6 +6149,13 @@ $messages['ml'] = array(
 	'epcoursepager-header-lang' => 'ഭാഷ',
 	'ep-articletable-remreviwer-cancel' => 'റദ്ദാക്കുക',
 	'epcapager-header-photo' => 'ഫോട്ടോ',
+	'ep-instructor-add-close-button' => 'അടയ്ക്കുക',
+	'ep-instructor-summary-input' => 'ചുരുക്കം:',
+	'ep-instructor-name-input' => 'ഉപയോക്തൃനാമം:',
+	'ep-online-removing' => 'നീക്കംചെയ്യുന്നു...',
+	'ep-diff-old' => 'ഇപ്പോഴത്തെ വില',
+	'ep-diff-new' => 'പുതിയ വില',
+	'ep-timeline-ago' => '$1 മുമ്പ്',
 );
 
 /** Dutch (Nederlands)
