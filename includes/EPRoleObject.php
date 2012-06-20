@@ -250,7 +250,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	 * @return array of EPCourse
 	 */
 	protected function doGetCourses( $fields, array $conditions ) {
-		return iterator_to_array( EPCourses::singleton()->getCoursesForUser(
+		return iterator_to_array( EPCourses::singleton()->getCoursesForUsers(
 			$this->getField( 'user_id' ),
 			$this->getRoleId(),
 			$conditions,
