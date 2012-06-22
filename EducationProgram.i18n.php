@@ -115,7 +115,7 @@ $messages['en'] = array(
 	'logentry-campus-profilesave' => '$1 updated {{GENDER:$2|his|her}} Campus Ambassador profile',
 
 	'logentry-student-add' => '$1 enrolled in course $3',
-	'logentry-student-remove' => '$1 removed $5 as {{GENDER:$2|student}} from course $3',
+	'logentry-student-remove' => '$1 removed $5 as {{PLURAL:$4|{{GENDER:$2|student}}}} from course $3',
 	'logentry-student-selfadd' => '$1 enrolled in course $3',
 	'logentry-student-selfremove' => '$1 disenrolled from course $3',
 
@@ -163,7 +163,7 @@ $messages['en'] = array(
 	'action-ep-instructor' => 'add or remove instructors to courses',
 	'action-ep-beonline' => 'add or remove yourself as online ambassador from terms',
 	'action-ep-becampus' => 'add or remove yourself as campus ambassador from terms',
-	'action-ep-beinstructor' => ' add or remove yourself as instructor from courses',
+	'action-ep-beinstructor' => 'add or remove yourself as instructor from courses',
 	'action-ep-bereviewer' => 'add or remove yourself as reviewer from articles',
 	'action-ep-remreviewer' => 'remove reviewers from articles',
 	'action-ep-bulkdelorgs' => 'bulk delete institutions',
@@ -456,7 +456,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-pager-delete-selected-fail' => 'Could not delete the selected {{PLURAL:$1|item|items}}.',
 
 	// Institution viewing
-	'vieworgaction-none' => 'There is no institution with name "$1". See the[[Special:Institutions|list of institutions]].',
+	'vieworgaction-none' => 'There is no institution with name "$1". See the [[Special:Institutions|list of institutions]].',
 	'ep-institution-create' => 'There is no institution with name "$1" yet, but you can create it.',
 	'ep-institution-title' => 'Institution: $1',
 	'vieworgaction-summary-name' => 'Name',
