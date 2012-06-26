@@ -429,16 +429,20 @@ final class EPHooks {
 
 		if ( $hasCourses ) {
 			wfProfileIn( __METHOD__ . '-courses' );
-			$event = EPEvent::newFromRevision( $rev, $user );
+			if ( !is_null( $rev->getTitle() ) ) {
+				$event = EPEvent::newFromRevision( $rev, $user );
+			}
 
 			$dbw = wfGetDB( DB_MASTER );
 
 			$dbw->begin();
 
-			while ( $link = $upc->fetchObject() ) {
-				$eventForCourse = clone $event;
-				$eventForCourse->setField( 'course_id', $link->upc_course_id );
-				$eventForCourse->save();
+			if ( !is_null( $rev->getTitle() ) ) {
+				while ( $link = $upc->fetchObject() ) {
+					$eventForCourse = clone $event;
+					$eventForCourse->setField( 'course_id', $link->upc_course_id );
+					$eventForCourse->save();
+				}
 			}
 
 			if ( in_array( $namespace, array( NS_MAIN, NS_TALK ) ) ) {
