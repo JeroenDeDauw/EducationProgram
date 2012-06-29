@@ -2698,6 +2698,7 @@ $messages['diq'] = array(
 /** Spanish (español)
  * @author Armando-Martin
  * @author Invadinado
+ * @author Mr.Ajedrez
  */
 $messages['es'] = array(
 	'educationprogram-desc' => 'Facilita programas educativos mediante la adición de varias interfaces para administrar los cursos, las instituciones y los diversos roles de los usuario educativos.',
@@ -3326,7 +3327,7 @@ El registro de borrado para este curso se indica a continuación por convenienci
 	'epca-profile-saved' => 'Se ha guardado tu perfil',
 	'epca-profile-invalid-bio' => 'Tu biografía debe contener al menos  $1 {{PLURAL:$1|carácter|caracteres}}.',
 	'epca-visible' => 'Incluirme en lista pública como Embajador de campus',
-	'ep-studentactivity-noresults' => 'No hay ningún alumno que esté activo en los últimos $1 : (
+	'ep-studentactivity-noresults' => 'No hay ningún alumno que esté activo en los últimos $1
 
 Puedes encontrar una lista completa de alumnos en [[Special:Students|la lista de alumnos]].',
 	'ep-studentactivity-count' => '{{PLURAL:$1|Un estudiante estuvo activo|$1 estudiantes estuvieron activos}} en el último $2 .',
@@ -3379,6 +3380,43 @@ $messages['fa'] = array(
 	'logentry-course-add' => '$1 درس $3 را ایجاد کرد',
 	'logentry-course-remove' => '$1 درس $3 را حذف کرد',
 	'logentry-course-update' => '$1 درس $3 را به‌روزرسانی کرد',
+	'prefs-education' => 'آموزش',
+	'specialpages-group-education' => 'آموزش',
+	'special-educationprogram' => 'برنامهٔ آموزش',
+	'ep-educationprogram-male' => 'مذکر',
+	'ep-educationprogram-female' => 'مونث',
+	'ep-pager-go' => 'برو',
+	'ep-pager-delete-selected' => 'حذف',
+	'ep-revision-undo' => 'خنثی‌سازی',
+	'ep-revision-restore' => 'بازیابی',
+	'eporgpager-header-name' => 'نام',
+	'eporgpager-header-city' => 'شهر',
+	'eporgpager-header-country' => 'کشور',
+	'eporgpager-filter-country' => 'کشور',
+	'eporgpager-header-active' => 'فعال',
+	'eporgpager-yes' => 'بله',
+	'eporgpager-no' => 'خیر',
+	'ep-pager-cancel-button-org' => 'انصراف',
+	'ep-pager-cancel-button-course' => 'انصراف',
+	'epstudentpager-header-user-id' => 'کاربر',
+	'epstudentpager-yes' => 'بله',
+	'epstudentpager-no' => 'خیر',
+	'ep-articletable-addreviwer-cancel' => 'انصراف',
+	'ep-articletable-remstudent-cancel' => 'انصراف',
+	'ep-articletable-remarticle-cancel' => 'انصراف',
+	'vieworgaction-summary-name' => 'نام',
+	'vieworgaction-summary-city' => 'شهر',
+	'vieworgaction-summary-country' => 'کشور',
+	'viewcourseaction-summary-start' => 'شروع',
+	'viewcourseaction-summary-end' => 'پایان',
+	'orgpage-delete-cancel-button' => 'انصراف',
+	'orgpage-eprestore-cancel-button' => 'انصراف',
+	'coursepage-eprestore-cancel-button' => 'انصراف',
+	'orgpage-epundo-cancel-button' => 'انصراف',
+	'coursepage-epundo-cancel-button' => 'انصراف',
+	'coursepage-epundelete-cancel-button' => 'انصراف',
+	'orgpage-epundelete-cancel-button' => 'انصراف',
+	'ep-disenroll-cancel' => 'انصراف',
 );
 
 /** French (français)
