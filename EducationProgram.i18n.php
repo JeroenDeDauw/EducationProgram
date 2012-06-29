@@ -115,7 +115,7 @@ $messages['en'] = array(
 	'logentry-campus-profilesave' => '$1 updated {{GENDER:$2|his|her}} Campus Ambassador profile',
 
 	'logentry-student-add' => '$1 enrolled in course $3',
-	'logentry-student-remove' => '$1 removed $5 as {{PLURAL:$4|{{GENDER:$2|student}}}} from course $3',
+	'logentry-student-remove' => '$1 removed $5 as {{PLURAL:$4|{{GENDER:$2|student}}|students}} from course $3',
 	'logentry-student-selfadd' => '$1 enrolled in course $3',
 	'logentry-student-selfremove' => '$1 disenrolled from course $3',
 
@@ -405,7 +405,7 @@ This will permanently remove their associated articles and reviewers!',
 	'orgpage-edit-title-add' => 'Adding institution: $1',
 	'orgpage-edit-deleted' => "'''Warning: You are recreating an institution that was previously deleted.'''
 
-You should consider whether it is appropriate to continue editing this institution.
+You should consider whether it is appropriate to continue creating this institution again.
 The deletion log for this institution is provided below for convenience:",
 	'orgpage-edit-undelete-revisions' => 'This institution has been deleted. You can $1.',
 	'orgpage-edit-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
@@ -439,7 +439,7 @@ The deletion log for this institution is provided below for convenience:",
 	'coursepage-edit-title-add' => 'Adding course: $1',
 	'coursepage-edit-deleted' => "'''Warning: You are recreating a course that was previously deleted.'''
 
-You should consider whether it is appropriate to continue editing this course.
+You should consider whether it is appropriate to continue creating this course again.
 The deletion log for this course is provided below for convenience:",
 
 	'ep-course-invalid-org' => 'This institution does not exist.',
