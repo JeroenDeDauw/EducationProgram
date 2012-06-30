@@ -52,6 +52,13 @@ $specialPageAliases['ar'] = array(
 	'Articles' => array( 'مقالات' ),
 );
 
+/** Assamese (অসমীয়া) */
+$specialPageAliases['as'] = array(
+	'Student' => array( 'শিক্ষাৰ্থী' ),
+	'Students' => array( 'শিক্ষাৰ্থীসকল' ),
+	'Articles' => array( 'প্ৰবন্ধসমূহ' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'MyCourses' => array( 'Meine_Kurse' ),
@@ -106,6 +113,18 @@ $specialPageAliases['ko'] = array(
 	'CampusAmbassadorProfile' => array( '캠퍼스대사관프로필' ),
 	'StudentActivity' => array( '학생확동' ),
 	'Articles' => array( '문서들' ),
+);
+
+/** Luxembourgish (Lëtzebuergesch) */
+$specialPageAliases['lb'] = array(
+	'MyCourses' => array( 'Meng_Coursen' ),
+	'ManageCourses' => array( 'Course_geréieren' ),
+	'Institutions' => array( 'Institutiounen' ),
+	'Students' => array( 'Studenten' ),
+	'Courses' => array( 'Coursen' ),
+	'Enroll' => array( 'Aschreiwen' ),
+	'Disenroll' => array( 'Ofmellen_aus_dem_Cours' ),
+	'Articles' => array( 'Artikelen' ),
 );
 
 /** Macedonian (македонски) */
