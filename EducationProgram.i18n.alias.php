@@ -149,6 +149,7 @@ $specialPageAliases['mk'] = array(
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'MyCourses' => array( 'MijnCursussen' ),
+	'ManageCourses' => array( 'CursussenBeheren' ),
 	'Institutions' => array( 'Organisaties' ),
 	'Student' => array( 'Student' ),
 	'Students' => array( 'Studenten' ),
