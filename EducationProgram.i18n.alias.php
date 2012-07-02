@@ -96,6 +96,25 @@ $specialPageAliases['diq'] = array(
 	'Articles' => array( 'Wesiqe' ),
 );
 
+/** Galician (galego) */
+$specialPageAliases['gl'] = array(
+	'MyCourses' => array( 'Os_meus_cursos' ),
+	'ManageCourses' => array( 'Administrar_os_cursos' ),
+	'Institutions' => array( 'Institucións' ),
+	'Student' => array( 'Estudante' ),
+	'Students' => array( 'Estudantes' ),
+	'Courses' => array( 'Cursos' ),
+	'EducationProgram' => array( 'Programa_educativo' ),
+	'Enroll' => array( 'Inscribirse' ),
+	'Disenroll' => array( 'Cancelar_a_inscrición' ),
+	'CampusAmbassadors' => array( 'Embaixadores_do_campus' ),
+	'OnlineAmbassadors' => array( 'Embaixadores_en_liña' ),
+	'OnlineAmbassadorProfile' => array( 'Perfil_do_embaixador_en_liña' ),
+	'CampusAmbassadorProfile' => array( 'Perfil_do_embaixador_do_campus' ),
+	'StudentActivity' => array( 'Actividade_do_usuario' ),
+	'Articles' => array( 'Artigos' ),
+);
+
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
 	'MyCourses' => array( '내수업' ),
