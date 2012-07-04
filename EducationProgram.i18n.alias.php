@@ -121,7 +121,7 @@ $specialPageAliases['ko'] = array(
 	'ManageCourses' => array( '수업관리' ),
 	'Institutions' => array( '교육기관' ),
 	'Student' => array( '학생' ),
-	'Students' => array( '학생들' ),
+	'Students' => array( '학생목록' ),
 	'Courses' => array( '수업' ),
 	'EducationProgram' => array( '교육프로그램' ),
 	'Enroll' => array( '입학' ),
@@ -131,7 +131,7 @@ $specialPageAliases['ko'] = array(
 	'OnlineAmbassadorProfile' => array( '온라인대사관프로필' ),
 	'CampusAmbassadorProfile' => array( '캠퍼스대사관프로필' ),
 	'StudentActivity' => array( '학생확동' ),
-	'Articles' => array( '문서들' ),
+	'Articles' => array( '문서목록' ),
 );
 
 /** Luxembourgish (Lëtzebuergesch) */
