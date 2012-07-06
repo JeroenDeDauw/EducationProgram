@@ -39,8 +39,6 @@ class SpecialStudentActivity extends SpecialEPPage {
 		$this->displayNavigation();
 
 		$this->addCachedHTML( array( $this, 'displayCachedContent' ) );
-
-		$this->saveCache();
 	}
 
 	/**

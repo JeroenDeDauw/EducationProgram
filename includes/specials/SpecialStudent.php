@@ -61,8 +61,6 @@ class SpecialStudent extends SpecialEPPage {
 				$out->setPageTitle( wfMsgExt( 'ep-student-title', 'parsemag', $student->getName() ) );
 				$this->addCachedHTML( array( $this, 'getPageHTML' ), $student );
 			}
-
-			$this->saveCache();
 		}
 	}
 

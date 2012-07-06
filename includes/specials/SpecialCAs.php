@@ -37,7 +37,6 @@ class SpecialCAs extends SpecialEPPage {
 
 			$this->startCache( 3600 );
 			$this->addCachedHTML( 'EPCA::getPager', $this->getContext() );
-			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'CampusAmbassador', $this->subPage )->getLocalURL() );

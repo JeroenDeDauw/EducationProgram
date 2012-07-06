@@ -45,8 +45,6 @@ class SpecialCourses extends SpecialEPPage {
 
 			$this->addCachedHTML( 'EPCoursePager::getPager', $this->getContext() );
 			$this->getOutput()->addModules( EPCoursePager::getModules() );
-
-			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->redirect( Title::newFromText( $this->subPage, EP_NS_COURSE )->getLocalURL() );

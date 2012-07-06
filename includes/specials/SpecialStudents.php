@@ -37,7 +37,6 @@ class SpecialStudents extends SpecialEPPage {
 
 			$this->startCache( 3600 );
 			$this->addCachedHTML( 'EPStudent::getPager', $this->getContext() );
-			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'Student', $this->subPage )->getLocalURL() );

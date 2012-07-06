@@ -57,8 +57,6 @@ class SpecialMyCourses extends SpecialEPPage {
 			else {
 				$this->displayTimelines();
 			}
-
-			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->addHTML( Linker::linkKnown(

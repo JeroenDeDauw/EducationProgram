@@ -45,8 +45,6 @@ class SpecialInstitutions extends SpecialEPPage {
 
 			$this->addCachedHTML( 'EPOrgPager::getPager', $this->getContext() );
 			$this->getOutput()->addModules( EPOrgPager::getModules() );
-
-			$this->saveCache();
 		}
 		else {
 			$this->getOutput()->redirect( Title::newFromText( $this->subPage, EP_NS_INSTITUTION )->getLocalURL() );

@@ -39,8 +39,6 @@ class SpecialEducationProgram extends SpecialEPPage {
 		$this->addCachedHTML( array( $this, 'displaySummaryTable' ) );
 
 		$this->addCachedHTML( array( $this, 'displayByTerm' ) );
-
-		$this->saveCache();
 	}
 
 	/**
