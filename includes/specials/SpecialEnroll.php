@@ -240,7 +240,7 @@ class SpecialEnroll extends SpecialEPPage {
 		);
 
 		if ( !$hadStudent ) {
-			$student = EPStudents::singleton()->newFromArray( array( 'user_id' => $this->getUser()->getId() ), true );
+			$student = EPStudents::singleton()->newRow( array( 'user_id' => $this->getUser()->getId() ), true );
 		}
 
 		$student->setFields( $fields );

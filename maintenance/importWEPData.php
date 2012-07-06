@@ -100,7 +100,7 @@ class ImportWEPData extends Maintenance {
 		wfGetDB( DB_MASTER )->begin();
 
 		foreach ( $orgs as $org => &$id ) {
-			$org = EPOrgs::singleton()->newFromArray(
+			$org = EPOrgs::singleton()->newRow(
 				array(
 					'name' => $org,
 					'country' => 'US',
@@ -138,7 +138,7 @@ class ImportWEPData extends Maintenance {
 			$start{3} = '1';
 			$end{3} = '3';
 
-			$course = EPCourses::singleton()->newFromArray(
+			$course = EPCourses::singleton()->newRow(
 				array(
 					'org_id' => $orgs[$org],
 					'name' => $course,

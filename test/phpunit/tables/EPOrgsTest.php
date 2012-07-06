@@ -59,7 +59,7 @@ class EPOrgsTest extends MediaWikiTestCase {
 	 * @dataProvider newFromArrayProvider
 	 */
 	public function testNewFromArray( array $data, $loadDefaults = false ) {
-		$change = EPOrgs::singleton()->newFromArray( $data, $loadDefaults );
+		$change = EPOrgs::singleton()->newRow( $data, $loadDefaults );
 
 		foreach ( array_keys( $data ) as $field ) {
 			if ( $field === 'name' ) {
@@ -78,7 +78,7 @@ class EPOrgsTest extends MediaWikiTestCase {
 	public function testSaveSelectCountAndDelete( array $data, $loadDefaults = false ) {
 		$orgsTable = EPOrgs::singleton();
 
-		$org = $orgsTable->newFromArray( $data, $loadDefaults );
+		$org = $orgsTable->newRow( $data, $loadDefaults );
 
 		$this->assertTrue( $org->save() );
 

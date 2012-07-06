@@ -50,7 +50,7 @@ class EPAddArticleAction extends FormlessAction {
 				);
 
 				if ( !EPArticles::singleton()->has( $articleData ) ) {
-					$article = EPArticles::singleton()->newFromArray( $articleData, true );
+					$article = EPArticles::singleton()->newRow( $articleData, true );
 
 					if ( $article->save() ) {
 						$article->logAdittion( $this->getUser() );
