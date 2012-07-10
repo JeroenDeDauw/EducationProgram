@@ -183,3 +183,8 @@ $specialPageAliases['nl'] = array(
 	'StudentActivity' => array( 'Studentactiviteit' ),
 	'Articles' => array( 'Artikelen' ),
 );
+
+/** Turkish (Türkçe) */
+$specialPageAliases['tr'] = array(
+	'Articles' => array( 'Maddeler' ),
+);
