@@ -72,7 +72,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * @return String
 	 */
 	function formatRow( $row ) {
-		$revision = EPRevisions::singleton()->newFromDBResult( $row );
+		$revision = EPRevisions::singleton()->newRowFromDBResult( $row );
 		$object = $revision->getObject();
 
 		$html = '';

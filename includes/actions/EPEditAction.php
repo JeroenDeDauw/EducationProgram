@@ -106,7 +106,7 @@ abstract class EPEditAction extends EPAction {
 				$this->displayDeletionLog();
 
 				$this->isNew = true;
-				$object = $this->table->newFromArray( $data, true );
+				$object = $this->table->newRow( $data, true );
 			}
 			elseif ( $this->isNewPost() ) {
 				$this->showWarning( wfMessage( 'ep-' . strtolower( $this->getName() ) . '-exists-already' ) );
@@ -406,7 +406,7 @@ abstract class EPEditAction extends EPAction {
 		$keys = array_keys( $fields );
 		$fields = array_combine( $keys, array_map( array( $this, 'handleKnownField' ), $keys, $fields ) );
 
-		/* EPPageObject */ $item = $this->table->newFromArray( $fields, is_null( $fields['id'] ) );
+		/* EPPageObject */ $item = $this->table->newRow( $fields, is_null( $fields['id'] ) );
 
 		foreach ( $unknownValues as $name => $value ) {
 			$this->handleUnknownField( $item, $name, $value );

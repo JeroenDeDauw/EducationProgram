@@ -158,7 +158,7 @@ class ImportWEPFromDB extends Maintenance {
 					$data['id'] = $currentId;
 				}
 
-				$orgObject = $orgTable->newFromArray(
+				$orgObject = $orgTable->newRow(
 					$data,
 					$currentId === false
 				);
@@ -231,7 +231,7 @@ class ImportWEPFromDB extends Maintenance {
 			$data['id'] = $currentId;
 		}
 
-		$courseObject = EPCourses::singleton()->newFromArray(
+		$courseObject = EPCourses::singleton()->newRow(
 			$data,
 			$currentId === false
 		);

@@ -114,7 +114,7 @@ class EPArticleTable extends EPPager {
 	 */
 	function formatRow( $row ) {
 		$this->mCurrentRow = $row;
-		$this->currentObject = $this->table->newFromDBResult( $row );
+		$this->currentObject = $this->table->newRowFromDBResult( $row );
 
 		$student = $this->currentObject;
 		$articles = $this->articles[$student->getField( 'user_id' )];

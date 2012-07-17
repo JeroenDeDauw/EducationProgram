@@ -80,7 +80,7 @@ abstract class EPPager extends TablePager {
 	 */
 	function formatRow( $row ) {
 		$this->mCurrentRow = $row;
-		$this->currentObject = $this->table->newFromDBResult( $row );
+		$this->currentObject = $this->table->newRowFromDBResult( $row );
 
 		$cells = array();
 

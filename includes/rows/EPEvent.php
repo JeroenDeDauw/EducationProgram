@@ -73,7 +73,7 @@ class EPEvent extends ORMRow {
 			'info' => $info,
 		);
 
-		return EPEvents::singleton()->newFromArray( $fields );
+		return EPEvents::singleton()->newRow( $fields );
 	}
 
 	/**

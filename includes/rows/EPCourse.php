@@ -436,6 +436,9 @@ class EPCourse extends EPPageObject {
 				$this->$classField = array();
 			}
 			else {
+				/**
+				 * @var IORMTable $table
+				 */
 				$table = $tableName::singleton();
 
 				$this->$classField = $table->select(
@@ -455,7 +458,7 @@ class EPCourse extends EPPageObject {
 				}
 
 				foreach ( array_diff( $userIds, $addedIds ) as $remainingId ) {
-					array_push( $this->$classField, $table->newFromArray( array( 'user_id' => $remainingId ) ) );
+					array_push( $this->$classField, $table->newRow( array( 'user_id' => $remainingId ) ) );
 				}
 			}
 		}

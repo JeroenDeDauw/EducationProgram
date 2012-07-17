@@ -38,7 +38,7 @@ class EPRevision extends ORMRow {
 	 */
 	public function getObject() {
 		$tableClass = $this->getField( 'type' );
-		return $tableClass::singleton()->newFromArray( $this->getField( 'data' ), true );
+		return $tableClass::singleton()->newRow( $this->getField( 'data' ), true );
 	}
 
 	/**
