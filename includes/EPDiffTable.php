@@ -57,8 +57,8 @@ class EPDiffTable extends ContextSource {
 		foreach ( $this->diff->getChangedFields() as $field => $values ) {
 			$out->addHtml( '<tr>' );
 
-			$source = array_key_exists( 'source', $values ) ? $values['source'] : '';
-			$target = array_key_exists( 'target', $values ) ? $values['target'] : '';
+			$source = array_key_exists( 'source', $values ) ? $this->formatValue( $values['source'], $field ) : '';
+			$target = array_key_exists( 'target', $values ) ? $this->formatValue( $values['target'], $field ) : '';
 
 			$out->addElement( 'th', array(), $field );
 			$out->addElement( 'td', array(), $source );
@@ -68,6 +68,25 @@ class EPDiffTable extends ContextSource {
 		}
 
 		$out->addHTML( '</table>' );
+	}
+
+	/**
+	 * Do additional formatting.
+	 * This is a bit of a hack and really ought to be aware of the field type rather then using field names.
+	 *
+	 * @since 0.2
+	 *
+	 * @param mixed $value
+	 * @param string $name
+	 *
+	 * @return string
+	 */
+	protected function formatValue( $value, $name ) {
+		if ( in_array( $name, array( 'start', 'end' ) ) ) {
+			$value = $this->getLanguage()->timeanddate( $value );
+		}
+
+		return $value;
 	}
 
 }
