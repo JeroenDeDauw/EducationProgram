@@ -117,12 +117,12 @@ $specialPageAliases['gl'] = array(
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
-	'MyCourses' => array( '내수업' ),
-	'ManageCourses' => array( '수업관리' ),
+	'MyCourses' => array( '내과정' ),
+	'ManageCourses' => array( '과정관리' ),
 	'Institutions' => array( '교육기관' ),
 	'Student' => array( '학생' ),
 	'Students' => array( '학생목록' ),
-	'Courses' => array( '수업' ),
+	'Courses' => array( '과정' ),
 	'EducationProgram' => array( '교육프로그램' ),
 	'Enroll' => array( '등록' ),
 	'Disenroll' => array( '등록취소' ),
