@@ -50,7 +50,7 @@ final class EPHooks {
 		);
 
 		foreach ( $testFiles as $file ) {
-			$files[] = dirname( __FILE__ ) . '/test/phpunit/' . $file . 'Test.php';
+			$files[] = dirname( __FILE__ ) . '/tests/phpunit/' . $file . 'Test.php';
 		}
 
 		return true;
