@@ -43,11 +43,15 @@ final class EPHooks {
 	 * @return bool
 	 */
 	public static function registerUnitTests( array &$files ) {
-		$testDir = dirname( __FILE__ ) . '/test/phpunit/';
+		$testFiles = array(
+			'EPUtils',
 
-		$files[] = $testDir . 'EPUtilsTest.php';
+			'tables/EPOrgs',
+		);
 
-		$files[] = $testDir . 'tables/EPOrgsTest.php';
+		foreach ( $testFiles as $file ) {
+			$files[] = dirname( __FILE__ ) . '/test/phpunit/' . $file . 'Test.php';
+		}
 
 		return true;
 	}
