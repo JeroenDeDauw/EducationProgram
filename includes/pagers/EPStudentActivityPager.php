@@ -113,7 +113,11 @@ class EPStudentActivityPager extends EPPager {
 				break;
 			case 'last_course':
 				if ( array_key_exists( $value, $this->courseNames ) ) {
-					$value = EPCourses::singleton()->getLinkFor( $this->courseNames[$value] );
+					$orgId = $this->courseOrgs[$value];
+
+					if ( array_key_exists( $orgId, $this->orgData ) ) {
+						$value = EPCourses::singleton()->getLinkFor( $this->orgData[$orgId]['name'] . '/' . $this->courseNames[$value] );
+					}
 				}
 				else {
 					wfWarn( 'Course id not in $this->courseNames in ' . __METHOD__ );

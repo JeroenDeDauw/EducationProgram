@@ -46,7 +46,10 @@ class ApiEnlist extends ApiBase {
 
 		$field = $roleMap[$params['role']];
 
-		$course = EPCourses::singleton()->selectRow( array( 'id', 'name', $field ), array( 'id' => $params['courseid'] ) );
+		/**
+		 * @var EPCourse $course
+		 */
+		$course = EPCourses::singleton()->selectRow( array( 'id', 'name', 'title', $field ), array( 'id' => $params['courseid'] ) );
 
 		if ( $course === false ) {
 			$this->dieUsage( wfMsg( 'ep-enlist-invalid-course' ), 'invalid-course' );

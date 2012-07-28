@@ -47,7 +47,7 @@ class SpecialInstitutions extends SpecialEPPage {
 			$this->getOutput()->addModules( EPOrgPager::getModules() );
 		}
 		else {
-			$this->getOutput()->redirect( Title::newFromText( $this->subPage, EP_NS_INSTITUTION )->getLocalURL() );
+			$this->getOutput()->redirect( EPOrgs::singleton()->getTitleFor( $this->subPage )->getLocalURL() );
 		}
 	}
 

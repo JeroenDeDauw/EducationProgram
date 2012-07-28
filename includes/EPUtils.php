@@ -261,4 +261,21 @@ class EPUtils {
 		return $wgLang->listToText( $segments );
 	}
 
+	/**
+	 * Returns if the provided title is for a course, assuming it is in the EP_NS namespace.
+	 *
+	 * @since 0.2
+	 *
+	 * @param string|Title $title
+	 *
+	 * @return boolean
+	 */
+	public static function isCourse( $title ) {
+		if ( $title instanceof Title ) {
+			$title = $title->getFullText();
+		}
+
+		return in_string( '/', $title );
+	}
+
 }

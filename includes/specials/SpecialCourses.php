@@ -33,22 +33,17 @@ class SpecialCourses extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
-		if ( $this->subPage === '' ) {
-			$this->displayNavigation();
+		$this->displayNavigation();
 
-			$this->startCache( 900 );
+		$this->startCache( 900 );
 
-			if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-				$this->getOutput()->addModules( 'ep.addcourse' );
-				$this->addCachedHTML( 'EPCourse::getAddNewRegion', $this->getContext() );
-			}
-
-			$this->addCachedHTML( 'EPCoursePager::getPager', $this->getContext() );
-			$this->getOutput()->addModules( EPCoursePager::getModules() );
+		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
+			$this->getOutput()->addModules( 'ep.addcourse' );
+			$this->addCachedHTML( 'EPCourse::getAddNewRegion', $this->getContext() );
 		}
-		else {
-			$this->getOutput()->redirect( Title::newFromText( $this->subPage, EP_NS_COURSE )->getLocalURL() );
-		}
+
+		$this->addCachedHTML( 'EPCoursePager::getPager', $this->getContext() );
+		$this->getOutput()->addModules( EPCoursePager::getModules() );
 	}
 
 	/**

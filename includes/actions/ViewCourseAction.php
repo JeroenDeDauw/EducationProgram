@@ -111,7 +111,7 @@ class ViewCourseAction extends EPViewAction {
 
 		if ( $this->getUser()->isAllowed( 'ep-token' ) ) {
 			$stats['token'] = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'Enroll', $course->getField( 'name' ) . '/' . $course->getField( 'token' ) ),
+				SpecialPage::getTitleFor( 'Enroll', $course->getField( 'title' ) . '/' . $course->getField( 'token' ) ),
 				htmlspecialchars( $course->getField( 'token' ) )
 			);
 		}
@@ -231,5 +231,4 @@ class ViewCourseAction extends EPViewAction {
 			$user->isAllowed( 'ep-bulkdelcourses' ) && $user->getOption( 'ep_bulkdelcourses' ),
 		), parent::getCacheKey() );
 	}
-
 }

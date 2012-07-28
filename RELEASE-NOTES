@@ -4,6 +4,16 @@ Extension page on mediawiki.org: https://www.mediawiki.org/wiki/Extension:Educat
 Latest version of the release notes: https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/EducationProgram.git;a=blob;f=RELEASE-NOTES
 
 
+=== Version 0.2 ===
+(2012-8-xx)
+
+; New features
+
+* Replaced Course and Institution namespaces with a single Education Program namespace.
+
+; Bug fixes
+
+* Start and end dates are shown in human readable format in diffs.
 
 === Version 0.1 ===
 (2012-6-20)

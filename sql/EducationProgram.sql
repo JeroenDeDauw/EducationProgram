@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_id                  INT unsigned        NOT NULL auto_increment PRIMARY KEY,
 
   course_org_id              INT unsigned        NOT NULL, -- Foreign key on ep_orgs.org_id.
-  course_name                VARCHAR(255)        NOT NULL, -- Title of the course. ie "Master in Angry Birds (2012 q1)"
-  course_mc                  VARCHAR(255)        NOT NULL, -- Name of the course. ie "Master in Angry Birds"
+  course_title               VARCHAR(255)        NOT NULL, -- Title of the course. ie "Some university/Master in Angry Birds (2012 q1)"
+  course_name                VARCHAR(255)        NOT NULL, -- Name of the course. ie "Master in Angry Birds"
   course_start               varbinary(14)       NOT NULL, -- Start time of the course
   course_end                 varbinary(14)       NOT NULL, -- End time of the course
   course_description         TEXT                NOT NULL, -- Description of the course
@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/ep_course_org_id ON /*_*/ep_courses (course_org_id);
+CREATE INDEX /*i*/ep_course_title ON /*_*/ep_courses (course_title);
 CREATE INDEX /*i*/ep_course_name ON /*_*/ep_courses (course_name);
-CREATE INDEX /*i*/ep_course_mc ON /*_*/ep_courses (course_mc);
 CREATE INDEX /*i*/ep_course_start ON /*_*/ep_courses (course_start);
 CREATE INDEX /*i*/ep_course_end ON /*_*/ep_courses (course_end);
 CREATE INDEX /*i*/ep_course_token ON /*_*/ep_courses (course_token);

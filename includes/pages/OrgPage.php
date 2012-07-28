@@ -15,7 +15,6 @@
 class OrgPage extends EPPage {
 
 	protected static $info = array(
-		'ns' => EP_NS_INSTITUTION,
 		'edit-right' => 'ep-org',
 		'list' => 'Institutions',
 		'log-type' => 'institution',

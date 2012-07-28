@@ -100,16 +100,17 @@ class EPStudentPager extends EPPager {
 				$value = wfMsgHtml( $value === '1' ? 'epstudentpager-yes' : 'epstudentpager-no' );
 				break;
 			case '_courses_current':
-				$userId = $this->currentObject->getField( 'user_id' );
-
-				if ( array_key_exists( $userId, $this->courseNames ) ) {
-					$value = $this->getLanguage()->pipeList( array_map(
-						function( $courseName ) {
-							return EPCourses::singleton()->getLinkFor( $courseName );
-						},
-						$this->courseNames[$userId]
-					) );
-				}
+				// TODO
+//				$userId = $this->currentObject->getField( 'user_id' );
+//
+//				if ( array_key_exists( $userId, $this->courseNames ) ) {
+//					$value = $this->getLanguage()->pipeList( array_map(
+//						function( $courseName ) {
+//							return EPCourses::singleton()->getLinkFor( $courseName );
+//						},
+//						$this->courseNames[$userId]
+//					) );
+//				}
 				break;
 		}
 

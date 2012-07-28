@@ -209,9 +209,11 @@ abstract class EPEditAction extends EPAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see FormSpecialPage::getForm()
-	 * @return HTMLForm|null
+	 *
+	 * @since 0.1
+	 *
+	 * @return HTMLForm
 	 */
 	protected function getForm() {
 		$fields = $this->getFormFields();
@@ -252,12 +254,6 @@ abstract class EPEditAction extends EPAction {
 				'class' => 'ep-cancel',
 			)
 		);
-
-//		$form->addButton(
-//			'deleteEdit',
-//			wfMsg( 'delete' ),
-//			'deleteEdit'
-//		);
 
 		return $form;
 	}
@@ -363,14 +359,18 @@ abstract class EPEditAction extends EPAction {
 			return $this->item->getTitle();
 		}
 		else {
-			$fieldName = 'wpitem-' . $this->table->getIdentifierField();
+			return $this->getIdentifierFromRequestArgs();
+		}
+	}
 
-			if ( $this->getRequest()->getCheck( $fieldName ) ) {
-				return $this->table->getTitleFor( $this->getRequest()->getText( $fieldName ) );
-			}
-			else {
-				return $this->getTitle();
-			}
+	protected function getIdentifierFromRequestArgs() {
+		$fieldName = 'wpitem-' . $this->table->getIdentifierField();
+
+		if ( $this->getRequest()->getCheck( $fieldName ) ) {
+			return $this->table->getTitleFor( $this->getRequest()->getText( $fieldName ) );
+		}
+		else {
+			return $this->getTitle();
 		}
 	}
 
@@ -404,7 +404,16 @@ abstract class EPEditAction extends EPAction {
 		}
 
 		$keys = array_keys( $fields );
-		$fields = array_combine( $keys, array_map( array( $this, 'handleKnownField' ), $keys, $fields ) );
+		$fields = array_combine(
+			$keys,
+			array_map(
+				array( $this, 'handleKnownField' ),
+				$keys,
+				$fields
+			)
+		);
+
+		$this->handleKnownFields( $fields );
 
 		/* EPPageObject */ $item = $this->table->newRow( $fields, is_null( $fields['id'] ) );
 
@@ -428,8 +437,17 @@ abstract class EPEditAction extends EPAction {
 	}
 
 	/**
+	 * @since 0.2
+	 *
+	 * @param array $fields
+	 */
+	protected function handleKnownFields( array &$fields ) {
+
+	}
+
+	/**
 	 * Gets called for evey unknown submitted value, so they can be dealt with if needed.
-	 *$title = SpecialPage::getTitleFor( $this->itemPage, $this->subPage )->getLocalURL();
+	 * $title = SpecialPage::getTitleFor( $this->itemPage, $this->subPage )->getLocalURL();
 	 * @since 0.1
 	 *
 	 * @param IORMRow $item

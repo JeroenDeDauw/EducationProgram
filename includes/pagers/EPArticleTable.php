@@ -153,9 +153,9 @@ class EPArticleTable extends EPPager {
 	 *
 	 * @param string $html
 	 * @param array $articles
-	 * @param boolean $showArticleAdittion
+	 * @param boolean $showArticleAddition
 	 */
-	protected function addNonStudentHTML( &$html, array $articles, $showArticleAdittion ) {
+	protected function addNonStudentHTML( &$html, array $articles, $showArticleAddition ) {
 		$isFirst = true;
 
 		foreach ( $articles as /* EPArticle */ $article ) {
@@ -197,12 +197,12 @@ class EPArticleTable extends EPPager {
 			}
 		}
 
-		if ( $showArticleAdittion ) {
+		if ( $showArticleAddition ) {
 			if ( !$isFirst ) {
 				$html .= '</tr><tr>';
 			}
 
-			$html .= $this->getArticleAdittionControl( $this->articleConds['course_id'] );
+			$html .= $this->getArticleAdditionControl( $this->articleConds['course_id'] );
 		}
 		elseif ( $isFirst ) {
 			$html .= '<td></td><td></td>';
@@ -401,7 +401,7 @@ class EPArticleTable extends EPPager {
 	}
 
 	/**
-	 * Returns the HTML for the article adittion control.
+	 * Returns the HTML for the article addition control.
 	 *
 	 * @since 0.1
 	 *
@@ -409,13 +409,13 @@ class EPArticleTable extends EPPager {
 	 *
 	 * @return string
 	 */
-	protected function getArticleAdittionControl( $courseId ) {
+	protected function getArticleAdditionControl( $courseId ) {
 		$html = '';
 
-		$courseName = EPCourses::singleton()->selectFieldsRow( 'name', array( 'id' => $courseId ) );
+		$courseTitle = EPCourses::singleton()->selectFieldsRow( 'title', array( 'id' => $courseId ) );
 		$query = array( 'action' => 'epaddarticle' );
 
-		if ( $this->getTitle()->getNamespace() !== EP_NS_COURSE ) {
+		if ( $this->getTitle()->getNamespace() !== EP_NS && !EPUtils::isCourse( $this->getTitle() ) ) {
 			$query['returnto'] = $this->getTitle()->getFullText();
 		}
 
@@ -423,7 +423,7 @@ class EPArticleTable extends EPPager {
 			'form',
 			array(
 				'method' => 'post',
-				'action' => EPCourses::singleton()->getTitleFor( $courseName )->getLocalURL( $query ),
+				'action' => EPCourses::singleton()->getTitleFor( $courseTitle )->getLocalURL( $query ),
 			)
 		);
 

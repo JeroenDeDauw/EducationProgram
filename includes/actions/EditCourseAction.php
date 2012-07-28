@@ -102,6 +102,11 @@ class EditCourseAction extends EPEditAction {
 	 * @return array
 	 */
 	protected function titleToNameAndTerm( $titleText ) {
+		// TODO: put all in one regex
+		// TODO: unit test
+		$titleText = explode( '/', $titleText, 2 );
+		$titleText = array_pop( $titleText );
+
 		$matches = array();
 		preg_match( '/(.*)\((.*)\)/', $titleText, $matches );
 
@@ -127,29 +132,29 @@ class EditCourseAction extends EPEditAction {
 
 		$orgOptions = EPOrgs::singleton()->selectFields( array( 'name', 'id' ) );
 
-		$fields['name'] = array (
+		$fields['title'] = array (
 			'type' => 'text',
-			'label-message' => 'ep-course-edit-name',
-			'help-message' => 'ep-course-help-name',
+			'label-message' => 'ep-course-edit-title',
+			'help-message' => 'ep-course-help-title',
 			'required' => true,
 		);
 
-		$mcs = $this->table->selectFields( 'mc', array(), array( 'DISTINCT' ) );
+		$names = $this->table->selectFields( 'name', array(), array( 'DISTINCT' ) );
 
 		if ( $this->getRequest()->getCheck( 'newname' ) ) {
 			$newName = $this->getRequest()->getText( 'newname' );
-			$mcs = array_merge( array( $newName => $newName ), $mcs );
+			$names = array_merge( array( $newName => $newName ), $names );
 		}
 		else {
-			$mcs = array_merge( array( '' => '' ), $mcs );
+			$names = array_merge( array( '' => '' ), $names );
 		}
 
-		$fields['mc'] = array (
+		$fields['name'] = array (
 			'class' => 'EPHTMLCombobox',
-			'label-message' => 'ep-course-edit-mc',
-			'help-message' => 'ep-course-help-mc',
+			'label-message' => 'ep-course-edit-name',
+			'help-message' => 'ep-course-help-name',
 			'required' => true,
-			'options' => array_combine( $mcs, $mcs ),
+			'options' => array_combine( $names, $names ),
 		);
 
 		$fields['org_id'] = array (
@@ -246,12 +251,12 @@ class EditCourseAction extends EPEditAction {
 	protected function getNewData() {
 		$data = parent::getNewData();
 
+		$data['title'] = $data['name'];
+
 		if ( $this->isNewPost() ) {
 			$data['org_id'] = $this->getRequest()->getVal( 'neworg' );
 
-			$data['mc'] = $data['name'];
-
-			$data['name'] = wfMsgExt(
+			$data['title'] = wfMsgExt(
 				'ep-course-edit-name-format',
 				'parsemag',
 				$data['name'],
@@ -262,10 +267,13 @@ class EditCourseAction extends EPEditAction {
 
 			$data['description'] = $this->getDefaultDescription( array(
 				'institutionid' => $data['org_id'],
-				'name' => $data['mc'],
+				'name' => $data['name'],
 				'title' => $data['name'],
 				'term' => $data['term'],
 			) );
+		}
+		else {
+			unset( $data['name'] );
 		}
 
 		return $data;
@@ -333,6 +341,67 @@ class EditCourseAction extends EPEditAction {
 		}
 
 		return $content;
+	}
+
+	/**
+	 * @see EPEditAction::getTitleConditions
+	 *
+	 * @since 0.2
+	 *
+	 * @return array
+	 */
+	protected function getTitleConditions() {
+		return array( 'title' => $this->getTitle()->getText() );
+	}
+
+	/**
+	 * @since 0.2
+	 *
+	 * @param string $courseName
+	 * @param string|integer $orgId
+	 *
+	 * @return string
+	 */
+	protected function getPrefixedTitle( $courseName, $orgId ) {
+		$prefix = EPOrgs::singleton()->selectFieldsRow( 'name', array( 'id' => $orgId ) ) . '/';
+
+		if ( strpos( $courseName, $prefix ) !== 0 ) {
+			$courseName = $prefix . $courseName;
+		}
+
+		return $courseName;
+	}
+
+	/**
+	 * @see EPEditAction::handleKnownFields
+	 *
+	 * @since 0.2
+	 *
+	 * @param array $fields
+	 */
+	protected function handleKnownFields( array &$fields ) {
+		$fields['title'] = $this->getPrefixedTitle( $fields['title'], $fields['org_id'] );
+	}
+
+	/**
+	 * @see EPEditAction::getIdentifierFromRequestArgs
+	 *
+	 * @since 0.2
+	 *
+	 * @return Title
+	 */
+	protected function getIdentifierFromRequestArgs() {
+		$fieldName = 'wpitem-' . $this->table->getIdentifierField();
+		$orgIdField = 'wpitem-org_id';
+
+		$req = $this->getRequest();
+
+		if ( $req->getCheck( $fieldName ) && $req->getCheck( $orgIdField ) ) {
+			return $this->table->getTitleFor( $this->getPrefixedTitle( $req->getText( $fieldName ), $req->getInt( $orgIdField ) ) );
+		}
+		else {
+			return $this->getTitle();
+		}
 	}
 
 }

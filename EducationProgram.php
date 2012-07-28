@@ -38,7 +38,7 @@ if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version c
 	die( '<b>Error:</b> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
 }
 
-define( 'EP_VERSION', '0.1' );
+define( 'EP_VERSION', '0.2 alpha' );
 
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
@@ -353,10 +353,12 @@ $wgAddGroups['epadmin'] = array( 'eponlineamb', 'epcampamb', 'epinstructor' );
 $wgRemoveGroups['epadmin'] = array( 'eponlineamb', 'epcampamb', 'epinstructor' );
 
 // Namespaces
-define( 'EP_NS_COURSE',				442 + 0 );
-define( 'EP_NS_COURSE_TALK', 		442 + 1 );
-define( 'EP_NS_INSTITUTION', 		442 + 2 );
-define( 'EP_NS_INSTITUTION_TALK', 	442 + 3 );
+//define( 'EP_NS_COURSE',				442 + 0 );
+//define( 'EP_NS_COURSE_TALK', 		442 + 1 );
+//define( 'EP_NS_INSTITUTION', 		442 + 2 );
+//define( 'EP_NS_INSTITUTION_TALK', 	442 + 3 );
+define( 'EP_NS',					442 + 4 );
+define( 'EP_NS_TALK', 				442 + 5 );
 
 // Resource loader modules
 $moduleTemplate = array(

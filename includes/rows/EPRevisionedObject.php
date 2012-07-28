@@ -365,7 +365,7 @@ abstract class EPRevisionedObject extends ORMRow {
 	 * @return EPRevisionDiff
 	 */
 	public function getRestoreDiff( EPRevision $revison, array $fields = null ) {
-		$fields = is_null( $fields ) ? $this->table->getRevertableFields() : $fields;
+		$fields = is_null( $fields ) ? $this->table->getRevertibleFields() : $fields;
 		return EPRevisionDiff::newFromRestoreRevision( $this, $revison, $fields );
 	}
 
@@ -413,7 +413,7 @@ abstract class EPRevisionedObject extends ORMRow {
 	 * @return EPRevisionDiff
 	 */
 	public function getUndoDiff( EPRevision $revison, array $fields = null ) {
-		$fields = is_null( $fields ) ? $this->table->getRevertableFields() : $fields;
+		$fields = is_null( $fields ) ? $this->table->getRevertibleFields() : $fields;
 		return EPRevisionDiff::newFromUndoRevision( $this, $revison, $fields );
 	}
 

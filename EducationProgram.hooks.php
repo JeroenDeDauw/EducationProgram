@@ -29,6 +29,12 @@ final class EPHooks {
 			dirname( __FILE__ ) . '/sql/EducationProgram.sql'
 		);
 
+		$updater->addExtensionField(
+			'ep_courses',
+			'course_title',
+			dirname( __FILE__ ) . '/sql/AddCourseTitleField.sql'
+		);
+
 		return true;
 	}
 
@@ -150,11 +156,8 @@ final class EPHooks {
 	 * @return bool
 	 */
 	public static function onArticleFromTitle( Title &$title, &$article ) {
-		if ( $title->getNamespace() == EP_NS_COURSE ) {
-			$article = new CoursePage( $title );
-		}
-		elseif ( $title->getNamespace() == EP_NS_INSTITUTION ) {
-			$article = new OrgPage( $title );
+		if ( $title->getNamespace() == EP_NS ) {
+			$article = EPPage::factory( $title );
 		}
 
 		return true;
@@ -171,10 +174,8 @@ final class EPHooks {
 	 * @return bool
 	 */
 	public static function onCanonicalNamespaces( array &$list ) {
-		$list[EP_NS_COURSE] = 'Course';
-		$list[EP_NS_INSTITUTION] = 'Institution';
-		$list[EP_NS_COURSE_TALK] = 'Course_talk';
-		$list[EP_NS_INSTITUTION_TALK] = 'Institution_talk';
+		$list[EP_NS] = 'Education_Program';
+		$list[EP_NS_TALK] = 'Education_Program_talk';
 		return true;
 	}
 
@@ -246,19 +247,14 @@ final class EPHooks {
 	 */
 	protected static function displayTabs( SkinTemplate &$sktemplate, array &$links, Title $title ) {
 		wfProfileIn( __METHOD__ );
-		$classes = array(
-			EP_NS_INSTITUTION => 'EPOrgs',
-			EP_NS_COURSE => 'EPCourses',
-		);
 
-		$exists = null;
-
-		if ( array_key_exists( $title->getNamespace(), $classes ) ) {
+		if ( $title->getNamespace() == EP_NS ) {
 			$links['views'] = array();
 			$links['actions'] = array();
 
 			$user = $sktemplate->getUser();
-			$exists = $classes[$title->getNamespace()]::singleton()->hasIdentifier( $title->getText() );
+			$class = EPUtils::isCourse( $title ) ? 'EPCourses' : 'EPOrgs';
+			$exists = $class::singleton()->hasIdentifier( $title->getText() );
 			$type = $sktemplate->getRequest()->getText( 'action' );
 			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
 
@@ -293,12 +289,12 @@ final class EPHooks {
 					'href' => $title->getLocalUrl( array( 'action' => 'history' ) )
 				);
 
-				if ( $title->getNamespace() === EP_NS_COURSE ) {
+				if ( EPUtils::isCourse( $title ) ) {
 					$student = EPStudent::newFromUser( $user );
-					$hasCourse = $student !== false && $student->hasCourse( array( 'name' => $title->getText() ) );
+					$hasCourse = $student !== false && $student->hasCourse( array( 'title' => $title->getText() ) );
 
 					if ( $user->isAllowed( 'ep-enroll' ) ) {
-						if ( !$hasCourse && EPCourses::singleton()->hasActiveName( $title->getText() ) ) {
+						if ( !$hasCourse && EPCourses::singleton()->hasActiveTitle( $title->getText() ) ) {
 							$links['views']['enroll'] = array(
 								'class' => $isSpecial ? 'selected' : false,
 								'text' => wfMsg( 'ep-tab-enroll' ),
@@ -307,7 +303,7 @@ final class EPHooks {
 						}
 					}
 
-					if ( $hasCourse && EPCourses::singleton()->hasActiveName( $title->getText() ) ) {
+					if ( $hasCourse && EPCourses::singleton()->hasActiveTitle( $title->getText() ) ) {
 						$links[$isSpecial ? 'views' : 'actions']['disenroll'] = array(
 							'class' => $isSpecial ? 'selected' : false,
 							'text' => wfMsg( 'ep-tab-disenroll' ),
@@ -333,13 +329,18 @@ final class EPHooks {
 	 */
 	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
 		wfProfileIn( __METHOD__ );
-		if ( in_array( $title->getNamespace(), array( EP_NS_COURSE, EP_NS_INSTITUTION ) ) ) {
-			$classes = array(
-				EP_NS_COURSE => 'EPCourses',
-				EP_NS_INSTITUTION => 'EPOrgs',
-			);
 
-			$isKnown = $classes[$title->getNamespace()]::singleton()->hasIdentifier( $title->getText() );
+		if ( $title->getNamespace() == EP_NS ) {
+			if ( EPUtils::isCourse( $title ) ) {
+				$class = 'EPCourses';
+			}
+			else {
+				$class = 'EPOrgs';
+			}
+
+			$identifier = $title->getText();
+
+			$isKnown = $class::singleton()->hasIdentifier( $identifier );
 		}
 
 		wfProfileOut( __METHOD__ );
@@ -361,7 +362,7 @@ final class EPHooks {
 	 * @return boolean
 	 */
 	public static function onAbortMove( Title $oldTitle, Title $newTitle, User $user, &$error, $reason ) {
-		$nss = array( EP_NS_COURSE, EP_NS_INSTITUTION, EP_NS_COURSE_TALK, EP_NS_INSTITUTION_TALK );
+		$nss = array( EP_NS, EP_NS_TALK );
 		$allowed = !in_array( $oldTitle->getNamespace(), $nss ) && !in_array( $newTitle->getNamespace(), $nss );
 
 		if ( !$allowed ) {
@@ -383,7 +384,7 @@ final class EPHooks {
 	 * @return boolean
 	 */
 	public static function onNamespaceIsMovable( $index, &$movable ) {
-		if ( in_array( $index, array( EP_NS_COURSE, EP_NS_INSTITUTION, EP_NS_COURSE_TALK, EP_NS_INSTITUTION_TALK ) ) ) {
+		if ( in_array( $index, array( EP_NS, EP_NS_TALK ) ) ) {
 			$movable = false;
 		}
 

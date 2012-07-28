@@ -15,6 +15,13 @@
 abstract class EPAction extends CachedAction {
 
 	/**
+	 * @see Action::$page
+	 * @since 0.1
+	 * @var $page EPPage
+	 */
+	protected $page;
+
+	/**
 	 * Display a warning that the page has been deleted together with the first
 	 * few items from its deletion log.
 	 *

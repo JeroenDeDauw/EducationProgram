@@ -15,7 +15,6 @@
 class CoursePage extends EPPage {
 
 	protected static $info = array(
-		'ns' => EP_NS_COURSE,
 		'edit-right' => 'ep-course',
 		'list' => 'Courses',
 		'log-type' => 'course',

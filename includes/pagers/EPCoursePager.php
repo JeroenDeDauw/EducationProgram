@@ -127,7 +127,15 @@ class EPCoursePager extends EPPager {
 	public function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
 			case 'name':
-				$value = $this->table->getLinkFor( $value );
+				$orgId = $this->currentObject->getField( 'org_id' );
+
+				if ( array_key_exists( $orgId, $this->orgNames ) ) {
+					$value = $this->table->getLinkFor(
+						$this->currentObject->getField( 'title' ),
+						'view',
+						htmlspecialchars( $value )
+					);
+				}
 				break;
 			case 'org_id':
 				if ( array_key_exists( $value, $this->orgNames ) ) {
@@ -218,12 +226,6 @@ class EPCoursePager extends EPPager {
 			'options' => $terms,
 			'value' => '',
 		);
-
-//		$options['lang'] = array(
-//			'type' => 'select',
-//			'options' => EPUtils::getLanguageOptions( $this->getLanguage()->getCode() ),
-//			'value' => '',
-//		);
 
 		$options['status'] = array(
 			'type' => 'select',

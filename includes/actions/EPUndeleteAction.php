@@ -45,7 +45,7 @@ class EPUndeleteAction extends EPAction {
 	public function onView() {
 		$this->getOutput()->setPageTitle( $this->getPageTitle() );
 
-		$object = $this->page->getTable()->get( $this->getTitle()->getText() );
+		$object = $this->page->getTable()->getFromTitle( $this->getTitle() );
 
 		if ( $object === false ) {
 			$revision = EPRevisions::singleton()->getLatestRevision( array(

@@ -185,11 +185,11 @@ class ImportWEPFromDB extends Maintenance {
 
 		foreach ( $courses as $course ) {
 			$term = $course->course_term . ' ' . $course->course_year;
-			$name = $course->course_coursename . ' (' . $term . ')';
+			$title = $course->course_coursename . ' (' . $term . ')';
 
-			$this->msg( 'Importing course ' . $name );
+			$this->msg( 'Importing course ' . $title );
 
-			$currentId = $courseTable->selectFieldsRow( 'id', array( 'name' => $name ) );
+			$currentId = $courseTable->selectFieldsRow( 'id', array( 'title' => $title ) );
 
 			$this->msg( "\t" . ( $currentId === false ? 'is new, inserting...' : ( $this->override ? 'exists, updating...' : 'exists, skipping...' ) ), 2 );
 
@@ -198,11 +198,11 @@ class ImportWEPFromDB extends Maintenance {
 
 			if ( array_key_exists( $course->course_university_id, $this->orgIds ) ) {
 				if ( $currentId === false || $this->override ) {
-					$this->insertCourse( $currentId, $course, $name, $term, $revAction );
+					$this->insertCourse( $currentId, $course, $title, $term, $revAction );
 				}
 			}
 			else {
-				$this->err( "Failed to insert course '$name'. Linked org ($course->course_university_id) does not exist!" );
+				$this->err( "Failed to insert course '$title'. Linked org ($course->course_university_id) does not exist!" );
 			}
 		}
 	}
@@ -212,15 +212,15 @@ class ImportWEPFromDB extends Maintenance {
 	 *
 	 * @param integer $currentId
 	 * @param stdClass $course
-	 * @param string $name
+	 * @param string $title
 	 * @param string $term
 	 * @param EPRevisionAction $revAction
 	 */
-	protected function insertCourse( $currentId, $course, $name, $term, EPRevisionAction $revAction ) {
+	protected function insertCourse( $currentId, $course, $title, $term, EPRevisionAction $revAction ) {
 		$data = array(
 			'org_id' => $this->orgIds[$course->course_university_id],
-			'name' => $name,
-			'mc' => $course->course_coursename,
+			'title' => $title,
+			'name' => $course->course_coursename,
 			'start' => $course->course_startdate . '000000',
 			'end' => ( $course->course_enddate === '' ? $course->course_startdate : $course->course_enddate ) . '000000',
 			'lang' => $course->course_language,

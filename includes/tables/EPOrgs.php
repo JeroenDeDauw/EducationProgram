@@ -91,9 +91,9 @@ class EPOrgs extends EPPageTable {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPPageTable::getRevertableFields()
+	 * @see EPPageTable::getRevertibleFields()
 	 */
-	public function getRevertableFields() {
+	public function getRevertibleFields() {
 		return array_diff(
 			array_keys( $this->getFields() ),
 			array_merge( array( 'id', $this->getSummaryFields() ) )
@@ -131,7 +131,7 @@ class EPOrgs extends EPPageTable {
 	 * @see EPPageObject::getNamespace()
 	 */
 	public function getNamespace() {
-		return EP_NS_INSTITUTION;
+		return EP_NS;
 	}
 
 	/**

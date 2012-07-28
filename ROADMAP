@@ -1,0 +1,21 @@
+This is the roadmap for the Education Program extension.
+
+Extension page on mediawiki.org: https://www.mediawiki.org/wiki/Extension:Education_Program
+Latest version of the roadmap: https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/EducationProgram.git;a=blob;f=ROADMAP
+
+
+== Version 0.2 ==
+
+* Namespace rewrite
+** Prevent names with forward slashes
+** Handle org move
+* Fix cache invalidation on edit
+
+== Without a target ==
+
+; New features
+
+* Add type system for courses and institutions
+
+
+

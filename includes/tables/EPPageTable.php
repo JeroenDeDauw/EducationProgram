@@ -39,7 +39,7 @@ abstract class EPPageTable extends ORMTable {
 	 *
 	 * @return array
 	 */
-	public abstract function getRevertableFields();
+	public abstract function getRevertibleFields();
 
 	/**
 	 * Returns the right needed to edit items in this table.
@@ -50,12 +50,46 @@ abstract class EPPageTable extends ORMTable {
 	 */
 	public abstract function getEditRight();
 
+	/**
+	 * @since 0.1
+	 *
+	 * @param string $identifier
+	 *
+	 * @return boolean
+	 */
 	public function hasIdentifier( $identifier ) {
 		return $this->has( array( $this->getIdentifierField() => $identifier ) );
 	}
 
+	/**
+	 * Gets the object with the provided identifier or false if there is none.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $identifier
+	 * @param array|string|null $fields
+	 *
+	 * @return bool|EPPageObject
+	 */
 	public function get( $identifier, $fields = null ) {
 		return $this->selectRow( $fields, array( $this->getIdentifierField() => $identifier ) );
+	}
+
+	/**
+	 * Gets the object residing at the provided title or false if there is none.
+	 *
+	 * @since 0.2
+	 *
+	 * @param Title|string $title
+	 * @param array|string|null $fields
+	 *
+	 * @return bool|EPPageObject
+	 */
+	public function getFromTitle( $title, $fields = null ) {
+		return $this->get(
+			$title instanceof Title ? $title->getText() : $title,
+			$fields
+		);
 	}
 
 	/**
@@ -129,6 +163,17 @@ abstract class EPPageTable extends ORMTable {
 			$customAttribs,
 			$query
 		);
+	}
+
+	/**
+	 * @see IORMTable::singleton
+	 *
+	 * @since 0.2
+	 *
+	 * @return EPPAgeTable
+	 */
+	public static function singleton() {
+		return parent::singleton();
 	}
 
 }

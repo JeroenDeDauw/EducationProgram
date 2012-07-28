@@ -45,18 +45,18 @@ class SpecialEnroll extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
-		$args = explode( '/', $this->subPage );
+		$args = explode( '/', $this->subPage, 3 );
 
-		if ( count( $args ) > 2 ) {
-			$args[0] = implode( '/', array_slice( $args, 0, count( $args ) - 1 ) );
-			$args = array_slice( $args, 0, 2 );
-		}
+		$orgName = $args[0];
+		$courseName = count( $args ) > 1 ? $args[1] : '';
+		$courseTitle = $orgName . '/' . $courseName;
+		$token = count( $args ) > 2 ? $args[2] : false;
 
-		if ( $args[0] === '' ) {
+		if ( $courseTitle === '' ) {
 			$this->showWarning( wfMessage(  'ep-enroll-no-id' ) );
 		}
 		else {
-			$course = EPCourses::singleton()->get( $args[0] );
+			$course = EPCourses::singleton()->getFromTitle( $courseTitle );
 
 			if ( $course === false ) {
 				$this->showWarning( wfMessage( 'ep-enroll-invalid-id' ) );
@@ -64,14 +64,10 @@ class SpecialEnroll extends SpecialEPPage {
 			elseif ( in_array( $course->getStatus(), array( 'current', 'planned' ) ) ) {
 				$this->setPageTitle( $course );
 
-				$token = '';
 				$tokenIsValid = $course->getField( 'token' ) === '';
 
 				if ( !$tokenIsValid ) {
-					if ( count( $args ) === 2 ) {
-						$token = $args[1];
-					}
-					elseif ( $this->getRequest()->getCheck( 'wptoken' ) ) {
+					if ( $token === false && $this->getRequest()->getCheck( 'wptoken' ) ) {
 						$token = $this->getRequest()->getText( 'wptoken' );
 					}
 
@@ -83,7 +79,7 @@ class SpecialEnroll extends SpecialEPPage {
 					$this->showEnrollmentView( $course );
 				}
 				else {
-					if ( $token !== '' ) {
+					if ( $token !== false ) {
 						$this->showWarning( wfMessage( 'ep-enroll-invalid-token' ) );
 					}
 
@@ -192,7 +188,7 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$out->addHTML( '<ul><li>' );
 
-		$subPage = $this->course->getField( 'name' );
+		$subPage = $this->course->getField( 'title' );
 
 		if ( $this->token !== false ) {
 			$subPage .= '/' . $this->token;

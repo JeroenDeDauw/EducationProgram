@@ -15,14 +15,14 @@
 				'action',
 				$( this ).attr( 'action' ).replace(
 					'NAME_PLACEHOLDER',
-					$( '#newname' ).val() + ' (' + $( '#newterm' ).val() + ')'
+					$( '#neworg' ).text() + '/' + $( '#newname' ).val() + ' (' + $( '#newterm' ).val() + ')'
 				)
 			);
 		} );
 
 		var list = [ 'neworg', 'newname', 'newterm' ];
 
-		for ( i in list ) {
+		for ( var i in list ) {
 			if ( list.hasOwnProperty( i ) ) {
 				var $element = $( '#' + list[i] ),
 				val = $element.val();

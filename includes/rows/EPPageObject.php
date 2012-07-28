@@ -14,6 +14,12 @@
 abstract class EPPageObject extends EPRevisionedObject {
 
 	/**
+	 * @see ORMRow::$table
+	 * @var EPPageTable
+	 */
+	protected $table;
+
+	/**
 	 * (non-PHPdoc)
 	 * @see EPRevisionedObject::getIdentifier()
 	 */

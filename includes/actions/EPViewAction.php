@@ -35,13 +35,24 @@ abstract class EPViewAction extends EPAction {
 	}
 
 	/**
+	 * Returns the identifier for the object being viewed.
+	 *
+	 * @since 0.2
+	 *
+	 * @return string
+	 */
+	protected function getIdentifier() {
+		return $this->getTitle()->getText();
+	}
+
+	/**
 	 * (non-PHPdoc)
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
 		$out = $this->getOutput();
 
-		$name = $this->getTitle()->getText();
+		$name = $this->getIdentifier();
 
 		$object = false;
 

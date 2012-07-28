@@ -63,15 +63,12 @@ abstract class EPPage extends Page implements IContextSource {
 	 * @throws MWException
 	 */
 	public static function factory( Title $title ) {
-		switch ( $title->getNamespace() ) {
-			case EP_NS_COURSE:
-				return new CoursePage( $title );
-				break;
-			case EP_NS_INSTITUTION:
-				return new OrgPage( $title );
-				break;
-			default:
-				throw new MWException( 'Namespace not handled by EPPage' );
+		if ( $title->getNamespace() == EP_NS ) {
+			$class = EPUtils::isCourse( $title ) ? 'CoursePage' : 'OrgPage';
+			return new $class( $title );
+		}
+		else {
+			throw new MWException( 'Namespace not handled by EPPage' );
 		}
 	}
 

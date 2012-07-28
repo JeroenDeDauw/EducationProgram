@@ -55,6 +55,7 @@ class EPCourses extends EPPageTable {
 
 			'org_id' => 'int',
 			'name' => 'str',
+			'title' => 'str',
 			'start' => 'str', // TS_MW
 			'end' => 'str', // TS_MW
 			'description' => 'str',
@@ -67,7 +68,6 @@ class EPCourses extends EPPageTable {
 			'level' => 'str',
 			'term' => 'str',
 			'lang' => 'str',
-			'mc' => 'str',
 
 			'student_count' => 'int',
 			'instructor_count' => 'int',
@@ -85,6 +85,7 @@ class EPCourses extends EPPageTable {
 	public function getDefaults() {
 		return array(
 			'name' => '',
+			'title' => '',
 			'start' => wfTimestamp( TS_MW ),
 			'end' => wfTimestamp( TS_MW ),
 			'description' => '',
@@ -97,7 +98,6 @@ class EPCourses extends EPPageTable {
 			'level' => '',
 			'term' => '',
 			'lang' => '',
-			'mc' => '',
 
 			'student_count' => 0,
 			'instructor_count' => 0,
@@ -123,13 +123,13 @@ class EPCourses extends EPPageTable {
 
 	/**
 	 * (non-PHPdoc)
-	 * @see EPPageTable::getRevertableFields()
+	 * @see EPPageTable::getRevertibleFields()
 	 */
-	public function getRevertableFields() {
+	public function getRevertibleFields() {
 		return array(
 			'org_id',
 			'name',
-			'mc',
+			'title',
 			'start',
 			'end',
 			'description',
@@ -140,11 +140,11 @@ class EPCourses extends EPPageTable {
 		);
 	}
 
-	public function hasActiveName( $courseName ) {
+	public function hasActiveTitle( $courseTitle ) {
 		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
 		return $this->has( array(
-			'name' => $courseName,
+			'title' => $courseTitle,
 			'end >= ' . $now,
 			'start <= ' . $now,
 		) );
@@ -155,7 +155,7 @@ class EPCourses extends EPPageTable {
 	 * @see EPPageObject::getIdentifierField()
 	 */
 	public function getIdentifierField() {
-		return 'name';
+		return 'title';
 	}
 
 	/**
@@ -163,7 +163,7 @@ class EPCourses extends EPPageTable {
 	 * @see EPPageObject::getNamespace()
 	 */
 	public function getNamespace() {
-		return EP_NS_COURSE;
+		return EP_NS;
 	}
 
 	/**
@@ -212,7 +212,7 @@ class EPCourses extends EPPageTable {
 	 * @param array|string|null $fields
 	 * @param array $options
 	 *
-	 * @return IORMResult
+	 * @return ORMResult
 	 */
 	public function getCoursesForUsers( $userIds = array(), $roleIds = array(),
 										array $conditions = array(), $fields = null, array $options = array() ) {
@@ -243,8 +243,11 @@ class EPCourses extends EPPageTable {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPPageTable::getEditRight()
+	 * @see EPPageTable::getEditRight
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
 	 */
 	public function getEditRight() {
 		return 'ep-course';

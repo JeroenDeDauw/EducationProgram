@@ -141,8 +141,8 @@ class ImportWEPData extends Maintenance {
 			$course = EPCourses::singleton()->newRow(
 				array(
 					'org_id' => $orgs[$org],
+					'title' => $course,
 					'name' => $course,
-					'mc' => $course,
 					'start' => $start,
 					'end' => $end,
 					'lang' => 'en',

@@ -38,7 +38,7 @@ class SpecialDisenroll extends SpecialEPPage {
 			$this->showWarning( wfMessage(  'ep-disenroll-no-name' ) );
 		}
 		else {
-			$course = EPCourses::singleton()->get( $args[0] );
+			$course = EPCourses::singleton()->getFromTitle( $args[0] );
 
 			if ( $course === false ) {
 				$this->showWarning( wfMessage( 'ep-disenroll-invalid-name', $subPage ) );
@@ -58,7 +58,7 @@ class SpecialDisenroll extends SpecialEPPage {
 								$this->doDisenroll( $course );
 							}
 							else {
-								$this->getOutput()->setPageTitle( wfMsgExt( 'ep-disenroll-title', 'parsemag', $course->getField( 'mc' ) ) );
+								$this->getOutput()->setPageTitle( wfMsgExt( 'ep-disenroll-title', 'parsemag', $course->getField( 'name' ) ) );
 								$this->showDisenrollForm( $course );
 							}
 						}

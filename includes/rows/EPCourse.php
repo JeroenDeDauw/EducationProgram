@@ -523,7 +523,7 @@ class EPCourse extends EPPageObject {
 	 */
 	public function setField( $name, $value ) {
 		switch ( $name ) {
-			case 'mc':
+			case 'name':
 				$value = str_replace( '_', ' ', $value );
 				break;
 			case 'instructors':
@@ -569,7 +569,7 @@ class EPCourse extends EPPageObject {
 		$users = $this->getField( $field );
 		$addedUsers = array_diff( (array)$newUsers, $users );
 
-		if ( empty( $addedUsers ) ) {
+		if ( $addedUsers === array() ) {
 			return 0;
 		}
 		else {
@@ -585,6 +585,9 @@ class EPCourse extends EPPageObject {
 
 			if ( $success && $role === 'student' ) {
 				foreach ( $addedUsers as $userId ) {
+					/**
+					 * @var EPStudent $student
+					 */
 					$student = EPStudent::newFromUserId( $userId, true, 'id' );
 					$student->onEnrolled( $this->getId() );
 					$student->save();
