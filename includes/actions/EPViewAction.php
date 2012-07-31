@@ -162,17 +162,6 @@ abstract class EPViewAction extends EPAction {
 	}
 
 	/**
-	 * Returns the default nav items for @see displayNavigation.
-	 *
-	 * @since 0.1
-	 *
-	 * @return array
-	 */
-	protected function getDefaultNavigationItems() {
-		return EPUtils::getDefaultNavigationItems( $this->getContext() );
-	}
-
-	/**
 	 * Display the summary data.
 	 *
 	 * @since 0.1
