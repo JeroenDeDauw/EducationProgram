@@ -69,6 +69,8 @@ abstract class EPPageObject extends EPRevisionedObject {
 			throw new MWException( 'The title for a EPPageObject needs to be valid when saving.' );
 		}
 
+		$this->setField( 'touched', wfTimestampNow() );
+
 		return parent::save( $functionName );
 	}
 
@@ -100,6 +102,15 @@ abstract class EPPageObject extends EPRevisionedObject {
 		}
 
 		parent::setField( $name, $value );
+	}
+
+	/**
+	 * @since 0.2
+	 *
+	 * @return integer
+	 */
+	public function getTouched() {
+		return $this->getField( 'touched' );
 	}
 
 }

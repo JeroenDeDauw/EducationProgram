@@ -17,7 +17,9 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_orgs (
   org_oa_count               INT unsigned        NOT NULL, -- Amount of online ambassadors
   org_ca_count               INT unsigned        NOT NULL, -- Amount of campus ambassadors
   org_student_count          INT unsigned        NOT NULL, -- Amount of students
-  org_courses                BLOB                NOT NULL -- The ids of the courses (linking ep_courses.course_id)
+  org_courses                BLOB                NOT NULL, -- The ids of the courses (linking ep_courses.course_id)
+
+  org_touched                varbinary(14)       NOT NULL -- Time of the last modification
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/ep_org_name ON /*_*/ep_orgs (org_name);
@@ -56,7 +58,9 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_instructor_count    TINYINT unsigned    NOT NULL, -- Amount of instructors
   course_oa_count            SMALLINT unsigned   NOT NULL, -- Amount of online ambassadors
   course_ca_count            SMALLINT unsigned   NOT NULL, -- Amount of campus ambassadors
-  course_student_count       SMALLINT unsigned   NOT NULL -- Amount of students
+  course_student_count       SMALLINT unsigned   NOT NULL, -- Amount of students
+
+  course_touched             varbinary(14)       NOT NULL -- Time of the last modification
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/ep_course_org_id ON /*_*/ep_courses (course_org_id);

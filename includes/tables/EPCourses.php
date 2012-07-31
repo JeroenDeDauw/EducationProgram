@@ -73,6 +73,8 @@ class EPCourses extends EPPageTable {
 			'instructor_count' => 'int',
 			'oa_count' => 'int',
 			'ca_count' => 'int',
+
+			'touched' => 'str', // TS_MW
 		);
 	}
 

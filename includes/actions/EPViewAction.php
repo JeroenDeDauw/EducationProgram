@@ -21,6 +21,12 @@ abstract class EPViewAction extends EPAction {
 	protected $table;
 
 	/**
+	 * @since 0.2
+	 * @var EPPageObject
+	 */
+	protected $object;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 0.1
@@ -97,6 +103,8 @@ abstract class EPViewAction extends EPAction {
 			EPUtils::displayResult( $this->getContext() );
 
 			$this->displayNavigation();
+
+			$this->object = $object;
 
 			$this->startCache( 3600 );
 
@@ -240,7 +248,11 @@ abstract class EPViewAction extends EPAction {
 	 * @return array
 	 */
 	protected function getCacheKey() {
-		return array_merge( $this->getRequest()->getValues(), parent::getCacheKey() );
+		return array_merge(
+			array( $this->object->getTouched() ),
+			$this->getRequest()->getValues(),
+			parent::getCacheKey()
+		);
 	}
 
 }

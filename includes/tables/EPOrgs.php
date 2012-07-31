@@ -64,6 +64,8 @@ class EPOrgs extends EPPageTable {
 			'ca_count' => 'int',
 			'oa_count' => 'int',
 			'courses' => 'array',
+
+			'touched' => 'str', // TS_MW
 		);
 	}
 

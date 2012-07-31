@@ -35,6 +35,12 @@ final class EPHooks {
 			dirname( __FILE__ ) . '/sql/AddCourseTitleField.sql'
 		);
 
+		$updater->addExtensionField(
+			'ep_courses',
+			'course_touched',
+			dirname( __FILE__ ) . '/sql/AddTouched.sql'
+		);
+
 		return true;
 	}
 
