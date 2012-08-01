@@ -115,11 +115,21 @@ $specialPageAliases['gl'] = array(
 	'Articles' => array( 'Artigos' ),
 );
 
+/** Georgian (ქართული) */
+$specialPageAliases['ka'] = array(
+	'MyCourses' => array( 'ჩემი_კურსები' ),
+	'Student' => array( 'სტუდენტი' ),
+	'Students' => array( 'სტუდენტები' ),
+	'Courses' => array( 'კურსები' ),
+	'EducationProgram' => array( 'სასწავლო_პროგრამა' ),
+	'Articles' => array( 'სტატიები' ),
+);
+
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
 	'MyCourses' => array( '내과정' ),
 	'ManageCourses' => array( '과정관리' ),
-	'Institutions' => array( '교육기관' ),
+	'Institutions' => array( '기관' ),
 	'Student' => array( '학생' ),
 	'Students' => array( '학생목록' ),
 	'Courses' => array( '과정' ),
