@@ -115,7 +115,7 @@ $messages['en'] = array(
 	'logentry-campus-profilesave' => '$1 updated {{GENDER:$2|his|her}} Campus Ambassador profile',
 
 	'logentry-student-add' => '$1 enrolled in course $3',
-	'logentry-student-remove' => '$1 removed $5 as {{PLURAL:$4|{{GENDER:$2|student}}|students}} from course $3',
+	'logentry-student-remove' => '$1 removed $5 as {{PLURAL:$4|{{GENDER:$5|student}}|students}} from course $3',
 	'logentry-student-selfadd' => '$1 enrolled in course $3',
 	'logentry-student-selfremove' => '$1 disenrolled from course $3',
 
