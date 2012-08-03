@@ -132,11 +132,14 @@ class EditCourseAction extends EPEditAction {
 
 		$orgOptions = EPOrgs::singleton()->selectFields( array( 'name', 'id' ) );
 
-		$fields['title'] = array (
+		$fields['title'] = array(
 			'type' => 'text',
 			'label-message' => 'ep-course-edit-title',
 			'help-message' => 'ep-course-help-title',
 			'required' => true,
+			'validation-callback' => function( $value, array $alldata = null ) {
+				return in_string( '/', $value ) ? wfMsg( 'ep-course-no-slashes' ) : true;
+			},
 		);
 
 		$names = $this->table->selectFields( 'name', array(), array( 'DISTINCT' ) );
@@ -149,7 +152,7 @@ class EditCourseAction extends EPEditAction {
 			$names = array_merge( array( '' => '' ), $names );
 		}
 
-		$fields['name'] = array (
+		$fields['name'] = array(
 			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-name',
 			'help-message' => 'ep-course-help-name',
@@ -157,23 +160,23 @@ class EditCourseAction extends EPEditAction {
 			'options' => array_combine( $names, $names ),
 		);
 
-		$fields['org_id'] = array (
+		$fields['org_id'] = array(
 			'type' => 'select',
 			'label-message' => 'ep-course-edit-org',
 			'required' => true,
 			'options' => $orgOptions,
-			'validation-callback' => function ( $value, array $alldata = null ) use ( $orgOptions ) {
+			'validation-callback' => function( $value, array $alldata = null ) use ( $orgOptions ) {
 				return in_array( (int)$value, array_values( $orgOptions ) ) ? true : wfMsg( 'ep-course-invalid-org' );
 			},
 		);
 
-		$fields['token'] = array (
+		$fields['token'] = array(
 			'type' => 'text',
 			'label-message' => 'ep-course-edit-token',
 			'help-message' => 'ep-course-help-token',
 			'maxlength' => 255,
 			'size' => 20,
-			'validation-callback' => function ( $value, array $alldata = null ) {
+			'validation-callback' => function( $value, array $alldata = null ) {
 				$strLen = strlen( $value );
 				return ( $strLen !== 0 && $strLen < 2 ) ? wfMsgExt( 'ep-course-invalid-token', 'parsemag', 2 ) : true;
 			} ,
@@ -181,20 +184,20 @@ class EditCourseAction extends EPEditAction {
 
 		$fieldFields = $this->table->selectFields( 'term', array(), array( 'DISTINCT' ) );
 		$fieldFields = array_merge( array( '' => '' ), $fieldFields );
-		$fields['term'] = array (
+		$fields['term'] = array(
 			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-term',
 			'required' => true,
 			'options' => array_combine( $fieldFields, $fieldFields ),
 		);
 
-		$fields['start'] = array (
+		$fields['start'] = array(
 			'class' => 'EPHTMLDateField',
 			'label-message' => 'ep-course-edit-start',
 			'required' => true,
 		);
 
-		$fields['end'] = array (
+		$fields['end'] = array(
 			'class' => 'EPHTMLDateField',
 			'label-message' => 'ep-course-edit-end',
 			'required' => true,
@@ -202,7 +205,7 @@ class EditCourseAction extends EPEditAction {
 
 		$fieldFields = $this->table->selectFields( 'field', array(), array( 'DISTINCT' ) );
 		$fieldFields = array_merge( array( '' => '' ), $fieldFields );
-		$fields['field'] = array (
+		$fields['field'] = array(
 			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-field',
 			'required' => true,
@@ -211,7 +214,7 @@ class EditCourseAction extends EPEditAction {
 
 		$levels = $this->table->selectFields( 'level', array(), array( 'DISTINCT' ) );
 		$levels = array_merge( array( '' => '' ), $levels );
-		$fields['level'] = array (
+		$fields['level'] = array(
 			'class' => 'EPHTMLCombobox',
 			'label-message' => 'ep-course-edit-level',
 			'required' => true,
@@ -219,22 +222,22 @@ class EditCourseAction extends EPEditAction {
 		);
 
 		$langOptions = EPUtils::getLanguageOptions( $this->getLanguage()->getCode() );
-		$fields['lang'] = array (
+		$fields['lang'] = array(
 			'type' => 'select',
 			'label-message' => 'ep-course-edit-lang',
 			'maxlength' => 255,
 			'required' => true,
 			'options' => $langOptions,
-			'validation-callback' => function ( $value, array $alldata = null ) use ( $langOptions ) {
+			'validation-callback' => function( $value, array $alldata = null ) use ( $langOptions ) {
 				return in_array( $value, $langOptions ) ? true : wfMsg( 'ep-course-invalid-lang' );
 			}
 		);
 
-		$fields['description'] = array (
+		$fields['description'] = array(
 			'type' => 'textarea',
 			'label-message' => 'ep-course-edit-description',
 			'required' => true,
-			'validation-callback' => function ( $value, array $alldata = null ) {
+			'validation-callback' => function( $value, array $alldata = null ) {
 				return strlen( $value ) < 10 ? wfMsgExt( 'ep-course-invalid-description', 'parsemag', 10 ) : true;
 			} ,
 			'rows' => 10,
@@ -344,14 +347,14 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * @see EPEditAction::getTitleConditions
+	 * @see EPEditAction::getTitleField
 	 *
 	 * @since 0.2
 	 *
-	 * @return array
+	 * @return string
 	 */
-	protected function getTitleConditions() {
-		return array( 'title' => $this->getTitle()->getText() );
+	protected function getTitleField() {
+		return 'title';
 	}
 
 	/**
@@ -384,24 +387,24 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * @see EPEditAction::getIdentifierFromRequestArgs
+	 * @see EPEditAction::getDefaultFromItem
 	 *
 	 * @since 0.2
 	 *
-	 * @return Title
+	 * @param EPPageObject $item
+	 * @param string $name
+	 *
+	 * @return mixed
 	 */
-	protected function getIdentifierFromRequestArgs() {
-		$fieldName = 'wpitem-' . $this->table->getIdentifierField();
-		$orgIdField = 'wpitem-org_id';
+	protected function getDefaultFromItem( EPPageObject $item, $name ) {
+		$value = $item->getField( $name );
 
-		$req = $this->getRequest();
+		if ( $name === 'title' ) {
+			$value = explode( '/', $value, 2 );
+			$value = array_pop( $value );
+		}
 
-		if ( $req->getCheck( $fieldName ) && $req->getCheck( $orgIdField ) ) {
-			return $this->table->getTitleFor( $this->getPrefixedTitle( $req->getText( $fieldName ), $req->getInt( $orgIdField ) ) );
-		}
-		else {
-			return $this->getTitle();
-		}
+		return $value;
 	}
 
 }

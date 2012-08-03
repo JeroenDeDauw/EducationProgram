@@ -205,8 +205,17 @@ abstract class EPEditAction extends EPAction {
 	 * @return array
 	 */
 	protected function getTitleConditions() {
-		return array( 'name' => $this->getTitle()->getText() );
+		return array( $this->getTitleField() => $this->getTitle()->getText() );
 	}
+
+	/**
+	 * Returns the name of the field holding the title of the EPPageObject.
+	 *
+	 * @since 0.2
+	 *
+	 * @return string
+	 */
+	protected abstract function getTitleField();
 
 	/**
 	 * @see FormSpecialPage::getForm()
@@ -363,15 +372,23 @@ abstract class EPEditAction extends EPAction {
 		}
 	}
 
+	/**
+	 * @since 0.1
+	 *
+	 * @return Title
+	 */
 	protected function getIdentifierFromRequestArgs() {
-		$fieldName = 'wpitem-' . $this->table->getIdentifierField();
+		$fieldName = 'wpitem-id';
+		$req = $this->getRequest();
 
-		if ( $this->getRequest()->getCheck( $fieldName ) ) {
-			return $this->table->getTitleFor( $this->getRequest()->getText( $fieldName ) );
+		$title = null;
+
+		if ( $req->getCheck( $fieldName ) ) {
+			$title = $this->table->selectFieldsRow( $this->getTitleField(), array( 'id' => $req->getInt( $fieldName ) ) );
+			$title = $this->table->getTitleFor( $title );
 		}
-		else {
-			return $this->getTitle();
-		}
+
+		return is_null( $title ) ? $this->getTitle() : $title;
 	}
 
 	/**
@@ -415,7 +432,10 @@ abstract class EPEditAction extends EPAction {
 
 		$this->handleKnownFields( $fields );
 
-		/* EPPageObject */ $item = $this->table->newRow( $fields, is_null( $fields['id'] ) );
+		/**
+		 * @var EPPageObject $item
+		 */
+		$item = $this->table->newRow( $fields, is_null( $fields['id'] ) );
 
 		foreach ( $unknownValues as $name => $value ) {
 			$this->handleUnknownField( $item, $name, $value );

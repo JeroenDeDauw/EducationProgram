@@ -412,6 +412,7 @@ The deletion log for this institution is provided below for convenience:",
 	'educationprogram-org-invalid-name' => 'The name needs to contain at least $1 {{PLURAL:$1|character|characters}}.',
 	'educationprogram-org-invalid-city' => 'The city name needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'educationprogram-org-invalid-country' => 'This is not a valid country.',
+	'ep-org-no-slashes' => 'The institution title should not contain any slashes!',
 
 	// Course editing
 	'coursepage-edit-legend-add' => 'Add course',
@@ -445,6 +446,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-course-invalid-token' => 'The token needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'ep-course-invalid-description' => 'The description needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'ep-course-invalid-lang' => 'This language is not valid.',
+	'ep-course-no-slashes' => 'The course title should not contain any slashes!',
 	'coursepage-edit-undelete-revisions' => 'This course has been deleted. You can $1.',
 	'coursepage-edit-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
 
@@ -1210,6 +1212,7 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'educationprogram-org-invalid-city' => 'Error message indicating that a value is too short. Parameters:
 * $1 is the minimum number of characters required for the field.',
 	'educationprogram-org-invalid-country' => 'Error message indicating that the entered value is not a valid country.',
+	'ep-org-no-slashes' => 'Error message indicating a slash was put in the institution title.',
 	'coursepage-edit-legend-add' => 'Form header',
 	'coursepage-edit-legend-edit' => 'Form header',
 	'ep-course-edit-org' => 'Input label',
@@ -1243,6 +1246,7 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-course-invalid-lang' => 'Error message shown when selecting an invalid language.',
 	'coursepage-edit-undelete-revisions' => 'message indicating the course has been deleted. Parameters:
 * $1 is a restore link',
+	'ep-course-no-slashes' => 'Error message indicating a slash was put in the course title.',
 	'coursepage-edit-undelete-link' => 'Restore link text. Parameters:
 * $1 is the amount of number to be restored',
 	'ep-pager-confirm-delete' => 'Asks for deletion confirmation',

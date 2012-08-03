@@ -58,29 +58,32 @@ class EditOrgAction extends EPEditAction {
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-		$fields['name'] = array (
+		$fields['name'] = array(
 			'type' => 'text',
 			'label-message' => 'educationprogram-org-edit-name',
 			'maxlength' => 255,
 			'required' => true,
-			'validation-callback' => function ( $value, array $alldata = null ) {
+			'validation-callback' => function( $value, array $alldata = null ) {
 				return strlen( $value ) < 2 ? wfMsg( 'educationprogram-org-invalid-name' ) : true;
-			} ,
+			},
+			'validation-callback' => function( $value, array $alldata = null ) {
+				return in_string( '/', $value ) ? wfMsg( 'ep-org-no-slashes' ) : true;
+			},
 		);
 
-		$fields['city'] = array (
+		$fields['city'] = array(
 			'type' => 'text',
 			'label-message' => 'educationprogram-org-edit-city',
-			'validation-callback' => function ( $value, array $alldata = null ) {
+			'validation-callback' => function( $value, array $alldata = null ) {
 				return $value !== '' && strlen( $value ) < 2 ? wfMsg( 'educationprogram-org-invalid-city' ) : true;
-			} ,
+			},
 		);
 
 		if ( !in_array( $this->getRequest()->getText( 'wpitem-country', '' ), EPSettings::get( 'citylessCountries' ) ) ) {
 			$fields['city']['required'] = true;
 		}
 
-		$fields['country'] = array (
+		$fields['country'] = array(
 			'type' => 'select',
 			'label-message' => 'educationprogram-org-edit-country',
 			'maxlength' => 255,
@@ -105,11 +108,18 @@ class EditOrgAction extends EPEditAction {
 	public function countryIsValid( $value, array $alldata = null ) {
 		$countries = array_keys( CountryNames::getNames( $this->getLanguage()->getCode() ) );
 
-//		if ( $this->isNew() ) {
-//			array_unshift( $countries, '' );
-//		}
-
 		return in_array( $value, $countries ) ? true : wfMsg( 'educationprogram-org-invalid-country' );
+	}
+
+	/**
+	 * @see EPEditAction::getTitleField
+	 *
+	 * @since 0.2
+	 *
+	 * @return string
+	 */
+	protected function getTitleField() {
+		return 'name';
 	}
 
 }

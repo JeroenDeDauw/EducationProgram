@@ -7,9 +7,7 @@ Latest version of the roadmap: https://gerrit.wikimedia.org/r/gitweb?p=mediawiki
 == Version 0.2 ==
 
 * Namespace rewrite
-** Prevent names with forward slashes
 ** Handle org move
-* Fix cache invalidation on edit
 
 == Without a target ==
 
