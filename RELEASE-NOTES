@@ -13,7 +13,10 @@ Latest version of the release notes: https://gerrit.wikimedia.org/r/gitweb?p=med
 
 ; Bug fixes
 
-* Start and end dates are shown in human readable format in diffs.
+* Start and end dates are now shown in human readable format in diffs.
+* Added invalidation of the institution and course view caches after edits.
+* Fixed cancel button (on course/org edit pages) target to remain correct when
+  altering the title and submitting but encountering a form validation error.
 
 === Version 0.1 ===
 (2012-6-20)

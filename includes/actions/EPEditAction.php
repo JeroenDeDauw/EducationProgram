@@ -452,7 +452,7 @@ abstract class EPEditAction extends EPAction {
 			return true;
 		}
 		else {
-			return array(); // TODO
+			return array( 'ep-err-failed-to-save' );
 		}
 	}
 

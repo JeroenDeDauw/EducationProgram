@@ -67,7 +67,10 @@ class EPOrg extends EPPageObject {
 	 * @see EPRevisionedObject::onRemoved()
 	 */
 	protected function onRemoved() {
-		foreach ( EPCourses::singleton()->select( null, array( 'org_id' => $this->getId() ) ) as /* EPCourse */ $course ) {
+		/**
+		 * @var EPCourse $course
+		 */
+		foreach ( EPCourses::singleton()->select( null, array( 'org_id' => $this->getId() ) ) as $course ) {
 			$revAction = clone $this->revAction;
 
 			if ( trim( $revAction->getComment() ) === '' ) {
@@ -118,6 +121,9 @@ class EPOrg extends EPPageObject {
 			$courseRevAction->setComment( $revAction->getComment() );
 
 			foreach ( $this->getField( 'courses' ) as $courseId ) {
+				/**
+				 * @var EPRevision $courseRevision
+				 */
 				$courseRevision = EPRevisions::singleton()->getLatestRevision( array(
 					'object_id' => $courseId,
 					'type' => 'EPCourse',
@@ -128,6 +134,42 @@ class EPOrg extends EPPageObject {
 				}
 			}
 		}
+
+		return $success;
+	}
+
+	/**
+	 * @see EPPageObject::save
+	 *
+	 * @since 0.2
+	 *
+	 * @param string|null $functionName
+	 *
+	 * @return boolean Success indicator
+	 */
+	public function save( $functionName = null ) {
+		wfGetDB( DB_MASTER )->begin( __METHOD__ );
+
+		$success = parent::save( $functionName );
+
+		if ( $success ) {
+			$coursesTable = EPCourses::singleton();
+
+			$coursesTable->setReadDb( DB_MASTER );
+			$courses = $coursesTable->select( array( 'id', 'title' ), array( 'org_id' => $this->getId() ) );
+			$coursesTable->setReadDb( DB_SLAVE );
+
+			/**
+			 * @var EPCourse $course
+			 */
+			foreach ( $courses as $course ) {
+				$titleParts = explode( '/', $course->getField( 'title' ), 2 );
+				$course->setField( 'title', $this->getField( 'name' ) . '/' . array_pop( $titleParts ) );
+				$course->save( __METHOD__ );
+			}
+		}
+
+		wfGetDB( DB_MASTER )->commit( __METHOD__ );
 
 		return $success;
 	}

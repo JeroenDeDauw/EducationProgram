@@ -64,10 +64,15 @@ class EditOrgAction extends EPEditAction {
 			'maxlength' => 255,
 			'required' => true,
 			'validation-callback' => function( $value, array $alldata = null ) {
-				return strlen( $value ) < 2 ? wfMsg( 'educationprogram-org-invalid-name' ) : true;
-			},
-			'validation-callback' => function( $value, array $alldata = null ) {
-				return in_string( '/', $value ) ? wfMsg( 'ep-org-no-slashes' ) : true;
+				if ( strlen( $value ) < 2 ) {
+					return wfMsg( 'educationprogram-org-invalid-name' );
+				}
+
+				if ( in_string( '/', $value ) ) {
+					return wfMsg( 'ep-org-no-slashes' );
+				}
+
+				return true;
 			},
 		);
 

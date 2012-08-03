@@ -28,6 +28,7 @@ $messages['en'] = array(
 	'ep-form-minor' => 'This is a minor edit',
 	'ep-move-error' => 'You are not allowed to move articles in or out of the education namespaces.',
 	'ep-student-view-profile' => 'student profile',
+	'ep-err-failed-to-save' => 'Something went wrong - your changes have not been saved.',
 
 	// Tabs
 	'ep-tab-view' => 'Read',
@@ -836,6 +837,7 @@ $2 is a user provided comment',
 	'ep-org-course-delete' => 'Success message. Parameters:
 * $1 is an institution name',
 	'ep-form-summary' => 'Summary input label',
+	'ep-err-failed-to-save' => 'Error message indicating a save operation for the current page failed.',
 	'ep-form-minor' => 'Minor edit checkbox label',
 	'ep-move-error' => 'Error message you get when you try to move stuff in or out of an EP namespace',
 	'ep-student-view-profile' => 'Text of links to student profiles, typically used in tool link lists, next to stuff such as "talk" and "contributions"',
