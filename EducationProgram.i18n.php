@@ -318,7 +318,7 @@ $messages['en'] = array(
 	'ep-pager-confirm-message-course-many' => 'You are about to remove these courses: $1. This will remove all associated student data!',
 
 	// Student pager
-	'epstudentpager-header-user-id' => 'User',
+	'epstudentpager-header-user-id' => 'Username',
 	'epstudentpager-header-id' => 'Id',
 	'epstudentpager-header-current-courses' => 'Current courses',
 	'epstudentpager-header-passed-courses' => 'Passed courses',
@@ -372,14 +372,14 @@ This will permanently remove their associated articles and reviewers!',
 
 	// Campus ambassador pager
 	'epcapager-header-photo' => 'Photo',
-	'epcapager-header-user-id' => 'User',
+	'epcapager-header-user-id' => 'Username',
 	'epcapager-header-bio' => 'Profile',
 	'epcapager-header-courses' => 'Current courses',
 	'ep-ca-noresults' => 'There are no Campus Ambassadors to list.',
 
 	// Online ambassador pager
 	'epoapager-header-photo' => 'Photo',
-	'epoapager-header-user-id' => 'User',
+	'epoapager-header-user-id' => 'Username',
 	'epoapager-header-bio' => 'Profile',
 	'epoapager-header-courses' => 'Current courses',
 	'ep-oa-noresults' => 'There are no Online Ambassadors to list.',
@@ -604,7 +604,7 @@ The deletion log for this course is provided below for convenience:",
 	'specialstudent-summary-active-enroll' => 'Enrollment status',
 	'specialstudent-summary-last-active' => 'Last activity',
 	'specialstudent-summary-first-enroll' => 'First enrollment',
-	'specialstudent-summary-user' => 'User',
+	'specialstudent-summary-user' => 'Username',
 	'ep-student-courses' => 'Courses this student has enrolled in',
 	'ep-student-articles' => 'Articles this student is working on',
 
