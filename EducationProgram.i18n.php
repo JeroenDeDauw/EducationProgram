@@ -358,7 +358,7 @@ $messages['en'] = array(
 	'ep-articletable-remstudent-cancel' => 'Cancel',
 	'ep-articletable-remstudent-text' => 'You are about to remove $3 as {{GENDER:$1|student}} from course $2.
 
-This will permanently remove their associated articles and reviewers!',
+This will permanently remove {{GENDER:$1|his|her|their}} associated articles and reviewers!',
 
 	'ep-articletable-remarticle-title' => 'Remove article $1',
 	'ep-articletable-remarticle-button' => 'Remove article',
