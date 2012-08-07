@@ -2357,7 +2357,7 @@ $messages['de'] = array(
 	'ep-articletable-remstudent-cancel' => 'Abbrechen',
 	'ep-articletable-remstudent-text' => 'Du bist gerade dabei, $3 als {{GENDER:$1|Student|Studentin}} vom Kurs $2 zu entfernen.
 
-Dies entfernt dauerhaft die zugehörigen Artikel und Prüfer!',
+Dies entfernt dauerhaft {{GENDER:$1|seine|ihre}} zugehörigen Artikel und Prüfer!',
 	'ep-articletable-remarticle-title' => 'Artikel $1 entfernen',
 	'ep-articletable-remarticle-button' => 'Artikel entfernen',
 	'ep-articletable-remarticle-cancel' => 'Abbrechen',
@@ -3730,6 +3730,7 @@ $messages['fa'] = array(
  * @author Od1n
  * @author Sherbrooke
  * @author Tititou36
+ * @author 아라
  */
 $messages['fr'] = array(
 	'educationprogram-desc' => "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles d'utilisateur de l'éducation.",
@@ -4358,7 +4359,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'epca-profile-saved' => 'Votre profil a été enregistré',
 	'epca-profile-invalid-bio' => 'Votre biographie doit contenir au moins $1 {{PLURAL:$1|caractère|caractères}}.',
 	'epca-visible' => "M'afficher publiquement comme ambassadeur de campus",
-	'ep-studentactivity-noresults' => 'Il n’y a eu aucun élève actif depuis $1 :(
+	'ep-studentactivity-noresults' => 'Il n’y a eu aucun élève actif depuis $1.
 
 Vous pouvez trouver une liste complète des étudiants dans [[Special:Students|la liste des étudiants]].',
 	'ep-studentactivity-count' => '{{PLURAL:$1|Un étudiant était actif|$1 étudiants étaient actifs}} depuis $2.',
@@ -7469,7 +7470,7 @@ $messages['ko'] = array(
 	'ep-articletable-remstudent-cancel' => '취소',
 	'ep-articletable-remstudent-text' => '$2 과정에서 {{GENDER:$1|학생}}으로서 $3 사용자를 제거하려고 합니다.
 
-이는 영구적으로 관련된 문서과 평론가를 제거하게 됩니다!',
+이는 영구적으로 {{GENDER:$1}}관련된 문서와 평론가를 제거하게 됩니다!',
 	'ep-articletable-remarticle-title' => '$1 문서 제거',
 	'ep-articletable-remarticle-button' => '문서 제거',
 	'ep-articletable-remarticle-cancel' => '취소',
@@ -7808,7 +7809,7 @@ $messages['ko'] = array(
 	'epca-profile-saved' => '프로필을 저장했습니다',
 	'epca-profile-invalid-bio' => '약력은 적어도 {{PLURAL:$1|글자}} $1개를 포함해야 합니다.',
 	'epca-visible' => '캠퍼스 대사관으로서 공개적으로 보이기',
-	'ep-studentactivity-noresults' => '최근 $1에 활동 중인 학생이 없습니다 :(
+	'ep-studentactivity-noresults' => '최근 $1에 활동 중인 학생이 없습니다.
 
 [[Special:Students|학생 목록]]에서 학생의 전체 목록을 찾을 수 있습니다.',
 	'ep-studentactivity-count' => '{{PLURAL:$1|학생 $1명}}이 최근 $2에 활동했습니다.',
@@ -8611,7 +8612,7 @@ $messages['mk'] = array(
 	'ep-articletable-remstudent-cancel' => 'Откажи',
 	'ep-articletable-remstudent-text' => 'На пат сте да {{GENDER:$1|го|ја}} отстраните $3 како {{GENDER:$1|ученик|ученичка}} од курсот $2.
 
-Со ова трајно ќе ги отстраните и {{GENDER:$1|неговите|нејзините}} статии и оценувачи!',
+Со ова трајно ќе ги отстраните и {{GENDER:$1|неговите|нејзините|нивните}} статии и оценувачи!',
 	'ep-articletable-remarticle-title' => 'Отстранување на статијата $1',
 	'ep-articletable-remarticle-button' => 'Отстрани статија',
 	'ep-articletable-remarticle-cancel' => 'Откажи',
@@ -9777,7 +9778,7 @@ $messages['nl'] = array(
 	'ep-articletable-remstudent-cancel' => 'Annuleren',
 	'ep-articletable-remstudent-text' => "U staat op het punt om $3 als {{GENDER:$1|student|studente}} uit de cursus $2 te verwijderen.
 
-Hiermee worden ook de gekoppelde pagina's en controleurs verwijderd.",
+Hiermee worden ook {{GENDER:$1|zijn|haar}} gekoppelde pagina's en controleurs verwijderd.",
 	'ep-articletable-remarticle-title' => 'Pagina $1 verwijderen',
 	'ep-articletable-remarticle-button' => 'Pagina verwijderen',
 	'ep-articletable-remarticle-cancel' => 'Annuleren',
@@ -10409,6 +10410,7 @@ $messages['te'] = array(
 
 /** Tagalog (Tagalog)
  * @author AnakngAraw
+ * @author 아라
  */
 $messages['tl'] = array(
 	'educationprogram-desc' => "Nagpapaginhawa sa mga programang pang-edukasyon sa pamamagitan ng pagdaragdag ng sari-saring mga ugnayang-mukha upang mapamahalaan ang mga kurso, mga institusyon at ang samu't saring mga gampaning pangtagagamit ng edukasyon.",
@@ -10684,7 +10686,7 @@ $messages['tl'] = array(
 	'ep-articletable-remstudent-cancel' => 'Huwag ituloy',
 	'ep-articletable-remstudent-text' => 'Tatanggalin mo na si $3 bilang {{GENDER:$1|mag-aaral}} mula sa kursong $2.
 
-Permanente na nitong tatanggalin ang nakaugnay nilang mga artikulo at mga manunuri!',
+Permanente na nitong tatanggalin ang nakaugnay {{GENDER:$1|niya|niya|nila}}ng mga artikulo at mga manunuri!',
 	'ep-articletable-remarticle-title' => 'Alisin ang artikulong $1',
 	'ep-articletable-remarticle-button' => 'Tanggalin ang artikulo',
 	'ep-articletable-remarticle-cancel' => 'Huwag ituloy',
@@ -11038,7 +11040,7 @@ Ang talaan ng pagbubura at paglilipat para sa kursong ito ay ibinigay dito para 
 	'epca-profile-saved' => 'Nasagip na ang balangkas ng katangian mo',
 	'epca-profile-invalid-bio' => 'Ang talambuhay mo ay kailangang maging naglalaman ng kahit na $1 {{PLURAL:$1|panitik|mga panitik}}.',
 	'epca-visible' => 'Ilista ako na nakikita ng madla bilang Embahador ng Kampus',
-	'ep-studentactivity-noresults' => 'Walang mga mag-aaral na masigla sa loob ng huling $1 :
+	'ep-studentactivity-noresults' => 'Walang mga mag-aaral na masigla sa loob ng huling $1.
 
 Makakatagpo ka ng isang buong tala ng mga mag-aaral sa [[Special:Students|tala ng mag-aaral]].',
 	'ep-studentactivity-count' => '{{PLURAL:$1|Isang mag-aaral ang|$1 mga mag-aaral ang}} masigla sa loob ng huling $2.',
