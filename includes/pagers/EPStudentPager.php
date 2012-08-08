@@ -160,7 +160,7 @@ class EPStudentPager extends EPPager {
 		$userIds = array();
 		$field = $this->table->getPrefixedField( 'user_id' );
 
-		while( $student = $this->mResult->fetchObject() ) {
+		foreach( $this->mResult as $student ) {
 			$userIds[] = (int)$student->$field;
 		}
 
@@ -172,7 +172,7 @@ class EPStudentPager extends EPPager {
 				__METHOD__
 			);
 
-			while( $user = $result->fetchObject() ) {
+			foreach( $result as $user ) {
 				$real = $user->user_real_name === '' ? $user->user_name : $user->user_real_name;
 				$this->userNames[$user->user_id] = array( $user->user_name, $real );
 			}
@@ -193,7 +193,7 @@ class EPStudentPager extends EPPager {
 				)
 			);
 
-			while( $courseForUser = $result->fetchObject() ) {
+			foreach( $result as $courseForUser ) {
 				if ( !array_key_exists( $courseForUser->upc_user_id, $this->courseNames ) ) {
 					$this->courseNames[$courseForUser->upc_user_id] = array();
 				}

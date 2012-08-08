@@ -526,7 +526,7 @@ class EPArticleTable extends EPPager {
 		$userIds = array();
 		$field = $this->table->getPrefixedField( 'user_id' );
 
-		while( $student = $this->mResult->fetchObject() ) {
+		foreach( $this->mResult as $student ) {
 			$userIds[] = $student->$field;
 			$this->articles[$student->$field] = array();
 		}
