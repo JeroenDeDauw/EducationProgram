@@ -57,7 +57,7 @@ class SpecialManageCourses extends SpecialEPPage {
 		else {
 			$this->getOutput()->addHTML( Linker::linkKnown(
 				SpecialPage::getTitleFor( 'Userlogin' ),
-				wfMsgHtml( 'ep-mycourses-login-first' ),
+				$this->msg( 'ep-mycourses-login-first' )->escaped(),
 				array(),
 				array(
 					'returnto' => $this->getTitle( $this->subPage )->getFullText()
@@ -122,7 +122,7 @@ class SpecialManageCourses extends SpecialEPPage {
 	protected function displayRoleAssociation( $class ) {
 		$user = $this->getUser();
 		$userRole = $class::newFromUser( $user );
-		$courses = $userRole->getCourses( array( 'id', 'name', 'org_id', 'students' ) );
+		$courses = $userRole->getCourses( array( 'id', 'name', 'title', 'org_id', 'students' ) );
 
 		switch ( $class ) {
 			case 'EPStudent':
@@ -166,7 +166,10 @@ class SpecialManageCourses extends SpecialEPPage {
 	protected function displayCourseTables( array $courses ) {
 		$out = $this->getOutput();
 
-		foreach ( $courses as /* EPCourse */ $course ) {
+		/**
+		 * @var EPCourse $course
+		 */
+		foreach ( $courses as  $course ) {
 			$out->addElement( 'h3', array(), $course->getField( 'name' ) );
 
 			$out->addHTML( $this->msg(
@@ -177,20 +180,24 @@ class SpecialManageCourses extends SpecialEPPage {
 				)
 			)->text() );
 
-			$pager = new EPArticleTable(
-				$this->getContext(),
-				array( 'user_id' => $course->getField( 'students' ) ),
-				array( 'course_id' => $course->getId() )
-			);
+			$studentIds = $course->getField( 'students' );
 
-			if ( $pager->getNumRows() ) {
-				$out->addHTML(
-					$pager->getFilterControl() .
-						$pager->getNavigationBar() .
-						$pager->getBody() .
-						$pager->getNavigationBar() .
-						$pager->getMultipleItemControl()
+			if ( $studentIds !== array() ) {
+				$pager = new EPArticleTable(
+					$this->getContext(),
+					array( 'user_id' => $studentIds ),
+					array( 'course_id' => $course->getId() )
 				);
+
+				if ( $pager->getNumRows() > 0 ) {
+					$out->addHTML(
+						$pager->getFilterControl() .
+							$pager->getNavigationBar() .
+							$pager->getBody() .
+							$pager->getNavigationBar() .
+							$pager->getMultipleItemControl()
+					);
+				}
 			}
 		}
 	}
@@ -245,7 +252,10 @@ class SpecialManageCourses extends SpecialEPPage {
 	 * @param array $courses
 	 */
 	protected function displayCourseList( array $courses ) {
-		foreach ( $courses as /* EPCourse */ $course ) {
+		/**
+		 * @var EPCourse $course
+		 */
+		foreach ( $courses as $course ) {
 			$this->getOutput()->addElement( 'h3', array(), $course->getField( 'name' ) );
 			$this->displayCourse( $course );
 		}
