@@ -63,28 +63,28 @@ class EPArticle extends ORMRow {
 	}
 
 	/**
-	 * Display a pager with articles.
+	 * Constructs and returns the HTML to display an article pager.
 	 *
 	 * @since 0.1
 	 *
 	 * @param IContextSource $context
 	 * @param array $conditions
+	 *
+	 * @return string
 	 */
-	public static function displayPager( IContextSource $context, array $conditions = array() ) {
+	public static function getPagerHTML( IContextSource $context, array $conditions = array() ) {
 		$pager = new EPArticlePager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
-			$context->getOutput()->addHTML(
+			return
 				$pager->getFilterControl() .
-					$pager->getNavigationBar() .
-					$pager->getBody() .
-					$pager->getNavigationBar() .
-					$pager->getMultipleItemControl()
-			);
+				$pager->getNavigationBar() .
+				$pager->getBody() .
+				$pager->getNavigationBar() .
+				$pager->getMultipleItemControl();
 		}
 		else {
-			$context->getOutput()->addHTML( $pager->getFilterControl( true ) );
-			$context->getOutput()->addWikiMsg( 'ep-articles-noresults' );
+			return $pager->getFilterControl( true ) . $context->msg( 'ep-articles-noresults' )->escaped();
 		}
 	}
 

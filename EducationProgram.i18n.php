@@ -270,6 +270,12 @@ $messages['en'] = array(
 	'ep-pager-withselected' => 'With selected',
 	'ep-pager-delete-selected' => 'Delete',
 
+	// Article pager
+	'eparticlepager-header-page-id' => 'Article',
+	'eparticlepager-header-user-id' => 'Student',
+	'eparticlepager-header-course-id' => 'Course',
+	'eparticlepager-header-reviewers' => 'Reviewers',
+
 	// Revision pager
 	'ep-revision-undo' => 'undo',
 	'ep-revision-restore' => 'restore',
@@ -850,6 +856,10 @@ $2 is a user provided comment',
 	'ep-tab-enroll' => 'Tab label',
 	'ep-tab-disenroll' => 'Tab label',
 	'ep-tab-delete' => 'Tab label',
+	'eparticlepager-header-page-id' => 'Table pager column header. This column shows the titles of articles students have been working on',
+	'eparticlepager-header-user-id' => 'Table pager column header. This column shows the names of students (linked to their user profile)',
+	'eparticlepager-header-course-id' => 'Table pager column header. This column shows the name of a course',
+	'eparticlepager-header-reviewers' => 'Table pager column header. This column shows a list of reviewers for an article a student is working on',
 	'tooltip-ep-form-save' => 'Tooltip text',
 	'tooltip-ep-edit-institution' => 'Tooltip text',
 	'tooltip-ep-edit-course' => 'Tooltip text',

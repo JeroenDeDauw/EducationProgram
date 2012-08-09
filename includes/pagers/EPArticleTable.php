@@ -97,7 +97,7 @@ class EPArticleTable extends EPPager {
 	 * @see TablePager::getRowClass()
 	 */
 	function getRowClass( $row ) {
-		return 'ep-student-row';
+		return 'ep-articletable-row';
 	}
 
 	/**
@@ -105,7 +105,7 @@ class EPArticleTable extends EPPager {
 	 * @see TablePager::getTableClass()
 	 */
 	public function getTableClass() {
-		return 'TablePager ep-students';
+		return 'TablePager ep-articletable';
 	}
 
 	/**
@@ -158,7 +158,10 @@ class EPArticleTable extends EPPager {
 	protected function addNonStudentHTML( &$html, array $articles, $showArticleAddition ) {
 		$isFirst = true;
 
-		foreach ( $articles as /* EPArticle */ $article ) {
+		/**
+		 * @var EPArticle $article
+		 */
+		foreach ( $articles as $article ) {
 			if ( !$isFirst ) {
 				$html .= '</tr><tr>';
 			}
@@ -535,7 +538,10 @@ class EPArticleTable extends EPPager {
 
 		$articles = EPArticles::singleton()->select( null, $conditions );
 
-		foreach ( $articles as /* EPArticle */ $article ) {
+		/**
+		 * @var EPArticle $article
+		 */
+		foreach ( $articles as $article ) {
 			$this->articles[$article->getField( 'user_id' )][] = $article;
 		}
 	}

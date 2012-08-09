@@ -22,4 +22,40 @@ class SpecialArticles extends SpecialEPPage {
 		parent::__construct( 'Articles' );
 	}
 
+	/**
+	 * Main method.
+	 *
+	 * @since 0.1
+	 *
+	 * @param string $subPage
+	 */
+	public function execute( $subPage ) {
+		parent::execute( $subPage );
+
+		$this->displayNavigation();
+
+		$this->startCache( 3600 );
+		$this->addCachedHTML( array( $this, 'getPagerHTML' ), $this->getContext() );
+	}
+
+	/**
+	 * @since 0.2
+	 *
+	 * @return string
+	 */
+	public function getPagerHTML() {
+		return EPArticle::getPagerHTML( $this->getContext() );
+	}
+
+	/**
+	 * @see SpecialCachedPage::getCacheKey
+	 *
+	 * @since 0.2
+	 *
+	 * @return array
+	 */
+	protected function getCacheKey() {
+		return array_merge( $this->getRequest()->getValues(), parent::getCacheKey() );
+	}
+
 }

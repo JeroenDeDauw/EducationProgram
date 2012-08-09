@@ -139,6 +139,7 @@ abstract class EPPageTable extends ORMTable {
 
 	/**
 	 * Returns a link to the page representing the object of this type with the provided identifier value.
+	 * The returned string is escaped.
 	 *
 	 * @since 0.1
 	 *
