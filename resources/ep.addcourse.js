@@ -15,7 +15,7 @@
 				'action',
 				$( this ).attr( 'action' ).replace(
 					'NAME_PLACEHOLDER',
-					$( '#neworg' ).text() + '/' + $( '#newname' ).val() + ' (' + $( '#newterm' ).val() + ')'
+					$( '#neworg option:selected' ).text() + '/' + $( '#newname' ).val() + ' (' + $( '#newterm' ).val() + ')'
 				)
 			);
 		} );
