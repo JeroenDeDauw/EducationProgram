@@ -172,13 +172,11 @@ class SpecialManageCourses extends SpecialEPPage {
 		foreach ( $courses as  $course ) {
 			$out->addElement( 'h3', array(), $course->getField( 'name' ) );
 
-			$out->addHTML( $this->msg(
-				'ep-mycourses-course-org-links',
-				array(
-					Message::rawParam( $course->getLink() ),
-					Message::rawParam( $course->getOrg()->getLink() )
-				)
-			)->text() );
+			$out->addHTML(
+				$this->msg( 'ep-mycourses-course-org-links' )
+					->rawParams( $course->getLink(), $course->getOrg()->getLink() )
+					->escaped()
+			);
 
 			$studentIds = $course->getField( 'students' );
 
