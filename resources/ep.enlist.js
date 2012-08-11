@@ -155,7 +155,7 @@
 						messageKey = 'ep-' + role + '-addittion-null';
 					}
 					else {
-						messageKey = this.selfMode ? 'ep-' + role + '-addittion-self-success' : 'ep-' + role + '-addittion-success';
+						messageKey = _this.selfMode ? 'ep-' + role + '-addittion-self-success' : 'ep-' + role + '-addittion-success';
 					}
 
 					_this.$dialog.text( ep.msg(

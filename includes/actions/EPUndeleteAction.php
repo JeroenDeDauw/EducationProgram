@@ -50,7 +50,7 @@ class EPUndeleteAction extends EPAction {
 		if ( $object === false ) {
 			$revision = EPRevisions::singleton()->getLatestRevision( array(
 				'object_identifier' => $this->getTitle()->getText(),
-				'type' => $this->page->getTable()->getRowClass(),
+				'type' => get_class( $this->page->getTable() ),
  			) );
 
 			if ( $revision === false ) {

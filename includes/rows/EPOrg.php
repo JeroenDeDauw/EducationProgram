@@ -126,7 +126,7 @@ class EPOrg extends EPPageObject {
 				 */
 				$courseRevision = EPRevisions::singleton()->getLatestRevision( array(
 					'object_id' => $courseId,
-					'type' => 'EPCourse',
+					'type' => 'EPCourses',
 				) );
 
 				if ( $courseRevision !== false ) {
