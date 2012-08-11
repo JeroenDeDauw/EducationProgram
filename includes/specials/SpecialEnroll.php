@@ -61,7 +61,7 @@ class SpecialEnroll extends SpecialEPPage {
 		}
 		else {
 			/**
-			 * @var EPCOurse $course
+			 * @var EPCourse $course
 			 */
 			$course = EPCourses::singleton()->getFromTitle( $courseTitle );
 
@@ -203,7 +203,7 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$out->addHTML( Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Userlogin' ),
-			wfMsgHtml( 'ep-enroll-login-and-enroll' ),
+			$this->msg( 'ep-enroll-login-and-enroll' )->escaped(),
 			array(),
 			array(
 				'returnto' => $this->getTitle( $subPage )->getFullText()
@@ -214,7 +214,7 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$out->addHTML( Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Userlogin' ),
-			wfMsgHtml( 'ep-enroll-signup-and-enroll' ),
+			$this->msg( 'ep-enroll-signup-and-enroll' )->escaped(),
 			array(),
 			array(
 				'returnto' => $this->getTitle( $subPage )->getFullText(),
@@ -270,7 +270,7 @@ class SpecialEnroll extends SpecialEPPage {
 		$form = new HTMLForm( $this->getFormFields(), $this->getContext() );
 
 		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
-		$form->setSubmitText( wfMsg( 'educationprogram-org-submit' ) );
+		$form->setSubmitText( $this->msg( 'educationprogram-org-submit' )->text() );
 		$form->setWrapperLegend( $this->msg( 'ep-enroll-legend' ) );
 
 		if ( $form->show() ) {
@@ -299,12 +299,19 @@ class SpecialEnroll extends SpecialEPPage {
 			$fields['realname'] = array(
 				'type' => 'text',
 				'default' => '',
-				'label-message' => 'ep-enroll-realname',
-				'required' => true,
+				'label-message' => 'ep-enroll-realname' . ( EPSettings::get( 'requireRealName' ) ? '' : '-optional' ),
 				'validation-callback' => function( $value, array $alldata = null ) {
-					return strlen( $value ) < 2 ? wfMsgExt( 'ep-enroll-invalid-name', 'parsemag', 2 ) : true;
+					if ( EPSettings::get( 'requireRealName' ) && strlen( $value ) < 2 ) {
+						return wfMsgExt( 'ep-enroll-invalid-name', 'parsemag', 2 );
+					}
+
+					return true;
 				}
 			);
+
+			if ( EPSettings::get( 'requireRealName' ) ) {
+				$fields['realname'] = true;
+			}
 		}
 
 		if ( $user->getOption( 'gender' ) === 'unknown' ) {
@@ -316,9 +323,9 @@ class SpecialEnroll extends SpecialEPPage {
 					return in_array( $value, array( 'male', 'female', 'unknown' ) ) ? true : wfMsg( 'ep-enroll-invalid-gender' );
 				} ,
 				'options' => array(
-					wfMsg( 'gender-male' ) => 'male',
-					wfMsg( 'gender-female' ) => 'female',
-					wfMsg( 'gender-unknown' ) => 'unknown',
+					$this->msg( 'gender-male' )->text() => 'male',
+					$this->msg( 'gender-female' )->text() => 'female',
+					$this->msg( 'gender-unknown' )->text() => 'unknown',
 				)
 			);
 		}

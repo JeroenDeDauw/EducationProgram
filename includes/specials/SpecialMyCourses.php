@@ -61,7 +61,7 @@ class SpecialMyCourses extends SpecialEPPage {
 		else {
 			$this->getOutput()->addHTML( Linker::linkKnown(
 				SpecialPage::getTitleFor( 'Userlogin' ),
-				wfMsgHtml( 'ep-dashboard-login-first' ),
+				$this->msg( 'ep-dashboard-login-first' )->escaped(),
 				array(),
 				array(
 					'returnto' => $this->getTitle( $this->subPage )->getFullText()
@@ -96,6 +96,9 @@ class SpecialMyCourses extends SpecialEPPage {
 			function( IContextSource $context, array $courses ) {
 				$specificCategory = false;
 
+				/**
+				 * @var EPCourse $course
+				 */
 				$course = array_shift( $courses );
 
 				if ( !is_null( $course ) ) {
@@ -223,7 +226,7 @@ class SpecialMyCourses extends SpecialEPPage {
 			EPStudents::singleton()->setReadDb( DB_MASTER );
 
 			/**
-			 * @var EPCOurse $course
+			 * @var EPCourse $course
 			 */
 			$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
 
