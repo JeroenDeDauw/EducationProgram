@@ -222,15 +222,15 @@ class SpecialMyCourses extends SpecialEPPage {
 		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
 			EPStudents::singleton()->setReadDb( DB_MASTER );
 
+			/**
+			 * @var EPCOurse $course
+			 */
 			$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
 
 			if ( $course !== false && in_array( $this->getUser()->getId(), $course->getField( 'students' ) ) ) {
-				$this->showSuccess( wfMessage(
-					'ep-mycourses-enrolled',
-					array(
-						Message::rawParam( $course->getLink() ),
-						Message::rawParam( $course->getOrg()->getLink() )
-					)
+				$this->showSuccess( $this->msg( 'ep-mycourses-enrolled' )->rawParams(
+					$course->getLink(),
+					$course->getOrg()->getLink()
 				) );
 			}
 		}

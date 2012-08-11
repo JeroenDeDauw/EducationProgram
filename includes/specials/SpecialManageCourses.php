@@ -210,13 +210,12 @@ class SpecialManageCourses extends SpecialEPPage {
 	protected function displayCourse( EPCourse $course ) {
 		$out = $this->getOutput();
 
-		$out->addHTML( $this->msg(
-			'ep-mycourses-enrolledin',
-			array(
-				Message::rawParam( $course->getLink() ),
-				Message::rawParam( $course->getOrg()->getLink() )
-			)
-		)->text() );
+		$out->addHTML(
+			$this->msg( 'ep-mycourses-enrolledin' )->rawParams(
+				$course->getLink(),
+				$course->getOrg()->getLink()
+			)->escaped()
+		);
 
 		$out->addWikiMsg( 'ep-mycourses-articletable' );
 
