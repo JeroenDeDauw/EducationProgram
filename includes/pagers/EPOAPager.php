@@ -119,7 +119,7 @@ class EPOAPager extends EPPager {
 				/**
 				 * @var EPCourse $course
 				 */
-				foreach ( $oa->getCourses( 'name', EPCourses::getStatusConds( 'current' ) ) as $course ) {
+				foreach ( $oa->getCourses( 'title', EPCourses::getStatusConds( 'current' ) ) as $course ) {
 					$courses[] = $course->getLink();
 				}
 
