@@ -26,19 +26,19 @@ final class EPHooks {
 	public static function onSchemaUpdate( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable(
 			'ep_orgs',
-			dirname( __FILE__ ) . '/sql/EducationProgram.sql'
+			__DIR__ . '/sql/EducationProgram.sql'
 		);
 
 		$updater->addExtensionField(
 			'ep_courses',
 			'course_title',
-			dirname( __FILE__ ) . '/sql/AddCourseTitleField.sql'
+			__DIR__ . '/sql/AddCourseTitleField.sql'
 		);
 
 		$updater->addExtensionField(
 			'ep_courses',
 			'course_touched',
-			dirname( __FILE__ ) . '/sql/AddTouched.sql'
+			__DIR__ . '/sql/AddTouched.sql'
 		);
 
 		return true;
@@ -62,7 +62,7 @@ final class EPHooks {
 		);
 
 		foreach ( $testFiles as $file ) {
-			$files[] = dirname( __FILE__ ) . '/tests/phpunit/' . $file . 'Test.php';
+			$files[] = __DIR__ . '/tests/phpunit/' . $file . 'Test.php';
 		}
 
 		return true;
