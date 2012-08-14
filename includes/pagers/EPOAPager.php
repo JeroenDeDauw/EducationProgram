@@ -14,6 +14,13 @@
 class EPOAPager extends EPPager {
 
 	/**
+	 * @see EPPager::$currentObject
+	 * @since 0.1
+	 * @var EPRoleObject
+	 */
+	protected $currentObject;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
@@ -106,12 +113,17 @@ class EPOAPager extends EPPager {
 				break;
 			case '_courses':
 				$oa = $this->currentObject;
-				$value = $this->getLanguage()->listToText( array_map(
-					function( EPCourse $course ) {
-						return $course->getLink();
-					},
-					$oa->getCourses( 'name', EPCourses::getStatusConds( 'current' ) )
-				) );
+
+				$courses = array();
+
+				/**
+				 * @var EPCourse $course
+				 */
+				foreach ( $oa->getCourses( 'name', EPCourses::getStatusConds( 'current' ) ) as $course ) {
+					$courses[] = $course->getLink();
+				}
+
+				$value = $this->getLanguage()->listToText( $courses );
 				break;
 		}
 
