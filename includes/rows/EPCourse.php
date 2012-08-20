@@ -721,4 +721,25 @@ class EPCourse extends EPPageObject {
 		}
 	}
 
+	/**
+	 * @see EPPageObject::getLink
+	 *
+	 * @since 0.2
+	 *
+	 * @param string $action
+	 * @param string $html
+	 * @param array $customAttribs
+	 * @param array $query
+	 *
+	 * @return string
+	 */
+	public function getLink( $action = 'view', $html = null, array $customAttribs = array(), array $query = array() ) {
+		return parent::getLink(
+			$action,
+			is_null( $html ) ? htmlspecialchars( $this->getField( 'name' ) ) : $html,
+			$customAttribs,
+			$query
+		);
+	}
+
 }
