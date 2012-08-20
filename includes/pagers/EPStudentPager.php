@@ -30,7 +30,7 @@ class EPStudentPager extends EPPager {
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $courseNames = array();
+	protected $courseTitles = array();
 
 	/**
 	 * Constructor.
@@ -97,20 +97,24 @@ class EPStudentPager extends EPPager {
 				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
 				break;
 			case 'active_enroll':
-				$value = wfMsgHtml( $value === '1' ? 'epstudentpager-yes' : 'epstudentpager-no' );
+				$value = $this->msg( $value === '1' ? 'epstudentpager-yes' : 'epstudentpager-no' )->escaped();
 				break;
 			case '_courses_current':
-				// TODO
-//				$userId = $this->currentObject->getField( 'user_id' );
-//
-//				if ( array_key_exists( $userId, $this->courseNames ) ) {
-//					$value = $this->getLanguage()->pipeList( array_map(
-//						function( $courseName ) {
-//							return EPCourses::singleton()->getLinkFor( $courseName );
-//						},
-//						$this->courseNames[$userId]
-//					) );
-//				}
+				$userId = $this->currentObject->getField( 'user_id' );
+
+				if ( array_key_exists( $userId, $this->courseTitles ) ) {
+					$value = $this->getLanguage()->pipeList( array_map(
+						function( $courseTitle ) {
+							$titleParts = explode( '/', $courseTitle, 2 );
+							return EPCourses::singleton()->getLinkFor(
+								$courseTitle,
+								'view',
+								htmlspecialchars( array_pop( $titleParts ) )
+							);
+						},
+						$this->courseTitles[$userId]
+					) );
+				}
 				break;
 		}
 
@@ -177,7 +181,7 @@ class EPStudentPager extends EPPager {
 				$this->userNames[$user->user_id] = array( $user->user_name, $real );
 			}
 
-			$courseNameField = EPCourses::singleton()->getPrefixedField( 'name' );
+			$courseNameField = EPCourses::singleton()->getPrefixedField( 'title' );
 
 			$result = wfGetDB( DB_SLAVE )->select(
 				array( 'ep_courses', 'ep_users_per_course' ),
@@ -194,11 +198,11 @@ class EPStudentPager extends EPPager {
 			);
 
 			foreach( $result as $courseForUser ) {
-				if ( !array_key_exists( $courseForUser->upc_user_id, $this->courseNames ) ) {
-					$this->courseNames[$courseForUser->upc_user_id] = array();
+				if ( !array_key_exists( $courseForUser->upc_user_id, $this->courseTitles ) ) {
+					$this->courseTitles[$courseForUser->upc_user_id] = array();
 				}
 
-				$this->courseNames[$courseForUser->upc_user_id][] = $courseForUser->$courseNameField;
+				$this->courseTitles[$courseForUser->upc_user_id][] = $courseForUser->$courseNameField;
 			}
 		}
 	}
