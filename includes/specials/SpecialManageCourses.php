@@ -44,7 +44,7 @@ class SpecialManageCourses extends SpecialEPPage {
 				$this->displayCourses();
 			}
 			else {
-				$course = EPCourses::singleton()->selectRow( null, array( 'name' => $this->subPage ) );
+				$course = EPCourses::singleton()->selectRow( null, array( 'title' => $this->subPage ) );
 
 				if ( $course === false ) {
 					// TODO high
