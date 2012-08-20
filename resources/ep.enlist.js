@@ -133,7 +133,7 @@
 			} );
 
 			this.getName = function() {
-				return this.selfMode ? mw.user.name : this.nameInput.val();
+				return this.selfMode ? mw.user.getName() : this.nameInput.val();
 			};
 
 			this.doAdd = function() {
@@ -238,8 +238,8 @@
 						ep.api.getMatchingUsers( _this.nameInput.val() ).done( function( users ) {
 							response( $.map( users, function( user ) {
 								return {
-									'label': user.name,
-									'value': user.name
+									'label': user.getName(),
+									'value': user.getName()
 								};
 							} ) );
 						} );

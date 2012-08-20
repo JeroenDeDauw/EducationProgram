@@ -370,6 +370,10 @@ $wgResourceModules['ep.core'] = $moduleTemplate + array(
 	'scripts' => array(
 		'ep.js',
 	),
+	'dependencies' => array(
+		'mediawiki.jqueryMsg',
+		'mediawiki.language',
+	),
 );
 
 $wgResourceModules['ep.api'] = $moduleTemplate + array(
@@ -510,6 +514,7 @@ $wgResourceModules['ep.articletable'] = $moduleTemplate + array(
 		'jquery.ui.button',
 		'jquery.ui.dialog',
 		'jquery.ui.autocomplete',
+		'ep.core',
 	),
 	'messages' => array(
 		'ep-articletable-addreviwer-title',
@@ -576,8 +581,6 @@ $wgResourceModules['ep.enlist'] = $moduleTemplate + array(
 		'jquery.ui.dialog',
 		'ep.core',
 		'ep.api',
-		'mediawiki.jqueryMsg',
-		'mediawiki.language',
 		'jquery.ui.autocomplete',
 	),
 	'messages' => array(

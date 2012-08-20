@@ -16,7 +16,7 @@
 			'action': window.location
 		} ).msg(
 			'ep-articletable-addreviwer-text',
-			mw.user.name,
+			mw.user.getName(),
 			$( '<b>' ).text( $this.attr( 'data-article-name' ) ),
 			$( '<b>' ).text( $this.attr( 'data-user-name' ) )
 		);
@@ -40,11 +40,11 @@
 		} ) );
 
 		var $dialog = $( '<div>' ).html( '' ).dialog( {
-			'title': ep.msg('ep-articletable-addreviwer-title', mw.user.name ),
+			'title': ep.msg('ep-articletable-addreviwer-title', mw.user.getName() ),
 			'minWidth': 550,
 			'buttons': [
 				{
-					'text': ep.msg( 'ep-articletable-addreviwer-button', mw.user.name ),
+					'text': ep.msg( 'ep-articletable-addreviwer-button', mw.user.getName() ),
 					'id': 'ep-addreviwer-button',
 					'click': function() {
 						$form.submit();
@@ -71,7 +71,7 @@
 			'action': window.location
 		} ).msg(
 			'ep-articletable-remstudent-text',
-			mw.user.name,
+			mw.user.getName(),
 			$( '<b>' ).text( $this.attr( 'data-course-name' ) ),
 			$( '<b>' ).text( $this.attr( 'data-user-name' ) )
 		);
@@ -101,11 +101,11 @@
 		} ) );
 
 		var $dialog = $( '<div>' ).html( '' ).dialog( {
-			'title': ep.msg('ep-articletable-remstudent-title', mw.user.name ),
+			'title': ep.msg('ep-articletable-remstudent-title', mw.user.getName() ),
 			'minWidth': 550,
 			'buttons': [
 				{
-					'text': ep.msg( 'ep-articletable-remstudent-button', mw.user.name ),
+					'text': ep.msg( 'ep-articletable-remstudent-button', mw.user.getName() ),
 					'id': 'ep-remstudent-button',
 					'click': function() {
 						$form.submit();
@@ -129,7 +129,7 @@
 		courseName = $this.attr( 'data-course-name' ),
 		isSelf = $this.attr( 'data-student-name' ) === undefined,
 		selfSuffix = isSelf ? '-self' : '',
-		studentName = isSelf ? mw.user.name : $this.attr( 'data-student-name' );
+		studentName = isSelf ? mw.user.getName() : $this.attr( 'data-student-name' );
 
 		var $form = $( '<form>' ).attr( {
 			'method': 'post',
@@ -187,7 +187,7 @@
 		var $this = $( this ),
 		isSelf = $this.attr( 'data-reviewer-name' ) === undefined,
 		selfSuffix = isSelf ? '-self' : '',
-		reviewerName = isSelf ? mw.user.name : $this.attr( 'data-reviewer-name' );
+		reviewerName = isSelf ? mw.user.getName() : $this.attr( 'data-reviewer-name' );
 
 		var $form = $( '<form>' ).attr( {
 			'method': 'post',
