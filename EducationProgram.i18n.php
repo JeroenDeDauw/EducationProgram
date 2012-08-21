@@ -823,6 +823,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
  * @author Fulup
  * @author Jeroen De Dauw
  * @author Kghbln
+ * @author McDutchie
  * @author Meno25
  * @author Nemo bis
  * @author Raymond
@@ -1165,7 +1166,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-articletable-remstudent-text' => 'Message explaining what the user is about to do in a confirmation dialog. This will permanently remove their associated articles and reviewers! Parameters:
 * $1 is user name.
 * $2 is a course.
-* $3 is a link to user $1.',
+* $3 is a link to user $1.
+{{Doc-singularthey}}',
 	'ep-articletable-remarticle-title' => 'Dialog title. Parameters:
 * $1 is the name of the affected article',
 	'ep-articletable-remarticle-button' => 'Remove button text',
@@ -7469,7 +7471,7 @@ $messages['he'] = array(
 	'ep-articletable-remarticle-button' => 'הסרת ערך',
 	'ep-articletable-remarticle-cancel' => 'ביטול',
 	'ep-articletable-remarticle-text-self' => 'הנכם עומדים להסיר את הערך $1 מרשימת הערכים שנמצאים בעבודה במסגרת הקורס $2.',
-	'ep-articletable-remarticle-text' => 'הנכם עומדים להסיר את הערך $1 מרשימת הערכים שנמצאים בעבודה במסגרת הקורס $2.',
+	'ep-articletable-remarticle-text' => 'הנכם עומדים להסיר את הערך $1 מרשימת הערכים שהתלמיד $3 עובד עליהם במסגרת קורס $2.',
 	'ep-articles-noresults' => 'אין ערכים לפרט.',
 	'epcapager-header-photo' => 'תמונה',
 	'epcapager-header-user-id' => 'שם המשתמש',
@@ -7641,7 +7643,6 @@ $messages['he'] = array(
 	'orgpage-epundelete-summary' => 'סיבת ביטול המחיקה:',
 	'orgpage-epundelete-undelete-button' => 'ביטול מחיקת מוסד',
 	'orgpage-epundelete-cancel-button' => 'ביטול',
-	'orgpage-epundelete-undid' => 'המוסד $1 שוחזר בהצלחה.',
 	'orgpage-epundelete-undo-failed' => 'שחזור המוסד $1 נכשל.',
 	'ep-student-title' => 'תלמיד: $1',
 	'ep-student-actively-enrolled' => 'רשומים כעת',
@@ -7649,8 +7650,8 @@ $messages['he'] = array(
 	'specialstudent-summary-active-enroll' => 'מצב הרשמה',
 	'specialstudent-summary-last-active' => 'פעילות אחרונה',
 	'specialstudent-summary-first-enroll' => 'ההרשמה הראשונה',
-	'specialstudent-summary-user' => 'משתמש',
-	'ep-student-courses' => 'קורסים אליהם נרשם התלמיד הזה',
+	'specialstudent-summary-user' => 'שם משתמש',
+	'ep-student-courses' => 'קורסים שהתלמיד הזה נרשם אליהם',
 	'ep-student-articles' => 'ערכים שנמצאים בעבודה של הסטודנט/ית',
 	'ep-enroll-title' => 'הרשמה ל$1 ב$2',
 	'ep-enroll-login-first' => 'לפני שאפשר להירשם לקורס הזה, צריך להיכנס לחשבון.',
@@ -7680,9 +7681,9 @@ $messages['he'] = array(
 	'ep-disenroll-success' => 'ביטול הרשמתך לקורס בוצע בהצלחה.',
 	'ep-disenroll-returnto' => 'חזרה ל[[Course:$1|קורס $1]].',
 	'ep-mycourses-enrolled' => 'הרשמתך לקורס $1 של $2 הושלמה בהצלחה.',
-	'ep-mycourses-not-enrolled' => 'אין עבורכם רישום לקורסים. ראו [[מיוחד: Courses|רשימת קורסים]].',
+	'ep-mycourses-not-enrolled' => "שמך אינו רשום בשום קורס. ר' [[Special:Courses|רשימת קורסים]].",
 	'ep-mycourses-no-such-course' => 'אין הרשמה עבורך לקורס בשם "$1". קורסים שעליהם נרשמת מופיעים ברשימה להלן.',
-	'ep-mycourses-nocourses-epstudent' => 'אין עבורך רישום ל[[מיוחד: Courses|קורסים]].',
+	'ep-mycourses-nocourses-epstudent' => 'שמך אינו רשום [[Special:Courses|בשום קורס]].',
 	'ep-mycourses-login-first' => 'עליך להיכנס למערכת כדי שיהיה באפשרותך לצפות בקורסים.',
 	'ep-mycourses-courses-epstudent' => '{{PLURAL:$1|קורס|קורסים}} שאליהם נרשמתי',
 	'ep-mycourses-nocourses-epca' => 'אין קורסים בהם {{GENDER:$1|אתה שגריר|את שגרירת}} קמפוס.',
@@ -7701,11 +7702,11 @@ $messages['he'] = array(
 	'ep-instructor-add-close-button' => 'סגור',
 	'ep-instructor-add-retry' => 'נסה שוב',
 	'ep-instructor-add-title' => 'הוספת מרצה לקורס',
-	'ep-instructor-add-self-title' => 'הפיכה למרצה בקורס זה',
+	'ep-instructor-add-self-title' => 'הגדרה בתור {{GENDER:$1|מרצה}} בקורס זה',
 	'ep-instructor-add-button' => 'הוספת מורה',
-	'ep-instructor-add-self-button' => 'הפיכה למרצה',
+	'ep-instructor-add-self-button' => 'הגדרה התור {{GENDER:$1|מרצה}}',
 	'ep-instructor-add-text' => 'הוספת מרצה לקורס $1 . הזינו את שם המשתמש של המרצה ותיאור קצר להוספה.',
-	'ep-instructor-add-self-text' => 'הוספת עצמך כמרצה בקורס $1. נא צליין הסבר קצר לפעולה זו.',
+	'ep-instructor-add-self-text' => 'הוספת עצמך {{GENDER:$2|כמרצה}} בקורס $1. נא לציין הסבר קצר לפעולה זו.',
 	'ep-instructor-add-cancel-button' => 'ביטול',
 	'ep-instructor-summary-input' => 'תקציר:',
 	'ep-instructor-name-input' => 'שם משתמש:',
@@ -7741,7 +7742,7 @@ $messages['he'] = array(
 	'ep-instructor-remove' => 'הסרה מלהיות מורה',
 	'ep-enlist-invalid-course' => 'אין קורס עם המזהה שניתן',
 	'onlineambassadorprofile' => 'פרופיל שגריר מקוון',
-	'epoa-profile-bio' => 'ביוגרפיה קצרה',
+	'epoa-profile-bio' => 'קורות חיים קצרים',
 	'epoa-profile-photo' => 'תמונת פרופיל',
 	'epoa-profile-saved' => 'הפרופיל שלך נשמר',
 	'campusambassadorprofile' => 'פרופיל שגריר קמפוס',
@@ -7986,6 +7987,7 @@ $messages['ia'] = array(
 	'ep-form-minor' => 'Isto es un modification minor',
 	'ep-move-error' => 'Tu non pote renominar articulos a in o foras del spatios de nomines de education.',
 	'ep-student-view-profile' => 'profilo de studente',
+	'ep-err-failed-to-save' => 'Un error ha occurrite. Le modificationes non ha essite salveguardate.',
 	'ep-tab-view' => 'Leger',
 	'ep-tab-edit' => 'Modificar',
 	'ep-tab-create' => 'Crear',
@@ -8248,7 +8250,7 @@ $messages['ia'] = array(
 	'ep-articletable-remstudent-title' => 'Remover le {{GENDER:$1|studente}} del curso',
 	'ep-articletable-remstudent-button' => 'Remover {{GENDER:$1|studente}}',
 	'ep-articletable-remstudent-cancel' => 'Cancellar',
-	'ep-articletable-remstudent-text' => 'Tu es sur le puncto de remover $3 como {{GENDER:$1|studente}} del curso $2.
+	'ep-articletable-remstudent-text' => 'Tu es sur le puncto de remover $3 como studente del curso $2.
 
 Isto removera permanentemente su articulos e revisores associate!',
 	'ep-articletable-remarticle-title' => 'Remover articulo $1',
@@ -8292,6 +8294,7 @@ Ecce le registro de deletiones pro iste institution:",
 	'educationprogram-org-invalid-name' => 'Le nomine debe continer al minus $1 {{PLURAL:$1|character|characteres}}.',
 	'educationprogram-org-invalid-city' => 'Le nomine del citate debe continer al minus $1 {{PLURAL:$1|character|characteres}}.',
 	'educationprogram-org-invalid-country' => 'Isto non es un pais valide.',
+	'ep-org-no-slashes' => 'Le titulo del institution non pote continer barras oblique.',
 	'coursepage-edit-legend-add' => 'Adder curso',
 	'coursepage-edit-legend-edit' => 'Modificar curso',
 	'ep-course-edit-org' => 'Institution',
@@ -8321,6 +8324,7 @@ Ecce le registro de deletiones pro iste curso:",
 	'ep-course-invalid-token' => 'Le indicio debe continer al minus $1 {{PLURAL:$1|character|characteres}}.',
 	'ep-course-invalid-description' => 'Le description debe continer al minus $1 {{PLURAL:$1|character|characteres}}.',
 	'ep-course-invalid-lang' => 'Iste lingua non es valide.',
+	'ep-course-no-slashes' => 'Le titulo del curso non pote continer barras oblique.',
 	'coursepage-edit-undelete-revisions' => 'Iste curso ha essite delite. Tu pote $1.',
 	'coursepage-edit-undelete-link' => 'restaurar $1 {{PLURAL:$1|version|versiones}}',
 	'ep-pager-confirm-delete' => 'Es tu secur de voler deler iste elemento?',
@@ -13779,6 +13783,13 @@ Tista' ssib lista sħiħa ta' studenti fuq [[Special:Students|din il-lista]].",
 	'ep-dashboard-login-first' => 'Trid tidħol fil-kont tiegħek sabiex tara l-korsijiet tiegħek.',
 	'ep-dashboard-timeline-empty' => 'Ma kien hemm l-ebda attività riċenti fuq dan il-kors.',
 	'ep-dashboard-enroll-first' => "Attwalment mintix miktub fl-ebda kors attwali. Tista' tara l-[[Special:Courses|lista ta' korsijiet]] u nkiteb f'wieħed minnhom.",
+);
+
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
+ * @author Danmichaelo
+ */
+$messages['nb'] = array(
+	'ep-form-summary' => 'Sammendrag:',
 );
 
 /** Dutch (Nederlands)
