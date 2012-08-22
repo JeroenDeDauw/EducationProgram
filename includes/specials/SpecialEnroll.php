@@ -43,6 +43,10 @@ class SpecialEnroll extends SpecialEPPage {
 	 * @param string $subPage
 	 */
 	public function execute( $subPage ) {
+		if ( $this->getUser()->isBlocked() ) {
+			throw new UserBlockedError( $this->getUser()->getBlock() );
+		}
+
 		parent::execute( $subPage );
 
 		$args = explode( '/', $this->subPage, 3 );
@@ -56,6 +60,9 @@ class SpecialEnroll extends SpecialEPPage {
 			$this->showWarning( wfMessage(  'ep-enroll-no-id' ) );
 		}
 		else {
+			/**
+			 * @var EPCOurse $course
+			 */
 			$course = EPCourses::singleton()->getFromTitle( $courseTitle );
 
 			if ( $course === false ) {
@@ -145,7 +152,7 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$out->addHTML( '<fieldset>' );
 
-		$out->addHTML( '<legend>' . wfMsgHtml( 'ep-enroll-add-token' ) . '</legend>' );
+		$out->addHTML( '<legend>' . $this->msg( 'ep-enroll-add-token' )->escaped() . '</legend>' );
 
 		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-enroll-add-token-doc' ) ) );
 
