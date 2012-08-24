@@ -9366,6 +9366,7 @@ $messages['ja'] = array(
 	'action-ep-remstudent' => 'コースから生徒を除去',
 	'action-ep-online' => 'コースにオンラインアンバサダーを追加または除去',
 	'action-ep-campus' => 'コースにキャンパスアンバサダーを追加または除去',
+	'action-ep-bulkdelcourses' => 'コースの一括削除',
 	'group-epadmin' => '教育プログラム管理者',
 	'group-epadmin-member' => '{{GENDER:$1|教育プログラム管理者}}',
 	'grouppage-epadmin' => '{{ns:project}}:教育プログラム管理者',
