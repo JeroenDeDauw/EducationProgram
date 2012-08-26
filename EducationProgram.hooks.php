@@ -299,7 +299,7 @@ final class EPHooks {
 					$student = EPStudent::newFromUser( $user );
 					$hasCourse = $student !== false && $student->hasCourse( array( 'title' => $title->getText() ) );
 
-					if ( $user->isAllowed( 'ep-enroll' ) ) {
+					if ( $user->isAllowed( 'ep-enroll' ) && !$user->isBlocked() ) {
 						if ( !$hasCourse && EPCourses::singleton()->hasActiveTitle( $title->getText() ) ) {
 							$links['views']['enroll'] = array(
 								'class' => $isSpecial ? 'selected' : false,
