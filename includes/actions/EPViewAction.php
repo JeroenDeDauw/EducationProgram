@@ -52,6 +52,17 @@ abstract class EPViewAction extends EPAction {
 	}
 
 	/**
+	 * @see Action::requiresUnblock
+	 *
+	 * @since 0.2
+	 *
+	 * @return boolean
+	 */
+	public function requiresUnblock() {
+		return false;
+	}
+
+	/**
 	 * (non-PHPdoc)
 	 * @see FormlessAction::onView()
 	 */
