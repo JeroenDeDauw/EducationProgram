@@ -196,5 +196,19 @@ $specialPageAliases['nl'] = array(
 
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = array(
+	'MyCourses' => array( 'Derslerim' ),
+	'ManageCourses' => array( 'DersleriYönet' ),
+	'Institutions' => array( 'Kurumlar', 'Organizasyonlar' ),
+	'Student' => array( 'Öğrenci' ),
+	'Students' => array( 'Öğrenciler' ),
+	'Courses' => array( 'Dersler' ),
+	'EducationProgram' => array( 'EğitimProgramı' ),
+	'Enroll' => array( 'Kaydol' ),
+	'Disenroll' => array( 'KaydınıAldır' ),
+	'CampusAmbassadors' => array( 'KampüsTemsilcileri' ),
+	'OnlineAmbassadors' => array( 'ÇevrimiçiTemsilciler' ),
+	'OnlineAmbassadorProfile' => array( 'ÇevrimiçiTemsilciProfili' ),
+	'CampusAmbassadorProfile' => array( 'KampüsTemsilcisiProfili' ),
+	'StudentActivity' => array( 'ÖğrenciEtkinliği' ),
 	'Articles' => array( 'Maddeler' ),
 );
