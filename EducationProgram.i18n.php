@@ -14722,7 +14722,7 @@ $messages['pms'] = array(
 	'ep-pager-showonly' => "Smon-e mach j'element con",
 	'ep-pager-clear' => 'Scancelé ij filtr',
 	'ep-pager-go' => 'Va',
-	'ep-pager-withselected' => 'Con selessionà',
+	'ep-pager-withselected' => 'Con ij selessionà',
 	'ep-pager-delete-selected' => 'Scancela',
 	'ep-revision-undo' => "buta 'me ch'a l'era",
 	'ep-revision-restore' => "buté 'me ch'a l'era",
@@ -14737,9 +14737,9 @@ $messages['pms'] = array(
 	'eporgpager-yes' => 'É!',
 	'eporgpager-no' => 'Nò',
 	'ep-pager-cancel-button-org' => 'Scancela',
-	'ep-pager-delete-button-org' => 'Gava {{PLURAL:$1|institution|istitussion}}',
-	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Confirma rimossion istitussion|Confirma rimossion ëd vàire istitussion}}',
-	'ep-pager-retry-button-org' => 'Prova torna',
+	'ep-pager-delete-button-org' => "Gavé {{PLURAL:$1|l'institution|j'istitussion}}",
+	'ep-pager-confirm-delete-org' => "{{PLURAL:$1|Ch'a confirma lë sganfament ëd l'istitussion|Ch'a confirma lë sganfament ëd vàire istitussion}}",
+	'ep-pager-retry-button-org' => 'Prové torna',
 	'ep-pager-summary-message-org' => 'Resumé:',
 );
 
