@@ -5000,6 +5000,7 @@ $messages['eu'] = array(
  * @author Hooshmand.hasannia
  * @author Mjbmr
  * @author ZxxZxxZ
+ * @author جواد
  */
 $messages['fa'] = array(
 	'ep-item-summary' => 'خلاصه',
@@ -5031,7 +5032,10 @@ $messages['fa'] = array(
 	'prefs-education' => 'آموزش',
 	'specialpages-group-education' => 'آموزش',
 	'special-mycourses' => 'دوره‌های من',
+	'special-managecourses' => 'مدیریت دوره‌های من',
 	'special-institutions' => 'نهادها',
+	'special-student' => 'دانش‌آموز',
+	'special-students' => 'دانش‌آموزان',
 	'special-educationprogram' => 'برنامهٔ آموزشی',
 	'special-studentactivity' => 'فعالیت‌های دانش‌آموز',
 	'ep-course-status-current' => 'کنونی',
@@ -5084,6 +5088,7 @@ $messages['fa'] = array(
 	'epstudentpager-header-passed-courses' => 'دوره‌های به اتمام رسیده',
 	'epstudentpager-yes' => 'بله',
 	'epstudentpager-no' => 'خیر',
+	'epstudentpager-header-student' => 'دانش‌آموز',
 	'epstudentpager-header-articles' => 'مقاله‌ها',
 	'epstudentpager-header-reviewers' => 'مرورگران',
 	'ep-artciles-remarticle' => 'حذف مقاله',
@@ -5116,6 +5121,7 @@ $messages['fa'] = array(
 	'ep-course-edit-end' => 'تاریخ پایان',
 	'ep-course-edit-description' => 'توضیحات',
 	'ep-course-edit-title' => 'عنوان صفحه',
+	'ep-course-edit-name' => 'نام دوره',
 	'vieworgaction-summary-name' => 'نام',
 	'vieworgaction-summary-city' => 'شهر',
 	'vieworgaction-summary-country' => 'کشور',
@@ -5136,9 +5142,11 @@ $messages['fa'] = array(
 	'ep-instructor-summary' => 'خلاصه:',
 	'ep-online-summary' => 'خلاصه:',
 	'ep-campus-summary' => 'خلاصه:',
+	'coursepage-delete-summary' => 'علت حذف',
 	'coursepage-delete-title' => 'حذف دوره «$1»',
 	'coursepage-delete-cancel-button' => 'لغو',
 	'coursepage-delete-delete-button' => 'حذف دوره',
+	'orgpage-delete-summary' => 'علت حذف:',
 	'orgpage-delete-cancel-button' => 'انصراف',
 	'orgpage-delete-delete-button' => 'حذف نهاد',
 	'orgpage-eprestore-restore-button' => 'احیای نسخه',
@@ -5151,6 +5159,8 @@ $messages['fa'] = array(
 	'orgpage-epundelete-cancel-button' => 'انصراف',
 	'ep-student-title' => 'دانش آموز: $1',
 	'specialstudent-summary-user' => 'نام کاربری',
+	'ep-enroll-gender' => 'جنسیت (اختیاری)',
+	'ep-enroll-realname' => 'نام واقعی (لازم)',
 	'ep-disenroll-cancel' => 'انصراف',
 	'ep-instructor-removing' => 'در حال حذف کردن...',
 	'ep-instructor-close-button' => 'بستن',
@@ -5188,6 +5198,9 @@ $messages['fa'] = array(
 	'ep-diff-new' => 'مقدار جدید',
 	'ep-timeline-ago' => '$1 پیش',
 	'ep-timeline-cutoff' => '$1 ...',
+	'ep-timeline-users-create-article' => "$1 مقاله '''[[ $2 ]]''' را ایجاد نمود.",
+	'ep-timeline-users-create-talk' => "$1 '''[[$2|صفحه بحث]]''' '''[[$3]]''' را ایجاد نمود و {{PLURAL:$4|یک پیام|چند پیام}} در آن قرار داد.",
+	'ep-timeline-users-create-user' => "$1 صفحه کاربر '''[[$2|$3]]''' را ایجاد نمود.",
 );
 
 /** Finnish (suomi)
