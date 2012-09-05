@@ -175,6 +175,14 @@ $specialPageAliases['mk'] = array(
 	'Articles' => array( 'Статии' ),
 );
 
+/** Malayalam (മലയാളം) */
+$specialPageAliases['ml'] = array(
+	'Institutions' => array( 'സ്ഥാപനങ്ങൾ', 'സംഘടനകൾ' ),
+	'Student' => array( 'വിദ്യാർത്ഥി' ),
+	'Students' => array( 'വിദ്യാർത്ഥികൾ' ),
+	'EducationProgram' => array( 'വിദ്യാഭ്യാസപദ്ധതി' ),
+);
+
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'MyCourses' => array( 'MijnCursussen' ),
