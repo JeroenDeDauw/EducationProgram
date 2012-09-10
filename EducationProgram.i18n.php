@@ -3709,6 +3709,7 @@ $messages['diq'] = array(
 	'vieworgaction-summary-city' => 'Sûke',
 	'vieworgaction-summary-country' => 'Dewlet',
 	'vieworgaction-summary-status' => 'Weziyet',
+	'ep-institution-inactive' => 'Aktiv niyo',
 	'ep-institution-active' => 'Aktiv',
 	'ep-institution-courses' => 'Kursi',
 	'ep-course-students' => 'Telebey',
