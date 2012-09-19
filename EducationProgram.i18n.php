@@ -11694,6 +11694,7 @@ $messages['lb'] = array(
 	'ep-institution-create' => 'Et gëtt nach keng Institutioun mam Numm "$1", Dir kënnt se awer uleeën.',
 	'ep-institution-title' => 'Institutioun: $1',
 	'vieworgaction-summary-name' => 'Numm',
+	'vieworgaction-summary-city' => 'Stad',
 	'vieworgaction-summary-country' => 'Land',
 	'vieworgaction-summary-students' => 'Zuel vun de Studenten',
 	'ep-institution-add-course' => 'E Cours derbäisetzen',
