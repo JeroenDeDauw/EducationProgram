@@ -747,7 +747,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-campus-summary-input' => 'Summary:',
 	'ep-campus-name-input' => 'User name:',
 
-	// EPInstrucor
+	// EPInstructor
 	'ep-instructor-remove' => 'remove as instructor',
 
 	// EPCA
@@ -758,7 +758,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// API enlist
 	'ep-enlist-invalid-user-args' => 'You need to either provide the username or the userid parameter',
-	'ep-enlist-invalid-user' => 'The provided user id or name is not valid and can therefore not be associated as instrucor or ambassador with the specified course',
+	'ep-enlist-invalid-user' => 'The provided user id or name is not valid and can therefore not be associated as instructor or ambassador with the specified course',
 	'ep-enlist-invalid-course' => 'There is no course with the provided ID',
 
 	// Special:OnlineAmbassadorProfile
