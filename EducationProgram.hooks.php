@@ -87,7 +87,7 @@ final class EPHooks {
 			if ( $wgUser->isLoggedIn() && $wgUser->getOption( 'ep_showtoplink' ) ) {
 				$url = SpecialPage::getTitleFor( 'MyCourses' )->getLinkUrl();
 				$myCourses = array(
-					'text' => wfMsg( 'ep-toplink' ),
+					'text' => wfMessage( 'ep-toplink' )->text(),
 					'href' => $url,
 					'active' => ( $url == $title->getLinkUrl() )
 				);
@@ -267,7 +267,7 @@ final class EPHooks {
 			if ( $exists ) {
 				$links['views']['view'] = array(
 					'class' => ( !$isSpecial && $type === '' ) ? 'selected' : false,
-					'text' => wfMsg( 'ep-tab-view' ),
+					'text' => $sktemplate->msg( 'ep-tab-view' )->text(),
 					'href' => $title->getLocalUrl()
 				);
 			}
@@ -275,14 +275,14 @@ final class EPHooks {
 			if ( $user->isAllowed( EPPage::factory( $title )->getEditRight() ) ) {
 				$links['views']['edit'] = array(
 					'class' => $type === 'edit' ? 'selected' : false,
-					'text' => wfMsg( $exists ? 'ep-tab-edit' : 'ep-tab-create' ),
+					'text' => $sktemplate->msg( $exists ? 'ep-tab-edit' : 'ep-tab-create' )->text(),
 					'href' => $title->getLocalUrl( array( 'action' => 'edit' ) )
 				);
 
 				if ( $exists ) {
 					$links['actions']['delete'] = array(
 						'class' => $type === 'delete' ? 'selected' : false,
-						'text' => wfMsg( 'ep-tab-delete' ),
+						'text' => $sktemplate->msg( 'ep-tab-delete' )->text(),
 						'href' => $title->getLocalUrl( array( 'action' => 'delete' ) )
 					);
 				}
@@ -291,7 +291,7 @@ final class EPHooks {
 			if ( $exists ) {
 				$links['views']['history'] = array(
 					'class' => $type === 'history' ? 'selected' : false,
-					'text' => wfMsg( 'ep-tab-history' ),
+					'text' => $sktemplate->msg( 'ep-tab-history' )->text(),
 					'href' => $title->getLocalUrl( array( 'action' => 'history' ) )
 				);
 
@@ -303,7 +303,7 @@ final class EPHooks {
 						if ( !$hasCourse && EPCourses::singleton()->hasActiveTitle( $title->getText() ) ) {
 							$links['views']['enroll'] = array(
 								'class' => $isSpecial ? 'selected' : false,
-								'text' => wfMsg( 'ep-tab-enroll' ),
+								'text' => $sktemplate->msg( 'ep-tab-enroll' )->text(),
 								'href' => SpecialPage::getTitleFor( 'Enroll', $title->getText() )->getLocalURL()
 							);
 						}
@@ -312,7 +312,7 @@ final class EPHooks {
 					if ( $hasCourse && EPCourses::singleton()->hasActiveTitle( $title->getText() ) ) {
 						$links[$isSpecial ? 'views' : 'actions']['disenroll'] = array(
 							'class' => $isSpecial ? 'selected' : false,
-							'text' => wfMsg( 'ep-tab-disenroll' ),
+							'text' => $sktemplate->msg( 'ep-tab-disenroll' )->text(),
 							'href' => SpecialPage::getTitleFor( 'Disenroll', $title->getText() )->getLocalURL()
 						);
 					}
@@ -372,7 +372,7 @@ final class EPHooks {
 		$allowed = !in_array( $oldTitle->getNamespace(), $nss ) && !in_array( $newTitle->getNamespace(), $nss );
 
 		if ( !$allowed ) {
-			$error = wfMsg( 'ep-move-error' );
+			$error = wfMessage( 'ep-move-error' )->text();
 		}
 
 		return $allowed;
