@@ -10,6 +10,8 @@
 
 	$( document ).ready( function() {
 
+		window.onbeforeunload = null;
+
 		$( '#bodyContent' ).find( '[type="submit"]' ).button();
 
 		$( '.ep-cancel' ).button().click( function( event ) {
