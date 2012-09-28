@@ -5250,6 +5250,7 @@ $messages['fa'] = array(
 
 /** Finnish (suomi)
  * @author Beluga
+ * @author Crt
  * @author Nike
  * @author Olli
  */
@@ -5306,15 +5307,15 @@ $messages['fi'] = array(
 	'prefs-education' => 'Koulutus',
 	'ep-prefs-showtoplink' => 'Näytä linkki [[Special:MyCourses|omiin kursseihin]] joka sivun yläosassa.',
 	'ep-prefs-showdyk' => 'Näytä "Tiesitkö, että" -laatikko [[Special:MyCourses|omat kurssit]] -sivulla.',
-	'right-ep-course' => 'Hallitse opetusohjelman kursseja',
-	'right-ep-remstudent' => 'Poista opiskelijoita kursseilta',
-	'right-ep-remreviewer' => 'Poista arvioijia artikkeleista',
-	'right-ep-bulkdelcourses' => 'Poista kerralla useita kursseja',
+	'right-ep-course' => 'Hallinnoida opetusohjelman kursseja',
+	'right-ep-remstudent' => 'Poistaa opiskelijoita kursseilta',
+	'right-ep-remreviewer' => 'Poistaa arvioijia artikkeleista',
+	'right-ep-bulkdelcourses' => 'Poistaa kerralla useita kursseja',
 	'right-ep-addstudent' => 'Merkitä käyttäjiä opiskelijoiksi',
 	'action-ep-org' => 'hallita laitoksia',
-	'action-ep-course' => 'hallitse kursseja',
-	'action-ep-remstudent' => 'poista opiskelijoita kursseilta',
-	'action-ep-enroll' => 'liity kursseille',
+	'action-ep-course' => 'hallinnoida kursseja',
+	'action-ep-remstudent' => 'poistaa opiskelijoita kursseilta',
+	'action-ep-enroll' => 'liittyä kursseille',
 	'specialpages-group-education' => 'Koulutus',
 	'special-mycourses' => 'Omat kurssit',
 	'special-managecourses' => 'Kurssieni hallinta',
