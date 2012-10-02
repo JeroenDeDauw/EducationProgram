@@ -3472,7 +3472,7 @@ Du findest eine vollständige Liste der Studenten auf [[Special:Students|der Lis
 	'ep-dashboard-enroll-first' => 'Du bist derzeit für keinen aktiven Kurs eingeschrieben. Du kannst die [[Special:Courses|Liste der Kurse]] ansehen und dich für einen Kurs einschreiben.',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Kghbln
  */
 $messages['de-formal'] = array(
@@ -11442,7 +11442,7 @@ $messages['ksh'] = array(
 	'ep-campus-name-input' => 'Metmaacher_Naame:',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -13907,7 +13907,7 @@ Tista' ssib lista sħiħa ta' studenti fuq [[Special:Students|din il-lista]].",
 	'ep-dashboard-enroll-first' => "Attwalment mintix miktub fl-ebda kors attwali. Tista' tara l-[[Special:Courses|lista ta' korsijiet]] u nkiteb f'wieħed minnhom.",
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Danmichaelo
  */
 $messages['nb'] = array(
@@ -16136,7 +16136,7 @@ $messages['si'] = array(
 	'ep-timeline-users-create-article' => "$1 විසින් '''[[$2]]''' ලිපිය තනන ලදී.",
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  * @author Михајло Анђелковић
  */
