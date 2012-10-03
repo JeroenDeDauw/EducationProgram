@@ -859,10 +859,6 @@ $2 is a user provided comment',
 	'ep-tab-enroll' => 'Tab label',
 	'ep-tab-disenroll' => 'Tab label',
 	'ep-tab-delete' => 'Tab label',
-	'eparticlepager-header-page-id' => 'Table pager column header. This column shows the titles of articles students have been working on',
-	'eparticlepager-header-user-id' => 'Table pager column header. This column shows the names of students (linked to their user profile)',
-	'eparticlepager-header-course-id' => 'Table pager column header. This column shows the name of a course',
-	'eparticlepager-header-reviewers' => 'Table pager column header. This column shows a list of reviewers for an article a student is working on',
 	'tooltip-ep-form-save' => 'Tooltip text',
 	'tooltip-ep-edit-institution' => 'Tooltip text',
 	'tooltip-ep-edit-course' => 'Tooltip text',
@@ -1074,6 +1070,10 @@ $2 is a user provided comment',
 	'ep-pager-go' => 'Submit button text',
 	'ep-pager-withselected' => 'Header of a section with controls that allow doing bulk actions (ie affect the selected items)',
 	'ep-pager-delete-selected' => 'Delete button text',
+	'eparticlepager-header-page-id' => 'Table pager column header. This column shows the titles of articles students have been working on',
+	'eparticlepager-header-user-id' => 'Table pager column header. This column shows the names of students (linked to their user profile)',
+	'eparticlepager-header-course-id' => 'Table pager column header. This column shows the name of a course',
+	'eparticlepager-header-reviewers' => 'Table pager column header. This column shows a list of reviewers for an article a student is working on',
 	'ep-revision-undo' => 'Undo link shown next to revisions on history pages',
 	'ep-revision-restore' => 'Restore link shown next to revisions on history pages',
 	'eporgpager-header-name' => 'Table column header',
@@ -3025,6 +3025,10 @@ $messages['de'] = array(
 	'ep-pager-go' => 'Los',
 	'ep-pager-withselected' => 'Mit ausgewählten',
 	'ep-pager-delete-selected' => 'Löschen',
+	'eparticlepager-header-page-id' => 'Artikel',
+	'eparticlepager-header-user-id' => 'Student',
+	'eparticlepager-header-course-id' => 'Kurs',
+	'eparticlepager-header-reviewers' => 'Prüfer',
 	'ep-revision-undo' => 'rückgängig machen',
 	'ep-revision-restore' => 'Wiederherstellen',
 	'eporgpager-header-name' => 'Name',
@@ -3483,10 +3487,11 @@ Du findest eine vollständige Liste der Studenten auf [[Special:Students|der Lis
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
+ * @author Das Schäfchen
  * @author Kghbln
  */
 $messages['de-formal'] = array(
-	'ep-move-error' => 'Sie sind nicht berechtigt Seiten aus dem Namensraum Bildung heraus- bzw. in ihn hineinzuverschieben.',
+	'ep-move-error' => 'Sie sind nicht berechtigt, Seiten aus dem Namensraum Bildung heraus- bzw. in ihn hineinzuverschieben.',
 	'ep-err-failed-to-save' => 'Es ist etwas schiefgegangen. Ihre Änderungen wurden daher nicht gespeichert.',
 	'ep-prefs-showtoplink' => 'Zeigt im Seitenkopf einen Link zu [[Special:MyCourses|Ihren Kursen]] an.',
 	'ep-prefs-showdyk' => 'Zeigt den „Schon gewusst“-Kasten auf [[Special:MyCourses|Ihrer Kursseite]] an.',
