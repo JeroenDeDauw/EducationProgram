@@ -12,7 +12,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPRevisionedObject extends ORMRow {
-
 	/**
 	 * If the object should log changes.
 	 * Can be changed via disableLogging and enableLogging.
@@ -33,7 +32,7 @@ abstract class EPRevisionedObject extends ORMRow {
 	/**
 	 *
 	 * @since 0.1
-	 * @var EPRevisionAction|false
+	 * @var EPRevisionAction|bool false
 	 */
 	protected $revAction = false;
 
@@ -42,7 +41,7 @@ abstract class EPRevisionedObject extends ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPRevisionAction|false $revAction
+	 * @param EPRevisionAction|bool $revAction false
 	 */
 	protected function setRevisionAction( $revAction ) {
 		$this->revAction = $revAction;
@@ -84,7 +83,7 @@ abstract class EPRevisionedObject extends ORMRow {
 	 *
 	 * @param string $subType
 	 *
-	 * @return array|false
+	 * @return array|bool false
 	 */
 	protected function getLogInfo( $subType ) {
 		return false;
@@ -252,7 +251,7 @@ abstract class EPRevisionedObject extends ORMRow {
 	 *
 	 * @param integer $id
 	 *
-	 * @return EPRevision|false
+	 * @return EPRevision|bool false
 	 */
 	public function getRevisionById( $id ) {
 		$objects = $this->getRevisions(
@@ -302,7 +301,7 @@ abstract class EPRevisionedObject extends ORMRow {
 	 * @param array $conditions
 	 * @param array $options
 	 *
-	 * @return EPRevision|false
+	 * @return EPRevision|bool false
 	 */
 	public function getLatestRevision( array $conditions = array(), array $options = array() ) {
 		$options['ORDER BY'] = EPRevisions::singleton()->getPrefixedField( 'id' ) . ' DESC';
@@ -458,5 +457,4 @@ abstract class EPRevisionedObject extends ORMRow {
 		$revision = $this->getRevisionById( $revId );
 		return $revision === false ? false : $this->undoRevision( $revision, $fields );
 	}
-
 }

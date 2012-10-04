@@ -25,7 +25,7 @@ class EPOAPager extends EPPager {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conds
-	 * @param ORMTable|null $table
+	 * @param \IORMTable|null|\ORMTable $table
 	 */
 	public function __construct( IContextSource $context, array $conds = array(), IORMTable $table = null ) {
 		$this->mDefaultDirection = true;

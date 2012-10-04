@@ -72,7 +72,7 @@ class EPRevisions extends ORMTable {
 	 *
 	 * @since 0.1
 	 *
-	 * @param IORMRow $object
+	 * @param \EPRevisionedObject|\IORMRow $object
 	 * @param EPRevisionAction $revAction
 	 *
 	 * @return EPRevision
@@ -104,7 +104,7 @@ class EPRevisions extends ORMTable {
 	 *
 	 * @param array $conds
 	 *
-	 * @return EPRevision|false
+	 * @return EPRevision|bool false
 	 */
 	public function getLatestRevision( array $conds ) {
 		return $this->selectRow(

@@ -13,7 +13,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialMyCourses extends SpecialEPPage {
-
 	/**
 	 * @var array of EPCourse
 	 */
@@ -34,6 +33,7 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * @since 0.1
 	 *
 	 * @param string $subPage
+	 * @return bool|void
 	 */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
@@ -63,9 +63,7 @@ class SpecialMyCourses extends SpecialEPPage {
 				SpecialPage::getTitleFor( 'Userlogin' ),
 				$this->msg( 'ep-dashboard-login-first' )->escaped(),
 				array(),
-				array(
-					'returnto' => $this->getTitle( $this->subPage )->getFullText()
-				)
+				array( 'returnto' => $this->getTitle( $this->subPage )->getFullText() )
 			) );
 		}
 	}
@@ -252,5 +250,4 @@ class SpecialMyCourses extends SpecialEPPage {
 		} );
 		$menu->display();
 	}
-
 }

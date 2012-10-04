@@ -17,8 +17,8 @@
 		} ).msg(
 			'ep-articletable-addreviwer-text',
 			mw.user.getName(),
-			$( '<b>' ).text( $this.attr( 'data-article-name' ) ),
-			$( '<b>' ).text( $this.attr( 'data-user-name' ) )
+			$( '<strong>' ).text( $this.attr( 'data-article-name' ) ),
+			$( '<strong>' ).text( $this.attr( 'data-user-name' ) )
 		);
 
 		$form.append( $( '<input>' ).attr( {
@@ -72,8 +72,8 @@
 		} ).msg(
 			'ep-articletable-remstudent-text',
 			mw.user.getName(),
-			$( '<b>' ).text( $this.attr( 'data-course-name' ) ),
-			$( '<b>' ).text( $this.attr( 'data-user-name' ) )
+			$( '<strong>' ).text( $this.attr( 'data-course-name' ) ),
+			$( '<strong>' ).text( $this.attr( 'data-user-name' ) )
 		);
 
 		$form.append( $( '<input>' ).attr( {
@@ -136,9 +136,9 @@
 			'action': $this.attr( 'data-remove-target' )
 		} ).msg(
 			'ep-articletable-remarticle-text' + selfSuffix,
-			$( '<b>' ).text( $this.attr( 'data-article-name' ) ),
-			$( '<b>' ).text( courseName ),
-			$( '<b>' ).text( studentName )
+			$( '<strong>' ).text( $this.attr( 'data-article-name' ) ),
+			$( '<strong>' ).text( courseName ),
+			$( '<strong>' ).text( studentName )
 		);
 
 		$form.append( $( '<input>' ).attr( {
@@ -195,9 +195,9 @@
 		} ).msg(
 			'ep-articletable-remreviwer-text' + selfSuffix,
 			reviewerName,
-			$( '<b>' ).text( $this.attr( 'data-article-name' ) ),
-			$( '<b>' ).text( $this.attr( 'data-student-name' ) ),
-			$( '<b>' ).text( reviewerName )
+			$( '<strong>' ).text( $this.attr( 'data-article-name' ) ),
+			$( '<strong>' ).text( $this.attr( 'data-student-name' ) ),
+			$( '<strong>' ).text( reviewerName )
 		);
 
 		$form.append( $( '<input>' ).attr( {

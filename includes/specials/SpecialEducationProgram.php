@@ -12,7 +12,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialEducationProgram extends SpecialEPPage {
-
 	/**
 	 * Constructor.
 	 *
@@ -28,6 +27,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 	 * @since 0.1
 	 *
 	 * @param string $subPage
+	 * @return bool|void
 	 */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
@@ -51,7 +51,11 @@ class SpecialEducationProgram extends SpecialEPPage {
 	public function displaySummaryTable() {
 		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-summary' ) );
 
-		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-summary-table-header' ) ) . '</tr>';
+		$html .= '<tr>' . Html::element(
+			'th',
+			array( 'colspan' => 2 ),
+			$this->msg( 'ep-summary-table-header' )->text()
+		) . '</tr>';
 
 		$summaryData = $this->getSummaryInfo();
 
@@ -61,7 +65,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 			$html .=  Html::rawElement(
 				'th',
 				array( 'class' => 'ep-summary-name' ),
-				wfMsgExt( strtolower( get_called_class() ) . '-summary-' . $stat, 'parseinline' )
+				$this->msg( strtolower( get_called_class() ) . '-summary-' . $stat )->parse()
 			);
 
 			$html .=  Html::rawElement(
@@ -396,5 +400,4 @@ class SpecialEducationProgram extends SpecialEPPage {
 	protected function prefixKey( $key ) {
 		return  'ep-' . strtolower( $this->mName ) . '-' . $key;
 	}
-
 }

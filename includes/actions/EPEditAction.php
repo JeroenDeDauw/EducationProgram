@@ -13,12 +13,11 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPEditAction extends EPAction {
-
 	/**
 	 * Instance of the object being edited or created.
 	 *
 	 * @since 0.1
-	 * @var EPPageObject|false
+	 * @var EPPageObject|bool false
 	 */
 	protected $item = false;
 
@@ -43,7 +42,7 @@ abstract class EPEditAction extends EPAction {
 	 *
 	 * @param Page $page
 	 * @param IContextSource $context
-	 * @param IORMTable $table
+	 * @param EPPageTable|IORMTable $table
 	 */
 	protected function __construct( Page $page, IContextSource $context = null, EPPageTable $table ) {
 		$this->table = $table;
@@ -78,11 +77,10 @@ abstract class EPEditAction extends EPAction {
 	 */
 	protected function getPageTitle() {
 		$action = $this->isNew() ? 'add' : 'edit';
-		return wfMsgExt(
+		return $this->msg(
 			$this->prefixMsg( 'title-' . $action ),
-			'parsemag',
 			$this->getTitle()->getText()
-		);
+		)->text();
 	}
 
 	/**
@@ -109,7 +107,7 @@ abstract class EPEditAction extends EPAction {
 				$object = $this->table->newRow( $data, true );
 			}
 			elseif ( $this->isNewPost() ) {
-				$this->showWarning( wfMessage( 'ep-' . strtolower( $this->getName() ) . '-exists-already' ) );
+				$this->showWarning( $this->msg( 'ep-' . strtolower( $this->getName() ) . '-exists-already' ) );
 			}
 
 			$out->setPageTitle( $this->getPageTitle() );
@@ -246,7 +244,7 @@ abstract class EPEditAction extends EPAction {
 		$form->setQuery( array( 'action' => 'edit' ) );
 
 		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
-		$form->setSubmitText( wfMsg( 'educationprogram-org-submit' ) );
+		$form->setSubmitText( $this->msg( 'educationprogram-org-submit' )->text() );
 		$form->setSubmitTooltip( 'ep-form-save' );
 		$form->setShowSummary( !$this->isNew() );
 		$form->setShowMinorEdit( !$this->isNew() );
@@ -256,7 +254,7 @@ abstract class EPEditAction extends EPAction {
 
 		$form->addButton(
 			'cancelEdit',
-			wfMsg( 'cancel' ),
+			$this->msg( 'cancel' )->text(),
 			'cancelEdit',
 			array(
 				'data-target-url' => $this->getReturnToTitle()->getFullURL(),
@@ -492,6 +490,4 @@ abstract class EPEditAction extends EPAction {
 		// Override to use.
 		return $value;
 	}
-
-
 }

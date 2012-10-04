@@ -17,7 +17,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	 * Field for caching the linked user.
 	 *
 	 * @since 0.1
-	 * @var User|false
+	 * @var User|bool false
 	 */
 	protected $user = false;
 
@@ -25,7 +25,7 @@ abstract class EPRoleObject extends ORMRow implements EPIRole {
 	 * Cached array of the linked EPCourse objects.
 	 *
 	 * @since 0.1
-	 * @var array|false
+	 * @var array|bool false
 	 */
 	protected $courses = false;
 

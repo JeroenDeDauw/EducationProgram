@@ -12,7 +12,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialStudent extends SpecialEPPage {
-
 	/**
 	 * Constructor.
 	 *
@@ -28,6 +27,7 @@ class SpecialStudent extends SpecialEPPage {
 	 * @since 0.1
 	 *
 	 * @param string $subPage
+	 * @return bool|void
 	 */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
@@ -58,7 +58,7 @@ class SpecialStudent extends SpecialEPPage {
 				$out->addWikiMsg( 'ep-student-none', $this->subPage );
 			}
 			else {
-				$out->setPageTitle( wfMsgExt( 'ep-student-title', 'parsemag', $student->getName() ) );
+				$out->setPageTitle( $this->msg( 'ep-student-title', $student->getName() ) );
 				$this->addCachedHTML( array( $this, 'getPageHTML' ), $student );
 			}
 		}
@@ -87,7 +87,7 @@ class SpecialStudent extends SpecialEPPage {
 			// TODO: high
 		}
 		else {
-			$html .= Html::element( 'h2', array(), wfMsg( 'ep-student-courses' ) );
+			$html .= Html::element( 'h2', array(), $this->msg( 'ep-student-courses' )->text() );
 
 			$html .= EPCoursePager::getPager( $this->getContext(), array( 'id' => $courseIds ) );
 			$this->getOutput()->addModules( EPCoursePager::getModules() );
@@ -104,7 +104,7 @@ class SpecialStudent extends SpecialEPPage {
 			$pager->setShowStudents( false );
 
 			if ( $pager->getNumRows() ) {
-				$html .= Html::element( 'h2', array(), wfMsg( 'ep-student-articles' ) );
+				$html .= Html::element( 'h2', array(), $this->msg( 'ep-student-articles' )->text() );
 
 				$html .=
 					$pager->getFilterControl() .
@@ -136,7 +136,7 @@ class SpecialStudent extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPStudent $student
+	 * @param \EPStudent|\IORMRow $student
 	 *
 	 * @return array
 	 */
@@ -148,9 +148,8 @@ class SpecialStudent extends SpecialEPPage {
 
 		$stats['first-enroll'] = htmlspecialchars( $this->getLanguage()->timeanddate( $student->getField( 'first_enroll' ), true ) );
 		$stats['last-active'] = htmlspecialchars( $this->getLanguage()->timeanddate( $student->getField( 'last_active' ), true ) );
-		$stats['active-enroll'] = wfMsgHtml( $student->getField( 'active_enroll' ) ? 'ep-student-actively-enrolled' : 'ep-student-no-active-enroll' );
+		$stats['active-enroll'] = $this->msg( $student->getField( 'active_enroll' ) ? 'ep-student-actively-enrolled' : 'ep-student-no-active-enroll' )->escaped();
 
 		return $stats;
 	}
-
 }
