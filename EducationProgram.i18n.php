@@ -149,7 +149,7 @@ $messages['en'] = array(
 	'right-ep-remreviewer' => 'Remove reviewers from articles',
 	'right-ep-bulkdelorgs' => 'Bulk delete institutions',
 	'right-ep-bulkdelcourses' => 'Bulk delete courses',
-	'right-ep-remarticle' => 'Dissasociate articles from students',
+	'right-ep-remarticle' => 'Disassociate articles from students',
 	'right-ep-addstudent' => 'Enroll users as student',
 
 	// Actions
@@ -168,7 +168,7 @@ $messages['en'] = array(
 	'action-ep-remreviewer' => 'remove reviewers from articles',
 	'action-ep-bulkdelorgs' => 'bulk delete institutions',
 	'action-ep-bulkdelcourses' => 'bulk delete courses',
-	'action-ep-remarticle' => 'dissasociate articles from students',
+	'action-ep-remarticle' => 'disassociate articles from students',
 	'action-ep-addstudent' => 'enroll users as student',
 
 	// Groups
