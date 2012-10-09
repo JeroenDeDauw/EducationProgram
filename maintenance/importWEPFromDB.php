@@ -241,7 +241,7 @@ class ImportWEPFromDB extends Maintenance {
 			$this->courseIds[$course->course_id] = $courseObject->getId();
 		}
 		catch ( Exception $ex ) {
-			$this->err( "Failed to insert course '$name'." );
+			$this->err( "Failed to insert course '$course->course_coursename'." );
 		}
 	}
 

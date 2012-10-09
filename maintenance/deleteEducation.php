@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Maintenance scrtip for deleting all Wikipedia Education Program data.
+ * Maintenance script for deleting all Wikipedia Education Program data.
  *
  * @since 0.1
  *

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Maintenance scrtip for importing Wikipedia Education Program data from before this extension was used.
+ * Maintenance script for importing Wikipedia Education Program data from before this extension was used.
  *
  * @since 0.1
  *
