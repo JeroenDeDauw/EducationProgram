@@ -13,6 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EditOrgAction extends EPEditAction {
+
 	/**
 	 * Constructor.
 	 *Re
@@ -38,7 +39,7 @@ class EditOrgAction extends EPEditAction {
 	 * @see Action::getDescription()
 	 */
 	protected function getDescription() {
-		return $this->msg( $this->isNew() ? 'ep-addorg' : 'ep-editorg' )->escaped();
+		return wfMsgHtml( $this->isNew() ? 'ep-addorg' : 'ep-editorg' );
 	}
 
 	/**
@@ -64,11 +65,11 @@ class EditOrgAction extends EPEditAction {
 			'required' => true,
 			'validation-callback' => function( $value, array $alldata = null ) {
 				if ( strlen( $value ) < 2 ) {
-					return wfMessage( 'educationprogram-org-invalid-name' )->text();
+					return wfMsg( 'educationprogram-org-invalid-name' );
 				}
 
 				if ( in_string( '/', $value ) ) {
-					return wfMessage( 'ep-org-no-slashes' )->text();
+					return wfMsg( 'ep-org-no-slashes' );
 				}
 
 				return true;
@@ -79,7 +80,7 @@ class EditOrgAction extends EPEditAction {
 			'type' => 'text',
 			'label-message' => 'educationprogram-org-edit-city',
 			'validation-callback' => function( $value, array $alldata = null ) {
-				return $value !== '' && strlen( $value ) < 2 ? wfMessage( 'educationprogram-org-invalid-city' )->text() : true;
+				return $value !== '' && strlen( $value ) < 2 ? wfMsg( 'educationprogram-org-invalid-city' ) : true;
 			},
 		);
 
@@ -107,12 +108,12 @@ class EditOrgAction extends EPEditAction {
 	 * @param string $value
 	 * @param array $alldata
 	 *
-	 * @return string|bool true
+	 * @return string|true
 	 */
 	public function countryIsValid( $value, array $alldata = null ) {
 		$countries = array_keys( CountryNames::getNames( $this->getLanguage()->getCode() ) );
 
-		return in_array( $value, $countries ) ? true : $this->msg( 'educationprogram-org-invalid-country' )->text();
+		return in_array( $value, $countries ) ? true : wfMsg( 'educationprogram-org-invalid-country' );
 	}
 
 	/**
@@ -125,4 +126,5 @@ class EditOrgAction extends EPEditAction {
 	protected function getTitleField() {
 		return 'name';
 	}
+
 }

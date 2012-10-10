@@ -13,6 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPUndoAction extends EPAction {
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getName()
@@ -152,16 +153,17 @@ class EPUndoAction extends EPAction {
 		) );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel(
-			$this->msg( $this->prefixMsg( 'summary' ) )->text(),
+			wfMsg( $this->prefixMsg( 'summary' ) ),
 			'summary',
 			'summary',
 			65,
-			$this->msg(
+			wfMsgExt(
 				$this->prefixMsg( 'summary-value' ),
+				'parsemag',
 				$this->getLanguage()->date( $revision->getField( 'time' ) ),
 				$revision->getUser()->getName(),
 				$this->getLanguage()->time( $revision->getField( 'time' ) )
-			)->text(),
+			),
 			array(
 				'maxlength' => 250,
 				'spellcheck' => true,
@@ -172,7 +174,7 @@ class EPUndoAction extends EPAction {
 
 		$out->addHTML( Html::input(
 			'undo',
-			$this->msg( $this->prefixMsg( 'undo-button' ) )->text(),
+			wfMsg( $this->prefixMsg( 'undo-button' ) ),
 			'submit',
 			array(
 				'class' => 'ep-undo',
@@ -186,7 +188,7 @@ class EPUndoAction extends EPAction {
 				'class' => 'ep-undo-cancel ep-cancel',
 				'data-target-url' => $this->getTitle()->getLocalURL(),
 			),
-			$this->msg( $this->prefixMsg( 'cancel-button' ) )->text()
+			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);
 
 		$out->addHTML( Html::hidden( 'revid', $this->getRequest()->getInt( 'revid' ) ) );
@@ -203,9 +205,11 @@ class EPUndoAction extends EPAction {
 	 * @return string
 	 */
 	protected function getPageTitle() {
-		return $this->msg(
+		return wfMsgExt(
 			$this->prefixMsg( 'title' ),
+			'parsemag',
 			$this->getTitle()->getText()
-		)->text();
+		);
 	}
+
 }

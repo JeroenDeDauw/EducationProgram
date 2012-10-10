@@ -29,7 +29,6 @@ class SpecialInstitutions extends SpecialEPPage {
 	 * @since 0.1
 	 *
 	 * @param string|null $subPage
-	 * @return bool|void
 	 */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );

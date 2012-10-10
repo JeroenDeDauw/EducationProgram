@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPOrgPager extends EPPager {
+
 	/**
 	 * Returns the HTML for a pager with institutions.
 	 *
@@ -109,9 +110,7 @@ class EPOrgPager extends EPPager {
 
 				break;
 			case 'active':
-				// @todo FIXME: Add full text of all used message keys here for grepping
-				//              and transparancy purposes.
-				$value = $this->msg( 'eporgpager-' . ( $value == '1' ? 'yes' : 'no' ) )->escaped();
+				$value = wfMsgHtml( 'eporgpager-' . ( $value == '1' ? 'yes' : 'no' ) );
 				break;
 		}
 
@@ -152,8 +151,8 @@ class EPOrgPager extends EPPager {
 				'type' => 'select',
 				'options' => array(
 					'' => '',
-					$this->msg( 'eporgpager-yes' )->text() => '1',
-					$this->msg( 'eporgpager-no' )->text() => '0',
+					wfMsg( 'eporgpager-yes' ) => '1',
+					wfMsg( 'eporgpager-no' ) => '0',
 				),
 				'value' => '',
 			),
@@ -167,12 +166,12 @@ class EPOrgPager extends EPPager {
 	protected function getControlLinks( IORMRow $item ) {
 		$links = parent::getControlLinks( $item );
 
-		$links[] = $item->getLink( 'view', $this->msg( 'view' )->escaped() );
+		$links[] = $item->getLink( 'view', wfMsgHtml( 'view' ) );
 
 		if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
 			$links[] = $item->getLink(
 				'edit',
-				$this->msg( 'edit' )->escaped(),
+				wfMsgHtml( 'edit' ),
 				array(),
 				array( 'wpreturnto' => $this->getTitle()->getFullText() )
 			);
@@ -198,7 +197,7 @@ class EPOrgPager extends EPPager {
 			&& $this->getUser()->isAllowed( 'ep-bulkdelorgs' )
 			&& $this->getUser()->getOption( 'ep_bulkdelorgs' ) ) {
 
-			$actions[$this->msg( 'ep-pager-delete-selected' )->text()] = array(
+			$actions[wfMsg( 'ep-pager-delete-selected' )] = array(
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) )
 			);
@@ -206,4 +205,5 @@ class EPOrgPager extends EPPager {
 
 		return $actions;
 	}
+
 }

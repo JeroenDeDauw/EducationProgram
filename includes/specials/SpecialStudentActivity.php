@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialStudentActivity extends SpecialEPPage {
+
 	/**
 	 * Constructor.
 	 *
@@ -27,7 +28,6 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 * @since 0.1
 	 *
 	 * @param string $subPage
-	 * @return bool|void
 	 */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
@@ -67,7 +67,6 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 *
 	 * @param array $conds
 	 *
-	 * @param $duration
 	 * @return string
 	 */
 	public function displayPager( array $conds, $duration ) {
@@ -84,10 +83,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 		else {
 			$html = $pager->getFilterControl( true )
 				. '<br />'
-				. $this->msg(
-					'ep-studentactivity-noresults',
-					$this->getLanguage()->formatDuration( $duration, array( 'hours' ) )
-				)->parse();
+				. wfMsgExt( 'ep-studentactivity-noresults', 'parseinline', EPUtils::formatDuration( $duration, array( 'hours' ) ) );
 		}
 
 		return '<div class="studentactivity">' . $html . '</div>';
@@ -113,11 +109,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 			$image = min( round( $studentCount / 10 ) * 10, 60 );
 		}
 
-		$message = $this->msg(
-			'ep-studentactivity-count',
-			$studentCount,
-			$this->getLanguage()->formatDuration( $duration, array( 'hours' ) )
-		)->escaped();
+		$message = $this->msg( 'ep-studentactivity-count', $studentCount, EPUtils::formatDuration( $duration, array( 'hours' ) ) )->escaped();
 
 		return Html::element( 'img', array(
 			'src' => EPSettings::get( 'imageDir' ) . 'student-o-meter_morethan-' . $image . '.png',
@@ -126,4 +118,5 @@ class SpecialStudentActivity extends SpecialEPPage {
 			'class' => 'studentometer'
 		) );
 	}
+
 }

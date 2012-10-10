@@ -55,10 +55,11 @@ class EPHistoryAction extends EPAction {
 	 * @return string
 	 */
 	protected function getPageTitle() {
-		return $this->msg(
+		return wfMsgExt(
 			$this->prefixMsg( 'title' ),
+			'parsemag',
 			$this->getTitle()->getText()
-		)->text();
+		);
 	}
 
 	/**

@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPFailForm extends HTMLForm {
+
 	/**
 	 * The query for the action URL.
 	 * @since 0.1
@@ -109,7 +110,7 @@ class EPFailForm extends HTMLForm {
 			$html .= Html::element(
 				'label',
 				array( 'for' => 'wpSummary' ),
-				$this->msg( 'ep-form-summary' )->text()
+				wfMsg( 'ep-form-summary' )
 			) . '&#160;';
 
 			$attrs = array(
@@ -132,7 +133,7 @@ class EPFailForm extends HTMLForm {
 			$attrs = Linker::tooltipAndAccesskeyAttribs( 'ep-minor' );
 
 			$html .= Xml::checkLabel(
-				$this->msg( 'ep-form-minor' )->text(),
+				wfMsg( 'ep-form-minor' ),
 				'wpMinoredit',
 				'wpMinoredit',
 				false,
@@ -142,4 +143,5 @@ class EPFailForm extends HTMLForm {
 
 		return $html;
 	}
+
 }

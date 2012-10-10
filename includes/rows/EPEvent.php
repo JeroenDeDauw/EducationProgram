@@ -17,7 +17,7 @@ class EPEvent extends ORMRow {
 	 * Field for caching the linked user.
 	 *
 	 * @since 0.1
-	 * @var User|bool false
+	 * @var User|false
 	 */
 	protected $user = false;
 

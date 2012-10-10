@@ -13,6 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPViewAction extends EPAction {
+
 	/**
 	 * @since 0.1
 	 * @var EPPageTable
@@ -32,7 +33,7 @@ abstract class EPViewAction extends EPAction {
 	 *
 	 * @param Page $page
 	 * @param IContextSource $context
-	 * @param EPPageTable|IORMTable $table
+	 * @param IORMTable $table
 	 */
 	protected function __construct( Page $page, IContextSource $context = null, EPPageTable $table ) {
 		$this->table = $table;
@@ -151,13 +152,13 @@ abstract class EPViewAction extends EPAction {
 		$userToolLinks = Linker::userLink(  $rev->getUser()->getId(), $rev->getUser()->getName() )
 			. Linker::userToolLinks( $rev->getUser()->getId(), $rev->getUser()->getName() );
 
-		$infomsg = $rev->isLatest() && !$this->msg( 'revision-info-current' )->isDisabled()
+		$infomsg = $rev->isLatest() && !wfMessage( 'revision-info-current' )->isDisabled()
 			? 'revision-info-current'
 			: 'revision-info';
 
 		$this->getOutput()->setSubtitle(
 			"<div id=\"mw-{$infomsg}\">" .
-				$this->msg( $infomsg, $td )->rawParams( $userToolLinks )->params(
+				wfMessage( $infomsg, $td )->rawParams( $userToolLinks )->params(
 					$rev->getId(),
 					$tdtime,
 					$tddate,
@@ -212,7 +213,7 @@ abstract class EPViewAction extends EPAction {
 
 		$html .= Html::openElement( 'table', array( 'class' => $class ) );
 
-		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), $this->msg( 'ep-item-summary' )->text() ) . '</tr>';
+		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-item-summary' ) ) . '</tr>';
 
 		$summaryData = is_null( $summaryData ) ? $this->getSummaryData( $item ) : $summaryData;
 
@@ -222,7 +223,7 @@ abstract class EPViewAction extends EPAction {
 			$html .= Html::element(
 				'th',
 				array( 'class' => 'ep-summary-name' ),
-				$this->msg( strtolower( get_called_class() ) . '-summary-' . $stat )->text()
+				wfMsg( strtolower( get_called_class() ) . '-summary-' . $stat )
 			);
 
 			$html .= Html::rawElement(
@@ -264,4 +265,5 @@ abstract class EPViewAction extends EPAction {
 			parent::getCacheKey()
 		);
 	}
+
 }

@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPArticleTable extends EPPager {
+
 	/**
 	 * The doBatchLookups method gets all articles relevant to the users that will be displayed
 	 * and stores them in this field.
@@ -34,7 +35,7 @@ class EPArticleTable extends EPPager {
 	 * Cached name of the course for which students are shown (if any).
 	 *
 	 * @since 0.1
-	 * @var string|bool false
+	 * @var string|false
 	 */
 	protected $courseName = false;
 
@@ -246,7 +247,7 @@ class EPArticleTable extends EPPager {
 						'data-token' => $this->getUser()->getEditToken( $this->articleConds['course_id'] . 'remstudent' . $userId ),
 						'class' => 'ep-rem-student',
 					),
-					$this->msg( 'ep-artciles-remstudent' )->text()
+					wfMsg( 'ep-artciles-remstudent' )
 				) )
 			);
 		}
@@ -322,7 +323,7 @@ class EPArticleTable extends EPPager {
 				$html .= ' (' . Html::element(
 					'a',
 					$attr,
-					$this->msg( 'ep-artciles-remarticle' )->text()
+					wfMsg( 'ep-artciles-remarticle' )
 				) . ')';
 			}
 		}
@@ -371,7 +372,7 @@ class EPArticleTable extends EPPager {
 						'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 						'class' => 'ep-rem-reviewer',
 					),
-					$this->msg( 'ep-artciles-remreviewer' )->text()
+					wfMsg( 'ep-artciles-remreviewer' )
 				) )
 			);
 		}
@@ -388,7 +389,7 @@ class EPArticleTable extends EPPager {
 					'data-student-name' => $article->getUser()->getName(),
 					'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 				),
-				$this->msg( 'ep-artciles-remreviewer-self' )->text()
+				wfMsg( 'ep-artciles-remreviewer-self' )
 			);
 		}
 		else {
@@ -430,14 +431,14 @@ class EPArticleTable extends EPPager {
 		);
 
 		$html .=  Xml::inputLabel(
-			$this->msg( 'ep-artciles-addarticle-text' )->text(),
+			wfMsg( 'ep-artciles-addarticle-text' ),
 			'addarticlename',
 			'addarticlename'
 		);
 
 		$html .= '&#160;' . Html::input(
 			'addarticle',
-			$this->msg( 'ep-artciles-addarticle-button' )->text(),
+			wfMsg( 'ep-artciles-addarticle-button' ),
 			'submit',
 			array(
 				'class' => 'ep-addarticle',
@@ -472,7 +473,7 @@ class EPArticleTable extends EPPager {
 				'data-user-name' => $article->getUser()->getName(),
 				'data-token' => $this->getUser()->getEditToken( 'addreviewer' . $article->getId() ),
 			),
-			$this->msg( 'ep-artciles-becomereviewer' )->text()
+			wfMsg( 'ep-artciles-becomereviewer' )
 		);
 
 		return '<td>' . $html . '</td>';
@@ -544,4 +545,5 @@ class EPArticleTable extends EPPager {
 			$this->articles[$article->getField( 'user_id' )][] = $article;
 		}
 	}
+
 }

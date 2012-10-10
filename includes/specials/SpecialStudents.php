@@ -28,7 +28,6 @@ class SpecialStudents extends SpecialEPPage {
 	 * @since 0.1
 	 *
 	 * @param string $subPage
-	 * @return bool|void
 	 */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );

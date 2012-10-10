@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPRevisionPager extends ReverseChronologicalPager {
+
 	/**
 	 * Context in which this pager is being shown.
 	 * @since 0.1
@@ -31,7 +32,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
-	 * @param EPPageTable $table
+	 * @param string $className
 	 * @param array $conds
 	 */
 	public function __construct( IContextSource $context, EPPageTable $table, array $conds = array() ) {
@@ -90,7 +91,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 
 		if ( $revision->getField( 'minor_edit' ) ) {
 			$html .= '&#160;&#160;';
-			$html .= '<strong>' . $this->msg( 'minoreditletter' )->escaped() . '</strong>';
+			$html .= '<b>' . wfMsgHtml( 'minoreditletter' ) . '</b>';
 		}
 
 		if ( $revision->getField( 'comment' ) !== '' ) {
@@ -112,7 +113,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 			if ( $this->mOffset !== '' || $this->rowNr < $this->mResult->numRows() - 1 ) {
 				$actionLinks[] = $object->getLink(
 					'epundo',
-					$this->msg( 'ep-revision-undo' )->escaped(),
+					wfMsgHtml( 'ep-revision-undo' ),
 					array(),
 					array( 'revid' => $revision->getId() )
 				);
@@ -121,7 +122,7 @@ class EPRevisionPager extends ReverseChronologicalPager {
 			if ( $this->mOffset !== '' || $this->rowNr != 0 ) {
 				$actionLinks[] = $object->getLink(
 					'eprestore',
-					$this->msg( 'ep-revision-restore' )->escaped(),
+					wfMsgHtml( 'ep-revision-restore' ),
 					array(),
 					array( 'revid' => $revision->getId() )
 				);
@@ -183,4 +184,5 @@ class EPRevisionPager extends ReverseChronologicalPager {
 	function getIndexField() {
 		return EPRevisions::singleton()->getPrefixedField( 'time' );
 	}
+
 }

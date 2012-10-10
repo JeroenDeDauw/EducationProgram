@@ -13,6 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EditCourseAction extends EPEditAction {
+
 	/**
 	 * Constructor.
 	 *
@@ -38,7 +39,7 @@ class EditCourseAction extends EPEditAction {
 	 * @see Action::getDescription()
 	 */
 	protected function getDescription() {
-		return $this->msg( $this->isNew() ? 'ep-addcourse' : 'ep-editcourse' )->escaped();
+		return wfMsgHtml( $this->isNew() ? 'ep-addcourse' : 'ep-editcourse' );
 	}
 
 	/**
@@ -137,7 +138,7 @@ class EditCourseAction extends EPEditAction {
 			'help-message' => 'ep-course-help-title',
 			'required' => true,
 			'validation-callback' => function( $value, array $alldata = null ) {
-				return in_string( '/', $value ) ? wfMessage( 'ep-course-no-slashes' )->text() : true;
+				return in_string( '/', $value ) ? wfMsg( 'ep-course-no-slashes' ) : true;
 			},
 		);
 
@@ -165,7 +166,7 @@ class EditCourseAction extends EPEditAction {
 			'required' => true,
 			'options' => $orgOptions,
 			'validation-callback' => function( $value, array $alldata = null ) use ( $orgOptions ) {
-				return in_array( (int)$value, array_values( $orgOptions ) ) ? true : wfMessage( 'ep-course-invalid-org' )->text();
+				return in_array( (int)$value, array_values( $orgOptions ) ) ? true : wfMsg( 'ep-course-invalid-org' );
 			},
 		);
 
@@ -177,7 +178,7 @@ class EditCourseAction extends EPEditAction {
 			'size' => 20,
 			'validation-callback' => function( $value, array $alldata = null ) {
 				$strLen = strlen( $value );
-				return ( $strLen !== 0 && $strLen < 2 ) ? wfMessage( 'ep-course-invalid-token', 2 )->text() : true;
+				return ( $strLen !== 0 && $strLen < 2 ) ? wfMsgExt( 'ep-course-invalid-token', 'parsemag', 2 ) : true;
 			} ,
 		);
 
@@ -228,7 +229,7 @@ class EditCourseAction extends EPEditAction {
 			'required' => true,
 			'options' => $langOptions,
 			'validation-callback' => function( $value, array $alldata = null ) use ( $langOptions ) {
-				return in_array( $value, $langOptions ) ? true : wfMessage( 'ep-course-invalid-lang' )->text();
+				return in_array( $value, $langOptions ) ? true : wfMsg( 'ep-course-invalid-lang' );
 			}
 		);
 
@@ -237,7 +238,7 @@ class EditCourseAction extends EPEditAction {
 			'label-message' => 'ep-course-edit-description',
 			'required' => true,
 			'validation-callback' => function( $value, array $alldata = null ) {
-				return strlen( $value ) < 10 ? wfMessage( 'ep-course-invalid-description', 10 )->text() : true;
+				return strlen( $value ) < 10 ? wfMsgExt( 'ep-course-invalid-description', 'parsemag', 10 ) : true;
 			} ,
 			'rows' => 10,
 			'id' => 'wpTextbox1',
@@ -258,11 +259,12 @@ class EditCourseAction extends EPEditAction {
 		if ( $this->isNewPost() ) {
 			$data['org_id'] = $this->getRequest()->getVal( 'neworg' );
 
-			$data['title'] = $this->msg(
+			$data['title'] = wfMsgExt(
 				'ep-course-edit-name-format',
+				'parsemag',
 				$data['name'],
 				$this->getRequest()->getVal( 'newterm' )
-			)->text();
+			);
 
 			$data['term'] = $this->getRequest()->getVal( 'newterm' );
 
@@ -404,4 +406,5 @@ class EditCourseAction extends EPEditAction {
 
 		return $value;
 	}
+
 }

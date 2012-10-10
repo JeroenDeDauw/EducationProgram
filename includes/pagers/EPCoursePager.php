@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPCoursePager extends EPPager {
+
 	/**
 	 * When in read only mode, the pager should not show any course editing controls.
 	 *
@@ -60,7 +61,7 @@ class EPCoursePager extends EPPager {
 	 * @param IContextSource $context
 	 * @param array $conditions
 	 * @param boolean $readOnlyMode
-	 * @param bool|string $filterPrefix false
+	 * @param string|false $filterPrefix
 	 *
 	 * @return string
 	 */
@@ -245,12 +246,12 @@ class EPCoursePager extends EPPager {
 	protected function getControlLinks( IORMRow $item ) {
 		$links = parent::getControlLinks( $item );
 
-		$links[] = $item->getLink( 'view', $this->msg( 'view' )->escaped() );
+		$links[] = $item->getLink( 'view', wfMsgHtml( 'view' ) );
 
 		if ( !$this->readOnlyMode && $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$links[] = $item->getLink(
 				'edit',
-				$this->msg( 'edit' )->escaped(),
+				wfMsgHtml( 'edit' ),
 				array(),
 				array( 'wpreturnto' => $this->getTitle()->getFullText() )
 			);
@@ -277,7 +278,7 @@ class EPCoursePager extends EPPager {
 			&& $this->getUser()->isAllowed( 'ep-bulkdelcourses' )
 			&& $this->getUser()->getOption( 'ep_bulkdelcourses' ) ) {
 
-			$actions[$this->msg( 'ep-pager-delete-selected' )->text()] = array(
+			$actions[wfMsg( 'ep-pager-delete-selected' )] = array(
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) )
 			);
@@ -340,4 +341,5 @@ class EPCoursePager extends EPPager {
 			array( 'id' => $orgIds )
 		);
 	}
+
 }

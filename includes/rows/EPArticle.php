@@ -13,11 +13,12 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPArticle extends ORMRow {
+
 	/**
 	 * Cached user object for this article.
 	 *
 	 * @since 0.1
-	 * @var User|bool false
+	 * @var User|false
 	 */
 	protected $user = false;
 
@@ -25,7 +26,7 @@ class EPArticle extends ORMRow {
 	 * Cached title object for this article.
 	 *
 	 * @since 0.1
-	 * @var Title|bool false
+	 * @var Title|false
 	 */
 	protected $title = false;
 
@@ -33,7 +34,7 @@ class EPArticle extends ORMRow {
 	 * Cached course object for this article.
 	 *
 	 * @since 0.1
-	 * @var Course|bool false
+	 * @var Course|false
 	 */
 	protected $course = false;
 
@@ -111,7 +112,7 @@ class EPArticle extends ORMRow {
 	 *
 	 * @param array|string|null $fields
 	 *
-	 * @return EPCourse|bool false
+	 * @return EPCourse|false
 	 */
 	public function getCourse( $fields = null ) {
 		if ( $this->course === false ) {
@@ -194,8 +195,7 @@ class EPArticle extends ORMRow {
 	 * @since 0.1
 	 *
 	 * @param array $userIds
-	 * @param bool|\false|string $comment
-	 * @return void
+	 * @param string|false $comment
 	 */
 	public function logReviewersAdittion( array $userIds, $comment = false ) {
 		foreach ( $userIds as $userId ) {
@@ -209,8 +209,7 @@ class EPArticle extends ORMRow {
 	 * @since 0.1
 	 *
 	 * @param array $userIds
-	 * @param bool|\false|string $comment
-	 * @return void
+	 * @param string|false $comment
 	 */
 	public function logReviewersRemoval( array $userIds, $comment = false ) {
 		foreach ( $userIds as $userId ) {
@@ -222,8 +221,7 @@ class EPArticle extends ORMRow {
 	 * Log adittion of the article.
 	 *
 	 * @param User $actionUser
-	 * @param bool|\false|string $comment
-	 * @return void
+	 * @param string|false $comment
 	 */
 	public function logAdittion( User $actionUser, $comment = false ) {
 		$this->log(
@@ -237,8 +235,7 @@ class EPArticle extends ORMRow {
 	 * Log removal of the article.
 	 *
 	 * @param User $actionUser
-	 * @param bool|\false|string $comment
-	 * @return void
+	 * @param string|false $comment
 	 */
 	public function logRemoval( User $actionUser, $comment = false ) {
 		$this->log(
@@ -255,8 +252,7 @@ class EPArticle extends ORMRow {
 	 *
 	 * @param User $actionUser
 	 * @param string $subType
-	 * @param bool|\false|string $comment
-	 * @return void
+	 * @param string|false $comment
 	 */
 	protected function log( User $actionUser, $subType, $comment = false ) {
 		$articleOwner = $this->getUser();
@@ -291,4 +287,5 @@ class EPArticle extends ORMRow {
 	public function userCanRemove( User $user ) {
 		return $user->isAllowed( 'ep-remarticle' ) || $user->getId() === $this->getField( 'user_id' );
 	}
+
 }

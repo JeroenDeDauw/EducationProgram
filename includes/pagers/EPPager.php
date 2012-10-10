@@ -13,6 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPPager extends TablePager {
+
 	/**
 	 * Query conditions, full field names (inc prefix).
 	 * @since 0.1
@@ -178,7 +179,7 @@ abstract class EPPager extends TablePager {
 
 		return
 			'<fieldset>' .
-				'<legend>' . $this->msg( 'ep-pager-withselected' )->escaped() . '</legend>' .
+				'<legend>' . wfMsgHtml( 'ep-pager-withselected' ) . '</legend>' .
 				implode( '', $controls ) .
 			'</fieldset>';
 	}
@@ -390,12 +391,12 @@ abstract class EPPager extends TablePager {
 
 		return
  			'<fieldset>' .
-				'<legend>' . $this->msg( 'ep-pager-showonly' )->escaped() . '</legend>' .
+				'<legend>' . wfMsgHtml( 'ep-pager-showonly' ) . '</legend>' .
 				'<form method="post" action="' . htmlspecialchars( wfAppendQuery( $GLOBALS['wgScript'], array( 'title' => $title ) ) ) . '">' .
 					Html::hidden( 'title', $title ) .
 					implode( '', $controls ) .
-					'&#160;<input type="submit" class="ep-pager-go" value="' . $this->msg( 'ep-pager-go' )->escaped() . '">' .
-					'&#160;<button class="ep-pager-clear">' . $this->msg( 'ep-pager-clear' )->escaped() . '</button>' .
+					'&#160;<input type="submit" class="ep-pager-go" value="' . wfMsgHtml( 'ep-pager-go' ) . '">' .
+					'&#160;<button class="ep-pager-clear">' . wfMsgHtml( 'ep-pager-clear' ) . '</button>' .
 				'</form>' .
 			'</fieldset>';
 	}
@@ -445,7 +446,7 @@ abstract class EPPager extends TablePager {
 
 	/**
 	 * Takes a message key and prefixes it with the extension name and name of the pager,
-	 * feeds it to wfMessage, and returns it.
+	 * feeds it to wfMsg, and returns it.
 	 *
 	 * @since 0.1
 	 *
@@ -454,7 +455,7 @@ abstract class EPPager extends TablePager {
 	 * @return string
 	 */
 	protected function getMsg( $messageKey ) {
-		return $this->msg( strtolower( $this->table->getRowClass() ) . 'pager-' . str_replace( '_', '-', $messageKey ) )->text();
+		return wfMsg( strtolower( $this->table->getRowClass() ) . 'pager-' . str_replace( '_', '-', $messageKey ) );
 	}
 
 	/**
@@ -499,7 +500,6 @@ abstract class EPPager extends TablePager {
 	 * @param string $type
 	 * @param integer $id
 	 *
-	 * @param $name
 	 * @return string
 	 */
 	protected function getDeletionLink( $type, $id, $name ) {
@@ -512,7 +512,7 @@ abstract class EPPager extends TablePager {
 				'data-type' => $type,
 				'data-name' => $name,
 			),
-			$this->msg( 'delete' )->text()
+			wfMsg( 'delete' )
 		);
 	}
 
@@ -529,7 +529,7 @@ abstract class EPPager extends TablePager {
 		$tableClass = htmlspecialchars( $this->getTableClass() );
 		$sortClass = htmlspecialchars( $this->getSortHeaderClass() );
 
-		$s = "<table style='border: 1px;' class=\"mw-datatable $tableClass\"><thead><tr>\n";
+		$s = "<table style='border:1;' class=\"mw-datatable $tableClass\"><thead><tr>\n";
 		$fields = $this->getFieldNames();
 
 		# Make table header
@@ -557,13 +557,13 @@ abstract class EPPager extends TablePager {
 						$image = 'Arr_d.png';
 						$query['asc'] = '1';
 						$query['desc'] = '';
-						$alt = $this->msg( 'descending_abbrev' )->escaped();
+						$alt = htmlspecialchars( wfMsg( 'descending_abbrev' ) );
 					} else {
 						# Ascending
 						$image = 'Arr_u.png';
 						$query['asc'] = '';
 						$query['desc'] = '1';
-						$alt = $this->msg( 'ascending_abbrev' )->escaped();
+						$alt = htmlspecialchars( wfMsg( 'ascending_abbrev' ) );
 					}
 
 					$image = htmlspecialchars( "$wgStylePath/common/images/$image" );
@@ -602,4 +602,5 @@ abstract class EPPager extends TablePager {
 
 		return $this->instanceNumber;
 	}
+
 }

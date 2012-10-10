@@ -12,11 +12,12 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPOrg extends EPPageObject {
+
 	/**
 	 * Cached array of the linked EPCourse objects.
 	 *
 	 * @since 0.1
-	 * @var array|bool false
+	 * @var array|false
 	 */
 	protected $courses = false;
 
@@ -73,17 +74,19 @@ class EPOrg extends EPPageObject {
 			$revAction = clone $this->revAction;
 
 			if ( trim( $revAction->getComment() ) === '' ) {
-				$revAction->setComment( wfMessage(
+				$revAction->setComment( wfMsgExt(
 					'ep-org-course-delete',
+					'parsemag',
 					$this->getField( 'name' )
-				)->parse() );
+				) );
 			}
 			else {
-				$revAction->setComment( wfMessage(
+				$revAction->setComment( wfMsgExt(
 					'ep-org-course-delete-comment',
+					'parsemag',
 					$this->getField( 'name' ),
 					$revAction->getComment()
-				)->parse() );
+				) );
 			}
 
 			$course->revisionedRemove( $revAction );
@@ -244,4 +247,5 @@ class EPOrg extends EPPageObject {
 
 		return $this->courses === false ? $courses : $this->courses;
 	}
+
 }

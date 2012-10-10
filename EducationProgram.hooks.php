@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 final class EPHooks {
+
 	/**
 	 * Schema update to set up the needed database tables.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LoadExtensionSchemaUpdates
@@ -471,4 +472,5 @@ final class EPHooks {
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
+
 }

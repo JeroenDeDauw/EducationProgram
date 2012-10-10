@@ -13,6 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPDeleteAction extends EPAction {
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Action::getName()
@@ -123,7 +124,7 @@ class EPDeleteAction extends EPAction {
 		) );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel(
-			$this->msg( $this->prefixMsg( 'summary' ) )->text(),
+			wfMsg( $this->prefixMsg( 'summary' ) ),
 			'summary',
 			'summary',
 			65,
@@ -138,7 +139,7 @@ class EPDeleteAction extends EPAction {
 
 		$out->addHTML( Html::input(
 			'delete',
-			$this->msg( $this->prefixMsg( 'delete-button' ) )->text(),
+			wfMsg( $this->prefixMsg( 'delete-button' ) ),
 			'submit',
 			array(
 				'class' => 'ep-delete',
@@ -152,7 +153,7 @@ class EPDeleteAction extends EPAction {
 				'class' => 'ep-delete-cancel ep-cancel',
 				'data-target-url' => $this->getTitle()->getLocalURL(),
 			),
-			$this->msg( $this->prefixMsg( 'cancel-button' ) )->text()
+			wfMsg( $this->prefixMsg( 'cancel-button' ) )
 		);
 
 		$out->addHTML( Html::hidden( 'deleteToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
@@ -168,9 +169,11 @@ class EPDeleteAction extends EPAction {
 	 * @return string
 	 */
 	protected function getPageTitle() {
-		return $this->msg(
+		return wfMsgExt(
 			$this->prefixMsg( 'title' ),
+			'parsemag',
 			$this->getTitle()->getText()
-		)->text();
+		);
 	}
+
 }

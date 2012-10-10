@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialArticles extends SpecialEPPage {
+
 	/**
 	 * Constructor.
 	 *
@@ -27,7 +28,6 @@ class SpecialArticles extends SpecialEPPage {
 	 * @since 0.1
 	 *
 	 * @param string $subPage
-	 * @return bool|void
 	 */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
@@ -57,4 +57,5 @@ class SpecialArticles extends SpecialEPPage {
 	protected function getCacheKey() {
 		return array_merge( $this->getRequest()->getValues(), parent::getCacheKey() );
 	}
+
 }

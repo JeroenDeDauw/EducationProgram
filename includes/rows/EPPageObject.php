@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EPPageObject extends EPRevisionedObject {
+
 	/**
 	 * @see ORMRow::$table
 	 * @var EPPageTable
@@ -111,4 +112,5 @@ abstract class EPPageObject extends EPRevisionedObject {
 	public function getTouched() {
 		return $this->getField( 'touched' );
 	}
+
 }

@@ -12,11 +12,12 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPCourse extends EPPageObject {
+
 	/**
 	 * Field for caching the linked org.
 	 *
 	 * @since 0.1
-	 * @var EPOrg|bool false
+	 * @var EPOrg|false
 	 */
 	protected $org = false;
 
@@ -24,7 +25,7 @@ class EPCourse extends EPPageObject {
 	 * Cached array of the linked EPStudent objects.
 	 *
 	 * @since 0.1
-	 * @var array|bool false
+	 * @var array|false
 	 */
 	protected $students = false;
 
@@ -62,9 +63,9 @@ class EPCourse extends EPPageObject {
 	 */
 	public static function getStatuses() {
 		return array(
-			wfMessage( 'ep-course-status-passed' )->text() => 'passed',
-			wfMessage( 'ep-course-status-current' )->text() => 'current',
-			wfMessage( 'ep-course-status-planned' )->text() => 'planned',
+			wfMsg( 'ep-course-status-passed' ) => 'passed',
+			wfMsg( 'ep-course-status-current' ) => 'current',
+			wfMsg( 'ep-course-status-planned' ) => 'planned',
 		);
 	}
 
@@ -554,7 +555,7 @@ class EPCourse extends EPPageObject {
 	 * @param boolean $save
 	 * @param EPRevisionAction|null $revAction
 	 *
-	 * @return integer|bool false The amount of enlisted users or false on failiure
+	 * @return integer|false The amount of enlisted users or false on failiure
 	 */
 	public function enlistUsers( $newUsers, $role, $save = true, EPRevisionAction $revAction = null ) {
 		$roleMap = array(
@@ -614,7 +615,7 @@ class EPCourse extends EPPageObject {
 	 * @param boolean $save
 	 * @param EPRevisionAction|null $revAction
 	 *
-	 * @return integer|bool false The amount of unenlisted users or false on failiure
+	 * @return integer|false The amount of unenlisted users or false on failiure
 	 */
 	public function unenlistUsers( $sadUsers, $role, $save = true, EPRevisionAction $revAction = null ) {
 		$sadUsers = (array)$sadUsers;
@@ -740,4 +741,5 @@ class EPCourse extends EPPageObject {
 			$query
 		);
 	}
+
 }

@@ -13,6 +13,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ViewCourseAction extends EPViewAction {
+
 	/**
 	 * Constructor.
 	 *
@@ -52,14 +53,14 @@ class ViewCourseAction extends EPViewAction {
 	public function getPageHTML( IORMRow $course ) {
 		$html = parent::getPageHTML( $course );
 
-		$html .= Html::element( 'h2', array(), $this->msg( 'ep-course-description' )->text() );
+		$html .= Html::element( 'h2', array(), wfMsg( 'ep-course-description' ) );
 
 		$html .= $this->getOutput()->parse( $course->getField( 'description' ) );
 
 		$studentIds = $course->getField( 'students' );
 
 		if ( !empty( $studentIds ) ) {
-			$html .= Html::element( 'h2', array(), $this->msg( 'ep-course-students' )->text() );
+			$html .= Html::element( 'h2', array(), wfMsg( 'ep-course-students' ) );
 
 			$pager = new EPArticleTable(
 				$this->getContext(),
@@ -88,7 +89,7 @@ class ViewCourseAction extends EPViewAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param \EPCourse|\IORMRow $course
+	 * @param EPCourse $course
 	 *
 	 * @return array
 	 */
@@ -137,7 +138,7 @@ class ViewCourseAction extends EPViewAction {
 		$users = $course->getUserWithRole( $roleName );
 
 		if ( empty( $users ) ) {
-			$html = $this->msg( 'ep-course-no-' . $roleName )->escaped();
+			$html = wfMsgHtml( 'ep-course-no-' . $roleName );
 		}
 		else {
 			$instList = array();
@@ -191,7 +192,7 @@ class ViewCourseAction extends EPViewAction {
 					'data-coursename' => $course->getField( 'name' ),
 					'data-mode' => 'self',
 				),
-				$this->msg( 'ep-course-become-' . $roleName )->text()
+				wfMsg( 'ep-course-become-' . $roleName )
 			);
 		}
 
@@ -205,7 +206,7 @@ class ViewCourseAction extends EPViewAction {
 					'data-courseid' => $course->getId(),
 					'data-coursename' => $course->getField( 'name' ),
 				),
-				$this->msg( 'ep-course-add-' . $roleName )->text()
+				wfMsg( 'ep-course-add-' . $roleName )
 			);
 		}
 

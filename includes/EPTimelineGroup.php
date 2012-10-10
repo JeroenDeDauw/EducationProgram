@@ -258,6 +258,7 @@ class EPUnknownGroup extends EPTimelineGroup {
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPEditGroup extends EPTimelineGroup {
+
 	/**
 	 * Builds and returns the HTML for a single of the event segments.
 	 *
@@ -298,7 +299,7 @@ class EPEditGroup extends EPTimelineGroup {
 
 		$html .= '<span class="ep-event-ago">' . $this->msg(
 			'ep-timeline-ago',
-			$this->getLanguage()->formatDuration( $event->getAge(), array( 'days', 'hours', 'minutes' ) )
+			EPUtils::formatDuration( $event->getAge(), array( 'days', 'hours', 'minutes' ) )
 		)->escaped() . '</span>';
 
 		return $html;

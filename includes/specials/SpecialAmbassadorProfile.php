@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class SpecialAmbassadorProfile extends FormSpecialPage {
+
 	/**
 	 * Returns the name of the ambassador class.
 	 *
@@ -61,7 +62,7 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 		if ( $this->getRequest()->getSessionData( 'epprofilesaved' ) ) {
 			$messageKey = $this->getMsgPrefix() . 'profile-saved';
 			$this->getOutput()->addHTML(
-				'<div class="successbox"><strong><p>' . $this->msg( $messageKey )->escaped() . '</p></strong></div>'
+				'<div class="successbox"><strong><p>' . wfMsgHtml( $messageKey ) . '</p></strong></div>'
 					. '<hr style="display: block; clear: both; visibility: hidden;" />'
 			);
 			$this->getRequest()->setSessionData( 'epprofilesaved', false );
@@ -108,7 +109,7 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 			'label-message' => $this->getMsgPrefix() . 'profile-bio',
 			'required' => true,
 			'validation-callback' => function ( $value, array $alldata = null ) use( $msgPrefix ) {
-				return strlen( $value ) < 10 ? wfMessage( $msgPrefix . 'profile-invalid-bio', 10 )->text() : true;
+				return strlen( $value ) < 10 ? wfMsgExt( $msgPrefix . 'profile-invalid-bio', 'parsemag', 10 ) : true;
 			},
 			'rows' => 10,
 			'id' => 'wpTextbox1',
@@ -178,4 +179,5 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 		$menu = new EPMenu( $this->getContext() );
 		$menu->display();
 	}
+
 }

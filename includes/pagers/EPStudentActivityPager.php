@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPStudentActivityPager extends EPPager {
+
 	/**
 	 * List of user ids mapped to user names and real names, set in doBatchLookups.
 	 * The real names will just hold the user name when no real name is set.
@@ -281,6 +282,7 @@ class EPStudentActivityPager extends EPPager {
 	 * @see EPPager::getMsg()
 	 */
 	protected function getMsg( $messageKey ) {
-		return $this->msg( strtolower( get_called_class() ) . '-' . str_replace( '_', '-', $messageKey ) )->text();
+		return wfMsg( strtolower( get_called_class() ) . '-' . str_replace( '_', '-', $messageKey ) );
 	}
+
 }

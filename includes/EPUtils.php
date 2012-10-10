@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPUtils {
+
 	/**
 	 * Create a log entry using the provided info.
 	 * Takes care about the logging interface changes in MediaWiki 1.19.
@@ -127,7 +128,7 @@ class EPUtils {
 					'data-username' => $user->getName(),
 					'data-bestname' => $role->getName(),
 				),
-				$context->msg( 'ep-' . $roleName . '-remove' )->text()
+				wfMsg( 'ep-' . $roleName . '-remove' )
 			);
 
 			$context->getOutput()->addModules( 'ep.enlist' );
@@ -153,12 +154,8 @@ class EPUtils {
 
 		$links[] = Linker::userTalkLink( $userId, $userName );
 
-		$links[] = Linker::link(
-			SpecialPage::getTitleFor( 'Contributions', $userName ),
-			$context->msg( 'contribslink' )->escaped()
-		);
+		$links[] = Linker::link( SpecialPage::getTitleFor( 'Contributions', $userName ), wfMsgHtml( 'contribslink' ) );
 
-		// @todo FIXME: Hard coded parentheses.
 		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( array_merge( $links, $extraLinks ) ) . ')</span>';
 	}
 
@@ -198,7 +195,7 @@ class EPUtils {
 	 *
 	 * @param string $pageName
 	 *
-	 * @return string|bool false
+	 * @return string|false
 	 */
 	public static function getArticleContent( $pageName ) {
 		$title = Title::newFromText( $pageName );
@@ -209,6 +206,59 @@ class EPUtils {
 
 		$article = new Article( $title, 0 );
 		return $article->fetchContent();
+	}
+
+	/**
+	 * Takes a number of seconds and turns it into a text using values such as hours and minutes.
+	 * Compatibility method. As of MW 1.20, this can be found at Language::formatDuration
+	 *
+	 * @since 0.1
+	 *
+	 * @param integer $seconds The amount of seconds.
+	 * @param array $chosenIntervals The intervals to enable.
+	 *
+	 * @return string
+	 */
+	public static function formatDuration( $seconds, array $chosenIntervals = array() ) {
+		global $wgLang;
+
+		if ( method_exists( $wgLang, 'formatDuration' ) ) {
+			return $wgLang->formatDuration( $seconds, $chosenIntervals );
+		}
+
+		$intervals = array(
+			'millennia' => 1000 * 31557600,
+			'centuries' => 100 * 31557600,
+			'decades' => 10 * 31557600,
+			'years' => 31557600, // 86400 * 365.25
+			'weeks' => 604800,
+			'days' => 86400,
+			'hours' => 3600,
+			'minutes' => 60,
+			'seconds' => 1,
+		);
+
+		if ( empty( $chosenIntervals ) ) {
+			$chosenIntervals = array( 'millennia', 'centuries', 'decades', 'years', 'days', 'hours', 'minutes', 'seconds' );
+		}
+
+		$intervals = array_intersect_key( $intervals, array_flip( $chosenIntervals ) );
+		$sortedNames = array_keys( $intervals );
+		$smallestInterval = array_pop( $sortedNames );
+
+		$segments = array();
+
+		foreach ( $intervals as $name => $length ) {
+			$value = floor( $seconds / $length );
+
+			if ( $value > 0 || ( $name == $smallestInterval && empty( $segments ) ) ) {
+				$seconds -= $value * $length;
+				$message = new Message( 'duration-' . $name, array( $value ) );
+				$segments[] = $message->inLanguage( $wgLang )->escaped();
+			}
+		}
+
+		return $wgLang->listToText( $segments );
 	}
 
 	/**
@@ -227,4 +277,5 @@ class EPUtils {
 
 		return in_string( '/', $title );
 	}
+
 }
