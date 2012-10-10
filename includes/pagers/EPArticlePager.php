@@ -8,7 +8,7 @@
  * @since 0.1
  *
  * @file EPAticlePager.php
- * @ingroup EductaionProgram
+ * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
