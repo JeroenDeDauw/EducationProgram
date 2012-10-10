@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_term                VARCHAR(255)        NOT NULL, -- Academic term
   course_lang                VARCHAR(10)         NOT NULL, -- Language (code)
 
-  -- Summary fields - cahing data or computations on data stored elswhere
+  -- Summary fields - caching data or computations on data stored elswhere
   course_instructor_count    TINYINT unsigned    NOT NULL, -- Amount of instructors
   course_oa_count            SMALLINT unsigned   NOT NULL, -- Amount of online ambassadors
   course_ca_count            SMALLINT unsigned   NOT NULL, -- Amount of campus ambassadors
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_students (
   student_id                 INT unsigned        NOT NULL auto_increment PRIMARY KEY,
   student_user_id            INT unsigned        NOT NULL, -- Foreign key on user.user_id
 
-  -- Summary fields - cahing data or computations on data stored elswhere
+  -- Summary fields - caching data or computations on data stored elswhere
   student_first_enroll       varbinary(14)       NOT NULL, -- Time of first enrollment
   student_first_course       INT unsigned        NOT NULL, -- First course the user enrolled in
   student_last_enroll        varbinary(14)       NOT NULL, -- Time of last enrollment
