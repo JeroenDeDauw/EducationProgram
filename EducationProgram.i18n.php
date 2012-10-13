@@ -5545,6 +5545,7 @@ $messages['fi'] = array(
 	'ep-diff-old' => 'Nykyinen arvo',
 	'ep-diff-new' => 'Uusi arvo',
 	'ep-timeline-remaining' => '$1 {{PLURAL:$1|muu|muuta}}',
+	'ep-timeline-ago' => '$1 sitten',
 	'ep-timeline-cutoff' => '$1 ...',
 );
 
@@ -13962,6 +13963,7 @@ $messages['nb'] = array(
  * @author McDutchie
  * @author SPQRobin
  * @author Siebrand
+ * @author Wiki13
  */
 $messages['nl'] = array(
 	'educationprogram-desc' => "Faciliteert onderwijsprogramma's door verschillende interfaces toe te voegen om cursussen, organisatie en verschillende onderwijsrollen te kunnen beheren",
@@ -14446,6 +14448,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-enroll-header' => 'Om u in te schrijven voor deze cursus hoeft u alleen maar dit formulier in te vullen en op te slaan. Daarna bent u ingeschreven.',
 	'ep-enroll-gender' => 'Geslacht (optioneel)',
 	'ep-enroll-realname' => 'Echte naam (verplicht)',
+	'ep-enroll-realname-optional' => 'Echte naam (optioneel)',
 	'ep-enroll-invalid-name' => 'De naam moet tenminste {{PLURAL:$1|één teken|$1 tekens}} bevatten.',
 	'ep-enroll-invalid-gender' => 'Geef uw geslacht op',
 	'ep-enroll-add-token' => 'Voer uw inschrijvingstoken in',
