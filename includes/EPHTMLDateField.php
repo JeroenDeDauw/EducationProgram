@@ -13,7 +13,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPHTMLDateField extends HTMLTextField {
-
 	public function __construct( $params ) {
 		parent::__construct( $params );
 
@@ -38,11 +37,10 @@ class EPHTMLDateField extends HTMLTextField {
 			return $p;
 		}
 
-		$value = trim( $value );
+		//$value = trim( $value );
 
 		// TODO: further validation
 
 		return true;
 	}
-
 }

@@ -13,7 +13,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class SpecialEPPage extends SpecialCachedPage {
-
 	/**
 	 * The subpage, ie the part after Special:PageName/
 	 * Empty string if none is provided.
@@ -30,7 +29,7 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 	 * @return String
 	 */
 	public function getDescription() {
-		return wfMsg( 'special-' . strtolower( $this->getName() ) );
+		return $this->msg( 'special-' . strtolower( $this->getName() ) )->text();
 	}
 
 	/**
@@ -160,7 +159,7 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 
 		$html .= Html::openElement( 'table', array( 'class' => $class ) );
 
-		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), wfMsg( 'ep-item-summary' ) ) . '</tr>';
+		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), $this->msg( 'ep-item-summary' )->text() ) . '</tr>';
 
 		$summaryData = is_null( $summaryData ) ? $this->getSummaryData( $item ) : $summaryData;
 
@@ -170,7 +169,7 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 			$html .= Html::element(
 				'th',
 				array( 'class' => 'ep-summary-name' ),
-				wfMsg( strtolower( get_called_class() ) . '-summary-' . $stat )
+				$this->msg( strtolower( get_called_class() ) . '-summary-' . $stat )->text()
 			);
 
 			$html .= Html::rawElement(
@@ -200,5 +199,4 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 	protected function getSummaryData( IORMRow $item ) {
 		return array();
 	}
-
 }

@@ -17,7 +17,7 @@ class EPRevision extends ORMRow {
 	 * Cached user object for this revision.
 	 *
 	 * @since 0.1
-	 * @var User|false
+	 * @var User|bool false
 	 */
 	protected $user = false;
 
@@ -50,7 +50,7 @@ class EPRevision extends ORMRow {
 	 * @param integer $revId
 	 * @param integer|null $objectId
 	 *
-	 * @return EPRevisionedObject|false
+	 * @return EPRevisionedObject|bool false
 	 */
 	public static function getObjectFromRevId( $revId, $objectId = null ) {
 		$conditions = array(
@@ -92,7 +92,7 @@ class EPRevision extends ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @return EPRevision|false
+	 * @return EPRevision|bool false
 	 */
 	public function getPreviousRevision() {
 		return $this->getObject()->getLatestRevision( array(

@@ -12,7 +12,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialEnroll extends SpecialEPPage {
-
 	/**
 	 * @since 0.1
 	 * @var EPCourse
@@ -21,7 +20,7 @@ class SpecialEnroll extends SpecialEPPage {
 
 	/**
 	 * @since 0.1
-	 * @var string|false
+	 * @var string|bool false
 	 */
 	protected $token = false;
 
@@ -41,6 +40,7 @@ class SpecialEnroll extends SpecialEPPage {
 	 * @since 0.1
 	 *
 	 * @param string $subPage
+	 * @throws UserBlockedError
 	 */
 	public function execute( $subPage ) {
 		if ( $this->getUser()->isBlocked() ) {
@@ -57,7 +57,7 @@ class SpecialEnroll extends SpecialEPPage {
 		$token = count( $args ) > 2 ? $args[2] : false;
 
 		if ( $courseTitle === '' ) {
-			$this->showWarning( wfMessage(  'ep-enroll-no-id' ) );
+			$this->showWarning( $this->msg(  'ep-enroll-no-id' ) );
 		}
 		else {
 			/**
@@ -66,7 +66,7 @@ class SpecialEnroll extends SpecialEPPage {
 			$course = EPCourses::singleton()->getFromTitle( $courseTitle );
 
 			if ( $course === false ) {
-				$this->showWarning( wfMessage( 'ep-enroll-invalid-id' ) );
+				$this->showWarning( $this->msg( 'ep-enroll-invalid-id' ) );
 			}
 			elseif ( in_array( $course->getStatus(), array( 'current', 'planned' ) ) ) {
 				$this->setPageTitle( $course );
@@ -87,7 +87,7 @@ class SpecialEnroll extends SpecialEPPage {
 				}
 				else {
 					if ( $token !== false ) {
-						$this->showWarning( wfMessage( 'ep-enroll-invalid-token' ) );
+						$this->showWarning( $this->msg( 'ep-enroll-invalid-token' ) );
 					}
 
 					$this->showTokenInput();
@@ -96,7 +96,7 @@ class SpecialEnroll extends SpecialEPPage {
 			else {
 				$this->setPageTitle( $course );
 
-				$this->showWarning( wfMessage( 'ep-enroll-course-' . $course->getStatus() ) );
+				$this->showWarning( $this->msg( 'ep-enroll-course-' . $course->getStatus() ) );
 			}
 		}
 	}
@@ -126,7 +126,7 @@ class SpecialEnroll extends SpecialEPPage {
 				}
 			}
 			else {
-				$this->showWarning( wfMessage( 'ep-enroll-not-allowed' ) );
+				$this->showWarning( $this->msg( 'ep-enroll-not-allowed' ) );
 			}
 		}
 		else {
@@ -154,13 +154,13 @@ class SpecialEnroll extends SpecialEPPage {
 
 		$out->addHTML( '<legend>' . $this->msg( 'ep-enroll-add-token' )->escaped() . '</legend>' );
 
-		$out->addHTML( Html::element( 'p', array(), wfMsg( 'ep-enroll-add-token-doc' ) ) );
+		$out->addHTML( Html::element( 'p', array(), $this->msg( 'ep-enroll-add-token-doc' )->text() ) );
 
-		$out->addHTML( '&#160;' . Xml::inputLabel( wfMsg( 'ep-enroll-token' ), 'wptoken', 'wptoken' ) );
+		$out->addHTML( '&#160;' . Xml::inputLabel( $this->msg( 'ep-enroll-token' )->text(), 'wptoken', 'wptoken' ) );
 
 		$out->addHTML( '&#160;' . Html::input(
 			'submittoken',
-			wfMsg( 'ep-enroll-submit-token' ),
+			$this->msg( 'ep-enroll-submit-token' )->text(),
 			'submit'
 		) );
 
@@ -175,12 +175,11 @@ class SpecialEnroll extends SpecialEPPage {
 	 * @param EPCourse $course
 	 */
 	protected function setPageTitle( EPCourse $course ) {
-		$this->getOutput()->setPageTitle( wfMsgExt(
+		$this->getOutput()->setPageTitle( $this->msg(
 			'ep-enroll-title',
-			'parsemag',
 			$course->getField( 'name' ),
 			$course->getOrg( 'name' )->getField( 'name' )
-		) );
+		)->text() );
 	}
 
 	/**
@@ -302,7 +301,7 @@ class SpecialEnroll extends SpecialEPPage {
 				'label-message' => 'ep-enroll-realname' . ( EPSettings::get( 'requireRealName' ) ? '' : '-optional' ),
 				'validation-callback' => function( $value, array $alldata = null ) {
 					if ( EPSettings::get( 'requireRealName' ) && strlen( $value ) < 2 ) {
-						return wfMsgExt( 'ep-enroll-invalid-name', 'parsemag', 2 );
+						return wfMessage( 'ep-enroll-invalid-name' )->numParams( 2 )->text();
 					}
 
 					return true;
@@ -320,7 +319,7 @@ class SpecialEnroll extends SpecialEPPage {
 				'default' => 'unknown',
 				'label-message' => 'ep-enroll-gender',
 				'validation-callback' => function( $value, array $alldata = null ) {
-					return in_array( $value, array( 'male', 'female', 'unknown' ) ) ? true : wfMsg( 'ep-enroll-invalid-gender' );
+					return in_array( $value, array( 'male', 'female', 'unknown' ) ) ? true : wfMessage( 'ep-enroll-invalid-gender' )->text();
 				} ,
 				'options' => array(
 					$this->msg( 'gender-male' )->text() => 'male',
@@ -379,5 +378,4 @@ class SpecialEnroll extends SpecialEPPage {
 			) )
 		);
 	}
-
 }

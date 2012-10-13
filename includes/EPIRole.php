@@ -12,7 +12,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 interface EPIRole {
-
 	/**
 	 * Create a new role object from a user id.
 	 *
@@ -87,5 +86,4 @@ interface EPIRole {
 	 * @return string
 	 */
 	public function getRoleName();
-
 }

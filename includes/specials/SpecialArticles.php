@@ -12,7 +12,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialArticles extends SpecialEPPage {
-
 	/**
 	 * Constructor.
 	 *
@@ -57,5 +56,4 @@ class SpecialArticles extends SpecialEPPage {
 	protected function getCacheKey() {
 		return array_merge( $this->getRequest()->getValues(), parent::getCacheKey() );
 	}
-
 }

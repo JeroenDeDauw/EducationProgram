@@ -59,7 +59,7 @@
 			$remove = $( '#ep-pager-remove-button' );
 
 			var names = args.names.map( function( name ) {
-				return '<b>' + mw.html.escape( name ) + '</b>';
+				return '<strong>' + mw.html.escape( name ) + '</strong>';
 			} ).join( ', ' );
 
 			$dialog.msg(
@@ -144,7 +144,7 @@
 			names = [];
 
 			$table.find( 'tbody' ).find( 'input[type=checkbox]:checked' ).each( function ( i, element ) {
-				$element = $( element );
+				var $element = $( element );
 				ids.push( $element.val() );
 				names.push( $element.closest( 'tr' ).find( '.ep-pager-delete' ).attr( 'data-name' ) );
 			} );
