@@ -12,12 +12,11 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPOrg extends EPPageObject {
-
 	/**
 	 * Cached array of the linked EPCourse objects.
 	 *
 	 * @since 0.1
-	 * @var array|false
+	 * @var array|bool false
 	 */
 	protected $courses = false;
 
@@ -74,19 +73,17 @@ class EPOrg extends EPPageObject {
 			$revAction = clone $this->revAction;
 
 			if ( trim( $revAction->getComment() ) === '' ) {
-				$revAction->setComment( wfMsgExt(
+				$revAction->setComment( wfMessage(
 					'ep-org-course-delete',
-					'parsemag',
 					$this->getField( 'name' )
-				) );
+				)->text() );
 			}
 			else {
-				$revAction->setComment( wfMsgExt(
+				$revAction->setComment( wfMessage(
 					'ep-org-course-delete-comment',
-					'parsemag',
 					$this->getField( 'name' ),
 					$revAction->getComment()
-				) );
+				)->text() );
 			}
 
 			$course->revisionedRemove( $revAction );
@@ -200,10 +197,10 @@ class EPOrg extends EPPageObject {
 
 		$html .= '<legend>' . $context->msg( 'ep-institutions-addnew' )->escaped() . '</legend>';
 
-		$html .= Html::element( 'p', array(), $context->msg( 'ep-institutions-namedoc' )->plain() );
+		$html .= Html::element( 'p', array(), $context->msg( 'ep-institutions-namedoc' )->text() );
 
 		$html .= Xml::inputLabel(
-			$context->msg( 'ep-institutions-newname' )->plain(),
+			$context->msg( 'ep-institutions-newname' )->text(),
 			'newname',
 			'newname',
 			false,
@@ -212,7 +209,7 @@ class EPOrg extends EPPageObject {
 
 		$html .= '&#160;' . Html::input(
 			'addneworg',
-			$context->msg( 'ep-institutions-add' )->plain(),
+			$context->msg( 'ep-institutions-add' )->text(),
 			'submit',
 			array(
 				'disabled' => 'disabled',
@@ -247,5 +244,4 @@ class EPOrg extends EPPageObject {
 
 		return $this->courses === false ? $courses : $this->courses;
 	}
-
 }

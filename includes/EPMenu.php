@@ -13,7 +13,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EPMenu extends ContextSource {
-
 	/**
 	 * Function called before the HTML is build that allows altering the menu items.
 	 *
@@ -123,10 +122,9 @@ class EPMenu extends ContextSource {
 		$menuItems = array();
 
 		foreach ( $items as $messageKey => $title ) {
-			$menuItems[wfMsg( $messageKey )] = $title;
+			$menuItems[$this->msg( $messageKey )->text()] = $title;
 		}
 
 		return $menuItems;
 	}
-
 }

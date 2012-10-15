@@ -40,8 +40,8 @@
 					$cancel.button( 'option', 'label', ep.msg( 'ep-' + role + '-close-button' ) );
 					$cancel.focus();
 
-					$li = $this.closest( 'li' );
-					$ul = $li.closest( 'ul' );
+					var $li = $this.closest( 'li'),
+						$ul = $li.closest( 'ul' );
 					$li.remove();
 
 					if ( $ul.find( 'li' ).length < 1 ) {
@@ -87,8 +87,8 @@
 			$dialog.append( $( '<p>' ).msg(
 				'ep-' + role + '-remove-text',
 				mw.html.escape( userName ),
-				$( '<b>' ).text( bestName ),
-				$( '<b>' ).text( courseName )
+				$( '<strong>' ).text( bestName ),
+				$( '<strong>' ).text( courseName )
 			) );
 
 			//$dialog.append( $( '<p>' ).msg( 'ep-instructor-remove-title' ) );
@@ -170,10 +170,10 @@
 
 					if ( data.count > 0 ) {
 						// TODO: link name to user page and show control links
-						$ul = $( '#ep-course-' + role ).find( 'ul' );
+						var $ul = $( '#ep-course-' + role ).find( 'ul' );
 
 						if ( $ul.length < 1 ) {
-							$ul = $( '<ul>' );
+							var $ul = $( '<ul>' );
 							$( '#ep-course-' + role ).html( $ul );
 						}
 

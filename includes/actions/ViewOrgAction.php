@@ -13,7 +13,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ViewOrgAction extends EPViewAction {
-
 	/**
 	 * Constructor.
 	 *
@@ -49,18 +48,19 @@ class ViewOrgAction extends EPViewAction {
 	/**
 	 * (non-PHPdoc)
 	 * @see EPViewAction::getPageHTML()
+	 * @param IORMRow $org
 	 * @return string
 	 */
 	public function getPageHTML( IORMRow $org ) {
 		$html = parent::getPageHTML( $org );
 
-		$html .= Html::element( 'h2', array(), wfMsg( 'ep-institution-courses' ) );
+		$html .= Html::element( 'h2', array(), $this->msg( 'ep-institution-courses' )->text() );
 
 		$html .= EPCoursePager::getPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
 		$this->getOutput()->addModules( EPCoursePager::getModules() );
 
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-			$html .= Html::element( 'h2', array(), wfMsg( 'ep-institution-add-course' ) );
+			$html .= Html::element( 'h2', array(), $this->msg( 'ep-institution-add-course' )->text() );
 			$html .= EPCourse::getAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
 		}
 
@@ -72,7 +72,7 @@ class ViewOrgAction extends EPViewAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPOrg $org
+	 * @param \EPOrg|\IORMRow $org
 	 *
 	 * @return array
 	 */
@@ -85,7 +85,7 @@ class ViewOrgAction extends EPViewAction {
 		$countries = CountryNames::getNames( $this->getLanguage()->getCode() );
 		$stats['country'] = $countries[$org->getField( 'country' )];
 
-		$stats['status'] = wfMsgHtml( $org->getField( 'active' ) ? 'ep-institution-active' : 'ep-institution-inactive' );
+		$stats['status'] = $this->msg( $org->getField( 'active' ) ? 'ep-institution-active' : 'ep-institution-inactive' )->escaped();
 
 		$stats['courses'] = $this->getLanguage()->formatNum( $org->getField( 'course_count' ) );
 		$stats['students'] = $this->getLanguage()->formatNum( $org->getField( 'student_count' ) );
@@ -119,5 +119,4 @@ class ViewOrgAction extends EPViewAction {
 			$user->isAllowed( 'ep-bulkdelcourses' ) && $user->getOption( 'ep_bulkdelcourses' ),
 		), parent::getCacheKey() );
 	}
-
 }

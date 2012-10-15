@@ -12,7 +12,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialDisenroll extends SpecialEPPage {
-
 	/**
 	 * Constructor.
 	 *
@@ -35,13 +34,13 @@ class SpecialDisenroll extends SpecialEPPage {
 		$args = explode( '/', $this->subPage, 2 );
 
 		if ( $args[0] === '' ) {
-			$this->showWarning( wfMessage(  'ep-disenroll-no-name' ) );
+			$this->showWarning( $this->msg(  'ep-disenroll-no-name' ) );
 		}
 		else {
 			$course = EPCourses::singleton()->getFromTitle( $args[0] );
 
 			if ( $course === false ) {
-				$this->showWarning( wfMessage( 'ep-disenroll-invalid-name', $subPage ) );
+				$this->showWarning( $this->msg( 'ep-disenroll-invalid-name', $subPage ) );
 			}
 			else {
 				if ( EPStudent::newFromUser( $this->getUser() )->hasCourse( array( 'id' => $course->getId() ) ) ) {
@@ -58,7 +57,12 @@ class SpecialDisenroll extends SpecialEPPage {
 								$this->doDisenroll( $course );
 							}
 							else {
-								$this->getOutput()->setPageTitle( wfMsgExt( 'ep-disenroll-title', 'parsemag', $course->getField( 'name' ) ) );
+								$this->getOutput()->setPageTitle(
+									$this->msg(
+										'ep-disenroll-title',
+										$course->getField( 'name' )
+									)->text()
+								);
 								$this->showDisenrollForm( $course );
 							}
 						}
@@ -67,11 +71,11 @@ class SpecialDisenroll extends SpecialEPPage {
 						}
 					}
 					else {
-						$this->showWarning( wfMessage( 'ep-disenroll-course-passed' ) );
+						$this->showWarning( $this->msg( 'ep-disenroll-course-passed' ) );
 					}
 				}
 				else {
-					$this->showWarning( wfMessage( 'ep-disenroll-not-enrolled' ) );
+					$this->showWarning( $this->msg( 'ep-disenroll-not-enrolled' ) );
 				}
 			}
 		}
@@ -86,7 +90,7 @@ class SpecialDisenroll extends SpecialEPPage {
 	protected function showLoginLink() {
 		$this->getOutput()->addHTML( Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Userlogin' ),
-			wfMsgHtml( 'ep-enroll-login-and-enroll' ),
+			$this->msg( 'ep-enroll-login-and-enroll' )->escaped(),
 			array(),
 			array(
 				'returnto' => $this->getTitle( $this->subPage )->getFullText()
@@ -119,7 +123,7 @@ class SpecialDisenroll extends SpecialEPPage {
 		) );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel(
-			wfMsg( 'ep-disenroll-summary' ),
+			$this->msg( 'ep-disenroll-summary' )->text(),
 			'summary',
 			'summary',
 			65,
@@ -134,7 +138,7 @@ class SpecialDisenroll extends SpecialEPPage {
 
 		$out->addHTML( Html::input(
 			'disenroll',
-			wfMsg( 'ep-disenroll-button' ),
+			$this->msg( 'ep-disenroll-button' )->text(),
 			'submit',
 			array(
 				'class' => 'ep-disenroll',
@@ -147,7 +151,7 @@ class SpecialDisenroll extends SpecialEPPage {
 				'class' => 'ep-disenroll-cancel ep-cancel',
 				'data-target-url' => $course->getTitle()->getLocalURL(),
 			),
-			wfMsg( 'ep-disenroll-cancel' )
+			$this->msg( 'ep-disenroll-cancel' )->text()
 		);
 
 		$out->addHTML( Html::hidden( 'disenrollToken', $this->getUser()->getEditToken( $target ) ) );
@@ -175,13 +179,12 @@ class SpecialDisenroll extends SpecialEPPage {
 		) !== false;
 
 		if ( $success ) {
-			$this->showSuccess( wfMessage( 'ep-disenroll-success' ) );
+			$this->showSuccess( $this->msg( 'ep-disenroll-success' ) );
 		}
 		else {
-			$this->showError( wfMessage( 'ep-disenroll-fail' ) );
+			$this->showError( $this->msg( 'ep-disenroll-fail' ) );
 		}
 
 		$this->getOutput()->addWikiMsg( 'ep-disenroll-returnto', $course->getField( 'name' ) );
 	}
-
 }

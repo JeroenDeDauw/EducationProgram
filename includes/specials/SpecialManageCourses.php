@@ -15,7 +15,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialManageCourses extends SpecialEPPage {
-
 	/**
 	 * Constructor.
 	 *
@@ -117,7 +116,7 @@ class SpecialManageCourses extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param $class The name of the EPIRole implementing class
+	 * @param $class string The name of the EPIRole implementing class
 	 */
 	protected function displayRoleAssociation( $class ) {
 		$user = $this->getUser();
@@ -140,7 +139,10 @@ class SpecialManageCourses extends SpecialEPPage {
 		}
 
 		if ( !empty( $courses ) ) {
-			$message = wfMsgExt( 'ep-mycourses-courses-' . strtolower( $class ), 'parsemag', count( $courses ), $this->getUser()->getName() );
+			// @todo FIXME: Add full text of all used message keys here for grepping
+			//              and transparancy purposes.
+			$message = $this->msg( 'ep-mycourses-courses-' . strtolower( $class ) )
+				->numParams( count( $courses ) )->params( $this->getUser()->getName() )->text();
 			$this->getOutput()->addElement( 'h2', array(), $message );
 
 			if ( $class == 'EPStudent' ) {
@@ -294,5 +296,4 @@ class SpecialManageCourses extends SpecialEPPage {
 			$out->addWikiMsg( 'ep-courses-noresults' );
 		}
 	}
-
 }

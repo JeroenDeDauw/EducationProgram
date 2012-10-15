@@ -13,12 +13,11 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ApiEnlist extends ApiBase {
-
 	public function execute() {
 		$params = $this->extractRequestParams();
 
 		if ( !( isset( $params['username'] ) XOR isset( $params['userid'] ) ) ) {
-			$this->dieUsage( wfMsg( 'ep-enlist-invalid-user-args' ), 'username-xor-userid' );
+			$this->dieUsage( $this->msg( 'ep-enlist-invalid-user-args' )->text(), 'username-xor-userid' );
 		}
 
 		if ( isset( $params['username'] ) ) {
@@ -30,7 +29,7 @@ class ApiEnlist extends ApiBase {
 		}
 
 		if ( $userId < 1 ) {
-			$this->dieUsage( wfMsg( 'ep-enlist-invalid-user' ), 'invalid-user' );
+			$this->dieUsage( $this->msg( 'ep-enlist-invalid-user' )->text(), 'invalid-user' );
 		}
 
 		if ( !$this->userIsAllowed( $userId, $params['role'], $params['subaction'] ) ) {
@@ -52,7 +51,7 @@ class ApiEnlist extends ApiBase {
 		$course = EPCourses::singleton()->selectRow( array( 'id', 'name', 'title', $field ), array( 'id' => $params['courseid'] ) );
 
 		if ( $course === false ) {
-			$this->dieUsage( wfMsg( 'ep-enlist-invalid-course' ), 'invalid-course' );
+			$this->dieUsage( $this->msg( 'ep-enlist-invalid-course' )->text(), 'invalid-course' );
 		}
 
 		$revAction = new EPRevisionAction();
@@ -203,5 +202,4 @@ class ApiEnlist extends ApiBase {
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
 	}
-
 }
