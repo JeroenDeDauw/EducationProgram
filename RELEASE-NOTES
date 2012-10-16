@@ -30,6 +30,12 @@ Latest version of the release notes: https://gerrit.wikimedia.org/r/gitweb?p=med
 * Blocked users can now view course and institution pages.
 * Blocked users can no longer enroll in any courses.
 
+; Migration from 0.1
+
+* Update.php needs to be run
+* Courses that where in the Course namespace will no longer be valid, no migration script provided
+* Institutions can remain where they where but the secondary storage needs to be rebuild, no rebuilding script provided
+
 === Version 0.1 ===
 (2012-6-20)
 
