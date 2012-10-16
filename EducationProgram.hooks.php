@@ -12,6 +12,7 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 final class EPHooks {
+
 	/**
 	 * Schema update to set up the needed database tables.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LoadExtensionSchemaUpdates
@@ -117,7 +118,7 @@ final class EPHooks {
 			$preferences['ep_showtoplink'] = array(
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-showtoplink',
-				'section' => 'education',
+				'section' => 'misc/education',
 			);
 		}
 
@@ -125,7 +126,7 @@ final class EPHooks {
 			$preferences['ep_showdyk'] = array(
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-showdyk',
-				'section' => 'education',
+				'section' => 'misc/education',
 			);
 		}
 
@@ -133,7 +134,7 @@ final class EPHooks {
 			$preferences['ep_bulkdelorgs'] = array(
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-bulkdelorgs',
-				'section' => 'education',
+				'section' => 'misc/education',
 			);
 		}
 
@@ -141,7 +142,7 @@ final class EPHooks {
 			$preferences['ep_bulkdelcourses'] = array(
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-bulkdelcourses',
-				'section' => 'education',
+				'section' => 'misc/education',
 			);
 		}
 
@@ -413,6 +414,7 @@ final class EPHooks {
 		if ( !$user->isLoggedIn() ) {
 			return true;
 		}
+
 		wfProfileIn( __METHOD__ );
 		$namespace = $article->getTitle()->getNamespace();
 
@@ -420,6 +422,7 @@ final class EPHooks {
 			wfProfileOut( __METHOD__ );
 			return true;
 		}
+
 		wfProfileIn( __METHOD__ . '-ns' );
 		$conds = array( 'upc_user_id' => $user->getId() );
 
@@ -468,7 +471,9 @@ final class EPHooks {
 			$dbw->commit();
 			wfProfileIn( __METHOD__ . '-courses' );
 		}
+
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
+
 }
