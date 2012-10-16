@@ -5561,6 +5561,7 @@ $messages['fi'] = array(
  * @author Od1n
  * @author Sherbrooke
  * @author Tititou36
+ * @author Verdy p
  * @author 아라
  */
 $messages['fr'] = array(
@@ -5685,18 +5686,6 @@ $messages['fr'] = array(
 	'action-ep-bulkdelcourses' => 'suppression en bloc des cours',
 	'action-ep-remarticle' => 'dissocier les articles des étudiants',
 	'action-ep-addstudent' => 'inscrire des utilisateurs comme étudiant',
-	'group-epadmin' => "Administrateurs du programme d'éducation",
-	'group-epadmin-member' => "{{GENDER:$1|Administrateur|Administratrice}} du programme d'éducation",
-	'grouppage-epadmin' => "{{ns:project}}:Administrateurs du programme d'éducation",
-	'group-epstaff' => "Personnel du programme d'éducation",
-	'group-epstaff-member' => "{{GENDER:$1|Personnel}} du programme d'éducation",
-	'grouppage-epstaff' => "{{ns:project}}:Personnel du programme d'éducation",
-	'group-eponlineamb' => "Ambassadeur en ligne du programme d'éducation",
-	'group-eponlineamb-member' => "{{GENDER:$1|Ambassadeur|Ambassadrice}} en ligne du programme d'éducation",
-	'grouppage-eponlineamb' => "{{ns:project}}:Ambassadeurs en ligne du programme d'éducation",
-	'group-epcampamb' => "Ambassadeur de campus pour le programme d'éducation",
-	'group-epcampamb-member' => "{{GENDER:$1|Ambassadeur|Ambassadrice}} de campus pour le programme d'éducation",
-	'grouppage-epcampamb' => "{{ns:project}}:Ambassadeurs de campus pour le programme d'éducation",
 	'group-epinstructor' => "Instructeur du programme de l'éducation",
 	'group-epinstructor-member' => "{{GENDER:$1|Instructeur|Instructrice}} du programme d'éducation",
 	'grouppage-epinstructor' => "{{ns:project}}:Instructeurs du programme d'éducation",
@@ -5846,12 +5835,12 @@ Cela supprimera définitivement {{GENDER:$1|ses}} articles et relecteurs associ�
 	'ep-articletable-remarticle-text' => "Vous êtes sur le point de supprimer l'article $1 de la liste des articles sur lesquels $3 travaille dans le cadre du cours $2.",
 	'ep-articles-noresults' => "Il n'y a aucun article à lister.",
 	'epcapager-header-photo' => 'Photo',
-	'epcapager-header-user-id' => "Nom d'utilisateur",
+	'epcapager-header-user-id' => 'Nom d’utilisateur',
 	'epcapager-header-bio' => 'Profil',
 	'epcapager-header-courses' => 'Cours actuels',
 	'ep-ca-noresults' => "Il n'y a aucun ambassadeur de campus à lister.",
 	'epoapager-header-photo' => 'Photo',
-	'epoapager-header-user-id' => "Nom d'utilisateur",
+	'epoapager-header-user-id' => 'Nom d’utilisateur',
 	'epoapager-header-bio' => 'Profil',
 	'epoapager-header-courses' => 'Cours actuels',
 	'ep-oa-noresults' => "Il n'y a aucun ambassadeur en ligne à lister.",
@@ -6041,7 +6030,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'specialstudent-summary-active-enroll' => "État d'inscription",
 	'specialstudent-summary-last-active' => 'Dernière activité',
 	'specialstudent-summary-first-enroll' => 'Première inscription',
-	'specialstudent-summary-user' => "Nom d'utilisateur",
+	'specialstudent-summary-user' => 'Nom d’utilisateur',
 	'ep-student-courses' => "Cours auxquels cet étudiant s'est inscrit",
 	'ep-student-articles' => 'Articles sur lesquels cet étudiant travaille',
 	'ep-enroll-title' => "S'inscrire pour $1 à $2",
@@ -6142,7 +6131,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'ep-online-add-self-text' => 'Vous êtes en train de vous ajouter au cours $1 en tant que {{GENDER:$2|ambassadeur|ambassadrice}} en ligne. Veuillez ajouter une courte description expliquant pourquoi vous le faites.',
 	'ep-online-add-cancel-button' => 'Annuler',
 	'ep-online-summary-input' => 'Résumé:',
-	'ep-online-name-input' => "Nom d'utilisateur:",
+	'ep-online-name-input' => 'Nom d’utilisateur :',
 	'ep-campus-remove-title' => "Retirer l'Ambassadeur du campus du cours",
 	'ep-campus-remove-button' => "Supprimer l'Ambassadeur du campus",
 	'ep-campus-removing' => 'Suppression…',
