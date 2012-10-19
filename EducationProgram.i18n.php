@@ -2433,6 +2433,7 @@ $messages['br'] = array(
 
 /** Catalan (català)
  * @author Grondin
+ * @author Pginer
  * @author පසිඳු කාවින්ද
  */
 $messages['ca'] = array(
@@ -2456,7 +2457,7 @@ $messages['ca'] = array(
 	'epcoursepager-header-status' => 'Estat',
 	'epcoursepager-filter-lang' => 'Llengua',
 	'epcoursepager-filter-status' => 'Estat',
-	'ep-pager-cancel-button-course' => 'Cancel.lar',
+	'ep-pager-cancel-button-course' => 'Cancel·lar',
 	'epstudentpager-yes' => 'Sí',
 	'epstudentpager-no' => 'No',
 	'ep-articletable-addreviwer-cancel' => 'Cancel·la',
@@ -2493,7 +2494,7 @@ $messages['ca'] = array(
 	'ep-campus-close-button' => 'Tancar',
 	'ep-campus-cancel-button' => 'Cancel·lar',
 	'ep-campus-add-close-button' => 'Tancar',
-	'ep-campus-add-cancel-button' => 'Cancel.lar',
+	'ep-campus-add-cancel-button' => 'Cancel·lar',
 	'ep-campus-summary-input' => 'Resum:',
 	'ep-timeline-cutoff' => '$1 ...',
 );
@@ -3676,7 +3677,7 @@ $messages['diq'] = array(
 	'ep-pager-summary-message-course' => 'Xulasa:',
 	'epstudentpager-header-user-id' => 'Namey karberi',
 	'epstudentpager-header-id' => 'İd',
-	'epstudentpager-yes' => 'Heya',
+	'epstudentpager-yes' => 'E',
 	'epstudentpager-no' => 'Nê',
 	'epstudentpager-header-student' => 'Telebe',
 	'epstudentpager-header-articles' => 'Wesiqey',
@@ -4216,10 +4217,13 @@ $messages['es'] = array(
 	'action-ep-addstudent' => 'inscribir a usuarios como alumnos',
 	'group-epcoordinator' => 'Coordinadores del programa de educación',
 	'group-epcoordinator-member' => '{{GENDER:$1|Coordinador del programa de educación|Coordinadora del programa de educación}}',
+	'grouppage-epcoordinator' => '{{ns:project}}:Coordinadores del programa educativo',
 	'group-eponline' => 'Voluntarios en línea del programa de educación',
 	'group-eponline-member' => '{{GENDER:$1|Voluntario en línea del programa educativo|Voluntaria en línea del programa educativo}}',
+	'grouppage-eponline' => '{{ns:project}}:Voluntarios en línea del programa educativo',
 	'group-epcampus' => 'Voluntarios de campus en el programa de educación',
 	'group-epcampus-member' => '{{GENDER:$1|Voluntario de campus en el programa educativo|Voluntaria de campus en el programa educativo}}',
+	'grouppage-epcampus' => '{{ns:project}}:Voluntarios de campus del programa de educación',
 	'group-epinstructor' => 'Instructor del programa educativo',
 	'group-epinstructor-member' => '{{GENDER:$1|Instructor del programa educativo|Instructora del programa educativo}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Instructores del programa de educación',
