@@ -351,10 +351,6 @@ $wgAddGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
 $wgRemoveGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
 
 // Namespaces
-//define( 'EP_NS_COURSE',				442 + 0 );
-//define( 'EP_NS_COURSE_TALK', 		442 + 1 );
-//define( 'EP_NS_INSTITUTION', 		442 + 2 );
-//define( 'EP_NS_INSTITUTION_TALK', 	442 + 3 );
 define( 'EP_NS',					442 + 4 );
 define( 'EP_NS_TALK', 				442 + 5 );
 
