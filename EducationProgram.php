@@ -347,8 +347,11 @@ $wgGroupPermissions['epinstructor']['ep-remstudent'] = true;
 $wgGroupPermissions['epinstructor']['ep-remarticle'] = true;
 
 $wgGroupPermissions['epcoordinator']['userrights'] = false;
+
 $wgAddGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
 $wgRemoveGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
+$wgAddGroups['sysop'] = array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' );
+$wgRemoveGroups['sysop'] = array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' );
 
 // Namespaces
 //define( 'EP_NS_COURSE',				442 + 0 );
