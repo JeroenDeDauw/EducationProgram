@@ -172,21 +172,21 @@ $messages['en'] = array(
 	'action-ep-addstudent' => 'enroll users as student',
 
 	// Groups
-	'group-epcoordinator' => 'Education program coordinators',
-	'group-epcoordinator-member' => '{{GENDER:$1|Education Program coordinator}}',
-	'grouppage-epcoordinator' => '{{ns:project}}:Education_program_coordinators',
+	'group-epcoordinator' => 'Course coordinators',
+	'group-epcoordinator-member' => '{{GENDER:$1|Course coordinator}}',
+	'grouppage-epcoordinator' => '{{ns:project}}:Course_coordinators',
 
-	'group-eponline' => 'Education program online volunteers',
-	'group-eponline-member' => '{{GENDER:$1|Education Program online volunteer}}',
-	'grouppage-eponline' => '{{ns:project}}:Education_program_online_volunteers',
+	'group-eponline' => 'Course online volunteers',
+	'group-eponline-member' => '{{GENDER:$1|Course online volunteer}}',
+	'grouppage-eponline' => '{{ns:project}}:Course_online_volunteers',
 
-	'group-epcampus' => 'Education program campus volunteers',
-	'group-epcampus-member' => '{{GENDER:$1|Education Program campus volunteer}}',
-	'grouppage-epcampus' => '{{ns:project}}:Education_program_campus_volunteers',
+	'group-epcampus' => 'Course campus volunteers',
+	'group-epcampus-member' => '{{GENDER:$1|Course campus volunteer}}',
+	'grouppage-epcampus' => '{{ns:project}}:Course_campus_volunteers',
 
-	'group-epinstructor' => 'Education program instructor',
-	'group-epinstructor-member' => '{{GENDER:$1|Education Program instructor}}',
-	'grouppage-epinstructor' => '{{ns:project}}:Education_program_instructors',
+	'group-epinstructor' => 'Course instructor',
+	'group-epinstructor-member' => '{{GENDER:$1|Course instructor}}',
+	'grouppage-epinstructor' => '{{ns:project}}:Course_instructors',
 
 	// Special pages
 	'specialpages-group-education' => 'Education',

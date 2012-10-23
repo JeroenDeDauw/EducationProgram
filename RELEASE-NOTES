@@ -4,6 +4,13 @@ Extension page on mediawiki.org: https://www.mediawiki.org/wiki/Extension:Educat
 Latest version of the release notes: https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/EducationProgram.git;a=blob;f=RELEASE-NOTES
 
 
+=== Version 0.3 ===
+(dev)
+
+; Enhancements
+
+* Renamed user groups from "Education Program $1" to "Course $1".
+
 === Version 0.2 ===
 (2012-10-16)
 
