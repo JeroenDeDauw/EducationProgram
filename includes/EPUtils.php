@@ -198,7 +198,7 @@ class EPUtils {
 	 *
 	 * @param string $pageName
 	 *
-	 * @return string|bool false
+	 * @return string
 	 */
 	public static function getArticleContent( $pageName ) {
 		$title = Title::newFromText( $pageName );
@@ -207,8 +207,19 @@ class EPUtils {
 			return '';
 		}
 
-		$article = new Article( $title, 0 );
-		return $article->fetchContent();
+		$wikiPage = WikiPage::newFromID( $title->getArticleID() );
+
+		if ( is_null( $wikiPage ) ) {
+			return '';
+		}
+
+		$content = $wikiPage->getContent();
+
+		if ( is_null( $content ) || !( $content instanceof TextContent ) ) {
+			return '';
+		}
+
+		return $content->getNativeData();
 	}
 
 	/**

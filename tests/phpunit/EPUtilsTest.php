@@ -7,6 +7,7 @@
  * @since 0.1
  *
  * @group EducationProgram
+ * @group Database
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -30,6 +31,28 @@ class EPUtilsTest extends MediaWikiTestCase {
 			array( $expected => $key ),
 			EPUtils::getValuesAppendedKeys( array( $key => $value ) )
 		);
+	}
+
+	public function articleContentProvider() {
+		return array(
+			array( 'Foo bar', 'baz bah' ),
+			array( 'Foobar', false ),
+		);
+	}
+
+	/**
+	 * @dataProvider articleContentProvider
+	 */
+	public function testGetArticleContent( $pageName, $textContent ) {
+		if ( $textContent !== false ) {
+			$wikiPage = WikiPage::factory( Title::newFromText( $pageName ) );
+			$wikiPage->doEditContent( new WikitextContent( $textContent ), 'test' );
+		}
+
+		$content = EPUtils::getArticleContent( $pageName );
+		$expected = $textContent === false ? '' : $textContent;
+
+		$this->assertEquals( $expected, $content );
 	}
 
 }
