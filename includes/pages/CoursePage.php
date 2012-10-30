@@ -1,18 +1,19 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Page for interacting with a course.
  *
  * @since 0.1
  *
- * @file CoursePage.php
  * @ingroup EducationProgram
  * @ingroup Page
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class CoursePage extends EPPage {
+class CoursePage extends EducationPage {
 
 	protected static $info = array(
 		'edit-right' => 'ep-course',
@@ -21,26 +22,24 @@ class CoursePage extends EPPage {
 	);
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPPage::getActions()
+	 * @see Page::getActions()
 	 */
 	public function getActions() {
 		return array(
-			'view' => 'ViewCourseAction',
-			'edit' => 'EditCourseAction',
-			'history' => 'EPHistoryAction',
-			'delete' => 'EPDeleteAction',
-			'purge' => 'ViewCourseAction',
+			'view' => 'EducationProgram\ViewCourseAction',
+			'edit' => 'EducationProgram\EditCourseAction',
+			'history' => 'EducationProgram\HistoryAction',
+			'delete' => 'EducationProgram\DeleteAction',
+			'purge' => 'EducationProgram\ViewCourseAction',
 		);
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPPage::getActions()
-	 * @return EPPageTable
+	 * @see Page::getActions()
+	 * @return PageTable
 	 */
 	public function getTable() {
-		return EPCourses::singleton();
+		return Courses::singleton();
 	}
 
 }

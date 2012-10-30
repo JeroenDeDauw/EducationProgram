@@ -1,32 +1,33 @@
 <?php
 
+namespace EducationProgram;
+use Page, IContextSource;
+
 /**
  * Action to edit an org.
  *
  * @since 0.1
  *
- * @file EditOrgAction.php
  * @ingroup EducationProgram
  * @ingroup Action
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EditOrgAction extends EPEditAction {
+class EditOrgAction extends EditAction {
 	/**
 	 * Constructor.
-	 *Re
+	 *
 	 * @since 0.1
 	 *
 	 * @param Page $page
 	 * @param IContextSource $context
 	 */
 	protected function __construct( Page $page, IContextSource $context = null ) {
-		parent::__construct( $page, $context, EPOrgs::singleton() );
+		parent::__construct( $page, $context, Orgs::singleton() );
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see Action::getName()
 	 */
 	public function getName() {
@@ -34,7 +35,6 @@ class EditOrgAction extends EPEditAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see Action::getDescription()
 	 */
 	protected function getDescription() {
@@ -42,7 +42,6 @@ class EditOrgAction extends EPEditAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see Action::getRestriction()
 	 */
 	public function getRestriction() {
@@ -50,8 +49,7 @@ class EditOrgAction extends EPEditAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPEditAction::getFormFields()
+	 * @see EditAction::getFormFields()
 	 * @return array
 	 */
 	protected function getFormFields() {
@@ -83,7 +81,7 @@ class EditOrgAction extends EPEditAction {
 			},
 		);
 
-		if ( !in_array( $this->getRequest()->getText( 'wpitem-country', '' ), EPSettings::get( 'citylessCountries' ) ) ) {
+		if ( !in_array( $this->getRequest()->getText( 'wpitem-country', '' ), Settings::get( 'citylessCountries' ) ) ) {
 			$fields['city']['required'] = true;
 		}
 
@@ -92,7 +90,7 @@ class EditOrgAction extends EPEditAction {
 			'label-message' => 'educationprogram-org-edit-country',
 			'maxlength' => 255,
 			'required' => true,
-			'options' => EPUtils::getCountryOptions( $this->getLanguage()->getCode() ),
+			'options' => Utils::getCountryOptions( $this->getLanguage()->getCode() ),
 			'validation-callback' => array( $this, 'countryIsValid' ),
 		);
 
@@ -110,13 +108,13 @@ class EditOrgAction extends EPEditAction {
 	 * @return string|bool true
 	 */
 	public function countryIsValid( $value, array $alldata = null ) {
-		$countries = array_keys( CountryNames::getNames( $this->getLanguage()->getCode() ) );
+		$countries = array_keys( \CountryNames::getNames( $this->getLanguage()->getCode() ) );
 
 		return in_array( $value, $countries ) ? true : $this->msg( 'educationprogram-org-invalid-country' )->text();
 	}
 
 	/**
-	 * @see EPEditAction::getTitleField
+	 * @see EditAction::getTitleField
 	 *
 	 * @since 0.2
 	 *

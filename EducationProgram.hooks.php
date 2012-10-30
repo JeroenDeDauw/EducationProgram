@@ -1,5 +1,8 @@
 <?php
 
+namespace EducationProgram;
+use DatabaseUpdater, Title, User, SkinTemplate, Revision;
+
 /**
  * Static class for hooks handled by the Education Program extension.
  *
@@ -11,7 +14,7 @@
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-final class EPHooks {
+final class Hooks {
 
 	/**
 	 * Schema update to set up the needed database tables.
@@ -56,11 +59,13 @@ final class EPHooks {
 	 */
 	public static function registerUnitTests( array &$files ) {
 		$testFiles = array(
-			'EPUtils',
+			'Actions',
+			'Specials',
+			'Utils',
 
 			'rows/Article',
 
-			'tables/EPOrgs',
+			'tables/Orgs',
 		);
 
 		foreach ( $testFiles as $file ) {
@@ -82,12 +87,12 @@ final class EPHooks {
 	 * @return bool
 	 */
 	public static function onPersonalUrls( array &$personal_urls, Title &$title ) {
-		if ( EPSettings::get( 'enableTopLink' ) ) {
+		if ( Settings::get( 'enableTopLink' ) ) {
 			global $wgUser;
 
 			// Find the watchlist item and replace it by the my contests link and itself.
 			if ( $wgUser->isLoggedIn() && $wgUser->getOption( 'ep_showtoplink' ) ) {
-				$url = SpecialPage::getTitleFor( 'MyCourses' )->getLinkUrl();
+				$url = \SpecialPage::getTitleFor( 'MyCourses' )->getLinkUrl();
 				$myCourses = array(
 					'text' => wfMessage( 'ep-toplink' )->text(),
 					'href' => $url,
@@ -116,7 +121,7 @@ final class EPHooks {
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		wfProfileIn( __METHOD__ );
-		if ( EPSettings::get( 'enableTopLink' ) ) {
+		if ( Settings::get( 'enableTopLink' ) ) {
 			$preferences['ep_showtoplink'] = array(
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-showtoplink',
@@ -124,7 +129,7 @@ final class EPHooks {
 			);
 		}
 
-		if ( EPSettings::get( 'enableDykSetting' ) ) {
+		if ( Settings::get( 'enableDykSetting' ) ) {
 			$preferences['ep_showdyk'] = array(
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-showdyk',
@@ -165,7 +170,7 @@ final class EPHooks {
 	 */
 	public static function onArticleFromTitle( Title &$title, &$article ) {
 		if ( $title->getNamespace() == EP_NS ) {
-			$article = EPPage::factory( $title );
+			$article = EducationPage::factory( $title );
 		}
 
 		return true;
@@ -217,7 +222,7 @@ final class EPHooks {
 	 */
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		wfProfileIn( __METHOD__ );
-		$textParts = SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
+		$textParts = \SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
 
 		if ( in_array( $textParts[0], array( 'Enroll', 'Disenroll' ) )
 			&& !is_null( $textParts[1] ) && trim( $textParts[1] ) !== '' ) {
@@ -233,7 +238,7 @@ final class EPHooks {
 				$textParts[1] = implode( '/', $textParts[1] );
 			}
 
-			$title = EPCourses::singleton()->getTitleFor( $textParts[1] );
+			$title = Courses::singleton()->getTitleFor( $textParts[1] );
 
 			if ( !is_null( $title ) ) {
 				self::displayTabs( $sktemplate, $links, $title );
@@ -261,7 +266,7 @@ final class EPHooks {
 			$links['actions'] = array();
 
 			$user = $sktemplate->getUser();
-			$class = EPUtils::isCourse( $title ) ? 'EPCourses' : 'EPOrgs';
+			$class = Utils::isCourse( $title ) ? 'EducationProgram\Courses' : 'EducationProgram\Orgs';
 			$exists = $class::singleton()->hasIdentifier( $title->getText() );
 			$type = $sktemplate->getRequest()->getText( 'action' );
 			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
@@ -274,7 +279,7 @@ final class EPHooks {
 				);
 			}
 
-			if ( $user->isAllowed( EPPage::factory( $title )->getEditRight() ) ) {
+			if ( $user->isAllowed( EducationPage::factory( $title )->getEditRight() ) ) {
 				$links['views']['edit'] = array(
 					'class' => $type === 'edit' ? 'selected' : false,
 					'text' => $sktemplate->msg( $exists ? 'ep-tab-edit' : 'ep-tab-create' )->text(),
@@ -297,25 +302,25 @@ final class EPHooks {
 					'href' => $title->getLocalUrl( array( 'action' => 'history' ) )
 				);
 
-				if ( EPUtils::isCourse( $title ) ) {
-					$student = EPStudent::newFromUser( $user );
+				if ( Utils::isCourse( $title ) ) {
+					$student = Student::newFromUser( $user );
 					$hasCourse = $student !== false && $student->hasCourse( array( 'title' => $title->getText() ) );
 
 					if ( $user->isAllowed( 'ep-enroll' ) && !$user->isBlocked() ) {
-						if ( !$hasCourse && EPCourses::singleton()->hasActiveTitle( $title->getText() ) ) {
+						if ( !$hasCourse && Courses::singleton()->hasActiveTitle( $title->getText() ) ) {
 							$links['views']['enroll'] = array(
 								'class' => $isSpecial ? 'selected' : false,
 								'text' => $sktemplate->msg( 'ep-tab-enroll' )->text(),
-								'href' => SpecialPage::getTitleFor( 'Enroll', $title->getText() )->getLocalURL()
+								'href' => \SpecialPage::getTitleFor( 'Enroll', $title->getText() )->getLocalURL()
 							);
 						}
 					}
 
-					if ( $hasCourse && EPCourses::singleton()->hasActiveTitle( $title->getText() ) ) {
+					if ( $hasCourse && Courses::singleton()->hasActiveTitle( $title->getText() ) ) {
 						$links[$isSpecial ? 'views' : 'actions']['disenroll'] = array(
 							'class' => $isSpecial ? 'selected' : false,
 							'text' => $sktemplate->msg( 'ep-tab-disenroll' )->text(),
-							'href' => SpecialPage::getTitleFor( 'Disenroll', $title->getText() )->getLocalURL()
+							'href' => \SpecialPage::getTitleFor( 'Disenroll', $title->getText() )->getLocalURL()
 						);
 					}
 				}
@@ -339,11 +344,11 @@ final class EPHooks {
 		wfProfileIn( __METHOD__ );
 
 		if ( $title->getNamespace() == EP_NS ) {
-			if ( EPUtils::isCourse( $title ) ) {
-				$class = 'EPCourses';
+			if ( Utils::isCourse( $title ) ) {
+				$class = 'EducationProgram\Courses';
 			}
 			else {
-				$class = 'EPOrgs';
+				$class = 'EducationProgram\Orgs';
 			}
 
 			$identifier = $title->getText();
@@ -431,7 +436,7 @@ final class EPHooks {
 		$upc = wfGetDB( DB_SLAVE )->select(
 			array( 'ep_users_per_course', 'ep_courses' ),
 			array( 'upc_course_id' ),
-			array_merge( $conds, EPCourses::getStatusConds( 'current', true ) ),
+			array_merge( $conds, Courses::getStatusConds( 'current', true ) ),
 			__METHOD__,
 			array( 'DISTINCT' ),
 			array(
@@ -445,7 +450,7 @@ final class EPHooks {
 		if ( $hasCourses ) {
 			wfProfileIn( __METHOD__ . '-courses' );
 			if ( !is_null( $rev->getTitle() ) ) {
-				$event = EPEvent::newFromRevision( $rev, $user );
+				$event = Event::newFromRevision( $rev, $user );
 			}
 
 			$dbw = wfGetDB( DB_MASTER );
@@ -461,7 +466,7 @@ final class EPHooks {
 			}
 
 			if ( in_array( $namespace, array( NS_MAIN, NS_TALK ) ) ) {
-				$student = EPStudent::newFromUserId( $user->getId(), true );
+				$student = Student::newFromUserId( $user->getId(), true );
 
 				$student->setFields( array(
 					'last_active' => wfTimestampNow()

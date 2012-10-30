@@ -128,7 +128,7 @@ class ImportWEPFromDB extends Maintenance {
 	 * @param ResultWrapper $orgs
 	 */
 	public function insertOrgs( ResultWrapper $orgs ) {
-		$revAction = new EPRevisionAction();
+		$revAction = new RevisionAction();
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
 
@@ -177,7 +177,7 @@ class ImportWEPFromDB extends Maintenance {
 	 * @param ResultWrapper $courses
 	 */
 	public function insertCourses( ResultWrapper $courses ) {
-		$revAction = new EPRevisionAction();
+		$revAction = new RevisionAction();
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
 
@@ -214,9 +214,9 @@ class ImportWEPFromDB extends Maintenance {
 	 * @param stdClass $course
 	 * @param string $title
 	 * @param string $term
-	 * @param EPRevisionAction $revAction
+	 * @param RevisionAction $revAction
 	 */
-	protected function insertCourse( $currentId, $course, $title, $term, EPRevisionAction $revAction ) {
+	protected function insertCourse( $currentId, $course, $title, $term, RevisionAction $revAction ) {
 		$data = array(
 			'org_id' => $this->orgIds[$course->course_university_id],
 			'title' => $title,
@@ -285,7 +285,7 @@ class ImportWEPFromDB extends Maintenance {
 					$this->err( "Failed to insert student '$name'. (failed to create user)" );
 				}
 				else {
-					$studentObject = EPStudent::newFromUser( $user );
+					$studentObject = Student::newFromUser( $user );
 
 					if ( is_null( $studentObject->getId() ) ) {
 						if ( !$studentObject->save() ) {
@@ -298,7 +298,7 @@ class ImportWEPFromDB extends Maintenance {
 						$success = false;
 
 						if ( array_key_exists( $courseId, $this->courseIds ) ) {
-							$revAction = new EPRevisionAction();
+							$revAction = new RevisionAction();
 							$revAction->setUser( $user );
 							$revAction->setComment( 'Import' );
 

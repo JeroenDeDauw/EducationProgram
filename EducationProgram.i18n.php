@@ -750,7 +750,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-campus-summary-input' => 'Summary:',
 	'ep-campus-name-input' => 'User name:',
 
-	// EPInstructor
+	// Instructor
 	'ep-instructor-remove' => 'remove as instructor',
 
 	// EPCA

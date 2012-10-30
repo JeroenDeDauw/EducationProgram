@@ -1,17 +1,19 @@
 <?php
 
+namespace EducationProgram;
+use User, IORMRow, Html, Linker;
+
 /**
  * Shows the info for a single student.
  *
  * @since 0.1
  *
- * @file SpecialStudent.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialStudent extends SpecialEPPage {
+class SpecialStudent extends VerySpecialPage {
 	/**
 	 * Constructor.
 	 *
@@ -34,7 +36,7 @@ class SpecialStudent extends SpecialEPPage {
 		$out = $this->getOutput();
 
 		if ( trim( $subPage ) === '' ) {
-			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'Students' )->getLocalURL() );
+			$this->getOutput()->redirect( \SpecialPage::getTitleFor( 'Students' )->getLocalURL() );
 		}
 		else {
 			$this->startCache( 3600 );
@@ -47,7 +49,7 @@ class SpecialStudent extends SpecialEPPage {
 			if ( $user !== false && $user->getId() !== 0 ) {
 				$student = $this->getCachedValue(
 					function( $userId ) {
-						return EPStudents::singleton()->selectRow( null, array( 'user_id' => $userId ) );
+						return Students::singleton()->selectRow( null, array( 'user_id' => $userId ) );
 					},
 					$user->getId()
 				);
@@ -68,13 +70,13 @@ class SpecialStudent extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPStudent $student
+	 * @param Student $student
 	 *
 	 * @return string
 	 */
-	public function getPageHTML( EPStudent $student ) {
+	public function getPageHTML( Student $student ) {
 		$courseIds = array_map(
-			function( EPCourse $course ) {
+			function( Course $course ) {
 				return $course->getId();
 			},
 			$student->getCourses( 'id' )
@@ -88,10 +90,10 @@ class SpecialStudent extends SpecialEPPage {
 		else {
 			$html .= Html::element( 'h2', array(), $this->msg( 'ep-student-courses' )->text() );
 
-			$html .= EPCoursePager::getPager( $this->getContext(), array( 'id' => $courseIds ) );
-			$this->getOutput()->addModules( EPCoursePager::getModules() );
+			$html .= CoursePager::getPager( $this->getContext(), array( 'id' => $courseIds ) );
+			$this->getOutput()->addModules( CoursePager::getModules() );
 
-			$pager = new EPArticleTable(
+			$pager = new ArticleTable(
 				$this->getContext(),
 				array( 'user_id' => $this->getUser()->getId() ),
 				array(
@@ -135,7 +137,7 @@ class SpecialStudent extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPStudent $student
+	 * @param Student $student
 	 *
 	 * @return array
 	 */

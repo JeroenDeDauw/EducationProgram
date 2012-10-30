@@ -58,127 +58,129 @@ $wgExtensionMessagesFiles['EducationProgramAlias']	= $dir . '/EducationProgram.i
 $wgExtensionMessagesFiles['EPNamespaces'] 			= $dir . '/EducationProgram.i18n.ns.php';
 
 // Autoloading
-$wgAutoloadClasses['EPHooks'] 						= $dir . '/EducationProgram.hooks.php';
-$wgAutoloadClasses['EPSettings'] 					= $dir . '/EducationProgram.settings.php';
+$wgAutoloadClasses['EducationProgram\Hooks'] 						= $dir . '/EducationProgram.hooks.php';
+$wgAutoloadClasses['EducationProgram\Settings'] 					= $dir . '/EducationProgram.settings.php';
 
 // includes/actions (deriving from Action)
-$wgAutoloadClasses['EditCourseAction'] 				= $dir . '/includes/actions/EditCourseAction.php';
-$wgAutoloadClasses['EditOrgAction'] 				= $dir . '/includes/actions/EditOrgAction.php';
-$wgAutoloadClasses['EPAction'] 						= $dir . '/includes/actions/EPAction.php';
-$wgAutoloadClasses['EPAddArticleAction'] 			= $dir . '/includes/actions/EPAddArticleAction.php';
-$wgAutoloadClasses['EPAddReviewerAction'] 			= $dir . '/includes/actions/EPAddReviewerAction.php';
-$wgAutoloadClasses['EPDeleteAction'] 				= $dir . '/includes/actions/EPDeleteAction.php';
-$wgAutoloadClasses['EPEditAction'] 					= $dir . '/includes/actions/EPEditAction.php';
-$wgAutoloadClasses['EPHistoryAction'] 				= $dir . '/includes/actions/EPHistoryAction.php';
-$wgAutoloadClasses['EPRemoveArticleAction'] 		= $dir . '/includes/actions/EPRemoveArticleAction.php';
-$wgAutoloadClasses['EPRemoveReviewerAction'] 		= $dir . '/includes/actions/EPRemoveReviewerAction.php';
-$wgAutoloadClasses['EPRemoveStudentAction'] 		= $dir . '/includes/actions/EPRemoveStudentAction.php';
-$wgAutoloadClasses['EPRestoreAction'] 				= $dir . '/includes/actions/EPRestoreAction.php';
-$wgAutoloadClasses['EPUndeleteAction'] 				= $dir . '/includes/actions/EPUndeleteAction.php';
-$wgAutoloadClasses['EPUndoAction'] 					= $dir . '/includes/actions/EPUndoAction.php';
-$wgAutoloadClasses['EPViewAction'] 					= $dir . '/includes/actions/EPViewAction.php';
-$wgAutoloadClasses['ViewCourseAction'] 				= $dir . '/includes/actions/ViewCourseAction.php';
-$wgAutoloadClasses['ViewOrgAction'] 				= $dir . '/includes/actions/ViewOrgAction.php';
+$wgAutoloadClasses['EducationProgram\EditCourseAction'] 			= $dir . '/includes/actions/EditCourseAction.php';
+$wgAutoloadClasses['EducationProgram\EditOrgAction'] 				= $dir . '/includes/actions/EditOrgAction.php';
+$wgAutoloadClasses['EducationProgram\Action'] 						= $dir . '/includes/actions/Action.php';
+$wgAutoloadClasses['EducationProgram\AddArticleAction'] 			= $dir . '/includes/actions/AddArticleAction.php';
+$wgAutoloadClasses['EducationProgram\AddReviewerAction'] 			= $dir . '/includes/actions/AddReviewerAction.php';
+$wgAutoloadClasses['EducationProgram\DeleteAction'] 				= $dir . '/includes/actions/DeleteAction.php';
+$wgAutoloadClasses['EducationProgram\EditAction'] 					= $dir . '/includes/actions/EditAction.php';
+$wgAutoloadClasses['EducationProgram\HistoryAction'] 				= $dir . '/includes/actions/HistoryAction.php';
+$wgAutoloadClasses['EducationProgram\RemoveArticleAction'] 			= $dir . '/includes/actions/RemoveArticleAction.php';
+$wgAutoloadClasses['EducationProgram\RemoveReviewerAction'] 		= $dir . '/includes/actions/RemoveReviewerAction.php';
+$wgAutoloadClasses['EducationProgram\RemoveStudentAction'] 			= $dir . '/includes/actions/RemoveStudentAction.php';
+$wgAutoloadClasses['EducationProgram\RestoreAction'] 				= $dir . '/includes/actions/RestoreAction.php';
+$wgAutoloadClasses['EducationProgram\UndeleteAction'] 				= $dir . '/includes/actions/UndeleteAction.php';
+$wgAutoloadClasses['EducationProgram\UndoAction'] 					= $dir . '/includes/actions/UndoAction.php';
+$wgAutoloadClasses['EducationProgram\ViewAction'] 					= $dir . '/includes/actions/ViewAction.php';
+$wgAutoloadClasses['EducationProgram\ViewCourseAction'] 			= $dir . '/includes/actions/ViewCourseAction.php';
+$wgAutoloadClasses['EducationProgram\ViewOrgAction'] 				= $dir . '/includes/actions/ViewOrgAction.php';
 
 // includes/api (deriving from ApiBase)
-$wgAutoloadClasses['ApiDeleteEducation'] 			= $dir . '/includes/api/ApiDeleteEducation.php';
-$wgAutoloadClasses['ApiEnlist'] 					= $dir . '/includes/api/ApiEnlist.php';
-$wgAutoloadClasses['ApiRefreshEducation'] 			= $dir . '/includes/api/ApiRefreshEducation.php';
+$wgAutoloadClasses['EducationProgram\ApiDeleteEducation'] 			= $dir . '/includes/api/ApiDeleteEducation.php';
+$wgAutoloadClasses['EducationProgram\ApiEnlist'] 					= $dir . '/includes/api/ApiEnlist.php';
+$wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/includes/api/ApiRefreshEducation.php';
 
 // includes/pagers (implementing Pager)
-$wgAutoloadClasses['EPArticlePager'] 				= $dir . '/includes/pagers/EPArticlePager.php';
-$wgAutoloadClasses['EPArticleTable'] 				= $dir . '/includes/pagers/EPArticleTable.php';
-$wgAutoloadClasses['EPCAPager'] 					= $dir . '/includes/pagers/EPCAPager.php';
-$wgAutoloadClasses['EPCoursePager'] 				= $dir . '/includes/pagers/EPCoursePager.php';
-$wgAutoloadClasses['EPOAPager'] 					= $dir . '/includes/pagers/EPOAPager.php';
-$wgAutoloadClasses['EPOrgPager'] 					= $dir . '/includes/pagers/EPOrgPager.php';
-$wgAutoloadClasses['EPPager'] 						= $dir . '/includes/pagers/EPPager.php';
-$wgAutoloadClasses['EPRevisionPager'] 				= $dir . '/includes/pagers/EPRevisionPager.php';
-$wgAutoloadClasses['EPStudentPager'] 				= $dir . '/includes/pagers/EPStudentPager.php';
-$wgAutoloadClasses['EPStudentActivityPager'] 		= $dir . '/includes/pagers/EPStudentActivityPager.php';
+$wgAutoloadClasses['EducationProgram\ArticlePager'] 				= $dir . '/includes/pagers/ArticlePager.php';
+$wgAutoloadClasses['EducationProgram\ArticleTable'] 				= $dir . '/includes/pagers/ArticleTable.php';
+$wgAutoloadClasses['EducationProgram\CAPager'] 						= $dir . '/includes/pagers/CAPager.php';
+$wgAutoloadClasses['EducationProgram\CoursePager'] 					= $dir . '/includes/pagers/CoursePager.php';
+$wgAutoloadClasses['EducationProgram\OAPager'] 						= $dir . '/includes/pagers/OAPager.php';
+$wgAutoloadClasses['EducationProgram\OrgPager'] 					= $dir . '/includes/pagers/OrgPager.php';
+$wgAutoloadClasses['EducationProgram\Pager'] 						= $dir . '/includes/pagers/Pager.php';
+$wgAutoloadClasses['EducationProgram\RevisionPager'] 				= $dir . '/includes/pagers/RevisionPager.php';
+$wgAutoloadClasses['EducationProgram\StudentPager'] 				= $dir . '/includes/pagers/StudentPager.php';
+$wgAutoloadClasses['EducationProgram\StudentActivityPager'] 		= $dir . '/includes/pagers/StudentActivityPager.php';
 
 // includes/pages (here core is a mess :)
-$wgAutoloadClasses['CoursePage'] 					= $dir . '/includes/pages/CoursePage.php';
-$wgAutoloadClasses['EPPage'] 						= $dir . '/includes/pages/EPPage.php';
-$wgAutoloadClasses['OrgPage'] 						= $dir . '/includes/pages/OrgPage.php';
+$wgAutoloadClasses['EducationProgram\CoursePage'] 					= $dir . '/includes/pages/CoursePage.php';
+$wgAutoloadClasses['EducationProgram\EducationPage'] 				= $dir . '/includes/pages/EducationPage.php';
+$wgAutoloadClasses['EducationProgram\OrgPage'] 						= $dir . '/includes/pages/OrgPage.php';
 
 // includes/rows (deriving from ORMRow)
-$wgAutoloadClasses['EPArticle'] 					= $dir . '/includes/rows/EPArticle.php';
-$wgAutoloadClasses['EPCA'] 							= $dir . '/includes/rows/EPCA.php';
-$wgAutoloadClasses['EPCourse'] 						= $dir . '/includes/rows/EPCourse.php';
-$wgAutoloadClasses['EPEvent'] 						= $dir . '/includes/rows/EPEvent.php';
-$wgAutoloadClasses['EPInstructor'] 					= $dir . '/includes/rows/EPInstructor.php';
-$wgAutoloadClasses['EPOA'] 							= $dir . '/includes/rows/EPOA.php';
-$wgAutoloadClasses['EPOrg'] 						= $dir . '/includes/rows/EPOrg.php';
-$wgAutoloadClasses['EPPageObject'] 					= $dir . '/includes/rows/EPPageObject.php';
-$wgAutoloadClasses['EPRevision'] 					= $dir . '/includes/rows/EPRevision.php';
-$wgAutoloadClasses['EPRevisionedObject'] 			= $dir . '/includes/rows/EPRevisionedObject.php';
-$wgAutoloadClasses['EPStudent'] 					= $dir . '/includes/rows/EPStudent.php';
+$wgAutoloadClasses['EducationProgram\Article'] 						= $dir . '/includes/rows/Article.php';
+$wgAutoloadClasses['EducationProgram\CA'] 							= $dir . '/includes/rows/CA.php';
+$wgAutoloadClasses['EducationProgram\Course'] 						= $dir . '/includes/rows/Course.php';
+$wgAutoloadClasses['EducationProgram\Event'] 						= $dir . '/includes/rows/Event.php';
+$wgAutoloadClasses['EducationProgram\Instructor'] 					= $dir . '/includes/rows/Instructor.php';
+$wgAutoloadClasses['EducationProgram\OA'] 							= $dir . '/includes/rows/OA.php';
+$wgAutoloadClasses['EducationProgram\Org'] 							= $dir . '/includes/rows/Org.php';
+$wgAutoloadClasses['EducationProgram\PageObject'] 					= $dir . '/includes/rows/PageObject.php';
+$wgAutoloadClasses['EducationProgram\Revision'] 					= $dir . '/includes/rows/Revision.php';
+$wgAutoloadClasses['EducationProgram\RevisionedObject'] 			= $dir . '/includes/rows/RevisionedObject.php';
+$wgAutoloadClasses['EducationProgram\Student'] 						= $dir . '/includes/rows/Student.php';
 
 // includes/specials (deriving from SpecialPage)
-$wgAutoloadClasses['SpecialCourses'] 				= $dir . '/includes/specials/SpecialCourses.php';
-$wgAutoloadClasses['SpecialEducationProgram'] 		= $dir . '/includes/specials/SpecialEducationProgram.php';
-$wgAutoloadClasses['SpecialEPPage'] 				= $dir . '/includes/specials/SpecialEPPage.php';
-$wgAutoloadClasses['SpecialInstitutions'] 			= $dir . '/includes/specials/SpecialInstitutions.php';
-$wgAutoloadClasses['SpecialMyCourses'] 				= $dir . '/includes/specials/SpecialMyCourses.php';
-$wgAutoloadClasses['SpecialStudent'] 				= $dir . '/includes/specials/SpecialStudent.php';
-$wgAutoloadClasses['SpecialStudents'] 				= $dir . '/includes/specials/SpecialStudents.php';
-$wgAutoloadClasses['SpecialEnroll'] 				= $dir . '/includes/specials/SpecialEnroll.php';
-$wgAutoloadClasses['SpecialDisenroll'] 				= $dir . '/includes/specials/SpecialDisenroll.php';
-$wgAutoloadClasses['SpecialCAs'] 					= $dir . '/includes/specials/SpecialCAs.php';
-$wgAutoloadClasses['SpecialOAs'] 					= $dir . '/includes/specials/SpecialOAs.php';
-$wgAutoloadClasses['SpecialOAProfile'] 				= $dir . '/includes/specials/SpecialOAProfile.php';
-$wgAutoloadClasses['SpecialCAProfile'] 				= $dir . '/includes/specials/SpecialCAProfile.php';
-$wgAutoloadClasses['SpecialAmbassadorProfile'] 		= $dir . '/includes/specials/SpecialAmbassadorProfile.php';
-$wgAutoloadClasses['SpecialStudentActivity'] 		= $dir . '/includes/specials/SpecialStudentActivity.php';
-$wgAutoloadClasses['SpecialArticles'] 				= $dir . '/includes/specials/SpecialArticles.php';
-$wgAutoloadClasses['SpecialManageCourses'] 			= $dir . '/includes/specials/SpecialManageCourses.php';
+$wgAutoloadClasses['EducationProgram\SpecialCourses'] 				= $dir . '/includes/specials/SpecialCourses.php';
+$wgAutoloadClasses['EducationProgram\SpecialEducationProgram'] 		= $dir . '/includes/specials/SpecialEducationProgram.php';
+$wgAutoloadClasses['EducationProgram\SpecialInstitutions'] 			= $dir . '/includes/specials/SpecialInstitutions.php';
+$wgAutoloadClasses['EducationProgram\SpecialMyCourses'] 			= $dir . '/includes/specials/SpecialMyCourses.php';
+$wgAutoloadClasses['EducationProgram\SpecialStudent'] 				= $dir . '/includes/specials/SpecialStudent.php';
+$wgAutoloadClasses['EducationProgram\SpecialStudents'] 				= $dir . '/includes/specials/SpecialStudents.php';
+$wgAutoloadClasses['EducationProgram\SpecialEnroll'] 				= $dir . '/includes/specials/SpecialEnroll.php';
+$wgAutoloadClasses['EducationProgram\SpecialDisenroll'] 			= $dir . '/includes/specials/SpecialDisenroll.php';
+$wgAutoloadClasses['EducationProgram\SpecialCAs'] 					= $dir . '/includes/specials/SpecialCAs.php';
+$wgAutoloadClasses['EducationProgram\SpecialOAs'] 					= $dir . '/includes/specials/SpecialOAs.php';
+$wgAutoloadClasses['EducationProgram\SpecialOAProfile'] 			= $dir . '/includes/specials/SpecialOAProfile.php';
+$wgAutoloadClasses['EducationProgram\SpecialCAProfile'] 			= $dir . '/includes/specials/SpecialCAProfile.php';
+$wgAutoloadClasses['EducationProgram\SpecialAmbassadorProfile'] 	= $dir . '/includes/specials/SpecialAmbassadorProfile.php';
+$wgAutoloadClasses['EducationProgram\SpecialStudentActivity'] 		= $dir . '/includes/specials/SpecialStudentActivity.php';
+$wgAutoloadClasses['EducationProgram\SpecialArticles'] 				= $dir . '/includes/specials/SpecialArticles.php';
+$wgAutoloadClasses['EducationProgram\SpecialManageCourses'] 		= $dir . '/includes/specials/SpecialManageCourses.php';
+$wgAutoloadClasses['EducationProgram\VerySpecialPage'] 				= $dir . '/includes/specials/VerySpecialPage.php';
 
 // includes/tables (deriving from ORMTable)
-$wgAutoloadClasses['EPArticles'] 					= $dir . '/includes/tables/EPArticles.php';
-$wgAutoloadClasses['EPCAs'] 						= $dir . '/includes/tables/EPCAs.php';
-$wgAutoloadClasses['EPCourses'] 					= $dir . '/includes/tables/EPCourses.php';
-$wgAutoloadClasses['EPEvents'] 						= $dir . '/includes/tables/EPEvents.php';
-$wgAutoloadClasses['EPInstructors'] 				= $dir . '/includes/tables/EPInstructors.php';
-$wgAutoloadClasses['EPOAs'] 						= $dir . '/includes/tables/EPOAs.php';
-$wgAutoloadClasses['EPOrgs'] 						= $dir . '/includes/tables/EPOrgs.php';
-$wgAutoloadClasses['EPPageTable'] 					= $dir . '/includes/tables/EPPageTable.php';
-$wgAutoloadClasses['EPRevisions'] 					= $dir . '/includes/tables/EPRevisions.php';
-$wgAutoloadClasses['EPStudents'] 					= $dir . '/includes/tables/EPStudents.php';
+$wgAutoloadClasses['EducationProgram\Articles'] 					= $dir . '/includes/tables/Articles.php';
+$wgAutoloadClasses['EducationProgram\CAs'] 							= $dir . '/includes/tables/CAs.php';
+$wgAutoloadClasses['EducationProgram\Courses'] 						= $dir . '/includes/tables/Courses.php';
+$wgAutoloadClasses['EducationProgram\Events'] 						= $dir . '/includes/tables/Events.php';
+$wgAutoloadClasses['EducationProgram\Instructors'] 					= $dir . '/includes/tables/Instructors.php';
+$wgAutoloadClasses['EducationProgram\OAs'] 							= $dir . '/includes/tables/OAs.php';
+$wgAutoloadClasses['EducationProgram\Orgs'] 						= $dir . '/includes/tables/Orgs.php';
+$wgAutoloadClasses['EducationProgram\PageTable'] 					= $dir . '/includes/tables/PageTable.php';
+$wgAutoloadClasses['EducationProgram\Revisions'] 					= $dir . '/includes/tables/Revisions.php';
+$wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/Students.php';
 
 // includes
-$wgAutoloadClasses['EPLogFormatter'] 				= $dir . '/includes/EPLogFormatter.php';
-$wgAutoloadClasses['EPRoleChangeFormatter'] 		= $dir . '/includes/EPLogFormatter.php';
-$wgAutoloadClasses['EPArticleFormatter'] 			= $dir . '/includes/EPLogFormatter.php';
-$wgAutoloadClasses['EPUtils'] 						= $dir . '/includes/EPUtils.php';
-$wgAutoloadClasses['EPHTMLDateField'] 				= $dir . '/includes/EPHTMLDateField.php';
-$wgAutoloadClasses['EPHTMLCombobox'] 				= $dir . '/includes/EPHTMLCombobox.php';
-$wgAutoloadClasses['EPFailForm'] 					= $dir . '/includes/EPFailForm.php';
-$wgAutoloadClasses['EPIRole'] 						= $dir . '/includes/EPIRole.php';
-$wgAutoloadClasses['EPRoleObject'] 					= $dir . '/includes/EPRoleObject.php';
-$wgAutoloadClasses['EPRevisionAction'] 				= $dir . '/includes/EPRevisionAction.php';
-$wgAutoloadClasses['EPRevisionDiff'] 				= $dir . '/includes/EPRevisionDiff.php';
-$wgAutoloadClasses['EPDiffTable'] 					= $dir . '/includes/EPDiffTable.php';
-$wgAutoloadClasses['EPMenu'] 						= $dir . '/includes/EPMenu.php';
-$wgAutoloadClasses['EPTimeline'] 					= $dir . '/includes/EPTimeline.php';
-$wgAutoloadClasses['EPTimelineGroup'] 				= $dir . '/includes/EPTimelineGroup.php';
+$wgAutoloadClasses['EducationProgram\LogFormatter'] 				= $dir . '/includes/LogFormatter.php';
+$wgAutoloadClasses['EducationProgram\RoleChangeFormatter'] 			= $dir . '/includes/LogFormatter.php';
+$wgAutoloadClasses['EducationProgram\ArticleFormatter'] 			= $dir . '/includes/LogFormatter.php';
+$wgAutoloadClasses['EducationProgram\Utils'] 						= $dir . '/includes/Utils.php';
+$wgAutoloadClasses['EducationProgram\HTMLDateField'] 				= $dir . '/includes/HTMLDateField.php';
+$wgAutoloadClasses['EducationProgram\HTMLCombobox'] 				= $dir . '/includes/HTMLCombobox.php';
+$wgAutoloadClasses['EducationProgram\FailForm'] 					= $dir . '/includes/FailForm.php';
+$wgAutoloadClasses['EducationProgram\IRole'] 						= $dir . '/includes/IRole.php';
+$wgAutoloadClasses['EducationProgram\RoleObject'] 					= $dir . '/includes/RoleObject.php';
+$wgAutoloadClasses['EducationProgram\RevisionAction'] 				= $dir . '/includes/RevisionAction.php';
+$wgAutoloadClasses['EducationProgram\RevisionDiff'] 				= $dir . '/includes/RevisionDiff.php';
+$wgAutoloadClasses['EducationProgram\DiffTable'] 					= $dir . '/includes/DiffTable.php';
+$wgAutoloadClasses['EducationProgram\Menu'] 						= $dir . '/includes/Menu.php';
+$wgAutoloadClasses['EducationProgram\Timeline'] 					= $dir . '/includes/Timeline.php';
+$wgAutoloadClasses['EducationProgram\TimelineGroup'] 				= $dir . '/includes/TimelineGroup.php';
+
+$wgAutoloadClasses['EducationProgram\Test\MockSuperUser'] 			= $dir . '/tests/phpunit/MockSuperUser.php';
 
 // Special pages
-$wgSpecialPages['MyCourses'] 						= 'SpecialMyCourses';
-$wgSpecialPages['Institutions'] 					= 'SpecialInstitutions';
-$wgSpecialPages['Student'] 							= 'SpecialStudent';
-$wgSpecialPages['Students'] 						= 'SpecialStudents';
-$wgSpecialPages['Courses'] 							= 'SpecialCourses';
-$wgSpecialPages['EducationProgram'] 				= 'SpecialEducationProgram';
-$wgSpecialPages['Enroll'] 							= 'SpecialEnroll';
-$wgSpecialPages['Disenroll'] 						= 'SpecialDisenroll';
-$wgSpecialPages['CampusAmbassadors'] 				= 'SpecialCAs';
-$wgSpecialPages['OnlineAmbassadors'] 				= 'SpecialOAs';
-$wgSpecialPages['CampusAmbassadorProfile'] 			= 'SpecialCAProfile';
-$wgSpecialPages['OnlineAmbassadorProfile'] 			= 'SpecialOAProfile';
-$wgSpecialPages['StudentActivity'] 					= 'SpecialStudentActivity';
-$wgSpecialPages['Articles'] 						= 'SpecialArticles';
-$wgSpecialPages['ManageCourses'] 					= 'SpecialManageCourses';
+$wgSpecialPages['MyCourses'] 						= 'EducationProgram\SpecialMyCourses';
+$wgSpecialPages['Institutions'] 					= 'EducationProgram\SpecialInstitutions';
+$wgSpecialPages['Student'] 							= 'EducationProgram\SpecialStudent';
+$wgSpecialPages['Students'] 						= 'EducationProgram\SpecialStudents';
+$wgSpecialPages['Courses'] 							= 'EducationProgram\SpecialCourses';
+$wgSpecialPages['EducationProgram'] 				= 'EducationProgram\SpecialEducationProgram';
+$wgSpecialPages['Enroll'] 							= 'EducationProgram\SpecialEnroll';
+$wgSpecialPages['Disenroll'] 						= 'EducationProgram\SpecialDisenroll';
+$wgSpecialPages['CampusAmbassadors'] 				= 'EducationProgram\SpecialCAs';
+$wgSpecialPages['OnlineAmbassadors'] 				= 'EducationProgram\SpecialOAs';
+$wgSpecialPages['CampusAmbassadorProfile'] 			= 'EducationProgram\SpecialCAProfile';
+$wgSpecialPages['OnlineAmbassadorProfile'] 			= 'EducationProgram\SpecialOAProfile';
+$wgSpecialPages['StudentActivity'] 					= 'EducationProgram\SpecialStudentActivity';
+$wgSpecialPages['Articles'] 						= 'EducationProgram\SpecialArticles';
+$wgSpecialPages['ManageCourses'] 					= 'EducationProgram\SpecialManageCourses';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';
 $wgSpecialPageGroups['Institutions'] 				= 'education';
@@ -202,34 +204,34 @@ define( 'EP_OA', 2 );
 define( 'EP_CA', 3 );
 
 // API
-$wgAPIModules['deleteeducation'] 					= 'ApiDeleteEducation';
-$wgAPIModules['enlist'] 							= 'ApiEnlist';
-$wgAPIModules['refresheducation'] 					= 'ApiRefreshEducation';
+$wgAPIModules['deleteeducation'] 					= 'EducationProgram\ApiDeleteEducation';
+$wgAPIModules['enlist'] 							= 'EducationProgram\ApiEnlist';
+$wgAPIModules['refresheducation'] 					= 'EducationProgram\ApiRefreshEducation';
 
 // Hooks
-$wgHooks['LoadExtensionSchemaUpdates'][] 			= 'EPHooks::onSchemaUpdate';
-$wgHooks['UnitTestsList'][] 						= 'EPHooks::registerUnitTests';
-$wgHooks['PersonalUrls'][] 							= 'EPHooks::onPersonalUrls';
-$wgHooks['GetPreferences'][] 						= 'EPHooks::onGetPreferences';
-$wgHooks['SkinTemplateNavigation'][] 				= 'EPHooks::onPageTabs';
-$wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EPHooks::onSpecialPageTabs';
-$wgHooks['ArticleFromTitle'][] 						= 'EPHooks::onArticleFromTitle';
-$wgHooks['CanonicalNamespaces'][] 					= 'EPHooks::onCanonicalNamespaces';
-$wgHooks['TitleIsAlwaysKnown'][] 					= 'EPHooks::onTitleIsAlwaysKnown';
-$wgHooks['AbortMove'][] 							= 'EPHooks::onAbortMove';
-$wgHooks['NewRevisionFromEditComplete'][] 			= 'EPHooks::onNewRevisionFromEditComplete';
-$wgHooks['NamespaceIsMovable'][] 					= 'EPHooks::onNamespaceIsMovable';
+$wgHooks['LoadExtensionSchemaUpdates'][] 			= 'EducationProgram\Hooks::onSchemaUpdate';
+$wgHooks['UnitTestsList'][] 						= 'EducationProgram\Hooks::registerUnitTests';
+$wgHooks['PersonalUrls'][] 							= 'EducationProgram\Hooks::onPersonalUrls';
+$wgHooks['GetPreferences'][] 						= 'EducationProgram\Hooks::onGetPreferences';
+$wgHooks['SkinTemplateNavigation'][] 				= 'EducationProgram\Hooks::onPageTabs';
+$wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EducationProgram\Hooks::onSpecialPageTabs';
+$wgHooks['ArticleFromTitle'][] 						= 'EducationProgram\Hooks::onArticleFromTitle';
+$wgHooks['CanonicalNamespaces'][] 					= 'EducationProgram\Hooks::onCanonicalNamespaces';
+$wgHooks['TitleIsAlwaysKnown'][] 					= 'EducationProgram\Hooks::onTitleIsAlwaysKnown';
+$wgHooks['AbortMove'][] 							= 'EducationProgram\Hooks::onAbortMove';
+$wgHooks['NewRevisionFromEditComplete'][] 			= 'EducationProgram\Hooks::onNewRevisionFromEditComplete';
+$wgHooks['NamespaceIsMovable'][] 					= 'EducationProgram\Hooks::onNamespaceIsMovable';
 
 
 // Actions
-$wgActions['epremarticle'] = 'EPRemoveArticleAction';
-$wgActions['epremstudent'] = 'EPRemoveStudentAction';
-$wgActions['epremreviewer'] = 'EPRemoveReviewerAction';
-$wgActions['epaddarticle'] = 'EPAddArticleAction';
-$wgActions['epaddreviewer'] = 'EPAddReviewerAction';
-$wgActions['epundo'] = 'EPUndoAction';
-$wgActions['eprestore'] = 'EPRestoreAction';
-$wgActions['epundelete'] = 'EPUndeleteAction';
+$wgActions['epremarticle'] = 'EducationProgram\RemoveArticleAction';
+$wgActions['epremstudent'] = 'EducationProgram\RemoveStudentAction';
+$wgActions['epremreviewer'] = 'EducationProgram\RemoveReviewerAction';
+$wgActions['epaddarticle'] = 'EducationProgram\AddArticleAction';
+$wgActions['epaddreviewer'] = 'EducationProgram\AddReviewerAction';
+$wgActions['epundo'] = 'EducationProgram\UndoAction';
+$wgActions['eprestore'] = 'EducationProgram\RestoreAction';
+$wgActions['epundelete'] = 'EducationProgram\UndeleteAction';
 
 // Logging
 $wgLogTypes[] = 'institution';
@@ -239,21 +241,21 @@ $wgLogTypes[] = 'online';
 $wgLogTypes[] = 'campus';
 $wgLogTypes[] = 'instructor';
 
-$wgLogActionsHandlers['institution/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['course/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['student/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['student/add'] = 'EPRoleChangeFormatter';
-$wgLogActionsHandlers['student/remove'] = 'EPRoleChangeFormatter';
-$wgLogActionsHandlers['online/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['online/add'] = 'EPRoleChangeFormatter';
-$wgLogActionsHandlers['online/remove'] = 'EPRoleChangeFormatter';
-$wgLogActionsHandlers['campus/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['campus/add'] = 'EPRoleChangeFormatter';
-$wgLogActionsHandlers['campus/remove'] = 'EPRoleChangeFormatter';
-$wgLogActionsHandlers['instructor/*'] = 'EPLogFormatter';
-$wgLogActionsHandlers['instructor/add'] = 'EPRoleChangeFormatter';
-$wgLogActionsHandlers['instructor/remove'] = 'EPRoleChangeFormatter';
-$wgLogActionsHandlers['eparticle/*'] = 'EPArticleFormatter';
+$wgLogActionsHandlers['institution/*'] = 'EducationProgram\LogFormatter';
+$wgLogActionsHandlers['course/*'] = 'EducationProgram\LogFormatter';
+$wgLogActionsHandlers['student/*'] = 'EducationProgram\LogFormatter';
+$wgLogActionsHandlers['student/add'] = 'EducationProgram\RoleChangeFormatter';
+$wgLogActionsHandlers['student/remove'] = 'EducationProgram\RoleChangeFormatter';
+$wgLogActionsHandlers['online/*'] = 'EducationProgram\LogFormatter';
+$wgLogActionsHandlers['online/add'] = 'EducationProgram\RoleChangeFormatter';
+$wgLogActionsHandlers['online/remove'] = 'EducationProgram\RoleChangeFormatter';
+$wgLogActionsHandlers['campus/*'] = 'EducationProgram\LogFormatter';
+$wgLogActionsHandlers['campus/add'] = 'EducationProgram\RoleChangeFormatter';
+$wgLogActionsHandlers['campus/remove'] = 'EducationProgram\RoleChangeFormatter';
+$wgLogActionsHandlers['instructor/*'] = 'EducationProgram\LogFormatter';
+$wgLogActionsHandlers['instructor/add'] = 'EducationProgram\RoleChangeFormatter';
+$wgLogActionsHandlers['instructor/remove'] = 'EducationProgram\RoleChangeFormatter';
+$wgLogActionsHandlers['eparticle/*'] = 'EducationProgram\ArticleFormatter';
 
 // Rights
 $wgAvailableRights[] = 'ep-org'; 			// Manage orgs
@@ -670,7 +672,7 @@ $wgResourceModules['ep.enlist'] = $moduleTemplate + array(
 
 unset( $moduleTemplate );
 
-$egEPSettings = array();
+$egSettings = array();
 
 // The default value for the user preferences.
 $wgDefaultUserOptions['ep_showtoplink'] = false;

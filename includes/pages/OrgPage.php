@@ -1,18 +1,19 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Page for interacting with an org.
  *
  * @since 0.1
  *
- * @file OrgPage.php
  * @ingroup EducationProgram
  * @ingroup Page
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class OrgPage extends EPPage {
+class OrgPage extends EducationPage {
 
 	protected static $info = array(
 		'edit-right' => 'ep-org',
@@ -21,26 +22,24 @@ class OrgPage extends EPPage {
 	);
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPPage::getActions()
+	 * @see EducationPage::getActions()
 	 */
 	public function getActions() {
 		return array(
-			'view' => 'ViewOrgAction',
-			'edit' => 'EditOrgAction',
-			'history' => 'EPHistoryAction',
-			'delete' => 'EPDeleteAction',
-			'purge' => 'ViewOrgAction',
+			'view' => 'EducationProgram\ViewOrgAction',
+			'edit' => 'EducationProgram\EditOrgAction',
+			'history' => 'EducationProgram\HistoryAction',
+			'delete' => 'EducationProgram\DeleteAction',
+			'purge' => 'EducationProgram\ViewOrgAction',
 		);
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPPage::getActions()
-	 * @return EPPageTable
+	 * @see EducationPage::getActions()
+	 * @return PageTable
 	 */
 	public function getTable() {
-		return EPOrgs::singleton();
+		return Orgs::singleton();
 	}
 
 }

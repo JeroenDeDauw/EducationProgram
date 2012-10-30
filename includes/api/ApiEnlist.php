@@ -1,11 +1,13 @@
 <?php
 
+namespace EducationProgram;
+use ApiBase, User;
+
 /**
  * API module to associate/disassociate users as instructor or ambassador with/from a course.
  *
  * @since 0.1
  *
- * @file ApiEnlist.php
  * @ingroup EducationProgram
  * @ingroup API
  *
@@ -46,15 +48,15 @@ class ApiEnlist extends ApiBase {
 		$field = $roleMap[$params['role']];
 
 		/**
-		 * @var EPCourse $course
+		 * @var Course $course
 		 */
-		$course = EPCourses::singleton()->selectRow( array( 'id', 'name', 'title', $field ), array( 'id' => $params['courseid'] ) );
+		$course = Courses::singleton()->selectRow( array( 'id', 'name', 'title', $field ), array( 'id' => $params['courseid'] ) );
 
 		if ( $course === false ) {
 			$this->dieUsage( $this->msg( 'ep-enlist-invalid-course' )->text(), 'invalid-course' );
 		}
 
-		$revAction = new EPRevisionAction();
+		$revAction = new RevisionAction();
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( $params['reason'] );
 

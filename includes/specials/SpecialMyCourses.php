@@ -1,20 +1,22 @@
 <?php
 
+namespace EducationProgram;
+use IContextSource, Linker;
+
 /**
  * Page listing the recent actibvity of the users classmates.
  * It works both as a timeline and a dashboard.
  *
  * @since 0.1
  *
- * @file SpecialMyCourses.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialMyCourses extends SpecialEPPage {
+class SpecialMyCourses extends VerySpecialPage {
 	/**
-	 * @var array of EPCourse
+	 * @var array of Course
 	 */
 	protected $courses;
 
@@ -59,7 +61,7 @@ class SpecialMyCourses extends SpecialEPPage {
 		}
 		else {
 			$this->getOutput()->addHTML( Linker::linkKnown(
-				SpecialPage::getTitleFor( 'Userlogin' ),
+				\SpecialPage::getTitleFor( 'Userlogin' ),
 				$this->msg( 'ep-dashboard-login-first' )->escaped(),
 				array(),
 				array( 'returnto' => $this->getTitle( $this->subPage )->getFullText() )
@@ -74,10 +76,10 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	protected function fetchCourses() {
-		$courses = EPCourses::singleton()->getCoursesForUsers(
+		$courses = Courses::singleton()->getCoursesForUsers(
 			$this->getUser()->getId(),
 			array(),
-			EPCourses::getStatusConds( 'current' )
+			Courses::getStatusConds( 'current' )
 		);
 
 		$this->courses = iterator_to_array( $courses );
@@ -94,12 +96,12 @@ class SpecialMyCourses extends SpecialEPPage {
 				$specificCategory = false;
 
 				/**
-				 * @var EPCourse $course
+				 * @var Course $course
 				 */
 				$course = array_shift( $courses );
 
 				if ( !is_null( $course ) ) {
-					$specificCategory = EPOrgs::singleton()->selectFieldsRow(
+					$specificCategory = Orgs::singleton()->selectFieldsRow(
 						array( 'name' ),
 						array( 'id' => $course->getField( 'org_id' ) )
 					);
@@ -107,14 +109,14 @@ class SpecialMyCourses extends SpecialEPPage {
 					if ( is_string( $specificCategory ) ) {
 						$specificCategory = str_replace(
 							array( '$1', '$2' ),
-							array( $specificCategory, EPSettings::get( 'dykCategory' ) ),
-							EPSettings::get( 'dykOrgCategory' )
+							array( $specificCategory, Settings::get( 'dykCategory' ) ),
+							Settings::get( 'dykOrgCategory' )
 						);
 					}
 				}
 
-				$box = new DYKBox(
-					EPSettings::get( 'dykCategory' ),
+				$box = new \DYKBox(
+					Settings::get( 'dykCategory' ),
 					$specificCategory,
 					$context
 				);
@@ -124,7 +126,7 @@ class SpecialMyCourses extends SpecialEPPage {
 			array( $this->getContext(), $this->courses )
 		);
 
-		$this->getOutput()->addModules( DYKBox::getModules() );
+		$this->getOutput()->addModules( \DYKBox::getModules() );
 	}
 
 	/**
@@ -138,7 +140,7 @@ class SpecialMyCourses extends SpecialEPPage {
 		}
 
 		if ( $this->courses !== array() ) {
-			$this->getOutput()->addModules( EPTimeline::getModules() );
+			$this->getOutput()->addModules( Timeline::getModules() );
 		}
 	}
 
@@ -153,7 +155,7 @@ class SpecialMyCourses extends SpecialEPPage {
 		return array_merge(
 			parent::getCacheKey(),
 			array_map(
-				function( EPCourse $course ) {
+				function( Course $course ) {
 					return $course->getId();
 				},
 				$this->courses
@@ -167,26 +169,26 @@ class SpecialMyCourses extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 */
-	protected function displayTimeline( EPCourse $course ) {
+	protected function displayTimeline( Course $course ) {
 		$this->addCachedHTML(
-			function( EPCourse $course, IContextSource $context ) {
-				$eventTable = EPEvents::singleton();
+			function( Course $course, IContextSource $context ) {
+				$eventTable = Events::singleton();
 
 				$conds = array(
 					'course_id' => $course->getId(),
-					'time > ' . wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, time() - EPSettings::get( 'timelineDurationLimit' ) ) ),
+					'time > ' . wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, time() - Settings::get( 'timelineDurationLimit' ) ) ),
 				);
 
 				$options = array(
-					'LIMIT' => EPSettings::get( 'timelineCountLimit' ),
+					'LIMIT' => Settings::get( 'timelineCountLimit' ),
 					'ORDER BY' => $eventTable->getPrefixedField( 'time' ) . ' DESC'
 				);
 
 				$html = Linker::link(
 					$course->getTitle(),
-					Html::element(
+					\Html::element(
 						'h2',
 						array(),
 						$course->getField( 'name' )
@@ -199,7 +201,7 @@ class SpecialMyCourses extends SpecialEPPage {
 					$html .= $context->msg( 'ep-dashboard-timeline-empty' )->escaped();
 				}
 				else {
-					$timeline = new EPTimeline(
+					$timeline = new Timeline(
 						$context,
 						$events
 					);
@@ -220,12 +222,12 @@ class SpecialMyCourses extends SpecialEPPage {
 	 */
 	protected function displayEnrollmentMessage() {
 		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
-			EPStudents::singleton()->setReadDb( DB_MASTER );
+			Students::singleton()->setReadDb( DB_MASTER );
 
 			/**
-			 * @var EPCourse $course
+			 * @var Course $course
 			 */
-			$course = EPCourses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
+			$course = Courses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
 
 			if ( $course !== false && in_array( $this->getUser()->getId(), $course->getField( 'students' ) ) ) {
 				$this->showSuccess( $this->msg( 'ep-mycourses-enrolled' )->rawParams(
@@ -242,7 +244,7 @@ class SpecialMyCourses extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	protected function displayNavigation() {
-		$menu = new EPMenu( $this->getContext() );
+		$menu = new Menu( $this->getContext() );
 		$menu->setItemFunction( function( array $items ) {
 			unset( $items['ep-nav-mycourses'] );
 			return $items;

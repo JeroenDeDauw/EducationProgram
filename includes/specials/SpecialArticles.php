@@ -1,17 +1,19 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Special page that lists articles worked on as part of the Education Program.
  *
  * @since 0.1
  *
- * @file SpecialArticles.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialArticles extends SpecialEPPage {
+class SpecialArticles extends VerySpecialPage {
+
 	/**
 	 * Constructor.
 	 *
@@ -43,7 +45,7 @@ class SpecialArticles extends SpecialEPPage {
 	 * @return string
 	 */
 	public function getPagerHTML() {
-		return EPArticle::getPagerHTML( $this->getContext() );
+		return Article::getPagerHTML( $this->getContext() );
 	}
 
 	/**

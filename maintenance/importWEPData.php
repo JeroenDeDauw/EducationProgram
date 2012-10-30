@@ -93,7 +93,7 @@ class ImportWEPData extends Maintenance {
 	 * @param array $orgs Org names as keys. Values get set to the id after insertion.
 	 */
 	protected function insertOrgs( array &$orgs ) {
-		$revAction = new EPRevisionAction();
+		$revAction = new RevisionAction();
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
 
@@ -124,7 +124,7 @@ class ImportWEPData extends Maintenance {
 	 * @return array Inserted courses. keys are names, values are ids
 	 */
 	protected function insertCourses( array $courses, array $orgs ) {
-		$revAction = new EPRevisionAction();
+		$revAction = new RevisionAction();
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
 
@@ -192,7 +192,7 @@ class ImportWEPData extends Maintenance {
 					echo "Failed to insert student '$name'. (failed to create user)\n";
 				}
 				else {
-					$student = EPStudent::newFromUser( $user );
+					$student = Student::newFromUser( $user );
 
 					if ( is_null( $student->getId() ) ) {
 						if ( !$student->save() ) {
@@ -205,7 +205,7 @@ class ImportWEPData extends Maintenance {
 
 					foreach ( $courseNames as $courseName ) {
 						if ( array_key_exists( $courseName, $courseIds ) ) {
-							$revAction = new EPRevisionAction();
+							$revAction = new RevisionAction();
 							$revAction->setUser( $user );
 							$revAction->setComment( 'Import' );
 
