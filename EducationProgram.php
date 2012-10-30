@@ -30,15 +30,15 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-if ( version_compare( $wgVersion, '1.20c', '<' ) ) { // Needs to be 1.20c because version_compare() works in confusing ways.
-	die( '<strong>Error:</strong> Education Program requires MediaWiki 1.20 or above.' );
+if ( version_compare( $wgVersion, '1.21c', '<' ) ) { // Needs to be 1.21c because version_compare() works in confusing ways.
+	die( '<strong>Error:</strong> Education Program requires MediaWiki 1.21 or above.' );
 }
 
 if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version constant to check against :/
 	die( '<strong>Error:</strong> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
 }
 
-define( 'EP_VERSION', '0.2' );
+define( 'EP_VERSION', '0.3 alpha' );
 
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
