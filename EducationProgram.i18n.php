@@ -2211,6 +2211,22 @@ $messages['bg'] = array(
 	'ep-campus-summary-input' => 'Резюме:',
 );
 
+/** Bengali (বাংলা)
+ * @author Bellayet
+ */
+$messages['bn'] = array(
+	'ep-item-summary' => 'সারাংশ',
+	'ep-form-summary' => 'সারাংশ:',
+	'ep-tab-view' => 'পড়ুন',
+	'ep-tab-edit' => 'সম্পাদনা',
+	'ep-tab-create' => 'তৈরি',
+	'ep-tab-history' => 'ইতিহাস',
+	'ep-tab-delete' => 'অপসারণ',
+	'tooltip-ep-form-save' => 'সংরক্ষণ',
+	'specialpages-group-education' => 'শিক্ষা',
+	'special-institutions' => 'প্রতিষ্ঠান',
+);
+
 /** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
