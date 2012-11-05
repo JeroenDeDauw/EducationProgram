@@ -13,7 +13,8 @@ use IContextSource, Html, Xml;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class Org extends PageObject {
+class Org extends \ORMRow {
+
 	/**
 	 * Cached array of the linked Course objects.
 	 *

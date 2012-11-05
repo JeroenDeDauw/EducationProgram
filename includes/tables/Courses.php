@@ -237,15 +237,4 @@ class Courses extends PageTable {
 		return new ORMResult( $this, $courses );
 	}
 
-	/**
-	 * @see PageTable::getEditRight
-	 *
-	 * @since 0.1
-	 *
-	 * @return string
-	 */
-	public function getEditRight() {
-		return 'ep-course';
-	}
-
 }

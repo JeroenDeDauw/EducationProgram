@@ -13,7 +13,8 @@ use IContextSource, Xml, Html, IORMTable, MWException;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class Course extends PageObject {
+class Course extends \ORMRow {
+
 	/**
 	 * Field for caching the linked org.
 	 *

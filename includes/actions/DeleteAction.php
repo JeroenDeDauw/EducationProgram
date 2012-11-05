@@ -33,7 +33,7 @@ class DeleteAction extends Action {
 	 * @see Action::getRestriction()
 	 */
 	public function getRestriction() {
-		$this->page->getEditRight();
+		return Utils::getEditRight( $this->getTitle() );
 	}
 
 	/**

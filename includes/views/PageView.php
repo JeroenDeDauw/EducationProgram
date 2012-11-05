@@ -42,7 +42,7 @@ class PageView extends \ContextSource {
 		if ( $object === false ) {
 			$this->displayNavigation();
 
-			if ( $this->getUser()->isAllowed( $this->page->getEditRight() ) ) {
+			if ( $this->getUser()->isAllowed( Utils::getEditRight( $this->getTitle() ) ) ) {
 				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
 			}
 			else {

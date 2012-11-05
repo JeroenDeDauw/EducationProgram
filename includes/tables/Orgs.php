@@ -128,11 +128,4 @@ class Orgs extends PageTable {
 		return EP_NS;
 	}
 
-	/**
-	 * @see PageTable::getEditRight()
-	 */
-	public function getEditRight() {
-		return 'ep-org';
-	}
-
 }

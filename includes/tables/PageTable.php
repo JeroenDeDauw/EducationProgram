@@ -44,15 +44,6 @@ abstract class PageTable extends \ORMTable {
 	public abstract function getRevertibleFields();
 
 	/**
-	 * Returns the right needed to edit items in this table.
-	 *
-	 * @since 0.1
-	 *
-	 * @return string
-	 */
-	public abstract function getEditRight();
-
-	/**
 	 * @since 0.1
 	 *
 	 * @param string $identifier

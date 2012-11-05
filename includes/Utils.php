@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Html, Linker, Title;
+use IContextSource, Html, Linker, Title, MWException;
 
 /**
  * Static class with utility functions for the Education Program extension.
@@ -233,12 +233,31 @@ class Utils {
 	 * @param string|Title $title
 	 *
 	 * @return boolean
+	 * @throws MWException
 	 */
 	public static function isCourse( $title ) {
 		if ( $title instanceof Title ) {
+			if ( $title->getNamespace() !== EP_NS ) {
+				throw new MWException( 'Title of invalid namespace provided to ' . __METHOD__ );
+			}
+
 			$title = $title->getFullText();
 		}
 
 		return in_string( '/', $title );
 	}
+
+	/**
+	 * Returns the edit right for the provided page which must be in the EP_NS namespace.
+	 *
+	 * @since 0.3
+	 *
+	 * @param string|Title $title
+	 *
+	 * @return string
+	 */
+	public static function getEditRight( $title ) {
+		return self::isCourse( $title ) ? 'ep-org' : 'ep-course';
+	}
+
 }

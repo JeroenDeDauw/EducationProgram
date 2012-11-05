@@ -52,7 +52,7 @@ abstract class Action extends \CachedAction {
 	 * @since 0.1
 	 */
 	public function displayUndeletionLink() {
-		if ( $this->getUser()->isAllowed( $this->page->getEditRight() ) ) {
+		if ( $this->getUser()->isAllowed( Utils::getEditRight( $this->getTitle() ) ) ) {
 			$revisionCount = Revisions::singleton()->count( array(
 				'object_identifier' => $this->getTitle()->getText()
 			) );

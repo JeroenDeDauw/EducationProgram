@@ -27,7 +27,7 @@ class UndeleteAction extends Action {
 	 * @see Action::getRestriction()
 	 */
 	public function getRestriction() {
-		return $this->page->getEditRight();
+		return Utils::getEditRight( $this->getTitle() );
 	}
 
 	/**

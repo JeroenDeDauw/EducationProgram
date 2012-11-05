@@ -278,7 +278,7 @@ final class Hooks {
 				);
 			}
 
-			if ( $user->isAllowed( EducationPage::factory( $title )->getEditRight() ) ) {
+			if ( $user->isAllowed( Utils::getEditRight( $title ) ) ) {
 				$links['views']['edit'] = array(
 					'class' => $type === 'edit' ? 'selected' : false,
 					'text' => $sktemplate->msg( $exists ? 'ep-tab-edit' : 'ep-tab-create' )->text(),

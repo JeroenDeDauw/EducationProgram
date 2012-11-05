@@ -108,7 +108,7 @@ class RevisionPager extends \ReverseChronologicalPager {
 			);
 		}
 
-		if ( $this->getUser()->isAllowed( $this->table->getEditRight() ) ) {
+		if ( $this->getUser()->isAllowed( Utils::getEditRight( $this->getTitle() ) ) ) {
 			$actionLinks = array();
 
 			if ( $this->mOffset !== '' || $this->rowNr < $this->mResult->numRows() - 1 ) {
