@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use AbstractContent, Content, Title, ParserOptions;
+use Title, ParserOptions, ParserOutput;
 
 /**
  * Content class for Education Program course pages.
@@ -30,31 +30,76 @@ use AbstractContent, Content, Title, ParserOptions;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class CourseContent extends AbstractContent {
+class CourseContent extends EducationContent {
 
 	/**
-	 * @see Content::getWikitextForTransclusion
+	 * @since 0.3
+	 * @var Course
 	 */
-	public function getWikitextForTransclusion() {
-		return false;
+	protected $course;
+
+	/**
+	 * Constructor.
+	 * Do not use to construct new stuff from outside of this class, use the static newFoobar methods.
+	 * In other words: treat as protected (which it was, but now cannot be since we derive from Content).
+	 *
+	 * @since 0.3
+	 *
+	 * @param Course $course
+	 */
+	public function __construct( Course $course ) {
+		parent::__construct( CONTENT_MODEL_EP_COURSE );
+
+		$this->course = $course;
 	}
 
 	/**
 	 * Returns a ParserOutput object containing the HTML.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param Title              $title
 	 * @param null               $revId
 	 * @param null|ParserOptions $options
 	 * @param bool               $generateHtml
 	 *
-	 * @return \Title
+	 * @return Title
 	 */
 	public function getParserOutput( Title $title, $revId = null, ParserOptions $options = null, $generateHtml = true )  {
-		$viewAction = new \ViewCourseAction( \WikiPage::factory( $title ) );
-		return $viewAction->getParserOutput( $this, $options, $generateHtml );
+		if ( $options === null ) {
+			$options = new ParserOptions();
+			$options->setEditSection( false );
+		}
+
+		$parserOutput = new ParserOutput();
+
+		// TODO: dafuiq
+
+		if ( $generateHtml ) {
+			$context = new \RequestContext();
+			$context->setLanguage( $options->getTargetLanguage() );
+			$context->setUser( $options->getUser() );
+			$context->setTitle( $title );
+
+			$viewAction = new CourseView( $this, $context );
+
+			$parserOutput->setText( $viewAction->getHtml() );
+
+			$parserOutput->addModules( array( 'wikibase.common' ) );
+		}
+
+		return $parserOutput;
 	}
 
+	/**
+	 * @see EducationContent::getValue
+	 *
+	 * @since 0.3
+	 *
+	 * @return Course
+	 */
+	protected function getValue() {
+		return $this->course;
+	}
 
 }

@@ -1,68 +1,10 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, Linker, IORMRow, Html;
+use ParserOptions, ParserOutput, IORMRow, Html;
 
-/**
- * Abstract action for viewing ORMRow items.
- *
- * @since 0.1
- *
- * @ingroup EducationProgram
- * @ingroup Action
- *
- * @licence GNU GPL v2+
- * @author Jeroen De Dauw < jeroendedauw@gmail.com >
- */
-abstract class ViewAction extends Action {
 
-	/**
-	 * @since 0.1
-	 * @var PageTable
-	 */
-	protected $table;
-
-	/**
-	 * @since 0.2
-	 * @var PageObject
-	 */
-	protected $object;
-
-	/**
-	 * Constructor.
-	 *
-	 * @since 0.1
-	 *
-	 * @param Page $page
-	 * @param IContextSource $context
-	 * @param PageTable $table
-	 */
-	protected function __construct( Page $page, IContextSource $context = null, PageTable $table ) {
-		$this->table = $table;
-		parent::__construct( $page, $context );
-	}
-
-	/**
-	 * Returns the identifier for the object being viewed.
-	 *
-	 * @since 0.2
-	 *
-	 * @return string
-	 */
-	protected function getIdentifier() {
-		return $this->getTitle()->getText();
-	}
-
-	/**
-	 * @see Action::requiresUnblock
-	 *
-	 * @since 0.2
-	 *
-	 * @return boolean
-	 */
-	public function requiresUnblock() {
-		return false;
-	}
+class PageView extends \ContextSource {
 
 	/**
 	 * @see FormlessAction::onView()
@@ -138,7 +80,7 @@ abstract class ViewAction extends Action {
 	/**
 	 * Display a revision notice as subtitle.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param Revision $rev
 	 */
@@ -171,7 +113,7 @@ abstract class ViewAction extends Action {
 	/**
 	 * Display the actual page.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param IORMRow $object
 	 *
@@ -184,7 +126,7 @@ abstract class ViewAction extends Action {
 	/**
 	 * Displays the navigation menu.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 */
 	protected function displayNavigation() {
 		$menu = new Menu( $this->getContext() );
@@ -194,7 +136,7 @@ abstract class ViewAction extends Action {
 	/**
 	 * Display the summary data.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param IORMRow $item
 	 * @param boolean $collapsed
@@ -244,7 +186,7 @@ abstract class ViewAction extends Action {
 	 * Gets the summary data.
 	 * Returned values must be escaped.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param IORMRow $item
 	 *
@@ -265,4 +207,16 @@ abstract class ViewAction extends Action {
 			parent::getCacheKey()
 		);
 	}
+
+	/**
+	 * @param CourseContent $courseContent
+	 * @param \ParserOptions $options
+	 * @param bool $generateHtml
+	 *
+	 * @return ParserOutput
+	 */
+	public function getParserOutput( CourseContent $courseContent, ParserOptions $options = null, $generateHtml = true ) {
+
+	}
+
 }

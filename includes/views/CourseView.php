@@ -1,12 +1,12 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, Html, IORMRow, Linker, SpecialPage;
+use IContextSource, Html, IORMRow, Linker, SpecialPage, ParserOptions;
 
 /**
- * Action for viewing a course.
+ * Course view.
  *
- * @since 0.1
+ * @since 0.3
  *
  * @ingroup EducationProgram
  * @ingroup Action
@@ -14,36 +14,19 @@ use Page, IContextSource, Html, IORMRow, Linker, SpecialPage;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ViewCourseAction extends ViewAction {
+class CourseView extends PageView {
+
+	// TODO: cache for non-anon users
 
 	/**
 	 * Constructor.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
-	 * @param Page $page
 	 * @param IContextSource $context
 	 */
-	public function __construct( Page $page, IContextSource $context = null ) {
-		parent::__construct( $page, $context, Courses::singleton() );
-	}
+	public function __construct( IContextSource $context ) {
 
-	/**
-	 * @see Action::getName()
-	 */
-	public function getName() {
-		return 'viewcourse';
-	}
-
-	/**
-	 * @see FormlessAction::onView()
-	 */
-	public function onView() {
-		// Only cache for anon users. Else we need to cache per user,
-		// since the page has an ArticleTable, which has per user stuff.
-		$this->cacheEnabled = $this->getUser()->isAnon();
-
-		return parent::onView();
 	}
 
 	/**
@@ -86,7 +69,7 @@ class ViewCourseAction extends ViewAction {
 	/**
 	 * Gets the summary data.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param Course|IORMRow $course
 	 *
@@ -126,7 +109,7 @@ class ViewCourseAction extends ViewAction {
 	 * Returns a list with the users that the specified role for the provided course
 	 * or a message indicating there are none.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param Course $course
 	 * @param string $roleName
@@ -165,7 +148,7 @@ class ViewCourseAction extends ViewAction {
 	 * Returns role a controls for the course if the
 	 * current user has the right permissions.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param Course $course
 	 * @param string $roleName
@@ -229,10 +212,6 @@ class ViewCourseAction extends ViewAction {
 			$user->isAllowed( 'ep-course' ),
 			$user->isAllowed( 'ep-bulkdelcourses' ) && $user->getOption( 'ep_bulkdelcourses' ),
 		), parent::getCacheKey() );
-	}
-
-	public function getParserOutput( \EducationProgram\CourseContent $courseContent ) {
-
 	}
 
 }

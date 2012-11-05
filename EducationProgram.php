@@ -85,6 +85,13 @@ $wgAutoloadClasses['EducationProgram\ApiDeleteEducation'] 			= $dir . '/includes
 $wgAutoloadClasses['EducationProgram\ApiEnlist'] 					= $dir . '/includes/api/ApiEnlist.php';
 $wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/includes/api/ApiRefreshEducation.php';
 
+// includes/content (implementing Content or deriving from ContentHandler)
+$wgAutoloadClasses['EducationProgram\CourseContent'] 				= $dir . '/includes/content/CourseContent.php';
+$wgAutoloadClasses['EducationProgram\CourseHandler'] 				= $dir . '/includes/content/CourseHandler.php';
+$wgAutoloadClasses['EducationProgram\EducationContent'] 			= $dir . '/includes/content/EducationContent.php';
+$wgAutoloadClasses['EducationProgram\OrgContent'] 					= $dir . '/includes/content/OrgContent.php';
+$wgAutoloadClasses['EducationProgram\OrgHandler'] 					= $dir . '/includes/content/OrgHandler.php';
+
 // includes/pagers (implementing Pager)
 $wgAutoloadClasses['EducationProgram\ArticlePager'] 				= $dir . '/includes/pagers/ArticlePager.php';
 $wgAutoloadClasses['EducationProgram\ArticleTable'] 				= $dir . '/includes/pagers/ArticleTable.php';
@@ -97,11 +104,6 @@ $wgAutoloadClasses['EducationProgram\RevisionPager'] 				= $dir . '/includes/pag
 $wgAutoloadClasses['EducationProgram\StudentPager'] 				= $dir . '/includes/pagers/StudentPager.php';
 $wgAutoloadClasses['EducationProgram\StudentActivityPager'] 		= $dir . '/includes/pagers/StudentActivityPager.php';
 
-// includes/pages (here core is a mess :)
-$wgAutoloadClasses['EducationProgram\CoursePage'] 					= $dir . '/includes/pages/CoursePage.php';
-$wgAutoloadClasses['EducationProgram\EducationPage'] 				= $dir . '/includes/pages/EducationPage.php';
-$wgAutoloadClasses['EducationProgram\OrgPage'] 						= $dir . '/includes/pages/OrgPage.php';
-
 // includes/rows (deriving from ORMRow)
 $wgAutoloadClasses['EducationProgram\Article'] 						= $dir . '/includes/rows/Article.php';
 $wgAutoloadClasses['EducationProgram\CA'] 							= $dir . '/includes/rows/CA.php';
@@ -110,9 +112,6 @@ $wgAutoloadClasses['EducationProgram\Event'] 						= $dir . '/includes/rows/Even
 $wgAutoloadClasses['EducationProgram\Instructor'] 					= $dir . '/includes/rows/Instructor.php';
 $wgAutoloadClasses['EducationProgram\OA'] 							= $dir . '/includes/rows/OA.php';
 $wgAutoloadClasses['EducationProgram\Org'] 							= $dir . '/includes/rows/Org.php';
-$wgAutoloadClasses['EducationProgram\PageObject'] 					= $dir . '/includes/rows/PageObject.php';
-$wgAutoloadClasses['EducationProgram\Revision'] 					= $dir . '/includes/rows/Revision.php';
-$wgAutoloadClasses['EducationProgram\RevisionedObject'] 			= $dir . '/includes/rows/RevisionedObject.php';
 $wgAutoloadClasses['EducationProgram\Student'] 						= $dir . '/includes/rows/Student.php';
 
 // includes/specials (deriving from SpecialPage)
@@ -143,7 +142,6 @@ $wgAutoloadClasses['EducationProgram\Instructors'] 					= $dir . '/includes/tabl
 $wgAutoloadClasses['EducationProgram\OAs'] 							= $dir . '/includes/tables/OAs.php';
 $wgAutoloadClasses['EducationProgram\Orgs'] 						= $dir . '/includes/tables/Orgs.php';
 $wgAutoloadClasses['EducationProgram\PageTable'] 					= $dir . '/includes/tables/PageTable.php';
-$wgAutoloadClasses['EducationProgram\Revisions'] 					= $dir . '/includes/tables/Revisions.php';
 $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/Students.php';
 
 // includes
@@ -198,10 +196,27 @@ $wgSpecialPageGroups['StudentActivity'] 			= 'education';
 $wgSpecialPageGroups['Articles'] 					= 'education';
 $wgSpecialPageGroups['ManageCourses'] 				= 'education';
 
+// Namespaces
+define( 'EP_NS', 442 + 4 );
+define( 'EP_NS_TALK', 442 + 5 );
+
+// User roles
 define( 'EP_STUDENT', 0 );
 define( 'EP_INSTRUCTOR', 1 );
 define( 'EP_OA', 2 );
 define( 'EP_CA', 3 );
+
+// Content models
+define( 'CONTENT_MODEL_EP_ORG', "ep-org" );
+define( 'CONTENT_MODEL_EP_COURSE', "ep-course" );
+
+// Content model namespaces
+$wgNamespaceContentModels[EP_NS] = CONTENT_MODEL_EP_ORG;
+// TODO: course NS
+
+// Content handlers
+$wgContentHandlers[CONTENT_MODEL_EP_ORG] 			= 'EducationProgram\OrgHandler';
+$wgContentHandlers[CONTENT_MODEL_EP_COURSE] 		= 'EducationProgram\CourseHandler';
 
 // API
 $wgAPIModules['deleteeducation'] 					= 'EducationProgram\ApiDeleteEducation';
@@ -215,7 +230,7 @@ $wgHooks['PersonalUrls'][] 							= 'EducationProgram\Hooks::onPersonalUrls';
 $wgHooks['GetPreferences'][] 						= 'EducationProgram\Hooks::onGetPreferences';
 $wgHooks['SkinTemplateNavigation'][] 				= 'EducationProgram\Hooks::onPageTabs';
 $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EducationProgram\Hooks::onSpecialPageTabs';
-$wgHooks['ArticleFromTitle'][] 						= 'EducationProgram\Hooks::onArticleFromTitle';
+$wgHooks['ContentHandlerDefaultModelFor'][] 		= 'EducationProgram\Hooks::onContentHandlerDefaultModelFor';
 $wgHooks['CanonicalNamespaces'][] 					= 'EducationProgram\Hooks::onCanonicalNamespaces';
 $wgHooks['TitleIsAlwaysKnown'][] 					= 'EducationProgram\Hooks::onTitleIsAlwaysKnown';
 $wgHooks['AbortMove'][] 							= 'EducationProgram\Hooks::onAbortMove';
@@ -354,10 +369,6 @@ $wgAddGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
 $wgRemoveGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
 $wgAddGroups['sysop'] = array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' );
 $wgRemoveGroups['sysop'] = array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' );
-
-// Namespaces
-define( 'EP_NS',					442 + 4 );
-define( 'EP_NS_TALK', 				442 + 5 );
 
 // Resource loader modules
 $moduleTemplate = array(

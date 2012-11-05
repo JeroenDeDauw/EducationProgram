@@ -158,19 +158,18 @@ final class Hooks {
 	}
 
 	/**
-	 * Called to determine the class to handle the article rendering, based on title.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleFromTitle
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ContentHandlerDefaultModelFor
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param Title $title
-	 * @param Article|null $article
+	 * @param string|null $model
 	 *
 	 * @return bool
 	 */
-	public static function onArticleFromTitle( Title &$title, &$article ) {
-		if ( $title->getNamespace() == EP_NS ) {
-			$article = EducationPage::factory( $title );
+	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
+		if ( $title->getNamespace() === EP_NS ) {
+			$model = Utils::isCourse( $title ) ? CONTENT_MODEL_EP_COURSE : CONTENT_MODEL_EP_ORG;
 		}
 
 		return true;
@@ -341,22 +340,24 @@ final class Hooks {
 	 * @return bool
 	 */
 	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
-		wfProfileIn( __METHOD__ );
+		// TODO: this can probably be removed
 
-		if ( $title->getNamespace() == EP_NS ) {
-			if ( Utils::isCourse( $title ) ) {
-				$class = 'EducationProgram\Courses';
-			}
-			else {
-				$class = 'EducationProgram\Orgs';
-			}
-
-			$identifier = $title->getText();
-
-			$isKnown = $class::singleton()->hasIdentifier( $identifier );
-		}
-
-		wfProfileOut( __METHOD__ );
+//		wfProfileIn( __METHOD__ );
+//
+//		if ( $title->getNamespace() == EP_NS ) {
+//			if ( Utils::isCourse( $title ) ) {
+//				$class = 'EducationProgram\Courses';
+//			}
+//			else {
+//				$class = 'EducationProgram\Orgs';
+//			}
+//
+//			$identifier = $title->getText();
+//
+//			$isKnown = $class::singleton()->hasIdentifier( $identifier );
+//		}
+//
+//		wfProfileOut( __METHOD__ );
 		return true;
 	}
 

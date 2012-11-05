@@ -6,7 +6,7 @@ use Page, IContextSource, IORMRow, Html;
 /**
  * Action for viewing an org.
  *
- * @since 0.1
+ * @since 0.3
  *
  * @ingroup EducationProgram
  * @ingroup Action
@@ -14,11 +14,12 @@ use Page, IContextSource, IORMRow, Html;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ViewOrgAction extends ViewAction {
+class ViewOrgAction extends PageView {
+
 	/**
 	 * Constructor.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param Page $page
 	 * @param IContextSource $context
@@ -69,7 +70,7 @@ class ViewOrgAction extends ViewAction {
 	/**
 	 * Gets the summary data.
 	 *
-	 * @since 0.1
+	 * @since 0.3
 	 *
 	 * @param Org|IORMRow $org
 	 *
