@@ -5587,6 +5587,7 @@ $messages['fi'] = array(
  * @author Od1n
  * @author Sherbrooke
  * @author Tititou36
+ * @author Urhixidur
  * @author Verdy p
  * @author 아라
  */
@@ -5945,7 +5946,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'ep-pager-delete-fail' => 'Impossible de supprimer cet élément.',
 	'ep-pager-confirm-delete-selected' => "Etes-vous sûr de vouloir supprimer {{PLURAL:$1|l'élément|les éléments}} sélectionné(s) ?",
 	'ep-pager-delete-selected-fail' => 'Impossible de supprimer le(s) {{PLURAL:$1|élément|éléments}} sélectionnés.',
-	'vieworgaction-none' => 'Il n\'existe aucune institution portant le nom de "$1". Voir la [[Special:Institutions|liste des institutions]].',
+	'vieworgaction-none' => 'Il n’existe aucune institution portant le nom de « $1 ». Voir la [[Special:Institutions|liste des institutions]].',
 	'ep-institution-create' => 'Il n\'existe pas encore d\'institution avec le nom de "$1", mais vous pouvez la créer.',
 	'ep-institution-title' => 'Institution: $1',
 	'vieworgaction-summary-name' => 'Nom',
@@ -5962,7 +5963,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'ep-course-title' => 'Cours : $1',
 	'ep-course-students' => 'Étudiants',
 	'ep-course-articles' => 'Articles',
-	'viewcourseaction-none' => 'Il n\'y a pas de cours portant le nom de "$1". Voir la [[Special:Courses|liste des cours]].',
+	'viewcourseaction-none' => 'Il n’y a pas de cours portant le nom de « $1 ». Voir la [[Special:Courses|liste des cours]].',
 	'ep-course-create' => 'Il n\'y a pas de cours portant le nom de "$1", mais vous pouvez en créer un nouveau.',
 	'ep-course-description' => 'Description',
 	'viewcourseaction-summary-org' => 'Institution',
@@ -5971,7 +5972,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'viewcourseaction-summary-end' => 'Fin',
 	'viewcourseaction-summary-students' => 'Nombre d’étudiants',
 	'viewcourseaction-summary-status' => 'Statut',
-	'viewcourseaction-summary-token' => "Fiche d'inscription",
+	'viewcourseaction-summary-token' => 'Fiche d’inscription',
 	'viewcourseaction-summary-instructors' => 'Instructeurs',
 	'viewcourseaction-summary-online' => 'Ambassadeurs en ligne',
 	'viewcourseaction-summary-campus' => 'Ambassadeurs du campus',
