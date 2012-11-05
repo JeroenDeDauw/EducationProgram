@@ -15,8 +15,9 @@ use IContextSource, Linker;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialMyCourses extends VerySpecialPage {
+
 	/**
-	 * @var array of Course
+	 * @var Course[]
 	 */
 	protected $courses;
 

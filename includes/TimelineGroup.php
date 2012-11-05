@@ -17,7 +17,7 @@ abstract class TimelineGroup extends \ContextSource {
 
 	/**
 	 * @since 0.1
-	 * @var array of Event
+	 * @var Event[]
 	 */
 	protected $events;
 
@@ -95,7 +95,7 @@ abstract class TimelineGroup extends \ContextSource {
 	 *
 	 * @since 0.1
 	 *
-	 * @return array of Event
+	 * @return Event[]
 	 */
 	public function getEvents() {
 		return $this->events;

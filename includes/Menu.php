@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Linker, Html, SpecialPage;
+use IContextSource, Linker, Html, SpecialPage, Title;
 
 /**
  * Education Program menu.
@@ -90,7 +90,7 @@ class Menu extends \ContextSource {
 	 *
 	 * @since 0.1
 	 *
-	 * @return array of Title
+	 * @return Title[]
 	 */
 	protected function getMenuItems() {
 		$items = array(

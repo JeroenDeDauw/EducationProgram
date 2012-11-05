@@ -27,7 +27,7 @@ abstract class RoleObject extends \ORMRow implements IRole {
 	 * Cached array of the linked Course objects.
 	 *
 	 * @since 0.1
-	 * @var array|bool false
+	 * @var Course[]|bool false
 	 */
 	protected $courses = false;
 
@@ -194,7 +194,7 @@ abstract class RoleObject extends \ORMRow implements IRole {
 	 * @param string|array|null $fields
 	 * @param array $conditions
 	 *
-	 * @return array of Course
+	 * @return Course[]
 	 */
 	public function getCourses( $fields = null, array $conditions = array() ) {
 		if ( count( $conditions ) !== 0 ) {
@@ -245,14 +245,14 @@ abstract class RoleObject extends \ORMRow implements IRole {
 	}
 
 	/**
-	 * Returns the courses this campus ambassdor is associated with.
+	 * Returns the courses this campus ambassador is associated with.
 	 *
 	 * @since 0.1
 	 *
 	 * @param string|array|null $fields
 	 * @param array $conditions
 	 *
-	 * @return array of Course
+	 * @return Course[]
 	 */
 	protected function doGetCourses( $fields, array $conditions ) {
 		return iterator_to_array( Courses::singleton()->getCoursesForUsers(

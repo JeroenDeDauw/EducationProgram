@@ -19,7 +19,7 @@ class Timeline extends \ContextSource {
 	 * List of events to display in this timeline.
 	 *
 	 * @since 0.1
-	 * @var array
+	 * @var Event[]
 	 */
 	protected $events;
 
@@ -59,14 +59,11 @@ class Timeline extends \ContextSource {
 	 *
 	 * @since 0.1
 	 *
-	 * @return array of Event
+	 * @return Event[]
 	 */
 	protected function getSortedGroups() {
 		$groups = array();
 
-		/**
-		 * @var Event $event
-		 */
 		foreach ( $this->events as $event ) {
 			$eventInfo = $event->getField( 'info' );
 

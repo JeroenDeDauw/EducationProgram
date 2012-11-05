@@ -18,7 +18,7 @@ class Org extends PageObject {
 	 * Cached array of the linked Course objects.
 	 *
 	 * @since 0.1
-	 * @var array|bool false
+	 * @var Course[]|bool false
 	 */
 	protected $courses = false;
 
@@ -223,13 +223,13 @@ class Org extends PageObject {
 	}
 
 	/**
-	 * Retruns the courses linked to this org.
+	 * Returns the courses linked to this org.
 	 *
 	 * @since 0.1
 	 *
 	 * @param array|string|null $fields
 	 *
-	 * @return array of Course
+	 * @return Course[]
 	 */
 	public function getCourses( array $fields = null ) {
 		if ( $this->courses === false ) {

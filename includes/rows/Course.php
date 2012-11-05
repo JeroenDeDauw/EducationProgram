@@ -26,7 +26,7 @@ class Course extends PageObject {
 	 * Cached array of the linked Student objects.
 	 *
 	 * @since 0.1
-	 * @var array|bool false
+	 * @var Student[]|bool false
 	 */
 	protected $students = false;
 
@@ -34,7 +34,7 @@ class Course extends PageObject {
 	 * Field for caching the instructors.
 	 *
 	 * @since 0.1
-	 * @var {array of Instructor}|false
+	 * @var Instructor[]|bool false
 	 */
 	protected $instructors = false;
 
@@ -42,7 +42,7 @@ class Course extends PageObject {
 	 * Field for caching the online ambassadors.
 	 *
 	 * @since 0.1
-	 * @var {array of OA}|false
+	 * @var OA[]|bool false
 	 */
 	protected $oas = false;
 
@@ -50,7 +50,7 @@ class Course extends PageObject {
 	 * Field for caching the campus ambassadors.
 	 *
 	 * @since 0.1
-	 * @var {array of CA}|false
+	 * @var CA[]| bool false
 	 */
 	protected $cas = false;
 
@@ -396,7 +396,7 @@ class Course extends PageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @return array of Student
+	 * @return Student[]
 	 */
 	public function getStudents() {
 		return $this->getRoleList( 'students', 'Students', 'students' );
@@ -407,7 +407,7 @@ class Course extends PageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @return array of Instructor
+	 * @return Instructor[]
 	 */
 	public function getInstructors() {
 		return $this->getRoleList( 'instructors', 'Instructors', 'instructors' );
@@ -422,7 +422,7 @@ class Course extends PageObject {
 	 * @param string $tableName Name of the table class in which this role is kept track of.
 	 * @param string $classField Name of the field in which the list is cached in this class.
 	 *
-	 * @return array of EPRole
+	 * @return EPRole[]
 	 */
 	protected function getRoleList( $fieldName, $tableName, $classField ) {
 		if ( $this->$classField === false ) {
@@ -467,7 +467,7 @@ class Course extends PageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @return array of CA
+	 * @return CA[]
 	 */
 	public function getCampusAmbassadors() {
 		return $this->getRoleList( 'campus_ambs', 'CAs', 'cas' );
@@ -478,7 +478,7 @@ class Course extends PageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @return array of OA
+	 * @return OA[]
 	 */
 	public function getOnlineAmbassadors() {
 		return $this->getRoleList( 'online_ambs', 'OAs', 'oas' );
@@ -491,7 +491,7 @@ class Course extends PageObject {
 	 *
 	 * @param string $roleName
 	 *
-	 * @return array of IRole
+	 * @return IRole[]
 	 * @throws MWException
 	 */
 	public function getUserWithRole( $roleName ) {
