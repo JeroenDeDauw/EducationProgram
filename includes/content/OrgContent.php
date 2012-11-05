@@ -23,7 +23,6 @@ use Title, ParserOptions, ParserOutput;
  *
  * @since 0.3
  *
- * @file
  * @ingroup EducationProgram
  * @ingroup Content
  *
@@ -100,6 +99,17 @@ class OrgContent extends EducationContent {
 	 */
 	protected function getValue() {
 		return $this->org;
+	}
+
+	/**
+	 * @since 0.3
+	 *
+	 * @param array $array
+	 *
+	 * @return OrgContent
+	 */
+	public static function newFromArray( array $array ) {
+		return new self( Orgs::singleton()->newRow( $array ) );
 	}
 
 }

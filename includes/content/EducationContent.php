@@ -23,7 +23,6 @@ use AbstractContent, Title, ParserOutput, IORMROw;
  *
  * @since 0.3
  *
- * @file
  * @ingroup EducationProgram
  * @ingroup Content
  *

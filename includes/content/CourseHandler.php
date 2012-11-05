@@ -1,8 +1,57 @@
 <?php
+
+namespace EducationProgram;
+
 /**
- * Created by JetBrains PhpStorm.
- * User: j
- * Date: 30/10/12
- * Time: 19:10
- * To change this template use File | Settings | File Templates.
+ * ContentHandler class for course pages.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @since 0.3
+ *
+ * @ingroup EducationProgram
+ *
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
+class CourseHandler extends EducationHandler {
+
+	/**
+	 * @see ContentHandler::unserializeContent
+	 *
+	 * @since 0.3
+	 *
+	 * @param string $blob
+	 * @param null|string $format
+	 *
+	 * @return CourseContent
+	 */
+	public function unserializeContent( $blob, $format = null ) {
+		return CourseContent::newFromArray( $this->unserializedData( $blob, $format ) );
+	}
+
+	/**
+	 * @see ContentHandler::makeEmptyContent
+	 *
+	 * @since 0.3
+	 *
+	 * @return CourseContent
+	 */
+	public function makeEmptyContent() {
+		return CourseContent::newFromArray( array() );
+	}
+
+}

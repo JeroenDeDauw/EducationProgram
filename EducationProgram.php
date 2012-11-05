@@ -89,6 +89,7 @@ $wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/include
 $wgAutoloadClasses['EducationProgram\CourseContent'] 				= $dir . '/includes/content/CourseContent.php';
 $wgAutoloadClasses['EducationProgram\CourseHandler'] 				= $dir . '/includes/content/CourseHandler.php';
 $wgAutoloadClasses['EducationProgram\EducationContent'] 			= $dir . '/includes/content/EducationContent.php';
+$wgAutoloadClasses['EducationProgram\EducationHandler'] 			= $dir . '/includes/content/EducationHandler.php';
 $wgAutoloadClasses['EducationProgram\OrgContent'] 					= $dir . '/includes/content/OrgContent.php';
 $wgAutoloadClasses['EducationProgram\OrgHandler'] 					= $dir . '/includes/content/OrgHandler.php';
 
