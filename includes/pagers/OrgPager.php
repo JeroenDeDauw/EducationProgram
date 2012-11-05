@@ -43,6 +43,17 @@ class OrgPager extends Pager {
 	}
 
 	/**
+	 * @see Pager::getModules
+	 *
+	 * @since 0.3
+	 *
+	 * @return array
+	 */
+	public static function getModules() {
+		return array_merge( parent::getModules(), array( 'ep.pager.org' ) );
+	}
+
+	/**
 	 * Constructor.
 	 *
 	 * @param IContextSource $context
@@ -50,7 +61,6 @@ class OrgPager extends Pager {
 	 */
 	public function __construct( IContextSource $context, array $conds = array() ) {
 		parent::__construct( $context, $conds, Orgs::singleton() );
-		$this->context->getOutput()->addModules( 'ep.pager.org' );
 	}
 
 	/**

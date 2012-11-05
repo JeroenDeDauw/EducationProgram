@@ -44,7 +44,7 @@ class CoursePager extends Pager {
 	}
 
 	/**
-	 * Returns the resource loader modules used by the pager.
+	 * @see Pager::getModules
 	 *
 	 * @since 0.1
 	 *
