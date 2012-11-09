@@ -153,6 +153,7 @@ $specialPageAliases['lb'] = array(
 	'Courses' => array( 'Coursen' ),
 	'Enroll' => array( 'Aschreiwen' ),
 	'Disenroll' => array( 'Ofmellen_aus_dem_Cours' ),
+	'StudentActivity' => array( 'Studentenaktivitéit' ),
 	'Articles' => array( 'Artikelen' ),
 );
 
@@ -219,4 +220,13 @@ $specialPageAliases['tr'] = array(
 	'CampusAmbassadorProfile' => array( 'KampüsTemsilcisiProfili' ),
 	'StudentActivity' => array( 'ÖğrenciEtkinliği' ),
 	'Articles' => array( 'Maddeler' ),
+);
+
+/** Simplified Chinese (中文（简体）‎) */
+$specialPageAliases['zh-hans'] = array(
+	'MyCourses' => array( '我的课程' ),
+	'ManageCourses' => array( '管理课程' ),
+	'Courses' => array( '课程' ),
+	'EducationProgram' => array( '教育计划' ),
+	'Enroll' => array( '入学' ),
 );
