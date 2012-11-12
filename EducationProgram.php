@@ -350,8 +350,8 @@ $wgGroupPermissions['epcoordinator']['userrights'] = false;
 
 $wgAddGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
 $wgRemoveGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
-$wgAddGroups['sysop'] = array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' );
-$wgRemoveGroups['sysop'] = array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' );
+$wgAddGroups['sysop'] = array_merge( $wgAddGroups['sysop'], array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ) );
+$wgRemoveGroups['sysop'] = array_merge( $wgRemoveGroups['sysop'], array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ) );
 
 // Namespaces
 define( 'EP_NS',					442 + 4 );
