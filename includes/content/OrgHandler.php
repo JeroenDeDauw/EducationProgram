@@ -54,4 +54,18 @@ class OrgHandler extends EducationHandler {
 		return OrgContent::newFromArray( array() );
 	}
 
+	/**
+	 * @see ContentHandler::getActionOverrides
+	 *
+	 * @since 0.3
+	 *
+	 * @return array
+	 */
+	public function getActionOverrides() {
+		return array(
+			'view' => '\EducationProgram\ViewOrgAction',
+			'edit' => '\EducationProgram\EditOrgAction',
+		);
+	}
+
 }

@@ -54,4 +54,18 @@ class CourseHandler extends EducationHandler {
 		return CourseContent::newFromArray( array() );
 	}
 
+	/**
+	 * @see ContentHandler::getActionOverrides
+	 *
+	 * @since 0.3
+	 *
+	 * @return array
+	 */
+	public function getActionOverrides() {
+		return array(
+			'view' => '\EducationProgram\ViewCourseAction',
+			'edit' => '\EducationProgram\EditCourseAction',
+		);
+	}
+
 }
