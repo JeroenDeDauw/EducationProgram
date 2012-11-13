@@ -21,7 +21,7 @@ $messages['en'] = array(
 
 	// Misc
 	'ep-item-summary' => 'Summary',
-	'ep-toplink' => 'My courses',
+	'ep-toplink' => 'Courses',
 	'ep-org-course-delete-comment' => "Deleted institution $1 and all its courses with comment $2",
 	'ep-org-course-delete' => "Deleted institution $1 and all its courses",
 	'ep-form-summary' => 'Summary:',
