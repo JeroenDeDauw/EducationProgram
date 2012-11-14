@@ -2844,7 +2844,7 @@ $messages['cs'] = array(
 $messages['de'] = array(
 	'educationprogram-desc' => 'Ermöglicht die Durchführung und Verwaltung von Bildungsprogrammen',
 	'ep-item-summary' => 'Zusammenfassung',
-	'ep-toplink' => 'Meine Kurse', # Fuzzy
+	'ep-toplink' => 'Kurse',
 	'ep-org-course-delete-comment' => 'Löschte Einrichtung $1 und die zugehörigen Kurse mit dem Kommentar $2',
 	'ep-org-course-delete' => 'Löschte Einrichtung $1 und die zugehörigen Kurse',
 	'ep-form-summary' => 'Zusammenfassung:',
@@ -6628,7 +6628,7 @@ $messages['ga'] = array(
 $messages['gl'] = array(
 	'educationprogram-desc' => 'Facilita programas educativos ao engadir diferentes interfaces para administrar os cursos, as institucións e os diversos roles educativos de usuario.',
 	'ep-item-summary' => 'Resumo',
-	'ep-toplink' => 'Os meus cursos', # Fuzzy
+	'ep-toplink' => 'Cursos',
 	'ep-org-course-delete-comment' => 'Borrouse a institución "$1" e todos os seus cursos co seguinte comentario: $2',
 	'ep-org-course-delete' => 'Borrouse a institución "$1" e todos os seus cursos',
 	'ep-form-summary' => 'Resumo:',
@@ -8724,7 +8724,7 @@ Tu pote examinar le [[Special:Students|lista complete de studentes]].',
 $messages['it'] = array(
 	'educationprogram-desc' => "Facilita i programmi di istruzione con l'aggiunta di varie interfacce per la gestione di corsi, istituti e i vari ruoli utente per la formazione.",
 	'ep-item-summary' => 'Sommario',
-	'ep-toplink' => 'miei corsi',
+	'ep-toplink' => 'corsi',
 	'ep-org-course-delete-comment' => 'Cancellato istituto $1 e tutti i suoi corsi con il commento $2',
 	'ep-org-course-delete' => 'Cancellato istituto $1 e tutti i suoi corsi',
 	'ep-form-summary' => 'Sommario:',
@@ -9386,7 +9386,7 @@ Puoi trovare l'elenco completo degli studenti in [[Special:Students|questa lista
  */
 $messages['ja'] = array(
 	'ep-item-summary' => '要約',
-	'ep-toplink' => '自分のコース', # Fuzzy
+	'ep-toplink' => 'コース',
 	'ep-form-summary' => '要約:',
 	'ep-form-minor' => 'これは細部の編集です',
 	'ep-student-view-profile' => '生徒のプロフィール',
