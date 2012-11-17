@@ -115,6 +115,25 @@ $specialPageAliases['gl'] = array(
 	'Articles' => array( 'Artigos' ),
 );
 
+/** Italian (italiano) */
+$specialPageAliases['it'] = array(
+	'MyCourses' => array( 'MieCorsi' ),
+	'ManageCourses' => array( 'GestisciCorsi' ),
+	'Institutions' => array( 'Istituzioni' ),
+	'Student' => array( 'Studente' ),
+	'Students' => array( 'Studenti' ),
+	'Courses' => array( 'Corsi' ),
+	'EducationProgram' => array( 'ProgrammaEducativo' ),
+	'Enroll' => array( 'Immatricolati' ),
+	'Disenroll' => array( 'Smatricolati' ),
+	'CampusAmbassadors' => array( 'AmbasciatoriCampus' ),
+	'OnlineAmbassadors' => array( 'AmbasciatoriOnline' ),
+	'OnlineAmbassadorProfile' => array( 'ProfiloAmbasciatoreOnline' ),
+	'CampusAmbassadorProfile' => array( 'ProfiloAmbasciatoreCampus' ),
+	'StudentActivity' => array( 'AttivitàStudente' ),
+	'Articles' => array( 'Voci' ),
+);
+
 /** Georgian (ქართული) */
 $specialPageAliases['ka'] = array(
 	'MyCourses' => array( 'ჩემი_კურსები' ),

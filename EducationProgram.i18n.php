@@ -4110,6 +4110,7 @@ $messages['eo'] = array(
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Dalton2
  * @author Invadinado
  * @author Mr.Ajedrez
  * @author Ralgis
@@ -4123,7 +4124,7 @@ $messages['es'] = array(
 	'ep-org-course-delete' => 'Ha eliminado la institución $1 y todos sus cursos',
 	'ep-form-summary' => 'Resumen:',
 	'ep-form-minor' => 'Esta es una edición menor',
-	'ep-move-error' => 'No puedes mover artículos dentro o fuera de los espacios de nombres de educación.',
+	'ep-move-error' => 'No puedes trasladar artículos dentro o fuera de los espacios de nombres de educación.',
 	'ep-student-view-profile' => 'perfil del alumno',
 	'ep-err-failed-to-save' => 'Fallo inesperado - sus cambios no fueron guardados.',
 	'ep-tab-view' => 'Leer',
