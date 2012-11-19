@@ -5595,7 +5595,7 @@ $messages['fi'] = array(
 $messages['fr'] = array(
 	'educationprogram-desc' => "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles d'utilisateur de l'éducation.",
 	'ep-item-summary' => 'Résumé',
-	'ep-toplink' => 'Mes cours', # Fuzzy
+	'ep-toplink' => 'Cours',
 	'ep-org-course-delete-comment' => "Supprimer l'institution $1 et tous ses cours avec le commentaire $2",
 	'ep-org-course-delete' => "Supprimer l'institution $1 et tous ses cours",
 	'ep-form-summary' => 'Résumé :',
@@ -17830,6 +17830,7 @@ $messages['tly'] = array(
 $messages['tr'] = array(
 	'ep-educationprogram-gender-oas' => 'Sefirê xetmiyani',
 	'ep-educationprogram-gender-instructors' => 'Eğitmenler',
+	'epcapager-header-bio' => 'Profil',
 );
 
 /** Urdu (اردو)
