@@ -3609,7 +3609,7 @@ Sie finden eine vollständige Liste der Studenten auf [[Special:Students|der Lis
  */
 $messages['diq'] = array(
 	'ep-item-summary' => 'Xulasa',
-	'ep-toplink' => 'Kursê mı',
+	'ep-toplink' => 'Kursi',
 	'ep-form-summary' => 'Xulasa:',
 	'ep-student-view-profile' => 'profilê telebi',
 	'ep-tab-view' => 'Bıwane',
@@ -14050,7 +14050,7 @@ $messages['nb'] = array(
 $messages['nl'] = array(
 	'educationprogram-desc' => "Faciliteert onderwijsprogramma's door verschillende interfaces toe te voegen om cursussen, organisatie en verschillende onderwijsrollen te kunnen beheren",
 	'ep-item-summary' => 'Samenvatting',
-	'ep-toplink' => 'Mijn cursussen',
+	'ep-toplink' => 'Cursussen',
 	'ep-org-course-delete-comment' => 'De organisatie $1 en alle bijbehorende cursussen zijn verwijderd met de opmerking "$2".',
 	'ep-org-course-delete' => 'De organisatie $1 en alle bijbehorende cursussen zijn verwijderd.',
 	'ep-form-summary' => 'Samenvatting:',
