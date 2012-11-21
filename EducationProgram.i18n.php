@@ -18616,11 +18616,12 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Justincheng12345
  * @author Simon Shek
  */
 $messages['zh-hant'] = array(
 	'ep-item-summary' => '摘要',
-	'ep-toplink' => '我的課程',
+	'ep-toplink' => '我的課程', # Fuzzy
 	'ep-org-course-delete-comment' => '刪除$1及其所有課程，並發布此評論：$2',
 	'ep-org-course-delete' => '刪除$1及其所有課程',
 	'ep-form-summary' => '摘要：',
@@ -18907,7 +18908,7 @@ $messages['zh-hant'] = array(
 	'ep-enroll-realname' => '真實姓名 （必填）',
 	'ep-disenroll-button' => '取消註冊',
 	'ep-disenroll-summary' => '您為什麼要取消註冊？',
-	'ep-disenroll-cancel' => 'Cancel',
+	'ep-disenroll-cancel' => '取消',
 	'ep-instructor-removing' => '正在刪除...',
 	'ep-instructor-close-button' => '關閉',
 	'ep-instructor-remove-retry' => '重試',
