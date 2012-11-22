@@ -222,6 +222,25 @@ $specialPageAliases['nl'] = array(
 	'Articles' => array( 'Artikelen' ),
 );
 
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'MyCourses' => array( 'MieCorsi' ),
+	'ManageCourses' => array( 'GestisciCorsi' ),
+	'Institutions' => array( 'Istituzioni' ),
+	'Student' => array( 'Studente' ),
+	'Students' => array( 'Studenti' ),
+	'Courses' => array( 'Corsi' ),
+	'EducationProgram' => array( 'ProgrammaEducativo' ),
+	'Enroll' => array( 'Immatricolati' ),
+	'Disenroll' => array( 'Smatricolati' ),
+	'CampusAmbassadors' => array( 'AmbasciatoriCampus' ),
+	'OnlineAmbassadors' => array( 'AmbasciatoriOnline' ),
+	'OnlineAmbassadorProfile' => array( 'ProfiloAmbasciatoreOnline' ),
+	'CampusAmbassadorProfile' => array( 'ProfiloAmbasciatoreCampus' ),
+	'StudentActivity' => array( 'AttivitàStudente' ),
+	'Articles' => array( 'Voci' ),
+);
+
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = array(
 	'MyCourses' => array( 'Derslerim' ),
