@@ -59,6 +59,12 @@ $specialPageAliases['as'] = array(
 	'Articles' => array( 'প্ৰবন্ধসমূহ' ),
 );
 
+/** буряад (буряад) */
+$specialPageAliases['bxr'] = array(
+	'Student' => array( 'Оюутан' ),
+	'Students' => array( 'Оюутад' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'MyCourses' => array( 'Meine_Kurse' ),
@@ -220,6 +226,12 @@ $specialPageAliases['nl'] = array(
 	'CampusAmbassadorProfile' => array( 'Campusambassadeurprofiel' ),
 	'StudentActivity' => array( 'Studentactiviteit' ),
 	'Articles' => array( 'Artikelen' ),
+);
+
+/** Punjabi (ਪੰਜਾਬੀ) */
+$specialPageAliases['pa'] = array(
+	'Student' => array( 'ਸ਼ਿਸ਼' ),
+	'Articles' => array( 'ਲੇਖਾਂ' ),
 );
 
 /** Sicilian (sicilianu) */
