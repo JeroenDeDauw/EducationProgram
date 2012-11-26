@@ -230,8 +230,10 @@ $specialPageAliases['nl'] = array(
 
 /** Punjabi (ਪੰਜਾਬੀ) */
 $specialPageAliases['pa'] = array(
-	'Student' => array( 'ਸ਼ਿਸ਼' ),
-	'Articles' => array( 'ਲੇਖਾਂ' ),
+	'MyCourses' => array( 'ਮੇਰੇ_ਕੋਰਸ' ),
+	'Student' => array( 'ਵਿਦਿਆਰਥੀ' ),
+	'Courses' => array( 'ਕੋਰਸ' ),
+	'Articles' => array( 'ਲੇਖ' ),
 );
 
 /** Sicilian (sicilianu) */
