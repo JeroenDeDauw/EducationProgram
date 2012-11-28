@@ -362,8 +362,12 @@ class EPEditGroup extends EPTimelineGroup {
 		);
 
 		if ( in_array( $type, array( NS_USER, NS_USER_TALK ) )
-			&& count( $userIds ) == 1 && $userIds[0] == User::newFromName( $subjectText )->getId() ) {
-			$messageKey .= '-self';
+			&& count( $userIds ) == 1 ) {
+			$user = User::newFromName( $subjectText );
+
+			if ( $user instanceof User && $userIds[0] == $user->getId() ) {
+				$messageKey .= '-self';
+			}
 		}
 
 		return $this->msg(
