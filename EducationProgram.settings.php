@@ -76,6 +76,7 @@ class EPSettings {
 			'enableDykSetting' => true,
 			'timelineMessageLengthLimit' => 250,
 			'requireRealName' => false,
+			'enablePageCache' => true,
 		);
 	}
 

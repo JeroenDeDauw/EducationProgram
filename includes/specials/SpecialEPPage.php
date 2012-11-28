@@ -53,7 +53,7 @@ abstract class SpecialEPPage extends SpecialCachedPage {
 	 * @return boolean
 	 */
 	public function execute( $subPage ) {
-		// parent::execute( $subPage );
+		$this->cacheEnabled = EPSettings::get( 'enablePageCache' );
 
 		$subPage = is_null( $subPage ) ? '' : $subPage;
 		$this->subPage = trim( str_replace( '_', ' ', $subPage ) );

@@ -448,7 +448,11 @@ final class EPHooks {
 
 			$dbw = wfGetDB( DB_MASTER );
 
-			$dbw->begin();
+			$startOwnStransaction = $dbw->trxLevel() === 0;
+
+			if ( $startOwnStransaction ) {
+				$dbw->begin();
+			}
 
 			if ( !is_null( $rev->getTitle() ) ) {
 				while ( $link = $upc->fetchObject() ) {
@@ -468,7 +472,10 @@ final class EPHooks {
 				$student->save();
 			}
 
-			$dbw->commit();
+			if ( $startOwnStransaction ) {
+				$dbw->commit();
+			}
+
 			wfProfileIn( __METHOD__ . '-courses' );
 		}
 
