@@ -213,14 +213,14 @@ $messages['en'] = array(
 
 	// Special:EducationProgram
 	'ep-summary-table-header' => 'Education Program totals',
-	'specialeducationprogram-summary-org-count' => 'Number of [[Special:Institutions|institutions]]',
-	'specialeducationprogram-summary-course-count' => 'Number of [[Special:Courses|courses]]',
-	'specialeducationprogram-summary-active-course-count' => 'Number of active courses',
-	'specialeducationprogram-summary-student-count' => 'Number of [[Special:Students|students]]',
-	'specialeducationprogram-summary-current-student-count' => 'Currently enrolled students',
-	'specialeducationprogram-summary-instructor-count' => 'Number of instructors',
-	'specialeducationprogram-summary-ca-count' => 'Number of [[Special:CampusAmbassadors|Campus Ambassadors]]',
-	'specialeducationprogram-summary-oa-count' => 'Number of [[Special:OnlineAmbassadors|Online Ambassadors]]',
+	'ep-specialeducationprogram-summary-org-count' => 'Number of [[Special:Institutions|institutions]]',
+	'ep-specialeducationprogram-summary-course-count' => 'Number of [[Special:Courses|courses]]',
+	'ep-specialeducationprogram-summary-active-course-count' => 'Number of active courses',
+	'ep-specialeducationprogram-summary-student-count' => 'Number of [[Special:Students|students]]',
+	'ep-specialeducationprogram-summary-current-student-count' => 'Currently enrolled students',
+	'ep-specialeducationprogram-summary-instructor-count' => 'Number of instructors',
+	'ep-specialeducationprogram-summary-ca-count' => 'Number of [[Special:CampusAmbassadors|Campus Ambassadors]]',
+	'ep-specialeducationprogram-summary-oa-count' => 'Number of [[Special:OnlineAmbassadors|Online Ambassadors]]',
 	'ep-educationprogram-by-term' => 'Totals per term',
 	'ep-educationprogram-courses' => 'Number of courses',
 	'ep-educationprogram-students' => 'Number of students',
@@ -750,7 +750,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-campus-summary-input' => 'Summary:',
 	'ep-campus-name-input' => 'User name:',
 
-	// EPInstructor
+	// Instructor
 	'ep-instructor-remove' => 'remove as instructor',
 
 	// EPCA

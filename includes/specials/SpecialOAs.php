@@ -1,17 +1,18 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Page listing online ambassadors in a pager with filter control.
  *
  * @since 0.1
  *
- * @file SpecialOAs.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialOAs extends SpecialEPPage {
+class SpecialOAs extends VerySpecialPage {
 
 	/**
 	 * Constructor.
@@ -36,10 +37,10 @@ class SpecialOAs extends SpecialEPPage {
 			$this->displayNavigation();
 
 			$this->startCache( 3600 );
-			$this->addCachedHTML( 'EPOA::getPager', $this->getContext() );
+			$this->addCachedHTML( 'EducationProgram\OA::getPager', $this->getContext() );
 		}
 		else {
-			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'OnlineAmbassador', $this->subPage )->getLocalURL() );
+			$this->getOutput()->redirect( \SpecialPage::getTitleFor( 'OnlineAmbassador', $this->subPage )->getLocalURL() );
 		}
 	}
 

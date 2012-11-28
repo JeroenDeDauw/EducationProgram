@@ -1,7 +1,7 @@
 <?php
 
-namespace EudcationProgram\Test;
-use EPArticle;
+namespace EducationProgram\Test;
+use EducationProgram\Article;
 
 /**
  * Tests for the EPArticle class.
@@ -34,7 +34,7 @@ use EPArticle;
 class ArticleTest extends \MediaWikiTestCase {
 
 	public function testGetPagerHTML() {
-		$html = EPArticle::getPagerHTML( \RequestContext::getMain() );
+		$html = Article::getPagerHTML( \RequestContext::getMain() );
 		$this->assertInternalType( 'string', $html );
 	}
 

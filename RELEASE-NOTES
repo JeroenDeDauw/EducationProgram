@@ -15,6 +15,7 @@ Latest version of the release notes: https://gerrit.wikimedia.org/r/gitweb?p=med
 ; Enhancements
 
 * Renamed user groups from "Education Program $1" to "Course $1".
+* Introduced EducationProgram PHP namespace.
 
 === Version 0.2 ===
 (2012-10-16)

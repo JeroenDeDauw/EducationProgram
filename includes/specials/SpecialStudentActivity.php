@@ -1,17 +1,18 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Page listing recent student activity.
  *
  * @since 0.1
  *
- * @file SpecialStudentActivity.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialStudentActivity extends SpecialEPPage {
+class SpecialStudentActivity extends VerySpecialPage {
 	/**
 	 * Constructor.
 	 *
@@ -48,7 +49,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 * @return string
 	 */
 	public function displayCachedContent() {
-		$duration = EPSettings::get( 'recentActivityLimit' );
+		$duration = Settings::get( 'recentActivityLimit' );
 
 		$conds = array( 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
 			wfTimestamp( TS_MW, time() - $duration )
@@ -71,7 +72,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 * @return string
 	 */
 	public function displayPager( array $conds, $duration ) {
-		$pager = new EPStudentActivityPager( $this->getContext(), $conds );
+		$pager = new StudentActivityPager( $this->getContext(), $conds );
 
 		if ( $pager->getNumRows() ) {
 			$html =
@@ -104,7 +105,7 @@ class SpecialStudentActivity extends SpecialEPPage {
 	 * @return string
 	 */
 	public function displayStudentMeter( array $conds, $duration ) {
-		$studentCount = EPStudents::singleton()->count( $conds );
+		$studentCount = Students::singleton()->count( $conds );
 
 		if ( $studentCount < 10 ) {
 			$image = $studentCount < 5 ? 0 : 5;
@@ -119,8 +120,8 @@ class SpecialStudentActivity extends SpecialEPPage {
 			$this->getLanguage()->formatDuration( $duration, array( 'hours' ) )
 		)->escaped();
 
-		return Html::element( 'img', array(
-			'src' => EPSettings::get( 'imageDir' ) . 'student-o-meter_morethan-' . $image . '.png',
+		return \Html::element( 'img', array(
+			'src' => Settings::get( 'imageDir' ) . 'student-o-meter_morethan-' . $image . '.png',
 			'alt' => $message,
 			'title' => $message,
 			'class' => 'studentometer'

@@ -1,17 +1,19 @@
 <?php
 
+namespace EducationProgram;
+use Html;
+
 /**
  *
  *
  * @since 0.1
  *
- * @file SpecialEducationProgram.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialEducationProgram extends SpecialEPPage {
+class SpecialEducationProgram extends VerySpecialPage {
 	/**
 	 * Constructor.
 	 *
@@ -64,7 +66,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 			$html .=  Html::rawElement(
 				'th',
 				array( 'class' => 'ep-summary-name' ),
-				$this->msg( strtolower( get_called_class() ) . '-summary-' . $stat )->parse()
+				$this->msg( str_replace( 'educationprogram\\', 'ep-', strtolower( get_called_class() ) ) . '-summary-' . $stat )->parse()
 			);
 
 			$html .=  Html::rawElement(
@@ -84,13 +86,13 @@ class SpecialEducationProgram extends SpecialEPPage {
 	protected function getSummaryInfo() {
 		$data = array();
 
-		$data['org-count'] = EPOrgs::singleton()->count();
-		$data['course-count'] = EPCourses::singleton()->count();
-		$data['active-course-count'] = EPCourses::singleton()->count( EPCourses::getStatusConds( 'current' ) );
+		$data['org-count'] = Orgs::singleton()->count();
+		$data['course-count'] = Courses::singleton()->count();
+		$data['active-course-count'] = Courses::singleton()->count( Courses::getStatusConds( 'current' ) );
 
 		$data['student-count'] = $this->getRoleCount( EP_STUDENT );
 
-		$studentLists = array_map( 'unserialize', EPCourses::singleton()->selectFields( 'students', EPCourses::getStatusConds( 'current' ) ) );
+		$studentLists = array_map( 'unserialize', Courses::singleton()->selectFields( 'students', Courses::getStatusConds( 'current' ) ) );
 		$data['current-student-count'] = empty( $studentLists ) ? 0 : count( array_unique( call_user_func_array(
 			'array_merge',
 			$studentLists
@@ -248,12 +250,12 @@ class SpecialEducationProgram extends SpecialEPPage {
 	 * @return array
 	 */
 	protected function getTermData() {
-		$termNames = EPCourses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ) );
+		$termNames = Courses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ) );
 		$terms = array();
 		$byGender = array();
 
 		foreach ( $termNames as $termName ) {
-			$courses = EPCourses::singleton()->select( null, array( 'term' => $termName ) );
+			$courses = Courses::singleton()->select( null, array( 'term' => $termName ) );
 
 			$students = array();
 			$oas = array();
@@ -262,7 +264,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 			$orgs = array();
 			$courseIds = array();
 
-			foreach ( $courses as /* EPCourse */ $course ) {
+			foreach ( $courses as /* Course */ $course ) {
 				$students = array_merge( $students, $course->getField( 'students' ) );
 				$oas = array_merge( $oas, $course->getField( 'online_ambs' ) );
 				$cas = array_merge( $cas, $course->getField( 'campus_ambs' ) );
@@ -271,7 +273,7 @@ class SpecialEducationProgram extends SpecialEPPage {
 				$courseIds[] = $course->getId();
 			}
 
-			$pageIds = EPArticles::singleton()->selectFields( 'page_id', array( 'course_id' => $courseIds ), array( 'DISTINCT' ) );
+			$pageIds = Articles::singleton()->selectFields( 'page_id', array( 'course_id' => $courseIds ), array( 'DISTINCT' ) );
 			$pageIds = array_unique( $pageIds );
 
 			$students = array_unique( $students );
@@ -399,4 +401,5 @@ class SpecialEducationProgram extends SpecialEPPage {
 	protected function prefixKey( $key ) {
 		return  'ep-' . strtolower( $this->mName ) . '-' . $key;
 	}
+
 }

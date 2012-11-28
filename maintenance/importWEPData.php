@@ -12,11 +12,13 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 
+namespace EducationProgram;
+
 $basePath = getenv( 'MW_INSTALL_PATH' ) !== false ? getenv( 'MW_INSTALL_PATH' ) : __DIR__ . '/../../..';
 
 require_once $basePath . '/maintenance/Maintenance.php';
 
-class ImportWEPData extends Maintenance {
+class ImportWEPData extends \Maintenance {
 
 	public function __construct() {
 		$this->mDescription = 'Import Wikipedia Education Program data';
@@ -93,14 +95,17 @@ class ImportWEPData extends Maintenance {
 	 * @param array $orgs Org names as keys. Values get set to the id after insertion.
 	 */
 	protected function insertOrgs( array &$orgs ) {
-		$revAction = new EPRevisionAction();
+		$revAction = new RevisionAction();
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
 
 		wfGetDB( DB_MASTER )->begin();
 
 		foreach ( $orgs as $org => &$id ) {
-			$org = EPOrgs::singleton()->newRow(
+			/**
+			 * @var RevisionedObject $org
+			 */
+			$org = Orgs::singleton()->newRow(
 				array(
 					'name' => $org,
 					'country' => 'US',
@@ -124,7 +129,7 @@ class ImportWEPData extends Maintenance {
 	 * @return array Inserted courses. keys are names, values are ids
 	 */
 	protected function insertCourses( array $courses, array $orgs ) {
-		$revAction = new EPRevisionAction();
+		$revAction = new RevisionAction();
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
 
@@ -138,7 +143,7 @@ class ImportWEPData extends Maintenance {
 			$start{3} = '1';
 			$end{3} = '3';
 
-			$course = EPCourses::singleton()->newRow(
+			$course = Courses::singleton()->newRow(
 				array(
 					'org_id' => $orgs[$org],
 					'title' => $course,
@@ -151,12 +156,15 @@ class ImportWEPData extends Maintenance {
 			);
 
 			try{
+				/**
+				 * @var RevisionedObject $course
+				 */
 				$course->revisionedSave( $revAction );
 				$courseIds[$name] = $course->getId();
 				$name = str_replace( '_', ' ', $name );
 				echo "Inserted course '$name'.\n";
 			}
-			catch ( Exception $ex ) {
+			catch ( \Exception $ex ) {
 				echo "Failed to insert course '$name'.\n";
 			}
 		}
@@ -177,7 +185,7 @@ class ImportWEPData extends Maintenance {
 	 */
 	protected function insertStudents( array $students, array $courseIds ) {
 		foreach ( $students as $name => $courseNames ) {
-			$user = User::newFromName( $name );
+			$user = \User::newFromName( $name );
 
 			if ( $user === false ) {
 				echo "Failed to insert student '$name'. (invalid user name)\n";
@@ -192,7 +200,7 @@ class ImportWEPData extends Maintenance {
 					echo "Failed to insert student '$name'. (failed to create user)\n";
 				}
 				else {
-					$student = EPStudent::newFromUser( $user );
+					$student = Student::newFromUser( $user );
 
 					if ( is_null( $student->getId() ) ) {
 						if ( !$student->save() ) {
@@ -205,11 +213,14 @@ class ImportWEPData extends Maintenance {
 
 					foreach ( $courseNames as $courseName ) {
 						if ( array_key_exists( $courseName, $courseIds ) ) {
-							$revAction = new EPRevisionAction();
+							$revAction = new RevisionAction();
 							$revAction->setUser( $user );
 							$revAction->setComment( 'Import' );
 
-							$course = EPCourses::singleton()->selectRow( null, array( 'id' => $courseIds[$courseName] ) );
+							/**
+							 * @var Course $course
+							 */
+							$course = Courses::singleton()->selectRow( null, array( 'id' => $courseIds[$courseName] ) );
 							$course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
 						}
 						else {
@@ -230,5 +241,5 @@ class ImportWEPData extends Maintenance {
 
 }
 
-$maintClass = 'ImportWEPData';
+$maintClass = 'EducationProgram\ImportWEPData';
 require_once( RUN_MAINTENANCE_IF_MAIN );

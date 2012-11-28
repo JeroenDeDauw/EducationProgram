@@ -1,5 +1,7 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Special page listing the courses relevant to the current user.
  * There are the courses the user is either enrolled in, an ambassador for or instructor for.
@@ -8,13 +10,12 @@
  *
  * @since 0.1
  *
- * @file SpecialManageCourses.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialManageCourses extends SpecialEPPage {
+class SpecialManageCourses extends VerySpecialPage {
 	/**
 	 * Constructor.
 	 *
@@ -43,7 +44,7 @@ class SpecialManageCourses extends SpecialEPPage {
 				$this->displayCourses();
 			}
 			else {
-				$course = EPCourses::singleton()->selectRow( null, array( 'title' => $this->subPage ) );
+				$course = Courses::singleton()->selectRow( null, array( 'title' => $this->subPage ) );
 
 				if ( $course === false ) {
 					// TODO high
@@ -54,8 +55,8 @@ class SpecialManageCourses extends SpecialEPPage {
 			}
 		}
 		else {
-			$this->getOutput()->addHTML( Linker::linkKnown(
-				SpecialPage::getTitleFor( 'Userlogin' ),
+			$this->getOutput()->addHTML( \Linker::linkKnown(
+				\SpecialPage::getTitleFor( 'Userlogin' ),
 				$this->msg( 'ep-mycourses-login-first' )->escaped(),
 				array(),
 				array(
@@ -71,7 +72,7 @@ class SpecialManageCourses extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	protected function displayNavigation() {
-		$menu = new EPMenu( $this->getContext() );
+		$menu = new Menu( $this->getContext() );
 		$menu->setItemFunction( function( array $items ) {
 			unset( $items['ep-nav-mycourses'] );
 			return $items;
@@ -85,13 +86,13 @@ class SpecialManageCourses extends SpecialEPPage {
 	 * @since 0.1
 	 */
 	protected function displayCourses() {
-		$this->displayRoleAssociation( 'EPStudent' );
+		$this->displayRoleAssociation( 'EducationProgram\Student' );
 
-		$this->displayRoleAssociation( 'EPInstructor' );
+		$this->displayRoleAssociation( 'EducationProgram\Instructor' );
 
-		$this->displayRoleAssociation( 'EPOA' );
+		$this->displayRoleAssociation( 'EducationProgram\OA' );
 
-		$this->displayRoleAssociation( 'EPCA' );
+		$this->displayRoleAssociation( 'EducationProgram\CA' );
 	}
 
 	/**
@@ -116,24 +117,26 @@ class SpecialManageCourses extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param $class string The name of the EPIRole implementing class
+	 * @param $class string The name of the IRole implementing class
 	 */
 	protected function displayRoleAssociation( $class ) {
 		$user = $this->getUser();
 		$userRole = $class::newFromUser( $user );
 		$courses = $userRole->getCourses( array( 'id', 'name', 'title', 'org_id', 'students' ) );
 
+		$isAllowed = false;
+
 		switch ( $class ) {
-			case 'EPStudent':
+			case 'EducationProgram\Student':
 				$isAllowed = true;
 				break;
-			case 'EPInstructor':
+			case 'EducationProgram\Instructor':
 				$isAllowed = $user->isAllowed( 'ep-beinstructor' ) || $user->isAllowed( 'ep-instructor' );
 				break;
-			case 'EPOA':
+			case 'EducationProgram\OA':
 				$isAllowed = $user->isAllowed( 'ep-beonline' ) || $user->isAllowed( 'ep-online' );
 				break;
-			case 'EPCA':
+			case 'EducationProgram\CA':
 				$isAllowed = $user->isAllowed( 'ep-becampus' ) || $user->isAllowed( 'ep-campus' );
 				break;
 		}
@@ -145,10 +148,10 @@ class SpecialManageCourses extends SpecialEPPage {
 				->numParams( count( $courses ) )->params( $this->getUser()->getName() )->text();
 			$this->getOutput()->addElement( 'h2', array(), $message );
 
-			if ( $class == 'EPStudent' ) {
+			if ( $class == 'Student' ) {
 				$this->displayEnrollment( $courses );
 			}
-			elseif ( $class == 'EPInstructor' ) {
+			elseif ( $class == 'Instructor' ) {
 				$this->displayCourseTables( $courses );
 			}
 			else {
@@ -169,7 +172,7 @@ class SpecialManageCourses extends SpecialEPPage {
 		$out = $this->getOutput();
 
 		/**
-		 * @var EPCourse $course
+		 * @var Course $course
 		 */
 		foreach ( $courses as  $course ) {
 			$out->addElement( 'h3', array(), $course->getField( 'name' ) );
@@ -183,7 +186,7 @@ class SpecialManageCourses extends SpecialEPPage {
 			$studentIds = $course->getField( 'students' );
 
 			if ( $studentIds !== array() ) {
-				$pager = new EPArticleTable(
+				$pager = new ArticleTable(
 					$this->getContext(),
 					array( 'user_id' => $studentIds ),
 					array( 'course_id' => $course->getId() )
@@ -207,9 +210,9 @@ class SpecialManageCourses extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 */
-	protected function displayCourse( EPCourse $course ) {
+	protected function displayCourse( Course $course ) {
 		$out = $this->getOutput();
 
 		$out->addHTML(
@@ -221,7 +224,7 @@ class SpecialManageCourses extends SpecialEPPage {
 
 		$out->addWikiMsg( 'ep-mycourses-articletable' );
 
-		$pager = new EPArticleTable(
+		$pager = new ArticleTable(
 			$this->getContext(),
 			array( 'user_id' => $this->getUser()->getId() ),
 			array(
@@ -252,7 +255,7 @@ class SpecialManageCourses extends SpecialEPPage {
 	 */
 	protected function displayCourseList( array $courses ) {
 		/**
-		 * @var EPCourse $course
+		 * @var Course $course
 		 */
 		foreach ( $courses as $course ) {
 			$this->getOutput()->addElement( 'h3', array(), $course->getField( 'name' ) );
@@ -272,13 +275,13 @@ class SpecialManageCourses extends SpecialEPPage {
 		$out = $this->getOutput();
 
 		$courseIds = array_map(
-			function( EPCourse $course ) {
+			function( Course $course ) {
 				return $course->getId();
 			},
 			$courses
 		);
 
-		$pager = new EPCoursePager( $this->getContext(), array( 'id' => $courseIds ), true );
+		$pager = new CoursePager( $this->getContext(), array( 'id' => $courseIds ), true );
 
 		$pager->setFilterPrefix( $class );
 		$pager->setEnableFilter( count( $courses ) > 1 );
@@ -296,4 +299,5 @@ class SpecialManageCourses extends SpecialEPPage {
 			$out->addWikiMsg( 'ep-courses-noresults' );
 		}
 	}
+
 }
