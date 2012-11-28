@@ -5285,12 +5285,13 @@ $messages['fa'] = array(
 /** Finnish (suomi)
  * @author Beluga
  * @author Crt
+ * @author Nedergard
  * @author Nike
  * @author Olli
  */
 $messages['fi'] = array(
 	'ep-item-summary' => 'Yhteenveto',
-	'ep-toplink' => 'Omat kurssit',
+	'ep-toplink' => 'Kurssit',
 	'ep-form-summary' => 'Yhteenveto:',
 	'ep-form-minor' => 'Tämä on pieni muutos',
 	'ep-student-view-profile' => 'opiskelijaprofiili',
