@@ -169,6 +169,39 @@ class EPCourses extends EPPageTable {
 	}
 
 	/**
+	 * @see EPPageTable::getTitleFor
+	 *
+	 * @since 0.3
+	 *
+	 * @param string $identifierValue
+	 *
+	 * @return Title
+	 */
+	public function getTitleFor( $identifierValue ) {
+		return Title::newFromText(
+			self::normalizeTitle( $identifierValue ),
+			$this->getNamespace()
+		);
+	}
+
+	/**
+	 * @since 0.3
+	 *
+	 * @param string $courseTitle
+	 *
+	 * @return string
+	 */
+	public static function normalizeTitle( $courseTitle ) {
+		$courseTitle = explode( '/', $courseTitle, 2 );
+
+		if ( count( $courseTitle ) == 2 ) {
+			$courseTitle[1] = $GLOBALS['wgLang']->ucfirst( $courseTitle[1] );
+		}
+
+		return implode( '/', $courseTitle );
+	}
+
+	/**
 	 * Get the conditions that will select courses with the provided state.
 	 *
 	 * @since 0.1

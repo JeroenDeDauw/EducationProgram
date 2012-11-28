@@ -465,7 +465,7 @@ abstract class EPEditAction extends EPAction {
 
 	/**
 	 * Gets called for evey unknown submitted value, so they can be dealt with if needed.
-	 * $title = SpecialPage::getTitleFor( $this->itemPage, $this->subPage )->getLocalURL();
+	 *
 	 * @since 0.1
 	 *
 	 * @param IORMRow $item
