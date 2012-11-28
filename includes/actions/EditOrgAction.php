@@ -64,7 +64,7 @@ class EditOrgAction extends EPEditAction {
 			'required' => true,
 			'validation-callback' => function( $value, array $alldata = null ) {
 				if ( strlen( $value ) < 2 ) {
-					return wfMessage( 'educationprogram-org-invalid-name' )->text();
+					return wfMessage( 'educationprogram-org-invalid-name', 2 )->text();
 				}
 
 				if ( in_string( '/', $value ) ) {
@@ -79,7 +79,7 @@ class EditOrgAction extends EPEditAction {
 			'type' => 'text',
 			'label-message' => 'educationprogram-org-edit-city',
 			'validation-callback' => function( $value, array $alldata = null ) {
-				return $value !== '' && strlen( $value ) < 2 ? wfMessage( 'educationprogram-org-invalid-city' )->text() : true;
+				return $value !== '' && strlen( $value ) < 2 ? wfMessage( 'educationprogram-org-invalid-city', 2 )->text() : true;
 			},
 		);
 
