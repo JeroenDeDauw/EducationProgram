@@ -526,7 +526,7 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-delete-delete-button' => 'Delete course',
 	'coursepage-delete-none' => 'There is no course titled "$1". See the [[Special:Courses|list of courses]].',
 	'coursepage-delete-deleted' => 'Successfully deleted course $1.',
-	'coursepage-delete-delete-failed' => 'Failed to delete course [[Course:$1|$1]].',
+	'coursepage-delete-delete-failed' => 'Failed to delete course [[Education_Program:$2|$1]].',
 
 	// Institution deletion
 	'orgpage-delete-text' => "You are about to delete institution $1. This will remove all associated courses and students!",
@@ -1346,7 +1346,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'coursepage-delete-deleted' => 'Shown after successfull deleteion of a course at the top of the page in a success box. Parameters:
 * $1 is a course title.',
 	'coursepage-delete-delete-failed' => 'Shown after failed deletion of a course at the top of the page in an error box. Parameters:
-* $1 is a course title.',
+* $1 is a course title.
+* $2 is the title of the page on which the course resides (without namespace)',
 	'orgpage-delete-text' => 'Warns that the user is about to delete and institution and all associated courses. Parameters:
 * $1 is the name of an institution.',
 	'orgpage-delete-summary' => 'Summary text input label.
