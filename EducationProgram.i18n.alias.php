@@ -169,6 +169,12 @@ $specialPageAliases['ko'] = array(
 	'Articles' => array( '문서목록' ),
 );
 
+/** Cornish (kernowek) */
+$specialPageAliases['kw'] = array(
+	'MyCourses' => array( 'OwHorsow' ),
+	'ManageCourses' => array( 'MenystraCorsow' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'MyCourses' => array( 'Meng_Coursen' ),
