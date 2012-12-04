@@ -85,21 +85,21 @@ $specialPageAliases['de'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'MyCourses' => array( 'KursMe' ),
-	'ManageCourses' => array( 'İdareyKursi' ),
+	'MyCourses' => array( 'QursMe' ),
+	'ManageCourses' => array( 'İdareyQursi' ),
 	'Institutions' => array( 'Enstituye' ),
 	'Student' => array( 'Telebe' ),
 	'Students' => array( 'Telebey' ),
-	'Courses' => array( 'Kursiy' ),
+	'Courses' => array( 'Qursiy' ),
 	'EducationProgram' => array( 'ProgrameMısnayışi' ),
 	'Enroll' => array( 'Qeydkerdış' ),
-	'Disenroll' => array( 'QeydnêkerdıŞ' ),
+	'Disenroll' => array( 'Qeydnêkerdış' ),
 	'CampusAmbassadors' => array( 'VacerêKampus' ),
 	'OnlineAmbassadors' => array( 'VaceroÇerxmiyan' ),
 	'OnlineAmbassadorProfile' => array( 'ProfilêVacerdêÇerxmiyani' ),
 	'CampusAmbassadorProfile' => array( 'ProfilêVacerdêKampus' ),
 	'StudentActivity' => array( 'AktiviteyêTeleban' ),
-	'Articles' => array( 'Wesiqe' ),
+	'Articles' => array( 'Wesiqey' ),
 );
 
 /** Galician (galego) */
