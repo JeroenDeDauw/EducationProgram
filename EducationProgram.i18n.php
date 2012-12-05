@@ -15146,6 +15146,26 @@ $messages['ps'] = array(
 	'ep-timeline-ago' => '$1 دمخه',
 );
 
+/** Portuguese (português)
+ * @author Lijealso
+ */
+$messages['pt'] = array(
+	'ep-item-summary' => 'Sumário',
+	'ep-toplink' => 'Cursos',
+	'ep-org-course-delete-comment' => 'Eliminada a instituição $1 e todos os seus cursos, com o comentário $2',
+	'ep-form-summary' => 'Sumário:',
+	'ep-student-view-profile' => 'perfil do estudante',
+	'ep-tab-view' => 'Ler',
+	'ep-tab-edit' => 'Editar',
+	'ep-tab-create' => 'Criar',
+	'ep-tab-enroll' => 'Inscreva-se',
+	'ep-tab-disenroll' => 'Desinscreva-se',
+	'ep-tab-delete' => 'Eliminar',
+	'ep-nav-orgs' => 'Lista de instituições',
+	'ep-nav-mycourses' => 'Os meus cursos',
+	'action-ep-org' => 'administrar instituições',
+);
+
 /** Brazilian Portuguese (português do Brasil)
  * @author Luckas Blade
  */
@@ -18151,6 +18171,45 @@ $messages['uk'] = array(
 	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Підтвердити видалення курсу|Підтвердити видалення кількох курсів}}',
 	'ep-pager-retry-button-course' => 'Повторити',
 	'ep-pager-summary-message-course' => 'Резюме:',
+	'ep-pager-confirm-message-course' => "Ви збираєтесь видалити курс $1. Разом з ним видаляться пов'язані дані про студентів!",
+	'ep-pager-confirm-message-course-many' => "Ви збираєтесь видалити ці курси: $1. Разом з ними видаляться пов'язані дані про студентів!",
+	'epstudentpager-header-user-id' => "Ім'я користувача",
+	'epstudentpager-header-id' => 'Id',
+	'epstudentpager-header-current-courses' => 'Поточні курси',
+	'epstudentpager-header-passed-courses' => 'Завершені курси',
+	'epstudentpager-header-first-enroll' => 'Перший запис',
+	'epstudentpager-header-last-active' => 'Остання дія',
+	'epstudentpager-header-active-enroll' => 'Зараз записаний',
+	'epstudentpager-yes' => 'Так',
+	'epstudentpager-no' => 'Ні',
+	'epstudentpager-header-student' => 'Студент',
+	'epstudentpager-header-articles' => 'Статті',
+	'epstudentpager-header-reviewers' => 'Рецензенти',
+	'ep-artciles-remstudent' => 'видалити з курсу',
+	'ep-artciles-remreviewer-self' => 'Видалити себе як {{GENDER:$1|рецензента}}',
+	'ep-artciles-remreviewer' => 'видалити як {{GENDER:$1|рецензента}}',
+	'ep-artciles-remarticle' => 'видалити статтю',
+	'ep-artciles-addarticle-text' => 'Додати статтю:',
+	'ep-artciles-addarticle-button' => 'Додати статтю',
+	'ep-artciles-becomereviewer' => 'Додати себе як {{GENDER:$1|рецензента}}',
+	'ep-articletable-addreviwer-title' => 'Стати {{GENDER:$1|рецензентом}}',
+	'ep-articletable-addreviwer-button' => 'Стати {{GENDER:$1|рецензентом}}',
+	'ep-articletable-addreviwer-cancel' => 'Скасувати',
+	'ep-articletable-addreviwer-text' => 'Ви збираєтесь додати себе до списку як {{GENDER:$1|рецензента}} статті $2, над якою працює $3.',
+	'ep-articletable-remreviwer-title' => 'Видалити $1 як {{GENDER:$1|рецензента}}',
+	'ep-articletable-remreviwer-title-self' => 'Видалити себе як {{GENDER:$1|рецензента}}',
+	'ep-articletable-remreviwer-button' => 'Видалити {{GENDER:$1|рецензента}}',
+	'ep-articletable-remreviwer-button-self' => 'Видалити себе',
+	'ep-articletable-remreviwer-cancel' => 'Скасувати',
+	'ep-articletable-remreviwer-text-self' => 'Ви збираєтесь видалити себе як {{GENDER:$1|рецензента}} статті $2, над якою працює $3.',
+	'ep-articletable-remreviwer-text' => 'Ви збираєтесь додати видалити $4 як {{GENDER:$1|рецензента}} статті $2, над якою працює $3.',
+	'ep-articletable-remstudent-title' => 'Видалити {{GENDER:$1|студента}} з курсу',
+	'ep-articletable-remstudent-button' => 'Видалити {{GENDER:$1|студента}}',
+	'ep-articletable-remstudent-cancel' => 'Скасувати',
+	'ep-articletable-remstudent-text' => "Ви збираєтесь видалити $3 як {{GENDER:$1|студента}} з курсу $2.
+
+Це остаточно видалить {{GENDER:$1|його|її|їх}} пов'язані статті та рецензентів!",
+	'ep-articletable-remarticle-title' => 'Видалити статтю $1',
 	'orgpage-edit-legend-edit' => 'Редагувати заклад',
 	'educationprogram-org-edit-city' => 'Місто',
 	'educationprogram-org-edit-country' => 'Країна',
