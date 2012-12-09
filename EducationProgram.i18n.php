@@ -647,7 +647,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-disenroll-cancel' => 'Cancel',
 	'ep-disenroll-fail' => 'Something went wrong - could not disenroll you from this course.',
 	'ep-disenroll-success' => 'You have been successfully disenrolled from this course!',
-	'ep-disenroll-returnto' => 'Return to [[Course:$1|course $1]].',
+	'ep-disenroll-returntolink' => 'Return to [[Education_Program:$2|course $1]].',
 
 	// Special:MyCourses
 	'ep-mycourses-enrolled' => 'You have successfully enrolled for $1 at $2.',
@@ -1498,7 +1498,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-disenroll-cancel' => 'Cancel button text',
 	'ep-disenroll-fail' => 'Error message shown in error box at top of page',
 	'ep-disenroll-success' => 'Success message shown in success box at top of page',
-	'ep-disenroll-returnto' => 'Return to text with link. $1 is course name',
+	'ep-disenroll-returntolink' => 'Return to text with link. $1 is course name.
+$2 is the title (without namespace) of the page on which the course resides.',
 	'ep-mycourses-enrolled' => 'Success message shown after enrollment in success box at top of page. $1 is course name, $2 is institution name',
 	'ep-mycourses-not-enrolled' => 'Shown when the user goes to their courses page while not enrolled in any',
 	'ep-mycourses-no-such-course' => 'Shown when the stutent tries to view their enrollment for course with name $1 while they are not enrolled in it.',

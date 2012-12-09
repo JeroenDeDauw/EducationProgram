@@ -31,53 +31,62 @@ class SpecialDisenroll extends SpecialEPPage {
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
-		$args = explode( '/', $this->subPage, 2 );
+		$courseName = str_replace( '_', ' ', $this->subPage );
 
-		if ( $args[0] === '' ) {
+		if ( $courseName === ''  ) {
 			$this->showWarning( $this->msg(  'ep-disenroll-no-name' ) );
 		}
 		else {
-			$course = EPCourses::singleton()->getFromTitle( $args[0] );
+			$course = EPCourses::singleton()->getFromTitle( $courseName );
 
 			if ( $course === false ) {
-				$this->showWarning( $this->msg( 'ep-disenroll-invalid-name', $subPage ) );
+				$this->showWarning( $this->msg( 'ep-disenroll-invalid-name', $courseName ) );
 			}
 			else {
 				if ( EPStudent::newFromUser( $this->getUser() )->hasCourse( array( 'id' => $course->getId() ) ) ) {
-					if ( $course->getStatus() === 'current' ) {
-						if ( $this->getUser()->isLoggedIn() ) {
-							$req = $this->getRequest();
-
-							$editTokenMatches = $this->getUser()->matchEditToken(
-								$req->getText( 'disenrollToken' ),
-								$this->getTitle( $this->subPage )->getLocalURL()
-							);
-
-							if ( $req->wasPosted() && $editTokenMatches ) {
-								$this->doDisenroll( $course );
-							}
-							else {
-								$this->getOutput()->setPageTitle(
-									$this->msg(
-										'ep-disenroll-title',
-										$course->getField( 'name' )
-									)->text()
-								);
-								$this->showDisenrollForm( $course );
-							}
-						}
-						else {
-							$this->showLoginLink();
-						}
-					}
-					else {
-						$this->showWarning( $this->msg( 'ep-disenroll-course-passed' ) );
-					}
+					$this->executeEnrolled( $course );
 				}
 				else {
 					$this->showWarning( $this->msg( 'ep-disenroll-not-enrolled' ) );
 				}
 			}
+		}
+	}
+
+	/**
+	 * @since 0.3
+	 *
+	 * @param EPCourse $course
+	 */
+	protected function executeEnrolled( EPCourse $course ) {
+		if ( $course->getStatus() === 'current' ) {
+			if ( $this->getUser()->isLoggedIn() ) {
+				$req = $this->getRequest();
+
+				$editTokenMatches = $this->getUser()->matchEditToken(
+					$req->getText( 'disenrollToken' ),
+					$this->getTitle( $this->subPage )->getLocalURL()
+				);
+
+				if ( $req->wasPosted() && $editTokenMatches ) {
+					$this->doDisenroll( $course );
+				}
+				else {
+					$this->getOutput()->setPageTitle(
+						$this->msg(
+							'ep-disenroll-title',
+							$course->getField( 'name' )
+						)->text()
+					);
+					$this->showDisenrollForm( $course );
+				}
+			}
+			else {
+				$this->showLoginLink();
+			}
+		}
+		else {
+			$this->showWarning( $this->msg( 'ep-disenroll-course-passed' ) );
 		}
 	}
 
@@ -185,6 +194,10 @@ class SpecialDisenroll extends SpecialEPPage {
 			$this->showError( $this->msg( 'ep-disenroll-fail' ) );
 		}
 
-		$this->getOutput()->addWikiMsg( 'ep-disenroll-returnto', $course->getField( 'name' ) );
+		$this->getOutput()->addWikiMsg(
+			'ep-disenroll-returntolink',
+			$course->getField( 'name' ),
+			$course->getField( 'title' )
+		);
 	}
 }

@@ -113,7 +113,10 @@ abstract class EPPageTable extends ORMTable {
 		if ( !empty( $objects ) ) {
 			$revAction->setDelete( true );
 
-			foreach ( $objects as /* EPPageObject */ $object ) {
+			/**
+			 * @var EPPageObject $object
+			 */
+			foreach ( $objects as $object ) {
 				$success = $object->revisionedRemove( $revAction ) && $success;
 			}
 		}
