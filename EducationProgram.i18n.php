@@ -10846,7 +10846,7 @@ $messages['ka'] = array(
 $messages['ko'] = array(
 	'educationprogram-desc' => '과정, 기관 및 다양한 교육 사용자 역할을 관리하는 다양한 인터페이스를 추가하여 교육 프로그램을 사용하기 쉽게 합니다.',
 	'ep-item-summary' => '요약',
-	'ep-toplink' => '내 과정',
+	'ep-toplink' => '과정',
 	'ep-org-course-delete-comment' => '$1 기관과 모든 과정이 삭제됨($2)',
 	'ep-org-course-delete' => '$1 기관과 모든 과정이 삭제됨',
 	'ep-form-summary' => '요약:',
@@ -10965,18 +10965,18 @@ $messages['ko'] = array(
 	'action-ep-bulkdelcourses' => '과정 대량 삭제',
 	'action-ep-remarticle' => '학생에서 문서 해제',
 	'action-ep-addstudent' => '학생으로서 사용자 등록',
-	'group-epcoordinator' => '교육 프로그램 조정자', # Fuzzy
-	'group-epcoordinator-member' => '{{GENDER:$1|교육 프로그램 조정자}}', # Fuzzy
-	'grouppage-epcoordinator' => '{{ns:project}}:교육_프로그램_조정자', # Fuzzy
-	'group-eponline' => '교육 프로그램 온라인 자원 봉사자', # Fuzzy
-	'group-eponline-member' => '{{GENDER:$1|교육 프로그램 온라인 자원 봉사자}}', # Fuzzy
-	'grouppage-eponline' => '{{ns:project}}:교육_프로그램_온라인_자원_봉사자', # Fuzzy
-	'group-epcampus' => '교육 프로그램 캠퍼스 자원 봉사자', # Fuzzy
-	'group-epcampus-member' => '{{GENDER:$1|교육 프로그램 캠퍼스 자원 봉사자}}', # Fuzzy
-	'grouppage-epcampus' => '{{ns:project}}:교육_프로그램_캠퍼스_자원_봉사자', # Fuzzy
-	'group-epinstructor' => '교육 프로그램 강사', # Fuzzy
-	'group-epinstructor-member' => '{{GENDER:$1|교육 프로그램 강사}}', # Fuzzy
-	'grouppage-epinstructor' => '{{ns:project}}:교육_프로그램_강사', # Fuzzy
+	'group-epcoordinator' => '과정 조정자',
+	'group-epcoordinator-member' => '{{GENDER:$1|과정 조정자}}',
+	'grouppage-epcoordinator' => '{{ns:project}}:과정_조정자',
+	'group-eponline' => '과정 온라인 자원 봉사자',
+	'group-eponline-member' => '{{GENDER:$1|과정 온라인 자원 봉사자}}',
+	'grouppage-eponline' => '{{ns:project}}:과정_온라인_자원_봉사자',
+	'group-epcampus' => '과정 캠퍼스 자원 봉사자',
+	'group-epcampus-member' => '{{GENDER:$1|과정 캠퍼스 자원 봉사자}}',
+	'grouppage-epcampus' => '{{ns:project}}:과정_캠퍼스_자원_봉사자',
+	'group-epinstructor' => '과정 강사',
+	'group-epinstructor-member' => '{{GENDER:$1|과정 강사}}',
+	'grouppage-epinstructor' => '{{ns:project}}:과정_강사',
 	'specialpages-group-education' => '교육',
 	'special-mycourses' => '내 과정',
 	'special-managecourses' => '내 과정 관리',
@@ -11357,7 +11357,7 @@ $messages['ko'] = array(
 	'ep-disenroll-cancel' => '취소',
 	'ep-disenroll-fail' => '뭔가 잘못됐습니다 - 이 과정에서 당신을 등록을 취소할 수 없습니다.',
 	'ep-disenroll-success' => '성공적으로 이 과정에서 등록을 취소했습니다!',
-	'ep-disenroll-returnto' => '[[Course:$1|$1 과정]]으로 돌아갑니다.',
+	'ep-disenroll-returntolink' => '[[Education_Program:$2|$1 과정]]으로 돌아갑니다.',
 	'ep-mycourses-enrolled' => '성공적으로 $2 기관에 $1 과정에 대해 등록했습니다.',
 	'ep-mycourses-not-enrolled' => '어떠한 과정에도 등록하지 않았습니다. [[Special:Courses|과정 목록]]을 참고하세요.',
 	'ep-mycourses-no-such-course' => '"$1" 이름으로 된 과정에 등록하지 않았습니다. 등록한 과정은 다음과 같습니다.',
@@ -12592,7 +12592,7 @@ $messages['mk'] = array(
 	'ep-disenroll-cancel' => 'Откажи',
 	'ep-disenroll-fail' => 'Нешто не е во ред - не можев да ве отпишам од курсот.',
 	'ep-disenroll-success' => 'Успешно сте отпишани од курсот!',
-	'ep-disenroll-returnto' => 'Назад на [[Course:$1|курсот $1]].',
+	'ep-disenroll-returntolink' => 'Назад на [[Education_Program:$2|курсот $1]].',
 	'ep-mycourses-enrolled' => 'Успешно се запишавте на $1 во $2.',
 	'ep-mycourses-not-enrolled' => 'Не сте запишани на неден курс. Погледајте го [[Special:Courses|списокот на курсеви]].',
 	'ep-mycourses-no-such-course' => 'Не сте запишани на курс со име „$1“. Подолу се наведени курсевите на кои сте запишани.',
@@ -14801,11 +14801,12 @@ $messages['or'] = array(
 
 /** Polish (polski)
  * @author BeginaFelicysym
+ * @author Odie2
  * @author Przemub
  */
 $messages['pl'] = array(
 	'ep-item-summary' => 'Podsumowanie',
-	'ep-toplink' => 'Moje kursy',
+	'ep-toplink' => 'Moje kursy', # Fuzzy
 	'ep-form-summary' => 'Podsumowanie:',
 	'ep-form-minor' => 'To jest drobna zmiana',
 	'ep-err-failed-to-save' => 'Coś poszło nie tak - zmiany nie zostały zapisane.',
@@ -14813,6 +14814,7 @@ $messages['pl'] = array(
 	'ep-tab-edit' => 'Edycja',
 	'ep-tab-create' => 'Tworzenie',
 	'ep-tab-history' => 'Przeglądanie historii',
+	'ep-disenroll-returntolink' => 'Powrót do [[Education_Program:$2|kurs $1]].',
 );
 
 /** Piedmontese (Piemontèis)
