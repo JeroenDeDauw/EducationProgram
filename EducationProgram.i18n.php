@@ -4631,7 +4631,7 @@ El registro de borrado para este curso se indica a continuación por convenienci
 	'ep-disenroll-cancel' => 'Cancelar',
 	'ep-disenroll-fail' => 'Algo salió mal - no pudimos darte de baja en este curso.',
 	'ep-disenroll-success' => '¡Has sido dado de baja correctamente en este curso!',
-	'ep-disenroll-returnto' => 'Volver al [[Course:$1|curso $1]].',
+	'ep-disenroll-returntolink' => 'Volver al [[Education_Program:$2|curso $1]].',
 	'ep-mycourses-enrolled' => 'Has sido inscrito con éxito de $1 en $2.',
 	'ep-mycourses-not-enrolled' => 'No estás inscrito en ningún curso. Consulta la [[Special:Courses|lista de cursos]].',
 	'ep-mycourses-no-such-course' => 'No estás inscrito en ningún curso con el nombre "$1". A continuación se enumeran los cursos en que estás matriculado.',
@@ -17941,6 +17941,7 @@ $messages['tr'] = array(
 );
 
 /** Ukrainian (українська)
+ * @author Base
  * @author Ата
  */
 $messages['uk'] = array(
@@ -18071,6 +18072,9 @@ $messages['uk'] = array(
 	'group-eponline' => 'Онлайн-волонтери курсів',
 	'group-eponline-member' => '{{GENDER:$1|Онлайн-волонтер курсу}}',
 	'grouppage-eponline' => '{{ns:project}}:Онлайн-волонтери_курсів',
+	'group-epcampus' => 'Курсові волонтери кампусів',
+	'group-epcampus-member' => '{{GENDER:$1|курсовий волонтер кампусів|курсова волонтерка кампусів}}',
+	'grouppage-epcampus' => '{{ns:project}}:Курсові волонтери кампусів',
 	'group-epinstructor' => 'Інструктор курсу',
 	'group-epinstructor-member' => '{{GENDER:$1|Інструктор курсу}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Інструктори_курсу',
@@ -18267,6 +18271,7 @@ $messages['uk'] = array(
 	'ep-course-help-token' => "Необов'язкове поле. Якщо заповнене, студенти матимуть ввести цей маркер, аби записатись. Це запобігає запису не студентів.",
 	'ep-course-edit-description' => 'Опис',
 	'ep-course-edit-title' => 'Назва сторінки',
+	'ep-course-help-title' => 'Назва сторінки курсу. За конвенцією вона повинна складатись із назви курсу за якою йде семестр у дужках.',
 	'ep-course-edit-field' => 'Галузь дослідження',
 	'ep-course-edit-level' => 'Рівень курсу',
 	'ep-course-edit-term' => 'Навчальний рік',
