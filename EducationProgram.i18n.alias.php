@@ -280,6 +280,11 @@ $specialPageAliases['tr'] = array(
 	'Articles' => array( 'Maddeler' ),
 );
 
+/** Vietnamese (Tiếng Việt) */
+$specialPageAliases['vi'] = array(
+	'EducationProgram' => array( 'Chương_trình_Giáo_dục' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'MyCourses' => array( '我的课程' ),
