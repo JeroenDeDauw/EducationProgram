@@ -293,3 +293,12 @@ $specialPageAliases['zh-hans'] = array(
 	'EducationProgram' => array( '教育计划' ),
 	'Enroll' => array( '入学' ),
 );
+
+/** Traditional Chinese (中文（繁體）‎) */
+$specialPageAliases['zh-hant'] = array(
+	'MyCourses' => array( '我的課程' ),
+	'ManageCourses' => array( '管理課程' ),
+	'Student' => array( '學生' ),
+	'Students' => array( '學生們' ),
+	'Courses' => array( '課程' ),
+);
