@@ -67,7 +67,11 @@ class EPDeleteAction extends EPAction {
 					$title = $this->getTitle();
 					$this->getRequest()->setSessionData(
 						'epfail',
-						$this->msg( $this->prefixMsg( 'delete-failed' ), $this->getTitle()->getText() )->parse()
+						$this->msg(
+							$this->prefixMsg( 'delete-failed' ),
+							$this->getTitle()->getText(),
+							$this->getTitle()->getText()
+						)->parse()
 					);
 				}
 
