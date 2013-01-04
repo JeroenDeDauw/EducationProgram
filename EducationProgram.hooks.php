@@ -58,6 +58,8 @@ final class EPHooks {
 		$testFiles = array(
 			'EPUtils',
 
+			'rows/Article',
+
 			'tables/EPOrgs',
 		);
 
