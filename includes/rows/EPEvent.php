@@ -61,7 +61,9 @@ class EPEvent extends ORMRow {
 				)
 			);
 
-			$lines = call_user_func_array( 'array_merge', $lines );
+			if ( $lines !== array() ) {
+				$lines = call_user_func_array( 'array_merge', $lines );
+			}
 
 			$info['addedlines'] = $lines;
 		}
