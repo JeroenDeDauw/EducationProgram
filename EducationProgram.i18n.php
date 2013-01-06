@@ -11152,8 +11152,8 @@ $messages['ja'] = array(
 	'logentry-student-selfremove' => '$1 がコース $3 から{{GENDER:$2|退会しました}}',
 	'logentry-eparticle-selfadd' => '$1 がコース $4 の{{GENDER:$2|自身の}}記事一覧に記事 $3 を追加しました',
 	'logentry-eparticle-selfremove' => '$1 がコース $4 の{{GENDER:$2|自身の}}記事一覧から記事 $3 を除去しました',
-	'logentry-eparticle-add' => '$1 がコース $4 の {{GENDER:$6|$5}} の記事一覧に記事 $3 を追加しました', # Fuzzy
-	'logentry-eparticle-remove' => '$1 がコース $4 の {{GENDER:$6|$5}} の記事一覧から記事 $3 を除去しました', # Fuzzy
+	'logentry-eparticle-add' => '$1 がコース $4 の {{GENDER:$6|$5}} の記事一覧に記事 $3 を{{GENDER:$2|追加しました}}',
+	'logentry-eparticle-remove' => '$1 がコース $4 の {{GENDER:$6|$5}} の記事一覧から記事 $3 を{{GENDER:$2|除去しました}}',
 	'prefs-education' => '教育',
 	'ep-prefs-showtoplink' => 'すべてのページの上部に[[Special:MyCourses|自分のコース]]へのリンクを表示する。',
 	'ep-prefs-bulkdelcourses' => '[[Special:Courses|コース]]の一括削除コントロールを表示する。',
@@ -16845,18 +16845,39 @@ $messages['or'] = array(
 /** Polish (polski)
  * @author BeginaFelicysym
  * @author Odie2
+ * @author P0358
  * @author Przemub
  */
 $messages['pl'] = array(
 	'ep-item-summary' => 'Podsumowanie',
-	'ep-toplink' => 'Moje kursy', # Fuzzy
+	'ep-toplink' => 'Kursy',
 	'ep-form-summary' => 'Podsumowanie:',
 	'ep-form-minor' => 'To jest drobna zmiana',
+	'ep-student-view-profile' => 'profil studenta',
 	'ep-err-failed-to-save' => 'Coś poszło nie tak - zmiany nie zostały zapisane.',
 	'ep-tab-view' => 'Odczyt',
 	'ep-tab-edit' => 'Edycja',
 	'ep-tab-create' => 'Tworzenie',
 	'ep-tab-history' => 'Przeglądanie historii',
+	'ep-tab-delete' => 'Usuń',
+	'tooltip-ep-form-save' => 'Zapisz',
+	'tooltip-ep-edit-institution' => 'Edytuj tą instytucję',
+	'tooltip-ep-edit-course' => 'Edytuj ten kurs',
+	'tooltip-ep-summary' => 'Wypełnij opis zmian',
+	'tooltip-ep-minor' => 'To jest drobna edycja',
+	'ep-nav-orgs' => 'Lista instytucji',
+	'ep-nav-courses' => 'Lista kursów',
+	'ep-nav-mycourses' => 'Moje kursy',
+	'ep-nav-students' => 'Lista studentów',
+	'ep-nav-mentors' => 'Lista ambasadorów',
+	'logentry-institution-add' => '$1 {{GENDER:$2|stworzył|stworzyła}} instytucję $3',
+	'logentry-institution-remove' => '$1 {{GENDER:$2|skasował|skasowała}} instytucję $3',
+	'logentry-institution-update' => '$1 {{GENDER:$2|zaktualizował|zaktualizowała}} instytucję $3',
+	'logentry-course-add' => '$1 {{GENDER:$2|stworzył|stworzyła}} kurs $3',
+	'logentry-course-remove' => '$1 {{GENDER:$2|usunął|usunęła}} kurs $3',
+	'logentry-course-update' => '$1 {{GENDER:$2|zaktualizował|zakutalizowała}} kurs $3',
+	'logentry-instructor-add' => '$1 {{GENDER:$2|dodał|dodała}} {{PLURAL:$4|instruktora|instruktorów}} $5 do kursu $3',
+	'prefs-education' => 'Edukacja',
 	'ep-disenroll-returntolink' => 'Powrót do [[Education_Program:$2|kurs $1]].',
 );
 
@@ -18152,6 +18173,7 @@ $messages['roa-tara'] = array(
 	'ep-item-summary' => 'Riepileghe',
 	'ep-toplink' => 'Le corse',
 	'ep-form-summary' => 'Riepileghe:',
+	'ep-form-minor' => "Quiste ète 'nu cangiamende stuèdeche",
 	'ep-student-view-profile' => "profile d'u studende",
 	'ep-tab-view' => 'Ligge',
 	'ep-tab-edit' => 'Cange',
@@ -18168,6 +18190,9 @@ $messages['roa-tara'] = array(
 	'ep-nav-mycourses' => 'Le corse mie',
 	'ep-nav-students' => 'Elenghe de le studinde',
 	'ep-nav-mentors' => 'Elenghe de le ambasciature',
+	'logentry-institution-add' => '$1 istituzione $3 {{GENDER:$2|ccrejate}}',
+	'logentry-institution-remove' => '$1 istituzione $3 {{GENDER:$2|luate}}',
+	'logentry-institution-update' => '$1 istituzione $3 {{GENDER:$2|aggiornate}}',
 	'prefs-education' => 'Studie',
 	'right-ep-addstudent' => 'Iscrive utinde cumme studinde',
 	'action-ep-org' => 'gestisce le istituziune',
