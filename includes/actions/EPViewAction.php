@@ -66,6 +66,8 @@ abstract class EPViewAction extends EPAction {
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
+		$this->cacheEnabled = EPSettings::get( 'enablePageCache' );
+
 		$out = $this->getOutput();
 
 		$name = $this->getIdentifier();

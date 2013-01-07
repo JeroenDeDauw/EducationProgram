@@ -40,7 +40,7 @@ class ViewCourseAction extends EPViewAction {
 	public function onView() {
 		// Only cache for anon users. Else we need to cache per user,
 		// since the page has an EPArticleTable, which has per user stuff.
-		$this->cacheEnabled = $this->getUser()->isAnon();
+		$this->cacheEnabled = $this->cacheEnabled && $this->getUser()->isAnon();
 
 		return parent::onView();
 	}
