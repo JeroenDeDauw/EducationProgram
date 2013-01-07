@@ -58,7 +58,9 @@ class EditCourseAction extends EPEditAction {
 
 		$out->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
 
-		if ( !$this->isNewPost() && !$this->table->hasIdentifier( $this->getTitle()->getText() ) ) {
+		$identifier = EPCourses::normalizeTitle( $this->getTitle()->getText() );
+
+		if ( !$this->isNewPost() && !$this->table->hasIdentifier( $identifier ) ) {
 			$this->displayUndeletionLink();
 			$this->displayDeletionLog();
 
@@ -69,7 +71,7 @@ class EditCourseAction extends EPEditAction {
 				array(
 					'name' => $this->getRequest()->getText(
 						'newname',
-						$name
+						$this->getLanguage()->ucfirst( $name )
 					),
 					'term' => $this->getRequest()->getText(
 						'newterm',
@@ -253,14 +255,16 @@ class EditCourseAction extends EPEditAction {
 	protected function getNewData() {
 		$data = parent::getNewData();
 
-		$data['title'] = $data['name'];
+		$name = EPCourses::normalizeTitle( $data['name'] );
+
+		$data['title'] = $name;
 
 		if ( $this->isNewPost() ) {
 			$data['org_id'] = $this->getRequest()->getVal( 'neworg' );
 
 			$data['title'] = $this->msg(
 				'ep-course-edit-name-format',
-				$data['name'],
+				$name,
 				$this->getRequest()->getVal( 'newterm' )
 			)->text();
 
@@ -268,8 +272,8 @@ class EditCourseAction extends EPEditAction {
 
 			$data['description'] = $this->getDefaultDescription( array(
 				'institutionid' => $data['org_id'],
-				'name' => $data['name'],
-				'title' => $data['name'],
+				'name' => $name,
+				'title' => $name,
 				'term' => $data['term'],
 			) );
 		}
@@ -399,7 +403,7 @@ class EditCourseAction extends EPEditAction {
 
 		if ( $name === 'title' ) {
 			$value = explode( '/', $value, 2 );
-			$value = array_pop( $value );
+			$value = $this->getLanguage()->ucfirst( array_pop( $value ) );
 		}
 
 		return $value;

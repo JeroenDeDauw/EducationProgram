@@ -11,11 +11,14 @@
 	$( document ).ready( function() {
 
 		$( '.ep-course-add' ).closest( 'form' ).submit( function() {
+			var courseName = $( '#newname' ).val();
+			courseName = courseName.charAt( 0 ).toUpperCase() + courseName.slice( 1 );
+
 			$( this ).attr(
 				'action',
 				$( this ).attr( 'action' ).replace(
 					'NAME_PLACEHOLDER',
-					$( '#neworg option:selected' ).text() + '/' + $( '#newname' ).val() + ' (' + $( '#newterm' ).val() + ')'
+					$( '#neworg option:selected' ).text() + '/' + courseName + ' (' + $( '#newterm' ).val() + ')'
 				)
 			);
 		} );
