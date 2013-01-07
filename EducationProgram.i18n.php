@@ -8726,10 +8726,11 @@ $messages['he'] = array(
 /** Hindi (हिन्दी)
  * @author Ansumang
  * @author Karthi.dr
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
 	'ep-item-summary' => 'सारांश',
-	'ep-toplink' => 'पाठ्यक्रमों',
+	'ep-toplink' => 'पाठ्यक्रम',
 	'ep-form-summary' => 'सारांश:',
 	'ep-tab-view' => 'पढ़ें',
 	'ep-tab-edit' => 'सम्पादन',
@@ -8743,7 +8744,7 @@ $messages['hi'] = array(
 	'specialpages-group-education' => 'शिक्षा',
 	'special-student' => 'छात्र',
 	'special-students' => 'छात्र गण',
-	'special-courses' => 'पाठ्यक्रमों',
+	'special-courses' => 'पाठ्यक्रम',
 	'special-enroll' => 'नाम लिखना',
 	'ep-course-status-current' => 'सद्य',
 	'ep-educationprogram-gender-students' => 'छात्रों',
