@@ -77,10 +77,14 @@ class SpecialMyCourses extends VerySpecialPage {
 	 * @since 0.1
 	 */
 	protected function fetchCourses() {
+		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+
 		$courses = Courses::singleton()->getCoursesForUsers(
 			$this->getUser()->getId(),
 			array(),
-			Courses::getStatusConds( 'current' )
+			array(
+				'end >= ' . $now
+			)
 		);
 
 		$this->courses = iterator_to_array( $courses );
