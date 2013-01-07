@@ -71,26 +71,6 @@ class Student extends RoleObject {
 	}
 
 	/**
-	 * Should be called whenever a user is enrolled as student.
-	 *
-	 * @since 0.1
-	 *
-	 * @param integer $courseId
-	 */
-	public function onEnrolled( $courseId ) {
-		if ( !$this->hasField( 'first_course' ) ) {
-			$this->setField( 'first_course', $courseId );
-			$this->setField( 'first_enroll', wfTimestampNow() );
-		}
-
-		$this->setField( 'last_course', $courseId );
-		$this->setField( 'last_enroll', wfTimestampNow() );
-
-		$this->getUser()->setOption( 'ep_showtoplink', true );
-		$this->getUser()->saveSettings();
-	}
-
-	/**
 	 * Returns the view link for the student.
 	 * These are the user page, contribs and student profile.
 	 *
