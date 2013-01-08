@@ -44,6 +44,8 @@ class ImportWEPFromDB extends Maintenance {
 	protected $msgLevel = 2;
 
 	public function execute() {
+		die( 'Not meant to be run in production.' );
+
 		global $basePath;
 		require_once $basePath . '/extensions/EducationProgram/EducationProgram.php';
 
