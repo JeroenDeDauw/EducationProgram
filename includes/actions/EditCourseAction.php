@@ -226,16 +226,16 @@ class EditCourseAction extends EditAction {
 			'maxlength' => 255,
 			'required' => true,
 			'options' => $langOptions,
-			'validation-callback' => function( $value, array $alldata = null ) use ( $langOptions ) {
+			'validation-callback' => function( $value, array $allData = null ) use ( $langOptions ) {
 				return in_array( $value, $langOptions ) ? true : wfMessage( 'ep-course-invalid-lang' )->text();
-			}
+			},
 		);
 
 		$fields['description'] = array(
 			'type' => 'textarea',
 			'label-message' => 'ep-course-edit-description',
 			'required' => true,
-			'validation-callback' => function( $value, array $alldata = null ) {
+			'validation-callback' => function( $value, array $allData = null ) {
 				return strlen( $value ) < 10 ? wfMessage( 'ep-course-invalid-description', 10 )->text() : true;
 			} ,
 			'rows' => 10,
@@ -272,6 +272,8 @@ class EditCourseAction extends EditAction {
 				'title' => $name,
 				'term' => $data['term'],
 			) );
+
+			$data['lang'] = $GLOBALS['wgContLang']->getCode();
 		}
 		else {
 			unset( $data['name'] );
