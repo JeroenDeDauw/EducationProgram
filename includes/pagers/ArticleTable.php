@@ -75,8 +75,20 @@ class ArticleTable extends Pager {
 		$this->showStudents = $showStudents;
 	}
 
+	/**
+	 * Returns the resource loader modules used by the pager.
+	 *
+	 * @since 0.4
+	 *
+	 * @return array
+	 */
+	public static function getModules() {
+		$modules = parent::getModules();
+		$modules[] = 'ep.articletable';
+		return $modules;
+	}
+
 	public function getBody() {
-		$this->getOutput()->addModules( 'ep.articletable' );
 		return parent::getBody();
 	}
 

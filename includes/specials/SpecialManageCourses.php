@@ -192,6 +192,8 @@ class SpecialManageCourses extends VerySpecialPage {
 					array( 'course_id' => $course->getId() )
 				);
 
+				$this->getOutput()->addModules( ArticleTable::getModules() );
+
 				if ( $pager->getNumRows() > 0 ) {
 					$out->addHTML(
 						$pager->getFilterControl() .
@@ -232,6 +234,8 @@ class SpecialManageCourses extends VerySpecialPage {
 				'user_id' => $this->getUser()->getId(),
 			)
 		);
+
+		$this->getOutput()->addModules( ArticleTable::getModules() );
 
 		$pager->setShowStudents( false );
 

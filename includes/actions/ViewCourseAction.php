@@ -43,6 +43,8 @@ class ViewCourseAction extends ViewAction {
 		// since the page has an ArticleTable, which has per user stuff.
 		$this->cacheEnabled = $this->cacheEnabled && $this->getUser()->isAnon();
 
+		$this->getOutput()->addModules( ArticleTable::getModules() );
+
 		return parent::onView();
 	}
 
