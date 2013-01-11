@@ -431,7 +431,10 @@ final class Hooks {
 		}
 
 		wfProfileIn( __METHOD__ . '-ns' );
-		$conds = array( 'upc_user_id' => $user->getId() );
+		$conds = array(
+			'upc_user_id' => $user->getId(),
+			'upc_role' => EP_STUDENT,
+		);
 
 		$upc = wfGetDB( DB_SLAVE )->select(
 			array( 'ep_users_per_course', 'ep_courses' ),
