@@ -29,6 +29,7 @@ $messages['en'] = array(
 	'ep-move-error' => 'You are not allowed to move articles in or out of the education namespaces.',
 	'ep-student-view-profile' => 'student profile',
 	'ep-err-failed-to-save' => 'Something went wrong - your changes have not been saved.',
+	'ep-didyouknow-header' => 'Did you know ... ?',
 
 	// Tabs
 	'ep-tab-view' => 'Read',
@@ -843,6 +844,7 @@ $messages['qqq'] = array(
 	'educationprogram-desc' => '{{desc|name=Education Program|url=http://www.mediawiki.org/wiki/Extension:Education_Program}}',
 	'ep-item-summary' => 'Table column header.
 {{Identical|Summary}}',
+	'ep-didyouknow-header' => 'Message displayed as a header in the did you know box',
 	'ep-toplink' => 'Text of a link the the top menu (next to "My preferences")',
 	'ep-org-course-delete-comment' => 'Success message. Parameters:
 * $1 is an institution name,

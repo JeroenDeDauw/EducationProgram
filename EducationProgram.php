@@ -147,6 +147,7 @@ $wgAutoloadClasses['EducationProgram\Revisions'] 					= $dir . '/includes/tables
 $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/Students.php';
 
 // includes
+$wgAutoloadClasses['EducationProgram\DYKBox'] 						= $dir . '/includes/DYKBox.php';
 $wgAutoloadClasses['EducationProgram\LogFormatter'] 				= $dir . '/includes/LogFormatter.php';
 $wgAutoloadClasses['EducationProgram\RoleChangeFormatter'] 			= $dir . '/includes/LogFormatter.php';
 $wgAutoloadClasses['EducationProgram\ArticleFormatter'] 			= $dir . '/includes/LogFormatter.php';
@@ -676,6 +677,12 @@ $wgResourceModules['ep.enlist'] = $moduleTemplate + array(
 		'ep-instructor-summary',
 		'ep-online-summary',
 		'ep-campus-summary',
+	),
+);
+
+$wgResourceModules['ep.dyk'] = $moduleTemplate + array(
+	'styles' => array(
+		'ep.dyk.css',
 	),
 );
 

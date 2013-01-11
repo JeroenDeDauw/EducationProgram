@@ -49,9 +49,7 @@ class SpecialMyCourses extends VerySpecialPage {
 
 			$this->startCache( 60 );
 
-			if ( defined( 'DYK_VERSION' ) ) {
-				$this->displayDidYouKnow();
-			}
+			$this->displayDidYouKnow();
 
 			if ( $this->courses === array() ) {
 				$this->getOutput()->addWikiMsg( 'ep-dashboard-enroll-first' );
@@ -120,7 +118,7 @@ class SpecialMyCourses extends VerySpecialPage {
 					}
 				}
 
-				$box = new \DYKBox(
+				$box = new DYKBox(
 					Settings::get( 'dykCategory' ),
 					$specificCategory,
 					$context
@@ -131,7 +129,7 @@ class SpecialMyCourses extends VerySpecialPage {
 			array( $this->getContext(), $this->courses )
 		);
 
-		$this->getOutput()->addModules( \DYKBox::getModules() );
+		$this->getOutput()->addModules( DYKBox::getModules() );
 	}
 
 	/**
