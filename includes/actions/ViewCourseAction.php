@@ -36,6 +36,63 @@ class ViewCourseAction extends ViewAction {
 	}
 
 	/**
+	 * Displays the navigation menu.
+	 *
+	 * @since 0.1
+	 */
+	protected function displayNavigation() {
+		$headerPage = Settings::get( 'courseHeaderPage' );
+
+		$wikiText = null;
+
+		if ( $this->object !== null ) {
+			$countryName = Orgs::singleton()->selectFieldsRow( 'country', array( 'id' => $this->object->getField( 'org_id' ) ) );
+
+			$specificHeaderPage = Settings::get( 'courseHeaderPageCountry' );
+
+			$languages = \CountryNames::getNames( $this->getTitle()->getPageLanguage()->getCode() );
+
+			if ( array_key_exists( $countryName, $languages ) ) {
+				$countryName = $languages[$countryName];
+			}
+
+			$specificHeaderPage = str_replace( array( '$2', '$1' ), array( $headerPage, $countryName ), $specificHeaderPage );
+
+			$wikiText = $this->getArticleContent( $specificHeaderPage );
+		}
+
+		if ( $wikiText === null ) {
+			$wikiText = $this->getArticleContent( $headerPage );
+		}
+
+		if ( $wikiText !== null ) {
+			$this->getOutput()->addWikiText( $wikiText );
+		}
+	}
+
+	protected function getArticleContent( $titleText ) {
+		$title = \Title::newFromText( $titleText );
+
+		if ( is_null( $title ) ) {
+			return null;
+		}
+
+		$wikiPage = \WikiPage::newFromID( $title->getArticleID() );
+
+		if ( is_null( $wikiPage ) ) {
+			return null;
+		}
+
+		$content = $wikiPage->getContent();
+
+		if ( is_null( $content ) || !( $content instanceof \TextContent ) ) {
+			return null;
+		}
+
+		return $content->getWikitextForTransclusion();
+	}
+
+	/**
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {

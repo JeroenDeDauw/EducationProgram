@@ -26,7 +26,7 @@ abstract class ViewAction extends Action {
 	 * @since 0.2
 	 * @var PageObject
 	 */
-	protected $object;
+	protected $object = null;
 
 	/**
 	 * Constructor.
@@ -114,11 +114,11 @@ abstract class ViewAction extends Action {
 			}
 		}
 		else {
+			$this->object = $object;
+
 			Utils::displayResult( $this->getContext() );
 
 			$this->displayNavigation();
-
-			$this->object = $object;
 
 			$this->startCache( 3600 );
 

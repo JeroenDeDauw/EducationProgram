@@ -51,6 +51,8 @@ $egEPSettings = array(
 	'requireRealName' => false,
 	'collectRealName' => false,
 	'enablePageCache' => true,
+	'courseHeaderPage' => 'MediaWiki:Course header',
+	'courseHeaderPageCountry' => '$2/$1', // $1 = course country name, $2 = courseHeaderPage setting
 );
 
 unset( $epResourceDir );
