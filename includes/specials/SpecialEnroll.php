@@ -296,7 +296,7 @@ class SpecialEnroll extends VerySpecialPage {
 			'default' => 1
 		);
 
-		if ( trim( $user->getRealName() ) === '' ) {
+		if ( Settings::get( 'collectRealName' ) && trim( $user->getRealName() ) === '' ) {
 			$fields['realname'] = array(
 				'type' => 'text',
 				'default' => '',

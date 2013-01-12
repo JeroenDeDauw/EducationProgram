@@ -79,6 +79,7 @@ class Settings {
 			'enableDykSetting' => true,
 			'timelineMessageLengthLimit' => 250,
 			'requireRealName' => false,
+			'collectRealName' => false,
 			'enablePageCache' => true,
 		);
 	}
