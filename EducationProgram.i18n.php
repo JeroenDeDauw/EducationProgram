@@ -1835,12 +1835,13 @@ $messages['af'] = array(
 /** Arabic (العربية)
  * @author Ali1
  * @author Meno25
+ * @author Mido
  * @author OsamaK
  * @author Zanatos
  */
 $messages['ar'] = array(
 	'ep-item-summary' => 'ملخص',
-	'ep-toplink' => 'الدورات التدريبية',
+	'ep-toplink' => 'مقرراتي',
 	'ep-form-summary' => 'ملخص:',
 	'ep-form-minor' => 'هذا تعديل طفيف',
 	'ep-student-view-profile' => 'ملف الطالب',

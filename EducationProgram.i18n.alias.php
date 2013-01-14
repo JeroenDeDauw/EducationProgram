@@ -140,6 +140,14 @@ $specialPageAliases['it'] = array(
 	'Articles' => array( 'Voci' ),
 );
 
+/** Japanese (日本語) */
+$specialPageAliases['ja'] = array(
+	'MyCourses' => array( '自分のコース' ),
+	'ManageCourses' => array( 'コース管理' ),
+	'Student' => array( '生徒' ),
+	'Courses' => array( 'コース' ),
+);
+
 /** Georgian (ქართული) */
 $specialPageAliases['ka'] = array(
 	'MyCourses' => array( 'ჩემი_კურსები' ),
