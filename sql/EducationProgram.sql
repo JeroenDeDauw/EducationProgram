@@ -4,7 +4,7 @@
 
 -- Organizations, ie universities
 CREATE TABLE IF NOT EXISTS /*_*/ep_orgs (
-  org_id                     INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  org_id                     INT unsigned        NOT NULL PRIMARY KEY auto_increment,
 
   org_name                   VARCHAR(255)        NOT NULL, -- Name of the organization
   org_city                   VARCHAR(255)        NOT NULL, -- Name of the city where the org is located
@@ -36,7 +36,7 @@ CREATE INDEX /*i*/ep_org_instructor_count ON /*_*/ep_orgs (org_instructor_count)
 
 -- Courses.
 CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
-  course_id                  INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  course_id                  INT unsigned        NOT NULL PRIMARY KEY auto_increment,
 
   course_org_id              INT unsigned        NOT NULL, -- Foreign key on ep_orgs.org_id.
   course_title               VARCHAR(255)        NOT NULL, -- Title of the course. ie "Some university/Master in Angry Birds (2012 q1)"
@@ -82,7 +82,7 @@ CREATE INDEX /*i*/ep_course_instructor_count ON /*_*/ep_courses (course_instruct
 
 -- Articles students are working on.
 CREATE TABLE IF NOT EXISTS /*_*/ep_articles (
-  article_id                 INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  article_id                 INT unsigned        NOT NULL PRIMARY KEY auto_increment,
 
   article_user_id            INT unsigned        NOT NULL, -- Foreign key on user.user_id
   article_course_id          INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_users_per_course (
   upc_time                   varbinary(14)       NOT NULL -- Time at which the link was made
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/ep_users_per_course ON /*_*/ep_users_per_course (upc_user_id, upc_course_id, upc_role);
+CREATE UNIQUE INDEX /*i*/ep_upc_user_courseid_role ON /*_*/ep_users_per_course (upc_user_id, upc_course_id, upc_role);
 CREATE INDEX /*i*/ep_upc_course_id ON /*_*/ep_users_per_course (upc_course_id);
 CREATE INDEX /*i*/ep_upc_role ON /*_*/ep_users_per_course (upc_role);
 CREATE INDEX /*i*/ep_upc_time ON /*_*/ep_users_per_course (upc_time);
@@ -117,7 +117,7 @@ CREATE INDEX /*i*/ep_upc_time ON /*_*/ep_users_per_course (upc_time);
 
 -- Students. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_students (
-  student_id                 INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  student_id                 INT unsigned        NOT NULL PRIMARY KEY auto_increment,
   student_user_id            INT unsigned        NOT NULL, -- Foreign key on user.user_id
 
   -- Summary fields - caching data or computations on data stored elswhere
@@ -141,7 +141,7 @@ CREATE INDEX /*i*/ep_students_active_enroll ON /*_*/ep_students (student_active_
 
 -- Instructors. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_instructors (
-  instructor_id              INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  instructor_id              INT unsigned        NOT NULL PRIMARY KEY auto_increment,
   instructor_user_id         INT unsigned        NOT NULL -- Foreign key on user.user_id
 ) /*$wgDBTableOptions*/;
 
@@ -151,7 +151,7 @@ CREATE UNIQUE INDEX /*i*/ep_instructors_user_id ON /*_*/ep_instructors (instruct
 
 -- Campus ambassadors. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_cas (
-  ca_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  ca_id                      INT unsigned        NOT NULL PRIMARY KEY auto_increment,
   ca_user_id                 INT unsigned        NOT NULL, -- Foreign key on user.user_id
 
   ca_visible                 TINYINT unsigned    NOT NULL, -- If the profile should be public
@@ -166,7 +166,7 @@ CREATE INDEX /*i*/ep_cas_visible ON /*_*/ep_cas (ca_visible);
 
 -- Online ambassadors. In essence this is an extension to the user table.
 CREATE TABLE IF NOT EXISTS /*_*/ep_oas (
-  oa_id                      INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  oa_id                      INT unsigned        NOT NULL PRIMARY KEY auto_increment,
   oa_user_id                 INT unsigned        NOT NULL, -- Foreign key on user.user_id
 
   oa_visible                 TINYINT unsigned    NOT NULL, -- If the profile should be public
@@ -184,7 +184,7 @@ CREATE INDEX /*i*/ep_oas_visible ON /*_*/ep_oas (oa_visible);
 -- Events are stored in such a way that each course has a timeline of events.
 -- Events are typically edits to pages, but this is not nececerily the case.
 CREATE TABLE IF NOT EXISTS /*_*/ep_events (
-  event_id                   INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  event_id                   INT unsigned        NOT NULL PRIMARY KEY auto_increment,
   event_course_id            INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
   event_user_id              INT unsigned        NOT NULL, -- The user creating the event. Foreign key on user.user_id
   event_time                 varbinary(14)       NOT NULL, -- Time the event took place
@@ -203,7 +203,7 @@ CREATE INDEX /*i*/ep_events_type ON /*_*/ep_events (event_type);
 -- This is somewhat based on the (core) revision table and is meant to serve
 -- as a prototype for a more general system to store this kind of data in a visioned fashion.
 CREATE TABLE IF NOT EXISTS /*_*/ep_revisions (
-  rev_id                     INT unsigned        NOT NULL auto_increment PRIMARY KEY,
+  rev_id                     INT unsigned        NOT NULL PRIMARY KEY auto_increment,
 
   -- Id of the object from it's cannonical table.
   -- Since we can have multiple revisions of the same object, this is not unique.

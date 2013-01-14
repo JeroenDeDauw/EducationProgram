@@ -43,7 +43,12 @@ final class Hooks {
 			'course_touched',
 			__DIR__ . '/sql/AddTouched.sql'
 		);
-
+		$updater->renameExtensionIndex(
+			'ep_users_per_course',
+			'ep_users_per_course',
+			'ep_upc_user_courseid_role',
+			__DIR__ . '/sql/rename_upc_index.sql'
+		);
 		return true;
 	}
 
