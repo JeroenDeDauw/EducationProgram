@@ -210,6 +210,7 @@ $messages['en'] = array(
 	'ep-course-status-passed' => 'Passed',
 	'ep-course-status-current' => 'Current',
 	'ep-course-status-planned' => 'Planned',
+	'ep-course-status-current-planned' => 'Current and planned',
 
 	// Special:EducationProgram
 	'ep-summary-table-header' => 'Education Program totals',
@@ -1024,6 +1025,7 @@ $2 is a user provided comment',
 	'ep-course-status-passed' => 'Course status',
 	'ep-course-status-current' => 'Course status',
 	'ep-course-status-planned' => 'Course status',
+	'ep-course-status-current-planned' => 'Course status',
 	'ep-summary-table-header' => 'Table header',
 	'specialeducationprogram-summary-org-count' => 'Table row header',
 	'specialeducationprogram-summary-course-count' => 'Table row header',

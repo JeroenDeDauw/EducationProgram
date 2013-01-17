@@ -225,9 +225,10 @@ class CoursePager extends Pager {
 			'type' => 'select',
 			'options' => array_merge(
 				array( '' => '' ),
-				Course::getStatuses()
+				Course::getStatuses(),
+				array( $this->msg( 'ep-course-status-current-planned' )->text() => 'current-planned' )
 			),
-			'value' => 'current',
+			'value' => 'current-planned',
 		);
 
 		return $options;
@@ -289,6 +290,9 @@ class CoursePager extends Pager {
 			$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
 			switch ( $conds['status'] ) {
+				case 'current-planned':
+					$conds[] = 'end >= ' . $now;
+					break;
 				case 'passed':
 					$conds[] = 'end < ' . $now;
 					break;
