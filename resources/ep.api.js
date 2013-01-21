@@ -11,13 +11,15 @@
 	mw.educationProgram.api = {
 
 		enlist: function( args ) {
-			var requestArgs = $.extend( {
+			var requestArgs, deferred;
+
+			requestArgs = $.extend( {
 				'action': 'enlist',
 				'format': 'json',
 				'token': window.mw.user.tokens.get( 'editToken' )
 			}, args );
 
-			var deferred = $.Deferred();
+			deferred = $.Deferred();
 
 			$.post(
 				mw.config.get( 'wgScriptPath' ) + '/api.php',
@@ -46,7 +48,9 @@
 		},
 
 		remove: function( data, args ) {
-			var requestArgs = $.extend( {
+			var requestArgs, deferred;
+
+			requestArgs = $.extend( {
 				'action': 'deleteeducation',
 				'format': 'json',
 				'token': window.mw.user.tokens.get( 'editToken' ),
@@ -54,7 +58,7 @@
 				'type': data.type
 			}, args );
 
-			var deferred = $.Deferred();
+			deferred = $.Deferred();
 
 			$.post(
 				mw.config.get( 'wgScriptPath' ) + '/api.php',

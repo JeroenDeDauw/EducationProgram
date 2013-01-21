@@ -23,11 +23,12 @@
 			);
 		} );
 
-		var list = [ 'neworg', 'newname', 'newterm' ];
+		var list = [ 'neworg', 'newname', 'newterm' ],
+			i, $element, val;
 
-		for ( var i in list ) {
+		for ( i in list ) {
 			if ( list.hasOwnProperty( i ) ) {
-				var $element = $( '#' + list[i] ),
+				$element = $( '#' + list[i] ),
 				val = $element.val();
 
 				$element.removeAttr( 'value' );
