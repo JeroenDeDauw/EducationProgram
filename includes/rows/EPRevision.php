@@ -13,7 +13,7 @@ use User;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class Revision extends \ORMRow {
+class EPRevision extends \ORMRow {
 
 	/**
 	 * Cached user object for this revision.
@@ -101,7 +101,7 @@ class Revision extends \ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @return Revision|bool false
+	 * @return EPRevision|bool false
 	 */
 	public function getPreviousRevision() {
 		return $this->getObject()->getLatestRevision( array(

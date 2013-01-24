@@ -31,7 +31,7 @@ class RemoveArticleAction extends \FormlessAction {
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), 'remarticle' . $req->getInt( 'article-id' ) ) ) {
 			/**
-			 * @var Article $article
+			 * @var EPArticle $article
 			 */
 			$article = Articles::singleton()->selectRow(
 				null,

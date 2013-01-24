@@ -14,7 +14,7 @@ use User, Title, IContextSource;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class Article extends \ORMRow {
+class EPArticle extends \ORMRow {
 
 	/**
 	 * Cached user object for this article.

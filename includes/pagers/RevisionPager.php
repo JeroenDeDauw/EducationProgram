@@ -74,7 +74,7 @@ class RevisionPager extends \ReverseChronologicalPager {
 	 */
 	function formatRow( $row ) {
 		/**
-		 * @var Revision $revision
+		 * @var EPRevision $revision
 		 */
 		$revision = Revisions::singleton()->newRowFromDBResult( $row );
 		$object = $revision->getObject();

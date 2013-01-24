@@ -100,11 +100,11 @@ class UndeleteAction extends Action {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Revision $revision
+	 * @param EPRevision $revision
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function doUndelete( Revision $revision ) {
+	protected function doUndelete( EPRevision $revision ) {
 		$revAction = new RevisionAction();
 
 		$revAction->setUser( $this->getUser() );
@@ -118,9 +118,9 @@ class UndeleteAction extends Action {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Revision $revision
+	 * @param EPRevision $revision
 	 */
-	protected function displayForm( Revision $revision ) {
+	protected function displayForm( EPRevision $revision ) {
 		$out = $this->getOutput();
 
 		$out->addModules( 'ep.formpage' );

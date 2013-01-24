@@ -18,7 +18,7 @@ class RevisionDiff {
 
 	protected $isValid = true;
 
-	public static function newFromRestoreRevision( RevisionedObject $sourceObject, Revision $revision, array $fields = null ) {
+	public static function newFromRestoreRevision( RevisionedObject $sourceObject, EPRevision $revision, array $fields = null ) {
 		$changedFields = array();
 
 		$targetObject = $revision->getObject();
@@ -46,7 +46,7 @@ class RevisionDiff {
 		return new self( $changedFields );
 	}
 
-	public static function newFromUndoRevision( RevisionedObject $currentObject, Revision $revision, array $fields = null ) {
+	public static function newFromUndoRevision( RevisionedObject $currentObject, EPRevision $revision, array $fields = null ) {
 		$changedFields = array();
 
 		$targetObject = $revision->getPreviousRevision()->getObject();

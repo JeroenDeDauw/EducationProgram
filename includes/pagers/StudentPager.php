@@ -13,7 +13,7 @@ use IContextSource;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class StudentPager extends Pager {
+class StudentPager extends EPPager {
 
 	/**
 	 * List of user ids mapped to user names and real names, set in doBatchLookups.
@@ -132,7 +132,7 @@ class StudentPager extends Pager {
 	}
 
 	/**
-	 * @see Pager::hasActionsColumn()
+	 * @see EPPager::hasActionsColumn()
 	 */
 	protected function hasActionsColumn() {
 		return false;

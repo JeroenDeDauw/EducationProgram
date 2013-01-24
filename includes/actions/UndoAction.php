@@ -108,11 +108,11 @@ class UndoAction extends Action {
 	 * @since 0.1
 	 *
 	 * @param PageObject $object
-	 * @param Revision $revision
+	 * @param EPRevision $revision
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function doUndo( PageObject $object, Revision $revision ) {
+	protected function doUndo( PageObject $object, EPRevision $revision ) {
 		$success = $object->undoRevision( $revision );
 
 		if ( $success ) {
@@ -133,9 +133,9 @@ class UndoAction extends Action {
 	 * @since 0.1
 	 *
 	 * @param PageObject $object
-	 * @param Revision $revision
+	 * @param EPRevision $revision
 	 */
-	protected function displayForm( PageObject $object, Revision $revision ) {
+	protected function displayForm( PageObject $object, EPRevision $revision ) {
 		$out = $this->getOutput();
 
 		$out->addModules( 'ep.formpage' );

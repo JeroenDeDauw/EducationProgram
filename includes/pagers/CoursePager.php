@@ -13,7 +13,7 @@ use IContextSource;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class CoursePager extends Pager {
+class CoursePager extends EPPager {
 	/**
 	 * When in read only mode, the pager should not show any course editing controls.
 	 *
@@ -193,7 +193,7 @@ class CoursePager extends Pager {
 	}
 
 	/**
-	 * @see Pager::getFilterOptions()
+	 * @see EPPager::getFilterOptions()
 	 */
 	protected function getFilterOptions() {
 		$options = array();
@@ -235,7 +235,7 @@ class CoursePager extends Pager {
 	}
 
 	/**
-	 * @see Pager::getControlLinks()
+	 * @see EPPager::getControlLinks()
 	 */
 	protected function getControlLinks( \IORMRow $item ) {
 		$links = parent::getControlLinks( $item );
@@ -261,7 +261,7 @@ class CoursePager extends Pager {
 	}
 
 	/**
-	 * @see Pager::getMultipleItemActions()
+	 * @see EPPager::getMultipleItemActions()
 	 */
 	protected function getMultipleItemActions() {
 		$actions = parent::getMultipleItemActions();
@@ -281,7 +281,7 @@ class CoursePager extends Pager {
 	}
 
 	/**
-	 * @see Pager::getConditions()
+	 * @see EPPager::getConditions()
 	 */
 	protected function getConditions() {
 		$conds = parent::getConditions();
@@ -312,7 +312,7 @@ class CoursePager extends Pager {
 	}
 
 	/**
-	 * @see Pager::hasActionsColumn()
+	 * @see EPPager::hasActionsColumn()
 	 */
 	protected function hasActionsColumn() {
 		return !$this->readOnlyMode;

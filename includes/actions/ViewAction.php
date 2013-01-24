@@ -142,9 +142,9 @@ abstract class ViewAction extends Action {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Revision $rev
+	 * @param EPRevision $rev
 	 */
-	protected function displayRevisionNotice( Revision $rev ) {
+	protected function displayRevisionNotice( EPRevision $rev ) {
 		$lang = $this->getLanguage();
 
 		$td = $lang->timeanddate( $rev->getField( 'time' ), true );

@@ -169,7 +169,7 @@ final class Hooks {
 	 * @since 0.1
 	 *
 	 * @param Title $title
-	 * @param Article|null $article
+	 * @param EPArticle|null $article
 	 *
 	 * @return bool
 	 */
@@ -415,7 +415,7 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Article $article
+	 * @param EPArticle $article
 	 * @param Revision $rev
 	 * @param integer $baseID
 	 * @param User $user

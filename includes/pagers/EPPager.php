@@ -14,7 +14,7 @@ use ORMTable, ORMRow, IContextSource, IORMTable, IORMRow, Html;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class Pager extends \TablePager {
+abstract class EPPager extends \TablePager {
 	/**
 	 * Query conditions, full field names (inc prefix).
 	 * @since 0.1

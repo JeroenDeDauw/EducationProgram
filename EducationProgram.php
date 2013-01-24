@@ -90,9 +90,9 @@ $wgAutoloadClasses['EducationProgram\ArticlePager'] 				= $dir . '/includes/page
 $wgAutoloadClasses['EducationProgram\ArticleTable'] 				= $dir . '/includes/pagers/ArticleTable.php';
 $wgAutoloadClasses['EducationProgram\CAPager'] 						= $dir . '/includes/pagers/CAPager.php';
 $wgAutoloadClasses['EducationProgram\CoursePager'] 					= $dir . '/includes/pagers/CoursePager.php';
+$wgAutoloadClasses['EducationProgram\EPPager'] 						= $dir . '/includes/pagers/EPPager.php';
 $wgAutoloadClasses['EducationProgram\OAPager'] 						= $dir . '/includes/pagers/OAPager.php';
 $wgAutoloadClasses['EducationProgram\OrgPager'] 					= $dir . '/includes/pagers/OrgPager.php';
-$wgAutoloadClasses['EducationProgram\Pager'] 						= $dir . '/includes/pagers/Pager.php';
 $wgAutoloadClasses['EducationProgram\RevisionPager'] 				= $dir . '/includes/pagers/RevisionPager.php';
 $wgAutoloadClasses['EducationProgram\StudentPager'] 				= $dir . '/includes/pagers/StudentPager.php';
 $wgAutoloadClasses['EducationProgram\StudentActivityPager'] 		= $dir . '/includes/pagers/StudentActivityPager.php';
@@ -103,15 +103,15 @@ $wgAutoloadClasses['EducationProgram\EducationPage'] 				= $dir . '/includes/pag
 $wgAutoloadClasses['EducationProgram\OrgPage'] 						= $dir . '/includes/pages/OrgPage.php';
 
 // includes/rows (deriving from ORMRow)
-$wgAutoloadClasses['EducationProgram\Article'] 						= $dir . '/includes/rows/Article.php';
 $wgAutoloadClasses['EducationProgram\CA'] 							= $dir . '/includes/rows/CA.php';
 $wgAutoloadClasses['EducationProgram\Course'] 						= $dir . '/includes/rows/Course.php';
+$wgAutoloadClasses['EducationProgram\EPArticle'] 					= $dir . '/includes/rows/EPArticle.php';
+$wgAutoloadClasses['EducationProgram\EPRevision'] 					= $dir . '/includes/rows/EPRevision.php';
 $wgAutoloadClasses['EducationProgram\Event'] 						= $dir . '/includes/rows/Event.php';
 $wgAutoloadClasses['EducationProgram\Instructor'] 					= $dir . '/includes/rows/Instructor.php';
 $wgAutoloadClasses['EducationProgram\OA'] 							= $dir . '/includes/rows/OA.php';
 $wgAutoloadClasses['EducationProgram\Org'] 							= $dir . '/includes/rows/Org.php';
 $wgAutoloadClasses['EducationProgram\PageObject'] 					= $dir . '/includes/rows/PageObject.php';
-$wgAutoloadClasses['EducationProgram\Revision'] 					= $dir . '/includes/rows/Revision.php';
 $wgAutoloadClasses['EducationProgram\RevisionedObject'] 			= $dir . '/includes/rows/RevisionedObject.php';
 $wgAutoloadClasses['EducationProgram\Student'] 						= $dir . '/includes/rows/Student.php';
 

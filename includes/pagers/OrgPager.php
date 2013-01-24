@@ -13,7 +13,7 @@ use IContextSource, Linker, SpecialPage, IORMRow;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class OrgPager extends Pager {
+class OrgPager extends EPPager {
 
 	/**
 	 * Returns the HTML for a pager with institutions.
@@ -146,7 +146,7 @@ class OrgPager extends Pager {
 	}
 
 	/**
-	 * @see Pager::getFilterOptions()
+	 * @see EPPager::getFilterOptions()
 	 */
 	protected function getFilterOptions() {
 		return array(
@@ -168,7 +168,7 @@ class OrgPager extends Pager {
 	}
 
 	/**
-	 * @see Pager::getControlLinks()
+	 * @see EPPager::getControlLinks()
 	 */
 	protected function getControlLinks( IORMRow $item ) {
 		$links = parent::getControlLinks( $item );
@@ -194,7 +194,7 @@ class OrgPager extends Pager {
 	}
 
 	/**
-	 * @see Pager::getMultipleItemActions()
+	 * @see EPPager::getMultipleItemActions()
 	 */
 	protected function getMultipleItemActions() {
 		$actions = parent::getMultipleItemActions();

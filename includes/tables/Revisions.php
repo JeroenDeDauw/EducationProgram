@@ -72,7 +72,7 @@ class Revisions extends \ORMTable {
 	 * @param RevisionedObject $object
 	 * @param RevisionAction $revAction
 	 *
-	 * @return Revision
+	 * @return EPRevision
 	 */
 	public function newFromObject( RevisionedObject $object, RevisionAction $revAction ) {
 		$fields = array_merge( $object->getRevisionIdentifiers(), array(
@@ -91,7 +91,7 @@ class Revisions extends \ORMTable {
 			$fields['object_identifier'] = $identifier;
 		}
 
-		return new Revision( $this, $fields );
+		return new EPRevision( $this, $fields );
 	}
 
 	/**
@@ -101,7 +101,7 @@ class Revisions extends \ORMTable {
 	 *
 	 * @param array $conds
 	 *
-	 * @return Revision|bool false
+	 * @return EPRevision|bool false
 	 */
 	public function getLatestRevision( array $conds ) {
 		return $this->selectRow(

@@ -117,7 +117,7 @@ class Org extends PageObject {
 
 			foreach ( $this->getField( 'courses' ) as $courseId ) {
 				/**
-				 * @var Revision $courseRevision
+				 * @var EPRevision $courseRevision
 				 */
 				$courseRevision = Revisions::singleton()->getLatestRevision( array(
 					'object_id' => $courseId,

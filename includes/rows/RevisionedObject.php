@@ -250,7 +250,7 @@ abstract class RevisionedObject extends \ORMRow {
 	 *
 	 * @param integer $id
 	 *
-	 * @return Revision|bool false
+	 * @return EPRevision|bool false
 	 */
 	public function getRevisionById( $id ) {
 		$objects = $this->getRevisions(
@@ -307,7 +307,7 @@ abstract class RevisionedObject extends \ORMRow {
 	 * @param array $conditions
 	 * @param array $options
 	 *
-	 * @return Revision|bool false
+	 * @return EPRevision|bool false
 	 */
 	public function getLatestRevision( array $conditions = array(), array $options = array() ) {
 		$options['ORDER BY'] = Revisions::singleton()->getPrefixedField( 'id' ) . ' DESC';
@@ -348,12 +348,12 @@ abstract class RevisionedObject extends \ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Revision $revison
+	 * @param EPRevision $revison
 	 * @param array|null $fields
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function restoreToRevision( Revision $revison, array $fields = null ) {
+	public function restoreToRevision( EPRevision $revison, array $fields = null ) {
 		$diff = $this->getRestoreDiff( $revison, $fields );
 		$this->applyDiff( $diff );
 		return $diff->isValid();
@@ -364,12 +364,12 @@ abstract class RevisionedObject extends \ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Revision $revison
+	 * @param EPRevision $revison
 	 * @param array|null $fields
 	 *
 	 * @return RevisionDiff
 	 */
-	public function getRestoreDiff( Revision $revison, array $fields = null ) {
+	public function getRestoreDiff( EPRevision $revison, array $fields = null ) {
 		$fields = is_null( $fields ) ? $this->table->getRevertibleFields() : $fields;
 		return RevisionDiff::newFromRestoreRevision( $this, $revison, $fields );
 	}
@@ -385,12 +385,12 @@ abstract class RevisionedObject extends \ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Revision $revison
+	 * @param EPRevision $revison
 	 * @param array|null $fields
 	 *
 	 * @return boolean Success indicator
 	 */
-	public function undoRevision( Revision $revison, array $fields = null ) {
+	public function undoRevision( EPRevision $revison, array $fields = null ) {
 		$diff = $this->getUndoDiff( $revison, $fields );
 		$this->applyDiff( $diff );
 		return $diff->isValid();
@@ -412,12 +412,12 @@ abstract class RevisionedObject extends \ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Revision $revison
+	 * @param EPRevision $revison
 	 * @param array|null $fields
 	 *
 	 * @return RevisionDiff
 	 */
-	public function getUndoDiff( Revision $revison, array $fields = null ) {
+	public function getUndoDiff( EPRevision $revison, array $fields = null ) {
 		$fields = is_null( $fields ) ? $this->table->getRevertibleFields() : $fields;
 		return RevisionDiff::newFromUndoRevision( $this, $revison, $fields );
 	}

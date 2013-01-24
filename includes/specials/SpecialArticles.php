@@ -45,7 +45,7 @@ class SpecialArticles extends VerySpecialPage {
 	 * @return string
 	 */
 	public function getPagerHTML() {
-		return Article::getPagerHTML( $this->getContext() );
+		return EPArticle::getPagerHTML( $this->getContext() );
 	}
 
 	/**

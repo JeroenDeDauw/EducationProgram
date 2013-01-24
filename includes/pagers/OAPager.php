@@ -13,10 +13,10 @@ use IContextSource, IORMTable, Linker;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class OAPager extends Pager {
+class OAPager extends EPPager {
 
 	/**
-	 * @see Pager::$currentObject
+	 * @see EPPager::$currentObject
 	 * @since 0.1
 	 * @var RoleObject
 	 */
@@ -45,7 +45,7 @@ class OAPager extends Pager {
 	}
 
 	/**
-	 * @see Pager::getFields()
+	 * @see EPPager::getFields()
 	 */
 	public function getFields() {
 		return array(
@@ -137,14 +137,14 @@ class OAPager extends Pager {
 	}
 
 	/**
-	 * @see Pager::hasActionsColumn()
+	 * @see EPPager::hasActionsColumn()
 	 */
 	protected function hasActionsColumn() {
 		return false;
 	}
 
 	/**
-	 * @see Pager::getFieldNames()
+	 * @see EPPager::getFieldNames()
 	 */
 	public function getFieldNames() {
 		$fields = parent::getFieldNames();

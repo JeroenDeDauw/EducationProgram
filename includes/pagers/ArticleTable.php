@@ -13,7 +13,7 @@ use IContextSource, Html, User, Linker, Xml;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ArticleTable extends Pager {
+class ArticleTable extends EPPager {
 
 	/**
 	 * The doBatchLookups method gets all articles relevant to the users that will be displayed
@@ -129,7 +129,7 @@ class ArticleTable extends Pager {
 		$articles = $this->articles[$student->getField( 'user_id' )];
 		$user = $this->getUser();
 
-		$rowCount = array_reduce( $articles, function( /* integer */ $sum, Article $article ) use ( $user ) {
+		$rowCount = array_reduce( $articles, function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
 			return $sum + max( count( $article->getField( 'reviewers' ) ), 1 );
 		}, 0 );
 
@@ -168,7 +168,7 @@ class ArticleTable extends Pager {
 		$isFirst = true;
 
 		/**
-		 * @var Article $article
+		 * @var EPArticle $article
 		 */
 		foreach ( $articles as $article ) {
 			if ( !$isFirst ) {
@@ -295,12 +295,12 @@ class ArticleTable extends Pager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Article $article
+	 * @param EPArticle $article
 	 * @param integer $rowSpan
 	 *
 	 * @return string
 	 */
-	protected function getArticleCell( Article $article, $rowSpan ) {
+	protected function getArticleCell( EPArticle $article, $rowSpan ) {
 		$html = Linker::link(
 			$article->getTitle(),
 			htmlspecialchars( $article->getTitle()->getFullText() )
@@ -352,12 +352,12 @@ class ArticleTable extends Pager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Article $article
+	 * @param EPArticle $article
 	 * @param integer $userId User id of the reviewer
 	 *
 	 * @return string
 	 */
-	protected function getReviewerCell( Article $article, $userId ) {
+	protected function getReviewerCell( EPArticle $article, $userId ) {
 		$user = User::newFromId( $userId );
 		$name = !Settings::get( 'useStudentRealNames' ) || $user->getRealName() === '' ? $user->getName() : $user->getRealName();
 
@@ -463,15 +463,15 @@ class ArticleTable extends Pager {
 	}
 
 	/**
-	 * Returns the HTML for the reviewer adittion control.
+	 * Returns the HTML for the reviewer addition control.
 	 *
 	 * @since 0.1
 	 *
-	 * @param Article $article
+	 * @param EPArticle $article
 	 *
 	 * @return string
 	 */
-	protected function getReviewerAdittionControl( Article $article ) {
+	protected function getReviewerAdittionControl( EPArticle $article ) {
 		$html = Html::element(
 			'button',
 			array(
@@ -502,14 +502,14 @@ class ArticleTable extends Pager {
 	}
 
 	/**
-	 * @see Pager::hasActionsColumn()
+	 * @see EPPager::hasActionsColumn()
 	 */
 	protected function hasActionsColumn() {
 		return false;
 	}
 
 	/**
-	 * @see Pager::getFieldNames()
+	 * @see EPPager::getFieldNames()
 	 */
 	public function getFieldNames() {
 		$fields = parent::getFieldNames();
@@ -543,7 +543,7 @@ class ArticleTable extends Pager {
 		$articles = Articles::singleton()->select( null, $conditions );
 
 		/**
-		 * @var Article $article
+		 * @var EPArticle $article
 		 */
 		foreach ( $articles as $article ) {
 			$this->articles[$article->getField( 'user_id' )][] = $article;

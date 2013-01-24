@@ -15,7 +15,7 @@ use IContextSource, Linker, User, Title;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ArticlePager extends Pager {
+class ArticlePager extends EPPager {
 
 	/**
 	 * Course ids pointing to their corresponding course titles.
@@ -40,7 +40,7 @@ class ArticlePager extends Pager {
 	}
 
 	/**
-	 * @see Pager::getFields()
+	 * @see EPPager::getFields()
 	 */
 	public function getFields() {
 		return array(
@@ -116,7 +116,7 @@ class ArticlePager extends Pager {
 	}
 
 	/**
-	 * @see Pager::hasActionsColumn()
+	 * @see EP::hasActionsColumn()
 	 */
 	protected function hasActionsColumn() {
 		return false;
