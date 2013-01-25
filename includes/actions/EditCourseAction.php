@@ -319,7 +319,7 @@ class EditCourseAction extends EditAction {
 			$content = Utils::getArticleContent( $orgPage );
 		}
 
-		if ( $content === false ) {
+		if ( $content === false || $content === '' ) {
 			$content = Utils::getArticleContent( $primaryPage );
 		}
 
