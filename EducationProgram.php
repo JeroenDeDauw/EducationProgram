@@ -681,7 +681,7 @@ $wgResourceModules['ep.enlist'] = $moduleTemplate + array(
 
 unset( $moduleTemplate );
 
-$egSettings = array();
+$egEPSettings = array();
 
 // The default value for the user preferences.
 $wgDefaultUserOptions['ep_showtoplink'] = false;
