@@ -50,11 +50,9 @@ class ViewCourseAction extends ViewAction {
 	 * @see ViewAction::getPageHTML()
 	 */
 	public function getPageHTML( IORMRow $course ) {
-		$html = parent::getPageHTML( $course );
+		$html = $this->getOutput()->parse( $course->getField( 'description' ) );
 
-		$html .= Html::element( 'h2', array(), $this->msg( 'ep-course-description' )->text() );
-
-		$html .= $this->getOutput()->parse( $course->getField( 'description' ) );
+		$html .= parent::getPageHTML( $course );
 
 		$studentIds = $course->getField( 'students' );
 
