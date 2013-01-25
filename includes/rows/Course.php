@@ -578,14 +578,14 @@ class Course extends PageObject {
 				$this->enableLogging();
 			}
 
-			if ( $success && $role === 'student' ) {
+			if ( $success ) {
 				foreach ( $addedUsers as $userId ) {
 					/**
-					 * @var Student $student
+					 * @var RoleObject $person
 					 */
-					$student = Student::newFromUserId( $userId, true, 'id' );
-					$student->onEnrolled( $this->getId() );
-					$student->save();
+					$person = Student::newFromUserId( $userId, true, 'id' );
+					$person->onEnrolled( $this->getId(), $role );
+					$person->save();
 				}
 			}
 

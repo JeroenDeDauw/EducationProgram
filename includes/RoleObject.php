@@ -302,4 +302,27 @@ abstract class RoleObject extends \ORMRow implements IRole {
 		return $conds;
 	}
 
+	/**
+	 * Should be called whenever a user gets enrolled in a course.
+	 *
+	 * @since 0.3
+	 *
+	 * @param integer $courseId
+	 * @param string $role
+	 */
+	public function onEnrolled( $courseId, $role ) {
+		if ( $role === 'student' ) {
+			if ( !$this->hasField( 'first_course' ) ) {
+				$this->setField( 'first_course', $courseId );
+				$this->setField( 'first_enroll', wfTimestampNow() );
+			}
+
+			$this->setField( 'last_course', $courseId );
+			$this->setField( 'last_enroll', wfTimestampNow() );
+		}
+
+		$this->getUser()->setOption( 'ep_showtoplink', true );
+		$this->getUser()->saveSettings();
+	}
+
 }
