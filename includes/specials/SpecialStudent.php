@@ -102,6 +102,8 @@ class SpecialStudent extends VerySpecialPage {
 				)
 			);
 
+			$this->getOutput()->addModules( ArticleTable::getModules() );
+
 			$pager->setShowStudents( false );
 
 			if ( $pager->getNumRows() ) {
