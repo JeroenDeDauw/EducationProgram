@@ -210,17 +210,18 @@ $messages['en'] = array(
 	'ep-course-status-passed' => 'Passed',
 	'ep-course-status-current' => 'Current',
 	'ep-course-status-planned' => 'Planned',
+	'ep-course-status-current-planned' => 'Current and planned',
 
 	// Special:EducationProgram
 	'ep-summary-table-header' => 'Education Program totals',
-	'specialeducationprogram-summary-org-count' => 'Number of [[Special:Institutions|institutions]]',
-	'specialeducationprogram-summary-course-count' => 'Number of [[Special:Courses|courses]]',
-	'specialeducationprogram-summary-active-course-count' => 'Number of active courses',
-	'specialeducationprogram-summary-student-count' => 'Number of [[Special:Students|students]]',
-	'specialeducationprogram-summary-current-student-count' => 'Currently enrolled students',
-	'specialeducationprogram-summary-instructor-count' => 'Number of instructors',
-	'specialeducationprogram-summary-ca-count' => 'Number of [[Special:CampusAmbassadors|Campus Ambassadors]]',
-	'specialeducationprogram-summary-oa-count' => 'Number of [[Special:OnlineAmbassadors|Online Ambassadors]]',
+	'ep-specialeducationprogram-summary-org-count' => 'Number of [[Special:Institutions|institutions]]',
+	'ep-specialeducationprogram-summary-course-count' => 'Number of [[Special:Courses|courses]]',
+	'ep-specialeducationprogram-summary-active-course-count' => 'Number of active courses',
+	'ep-specialeducationprogram-summary-student-count' => 'Number of [[Special:Students|students]]',
+	'ep-specialeducationprogram-summary-current-student-count' => 'Currently enrolled students',
+	'ep-specialeducationprogram-summary-instructor-count' => 'Number of instructors',
+	'ep-specialeducationprogram-summary-ca-count' => 'Number of [[Special:CampusAmbassadors|Campus Ambassadors]]',
+	'ep-specialeducationprogram-summary-oa-count' => 'Number of [[Special:OnlineAmbassadors|Online Ambassadors]]',
 	'ep-educationprogram-by-term' => 'Totals per term',
 	'ep-educationprogram-courses' => 'Number of courses',
 	'ep-educationprogram-students' => 'Number of students',
@@ -750,7 +751,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-campus-summary-input' => 'Summary:',
 	'ep-campus-name-input' => 'User name:',
 
-	// EPInstructor
+	// Instructor
 	'ep-instructor-remove' => 'remove as instructor',
 
 	// EPCA
@@ -1024,6 +1025,7 @@ $2 is a user provided comment',
 	'ep-course-status-passed' => 'Course status',
 	'ep-course-status-current' => 'Course status',
 	'ep-course-status-planned' => 'Course status',
+	'ep-course-status-current-planned' => 'Course status',
 	'ep-summary-table-header' => 'Table header',
 	'specialeducationprogram-summary-org-count' => 'Table row header',
 	'specialeducationprogram-summary-course-count' => 'Table row header',

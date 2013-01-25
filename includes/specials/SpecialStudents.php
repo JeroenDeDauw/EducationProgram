@@ -1,17 +1,18 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Page listing all students in a pager with filter control.
  *
  * @since 0.1
  *
- * @file SpecialStudents.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialStudents extends SpecialEPPage {
+class SpecialStudents extends VerySpecialPage {
 
 	/**
 	 * Constructor.
@@ -36,10 +37,10 @@ class SpecialStudents extends SpecialEPPage {
 			$this->displayNavigation();
 
 			$this->startCache( 3600 );
-			$this->addCachedHTML( 'EPStudent::getPager', $this->getContext() );
+			$this->addCachedHTML( 'EducationProgram\Student::getPager', $this->getContext() );
 		}
 		else {
-			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'Student', $this->subPage )->getLocalURL() );
+			$this->getOutput()->redirect( \SpecialPage::getTitleFor( 'Student', $this->subPage )->getLocalURL() );
 		}
 	}
 

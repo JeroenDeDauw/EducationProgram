@@ -1,17 +1,19 @@
 <?php
 
+namespace EducationProgram;
+use Linker, Html, SpecialPage, Xml;
+
 /**
  * Disenrollment page for students.
  *
  * @since 0.1
  *
- * @file SpecialDisenroll.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialDisenroll extends SpecialEPPage {
+class SpecialDisenroll extends VerySpecialPage {
 	/**
 	 * Constructor.
 	 *
@@ -37,14 +39,15 @@ class SpecialDisenroll extends SpecialEPPage {
 			$this->showWarning( $this->msg(  'ep-disenroll-no-name' ) );
 		}
 		else {
-			$course = EPCourses::singleton()->getFromTitle( $courseName );
+			$course = Courses::singleton()->getFromTitle( $courseName );
 
 			if ( $course === false ) {
 				$this->showWarning( $this->msg( 'ep-disenroll-invalid-name', $courseName ) );
 			}
 			else {
-				if ( EPStudent::newFromUser( $this->getUser() )->hasCourse( array( 'id' => $course->getId() ) ) ) {
+				if ( Student::newFromUser( $this->getUser() )->hasCourse( array( 'id' => $course->getId() ) ) ) {
 					$this->executeEnrolled( $course );
+
 				}
 				else {
 					$this->showWarning( $this->msg( 'ep-disenroll-not-enrolled' ) );
@@ -56,9 +59,9 @@ class SpecialDisenroll extends SpecialEPPage {
 	/**
 	 * @since 0.3
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 */
-	protected function executeEnrolled( EPCourse $course ) {
+	protected function executeEnrolled( Course $course ) {
 		if ( $course->getStatus() === 'current' ) {
 			if ( $this->getUser()->isLoggedIn() ) {
 				$req = $this->getRequest();
@@ -112,9 +115,9 @@ class SpecialDisenroll extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 */
-	protected function showDisenrollForm( EPCourse $course ) {
+	protected function showDisenrollForm( Course $course ) {
 		$out = $this->getOutput();
 
 		$out->addModules( 'ep.disenroll' );
@@ -173,10 +176,10 @@ class SpecialDisenroll extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 */
-	protected function doDisenroll( EPCourse $course ) {
-		$revAction = new EPRevisionAction();
+	protected function doDisenroll( Course $course ) {
+		$revAction = new RevisionAction();
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( $this->getRequest()->getText( 'summary' ) );
 
@@ -200,4 +203,5 @@ class SpecialDisenroll extends SpecialEPPage {
 			$course->getField( 'title' )
 		);
 	}
+
 }

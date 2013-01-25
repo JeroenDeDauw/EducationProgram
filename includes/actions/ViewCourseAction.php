@@ -1,18 +1,21 @@
 <?php
 
+namespace EducationProgram;
+use Page, IContextSource, Html, IORMRow, Linker, SpecialPage;
+
 /**
  * Action for viewing a course.
  *
  * @since 0.1
  *
- * @file ViewCourseAction.php
  * @ingroup EducationProgram
  * @ingroup Action
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ViewCourseAction extends EPViewAction {
+class ViewCourseAction extends ViewAction {
+
 	/**
 	 * Constructor.
 	 *
@@ -21,12 +24,11 @@ class ViewCourseAction extends EPViewAction {
 	 * @param Page $page
 	 * @param IContextSource $context
 	 */
-	protected function __construct( Page $page, IContextSource $context = null ) {
-		parent::__construct( $page, $context, EPCourses::singleton() );
+	public function __construct( Page $page, IContextSource $context = null ) {
+		parent::__construct( $page, $context, Courses::singleton() );
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see Action::getName()
 	 */
 	public function getName() {
@@ -34,20 +36,18 @@ class ViewCourseAction extends EPViewAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
 		// Only cache for anon users. Else we need to cache per user,
-		// since the page has an EPArticleTable, which has per user stuff.
+		// since the page has an ArticleTable, which has per user stuff.
 		$this->cacheEnabled = $this->cacheEnabled && $this->getUser()->isAnon();
 
 		return parent::onView();
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPViewAction::getPageHTML()
+	 * @see ViewAction::getPageHTML()
 	 */
 	public function getPageHTML( IORMRow $course ) {
 		$html = parent::getPageHTML( $course );
@@ -61,7 +61,7 @@ class ViewCourseAction extends EPViewAction {
 		if ( !empty( $studentIds ) ) {
 			$html .= Html::element( 'h2', array(), $this->msg( 'ep-course-students' )->text() );
 
-			$pager = new EPArticleTable(
+			$pager = new ArticleTable(
 				$this->getContext(),
 				array( 'user_id' => $studentIds ),
 				array( 'course_id' => $course->getId() )
@@ -88,15 +88,15 @@ class ViewCourseAction extends EPViewAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param \EPCourse|\IORMRow $course
+	 * @param Course|IORMRow $course
 	 *
 	 * @return array
 	 */
 	protected function getSummaryData( IORMRow $course ) {
 		$stats = array();
 
-		$orgName = EPOrgs::singleton()->selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
-		$stats['org'] = EPOrgs::singleton()->getLinkFor( $orgName );
+		$orgName = Orgs::singleton()->selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
+		$stats['org'] = Orgs::singleton()->getLinkFor( $orgName );
 
 		$lang = $this->getLanguage();
 
@@ -106,7 +106,7 @@ class ViewCourseAction extends EPViewAction {
 
 		$stats['students'] = htmlspecialchars( $lang->formatNum( $course->getField( 'student_count' ) ) );
 
-		$stats['status'] = htmlspecialchars( EPCourse::getStatusMessage( $course->getStatus() ) );
+		$stats['status'] = htmlspecialchars( Course::getStatusMessage( $course->getStatus() ) );
 
 		if ( $this->getUser()->isAllowed( 'ep-token' ) ) {
 			$stats['token'] = Linker::linkKnown(
@@ -128,12 +128,12 @@ class ViewCourseAction extends EPViewAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 * @param string $roleName
 	 *
 	 * @return string
 	 */
-	protected function getRoleList( EPCourse $course, $roleName ) {
+	protected function getRoleList( Course $course, $roleName ) {
 		$users = $course->getUserWithRole( $roleName );
 
 		if ( empty( $users ) ) {
@@ -142,7 +142,7 @@ class ViewCourseAction extends EPViewAction {
 		else {
 			$instList = array();
 
-			foreach ( $users as /* EPIRole */ $user ) {
+			foreach ( $users as /* IRole */ $user ) {
 				$instList[] = $user->getUserLink() . $user->getToolLinks( $this->getContext(), $course );
 			}
 
@@ -167,12 +167,12 @@ class ViewCourseAction extends EPViewAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 * @param string $roleName
 	 *
 	 * @return string
 	 */
-	protected function getRoleControls( EPCourse $course, $roleName ) {
+	protected function getRoleControls( Course $course, $roleName ) {
 		$user = $this->getUser();
 		$links = array();
 
@@ -230,4 +230,5 @@ class ViewCourseAction extends EPViewAction {
 			$user->isAllowed( 'ep-bulkdelcourses' ) && $user->getOption( 'ep_bulkdelcourses' ),
 		), parent::getCacheKey() );
 	}
+
 }

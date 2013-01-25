@@ -1,17 +1,18 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Abstract profile page for ambassadors.
  *
  * @since 0.1
  *
- * @file SpecialOAProfile.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class SpecialAmbassadorProfile extends FormSpecialPage {
+abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	/**
 	 * Returns the name of the ambassador class.
 	 *
@@ -83,7 +84,6 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see FormSpecialPage::getFormFields()
 	 * @return array
 	 */
@@ -118,7 +118,7 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 		$fields['photo'] = array(
 			'type' => 'text',
 			'label-message' => $this->getMsgPrefix() . 'profile-photo',
-			'help-message' => array( $this->getMsgPrefix() . 'profile-photo-help', EPSettings::get( 'ambassadorCommonsUrl' ) ),
+			'help-message' => array( $this->getMsgPrefix() . 'profile-photo-help', Settings::get( 'ambassadorCommonsUrl' ) ),
 			'default' => $ambassador->getField( 'photo' ),
 			'cssclass' => 'commons-input',
 		);
@@ -141,7 +141,7 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 	public function onSuccess() {
 		$class = $this->getClassName();
 
-		EPUtils::log( array(
+		Utils::log( array(
 			'type' => $class::newFromUser( $this->getUser() )->getRoleName(),
 			'subtype' => 'profilesave',
 			'user' => $this->getUser(),
@@ -175,7 +175,7 @@ abstract class SpecialAmbassadorProfile extends FormSpecialPage {
 	 * @since 0.1
 	 */
 	protected function displayNavigation() {
-		$menu = new EPMenu( $this->getContext() );
+		$menu = new Menu( $this->getContext() );
 		$menu->display();
 	}
 }

@@ -1,18 +1,20 @@
 <?php
 
+namespace EducationProgram;
+use Page, IContextSource, IORMRow, Html;
+
 /**
  * Action for viewing an org.
  *
  * @since 0.1
  *
- * @file ViewOrgAction.php
  * @ingroup EducationProgram
  * @ingroup Action
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ViewOrgAction extends EPViewAction {
+class ViewOrgAction extends ViewAction {
 	/**
 	 * Constructor.
 	 *
@@ -22,11 +24,10 @@ class ViewOrgAction extends EPViewAction {
 	 * @param IContextSource $context
 	 */
 	protected function __construct( Page $page, IContextSource $context = null ) {
-		parent::__construct( $page, $context, EPOrgs::singleton() );
+		parent::__construct( $page, $context, Orgs::singleton() );
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
@@ -38,7 +39,6 @@ class ViewOrgAction extends EPViewAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see Action::getName()
 	 */
 	public function getName() {
@@ -46,8 +46,7 @@ class ViewOrgAction extends EPViewAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPViewAction::getPageHTML()
+	 * @see ViewAction::getPageHTML()
 	 * @param IORMRow $org
 	 * @return string
 	 */
@@ -56,12 +55,12 @@ class ViewOrgAction extends EPViewAction {
 
 		$html .= Html::element( 'h2', array(), $this->msg( 'ep-institution-courses' )->text() );
 
-		$html .= EPCoursePager::getPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
-		$this->getOutput()->addModules( EPCoursePager::getModules() );
+		$html .= CoursePager::getPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
+		$this->getOutput()->addModules( CoursePager::getModules() );
 
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$html .= Html::element( 'h2', array(), $this->msg( 'ep-institution-add-course' )->text() );
-			$html .= EPCourse::getAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
+			$html .= Course::getAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
 		}
 
 		return $html;
@@ -72,7 +71,7 @@ class ViewOrgAction extends EPViewAction {
 	 *
 	 * @since 0.1
 	 *
-	 * @param \EPOrg|\IORMRow $org
+	 * @param Org|IORMRow $org
 	 *
 	 * @return array
 	 */
@@ -82,7 +81,7 @@ class ViewOrgAction extends EPViewAction {
 		$stats['name'] = $org->getField( 'name' );
 		$stats['city'] = $org->getField( 'city' );
 
-		$countries = CountryNames::getNames( $this->getLanguage()->getCode() );
+		$countries = \CountryNames::getNames( $this->getLanguage()->getCode() );
 		$stats['country'] = $countries[$org->getField( 'country' )];
 
 		$stats['status'] = $this->msg( $org->getField( 'active' ) ? 'ep-institution-active' : 'ep-institution-inactive' )->escaped();
@@ -95,8 +94,8 @@ class ViewOrgAction extends EPViewAction {
 		}
 
 		if ( $org->getField( 'course_count' ) > 0 ) {
-			$stats['courses'] = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'Courses' ),
+			$stats['courses'] = \Linker::linkKnown(
+				\SpecialPage::getTitleFor( 'Courses' ),
 				$stats['courses'],
 				array(),
 				array( 'org_id' => $org->getId() )

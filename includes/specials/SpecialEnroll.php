@@ -1,20 +1,22 @@
 <?php
 
+namespace EducationProgram;
+use UserBlockedError, Html, Linker, Xml, SpecialPage;
+
 /**
  * Enrollment page for students.
  *
  * @since 0.1
  *
- * @file SpecialEnroll.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialEnroll extends SpecialEPPage {
+class SpecialEnroll extends VerySpecialPage {
 	/**
 	 * @since 0.1
-	 * @var EPCourse
+	 * @var Course
 	 */
 	protected $course;
 
@@ -61,9 +63,9 @@ class SpecialEnroll extends SpecialEPPage {
 		}
 		else {
 			/**
-			 * @var EPCourse $course
+			 * @var Course $course
 			 */
-			$course = EPCourses::singleton()->getFromTitle( $courseTitle );
+			$course = Courses::singleton()->getFromTitle( $courseTitle );
 
 			if ( $course === false ) {
 				$this->showWarning( $this->msg( 'ep-enroll-invalid-id' ) );
@@ -107,9 +109,9 @@ class SpecialEnroll extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 */
-	protected function showEnrollmentView( EPCourse $course ) {
+	protected function showEnrollmentView( Course $course ) {
 		$this->course = $course;
 
 		if ( $this->getUser()->isLoggedIn() ) {
@@ -172,9 +174,9 @@ class SpecialEnroll extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 */
-	protected function setPageTitle( EPCourse $course ) {
+	protected function setPageTitle( Course $course ) {
 		$this->getOutput()->setPageTitle( $this->msg(
 			'ep-enroll-title',
 			$course->getField( 'name' ),
@@ -229,12 +231,12 @@ class SpecialEnroll extends SpecialEPPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPCourse $course
+	 * @param Course $course
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function doEnroll( EPCourse $course ) {
-		$student = EPStudent::newFromUser( $this->getUser(), array( 'id' ) );
+	protected function doEnroll( Course $course ) {
+		$student = Student::newFromUser( $this->getUser(), array( 'id' ) );
 		$hadStudent = $student->hasIdField();
 
 		$fields = array(
@@ -242,14 +244,14 @@ class SpecialEnroll extends SpecialEPPage {
 		);
 
 		if ( !$hadStudent ) {
-			$student = EPStudents::singleton()->newRow( array( 'user_id' => $this->getUser()->getId() ), true );
+			$student = Students::singleton()->newRow( array( 'user_id' => $this->getUser()->getId() ), true );
 		}
 
 		$student->setFields( $fields );
 
 		$success = $student->save();
 
-		$revAction = new EPRevisionAction();
+		$revAction = new RevisionAction();
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( '' ); // TODO?
 
@@ -266,7 +268,7 @@ class SpecialEnroll extends SpecialEPPage {
 	protected function showEnrollmentForm() {
 		$this->getOutput()->addWikiMsg( 'ep-enroll-header' );
 
-		$form = new HTMLForm( $this->getFormFields(), $this->getContext() );
+		$form = new \HTMLForm( $this->getFormFields(), $this->getContext() );
 
 		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
 		$form->setSubmitText( $this->msg( 'educationprogram-org-submit' )->text() );
@@ -298,9 +300,9 @@ class SpecialEnroll extends SpecialEPPage {
 			$fields['realname'] = array(
 				'type' => 'text',
 				'default' => '',
-				'label-message' => 'ep-enroll-realname' . ( EPSettings::get( 'requireRealName' ) ? '' : '-optional' ),
+				'label-message' => 'ep-enroll-realname' . ( Settings::get( 'requireRealName' ) ? '' : '-optional' ),
 				'validation-callback' => function( $value, array $alldata = null ) {
-					if ( EPSettings::get( 'requireRealName' ) && strlen( $value ) < 2 ) {
+					if ( Settings::get( 'requireRealName' ) && strlen( $value ) < 2 ) {
 						return wfMessage( 'ep-enroll-invalid-name' )->numParams( 2 )->text();
 					}
 
@@ -308,7 +310,7 @@ class SpecialEnroll extends SpecialEPPage {
 				}
 			);
 
-			if ( EPSettings::get( 'requireRealName' ) ) {
+			if ( Settings::get( 'requireRealName' ) ) {
 				$fields['realname'] = true;
 			}
 		}
@@ -378,4 +380,5 @@ class SpecialEnroll extends SpecialEPPage {
 			) )
 		);
 	}
+
 }

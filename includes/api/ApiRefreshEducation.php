@@ -1,11 +1,13 @@
 <?php
 
+namespace EducationProgram;
+use ApiBase;
+
 /**
  * API module to delete objects stored by the Education Program extension.
  *
  * @since 0.1
  *
- * @file ApiRefreshEducation.php
  * @ingroup EducationProgram
  * @ingroup API
  *
@@ -22,9 +24,9 @@ class ApiRefreshEducation extends ApiBase {
 	 * @var array
 	 */
 	protected static $typeMap = array(
-		'org' => 'EPOrsg',
-		'course' => 'EPCourses',
-		'student' => 'EPStudents',
+		'org' => 'Orgs',
+		'course' => 'Courses',
+		'student' => 'Students',
 	);
 
 	public function execute() {

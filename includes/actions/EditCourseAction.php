@@ -1,18 +1,20 @@
 <?php
 
+namespace EducationProgram;
+use Page, IContextSource;
+
 /**
  * Action to edit a course.
  *
  * @since 0.1
  *
- * @file EditCourseAction.php
  * @ingroup EducationProgram
  * @ingroup Action
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EditCourseAction extends EPEditAction {
+class EditCourseAction extends EditAction {
 	/**
 	 * Constructor.
 	 *
@@ -22,11 +24,10 @@ class EditCourseAction extends EPEditAction {
 	 * @param IContextSource $context
 	 */
 	protected function __construct( Page $page, IContextSource $context = null ) {
-		parent::__construct( $page, $context, EPCourses::singleton() );
+		parent::__construct( $page, $context, Courses::singleton() );
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see Action::getName()
 	 */
 	public function getName() {
@@ -34,7 +35,6 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see Action::getDescription()
 	 */
 	protected function getDescription() {
@@ -42,7 +42,6 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see Action::getRestriction()
 	 */
 	public function getRestriction() {
@@ -50,15 +49,14 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPEditAction::onView()
+	 * @see EditAction::onView()
 	 */
 	public function onView() {
 		$out = $this->getOutput();
 
 		$out->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
 
-		$identifier = EPCourses::normalizeTitle( $this->getTitle()->getText() );
+		$identifier = Courses::normalizeTitle( $this->getTitle()->getText() );
 
 		if ( !$this->isNewPost() && !$this->table->hasIdentifier( $identifier ) ) {
 			$this->displayUndeletionLink();
@@ -66,7 +64,7 @@ class EditCourseAction extends EPEditAction {
 
 			list( $name, $term ) = $this->titleToNameAndTerm( $this->getTitle()->getText() );
 
-			$out->addHTML( EPCourse::getAddNewRegion(
+			$out->addHTML( Course::getAddNewRegion(
 				$this->getContext(),
 				array(
 					'name' => $this->getRequest()->getText(
@@ -124,14 +122,13 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPEditAction::getFormFields()
+	 * @see EditAction::getFormFields()
 	 * @return array
 	 */
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-		$orgOptions = EPOrgs::singleton()->selectFields( array( 'name', 'id' ) );
+		$orgOptions = Orgs::singleton()->selectFields( array( 'name', 'id' ) );
 
 		$fields['title'] = array(
 			'type' => 'text',
@@ -154,7 +151,7 @@ class EditCourseAction extends EPEditAction {
 		}
 
 		$fields['name'] = array(
-			'class' => 'EPHTMLCombobox',
+			'class' => 'EducationProgram\HTMLCombobox',
 			'label-message' => 'ep-course-edit-name',
 			'help-message' => 'ep-course-help-name',
 			'required' => true,
@@ -186,20 +183,20 @@ class EditCourseAction extends EPEditAction {
 		$fieldFields = $this->table->selectFields( 'term', array(), array( 'DISTINCT' ) );
 		$fieldFields = array_merge( array( '' => '' ), $fieldFields );
 		$fields['term'] = array(
-			'class' => 'EPHTMLCombobox',
+			'class' => 'EducationProgram\HTMLCombobox',
 			'label-message' => 'ep-course-edit-term',
 			'required' => true,
 			'options' => array_combine( $fieldFields, $fieldFields ),
 		);
 
 		$fields['start'] = array(
-			'class' => 'EPHTMLDateField',
+			'class' => 'EducationProgram\HTMLDateField',
 			'label-message' => 'ep-course-edit-start',
 			'required' => true,
 		);
 
 		$fields['end'] = array(
-			'class' => 'EPHTMLDateField',
+			'class' => 'EducationProgram\HTMLDateField',
 			'label-message' => 'ep-course-edit-end',
 			'required' => true,
 		);
@@ -207,7 +204,7 @@ class EditCourseAction extends EPEditAction {
 		$fieldFields = $this->table->selectFields( 'field', array(), array( 'DISTINCT' ) );
 		$fieldFields = array_merge( array( '' => '' ), $fieldFields );
 		$fields['field'] = array(
-			'class' => 'EPHTMLCombobox',
+			'class' => 'EducationProgram\HTMLCombobox',
 			'label-message' => 'ep-course-edit-field',
 			'required' => true,
 			'options' => array_combine( $fieldFields, $fieldFields ),
@@ -216,13 +213,13 @@ class EditCourseAction extends EPEditAction {
 		$levels = $this->table->selectFields( 'level', array(), array( 'DISTINCT' ) );
 		$levels = array_merge( array( '' => '' ), $levels );
 		$fields['level'] = array(
-			'class' => 'EPHTMLCombobox',
+			'class' => 'EducationProgram\HTMLCombobox',
 			'label-message' => 'ep-course-edit-level',
 			'required' => true,
 			'options' => array_combine( $levels, $levels ),
 		);
 
-		$langOptions = EPUtils::getLanguageOptions( $this->getLanguage()->getCode() );
+		$langOptions = Utils::getLanguageOptions( $this->getLanguage()->getCode() );
 		$fields['lang'] = array(
 			'type' => 'select',
 			'label-message' => 'ep-course-edit-lang',
@@ -249,13 +246,12 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPEditAction::getNewData()
+	 * @see EditAction::getNewData()
 	 */
 	protected function getNewData() {
 		$data = parent::getNewData();
 
-		$name = EPCourses::normalizeTitle( $data['name'] );
+		$name = Courses::normalizeTitle( $data['name'] );
 
 		$data['title'] = $name;
 
@@ -285,8 +281,7 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see EPEditAction::handleKnownField()
+	 * @see EditAction::handleKnownField()
 	 */
 	protected function handleKnownField( $name, $value ) {
 		if ( in_array( $name, array( 'end', 'start' ) ) ) {
@@ -307,10 +302,10 @@ class EditCourseAction extends EPEditAction {
 	 * @return string
 	 */
 	protected function getDefaultDescription( array $data ) {
-		$primaryPage = EPSettings::get( 'courseDescPage' );
-		$orgPage = EPSettings::get( 'courseOrgDescPage' );
+		$primaryPage = Settings::get( 'courseDescPage' );
+		$orgPage = Settings::get( 'courseOrgDescPage' );
 
-		$orgTitle = EPOrgs::singleton()->selectFieldsRow( 'name', array( 'id' => $data['institutionid'] ) );
+		$orgTitle = Orgs::singleton()->selectFieldsRow( 'name', array( 'id' => $data['institutionid'] ) );
 
 		$content = false;
 
@@ -321,11 +316,11 @@ class EditCourseAction extends EPEditAction {
 				$orgPage
 			);
 
-			$content = EPUtils::getArticleContent( $orgPage );
+			$content = Utils::getArticleContent( $orgPage );
 		}
 
 		if ( $content === false ) {
-			$content = EPUtils::getArticleContent( $primaryPage );
+			$content = Utils::getArticleContent( $primaryPage );
 		}
 
 		if ( $content === false ) {
@@ -349,7 +344,7 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * @see EPEditAction::getTitleField
+	 * @see EditAction::getTitleField
 	 *
 	 * @since 0.2
 	 *
@@ -368,7 +363,7 @@ class EditCourseAction extends EPEditAction {
 	 * @return string
 	 */
 	protected function getPrefixedTitle( $courseName, $orgId ) {
-		$prefix = EPOrgs::singleton()->selectFieldsRow( 'name', array( 'id' => $orgId ) ) . '/';
+		$prefix = Orgs::singleton()->selectFieldsRow( 'name', array( 'id' => $orgId ) ) . '/';
 
 		if ( strpos( $courseName, $prefix ) !== 0 ) {
 			$courseName = $prefix . $courseName;
@@ -378,7 +373,7 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * @see EPEditAction::handleKnownFields
+	 * @see EditAction::handleKnownFields
 	 *
 	 * @since 0.2
 	 *
@@ -389,16 +384,16 @@ class EditCourseAction extends EPEditAction {
 	}
 
 	/**
-	 * @see EPEditAction::getDefaultFromItem
+	 * @see EditAction::getDefaultFromItem
 	 *
 	 * @since 0.2
 	 *
-	 * @param EPPageObject $item
+	 * @param PageObject $item
 	 * @param string $name
 	 *
 	 * @return mixed
 	 */
-	protected function getDefaultFromItem( EPPageObject $item, $name ) {
+	protected function getDefaultFromItem( PageObject $item, $name ) {
 		$value = $item->getField( $name );
 
 		if ( $name === 'title' ) {

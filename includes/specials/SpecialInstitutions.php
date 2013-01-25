@@ -1,18 +1,19 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Page listing all institutions in a pager with filter control.
  * Also has a form for adding new items for those with matching privileges.
  *
  * @since 0.1
  *
- * @file SpecialInstitutions.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialInstitutions extends SpecialEPPage {
+class SpecialInstitutions extends VerySpecialPage {
 
 	/**
 	 * Constructor.
@@ -40,14 +41,14 @@ class SpecialInstitutions extends SpecialEPPage {
 
 			if ( $this->getUser()->isAllowed( 'ep-org' ) ) {
 				$this->getOutput()->addModules( 'ep.addorg' );
-				$this->addCachedHTML( 'EPOrg::getAddNewControl', $this->getContext() );
+				$this->addCachedHTML( 'EducationProgram\Org::getAddNewControl', $this->getContext() );
 			}
 
-			$this->addCachedHTML( 'EPOrgPager::getPager', $this->getContext() );
-			$this->getOutput()->addModules( EPOrgPager::getModules() );
+			$this->addCachedHTML( 'EducationProgram\OrgPager::getPager', $this->getContext() );
+			$this->getOutput()->addModules( OrgPager::getModules() );
 		}
 		else {
-			$this->getOutput()->redirect( EPOrgs::singleton()->getTitleFor( $this->subPage )->getLocalURL() );
+			$this->getOutput()->redirect( Orgs::singleton()->getTitleFor( $this->subPage )->getLocalURL() );
 		}
 	}
 

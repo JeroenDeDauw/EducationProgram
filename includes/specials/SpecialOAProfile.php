@@ -1,11 +1,12 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Profile page for online ambassadors.
  *
  * @since 0.1
  *
- * @file SpecialOAProfile.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
@@ -23,7 +24,6 @@ class SpecialOAProfile extends SpecialAmbassadorProfile {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see FormSpecialPage::getFormFields()
 	 * @return array
 	 */
@@ -36,22 +36,20 @@ class SpecialOAProfile extends SpecialAmbassadorProfile {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see FormSpecialPage::getClassName()
 	 */
 	protected function getClassName() {
-		return 'EPOA';
+		return 'EducationProgram\OA';
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see SpecialAmbassadorProfile::userCanAccess()
 	 */
 	protected function userCanAccess() {
 		$user = $this->getUser();
 		return $user->isAllowed( 'ep-online' )
 			|| $user->isAllowed( 'ep-beonline' )
-			|| EPOA::newFromUser( $user )->hasCourse();
+			|| OA::newFromUser( $user )->hasCourse();
 	}
 
 }

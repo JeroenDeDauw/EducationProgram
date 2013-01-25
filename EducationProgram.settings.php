@@ -1,11 +1,14 @@
 <?php
 
+namespace EducationProgram;
+use MWException;
+
 /**
  * File defining the settings for the Education Program extension.
  * More info can be found at https://www.mediawiki.org/wiki/Extension:Education_Program#Settings
  *
  * NOTICE:
- * Changing one of these settings can be done by assigning to $egEPSettings,
+ * Changing one of these settings can be done by assigning to $egSettings,
  * AFTER the inclusion of the extension itself.
  *
  * @since 0.1
@@ -16,7 +19,7 @@
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPSettings {
+class Settings {
 
 	/**
 	 * Returns the default values for the settings.

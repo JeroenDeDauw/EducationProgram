@@ -1,18 +1,19 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Page listing all courses in a pager with filter control.
  * Also has a form for adding new items for those with matching privileges.
  *
  * @since 0.1
  *
- * @file SpecialCourses.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialCourses extends SpecialEPPage {
+class SpecialCourses extends VerySpecialPage {
 
 	/**
 	 * Constructor.
@@ -39,11 +40,11 @@ class SpecialCourses extends SpecialEPPage {
 
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
 			$this->getOutput()->addModules( 'ep.addcourse' );
-			$this->addCachedHTML( 'EPCourse::getAddNewRegion', $this->getContext() );
+			$this->addCachedHTML( 'EducationProgram\Course::getAddNewRegion', $this->getContext() );
 		}
 
-		$this->addCachedHTML( 'EPCoursePager::getPager', $this->getContext() );
-		$this->getOutput()->addModules( EPCoursePager::getModules() );
+		$this->addCachedHTML( 'EducationProgram\CoursePager::getPager', $this->getContext() );
+		$this->getOutput()->addModules( CoursePager::getModules() );
 	}
 
 	/**

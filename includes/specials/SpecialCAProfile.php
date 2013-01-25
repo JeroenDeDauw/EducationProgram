@@ -1,11 +1,12 @@
 <?php
 
+namespace EducationProgram;
+
 /**
  * Profile page for campus ambassadors.
  *
  * @since 0.1
  *
- * @file SpecialCAProfile.php
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
@@ -23,7 +24,6 @@ class SpecialCAProfile extends SpecialAmbassadorProfile {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see FormSpecialPage::getFormFields()
 	 * @return array
 	 */
@@ -36,22 +36,20 @@ class SpecialCAProfile extends SpecialAmbassadorProfile {
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see FormSpecialPage::getClassName()
 	 */
 	protected function getClassName() {
-		return 'EPCA';
+		return 'EducationProgram\CA';
 	}
 
 	/**
-	 * (non-PHPdoc)
 	 * @see SpecialAmbassadorProfile::userCanAccess()
 	 */
 	protected function userCanAccess() {
 		$user = $this->getUser();
 		return $user->isAllowed( 'ep-campus' )
 			|| $user->isAllowed( 'ep-becampus' )
-			|| EPCA::newFromUser( $user )->hasCourse();
+			|| CA::newFromUser( $user )->hasCourse();
 	}
 
 }
