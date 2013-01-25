@@ -352,6 +352,15 @@ $wgGroupPermissions['epcoordinator']['userrights'] = false;
 
 $wgAddGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
 $wgRemoveGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
+
+if ( !array_key_exists( 'sysop', $wgAddGroups ) ) {
+	$wgAddGroups['sysop'] = array();
+}
+
+if ( !array_key_exists( 'sysop', $wgRemoveGroups ) ) {
+	$wgRemoveGroups['sysop'] = array();
+}
+
 $wgAddGroups['sysop'] = array_merge( $wgAddGroups['sysop'], array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ) );
 $wgRemoveGroups['sysop'] = array_merge( $wgRemoveGroups['sysop'], array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ) );
 
