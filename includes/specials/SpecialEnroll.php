@@ -119,12 +119,14 @@ class SpecialEnroll extends VerySpecialPage {
 				$user = $this->getUser();
 				$hasFields = trim( $user->getRealName() ) !== '' && $user->getOption( 'gender' ) !== 'unknown';
 
-				if ( $hasFields ) {
+				$formFields = $this->getFormFields();
+
+				if ( $hasFields || count( $formFields ) < 3 ) {
 					$this->doEnroll( $course );
 					$this->onSuccess();
 				}
 				else {
-					$this->showEnrollmentForm();
+					$this->showEnrollmentForm( $formFields );
 				}
 			}
 			else {
@@ -264,11 +266,13 @@ class SpecialEnroll extends VerySpecialPage {
 	 * Create and display the enrollment form.
 	 *
 	 * @since 0.1
+	 *
+	 * @param array $formFields
 	 */
-	protected function showEnrollmentForm() {
+	protected function showEnrollmentForm( array $formFields ) {
 		$this->getOutput()->addWikiMsg( 'ep-enroll-header' );
 
-		$form = new \HTMLForm( $this->getFormFields(), $this->getContext() );
+		$form = new \HTMLForm( $formFields, $this->getContext() );
 
 		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
 		$form->setSubmitText( $this->msg( 'educationprogram-org-submit' )->text() );
