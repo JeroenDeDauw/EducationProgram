@@ -29,9 +29,9 @@ class Timeline extends \ContextSource {
 	 * @since 0.1
 	 *
 	 * @param IContextSource $context
-	 * @param array $events
+	 * @param Event[] $events
 	 */
-	public function __construct( IContextSource $context, array /* of Event */ $events ) {
+	public function __construct( IContextSource $context, array $events ) {
 		$this->setContext( $context );
 		$this->events = $events;
 	}

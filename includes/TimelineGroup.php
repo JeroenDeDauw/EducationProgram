@@ -6,6 +6,8 @@ use IContextSource, MWException, Html, Linker, Message, User, Title;
 /**
  * Class for displaying a group of Education Program events in a timeline.
  *
+ * FIXME: these classes are abusing inheritance.
+ *
  * @since 0.1
  *
  * @ingroup EducationProgram
@@ -70,10 +72,10 @@ abstract class TimelineGroup extends \ContextSource {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $events
+	 * @param Event[] $events
 	 * @param IContextSource|null $context
 	 */
-	protected function __construct( array /* of Event */ $events, IContextSource $context = null ) {
+	protected function __construct( array $events, IContextSource $context = null ) {
 		if ( !is_null( $context ) ) {
 			$this->setContext( $context );
 		}

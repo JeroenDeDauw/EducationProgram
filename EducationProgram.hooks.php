@@ -66,6 +66,7 @@ final class Hooks {
 		$testFiles = array(
 			'Actions',
 			'Specials',
+			'Timeline',
 			'Utils',
 
 			'rows/Article',
