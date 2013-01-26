@@ -65,6 +65,7 @@ final class Hooks {
 	public static function registerUnitTests( array &$files ) {
 		$testFiles = array(
 			'Actions',
+			'Menu',
 			'Specials',
 			'Utils',
 
