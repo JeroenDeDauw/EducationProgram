@@ -84,6 +84,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	}
 
 	protected function getSummaryInfo() {
+		wfProfileIn( __METHOD__ );
 		$data = array();
 
 		$data['org-count'] = Orgs::singleton()->count();
@@ -108,6 +109,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 			$number = $lang->formatNum( $number );
 		}
 
+		wfProfileOut( __METHOD__ );
 		return $data;
 	}
 
@@ -250,6 +252,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return array
 	 */
 	protected function getTermData() {
+		wfProfileIn( __METHOD__ );
 		$termNames = Courses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ) );
 		$terms = array();
 		$byGender = array();
@@ -296,6 +299,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 			$byGender[$termName] = $this->getByGender( $students, $oas, $cas, $instructors );
 		}
 
+		wfProfileOut( __METHOD__ );
 		return array( 'terms' => $terms, 'bygender' => $byGender );
 	}
 
@@ -312,14 +316,17 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return array
 	 */
 	protected function getByGender( array $students, array $oas, array $cas, array $instructors ) {
+		wfProfileIn( __METHOD__ );
 		$genders = $this->getGenders( array_unique( array_merge( $students, $oas, $cas, $instructors ) ) );
 
-		return array(
+		$result = array(
 			'students' => $this->getGenderDistribution( $students, $genders ),
 			'oas' => $this->getGenderDistribution( $oas, $genders ),
 			'cas' => $this->getGenderDistribution( $cas, $genders ),
 			'instructors' => $this->getGenderDistribution( $instructors, $genders ),
 		);
+		wfProfileOut( __METHOD__ );
+		return $result;
 	}
 
 	/**
