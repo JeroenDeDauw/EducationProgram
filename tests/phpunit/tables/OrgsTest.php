@@ -49,12 +49,6 @@ class OrgsTest extends \MediaWikiTestCase {
 				),
 				true
 			),
-			array(
-				array(
-					'name' => 'foo'
-				),
-				false
-			),
 		);
 	}
 
