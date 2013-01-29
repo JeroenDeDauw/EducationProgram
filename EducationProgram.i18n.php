@@ -6618,6 +6618,7 @@ $messages['fr'] = array(
 	'ep-course-status-passed' => 'Réussi',
 	'ep-course-status-current' => 'En cours',
 	'ep-course-status-planned' => 'Prévu',
+	'ep-course-status-current-planned' => 'En cours et à venir',
 	'ep-summary-table-header' => "Totaux du programme d'éducation",
 	'ep-specialeducationprogram-summary-org-count' => "Nombre d'[[Special:Institutions|institutions]]",
 	'ep-specialeducationprogram-summary-course-count' => 'Nombre de [[Special:Courses|cours]]',
@@ -22395,6 +22396,7 @@ $messages['yi'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
  * @author Dimension
+ * @author Makecat
  * @author Shirayuki
  */
 $messages['zh-hans'] = array(
@@ -22700,20 +22702,20 @@ $messages['zh-hans'] = array(
 	'ep-campus-summary' => '摘要：',
 	'coursepage-history-description' => '查看本课程的日志',
 	'coursepage-history-norevs' => '本课程没有编辑历史记录。',
-	'coursepage-delete-summary' => '删除的原因：', # Fuzzy
+	'coursepage-delete-summary' => '删除的原因：',
 	'coursepage-delete-cancel-button' => '取消',
-	'orgpage-delete-summary' => '删除的原因：', # Fuzzy
+	'orgpage-delete-summary' => '删除的原因：',
 	'orgpage-delete-cancel-button' => '取消',
 	'orgpage-eprestore-summary' => '原因：',
 	'orgpage-eprestore-restore-button' => '恢复版本',
 	'orgpage-eprestore-cancel-button' => '取消',
 	'coursepage-eprestore-summary' => '原因：',
 	'coursepage-eprestore-cancel-button' => '取消',
-	'orgpage-epundo-summary' => '回退的原因：', # Fuzzy
+	'orgpage-epundo-summary' => '回退的原因：',
 	'orgpage-epundo-cancel-button' => '取消',
-	'coursepage-epundo-summary' => '回退的理由：', # Fuzzy
+	'coursepage-epundo-summary' => '回退的理由：',
 	'coursepage-epundo-cancel-button' => '取消',
-	'coursepage-epundelete-summary' => '恢复的原因：', # Fuzzy
+	'coursepage-epundelete-summary' => '恢复的原因：',
 	'coursepage-epundelete-cancel-button' => '取消',
 	'orgpage-epundelete-summary' => '原因：',
 	'orgpage-epundelete-cancel-button' => '取消',
