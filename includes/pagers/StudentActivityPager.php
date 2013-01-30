@@ -221,16 +221,18 @@ class StudentActivityPager extends Pager {
 				$this->courseOrgs[$courseData['id']] = $courseData['org_id'];
 			}
 
-			$orgs = Orgs::singleton()->selectFields(
-				array( 'id', 'name', 'country' ),
-				array( 'id' => array_unique( $orgIds ) )
-			);
-
-			foreach ( $orgs as $org ) {
-				$this->orgData[$org['id']] = array(
-					'name' => $org['name'],
-					'flag' => $this->getFlagHtml( $org['country'] ),
+			if ( $orgIds !== array() ) {
+				$orgs = Orgs::singleton()->selectFields(
+					array( 'id', 'name', 'country' ),
+					array( 'id' => array_unique( $orgIds ) )
 				);
+
+				foreach ( $orgs as $org ) {
+					$this->orgData[$org['id']] = array(
+						'name' => $org['name'],
+						'flag' => $this->getFlagHtml( $org['country'] ),
+					);
+				}
 			}
 		}
 	}
