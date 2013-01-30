@@ -8,6 +8,8 @@ use IContextSource, Title, WikiPage, MWException, Language;
  *
  * Forced to implement a bunch of stuff that better should be in Page... :/
  *
+ * TODO: refactor this away as per bug https://bugzilla.wikimedia.org/show_bug.cgi?id=43975
+ *
  * @since 0.1
  *
  * @ingroup EducationProgram
@@ -166,6 +168,12 @@ abstract class EducationPage extends \Page implements IContextSource {
 
 	public function getLogType() {
 		return static::$info['log-type'];
+	}
+
+	public function loadPageData( $from = 'fromdb' ) {}
+
+	public function exists() {
+		return $this->getTitle()->exists();
 	}
 
 }
