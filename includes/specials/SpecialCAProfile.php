@@ -47,8 +47,7 @@ class SpecialCAProfile extends SpecialAmbassadorProfile {
 	 */
 	protected function userCanAccess() {
 		$user = $this->getUser();
-		return $user->isAllowed( 'ep-campus' )
-			|| $user->isAllowed( 'ep-becampus' )
+		return $user->isAllowed( 'ep-becampus' )
 			|| CA::newFromUser( $user )->hasCourse();
 	}
 
