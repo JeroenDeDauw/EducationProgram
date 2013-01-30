@@ -158,6 +158,18 @@ class EditCourseAction extends EditAction {
 			'options' => array_combine( $names, $names ),
 		);
 
+		$fields['description'] = array(
+			'type' => 'textarea',
+			'label-message' => 'ep-course-edit-description',
+			'required' => true,
+			'validation-callback' => function( $value, array $alldata = null ) {
+				return strlen( $value ) < 10 ? wfMessage( 'ep-course-invalid-description', 10 )->text() : true;
+			} ,
+			'rows' => 15,
+			'cols' => 200,
+			'id' => 'wpTextbox1',
+		);
+
 		$fields['org_id'] = array(
 			'type' => 'select',
 			'label-message' => 'ep-course-edit-org',
@@ -229,17 +241,6 @@ class EditCourseAction extends EditAction {
 			'validation-callback' => function( $value, array $allData = null ) use ( $langOptions ) {
 				return in_array( $value, $langOptions ) ? true : wfMessage( 'ep-course-invalid-lang' )->text();
 			},
-		);
-
-		$fields['description'] = array(
-			'type' => 'textarea',
-			'label-message' => 'ep-course-edit-description',
-			'required' => true,
-			'validation-callback' => function( $value, array $allData = null ) {
-				return strlen( $value ) < 10 ? wfMessage( 'ep-course-invalid-description', 10 )->text() : true;
-			} ,
-			'rows' => 10,
-			'id' => 'wpTextbox1',
 		);
 
 		return $this->processFormFields( $fields );
