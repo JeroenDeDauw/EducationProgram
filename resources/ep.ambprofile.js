@@ -10,4 +10,8 @@
 
 	$( '#bodyContent' ).find( '[type="submit"]' ).button();
 
+	$( document ).ready( function() {
+		window.onbeforeunload = null;
+	} );
+
 })( window.jQuery, window.mediaWiki );
