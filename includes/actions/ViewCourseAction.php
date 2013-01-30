@@ -52,15 +52,21 @@ class ViewCourseAction extends ViewAction {
 	 * @see ViewAction::getPageHTML()
 	 */
 	public function getPageHTML( IORMRow $course ) {
-		$html = $this->getOutput()->parse( $course->getField( 'description' ) );
+		$html = '';
 
-		$html .= parent::getPageHTML( $course );
+		$wikiText = $course->getField( 'description' );
 
 		$studentIds = $course->getField( 'students' );
 
 		if ( !empty( $studentIds ) ) {
-			$html .= Html::element( 'h2', array(), $this->msg( 'ep-course-students' )->text() );
+			$wikiText .= "\n" . '==' . $this->msg( 'ep-course-summary-students' )->text() . '==';
+		}
 
+		$html .= $this->getOutput()->parse( $wikiText );
+
+		$html .= parent::getPageHTML( $course );
+
+		if ( !empty( $studentIds ) ) {
 			$pager = new ArticleTable(
 				$this->getContext(),
 				array( 'user_id' => $studentIds ),
@@ -70,14 +76,11 @@ class ViewCourseAction extends ViewAction {
 			if ( $pager->getNumRows() ) {
 				$html .=
 					$pager->getFilterControl() .
-					$pager->getNavigationBar() .
-					$pager->getBody() .
-					$pager->getNavigationBar() .
-					$pager->getMultipleItemControl();
+						$pager->getNavigationBar() .
+						$pager->getBody() .
+						$pager->getNavigationBar() .
+						$pager->getMultipleItemControl();
 			}
-		}
-		else {
-			// TODO
 		}
 
 		return $html;

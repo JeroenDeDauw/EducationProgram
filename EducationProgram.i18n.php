@@ -479,6 +479,7 @@ The deletion log for this course is provided below for convenience:",
 	// Course viewing
 	'ep-course-title' => 'Course: $1',
 	'ep-course-students' => 'Students',
+	'ep-course-summary-students' => 'Summary and students',
 	'ep-course-articles' => 'Articles',
 	'viewcourseaction-none' => 'There is no course with name "$1". See the [[Special:Courses|list of courses]].',
 	'ep-course-create' => 'There is no course with name "$1", but you can create a new one.',
@@ -1305,6 +1306,7 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-course-title' => 'Page title. Parameters:
 * $1 is course name',
 	'ep-course-students' => 'h2 section header',
+	'ep-course-summary-students' => 'h2 section header',
 	'ep-course-articles' => 'h2 section header',
 	'viewcourseaction-none' => 'States there is no such course. Parameters:
 * $1 is the course name',
