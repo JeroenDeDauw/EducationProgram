@@ -47,8 +47,7 @@ class SpecialOAProfile extends SpecialAmbassadorProfile {
 	 */
 	protected function userCanAccess() {
 		$user = $this->getUser();
-		return $user->isAllowed( 'ep-online' )
-			|| $user->isAllowed( 'ep-beonline' )
+		return $user->isAllowed( 'ep-beonline' )
 			|| OA::newFromUser( $user )->hasCourse();
 	}
 
