@@ -130,13 +130,19 @@ class EditCourseAction extends EditAction {
 
 		$orgOptions = Orgs::singleton()->selectFields( array( 'name', 'id' ) );
 
+		$messageMethod = array( $this, 'msg' );
+
 		$fields['title'] = array(
 			'type' => 'text',
 			'label-message' => 'ep-course-edit-title',
 			'help-message' => 'ep-course-help-title',
 			'required' => true,
-			'validation-callback' => function( $value, array $alldata = null ) {
-				return strpos( $value, '/' ) !== false ? wfMessage( 'ep-course-no-slashes' )->text() : true;
+			'validation-callback' => function( $value, array $allData = null ) use ( $messageMethod ) {
+				if ( strpos( $value, '/' ) === false ) {
+					return true;
+				}
+
+				return call_user_func( $messageMethod, 'ep-course-no-slashes' )->text();
 			},
 		);
 
@@ -162,8 +168,12 @@ class EditCourseAction extends EditAction {
 			'type' => 'textarea',
 			'label-message' => 'ep-course-edit-description',
 			'required' => true,
-			'validation-callback' => function( $value, array $alldata = null ) {
-				return strlen( $value ) < 10 ? wfMessage( 'ep-course-invalid-description', 10 )->text() : true;
+			'validation-callback' => function( $value, array $alldata = null ) use ( $messageMethod ) {
+				if ( strlen( $value ) < 10 ) {
+					return call_user_func( $messageMethod, 'ep-course-invalid-description', 10 )->text();
+				}
+
+				return true;
 			} ,
 			'rows' => 15,
 			'cols' => 200,
@@ -175,8 +185,12 @@ class EditCourseAction extends EditAction {
 			'label-message' => 'ep-course-edit-org',
 			'required' => true,
 			'options' => $orgOptions,
-			'validation-callback' => function( $value, array $alldata = null ) use ( $orgOptions ) {
-				return in_array( (int)$value, array_values( $orgOptions ) ) ? true : wfMessage( 'ep-course-invalid-org' )->text();
+			'validation-callback' => function( $value, array $allData = null ) use ( $orgOptions, $messageMethod ) {
+				if ( in_array( (int)$value, array_values( $orgOptions ) ) ) {
+					return true;
+				}
+
+				return call_user_func( $messageMethod, 'ep-course-invalid-org' )->text();
 			},
 		);
 
@@ -186,10 +200,15 @@ class EditCourseAction extends EditAction {
 			'help-message' => 'ep-course-help-token',
 			'maxlength' => 255,
 			'size' => 20,
-			'validation-callback' => function( $value, array $alldata = null ) {
+			'validation-callback' => function( $value, array $alldata = null ) use ( $messageMethod ) {
 				$strLen = strlen( $value );
-				return ( $strLen !== 0 && $strLen < 2 ) ? wfMessage( 'ep-course-invalid-token', 2 )->text() : true;
-			} ,
+
+				if ( $strLen !== 0 && $strLen < 2 ) {
+					return call_user_func( $messageMethod, 'ep-course-invalid-token', 2 )->text();
+				}
+
+				return true;
+			},
 		);
 
 		$fieldFields = $this->table->selectFields( 'term', array(), array( 'DISTINCT' ) );
@@ -238,8 +257,12 @@ class EditCourseAction extends EditAction {
 			'maxlength' => 255,
 			'required' => true,
 			'options' => $langOptions,
-			'validation-callback' => function( $value, array $allData = null ) use ( $langOptions ) {
-				return in_array( $value, $langOptions ) ? true : wfMessage( 'ep-course-invalid-lang' )->text();
+			'validation-callback' => function( $value, array $allData = null ) use ( $langOptions, $messageMethod ) {
+				if ( in_array( $value, $langOptions ) ) {
+					return true;
+				}
+
+				return call_user_func( $messageMethod, 'ep-course-invalid-lang' )->text();
 			},
 		);
 
