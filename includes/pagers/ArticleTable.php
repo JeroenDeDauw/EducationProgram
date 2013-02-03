@@ -60,7 +60,6 @@ class ArticleTable extends Pager {
 		$this->mDefaultDirection = true;
 		$this->articleConds = $articleConds;
 
-		// when MW 1.19 becomes min, we want to pass an IContextSource $context here.
 		parent::__construct( $context, $conds, Students::singleton() );
 	}
 
