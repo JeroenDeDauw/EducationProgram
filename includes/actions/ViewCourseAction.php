@@ -73,6 +73,8 @@ class ViewCourseAction extends ViewAction {
 				array( 'course_id' => $course->getId() )
 			);
 
+			$pager->mLimit = 200;
+
 			if ( $pager->getNumRows() ) {
 				$html .=
 					$pager->getFilterControl() .
