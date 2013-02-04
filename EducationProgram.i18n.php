@@ -22411,14 +22411,20 @@ $messages['vi'] = array(
 );
 
 /** Yiddish (ייִדיש)
+ * @author פוילישער
  * @author පසිඳු කාවින්ද
  */
 $messages['yi'] = array(
+	'ep-item-summary' => 'רעזומע',
+	'ep-toplink' => 'קורסן',
 	'ep-tab-view' => 'לייענען',
 	'ep-tab-create' => 'שאַפֿן',
 	'ep-tab-history' => 'ווײַזן היסטאָריע',
+	'ep-tab-enroll' => 'איינשרייבן',
+	'ep-tab-disenroll' => 'ארויסציען',
 	'ep-tab-delete' => 'אויסמעקן',
 	'tooltip-ep-form-save' => 'אויפֿהיטן',
+	'tooltip-ep-edit-institution' => 'רעדאקטירן דעם אנשטאלט',
 	'ep-course-status-current' => 'לויפֿיקע',
 	'ep-educationprogram-male' => 'זכר',
 	'ep-educationprogram-female' => 'נקבה',
@@ -22443,11 +22449,18 @@ $messages['yi'] = array(
 	'epoapager-header-user-id' => 'באַניצער נאָמען',
 	'educationprogram-org-edit-city' => 'שטאָט',
 	'educationprogram-org-edit-country' => 'לאנד',
-	'ep-course-edit-description' => 'באַשרײַבונג',
+	'ep-course-edit-description' => 'בלאט טעקסט',
+	'ep-course-edit-title' => 'בלאַטנאָמען',
+	'vieworgaction-summary-name' => 'נאָמען',
+	'vieworgaction-summary-city' => 'שטאָט',
+	'vieworgaction-summary-country' => 'לאנד',
+	'vieworgaction-summary-status' => 'סטאַטוס',
+	'vieworgaction-summary-courses' => 'צאל קורסן',
 	'ep-online-add-close-button' => 'שליסן',
 	'ep-online-name-input' => 'באַניצער נאָמען:',
 	'ep-campus-add-close-button' => 'שליסן',
 	'ep-campus-name-input' => 'באַניצער נאָמען:',
+	'ep-timeline-ago' => 'זייט $1',
 	'ep-timeline-cutoff' => '$1 ...',
 );
 
