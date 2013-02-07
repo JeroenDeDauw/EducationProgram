@@ -51,4 +51,11 @@ class SpecialCAProfile extends SpecialAmbassadorProfile {
 			|| CA::newFromUser( $user )->hasCourse();
 	}
 
+	/**
+	 * @see SpecialAmbassadorProfile::getMsgPrefix
+	 */
+	protected function getMsgPrefix() {
+		return 'epca-';
+	}
+
 }

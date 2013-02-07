@@ -51,4 +51,11 @@ class SpecialOAProfile extends SpecialAmbassadorProfile {
 			|| OA::newFromUser( $user )->hasCourse();
 	}
 
+	/**
+	 * @see SpecialAmbassadorProfile::getMsgPrefix
+	 */
+	protected function getMsgPrefix() {
+		return 'epoa-';
+	}
+
 }
