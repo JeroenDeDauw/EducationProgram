@@ -18,7 +18,7 @@ use IContextSource, Title, WikiPage, MWException, Language;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EducationPage extends \Page implements IContextSource {
+abstract class EducationPage implements \Page, IContextSource {
 
 	/**
 	 * Returns a list of actions this page can handle.
