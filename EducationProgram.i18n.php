@@ -16437,7 +16437,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-course-edit-end' => 'Einddatum',
 	'ep-course-edit-token' => 'Inschrijvingstoken',
 	'ep-course-help-token' => 'Optioneel. Als deze waarde is ingevuld, hebben studenten dit token nog in zich in te schrijven. Hierdoor wordt voorkomen dat niet-studenten zich inschrijven.',
-	'ep-course-edit-description' => 'Beschrijving', # Fuzzy
+	'ep-course-edit-description' => 'Paginatekst',
 	'ep-course-edit-title' => 'Paginanaam',
 	'ep-course-help-title' => 'De naam van de cursus. De conventie is de cursusnaam gevolgd het semester in blokhaken.',
 	'ep-course-edit-field' => 'Studiegebied',
@@ -22469,12 +22469,13 @@ $messages['yi'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
  * @author Dimension
+ * @author Hydra
  * @author Makecat
  * @author Shirayuki
  */
 $messages['zh-hans'] = array(
 	'ep-item-summary' => '摘要',
-	'ep-toplink' => '我的课程', # Fuzzy
+	'ep-toplink' => '课程',
 	'ep-org-course-delete-comment' => '删除$1及其所有课程，并发布此评论：$2',
 	'ep-org-course-delete' => '删除$1及其所有课程',
 	'ep-form-summary' => '摘要：',
@@ -22587,9 +22588,9 @@ $messages['zh-hans'] = array(
 	'action-ep-bulkdelorgs' => '大量删除机构',
 	'action-ep-bulkdelcourses' => '批量删除课程',
 	'action-ep-addstudent' => '将用户录为学员',
-	'group-epinstructor' => '教育计划讲师', # Fuzzy
-	'group-epinstructor-member' => '{{GENDER:$1|教育计划讲师}}', # Fuzzy
-	'grouppage-epinstructor' => '{{ns:project}}:教育计划讲师', # Fuzzy
+	'group-epinstructor' => '课程讲师',
+	'group-epinstructor-member' => '{{GENDER:$1|课程讲师}}',
+	'grouppage-epinstructor' => '{{ns:project}}:课程讲师',
 	'specialpages-group-education' => '教育',
 	'special-mycourses' => '我的课程',
 	'special-managecourses' => '管理我的课程',
@@ -22735,7 +22736,7 @@ $messages['zh-hans'] = array(
 	'ep-course-edit-org' => '学院',
 	'ep-course-edit-start' => '开始日期',
 	'ep-course-edit-end' => '结束日期',
-	'ep-course-edit-description' => '描述', # Fuzzy
+	'ep-course-edit-description' => '网页文本',
 	'ep-course-edit-name-format' => '$1（$2）',
 	'ep-course-edit-title' => '页面标题',
 	'ep-course-edit-level' => '课程程度',
