@@ -16482,6 +16482,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-vieworg-deleted' => 'Deze organisatie is verwijderd. Ter informatie worden het verwijderingslogboek van deze organisatie hieronder weergegeven.',
 	'ep-course-title' => 'Cursus: $1',
 	'ep-course-students' => 'Studenten',
+	'ep-course-summary-students' => 'Samenvatting en studenten',
 	'ep-course-articles' => "Pagina's",
 	'viewcourseaction-none' => 'Er is geen cursus met de naam "$1". Zie de [[Special:Courses|lijst met cursussen]].',
 	'ep-course-create' => 'Er is nog geen cursus met de naam "$1". U kunt deze aanmaken.',
