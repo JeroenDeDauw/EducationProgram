@@ -32,6 +32,13 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	protected abstract function userCanAccess();
 
 	/**
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
+	protected abstract function getMsgPrefix();
+
+	/**
 	 * Returns if the special page should be listed on Special:SpecialPages and similar interfaces.
 	 *
 	 * @since 0.1
@@ -77,10 +84,6 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 		$form = parent::getForm();
 		$form->setSubmitTooltip( 'ep-form-save' );
 		return $form;
-	}
-
-	protected function getMsgPrefix() {
-		return strtolower( $this->getClassName() ) . '-';
 	}
 
 	/**
