@@ -833,6 +833,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
  * @author McDutchie
  * @author Meno25
  * @author Nemo bis
+ * @author Nike
  * @author Raymond
  * @author Shirayuki
  * @author Siebrand
@@ -937,7 +938,8 @@ $2 is a user provided comment',
 * $5 is a list of removed people',
 	'logentry-student-selfadd' => '{{logentry}}',
 	'logentry-student-selfremove' => '{{logentry}}',
-	'logentry-eparticle-selfadd' => '{{logentry}} Additional parameters:
+	'logentry-eparticle-selfadd' => '{{logentry}}
+Additional parameters:
 * $4 is the course',
 	'logentry-eparticle-selfremove' => '{{logentry}} Additional parameters:
 * $4 is the course',
@@ -1130,7 +1132,8 @@ $2 is a user provided comment',
 * $1 is a course name.',
 	'ep-pager-confirm-message-course-many' => 'Notifies the user they are about to delete multiple courses. Parameters:
 * $1 is a list of to be deleted courses.',
-	'epstudentpager-header-user-id' => 'Table column header',
+	'epstudentpager-header-user-id' => 'Table column header.
+{{Identical|Username}}',
 	'epstudentpager-header-id' => 'Table column header',
 	'epstudentpager-header-current-courses' => 'Table column header',
 	'epstudentpager-header-passed-courses' => 'Table column header',
@@ -1203,13 +1206,15 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-articles-noresults' => 'Shown instead of a pager as notification that there are no results.',
 	'epcapager-header-photo' => 'Table column header.
 {{Identical|Photo}}',
-	'epcapager-header-user-id' => 'Table column header',
+	'epcapager-header-user-id' => 'Table column header.
+{{Identical|Username}}',
 	'epcapager-header-bio' => 'Table column header',
 	'epcapager-header-courses' => 'Table column header',
 	'ep-ca-noresults' => 'Shown instead of a pager as notification that there are no results',
 	'epoapager-header-photo' => 'Table column header.
 {{Identical|Photo}}',
-	'epoapager-header-user-id' => 'Table column header',
+	'epoapager-header-user-id' => 'Table column header.
+{{Identical|Username}}',
 	'epoapager-header-bio' => 'Table column header',
 	'epoapager-header-courses' => 'Table column header',
 	'ep-oa-noresults' => 'Shown instead of a pager as notification that there are no results',
@@ -1476,7 +1481,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'specialstudent-summary-active-enroll' => 'Table row header.',
 	'specialstudent-summary-last-active' => 'Table row header.',
 	'specialstudent-summary-first-enroll' => 'Table row header.',
-	'specialstudent-summary-user' => 'Table row header.',
+	'specialstudent-summary-user' => 'Table row header.
+{{Identical|Username}}',
 	'ep-student-courses' => 'h2 section header.',
 	'ep-student-articles' => 'h2 section header.',
 	'ep-enroll-title' => 'Page title. Parameters:
@@ -1587,7 +1593,8 @@ $1 is unknown, so unknown is the [[gender]].',
 * $2 is the current user's name.",
 	'ep-instructor-add-cancel-button' => 'Cancel button text.',
 	'ep-instructor-summary-input' => 'Text input label.',
-	'ep-instructor-name-input' => 'Text input label.',
+	'ep-instructor-name-input' => 'Text input label.
+{{Identical|Username}}',
 	'ep-online-remove-title' => 'Dialog title.',
 	'ep-online-remove-button' => 'Remove button text.',
 	'ep-online-removing' => 'Remove button text while removal is in progress.',
@@ -1629,7 +1636,8 @@ $1 is unknown, so unknown is the [[gender]].',
 * $2 is the affected user's name.",
 	'ep-online-add-cancel-button' => 'Cancel button text.',
 	'ep-online-summary-input' => 'Text input label.',
-	'ep-online-name-input' => 'Text input label.',
+	'ep-online-name-input' => 'Text input label.
+{{Identical|Username}}',
 	'ep-campus-remove-title' => 'Dialog title.',
 	'ep-campus-remove-button' => 'Remove button text.',
 	'ep-campus-removing' => 'Remove button text while removal is in progress.',
@@ -1671,7 +1679,8 @@ $1 is unknown, so unknown is the [[gender]].',
 * $2 is the affected user's name.",
 	'ep-campus-add-cancel-button' => 'Cancel button text.',
 	'ep-campus-summary-input' => 'Text input label.',
-	'ep-campus-name-input' => 'Text input label.',
+	'ep-campus-name-input' => 'Text input label.
+{{Identical|Username}}',
 	'ep-instructor-remove' => 'User tool link text.',
 	'ep-campus-remove' => 'User tool link text.',
 	'ep-online-remove' => 'User tool link text.',
@@ -2090,6 +2099,15 @@ $messages['ast'] = array(
 	'logentry-course-remove' => '$1 {{GENDER:$2|desanició}} el cursu "$3"',
 	'logentry-course-update' => '$1 {{GENDER:$2|anovó}} el cursu "$3"',
 	'logentry-course-undelete' => '$1 {{GENDER:$2|restauró}} el cursu "$3"',
+	'logentry-instructor-add' => "$1 {{GENDER:$2|amestó}} {{PLURAL:$4|l'enseñante|los enseñantes}} $5 al cursu $3",
+	'logentry-instructor-remove' => "$1 {{GENDER:$2|desanició}} {{PLURAL:$4|l'enseñante|los enseñantes}} $5 del cursu $3",
+	'logentry-instructor-selfadd' => '$1 amestose {{GENDER:$2|él mesmu|ella mesma}} como {{GENDER:$2|enseñante}} al cursu $3',
+	'logentry-instructor-selfremove' => '$1 desaniciose {{GENDER:$2|él mesmu|ella mesma}} como {{GENDER:$2|enseñante}} del cursu $3',
+	'logentry-online-add' => '$1 {{GENDER:$2|amestó}} {{PLURAL:$4|al embaxador en llinia|a los embaxadores en llinia}} $5 al cursu $3',
+	'logentry-online-remove' => '$1 {{GENDER:$2|desanició}} {{PLURAL:$4|al embaxador en llinia|a los embaxadores en llinia}} $5 del cursu $3',
+	'logentry-online-selfadd' => '$1 amestose {{GENDER:$2|él mesmu|ella mesma}} como {{GENDER:$2|embaxador en llinia|embaxadora en llinia}} al cursu $3',
+	'logentry-online-selfremove' => '$1 desaniciose {{GENDER:$2|él mesmu|ella mesma}} como {{GENDER:$2|embaxador en llinia|embaxadora en llinia}} del cursu $3',
+	'logentry-online-profilesave' => "$1 anovó el so perfil d'{{GENDER:$2|embaxador en llinia|embaxadora en llinia}}",
 );
 
 /** Azerbaijani (azərbaycanca)
@@ -6205,8 +6223,8 @@ $messages['fi'] = array(
 	'logentry-student-add' => '$1 liittyi kurssiin $3',
 	'logentry-student-remove' => '$1 poisti $5 kurssin $3 {{PLURAL:$4|{{GENDER:$5|opiskelija}}|opiskelija}}listalta',
 	'logentry-student-selfadd' => '$1 liittyi kurssiin $3',
-	'logentry-student-selfremove' => '$1 poisti itsensä kurssilta $3', # Fuzzy
-	'logentry-eparticle-selfadd' => '$1 lisäsi artikkelin $3 artikkeliluetteloonsa kurssilla $4', # Fuzzy
+	'logentry-student-selfremove' => '{{GENDER:$1|$1}} poisti itsensä kurssilta $3', # Fuzzy
+	'logentry-eparticle-selfadd' => '{{GENDER:$1|$1}} lisäsi artikkelin $3 artikkeliluetteloonsa kurssilla $4', # Fuzzy
 	'logentry-eparticle-selfremove' => '$1 poisti artikkelin $3 hänen artikkeliluettelostaan kurssilla $4', # Fuzzy
 	'logentry-eparticle-add' => '$1 lisäsi artikkelin $3 käyttäjän {{GENDER:$6|$5}} artikkelilistaan kurssilla $4',
 	'logentry-eparticle-remove' => '$1 poisti artikkelin $3 käyttäjän {{GENDER:$6|$5}} artikkelilistalta kurssilta $4',
