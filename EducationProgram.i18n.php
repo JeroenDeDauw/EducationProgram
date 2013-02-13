@@ -855,11 +855,13 @@ $2 is a user provided comment',
 	'ep-err-failed-to-save' => 'Error message indicating a save operation for the current page failed.',
 	'ep-tab-view' => 'Tab label',
 	'ep-tab-edit' => 'Tab label',
-	'ep-tab-create' => 'Tab label',
+	'ep-tab-create' => 'Tab label.
+{{Identical|Create}}',
 	'ep-tab-history' => 'Tab label',
 	'ep-tab-enroll' => 'Tab label',
 	'ep-tab-disenroll' => 'Tab label',
-	'ep-tab-delete' => 'Tab label',
+	'ep-tab-delete' => 'Tab label.
+{{Identical|Delete}}',
 	'tooltip-ep-form-save' => 'Tooltip text',
 	'tooltip-ep-edit-institution' => 'Tooltip text',
 	'tooltip-ep-edit-course' => 'Tooltip text',
@@ -1078,7 +1080,8 @@ Additional parameters:
 	'ep-pager-go' => 'Submit button text
 {{Identical|Go}}',
 	'ep-pager-withselected' => 'Header of a section with controls that allow doing bulk actions (ie affect the selected items)',
-	'ep-pager-delete-selected' => 'Delete button text',
+	'ep-pager-delete-selected' => 'Delete button text.
+{{Identical|Delete}}',
 	'eparticlepager-header-page-id' => 'Table pager column header. This column shows the titles of articles students have been working on',
 	'eparticlepager-header-user-id' => 'Table pager column header. This column shows the names of students (linked to their user profile)',
 	'eparticlepager-header-course-id' => 'Table pager column header. This column shows the name of a course',
