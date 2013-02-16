@@ -840,15 +840,17 @@ You can find a full list of students on [[Special:Students|the student list]].',
  * @author 아라
  */
 $messages['qqq'] = array(
-	'educationprogram-desc' => 'Extension description for on Special:Version',
-	'ep-item-summary' => 'Table column header',
+	'educationprogram-desc' => '{{desc|name=Education Program|url=http://www.mediawiki.org/wiki/Extension:Education_Program}}',
+	'ep-item-summary' => 'Table column header.
+{{Identical|Summary}}',
 	'ep-toplink' => 'Text of a link the the top menu (next to "My preferences")',
 	'ep-org-course-delete-comment' => 'Success message. Parameters:
 * $1 is an institution name,
 $2 is a user provided comment',
 	'ep-org-course-delete' => 'Success message. Parameters:
 * $1 is an institution name',
-	'ep-form-summary' => 'Summary input label',
+	'ep-form-summary' => 'Summary input label.
+{{Identical|Summary}}',
 	'ep-form-minor' => 'Minor edit checkbox label',
 	'ep-move-error' => 'Error message you get when you try to move stuff in or out of an EP namespace',
 	'ep-student-view-profile' => 'Text of links to student profiles, typically used in tool link lists, next to stuff such as "talk" and "contributions"',
@@ -857,7 +859,8 @@ $2 is a user provided comment',
 	'ep-tab-edit' => 'Tab label',
 	'ep-tab-create' => 'Tab label.
 {{Identical|Create}}',
-	'ep-tab-history' => 'Tab label',
+	'ep-tab-history' => 'Tab label.
+{{Identical|View history}}',
 	'ep-tab-enroll' => 'Tab label',
 	'ep-tab-disenroll' => 'Tab label',
 	'ep-tab-delete' => 'Tab label.
@@ -1105,7 +1108,8 @@ Additional parameters:
 	'ep-pager-confirm-delete-org' => 'Deletion confirmation dialog title. Parameters:
 * $1 indicates the number of affected institutions.',
 	'ep-pager-retry-button-org' => 'Retry button text',
-	'ep-pager-summary-message-org' => 'Summary input label',
+	'ep-pager-summary-message-org' => 'Summary input label.
+{{Identical|Summary}}',
 	'ep-pager-confirm-message-org' => 'Notifies the user they are about to delete an institution. Parameters:
 * $1 is the institution name.',
 	'ep-pager-confirm-message-org-many' => 'Notifies the user they are about to delete institutions. Parameters:
@@ -1131,7 +1135,8 @@ Additional parameters:
 	'ep-pager-confirm-delete-course' => 'Deletion confirmation dialog title. Parameters:
 * $1 indicates the number of affected courses.',
 	'ep-pager-retry-button-course' => 'Retry button text',
-	'ep-pager-summary-message-course' => 'Summary input label',
+	'ep-pager-summary-message-course' => 'Summary input label.
+{{Identical|Summary}}',
 	'ep-pager-confirm-message-course' => 'Notifies the user they are about to delete a course Parameters:
 * $1 is a course name.',
 	'ep-pager-confirm-message-course-many' => 'Notifies the user they are about to delete multiple courses. Parameters:
@@ -1343,9 +1348,12 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-course-no-campus' => 'States that there are no Campus Ambassadors for the course yet',
 	'ep-course-become-campus' => 'Link text to become a Campus Ambassador',
 	'ep-course-add-campus' => 'Link text to add a Campus Ambassador',
-	'ep-instructor-summary' => 'Summary text input label',
-	'ep-online-summary' => 'Summary text input label',
-	'ep-campus-summary' => 'Summary text input label',
+	'ep-instructor-summary' => 'Summary text input label.
+{{Identical|Summary}}',
+	'ep-online-summary' => 'Summary text input label.
+{{Identical|Summary}}',
+	'ep-campus-summary' => 'Summary text input label.
+{{Identical|Summary}}',
 	'ep-viewcourse-deleted' => 'Message notifying the course has been deleted and that a deletion log is shown',
 	'orgpage-history-description' => 'Subtitle text linking to logs',
 	'orgpage-history-title' => 'Page title. Parameters:
@@ -1598,7 +1606,8 @@ $1 is unknown, so unknown is the [[gender]].',
 * $1 is a course name.
 * $2 is the current user's name.",
 	'ep-instructor-add-cancel-button' => 'Cancel button text.',
-	'ep-instructor-summary-input' => 'Text input label.',
+	'ep-instructor-summary-input' => 'Text input label.
+{{Identical|Summary}}',
 	'ep-instructor-name-input' => 'Text input label.
 {{Identical|Username}}',
 	'ep-online-remove-title' => 'Dialog title.',
@@ -1641,7 +1650,8 @@ $1 is unknown, so unknown is the [[gender]].',
 * $1 is a course name,
 * $2 is the affected user's name.",
 	'ep-online-add-cancel-button' => 'Cancel button text.',
-	'ep-online-summary-input' => 'Text input label.',
+	'ep-online-summary-input' => 'Text input label.
+{{Identical|Summary}}',
 	'ep-online-name-input' => 'Text input label.
 {{Identical|Username}}',
 	'ep-campus-remove-title' => 'Dialog title.',
@@ -1684,7 +1694,8 @@ $1 is unknown, so unknown is the [[gender]].',
 * $1 is a course name,
 * $2 is the affected user's name.",
 	'ep-campus-add-cancel-button' => 'Cancel button text.',
-	'ep-campus-summary-input' => 'Text input label.',
+	'ep-campus-summary-input' => 'Text input label.
+{{Identical|Summary}}',
 	'ep-campus-name-input' => 'Text input label.
 {{Identical|Username}}',
 	'ep-instructor-remove' => 'User tool link text.',
@@ -5626,7 +5637,7 @@ Allpool on ära toodud seonduvad kustutuslogi sissekanded:",
 	'ep-course-edit-end' => 'Lõpukuupäev',
 	'ep-course-edit-token' => 'Registreerumistunnus',
 	'ep-course-help-token' => 'Valikuline. Kui täidetud, tuleb õpilastel registreerumiseks ära tuua see tunnus. Nii ei lasta mitteõpilastel registreeruda.',
-	'ep-course-edit-description' => 'Kirjeldus',
+	'ep-course-edit-description' => 'Lehekülje tekst',
 	'ep-course-edit-title' => 'Lehekülje pealkiri',
 	'ep-course-help-title' => 'Kursuse lehekülje pealkiri. Konventsiooni kohaselt peaks selles kursuse nimele järgnema sulgudes toimumisperiood.',
 	'ep-course-edit-field' => 'Õppevaldkond',
