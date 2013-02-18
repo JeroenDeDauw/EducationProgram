@@ -68,7 +68,7 @@ abstract class ViewAction extends Action {
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
-		$this->cacheEnabled = Settings::get( 'enablePageCache' );
+		$this->cacheEnabled = $this->cacheEnabled && Settings::get( 'enablePageCache' );
 
 		$out = $this->getOutput();
 
@@ -267,4 +267,5 @@ abstract class ViewAction extends Action {
 			parent::getCacheKey()
 		);
 	}
+
 }
