@@ -20,11 +20,13 @@
 			userName = $this.attr( 'data-username' ),
 			bestName = $this.attr( 'data-bestname' ),
 			role = $this.attr( 'data-role' ),
-			$dialog = undefined;
+			$dialog = undefined,
+			summaryLabel, summaryInput,
+			doRemove;
 
-			var doRemove = function() {
-				var $remove = $( '#ep-' + role + '-remove-button' );
-				var $cancel = $( '#ep-' + role + '-cancel-button' );
+			doRemove = function() {
+				var $remove = $( '#ep-' + role + '-remove-button' ),
+					$cancel = $( '#ep-' + role + '-cancel-button' );
 
 				$remove.button( 'option', 'disabled', true );
 				$remove.button( 'option', 'label', ep.msg( 'ep-' + role + '-removing' ) );
@@ -54,11 +56,11 @@
 				} );
 			};
 
-			var summaryLabel = $( '<label>' ).attr( {
+			summaryLabel = $( '<label>' ).attr( {
 				'for': 'epenlistsummary'
 			} ).msg( 'ep-' + role + '-summary' ).append( '&#160;' );
 
-			var summaryInput = $( '<input>' ).attr( {
+			summaryInput = $( '<input>' ).attr( {
 				'type': 'text',
 				'size': 60,
 				'maxlength': 250,
@@ -138,7 +140,8 @@
 
 			this.doAdd = function() {
 				var $add = $( '#ep-' + role + '-add-button' ),
-				$cancel = $( '#ep-' + role + '-add-cancel-button' );
+				$cancel = $( '#ep-' + role + '-add-cancel-button' ),
+				enterHandler;
 
 				$add.button( 'option', 'disabled', true );
 				$add.button( 'option', 'label', ep.msg( 'ep-' + role + '-adding' ) );
@@ -149,7 +152,7 @@
 					'reason': _this.summaryInput.val(),
 					'role': role
 				} ).done( function( data ) {
-					var	messageKey = null;
+					var	messageKey = null, $ul;
 
 					if ( data.count === 0 ) {
 						messageKey = 'ep-' + role + '-addittion-null';
@@ -170,10 +173,10 @@
 
 					if ( data.count > 0 ) {
 						// TODO: link name to user page and show control links
-						var $ul = $( '#ep-course-' + role ).find( 'ul' );
+						$ul = $( '#ep-course-' + role ).find( 'ul' );
 
 						if ( $ul.length < 1 ) {
-							var $ul = $( '<ul>' );
+							$ul = $( '<ul>' );
 							$( '#ep-course-' + role ).html( $ul );
 						}
 
@@ -268,7 +271,7 @@
 				this.nameInput.focus();
 			}
 
-			var enterHandler = function( event ) {
+			enterHandler = function( event ) {
 				if ( event.which == '13' ) {
 					event.preventDefault();
 

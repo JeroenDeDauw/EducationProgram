@@ -21,16 +21,18 @@
 
 		var $dialog = undefined,
 		$remove = undefined,
-		$summaryInput = undefined;
+		$summaryInput = undefined,
+		showConfirmDialog,
+		onFail;
 
-		var showConfirmDialog = function( args, onConfirm ) {
-			var args = $.extend( {
-				'type': 'unknown',
-				'ids': [],
-				'names': []
-			}, args );
-
-			var deferred = $.Deferred();
+		showConfirmDialog = function( args, onConfirm ) {
+			var names, summaryLabel,
+				args = $.extend( {
+					'type': 'unknown',
+					'ids': [],
+					'names': []
+				}, args ),
+				deferred = $.Deferred();
 
 			$dialog = $( '<div>' ).html( '' ).dialog( {
 				'title': ep.msg( 'ep-pager-confirm-delete-' + args.type, args.ids.length ),
@@ -58,7 +60,7 @@
 
 			$remove = $( '#ep-pager-remove-button' );
 
-			var names = args.names.map( function( name ) {
+			names = args.names.map( function( name ) {
 				return '<strong>' + mw.html.escape( name ) + '</strong>';
 			} ).join( ', ' );
 
@@ -68,7 +70,7 @@
 				args.names.length
 			);
 
-			var summaryLabel = $( '<label>' ).attr( {
+			summaryLabel = $( '<label>' ).attr( {
 				'for': 'epsummaryinput'
 			} ).msg( 'ep-pager-summary-message-' + args.type ).append( '&#160;' );
 
@@ -93,7 +95,7 @@
 			return deferred.promise();
 		};
 
-		var onFail = function( type ) {
+		onFail = function( type ) {
 			$remove.button( 'option', 'disabled', false );
 			$remove.button( 'option', 'label', ep.msg( 'ep-pager-retry-button-' + type ) );
 		};
@@ -112,8 +114,8 @@
 					ep.api.remove( args, { 'comment': $summaryInput.val() } ).done( function() {
 						$dialog.dialog( 'close' );
 
-						var $tr = $this.closest( 'tr' );
-						var $table = $tr.closest( 'table' );
+						var $tr = $this.closest( 'tr' ),
+							$table = $tr.closest( 'table' );
 
 						if ( $table.find( 'tr' ).length > 2 ) {
 							$tr.slideUp( 'slow', function () {
@@ -141,7 +143,8 @@
 			$selectAllCheckbox = $( '#ep-pager-select-all-' + $( this ).attr( 'data-pager-id' ) ),
 			$table = $selectAllCheckbox.closest( 'table' ),
 			ids = [],
-			names = [];
+			names = [],
+			pagerId;
 
 			$table.find( 'tbody' ).find( 'input[type=checkbox]:checked' ).each( function ( i, element ) {
 				var $element = $( element );
@@ -153,7 +156,7 @@
 				return;
 			}
 
-			var pagerId = $( this ).attr( 'data-pager-id' ),
+			pagerId = $( this ).attr( 'data-pager-id' ),
 			args = {
 				'type': $( this ).attr( 'data-type' ),
 				'ids': ids,

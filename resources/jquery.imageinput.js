@@ -102,10 +102,11 @@
 				},
 				function( data ) {
 					if ( data.query && data.query.pages ) {
-						var pages = data.query.pages;
+						var pages = data.query.pages,
+							info;
 
 						for ( p in pages ) {
-							var info = pages[p].imageinfo;
+							info = pages[p].imageinfo;
 							for ( i in info ) {
 								callback( info[i].thumburl );
 								return;

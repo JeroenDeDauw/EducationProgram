@@ -9,9 +9,11 @@
 (function( $, ep ) {
 
 	function addReviewer() {
-		var $this = $( this );
+		var $this, $form, $dialog;
 
-		var $form = $( '<form>' ).attr( {
+		$this = $( this );
+
+		$form = $( '<form>' ).attr( {
 			'method': 'post',
 			'action': window.location
 		} ).msg(
@@ -39,7 +41,7 @@
 			'value': $this.attr( 'data-article-id' )
 		} ) );
 
-		var $dialog = $( '<div>' ).html( '' ).dialog( {
+		$dialog = $( '<div>' ).html( '' ).dialog( {
 			'title': ep.msg('ep-articletable-addreviwer-title', mw.user.getName() ),
 			'minWidth': 550,
 			'buttons': [
@@ -64,9 +66,11 @@
 	}
 
 	function removeStudent() {
-		var $this = $( this );
+		var $this, $form, $dialog;
 
-		var $form = $( '<form>' ).attr( {
+		$this = $( this );
+
+		$form = $( '<form>' ).attr( {
 			'method': 'post',
 			'action': window.location
 		} ).msg(
@@ -100,7 +104,7 @@
 			'value': $this.attr( 'data-course-id' )
 		} ) );
 
-		var $dialog = $( '<div>' ).html( '' ).dialog( {
+		$dialog = $( '<div>' ).html( '' ).dialog( {
 			'title': ep.msg('ep-articletable-remstudent-title', mw.user.getName() ),
 			'minWidth': 550,
 			'buttons': [
@@ -126,12 +130,12 @@
 
 	function removeArticle() {
 		var $this = $( this ),
+		$dialog,
 		courseName = $this.attr( 'data-course-name' ),
 		isSelf = $this.attr( 'data-student-name' ) === undefined,
 		selfSuffix = isSelf ? '-self' : '',
-		studentName = isSelf ? mw.user.getName() : $this.attr( 'data-student-name' );
-
-		var $form = $( '<form>' ).attr( {
+		studentName = isSelf ? mw.user.getName() : $this.attr( 'data-student-name' ),
+		$form = $( '<form>' ).attr( {
 			'method': 'post',
 			'action': $this.attr( 'data-remove-target' )
 		} ).msg(
@@ -159,7 +163,7 @@
 			'value': $this.attr( 'data-article-id' )
 		} ) );
 
-		var $dialog = $( '<div>' ).html( '' ).dialog( {
+		$dialog = $( '<div>' ).html( '' ).dialog( {
 			'title': ep.msg( 'ep-articletable-remarticle-title', $this.attr( 'data-article-name' ) ),
 			'minWidth': 550,
 			'buttons': [
@@ -185,11 +189,12 @@
 
 	function removeReviewer() {
 		var $this = $( this ),
+		$dialog, $form,
 		isSelf = $this.attr( 'data-reviewer-name' ) === undefined,
 		selfSuffix = isSelf ? '-self' : '',
 		reviewerName = isSelf ? mw.user.getName() : $this.attr( 'data-reviewer-name' );
 
-		var $form = $( '<form>' ).attr( {
+		$form = $( '<form>' ).attr( {
 			'method': 'post',
 			'action': window.location
 		} ).msg(
@@ -226,7 +231,7 @@
 			} ) );
 		}
 
-		var $dialog = $( '<div>' ).html( '' ).dialog( {
+		$dialog = $( '<div>' ).html( '' ).dialog( {
 			'title': ep.msg('ep-articletable-remreviwer-title' + selfSuffix, reviewerName ),
 			'minWidth': 550,
 			'buttons': [

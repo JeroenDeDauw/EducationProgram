@@ -8,9 +8,8 @@
 
 ( function ( $, mw ) {
 
-	var compatMode = undefined;
-
-	var ep = {
+	var compatMode = undefined,
+	ep = {
 		msg: function () {
 			// Yeah, doing it here, since "mw.loader.using( 'mediawiki.language',"
 			// does not have mediaWiki.language loaded.
@@ -33,13 +32,13 @@
 					};
 
 					mw.jqueryMsg.htmlEmitter.prototype.gender = function( nodes ) {
-						var gender;
+						var gender, forms;
 						if  ( nodes[0] && nodes[0].options instanceof mw.Map ){
 							gender = nodes[0].options.get( 'gender' );
 						} else {
 							gender = nodes[0];
 						}
-						var forms = nodes.slice(1);
+						forms = nodes.slice(1);
 						return this.language.gender( gender, forms );
 					};
 				}

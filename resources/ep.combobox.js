@@ -10,11 +10,13 @@
 
 	$.widget( "ep.combobox", {
 		_create: function() {
-			var self = this,
+			var self, input;
+
+			self = this,
 				select = this.element.hide(),
 				selected = select.children( ":selected" ),
 				value = selected.val() ? selected.text() : "";
-			var input = this.input = $( "<input>" )
+			input = this.input = $( "<input>" )
 				.insertAfter( select )
 				.val( value )
 				.autocomplete({
