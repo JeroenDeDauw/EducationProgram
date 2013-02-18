@@ -41,6 +41,7 @@ class DeleteEducation extends Maintenance {
 			'cas',
 			'articles',
 			'revisions',
+			'events'
 		);
 
 		$dbw = wfGetDB( DB_MASTER );
