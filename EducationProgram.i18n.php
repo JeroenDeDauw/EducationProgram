@@ -2442,6 +2442,7 @@ $messages['bn'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Fulup
  * @author Y-M D
  */
@@ -2513,9 +2514,12 @@ $messages['br'] = array(
 	'ep-courses-newname' => 'Anv ar gentel :',
 	'ep-courses-neworg' => 'Ensavadur :',
 	'ep-courses-add' => 'Ouzhpennañ ar gentel',
+	'ep-students-noresults' => "N'eus studier ebet er roll.",
 	'ep-pager-clear' => 'Riñsañ ar siloù',
 	'ep-pager-go' => 'Mont',
 	'ep-pager-delete-selected' => 'Diverkañ',
+	'eparticlepager-header-page-id' => 'Pennad',
+	'eparticlepager-header-user-id' => 'Studier',
 	'ep-revision-undo' => 'dizober',
 	'ep-revision-restore' => 'assevel',
 	'eporgpager-header-name' => 'Anv',
@@ -2582,7 +2586,7 @@ $messages['br'] = array(
 	'ep-course-edit-org' => 'Ensavadur',
 	'ep-course-edit-start' => 'Deiziad kregiñ',
 	'ep-course-edit-end' => 'Deiziad echuiñ',
-	'ep-course-edit-description' => 'Deskrivadur',
+	'ep-course-edit-description' => 'Deskrivadur', # Fuzzy
 	'ep-course-edit-title' => 'Anv ar bajenn',
 	'ep-course-edit-field' => 'Tachenn studi',
 	'ep-course-edit-level' => 'Live ar gentel',
@@ -2609,7 +2613,7 @@ $messages['br'] = array(
 	'ep-instructor-summary' => 'Diverrañ :',
 	'ep-online-summary' => 'Diverrañ :',
 	'ep-campus-summary' => 'Diverrañ :',
-	'coursepage-delete-summary' => 'Abeg diverkañ :', # Fuzzy
+	'coursepage-delete-summary' => 'Abeg :',
 	'coursepage-delete-title' => 'Diverkañ ar gentel "$1"',
 	'coursepage-delete-cancel-button' => 'Nullañ',
 	'coursepage-delete-delete-button' => 'Diverkañ ar gentel',
@@ -2618,12 +2622,14 @@ $messages['br'] = array(
 	'orgpage-delete-delete-button' => 'Diverkañ an ensavadur',
 	'orgpage-eprestore-cancel-button' => 'Nullañ',
 	'coursepage-eprestore-cancel-button' => 'Nullañ',
+	'orgpage-epundo-summary' => 'Abeg :',
 	'orgpage-epundo-cancel-button' => 'Nullañ',
 	'coursepage-epundo-cancel-button' => 'Nullañ',
+	'coursepage-epundelete-summary' => 'Abeg :',
 	'coursepage-epundelete-cancel-button' => 'Nullañ',
 	'orgpage-epundelete-cancel-button' => 'Nullañ',
 	'ep-student-title' => 'Studier: $1',
-	'specialstudent-summary-user' => 'Implijer', # Fuzzy
+	'specialstudent-summary-user' => 'Anv implijer',
 	'ep-enroll-realname' => 'Anv gwir (rekis)',
 	'ep-disenroll-cancel' => 'Nullañ',
 	'ep-instructor-removing' => 'O lemel...',
@@ -2658,8 +2664,10 @@ $messages['br'] = array(
 	'ep-campus-name-input' => 'Anv implijer :',
 	'epoa-profile-bio' => 'Buhezskrid verr',
 	'epoa-profile-photo' => "Luc'hskeudenn ar profil",
+	'epoa-profile-saved' => 'Enrollet eo bet ho profil',
 	'epca-profile-bio' => 'Buhezskrid verr',
 	'epca-profile-photo' => "Luc'hskeudenn ar profil",
+	'epca-profile-saved' => 'Enrollet eo bet ho profil',
 	'ep-diff-old' => 'Talvoud red',
 	'ep-diff-new' => 'Talvoud nevez',
 	'ep-timeline-ago' => '$1 zo',
@@ -6501,6 +6509,7 @@ $messages['fi'] = array(
  * @author Sherbrooke
  * @author Tititou36
  * @author Urhixidur
+ * @author VIGNERON
  * @author Verdy p
  * @author 아라
  */
@@ -6913,7 +6922,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'coursepage-history-norevs' => "Il n’existe pas d’historique d'éditions pour ce cours.",
 	'coursepage-history-deleted' => 'Ce cours a été supprimé. Le journal de la suppression du cours est affiché ci-dessous pour référence.',
 	'coursepage-delete-text' => 'Vous êtes sur le point de supprimer le cours $1. Cela supprimera tous les étudiants associés !',
-	'coursepage-delete-summary' => 'Motif:',
+	'coursepage-delete-summary' => 'Motif :',
 	'coursepage-delete-title' => 'Supprimer le cours « $1 »',
 	'coursepage-delete-cancel-button' => 'Annuler',
 	'coursepage-delete-delete-button' => 'Supprimer le cours',
@@ -6921,7 +6930,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'coursepage-delete-deleted' => 'Cours supprimé avec succès $1 .',
 	'coursepage-delete-delete-failed' => 'Échec de la suppression de cours [[Education_Program:$2|$1]].',
 	'orgpage-delete-text' => 'Vous êtes sur le point de supprimer l’institution $1. Cela supprimera tous les cours et étudiants associés !',
-	'orgpage-delete-summary' => 'Motif:',
+	'orgpage-delete-summary' => 'Motif :',
 	'orgpage-delete-title' => 'Supprimer l’institution "$1"',
 	'orgpage-delete-cancel-button' => 'Annuler',
 	'orgpage-delete-delete-button' => 'Supprimer l’institution',
