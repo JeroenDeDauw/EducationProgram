@@ -636,7 +636,7 @@ class Course extends PageObject {
 				// Get rid of the articles asscoaite associations with the student.
 				// No revisioning is implemented here, so this cannot be undone.
 				// Might want to add revisioning or just add a 'deleted' flag at some point.
-				Articles::singleton()->delete( array(
+				Extension::globalInstance()->newArticleTable()->delete( array(
 					'course_id' => $this->getId(),
 					'user_id' => $removedUsers,
 				) );

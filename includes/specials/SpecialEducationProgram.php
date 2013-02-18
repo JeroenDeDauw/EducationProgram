@@ -276,7 +276,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 				$courseIds[] = $course->getId();
 			}
 
-			$pageIds = Articles::singleton()->selectFields( 'page_id', array( 'course_id' => $courseIds ), array( 'DISTINCT' ) );
+			$pageIds = Extension::globalInstance()->newArticleTable()->selectFields( 'page_id', array( 'course_id' => $courseIds ), array( 'DISTINCT' ) );
 			$pageIds = array_unique( $pageIds );
 
 			$students = array_unique( $students );

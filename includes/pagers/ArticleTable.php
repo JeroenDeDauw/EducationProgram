@@ -537,7 +537,7 @@ class ArticleTable extends EPPager {
 
 		$conditions = array_merge( array( 'user_id' => $userIds ), $this->articleConds );
 
-		$articles = Articles::singleton()->select( null, $conditions );
+		$articles = Extension::globalInstance()->newArticleTable()->select( null, $conditions );
 
 		/**
 		 * @var EPArticle $article

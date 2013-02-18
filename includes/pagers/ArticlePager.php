@@ -35,8 +35,8 @@ class ArticlePager extends EPPager {
 	public function __construct( IContextSource $context, array $conds = array() ) {
 		$this->mDefaultDirection = true;
 
-		// when MW 1.19 becomes min, we want to pass an IContextSource $context here.
-		parent::__construct( $context, $conds, Articles::singleton() );
+		// TODO: inject table!
+		parent::__construct( $context, $conds, Extension::globalInstance()->newArticleTable() );
 	}
 
 	/**

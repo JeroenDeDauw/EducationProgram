@@ -33,7 +33,7 @@ class RemoveArticleAction extends \FormlessAction {
 			/**
 			 * @var EPArticle $article
 			 */
-			$article = Articles::singleton()->selectRow(
+			$article = Extension::globalInstance()->newArticleTable()->selectRow(
 				null,
 				array(
 					'id' => $req->getInt( 'article-id' ),

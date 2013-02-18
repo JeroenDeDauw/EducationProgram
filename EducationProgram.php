@@ -136,7 +136,6 @@ $wgAutoloadClasses['EducationProgram\SpecialManageCourses'] 		= $dir . '/include
 $wgAutoloadClasses['EducationProgram\VerySpecialPage'] 				= $dir . '/includes/specials/VerySpecialPage.php';
 
 // includes/tables (deriving from ORMTable)
-$wgAutoloadClasses['EducationProgram\Articles'] 					= $dir . '/includes/tables/Articles.php';
 $wgAutoloadClasses['EducationProgram\CAs'] 							= $dir . '/includes/tables/CAs.php';
 $wgAutoloadClasses['EducationProgram\Courses'] 						= $dir . '/includes/tables/Courses.php';
 $wgAutoloadClasses['EducationProgram\Events'] 						= $dir . '/includes/tables/Events.php';
@@ -150,6 +149,7 @@ $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/
 // includes
 $wgAutoloadClasses['EducationProgram\DiffTable'] 					= $dir . '/includes/DiffTable.php';
 $wgAutoloadClasses['EducationProgram\DYKBox'] 						= $dir . '/includes/DYKBox.php';
+$wgAutoloadClasses['EducationProgram\Extension'] 					= $dir . '/includes/Extension.php';
 $wgAutoloadClasses['EducationProgram\FailForm'] 					= $dir . '/includes/FailForm.php';
 $wgAutoloadClasses['EducationProgram\HTMLCombobox'] 				= $dir . '/includes/HTMLCombobox.php';
 $wgAutoloadClasses['EducationProgram\HTMLDateField'] 				= $dir . '/includes/HTMLDateField.php';

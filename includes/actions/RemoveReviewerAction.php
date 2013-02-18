@@ -38,7 +38,7 @@ class RemoveReviewerAction extends \FormlessAction {
 			/**
 			 * @var Article $article
 			 */
-			$article = Articles::singleton()->selectRow(
+			$article = Extension::globalInstance()->newArticleTable()->selectRow(
 				null,
 				array( 'id' => $req->getInt( 'article-id' ) )
 			);

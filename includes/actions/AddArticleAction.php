@@ -49,11 +49,13 @@ class AddArticleAction extends \FormlessAction {
 					'page_title' => $title->getFullText(),
 				);
 
-				if ( !Articles::singleton()->has( $articleData ) ) {
+				$articlesTable = Extension::globalInstance()->newArticleTable();
+
+				if ( !$articlesTable->has( $articleData ) ) {
 					/**
 					 * @var Article $article
 					 */
-					$article = Articles::singleton()->newRow( $articleData, true );
+					$article = $articlesTable->newRow( $articleData, true );
 
 					if ( $article->save() ) {
 						$article->logAdittion( $this->getUser() );

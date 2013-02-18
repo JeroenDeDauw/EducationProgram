@@ -34,7 +34,7 @@ class AddReviewerAction extends \FormlessAction {
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) ) {
 
-			$article = Articles::singleton()->selectRow(
+			$article = Extension::globalInstance()->newArticleTable()->selectRow(
 				null,
 				array( 'id' => $req->getInt( 'article-id' ) )
 			);
