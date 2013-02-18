@@ -59,7 +59,6 @@ $wgExtensionMessagesFiles['EPNamespaces'] 			= $dir . '/EducationProgram.i18n.ns
 
 // Autoloading
 $wgAutoloadClasses['EducationProgram\Hooks'] 						= $dir . '/EducationProgram.hooks.php';
-$wgAutoloadClasses['EducationProgram\Settings'] 					= $dir . '/EducationProgram.settings.php';
 
 // includes/actions (deriving from Action)
 $wgAutoloadClasses['EducationProgram\EditCourseAction'] 			= $dir . '/includes/actions/EditCourseAction.php';
@@ -161,6 +160,7 @@ $wgAutoloadClasses['EducationProgram\RevisionAction'] 				= $dir . '/includes/Re
 $wgAutoloadClasses['EducationProgram\RevisionDiff'] 				= $dir . '/includes/RevisionDiff.php';
 $wgAutoloadClasses['EducationProgram\DiffTable'] 					= $dir . '/includes/DiffTable.php';
 $wgAutoloadClasses['EducationProgram\Menu'] 						= $dir . '/includes/Menu.php';
+$wgAutoloadClasses['EducationProgram\Settings'] 					= $dir . '/includes/Settings.php';
 $wgAutoloadClasses['EducationProgram\Timeline'] 					= $dir . '/includes/Timeline.php';
 $wgAutoloadClasses['EducationProgram\TimelineGroup'] 				= $dir . '/includes/TimelineGroup.php';
 
@@ -688,7 +688,7 @@ $wgResourceModules['ep.dyk'] = $moduleTemplate + array(
 
 unset( $moduleTemplate );
 
-$egEPSettings = array();
+require_once 'EducationProgram.settings.php';
 
 // The default value for the user preferences.
 $wgDefaultUserOptions['ep_showtoplink'] = false;
