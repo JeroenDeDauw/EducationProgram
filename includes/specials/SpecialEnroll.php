@@ -238,26 +238,16 @@ class SpecialEnroll extends VerySpecialPage {
 	 * @return boolean Success indicator
 	 */
 	protected function doEnroll( Course $course ) {
-		$student = Student::newFromUser( $this->getUser(), array( 'id' ) );
-		$hadStudent = $student->hasIdField();
-
-		$fields = array(
-			'active_enroll' => true
-		);
-
-		if ( !$hadStudent ) {
-			$student = Students::singleton()->newRow( array( 'user_id' => $this->getUser()->getId() ), true );
-		}
-
-		$student->setFields( $fields );
-
-		$success = $student->save();
-
 		$revAction = new RevisionAction();
 		$revAction->setUser( $this->getUser() );
 		$revAction->setComment( '' ); // TODO?
 
-		$success = $success && $student->associateWithCourses( array( $course ), $revAction );
+		$success = $course->enlistUsers(
+			array( $this->getUser()->getId() ),
+			'student',
+			true,
+			$revAction
+		) !== false;
 
 		return $success;
 	}

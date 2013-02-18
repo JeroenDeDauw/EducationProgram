@@ -319,6 +319,8 @@ abstract class RoleObject extends \ORMRow implements IRole {
 
 			$this->setField( 'last_course', $courseId );
 			$this->setField( 'last_enroll', wfTimestampNow() );
+			$this->setField( 'last_active', wfTimestampNow() );
+			$this->setField( 'active_enroll', true );
 		}
 
 		$this->getUser()->setOption( 'ep_showtoplink', true );
