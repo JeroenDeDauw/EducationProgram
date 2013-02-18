@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Maintenance script for deleting all Wikipedia Education Program data.
+ * Maintenance script for deleting all Wikipedia Education Program database tables.
  *
  * @since 0.1
  *
@@ -19,7 +19,7 @@ require_once $basePath . '/maintenance/Maintenance.php';
 class DeleteEducation extends Maintenance {
 
 	public function __construct() {
-		$this->mDescription = 'Delete the Wikipedia Education Program data';
+		$this->mDescription = 'Drop the Wikipedia Education Program tables';
 
 		parent::__construct();
 	}
@@ -48,9 +48,9 @@ class DeleteEducation extends Maintenance {
 		foreach ( $tables as $table ) {
 			$name = "ep_$table";
 
-			echo "Truncating table $name...";
+			echo "Dropping table $name...";
 
-			$dbw->query( 'TRUNCATE TABLE ' . $dbw->tableName( $name ) );
+			$dbw->query( 'DROP TABLE IF EXISTS ' . $dbw->tableName( $name ) );
 
 			echo "done!\n";
 		}
