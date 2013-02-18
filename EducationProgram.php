@@ -146,23 +146,23 @@ $wgAutoloadClasses['EducationProgram\Revisions'] 					= $dir . '/includes/tables
 $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/Students.php';
 
 // includes
+$wgAutoloadClasses['EducationProgram\DiffTable'] 					= $dir . '/includes/DiffTable.php';
 $wgAutoloadClasses['EducationProgram\DYKBox'] 						= $dir . '/includes/DYKBox.php';
+$wgAutoloadClasses['EducationProgram\FailForm'] 					= $dir . '/includes/FailForm.php';
+$wgAutoloadClasses['EducationProgram\HTMLCombobox'] 				= $dir . '/includes/HTMLCombobox.php';
+$wgAutoloadClasses['EducationProgram\HTMLDateField'] 				= $dir . '/includes/HTMLDateField.php';
+$wgAutoloadClasses['EducationProgram\IRole'] 						= $dir . '/includes/IRole.php';
 $wgAutoloadClasses['EducationProgram\LogFormatter'] 				= $dir . '/includes/LogFormatter.php';
 $wgAutoloadClasses['EducationProgram\RoleChangeFormatter'] 			= $dir . '/includes/LogFormatter.php';
 $wgAutoloadClasses['EducationProgram\ArticleFormatter'] 			= $dir . '/includes/LogFormatter.php';
-$wgAutoloadClasses['EducationProgram\Utils'] 						= $dir . '/includes/Utils.php';
-$wgAutoloadClasses['EducationProgram\HTMLDateField'] 				= $dir . '/includes/HTMLDateField.php';
-$wgAutoloadClasses['EducationProgram\HTMLCombobox'] 				= $dir . '/includes/HTMLCombobox.php';
-$wgAutoloadClasses['EducationProgram\FailForm'] 					= $dir . '/includes/FailForm.php';
-$wgAutoloadClasses['EducationProgram\IRole'] 						= $dir . '/includes/IRole.php';
-$wgAutoloadClasses['EducationProgram\RoleObject'] 					= $dir . '/includes/RoleObject.php';
+$wgAutoloadClasses['EducationProgram\Menu'] 						= $dir . '/includes/Menu.php';
 $wgAutoloadClasses['EducationProgram\RevisionAction'] 				= $dir . '/includes/RevisionAction.php';
 $wgAutoloadClasses['EducationProgram\RevisionDiff'] 				= $dir . '/includes/RevisionDiff.php';
-$wgAutoloadClasses['EducationProgram\DiffTable'] 					= $dir . '/includes/DiffTable.php';
-$wgAutoloadClasses['EducationProgram\Menu'] 						= $dir . '/includes/Menu.php';
+$wgAutoloadClasses['EducationProgram\RoleObject'] 					= $dir . '/includes/RoleObject.php';
 $wgAutoloadClasses['EducationProgram\Settings'] 					= $dir . '/includes/Settings.php';
 $wgAutoloadClasses['EducationProgram\Timeline'] 					= $dir . '/includes/Timeline.php';
 $wgAutoloadClasses['EducationProgram\TimelineGroup'] 				= $dir . '/includes/TimelineGroup.php';
+$wgAutoloadClasses['EducationProgram\Utils'] 						= $dir . '/includes/Utils.php';
 
 $wgAutoloadClasses['EducationProgram\Test\MockSuperUser'] 			= $dir . '/tests/phpunit/MockSuperUser.php';
 
