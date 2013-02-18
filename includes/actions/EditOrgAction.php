@@ -65,7 +65,7 @@ class EditOrgAction extends EditAction {
 					return wfMessage( 'educationprogram-org-invalid-name', 2 )->text();
 				}
 
-				if ( in_string( '/', $value ) ) {
+				if ( strpos( $value, '/' ) !== false ) {
 					return wfMessage( 'ep-org-no-slashes' )->text();
 				}
 

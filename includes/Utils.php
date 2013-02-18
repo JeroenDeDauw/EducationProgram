@@ -239,6 +239,6 @@ class Utils {
 			$title = $title->getFullText();
 		}
 
-		return in_string( '/', $title );
+		return strpos( $title, '/' ) !== false;
 	}
 }

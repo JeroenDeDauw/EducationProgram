@@ -136,7 +136,7 @@ class EditCourseAction extends EditAction {
 			'help-message' => 'ep-course-help-title',
 			'required' => true,
 			'validation-callback' => function( $value, array $alldata = null ) {
-				return in_string( '/', $value ) ? wfMessage( 'ep-course-no-slashes' )->text() : true;
+				return strpos( $value, '/' ) !== false ? wfMessage( 'ep-course-no-slashes' )->text() : true;
 			},
 		);
 
