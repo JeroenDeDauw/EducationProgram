@@ -67,6 +67,7 @@ final class Hooks {
 			'Actions',
 			'Menu',
 			'Specials',
+			'Timeline',
 			'Utils',
 
 			'rows/Article',
