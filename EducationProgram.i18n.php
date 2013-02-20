@@ -844,7 +844,6 @@ $messages['qqq'] = array(
 	'educationprogram-desc' => '{{desc|name=Education Program|url=http://www.mediawiki.org/wiki/Extension:Education_Program}}',
 	'ep-item-summary' => 'Table column header.
 {{Identical|Summary}}',
-	'ep-didyouknow-header' => 'Message displayed as a header in the did you know box',
 	'ep-toplink' => 'Text of a link the the top menu (next to "My preferences")',
 	'ep-org-course-delete-comment' => 'Success message. Parameters:
 * $1 is an institution name,
@@ -857,6 +856,7 @@ $2 is a user provided comment',
 	'ep-move-error' => 'Error message you get when you try to move stuff in or out of an EP namespace',
 	'ep-student-view-profile' => 'Text of links to student profiles, typically used in tool link lists, next to stuff such as "talk" and "contributions"',
 	'ep-err-failed-to-save' => 'Error message indicating a save operation for the current page failed.',
+	'ep-didyouknow-header' => 'Message displayed as a header in the did you know box',
 	'ep-tab-view' => 'Tab label',
 	'ep-tab-edit' => 'Tab label',
 	'ep-tab-create' => 'Tab label.
@@ -1063,7 +1063,8 @@ Additional parameters:
 {{Identical|Male}}',
 	'ep-educationprogram-female' => 'Table row header on Special:EducationProgram
 {{Identical|Female}}',
-	'ep-educationprogram-unknown' => 'Table row header on Special:EducationProgram. Indicates that the gender is unknown',
+	'ep-educationprogram-unknown' => 'Table row header on Special:EducationProgram. Indicates that the gender is unknown.
+{{Identical|Unknown}}',
 	'ep-educationprogram-genders' => 'Section 2 header on Special:EducationProgram',
 	'ep-educationprogram-nodata' => 'Message shown when there are no statistics to display on Special:EducationProgram',
 	'ep-institutions-noresults' => 'Message indicating that there are no results',
@@ -14101,6 +14102,7 @@ $messages['mk'] = array(
 	'ep-move-error' => 'Не ви е дозволено да преместувате (внесувате и изнесувате) статии во/од образовните именски простори.',
 	'ep-student-view-profile' => 'ученички профил',
 	'ep-err-failed-to-save' => 'Нешто не е в ред - промените не се зачувани.',
+	'ep-didyouknow-header' => 'Дали сте знаеле ... ?',
 	'ep-tab-view' => 'Читај',
 	'ep-tab-edit' => 'Уреди',
 	'ep-tab-create' => 'Создај',
