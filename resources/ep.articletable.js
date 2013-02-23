@@ -63,6 +63,8 @@
 		} );
 
 		$dialog.append( $form );
+
+		return false;
 	}
 
 	function removeStudent() {
@@ -126,6 +128,8 @@
 		} );
 
 		$dialog.append( $form );
+
+		return false;
 	}
 
 	function removeArticle() {
@@ -185,6 +189,8 @@
 		} );
 
 		$dialog.append( $form );
+
+		return false;
 	}
 
 	function removeReviewer() {
@@ -253,6 +259,8 @@
 		} );
 
 		$dialog.append( $form );
+
+		return false;
 	}
 
 	$( document ).ready( function() {
