@@ -105,6 +105,8 @@
 					doRemove();
 				}
 			} );
+
+			return false;
 		} );
 
 		$( '.ep-add-role' ).click( function( event ) {
@@ -286,6 +288,8 @@
 
 			this.nameInput.keypress( enterHandler );
 			this.summaryInput.keypress( enterHandler );
+
+			return false;
 		} );
 
 	} );
