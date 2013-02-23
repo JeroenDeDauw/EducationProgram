@@ -300,6 +300,13 @@ $specialPageAliases['zh-hans'] = array(
 	'Courses' => array( '课程' ),
 	'EducationProgram' => array( '教育计划' ),
 	'Enroll' => array( '入学' ),
+	'Disenroll' => array( '除名' ),
+	'CampusAmbassadors' => array( '校园大使' ),
+	'OnlineAmbassadors' => array( '在线大使' ),
+	'OnlineAmbassadorProfile' => array( '在线大使个人资料' ),
+	'CampusAmbassadorProfile' => array( '校园大使个人资料' ),
+	'StudentActivity' => array( '学生活动' ),
+	'Articles' => array( '文章' ),
 );
 
 /** Traditional Chinese (中文（繁體）‎) */
