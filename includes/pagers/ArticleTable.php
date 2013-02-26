@@ -255,7 +255,7 @@ class ArticleTable extends EPPager {
 						'data-token' => $this->getUser()->getEditToken( $this->articleConds['course_id'] . 'remstudent' . $userId ),
 						'class' => 'ep-rem-student',
 					),
-					$this->msg( 'ep-artciles-remstudent' )->text()
+					$this->msg( 'ep-articles-remstudent' )->text()
 				) )
 			);
 		}
@@ -331,7 +331,7 @@ class ArticleTable extends EPPager {
 				$html .= ' (' . Html::element(
 					'a',
 					$attr,
-					$this->msg( 'ep-artciles-remarticle' )->text()
+					$this->msg( 'ep-articles-remarticle' )->text()
 				) . ')';
 			}
 		}
@@ -380,7 +380,7 @@ class ArticleTable extends EPPager {
 						'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 						'class' => 'ep-rem-reviewer',
 					),
-					$this->msg( 'ep-artciles-remreviewer' )->text()
+					$this->msg( 'ep-articles-remreviewer' )->text()
 				) )
 			);
 		}
@@ -397,7 +397,7 @@ class ArticleTable extends EPPager {
 					'data-student-name' => $article->getUser()->getName(),
 					'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 				),
-				$this->msg( 'ep-artciles-remreviewer-self' )->text()
+				$this->msg( 'ep-articles-remreviewer-self' )->text()
 			);
 		}
 		else {
@@ -437,14 +437,14 @@ class ArticleTable extends EPPager {
 		);
 
 		$html .=  Xml::inputLabel(
-			$this->msg( 'ep-artciles-addarticle-text' )->text(),
+			$this->msg( 'ep-articles-addarticle-text' )->text(),
 			'addarticlename',
 			'addarticlename'
 		);
 
 		$html .= '&#160;' . Html::input(
 			'addarticle',
-			$this->msg( 'ep-artciles-addarticle-button' )->text(),
+			$this->msg( 'ep-articles-addarticle-button' )->text(),
 			'submit',
 			array(
 				'class' => 'ep-addarticle',
@@ -479,7 +479,7 @@ class ArticleTable extends EPPager {
 				'data-user-name' => $article->getUser()->getName(),
 				'data-token' => $this->getUser()->getEditToken( 'addreviewer' . $article->getId() ),
 			),
-			$this->msg( 'ep-artciles-becomereviewer' )->text()
+			$this->msg( 'ep-articles-becomereviewer' )->text()
 		);
 
 		return '<td>' . $html . '</td>';
