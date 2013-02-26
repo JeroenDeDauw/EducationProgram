@@ -26,7 +26,7 @@ class ArticleTable extends EPPager {
 	protected $articles = array();
 
 	/**
-	 * Adittion conditions the articles need to match.
+	 * Addition conditions the articles need to match.
 	 * By default all articles for the users are obtained,
 	 *
 	 * @var array
@@ -138,7 +138,7 @@ class ArticleTable extends EPPager {
 
 		$html = Html::openElement( 'tr', $this->getRowAttrs( $row ) );
 
-		$showArticleAdittion =
+		$showArticleAddition =
 			$user->getId() === $student->getField( 'user_id' )
 			&& array_key_exists( 'course_id', $this->articleConds )
 			&& is_integer( $this->articleConds['course_id'] );
@@ -147,7 +147,7 @@ class ArticleTable extends EPPager {
 			$html .= $this->getUserCell( $student->getField( 'user_id' ), max( 1, $rowCount ) );
 		}
 
-		$this->addNonStudentHTML( $html, $articles, $showArticleAdittion );
+		$this->addNonStudentHTML( $html, $articles, $showArticleAddition );
 
 		$html .= '</tr>';
 
@@ -201,7 +201,7 @@ class ArticleTable extends EPPager {
 					$html .= '</tr><tr>';
 				}
 
-				$html .= $this->getReviewerAdittionControl( $article );
+				$html .= $this->getReviewerAdditionControl( $article );
 			}
 			elseif ( count( $reviewers ) === 0 ) {
 				$html .= '<td></td>';
@@ -468,7 +468,7 @@ class ArticleTable extends EPPager {
 	 *
 	 * @return string
 	 */
-	protected function getReviewerAdittionControl( EPArticle $article ) {
+	protected function getReviewerAdditionControl( EPArticle $article ) {
 		$html = Html::element(
 			'button',
 			array(
