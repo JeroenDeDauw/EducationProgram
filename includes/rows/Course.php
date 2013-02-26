@@ -203,7 +203,7 @@ class Course extends PageObject {
 				$conds = array( 'id' => array( $originalCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
 				Orgs::singleton()->updateSummaryFields( null, $conds );
 			}
-			else if ( !empty( $changedSummaries ) ) {
+			elseif ( !empty( $changedSummaries ) ) {
 				Orgs::singleton()->updateSummaryFields( $changedSummaries, array( 'id' => $originalCourse->getField( 'org_id' ) ) );
 			}
 		}

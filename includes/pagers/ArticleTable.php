@@ -204,7 +204,7 @@ class ArticleTable extends EPPager {
 
 				$html .= $this->getReviewerAdittionControl( $article );
 			}
-			else if ( count( $reviewers ) === 0 ) {
+			elseif ( count( $reviewers ) === 0 ) {
 				$html .= '<td></td>';
 			}
 		}
