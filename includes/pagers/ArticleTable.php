@@ -130,7 +130,10 @@ class ArticleTable extends EPPager {
 		$user = $this->getUser();
 
 		$rowCount = array_reduce( $articles, function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
-			return $sum + max( count( $article->getField( 'reviewers' ) ), 1 );
+			if ( $article->canBecomeReviewer( $user ) ) {
+				$sum++;
+			}
+			return $sum + count( $article->getField( 'reviewers' ) );
 		}, 0 );
 
 		$html = Html::openElement( 'tr', $this->getRowAttrs( $row ) );
@@ -139,10 +142,6 @@ class ArticleTable extends EPPager {
 			$user->getId() === $student->getField( 'user_id' )
 			&& array_key_exists( 'course_id', $this->articleConds )
 			&& is_integer( $this->articleConds['course_id'] );
-
-		if ( $showArticleAdittion ) {
-			$rowCount++;
-		}
 
 		if ( $this->showStudents ) {
 			$html .= $this->getUserCell( $student->getField( 'user_id' ), max( 1, $rowCount ) );
@@ -422,8 +421,6 @@ class ArticleTable extends EPPager {
 	 * @return string
 	 */
 	protected function getArticleAdditionControl( $courseId ) {
-		$html = '';
-
 		$courseTitle = Courses::singleton()->selectFieldsRow( 'title', array( 'id' => $courseId ) );
 		$query = array( 'action' => 'epaddarticle' );
 
@@ -431,7 +428,7 @@ class ArticleTable extends EPPager {
 			$query['returnto'] = $this->getTitle()->getFullText();
 		}
 
-		$html .= Html::openElement(
+		$html = Html::openElement(
 			'form',
 			array(
 				'method' => 'post',
