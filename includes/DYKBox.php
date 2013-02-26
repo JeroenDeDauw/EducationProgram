@@ -159,6 +159,9 @@ class DYKBox extends \ContextSource {
 		global $wgContLang;
 
 		$dbr = wfGetDB( DB_SLAVE );
+
+		$randomFunction = $dbr->getType() === 'sqlite' ? 'RANDOM()' : 'RAND()';
+
 		$res = $dbr->selectRow(
 			array( 'page', 'categorylinks' ),
 			array( 'page_namespace', 'page_title' ),
@@ -167,7 +170,7 @@ class DYKBox extends \ContextSource {
 				'cl_to' => Title::newFromText( $categoryName, NS_CATEGORY )->getDBkey()
 			),
 			__METHOD__,
-			array( 'ORDER BY' => 'RAND()' )
+			array( 'ORDER BY' => $randomFunction )
 		);
 
 		if ( $res !== false ) {
