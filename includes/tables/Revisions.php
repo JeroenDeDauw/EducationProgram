@@ -38,7 +38,7 @@ class Revisions extends \ORMTable {
 	 * @return string
 	 */
 	public function getRowClass() {
-		return 'EducationProgram\Revision';
+		return 'EducationProgram\EPRevision';
 	}
 
 	/**

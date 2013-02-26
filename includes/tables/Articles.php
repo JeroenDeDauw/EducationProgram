@@ -38,7 +38,7 @@ class Articles extends \ORMTable {
 	 * @return string
 	 */
 	public function getRowClass() {
-		return 'EducationProgram\Article';
+		return 'EducationProgram\EPArticle';
 	}
 
 	/**
