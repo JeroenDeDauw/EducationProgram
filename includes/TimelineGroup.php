@@ -62,7 +62,7 @@ abstract class TimelineGroup extends \ContextSource {
 			'edit-' . NS_USER_TALK => '\EducationProgram\EditGroup',
 		);
 
-		$class = array_key_exists( $type, $typeMap ) ? $typeMap[$type] : 'UnknownGroup';
+		$class = array_key_exists( $type, $typeMap ) ? $typeMap[$type] : '\EducationProgram\UnknownGroup';
 
 		return new $class( $events, $context );
 	}
