@@ -21439,6 +21439,7 @@ $messages['uk'] = array(
 	'ep-move-error' => 'Ви не можете переміщати статті в або з освітнього простору імен.',
 	'ep-student-view-profile' => 'профіль студента',
 	'ep-err-failed-to-save' => 'Щось пішло не так — Ваші зміни не збережено.',
+	'ep-didyouknow-header' => 'Чи знаєте Ви…?',
 	'ep-tab-view' => 'Читати',
 	'ep-tab-edit' => 'Редагувати',
 	'ep-tab-create' => 'Створити',
