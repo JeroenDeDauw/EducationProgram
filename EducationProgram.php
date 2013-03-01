@@ -84,6 +84,8 @@ $wgAutoloadClasses['EducationProgram\ApiDeleteEducation'] 			= $dir . '/includes
 $wgAutoloadClasses['EducationProgram\ApiEnlist'] 					= $dir . '/includes/api/ApiEnlist.php';
 $wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/includes/api/ApiRefreshEducation.php';
 
+$wgAutoloadClasses['EducationProgram\Events\EditEventCreator'] 		= $dir . '/includes/Events/EditEventCreator.php';
+
 // includes/pagers (implementing Pager)
 $wgAutoloadClasses['EducationProgram\ArticlePager'] 				= $dir . '/includes/pagers/ArticlePager.php';
 $wgAutoloadClasses['EducationProgram\ArticleTable'] 				= $dir . '/includes/pagers/ArticleTable.php';
