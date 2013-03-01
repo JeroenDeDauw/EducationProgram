@@ -846,10 +846,10 @@ $messages['qqq'] = array(
 {{Identical|Summary}}',
 	'ep-toplink' => 'Text of a link the the top menu (next to "My preferences")',
 	'ep-org-course-delete-comment' => 'Success message. Parameters:
-* $1 is an institution name,
-$2 is a user provided comment',
+* $1 - an institution name
+* $2 - a user provided comment',
 	'ep-org-course-delete' => 'Success message. Parameters:
-* $1 is an institution name',
+* $1 - an institution name',
 	'ep-form-summary' => 'Summary input label.
 {{Identical|Summary}}',
 	'ep-form-minor' => 'Minor edit checkbox label',
@@ -914,59 +914,71 @@ $2 is a user provided comment',
 	'logentry-course-remove' => '{{logentry}}',
 	'logentry-course-update' => '{{logentry}}',
 	'logentry-course-undelete' => '{{logentry}}',
-	'logentry-instructor-add' => '{{logentry}} Additional parameters:
-* $4 is the amount of added people,
-* $5 is a list of added people',
-	'logentry-instructor-remove' => '{{logentry}} Additional parameters:
-* $4 is the amount of added people,
-* $5 is a list of removed people',
+	'logentry-instructor-add' => '{{logentry}}
+Additional parameters:
+* $4 - the amount of added people
+* $5 - a list of added people',
+	'logentry-instructor-remove' => '{{logentry}}
+Additional parameters:
+* $4 - the amount of added people
+* $5 - a list of removed people',
 	'logentry-instructor-selfadd' => '{{logentry}}',
 	'logentry-instructor-selfremove' => '{{logentry}}',
-	'logentry-online-add' => '{{logentry}} Additional parameters:
-* $4 is the amount of added people,
-* $5 is a list of added people',
-	'logentry-online-remove' => '{{logentry}} Additional parameters:
-* $4 is the amount of added people,
-* $5 is a list of removed people',
+	'logentry-online-add' => '{{logentry}}
+Additional parameters:
+* $4 - the amount of added people
+* $5 - a list of added people',
+	'logentry-online-remove' => '{{logentry}}
+Additional parameters:
+* $4 - the amount of added people
+* $5 - a list of removed people',
 	'logentry-online-selfadd' => '{{logentry}}',
 	'logentry-online-selfremove' => '{{logentry}}',
 	'logentry-online-profilesave' => '{{logentry}}',
-	'logentry-campus-add' => '{{logentry}} Additional parameters:
-* $4 is the amount of added people,
-* $5 is a list of added people',
-	'logentry-campus-remove' => '{{logentry}} Additional parameters:
-* $4 is the amount of added people,
-* $5 is a list of removed people',
+	'logentry-campus-add' => '{{logentry}}
+Additional parameters:
+* $4 - the amount of added people
+* $5 - a list of added people',
+	'logentry-campus-remove' => '{{logentry}}
+Additional parameters:
+* $4 - the amount of added people
+* $5 - a list of removed people',
 	'logentry-campus-selfadd' => '{{logentry}}',
 	'logentry-campus-selfremove' => '{{logentry}}',
 	'logentry-campus-profilesave' => '{{logentry}}',
 	'logentry-student-add' => '{{logentry}}',
-	'logentry-student-remove' => '{{logentry}} Additional parameters:
-* $4 is the number of added people,
-* $5 is a list of removed people',
+	'logentry-student-remove' => '{{logentry}}
+Additional parameters:
+* $4 - the number of added people
+* $5 - a list of removed people',
 	'logentry-student-selfadd' => '{{logentry}}',
 	'logentry-student-selfremove' => '{{logentry}}',
 	'logentry-eparticle-selfadd' => '{{logentry}}
 Additional parameters:
-* $4 is the course',
-	'logentry-eparticle-selfremove' => '{{logentry}} Additional parameters:
-* $4 is the course',
-	'logentry-eparticle-add' => '{{logentry}} Additional parameters:
-* $4 is the course,
-* $5 is the user that owns the page (link),
-* $6 is the name of this user',
-	'logentry-eparticle-remove' => '{{logentry}} Additional parameters:
-* $4 is the course,
-* $5 is the user that own the article (link),
-* $6 is the name of this user',
-	'logentry-eparticle-review' => '{{logentry}} Additional parameters:
-* $4 is the course,
-* $5 is the user that own the article (link),
-* $6 is the name of this user',
-	'logentry-eparticle-unreview' => '{{logentry}} Additional parameters:
-* $4 is the course,
-* $5 is the user that own the article (link),
-* $6 is the name of this user',
+* $4 - the course',
+	'logentry-eparticle-selfremove' => '{{logentry}}
+Additional parameters:
+* $4 - the course',
+	'logentry-eparticle-add' => '{{logentry}}
+Additional parameters:
+* $4 - the course,
+* $5 - the user that owns the page (link),
+* $6 - the name of this user',
+	'logentry-eparticle-remove' => '{{logentry}}
+Additional parameters:
+* $4 - the course,
+* $5 - the user that own the article (link),
+* $6 - the name of this user',
+	'logentry-eparticle-review' => '{{logentry}}
+Additional parameters:
+* $4 - the course,
+* $5 - the user that own the article (link),
+* $6 - the name of this user',
+	'logentry-eparticle-unreview' => '{{logentry}}
+Additional parameters:
+* $4 - the course,
+* $5 - the user that own the article (link),
+* $6 - the name of this user',
 	'prefs-education' => 'Preferences tab label',
 	'ep-prefs-showtoplink' => 'Preference checkbox label',
 	'ep-prefs-bulkdelorgs' => 'Preference checkbox label',
@@ -1178,9 +1190,9 @@ Additional parameters:
 * $1 is the name of the user.',
 	'ep-articletable-addreviwer-cancel' => 'Cancel button text',
 	'ep-articletable-addreviwer-text' => "Message explaining what the user is about to do in a confirmation dialog. Parameters:
-* $1 is the user's username.
-* $2 is an article.
-* $3 is another user.
+* $1 - the user's username
+* $2 - an article
+* $3 - another user
 As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-articletable-remreviwer-title' => 'Dialog title. Parameters:
 * $1 is the name of the user',
@@ -1192,9 +1204,9 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 * $1 is the name of the user.',
 	'ep-articletable-remreviwer-cancel' => 'Cancel button text',
 	'ep-articletable-remreviwer-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
-* $1 is user name.
-* $2 is an article.
-* $3 is another user.',
+* $1 - user name
+* $2 - an article
+* $3 - another user',
 	'ep-articletable-remreviwer-text' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
 * $1 is user name.
 * $2 is an article.
@@ -1388,8 +1400,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'coursepage-delete-delete-button' => 'Delete button text.',
 	'coursepage-delete-none' => 'Shown when trying to delete a non-existing course. Parameters:
 * $1 is a course title.',
-	'coursepage-delete-deleted' => 'Shown after successfull deleteion of a course at the top of the page in a success box. Parameters:
-* $1 is a course title.',
+	'coursepage-delete-deleted' => 'Shown after successful deletion of a course at the top of the page in a success box. Parameters:
+* $1 - a course title',
 	'coursepage-delete-delete-failed' => 'Shown after failed deletion of a course at the top of the page in an error box. Parameters:
 * $1 is a course title.
 * $2 is the title of the page on which the course resides (without namespace)',
@@ -1416,9 +1428,9 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'orgpage-eprestore-restore-button' => 'Submission button text.',
 	'orgpage-eprestore-cancel-button' => 'Cancel button text.',
 	'orgpage-eprestore-summary-value' => 'Default value for the summary. Parameters:
-* $1 is a date,
-* $2 is a user name,
-* $3 is a time.',
+* $1 - a date
+* $2 - a user name
+* $3 - a time',
 	'orgpage-eprestore-restored' => 'Success message, shown at top of page in success box. Parameters:
 * $1 is an institution name.',
 	'orgpage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. Parameters:
@@ -1431,9 +1443,9 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'coursepage-eprestore-restore-button' => 'Submission button text.',
 	'coursepage-eprestore-cancel-button' => 'Cancel button text.',
 	'coursepage-eprestore-summary-value' => 'Default value for the summary. Parameters:
-* $1 is a date,
-* $2 is a user name,
-* $3 is a time.',
+* $1 - a date
+* $2 - a user name
+* $3 - a time',
 	'coursepage-eprestore-restored' => 'Success message, shown at top of page in success box. Parameters:
 * $1 is a course name.',
 	'coursepage-eprestore-restore-failed' => 'Fail message, shown at top of page in an error box. Parameters:
@@ -1446,9 +1458,9 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'orgpage-epundo-undo-button' => 'Submission button text.',
 	'orgpage-epundo-cancel-button' => 'Cancel button text.',
 	'orgpage-epundo-summary-value' => 'Default value for the summary. Parameters:
-* $1 is a date,
-* $2 is a user name,
-* $3 is a time.',
+* $1 - a date
+* $2 - a user name
+* $3 - a time',
 	'orgpage-epundo-undid' => 'Success message, shown at top of page in success box. Parameters:
 * $1 is an institution name.',
 	'orgpage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters:
@@ -1461,9 +1473,9 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'coursepage-epundo-undo-button' => 'Submission button text.',
 	'coursepage-epundo-cancel-button' => 'Cancel button text.',
 	'coursepage-epundo-summary-value' => 'Default value for the summary. Parameters:
-* $1 is a date;
-* $2 is a user name;
-* $3 is a time.',
+* $1 - a date
+* $2 - a user name
+* $3 - a time',
 	'coursepage-epundo-undid' => 'Success message, shown at top of page in success box. Parameters:
 * $1 is a course name.',
 	'coursepage-epundo-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters:
@@ -1545,8 +1557,9 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-disenroll-cancel' => 'Cancel button text',
 	'ep-disenroll-fail' => 'Error message shown in error box at top of page',
 	'ep-disenroll-success' => 'Success message shown in success box at top of page',
-	'ep-disenroll-returntolink' => 'Return to text with link. $1 is course name.
-$2 is the title (without namespace) of the page on which the course resides.',
+	'ep-disenroll-returntolink' => 'Return to text with link. Parameters:
+* $1 - course name
+* $2 - the title (without namespace) of the page on which the course resides',
 	'ep-mycourses-enrolled' => 'Success message shown after enrollment in success box at top of page. $1 is course name, $2 is institution name',
 	'ep-mycourses-not-enrolled' => 'Shown when the user goes to their courses page while not enrolled in any',
 	'ep-mycourses-no-such-course' => 'Shown when the stutent tries to view their enrollment for course with name $1 while they are not enrolled in it.',
@@ -1559,8 +1572,8 @@ $2 is the title (without namespace) of the page on which the course resides.',
 * $1 is the number of courses.
 * $2 is the name of the user',
 	'ep-mycourses-courses-epinstructor' => 'h2 section header. Parameters:
-* $1 is the number of courses.
-* $2 is the name of the user.',
+* $1 - the number of courses
+* $2 - the name of the user',
 	'ep-mycourses-courses-epstudent' => 'h2 section header. Parameters:
 * $1 is the number of courses.
 * $2 is the name of the user',
@@ -1571,11 +1584,11 @@ $2 is the title (without namespace) of the page on which the course resides.',
 	'ep-mycourses-nocourses-epinstructor' => 'Shown instead of a list if there are no courses for this user. Parameters:
 * $1 is the user name.',
 	'ep-mycourses-enrolledin' => 'Parameters:
-* $1 is a course name.
-* $2 is an institution name.',
+* $1 - a course name
+* $2 - an institution name',
 	'ep-mycourses-course-org-links' => 'Parameters:
-* $1 is a course name.
-* $2 is an institution name.',
+* $1 - a course name
+* $2 - an institution name',
 	'ep-mycourses-articletable' => 'Message shown above a list of articles.',
 	'ep-instructor-remove-title' => 'Dialog title',
 	'ep-instructor-remove-button' => 'Remove button text',
@@ -1586,22 +1599,22 @@ $2 is the title (without namespace) of the page on which the course resides.',
 	'ep-instructor-remove-failed' => 'Error message',
 	'ep-instructor-cancel-button' => 'Cancel button text',
 	'ep-instructor-remove-text' => 'Notifies the user of what they are about to do. Parameters:
-* $1 is an name of an affected user,
-* $2 is the real name of this user,
-* $3 is a course name.',
+* $1 - an name of an affected user
+* $2 - the real name of this user
+* $3 - a course name',
 	'ep-instructor-adding' => 'Add button text while addition is in progress.',
 	'ep-instructor-addittion-success' => 'Sucess message. Parameters:
-* $1 is affected user name,
-* $2 is a course name.',
+* $1 - affected user name
+* $2 - a course name',
 	'ep-instructor-addittion-self-success' => 'Sucess message. Parameters:
-* $1 is affected user name,
-* $2 is a course name.',
+* $1 - affected user name
+* $2 - a course name',
 	'ep-instructor-addittion-null' => 'Error message. Parameters:
-* $1 is the (not) affected user name,
-* $2 is a course name.',
+* $1 - the (not) affected user name
+* $2 - a course name',
 	'ep-instructor-addittion-invalid-user' => 'Error message. Parameters:
-* $1 is the (not) affected user name,
-* $2 is course name.
+* $1 - the (not) affected user name
+* $2 - course name
 $1 is unknown, so unknown is the [[gender]].',
 	'ep-instructor-add-close-button' => 'Close button text.',
 	'ep-instructor-add-retry' => 'Retry button text.',
@@ -1615,8 +1628,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-instructor-add-text' => 'Notifies the user of what they are doing. Parameters:
 * $1 is a course name.',
 	'ep-instructor-add-self-text' => "Notifies the user of what they are doing. Parameters:
-* $1 is a course name.
-* $2 is the current user's name.",
+* $1 - a course name
+* $2 - the current user's name",
 	'ep-instructor-add-cancel-button' => 'Cancel button text.',
 	'ep-instructor-summary-input' => 'Text input label.
 {{Identical|Summary}}',
@@ -1631,22 +1644,22 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-online-remove-failed' => 'Error message.',
 	'ep-online-cancel-button' => 'Cancel button text.',
 	'ep-online-remove-text' => 'Notifies the user of what they are about to do. Parameters:
-* $1 is name of affected user,
-* $2 is real the name of this user,
-* $3 is a course name.',
+* $1 - name of affected user
+* $2 - real the name of this user
+* $3 - a course name',
 	'ep-online-adding' => 'Add button text while addition is in progress.',
 	'ep-online-addittion-success' => 'Success message. Parameters:
-* $1 is affected user name,
-* $2 is a course name.',
+* $1 - affected user name
+* $2 - a course name',
 	'ep-online-addittion-self-success' => "Success message. Parameters:
-* $1 is the affected user's name,
-* $2 is a course name.",
+* $1 - the affected user's name
+* $2 - a course name",
 	'ep-online-addittion-null' => "Error message. Parameters:
-* $1 is the (not) affected user's name,
-* $2 is a course name.",
+* $1 - the (not) affected user's name
+* $2 - a course name",
 	'ep-online-addittion-invalid-user' => "Error message. Parameters:
-* $1 is the (not) affected user's name,
-* $2 is a course name.",
+* $1 - the (not) affected user's name
+* $2 - a course name",
 	'ep-online-add-close-button' => 'Close button text.',
 	'ep-online-add-retry' => 'Retry button text.',
 	'ep-online-addittion-failed' => 'Error message.',
@@ -1659,8 +1672,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-online-add-text' => 'Notifies the user of what they are doing. Parameters:
 * $1 is a course name.',
 	'ep-online-add-self-text' => "Notifies the user of what they are doing. Parameters:
-* $1 is a course name,
-* $2 is the affected user's name.",
+* $1 - a course name
+* $2 - the affected user's name",
 	'ep-online-add-cancel-button' => 'Cancel button text.',
 	'ep-online-summary-input' => 'Text input label.
 {{Identical|Summary}}',
@@ -1675,22 +1688,22 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-campus-remove-failed' => 'Error message.',
 	'ep-campus-cancel-button' => 'Cancel button text.',
 	'ep-campus-remove-text' => 'Notifies the user of what they are about to do. Parameters:
-* $1 is name of affected user,
-* $2 is real name of this user,
-* $3 is course name.',
+* $1 - name of affected user
+* $2 - real name of this user
+* $3 - course name',
 	'ep-campus-adding' => 'Add button text while addition is in progress.',
 	'ep-campus-addittion-success' => "Success message. Parameters:
-* $1 is the affected user's name
-* $2 is a course name.",
+* $1 - the affected user's name
+* $2 - a course name",
 	'ep-campus-addittion-self-success' => "Success message. Parameters:
-* $1 is the affected user's name
-* $2 is a course name.",
+* $1 - the affected user's name
+* $2 - a course name",
 	'ep-campus-addittion-null' => "Error message. Parameters:
-* $1 is the (not) affected user's name
-* $2 is a course name.",
+* $1 - the (not) affected user's name
+* $2 - a course name",
 	'ep-campus-addittion-invalid-user' => "Error message. Parameters:
-* $1 is the (not) affected user's name
-* $2 is a course name.",
+* $1 - the (not) affected user's name
+* $2 - a course name",
 	'ep-campus-add-close-button' => 'Close button text.',
 	'ep-campus-add-retry' => 'Retry button text.',
 	'ep-campus-addittion-failed' => 'Error message.',
@@ -1703,8 +1716,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-campus-add-text' => 'Notifies the user of what they are doing. Parameters:
 * $1 is a course name.',
 	'ep-campus-add-self-text' => "Notifies the user of what they are doing. Parameters:
-* $1 is a course name,
-* $2 is the affected user's name.",
+* $1 - a course name
+* $2 - the affected user's name",
 	'ep-campus-add-cancel-button' => 'Cancel button text.',
 	'ep-campus-summary-input' => 'Text input label.
 {{Identical|Summary}}',
@@ -1741,27 +1754,27 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-studentactivity-noresults' => 'Message shown when there are no students that where recently active. Parameters:
 * $1 is a duration.',
 	'ep-studentactivity-count' => 'Parameters:
-* $1 is a number of students,
-* $2 is a duration message, such as {{msg-mw|Duration-hours}}, {{msg-mw|Duration-days}}, {{msg-mw|Duration-years}}.',
+* $1 - a number of students
+* $2 - a duration message, such as {{msg-mw|Duration-hours}}, {{msg-mw|Duration-days}}, {{msg-mw|Duration-years}}',
 	'ep-diff-old' => 'Table column header.',
 	'ep-diff-new' => 'Table column header.',
 	'ep-timeline-remaining' => 'Shown in "user0, user1, user2 and 42 others". Parameters:
 * $1 is the number of other users.',
 	'ep-timeline-unknown' => 'Split date and time: at $2 and $3.
 Parameters:
-* $1 is a user name,
-* $2 is a time,
-* $3 is a date.',
+* $1 - a user name
+* $2 - a time
+* $3 - a date',
 	'ep-timeline-ago' => 'Parameters:
 * $1 is the duration (ie 42 minutes) in "42 minutes ago"',
 	'ep-timeline-cutoff' => 'Used when a to long text is cut off. Parameters:
 * $1 is the text fragment to display.',
 	'ep-timeline-users-edit-article' => 'Header for a group of events in a timeline. Parameters:
-* $1 is html for a user link of list of user links.
-* $2 is the full name of the edited article.
-* $3 is the name of the article (without namespace).
-* $4 is the number of events in the group.
-* $5 is the number of editors.',
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors',
 	'ep-timeline-users-edit-talk' => '{{Identical|ep-timeline-users-edit-article}}',
 	'ep-timeline-users-edit-user' => '{{Identical|ep-timeline-users-edit-article}}',
 	'ep-timeline-users-edit-usertalk' => '{{Identical|ep-timeline-users-edit-article}}',
