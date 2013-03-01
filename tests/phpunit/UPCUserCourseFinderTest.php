@@ -2,8 +2,11 @@
 
 namespace EducationProgram\Tests;
 
+use EducationProgram\UserCourseFinder;
+use EducationProgram\UPCUserCourseFinder;
+
 /**
- * Runs the Education Program action pages to make sure they do not contain fatal errors.
+ * Unit tests for the EducationProgram\UPCUserCourseFinder class.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +25,7 @@ namespace EducationProgram\Tests;
  *
  * @since 0.3
  *
+ * @file
  * @ingroup EducationProgramTest
  *
  * @group EducationProgram
@@ -30,39 +34,17 @@ namespace EducationProgram\Tests;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ActionsTest extends \MediaWikiTestCase {
-
-	public function actionProvider() {
-		$argLists = array();
-
-		$actions = array(
-			'edit',
-			'view',
-			'purge',
-			'history',
-			'delete',
-		);
-
-		foreach ( $actions as $action ) {
-			$argLists[] = array( $action, new \EducationProgram\OrgPage( \Title::newFromText( 'University of foo' ) ) );
-			$argLists[] = array( $action, new \EducationProgram\CoursePage( \Title::newFromText( 'University of foo/bar baz' ) ) );
-		}
-
-		return $argLists;
-	}
+class UPCUserCourseFinderTest extends UserCourseFinderTest {
 
 	/**
-	 * @dataProvider actionProvider
+	 * @return UserCourseFinder[]
 	 */
-	public function testSpecial( $action, \EducationProgram\EducationPage $page ) {
-		$context = \RequestContext::getMain();
-		$context->setUser( new MockSuperUser() );
-		$context->setTitle( $page->getTitle() );
+	public function getInstances() {
+		$instances = array();
 
-		$action = \Action::factory( $action, $page, $context );
-		$action->show();
+		$instances[] = new UPCUserCourseFinder( wfGetDB( DB_SLAVE ) );
 
-		$this->assertTrue( true, 'Action was run without errors' );
+		return $instances;
 	}
 
 }

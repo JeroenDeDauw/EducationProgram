@@ -1,6 +1,6 @@
 <?php
 
-namespace EducationProgram\Test;
+namespace EducationProgram\Tests;
 use EducationProgram\Utils;
 
 /**

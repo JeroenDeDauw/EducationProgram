@@ -1,7 +1,13 @@
 <?php
 
 namespace EducationProgram;
-use DatabaseUpdater, Title, User, SkinTemplate, Revision;
+
+use DatabaseUpdater;
+use Title;
+use User;
+use SkinTemplate;
+use Revision;
+use Page;
 
 /**
  * Static class for hooks handled by the Education Program extension.
@@ -70,6 +76,7 @@ final class Hooks {
 			'Settings',
 			'Specials',
 			'Timeline',
+			'UPCUserCourseFinder',
 			'Utils',
 
 			'Events/EditEventCreator',
@@ -421,20 +428,21 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param EPArticle $article
+	 * @param Page $article
 	 * @param Revision $rev
 	 * @param integer $baseID
 	 * @param User $user
 	 *
 	 * @return bool
 	 */
-	public static function onNewRevisionFromEditComplete( $article, Revision $rev, $baseID, User $user ) {
+	public static function onNewRevisionFromEditComplete( Page $article, Revision $rev, $baseID, User $user ) {
 		wfProfileIn( __METHOD__ );
 
-		$eventCreator = new \EducationProgram\Events\EditEventCreator();
-		$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
-
 		$dbw = wfGetDB( DB_MASTER );
+
+		$userCourseFinder = new UPCUserCourseFinder( $dbw );
+		$eventCreator = new \EducationProgram\Events\EditEventCreator( $dbw, $userCourseFinder );
+		$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
 
 		$startOwnStransaction = $dbw->trxLevel() === 0;
 

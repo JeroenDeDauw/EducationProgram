@@ -5,16 +5,17 @@ namespace EducationProgram\Events;
 use EducationProgram\Event;
 use EducationProgram\Courses;
 use EducationProgram\Student;
+use EducationProgram\UserCourseFinder;
 
 use Revision;
 use User;
 use Page;
+use DatabaseBase;
 
 /**
  * Class that generates edit based events by handling new edits.
  *
  * TODO: properly inject dependencies
- * - DBConnectionProvider
  * - Profiler
  * - event factory
  *
@@ -44,6 +45,33 @@ use Page;
 class EditEventCreator {
 
 	/**
+	 * @since 0.3
+	 *
+	 * @var DatabaseBase
+	 */
+	private $db;
+
+	/**
+	 * @since 0.3
+	 *
+	 * @var UserCourseFinder
+	 */
+	private $userCourseFinder;
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.3
+	 *
+	 * @param DatabaseBase $db
+	 * @param UserCourseFinder $userCourseFinder
+	 */
+	public function __construct( DatabaseBase $db, UserCourseFinder $userCourseFinder ) {
+		$this->db = $db;
+		$this->userCourseFinder = $userCourseFinder;
+	}
+
+	/**
 	 * Takes the information of a newly created revision and uses this to
 	 * create a list of education program events which is then returned.
 	 *
@@ -70,7 +98,7 @@ class EditEventCreator {
 			return array();
 		}
 
-		$courseIds = $this->getCoursesForUser( $user->getId() );
+		$courseIds = $this->userCourseFinder->getCoursesForUsers( $user->getId(), EP_STUDENT );
 
 		if ( empty( $courseIds ) ) {
 			$events = array();
@@ -84,46 +112,6 @@ class EditEventCreator {
 		wfProfileOut( __METHOD__ );
 
 		return $events;
-	}
-
-	/**
-	 * Returns the ids of the currently active courses the specified
-	 * user is enrolled in.
-	 *
-	 * @since 0.3
-	 *
-	 * @param int $userId
-	 *
-	 * @return int[]
-	 */
-	protected function getCoursesForUser( $userId ) {
-		wfProfileIn( __METHOD__ );
-
-		$conds = array(
-			'upc_user_id' => $userId,
-			'upc_role' => EP_STUDENT,
-		);
-
-		$upcRows = wfGetDB( DB_SLAVE )->select(
-			array( 'ep_users_per_course', 'ep_courses' ),
-			array( 'upc_course_id' ),
-			array_merge( $conds, Courses::getStatusConds( 'current', true ) ),
-			__METHOD__,
-			array( 'DISTINCT' ),
-			array(
-				'ep_courses' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
-			)
-		);
-
-		$courseIds = array();
-
-		foreach ( $upcRows as $upcRow ) {
-			$courseIds[] = (int)$upcRow->upc_course_id;
-		}
-
-		wfProfileOut( __METHOD__ );
-
-		return $courseIds;
 	}
 
 	/**
@@ -174,7 +162,9 @@ class EditEventCreator {
 				'last_active' => wfTimestampNow()
 			) );
 
-			$student->save();
+			if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
+				$student->save();
+			}
 		}
 
 		wfProfileOut( __METHOD__ );

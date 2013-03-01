@@ -4,6 +4,7 @@ namespace EducationProgram\Tests\Events;
 
 use EducationProgram\Events\EditEventCreator;
 use EducationProgram\CoursePage;
+use EducationProgram\Tests\MockSuperUser;
 
 use Page;
 use Revision;
@@ -50,13 +51,13 @@ class EditEventCreatorTest extends \PHPUnit_Framework_TestCase {
 		$argLists[] = array(
 			$mainPage,
 			$mainPage->getRevision(),
-			new User()
+			new MockSuperUser()
 		);
 
 		$argLists[] = array(
 			new CoursePage( Title::newFromText( 'Foo/Bar', EP_NS ) ),
 			$mainPage->getRevision(),
-			new User()
+			new MockSuperUser()
 		);
 
 		return $argLists;
@@ -66,12 +67,30 @@ class EditEventCreatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider getEventsForEditProvider
 	 */
 	public function testGetEventsForEdit( Page $article, Revision $rev, User $user ) {
-		$eventCreator = new EditEventCreator();
+		$eventCreator = new EditEventCreator( wfGetDB( DB_MASTER ), new MockUserCourseFinder() );
 
 		$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
 
 		$this->assertInternalType( 'array', $events );
 		$this->assertContainsOnlyInstancesOf( 'EducationProgram\Event', $events );
+	}
+
+}
+
+class MockUserCourseFinder implements \EducationProgram\UserCourseFinder {
+
+	/**
+	 * @see \EducationProgram\UserCourseFinder::getCoursesForUsers
+	 *
+	 * @since 0.3
+	 *
+	 * @param int|int[] $userIds
+	 * @param int|int[] $roles
+	 *
+	 * @return int[]
+	 */
+	public function getCoursesForUsers( $userIds, $roles = array() ) {
+		return array( 1, 2, 42, 9001 );
 	}
 
 }

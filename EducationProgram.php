@@ -164,9 +164,12 @@ $wgAutoloadClasses['EducationProgram\RoleObject'] 					= $dir . '/includes/RoleO
 $wgAutoloadClasses['EducationProgram\Settings'] 					= $dir . '/includes/Settings.php';
 $wgAutoloadClasses['EducationProgram\Timeline'] 					= $dir . '/includes/Timeline.php';
 $wgAutoloadClasses['EducationProgram\TimelineGroup'] 				= $dir . '/includes/TimelineGroup.php';
-$wgAutoloadClasses['EducationProgram\Utils'] 						= $dir . '/includes/Utils.php';
+$wgAutoloadClasses['EducationProgram\UPCUserCourseFinder'] 			= $dir . '/includes/UPCUserCourseFinder.php';
+$wgAutoloadClasses['EducationProgram\UserCourseFinder'] 			= $dir . '/includes/UserCourseFinder.php';
+$wgAutoloadClasses['EducationProgram\Utils']						= $dir . '/includes/Utils.php';
 
-$wgAutoloadClasses['EducationProgram\Test\MockSuperUser'] 			= $dir . '/tests/phpunit/MockSuperUser.php';
+$wgAutoloadClasses['EducationProgram\Tests\MockSuperUser'] 			= $dir . '/tests/phpunit/MockSuperUser.php';
+$wgAutoloadClasses['EducationProgram\Tests\UserCourseFinderTest'] 	= $dir . '/tests/phpunit/UserCourseFinderTest.php';
 
 // Special pages
 $wgSpecialPages['MyCourses'] 						= 'EducationProgram\SpecialMyCourses';

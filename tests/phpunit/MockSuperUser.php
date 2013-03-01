@@ -1,6 +1,6 @@
 <?php
 
-namespace EducationProgram\Test;
+namespace EducationProgram\Tests;
 
 /**
  * Just call SuperUser when you need to be able to do everything.
