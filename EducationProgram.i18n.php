@@ -1179,7 +1179,8 @@ Additional parameters:
 * $1 is the user name',
 	'ep-articles-remreviewer' => 'Link text, displayed next to a reviewer. Parameters:
 * $1 is reviewer user name',
-	'ep-articles-remarticle' => 'Link text, displayed next to an article',
+	'ep-articles-remarticle' => 'Link text, displayed next to an article.
+{{Identical|Remove article}}',
 	'ep-articles-addarticle-text' => 'Text input label',
 	'ep-articles-addarticle-button' => 'Submit button text',
 	'ep-articles-becomereviewer' => 'Button text. Parameters:
@@ -1222,8 +1223,10 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 * $3 is a link to user $1.
 {{Doc-singularthey}}',
 	'ep-articletable-remarticle-title' => 'Dialog title. Parameters:
-* $1 is the name of the affected article',
-	'ep-articletable-remarticle-button' => 'Remove button text',
+* $1 - the name of the affected article
+{{Identical|Remove article}}',
+	'ep-articletable-remarticle-button' => 'Remove button text.
+{{Identical|Remove article}}',
 	'ep-articletable-remarticle-cancel' => 'Cancel button text',
 	'ep-articletable-remarticle-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
 * $1 is article name,
@@ -13565,6 +13568,7 @@ $messages['lb'] = array(
 	'ep-move-error' => "Dir däerft Artikelen net an d''Formatioun'- Nummräim eran- oder eraus-réckelen.",
 	'ep-student-view-profile' => 'Studenteprofil',
 	'ep-err-failed-to-save' => 'Et ass eppes schif gaang - Äre Ännerunge goufen net gespäichert.',
+	'ep-didyouknow-header' => 'Wosst Dir schonn ...?',
 	'ep-tab-view' => 'Liesen',
 	'ep-tab-edit' => 'Änneren',
 	'ep-tab-create' => 'Uleeën',
@@ -13746,7 +13750,7 @@ $messages['lb'] = array(
 	'ep-course-edit-org' => 'Institutioun',
 	'ep-course-edit-start' => 'Ufanksdatum',
 	'ep-course-edit-end' => 'Schlussdatum',
-	'ep-course-edit-description' => 'Beschreiwung',
+	'ep-course-edit-description' => 'Text vun der Säit',
 	'ep-course-edit-title' => 'Titel vun der Säit',
 	'ep-course-edit-field' => 'Studiegebitt',
 	'ep-course-edit-level' => 'Niveau vum Cours',
@@ -13793,7 +13797,7 @@ $messages['lb'] = array(
 	'coursepage-delete-delete-button' => 'Cours läschen',
 	'coursepage-delete-none' => 'Et gëtt kee Cours mam Numm "$1". Kuckt d\'[[Special:Courses|Lëscht vun de Coursen]].',
 	'coursepage-delete-deleted' => 'De Cours $1 gouf geläscht.',
-	'coursepage-delete-delete-failed' => 'De Cours [[Education Program:$2|$1]] konnt net geläscht ginn.', # Fuzzy
+	'coursepage-delete-delete-failed' => 'De Cours [[Education_Program:$2|$1]] konnt net geläscht ginn.',
 	'orgpage-delete-summary' => 'Grond:',
 	'orgpage-delete-title' => 'Institutioun "$1" läschen',
 	'orgpage-delete-cancel-button' => 'Ofbriechen',
@@ -22582,6 +22586,7 @@ $messages['zh-hans'] = array(
 	'ep-move-error' => '不允许将文章移动出入教育命名空间。',
 	'ep-student-view-profile' => '学生个人资料',
 	'ep-err-failed-to-save' => '问题出现了，您的更改未保存。',
+	'ep-didyouknow-header' => '你知道吗？',
 	'ep-tab-view' => '阅读',
 	'ep-tab-edit' => '编辑',
 	'ep-tab-create' => '创建',
@@ -22802,6 +22807,7 @@ $messages['zh-hans'] = array(
 	'epstudentpager-header-student' => '学生',
 	'epstudentpager-header-articles' => '文章',
 	'epstudentpager-header-reviewers' => '复审员',
+	'ep-articles-remarticle' => '移除条目',
 	'ep-articles-addarticle-text' => '添加一个条目：',
 	'ep-articles-addarticle-button' => '添加条目',
 	'ep-articletable-addreviwer-cancel' => '取消',
