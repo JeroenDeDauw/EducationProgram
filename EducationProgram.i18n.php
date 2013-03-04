@@ -9780,6 +9780,7 @@ Tu pote examinar le [[Special:Students|lista complete de studentes]].',
 
 /** Indonesian (Bahasa Indonesia)
  * @author Farras
+ * @author Kenrick95
  */
 $messages['id'] = array(
 	'educationprogram-desc' => 'Memfasilitasi program pendidikan dengan menambahkan berbagai antarmuka untuk mengelola kursus, insitusi, dan berbagai peran pengguna pendidikan.',
@@ -9983,7 +9984,7 @@ $messages['id'] = array(
 	'eparticlepager-header-user-id' => 'Peserta',
 	'eparticlepager-header-course-id' => 'Kursus',
 	'eparticlepager-header-reviewers' => 'Peninjau',
-	'ep-revision-undo' => 'batalkan',
+	'ep-revision-undo' => 'balikkan',
 	'ep-revision-restore' => 'kembalikan',
 	'eporgpager-header-name' => 'Nama',
 	'eporgpager-header-city' => 'Kota',
@@ -10107,7 +10108,7 @@ Log penghapusannya tersedia di bawah sebagai referensi:",
 	'ep-course-edit-end' => 'Tanggal selesai',
 	'ep-course-edit-token' => 'Token pendaftaran',
 	'ep-course-help-token' => 'Opsional. Ketika diisi, peserta perlu memasukkan token untuk bisa ikut. Ini mencegah non-peserta mendaftar.',
-	'ep-course-edit-description' => 'Deskripsi',
+	'ep-course-edit-description' => 'Deskripsi', # Fuzzy
 	'ep-course-edit-title' => 'Judul halaman',
 	'ep-course-help-title' => 'Judul halaman kursus. Sesuai peraturan, ini adalah nama kursus yang diikuti periode akademiknya dalam kurung.',
 	'ep-course-edit-field' => 'Bidang studi',
