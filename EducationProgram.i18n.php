@@ -1606,10 +1606,10 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 * $2 - the real name of this user
 * $3 - a course name',
 	'ep-instructor-adding' => 'Add button text while addition is in progress.',
-	'ep-instructor-addittion-success' => 'Sucess message. Parameters:
+	'ep-instructor-addittion-success' => 'Success message. Parameters:
 * $1 - affected user name
 * $2 - a course name',
-	'ep-instructor-addittion-self-success' => 'Sucess message. Parameters:
+	'ep-instructor-addittion-self-success' => 'Success message. Parameters:
 * $1 - affected user name
 * $2 - a course name',
 	'ep-instructor-addittion-null' => 'Error message. Parameters:
