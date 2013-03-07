@@ -72,6 +72,8 @@ final class Hooks {
 			'Timeline',
 			'Utils',
 
+			'Events/EditEventCreator',
+
 			'rows/Article',
 
 			'tables/Orgs',
@@ -427,78 +429,29 @@ final class Hooks {
 	 * @return bool
 	 */
 	public static function onNewRevisionFromEditComplete( $article, Revision $rev, $baseID, User $user ) {
-		if ( !$user->isLoggedIn() ) {
-			return true;
-		}
-
 		wfProfileIn( __METHOD__ );
-		$namespace = $article->getTitle()->getNamespace();
 
-		if ( !in_array( $namespace, array( NS_MAIN, NS_TALK, NS_USER, NS_USER_TALK ) ) ) {
-			wfProfileOut( __METHOD__ );
-			return true;
+		$eventCreator = new \EducationProgram\Events\EditEventCreator();
+		$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
+
+		$dbw = wfGetDB( DB_MASTER );
+
+		$startOwnStransaction = $dbw->trxLevel() === 0;
+
+		if ( $startOwnStransaction ) {
+			$dbw->begin();
 		}
 
-		wfProfileIn( __METHOD__ . '-ns' );
-		$conds = array(
-			'upc_user_id' => $user->getId(),
-			'upc_role' => EP_STUDENT,
-		);
+		foreach ( $events as $event ) {
+			$event->save( __METHOD__ );
+		}
 
-		$upc = wfGetDB( DB_SLAVE )->select(
-			array( 'ep_users_per_course', 'ep_courses' ),
-			array( 'upc_course_id' ),
-			array_merge( $conds, Courses::getStatusConds( 'current', true ) ),
-			__METHOD__,
-			array( 'DISTINCT' ),
-			array(
-				'ep_courses' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
-			)
-		);
-
-		$hasCourses = $upc->numRows() !== 0;
-		wfProfileOut( __METHOD__ . '-ns' );
-
-		if ( $hasCourses ) {
-			wfProfileIn( __METHOD__ . '-courses' );
-			if ( !is_null( $rev->getTitle() ) ) {
-				$event = Event::newFromRevision( $rev, $user );
-			}
-
-			$dbw = wfGetDB( DB_MASTER );
-
-			$startOwnStransaction = $dbw->trxLevel() === 0;
-
-			if ( $startOwnStransaction ) {
-				$dbw->begin();
-			}
-
-			if ( !is_null( $rev->getTitle() ) ) {
-				while ( $link = $upc->fetchObject() ) {
-					$eventForCourse = clone $event;
-					$eventForCourse->setField( 'course_id', $link->upc_course_id );
-					$eventForCourse->save();
-				}
-			}
-
-			if ( in_array( $namespace, array( NS_MAIN, NS_TALK ) ) ) {
-				$student = Student::newFromUserId( $user->getId(), true );
-
-				$student->setFields( array(
-					'last_active' => wfTimestampNow()
-				) );
-
-				$student->save();
-			}
-
-			if ( $startOwnStransaction ) {
-				$dbw->commit();
-			}
-
-			wfProfileIn( __METHOD__ . '-courses' );
+		if ( $startOwnStransaction ) {
+			$dbw->commit();
 		}
 
 		wfProfileOut( __METHOD__ );
+
 		return true;
 	}
 
