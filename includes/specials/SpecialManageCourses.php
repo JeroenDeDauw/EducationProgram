@@ -144,8 +144,11 @@ class SpecialManageCourses extends VerySpecialPage {
 		$classNameForMessage = str_replace( 'educationprogram\\', 'ep', strtolower( $class ) );
 
 		if ( !empty( $courses ) ) {
-				// @todo FIXME: Add full text of all used message keys here for grepping
+			// @todo FIXME: Add full text of all used message keys here for grepping
 			//              and transparancy purposes.
+			// Give grep a chance to find the usages:
+			// ep-mycourses-courses-epoa, ep-mycourses-courses-epca,
+			// ep-mycourses-courses-epinstructor, ep-mycourses-courses-epstudent
 			$message = $this->msg( 'ep-mycourses-courses-' . $classNameForMessage )
 				->numParams( count( $courses ) )->params( $this->getUser()->getName() )->text();
 			$this->getOutput()->addElement( 'h2', array(), $message );
@@ -161,6 +164,9 @@ class SpecialManageCourses extends VerySpecialPage {
 			}
 		}
 		elseif ( $isAllowed ) {
+			// Give grep a chance to find the usages:
+			// ep-mycourses-nocourses-epstudent, ep-mycourses-nocourses-epca,
+			// ep-mycourses-nocourses-epoa, ep-mycourses-nocourses-epinstructor
 			$this->getOutput()->addWikiMsg( 'ep-mycourses-nocourses-' . $classNameForMessage, $this->getUser()->getName() );
 		}
 	}

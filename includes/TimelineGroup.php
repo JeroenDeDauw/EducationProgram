@@ -356,6 +356,11 @@ class EditGroup extends TimelineGroup {
 			NS_USER_TALK => 'usertalk',
 		);
 
+		// Give grep a chance to find the usages:
+		// ep-timeline-users-edit-article, ep-timeline-users-edit-talk, ep-timeline-users-edit-user,
+		// ep-timeline-users-edit-usertalk, ep-timeline-users-edit-user-self, ep-timeline-users-edit-usertalk-self,
+		// ep-timeline-users-create-article, ep-timeline-users-create-talk, ep-timeline-users-create-user,
+		// ep-timeline-users-create-usertalk, ep-timeline-users-create-user-self, ep-timeline-users-create-usertalk-self
 		$isNew = array_key_exists( 'parent', $info ) && is_null( $info['parent'] );
 		$messageKey = 'ep-timeline-users-' . ( $isNew ? 'create' : 'edit' ) . '-' . $keys[$type];
 

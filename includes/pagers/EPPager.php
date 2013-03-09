@@ -380,6 +380,9 @@ abstract class EPPager extends \TablePager {
 					break;
 			}
 
+			// Give grep a chance to find the usages:
+			// eporgpager-filter-country, eporgpager-filter-active, epcoursepager-filter-term,
+			// epcoursepager-filter-lang, epcoursepager-filter-org-id, epcoursepager-filter-status
 			$control = '&#160;' . $this->getMsg( 'filter-' . $optionName ) . '&#160;' . $control;
 
 			$controls[] = $control;

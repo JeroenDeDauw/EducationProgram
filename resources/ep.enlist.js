@@ -28,6 +28,8 @@
 				var $remove = $( '#ep-' + role + '-remove-button' ),
 					$cancel = $( '#ep-' + role + '-cancel-button' );
 
+				// Give grep a chance to find the usages:
+				// ep-instructor-removing, ep-online-removing, ep-campus-removing
 				$remove.button( 'option', 'disabled', true );
 				$remove.button( 'option', 'label', ep.msg( 'ep-' + role + '-removing' ) );
 
@@ -37,6 +39,9 @@
 					'reason': summaryInput.val(),
 					'role': role
 				} ).done( function() {
+					// Give grep a chance to find the usages:
+					// ep-instructor-removal-success, ep-online-removal-success, ep-campus-removal-success,
+					// ep-instructor-close-button, ep-online-close-button, ep-campus-close-button
 					$dialog.text( ep.msg( 'ep-' + role + '-removal-success' ) );
 					$remove.remove();
 					$cancel.button( 'option', 'label', ep.msg( 'ep-' + role + '-close-button' ) );
@@ -46,16 +51,23 @@
 						$ul = $li.closest( 'ul' );
 					$li.remove();
 
+					// Give grep a chance to find the usages:
+					// ep-course-no-instructor, ep-course-no-online, ep-course-no-campus
 					if ( $ul.find( 'li' ).length < 1 ) {
 						$ul.closest( 'div' ).text( mw.msg( 'ep-course-no-' + role ) );
 					}
 				} ).fail( function() {
+					// Give grep a chance to find the usages:
+					// ep-instructor-remove-retry, ep-online-remove-retry, ep-campus-remove-retry,
+					// ep-instructor-remove-failed, ep-online-remove-failed, ep-campus-remove-failed
 					$remove.button( 'option', 'disabled', false );
 					$remove.button( 'option', 'label', ep.msg( 'ep-' + role + '-remove-retry' ) );
 					alert( ep.msg( 'ep-' + role + '-remove-failed' ) );
 				} );
 			};
 
+			// Give grep a chance to find the usages:
+			// ep-instructor-summary, ep-online-summary, ep-campus-summary
 			summaryLabel = $( '<label>' ).attr( {
 				'for': 'epenlistsummary'
 			} ).msg( 'ep-' + role + '-summary' ).append( '&#160;' );
@@ -67,6 +79,10 @@
 				'id': 'epenlistsummary'
 			} );
 
+			// Give grep a chance to find the usages:
+			// ep-instructor-remove-title, ep-online-remove-title, ep-campus-remove-title,
+			// ep-instructor-remove-button, ep-online-remove-button, ep-campus-remove-button,
+			// ep-instructor-cancel-button, ep-online-cancel-button, ep-campus-cancel-button
 			$dialog = $( '<div>' ).html( '' ).dialog( {
 				'title': ep.msg( 'ep-' + role + '-remove-title' ),
 				'minWidth': 550,
@@ -86,6 +102,8 @@
 				]
 			} );
 
+			// Give grep a chance to find the usages:
+			// ep-instructor-remove-text, ep-online-remove-text, ep-campus-remove-text
 			$dialog.append( $( '<p>' ).msg(
 				'ep-' + role + '-remove-text',
 				mw.html.escape( userName ),
@@ -145,6 +163,8 @@
 				$cancel = $( '#ep-' + role + '-add-cancel-button' ),
 				enterHandler;
 
+				// Give grep a chance to find the usages:
+				// ep-instructor-adding, ep-online-adding, ep-campus-adding
 				$add.button( 'option', 'disabled', true );
 				$add.button( 'option', 'label', ep.msg( 'ep-' + role + '-adding' ) );
 
@@ -156,6 +176,10 @@
 				} ).done( function( data ) {
 					var	messageKey = null, $ul;
 
+					// Give grep a chance to find the usages:
+					// ep-instructor-addittion-null, ep-online-addittion-null, ep-campus-addittion-null,
+					// ep-instructor-addittion-self-success, ep-online-addittion-self-success, ep-campus-addittion-self-success,
+					// ep-instructor-addittion-success, ep-online-addittion-success, ep-campus-addittion-success
 					if ( data.count === 0 ) {
 						messageKey = 'ep-' + role + '-addittion-null';
 					}
@@ -169,6 +193,8 @@
 						_this.courseName
 					) );
 
+					// Give grep a chance to find the usages:
+					// ep-instructor-add-close-button, ep-online-add-close-button, ep-campus-add-close-button
 					$add.remove();
 					$cancel.button( 'option', 'label', ep.msg( 'ep-' + role + '-add-close-button' ) );
 					$cancel.focus();
@@ -185,9 +211,13 @@
 						$ul.append( $( '<li>' ).text( _this.getName() ) );
 					}
 				} ).fail( function( data ) {
+					// Give grep a chance to find the usages:
+					// ep-instructor-add-retry, ep-online-add-retry, ep-campus-add-retry
 					$add.button( 'option', 'disabled', false );
 					$add.button( 'option', 'label', ep.msg( 'ep-' + role + '-add-retry' ) );
 
+					// Give grep a chance to find the usages:
+					// ep-instructor-addittion-failed, ep-online-addittion-failed, ep-campus-addittion-failed
 					var msgKey = data.error ? 'ep-' + role + '-addittion-' + data.error.code : 'ep-' + role + '-addittion-failed';
 
 					alert( ep.msg(
@@ -198,6 +228,12 @@
 				} );
 			};
 
+			// Give grep a chance to find the usages:
+			// ep-instructor-add-self-title, ep-online-add-self-title, ep-campus-add-self-title,
+			// ep-instructor-add-title, ep-online-add-title, ep-campus-add-title,
+			// ep-instructor-add-self-button, ep-online-add-self-button, ep-campus-add-self-button,
+			// ep-instructor-add-button, ep-online-add-button, ep-campus-add-button,
+			// ep-instructor-add-cancel-button, ep-online-add-cancel-button, ep-campus-add-cancel-button
 			this.$dialog = $( '<div>' ).html( '' ).dialog( {
 				'title': ep.msg( this.selfMode ? 'ep-' + role + '-add-self-title' : 'ep-' + role + '-add-title', this.getName() ),
 				'minWidth': 550,
@@ -220,12 +256,18 @@
 				]
 			} );
 
+			// Give grep a chance to find the usages:
+			// ep-instructor-add-self-text, ep-online-add-self-text, ep-campus-add-self-text,
+			// ep-instructor-add-text, ep-online-add-text, ep-campus-add-text
 			this.$dialog.append( $( '<p>' ).text( gM(
 				this.selfMode ? 'ep-' + role + '-add-self-text' : 'ep-' + role + '-add-text',
 				this.courseName,
 				this.getName()
 			) ) );
 
+			// Give grep a chance to find the usages:
+			// ep-instructor-name-input, ep-online-name-input, ep-campus-name-input,
+			// ep-instructor-summary-input, ep-online-summary-input, ep-campus-summary-input
 			if ( !this.selfMode ) {
 				this.$dialog.append(
 					$( '<label>' ).attr( {

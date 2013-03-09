@@ -130,6 +130,8 @@ class Utils {
 					'data-username' => $user->getName(),
 					'data-bestname' => $role->getName(),
 				),
+				// Give grep a chance to find the usages:
+				// ep-instructor-remove, ep-campus-remove, ep-online-remove
 				$context->msg( 'ep-' . $roleName . '-remove' )->text()
 			);
 

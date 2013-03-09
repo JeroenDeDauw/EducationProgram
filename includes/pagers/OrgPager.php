@@ -120,6 +120,7 @@ class OrgPager extends EPPager {
 			case 'active':
 				// @todo FIXME: Add full text of all used message keys here for grepping
 				//              and transparancy purposes.
+				// Give grep a chance to find the usages: eporgpager-yes, eporgpager-no
 				$value = $this->msg( 'eporgpager-' . ( $value == '1' ? 'yes' : 'no' ) )->escaped();
 				break;
 		}

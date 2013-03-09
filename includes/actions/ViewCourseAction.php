@@ -199,6 +199,8 @@ class ViewCourseAction extends ViewAction {
 		$users = $course->getUserWithRole( $roleName );
 
 		if ( empty( $users ) ) {
+			// Give grep a chance to find the usages:
+			// ep-course-no-instructor, ep-course-no-online, ep-course-no-campus
 			$html = $this->msg( 'ep-course-no-' . $roleName )->escaped();
 		}
 		else {
@@ -243,6 +245,8 @@ class ViewCourseAction extends ViewAction {
 		if ( ( $user->isAllowed( 'ep-' . $roleName ) || $user->isAllowed( 'ep-be' . $roleName ) )
 			&& !in_array( $user->getId(), $course->getField( $field ) )
 		) {
+			// Give grep a chance to find the usages:
+			// ep-course-become-instructor, ep-course-become-online, ep-course-become-campus
 			$links[] = Html::element(
 				'a',
 				array(
@@ -258,6 +262,8 @@ class ViewCourseAction extends ViewAction {
 		}
 
 		if ( $user->isAllowed( 'ep-' . $roleName ) ) {
+			// Give grep a chance to find the usages:
+			// ep-course-add-instructor, ep-course-add-online, ep-course-add-campus
 			$links[] = Html::element(
 				'a',
 				array(

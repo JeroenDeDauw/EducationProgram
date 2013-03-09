@@ -109,6 +109,8 @@ abstract class EditAction extends Action {
 				$object = $this->table->newRow( $data, true );
 			}
 			elseif ( $this->isNewPost() ) {
+				// Give grep a chance to find the usages:
+				// ep-editorg-exists-already, ep-editcourse-exists-already
 				$this->showWarning( $this->msg( 'ep-' . strtolower( $this->getName() ) . '-exists-already' ) );
 			}
 

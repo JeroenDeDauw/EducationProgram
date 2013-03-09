@@ -39,6 +39,8 @@
 				'minWidth': 550,
 				'buttons': [
 					{
+						// Give grep a chance to find the usages:
+						// ep-pager-delete-button-org, ep-pager-delete-button-course
 						'text': ep.msg( 'ep-pager-delete-button-' + args.type, args.ids.length ),
 						'id': 'ep-pager-remove-button',
 						'click': function() {
@@ -48,6 +50,8 @@
 						}
 					},
 					{
+						// Give grep a chance to find the usages:
+						// ep-pager-cancel-button-org, ep-pager-cancel-button-course
 						'text': ep.msg( 'ep-pager-cancel-button-' + args.type ),
 						'id': 'ep-pager-cancel-button',
 						'click': function() {
@@ -64,12 +68,17 @@
 				return '<strong>' + mw.html.escape( name ) + '</strong>';
 			} ).join( ', ' );
 
+			// Give grep a chance to find the usages:
+			// ep-pager-confirm-message-org, ep-pager-confirm-message-course,
+			// ep-pager-confirm-message-org-many, ep-pager-confirm-message-course-many
 			$dialog.msg(
 				'ep-pager-confirm-message-' + args.type + ( args.names.length > 1 ? '-many' : '' ),
 				$( '<span>' ).html( names ),
 				args.names.length
 			);
 
+			// Give grep a chance to find the usages:
+			// ep-pager-confirm-message-org, ep-pager-confirm-message-course
 			summaryLabel = $( '<label>' ).attr( {
 				'for': 'epsummaryinput'
 			} ).msg( 'ep-pager-summary-message-' + args.type ).append( '&#160;' );
@@ -96,6 +105,8 @@
 		};
 
 		onFail = function( type ) {
+			// Give grep a chance to find the usages:
+			// ep-pager-retry-button-org, ep-pager-retry-button-course
 			$remove.button( 'option', 'disabled', false );
 			$remove.button( 'option', 'label', ep.msg( 'ep-pager-retry-button-' + type ) );
 		};

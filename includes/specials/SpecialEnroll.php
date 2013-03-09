@@ -98,6 +98,8 @@ class SpecialEnroll extends VerySpecialPage {
 			else {
 				$this->setPageTitle( $course );
 
+				// Give grep a chance to find the usages:
+				// ep-enroll-course-passed, ep-enroll-course-planned
 				$this->showWarning( $this->msg( 'ep-enroll-course-' . $course->getStatus() ) );
 			}
 		}
