@@ -2770,6 +2770,26 @@ $messages['ca'] = array(
 	'ep-timeline-cutoff' => '$1 ...',
 );
 
+/** Sorani Kurdish (کوردی)
+ * @author Calak
+ */
+$messages['ckb'] = array(
+	'ep-item-summary' => 'کورتە',
+	'ep-form-minor' => 'ئەمە دەستکارییەکی بچووکە',
+	'tooltip-ep-edit-institution' => 'ئەم دامەزراوەیە دەستکاری بکە',
+	'ep-pager-go' => 'بڕۆ',
+	'epstudentpager-yes' => 'بەڵێ',
+	'epstudentpager-no' => 'نا',
+	'epstudentpager-header-articles' => 'وتارەکان',
+	'epcapager-header-photo' => 'وێنە',
+	'educationprogram-org-edit-city' => 'شار',
+	'ep-course-edit-org' => 'دامەزراوە',
+	'ep-institution-title' => 'دامەزراوە: $1',
+	'vieworgaction-summary-name' => 'ناو',
+	'vieworgaction-summary-city' => 'شار',
+	'vieworgaction-summary-country' => 'وڵات',
+);
+
 /** Czech (česky)
  * @author Chmee2
  * @author Jkjk
