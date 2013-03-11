@@ -100,32 +100,29 @@ $messages['en'] = array(
 
 	'logentry-instructor-add' => '$1 {{GENDER:$2|added}} {{PLURAL:$4|instructor|instructors}} $5 to course $3',
 	'logentry-instructor-remove' => '$1 {{GENDER:$2|removed}} {{PLURAL:$4|instructor|instructors}} $5 from course $3',
-	'logentry-instructor-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as {{GENDER:$2|instructor}} to course $3',
-	'logentry-instructor-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as {{GENDER:$2|instructor}} from course $3',
+	'logentry-instructor-selfadd' => '$1 added {{GENDER:$2|himself|herself|themself}} as {{GENDER:$2|instructor}} to course $3',
+	'logentry-instructor-selfremove' => '$1 removed {{GENDER:$2|himself|herself|themself}} as {{GENDER:$2|instructor}} from course $3',
 
 	'logentry-online-add' => '$1 {{GENDER:$2|added}} {{PLURAL:$4|Online volunteer|Online volunteers}} $5 to course $3',
 	'logentry-online-remove' => '$1 {{GENDER:$2|removed}} {{PLURAL:$4|Online volunteer|Online volunteers}} $5 from course $3',
 	'logentry-online-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as {{GENDER:$2|Online volunteer}} to course $3',
 	'logentry-online-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as {{GENDER:$2|Online volunteer}} from course $3',
 	'logentry-online-profilesave' => '$1 updated {{GENDER:$2|his|her}} Online volunteer profile',
-
 	'logentry-campus-add' => '$1 {{GENDER:$2|added}} {{PLURAL:$4|Campus volunteer|Campus volunteers}} $5 to course $3',
 	'logentry-campus-remove' => '$1 {{GENDER:$2|removed}} {{PLURAL:$4|Campus volunteer|Campus volunteers}} $5 from course $3',
 	'logentry-campus-selfadd' => '$1 added {{GENDER:$2|himself|herself}} as {{GENDER:$2|Campus volunteer}} to course $3',
 	'logentry-campus-selfremove' => '$1 removed {{GENDER:$2|himself|herself}} as {{GENDER:$2|Campus volunteer}} from course $3',
 	'logentry-campus-profilesave' => '$1 updated {{GENDER:$2|his|her}} Campus volunteer profile',
-
 	'logentry-student-add' => '$1 {{GENDER:$2|enrolled}} in course $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|removed}} $5 as {{PLURAL:$4|{{GENDER:$5|student}}|students}} from course $3',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|enrolled}} in course $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|disenrolled}} from course $3',
-
-	'logentry-eparticle-selfadd' => '$1 added article $3 to {{GENDER:$2|his|her}} list of articles at course $4',
-	'logentry-eparticle-selfremove' => '$1 removed article $3 from {{GENDER:$2|his|her}} list of articles at course $4',
+	'logentry-eparticle-selfadd' => '$1 added article $3 to {{GENDER:$2|his|her|their}} list of articles at course $4',
+	'logentry-eparticle-selfremove' => '$1 removed article $3 from {{GENDER:$2|his|her|their}} list of articles at course $4',
 	'logentry-eparticle-add' => "$1 {{GENDER:$2|added}} article $3 to {{GENDER:$6|$5}}'s list of articles for course $4",
 	'logentry-eparticle-remove' => "$1 {{GENDER:$2|removed}} article $3 from {{GENDER:$6|$5}}'s list of articles for course $4",
-	'logentry-eparticle-review' => '$1 added {{GENDER:$2|himself|herself}} as reviewer to article $3 {{GENDER:$6|worked upon by}} $5 as part of course $4',
-	'logentry-eparticle-unreview' => '$1 removed {{GENDER:$2|himself|herself}} as reviewer to article $3 {{GENDER:$6|worked upon by}} $5 as part of course $4',
+	'logentry-eparticle-review' => '$1 added {{GENDER:$2|himself|herself|themself}} as reviewer to article $3 {{GENDER:$6|worked upon by}} $5 as part of course $4',
+	'logentry-eparticle-unreview' => '$1 removed {{GENDER:$2|himself|herself|themself}} as reviewer to article $3 {{GENDER:$6|worked upon by}} $5 as part of course $4',
 
 	// Preferences
 	'prefs-education' => 'Education',
