@@ -1,7 +1,15 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, MWException, Html, Linker, Message, User, Title;
+
+use IContextSource;
+use MWException;
+use Html;
+use Linker;
+use Message;
+use User;
+use Title;
+use EducationProgram\Events\Event;
 
 /**
  * Class for displaying a group of Education Program events in a timeline.
@@ -48,9 +56,9 @@ abstract class TimelineGroup extends \ContextSource {
 		 */
 		foreach ( $events as $event ) {
 			if ( is_null( $type ) ) {
-				$type = $event->getField( 'type' );
+				$type = $event->getType();
 			}
-			elseif ( $type !== $event->getField( 'type' ) ) {
+			elseif ( $type !== $event->getType() ) {
 				throw new MWException( 'Got events of different types when trying to build a ' . __CLASS__ );
 			}
 		}
@@ -242,9 +250,9 @@ class UnknownGroup extends TimelineGroup {
 	protected function getSegmentHTML( Event $event ) {
 		return $this->msg(
 			'ep-timeline-unknown',
-			$event->getUser()->getName(),
-			$this->getLanguage()->time( $event->getField( 'time' ) ),
-			$this->getLanguage()->date( $event->getField( 'time' ) )
+			User::newFromId( $event->getUserId() ),
+			$this->getLanguage()->time( $event->getTime() ),
+			$this->getLanguage()->date( $event->getTime() )
 
 		)->escaped();
 	}
@@ -275,8 +283,8 @@ class EditGroup extends TimelineGroup {
 	protected function getSegmentHTML( Event $event ) {
 		$html = '';
 
-		$user = $event->getUser();
-		$info = $event->getField( 'info' );
+		$user = User::newFromId( $event->getUserId() );
+		$info = $event->getInfo();
 
 		$html .= Linker::userLink( $user->getId(), $user->getName() );
 
@@ -323,7 +331,7 @@ class EditGroup extends TimelineGroup {
 		 * @var Event $event
 		 */
 		foreach ( $this->events as $event ) {
-			$userIds[] = $event->getField( 'user_id' );
+			$userIds[] = $event->getUserId();
 		}
 
 		$userIds = array_unique( $userIds );
@@ -345,8 +353,8 @@ class EditGroup extends TimelineGroup {
 			)->escaped();
 		}
 
-		$info = $this->events[0]->getField( 'info' );
-		$type = explode( '-', $this->events[0]->getField( 'type' ) );
+		$info = $this->events[0]->getInfo();
+		$type = explode( '-', $this->events[0]->getType() );
 		$type = (int)array_pop( $type );
 
 		$keys = array(

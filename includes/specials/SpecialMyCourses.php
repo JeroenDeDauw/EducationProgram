@@ -1,7 +1,11 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Linker;
+
+use IContextSource;
+use Linker;
+use EducationProgram\Events\EventQuery;
+use EducationProgram\Events\EventStore;
 
 /**
  * Page listing the recent actibvity of the users classmates.
@@ -177,17 +181,22 @@ class SpecialMyCourses extends VerySpecialPage {
 	protected function displayTimeline( Course $course ) {
 		$this->addCachedHTML(
 			function( Course $course, IContextSource $context ) {
-				$eventTable = Events::singleton();
+				// TODO: inject dependency
+				$eventStore = new \EducationProgram\Events\EventStore( 'ep_events' );
 
-				$conds = array(
-					'course_id' => $course->getId(),
-					'time > ' . wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, time() - Settings::get( 'timelineDurationLimit' ) ) ),
-				);
+				$query = new EventQuery();
 
-				$options = array(
-					'LIMIT' => Settings::get( 'timelineCountLimit' ),
-					'ORDER BY' => $eventTable->getPrefixedField( 'time' ) . ' DESC'
-				);
+				$query->setCourses( $course->getId() );
+
+				// TODO: inject settings
+				$timeLimit = wfTimestamp( TS_MW, time() - Settings::get( 'timelineDurationLimit' ) );
+				$query->setTimeLimit( $timeLimit, EventQuery::COMP_BIGGER );
+
+				$query->setRowLimit( Settings::get( 'timelineCountLimit' ) );
+
+				$query->setSortOrder( EventQuery::ORDER_TIME_DESC );
+
+				$events = $eventStore->query( $query );
 
 				$html = Linker::link(
 					$course->getTitle(),
@@ -197,8 +206,6 @@ class SpecialMyCourses extends VerySpecialPage {
 						$course->getField( 'name' )
 					)
 				);
-
-				$events = iterator_to_array( $eventTable->select( null, $conds, $options ) );
 
 				if ( $events === array() ) {
 					$html .= $context->msg( 'ep-dashboard-timeline-empty' )->escaped();

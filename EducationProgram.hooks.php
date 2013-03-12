@@ -83,6 +83,9 @@ final class Hooks {
 			'Utils',
 
 			'Events/EditEventCreator',
+			'Events/EventQuery',
+			'Events/EventStore',
+			'Events/Event',
 
 			'tables/Orgs',
 		);
@@ -441,18 +444,21 @@ final class Hooks {
 
 		$dbw = wfGetDB( DB_MASTER );
 
+		// TODO: properly inject dependencies
 		$userCourseFinder = new UPCUserCourseFinder( $dbw );
 		$eventCreator = new \EducationProgram\Events\EditEventCreator( $dbw, $userCourseFinder );
 		$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
 
 		$startOwnStransaction = $dbw->trxLevel() === 0;
 
+		$eventStore = new \EducationProgram\Events\EventStore( 'ep_events' );
+
 		if ( $startOwnStransaction ) {
 			$dbw->begin();
 		}
 
 		foreach ( $events as $event ) {
-			$event->save( __METHOD__ );
+			$eventStore->insertEvent( $event );
 		}
 
 		if ( $startOwnStransaction ) {

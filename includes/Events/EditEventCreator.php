@@ -2,7 +2,6 @@
 
 namespace EducationProgram\Events;
 
-use EducationProgram\Event;
 use EducationProgram\Courses;
 use EducationProgram\Student;
 use EducationProgram\UserCourseFinder;
@@ -11,13 +10,15 @@ use Revision;
 use User;
 use Page;
 use DatabaseBase;
+use MWNamespace;
+use Diff;
+use _DiffOp;
 
 /**
  * Class that generates edit based events by handling new edits.
  *
  * TODO: properly inject dependencies
  * - Profiler
- * - event factory
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -119,24 +120,64 @@ class EditEventCreator {
 	 *
 	 * @since 0.3
 	 *
-	 * @param Revision $rev
+	 * @param Revision $revision
 	 * @param User $user
 	 * @param int[] $courseIds
 	 *
 	 * @return Event[]
 	 */
-	protected function createEditEvents( Revision $rev, User $user, array $courseIds ) {
-		if ( is_null( $rev->getTitle() ) ) {
+	protected function createEditEvents( Revision $revision, User $user, array $courseIds ) {
+		if ( is_null( $revision->getTitle() ) ) {
 			return array();
 		}
 
-		$event = Event::newFromRevision( $rev, $user );
 		$events = array();
 
+		$title = $revision->getTitle();
+
+		$info = array(
+			'page' => $title->getFullText(),
+			'comment' => $revision->getComment(),
+			'minoredit' => $revision->isMinor(),
+			'parent' => $revision->getParentId()
+		);
+
+		if ( MWNamespace::isTalk( $title->getNamespace() ) && !is_null( $revision->getParentId() ) ) {
+			$diff = new Diff(
+				explode( "\n", Revision::newFromId( $revision->getParentId() )->getText() ),
+				explode( "\n", $revision->getText() )
+			);
+
+			// Only an order of magnitude more lines then the python equivalent, but oh well... >_>
+			// lines = [ diffOp->closing for diffOp in diff->edits if diffOp->type == 'add' ]
+			$lines = array_map(
+				function( _DiffOp $diffOp ) {
+					return $diffOp->closing;
+				},
+				array_filter(
+					$diff->edits,
+					function( _DiffOp $diffOp ) {
+						return $diffOp->type == 'add';
+					}
+				)
+			);
+
+			if ( $lines !== array() ) {
+				$lines = call_user_func_array( 'array_merge', $lines );
+			}
+
+			$info['addedlines'] = $lines;
+		}
+
 		foreach ( $courseIds as $courseId ) {
-			$eventForCourse = clone $event;
-			$eventForCourse->setField( 'course_id', $courseId );
-			$events[] = $eventForCourse;
+			$events[] = new Event(
+				null,
+				$courseId,
+				$user->getId(),
+				$revision->getTimestamp(),
+				'edit-' . $title->getNamespace(),
+				$info
+			);
 		}
 
 		return $events;

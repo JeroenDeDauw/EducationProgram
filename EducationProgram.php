@@ -85,6 +85,9 @@ $wgAutoloadClasses['EducationProgram\ApiEnlist'] 					= $dir . '/includes/api/Ap
 $wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/includes/api/ApiRefreshEducation.php';
 
 $wgAutoloadClasses['EducationProgram\Events\EditEventCreator'] 		= $dir . '/includes/Events/EditEventCreator.php';
+$wgAutoloadClasses['EducationProgram\Events\Event'] 				= $dir . '/includes/Events/Event.php';
+$wgAutoloadClasses['EducationProgram\Events\EventQuery'] 			= $dir . '/includes/Events/EventQuery.php';
+$wgAutoloadClasses['EducationProgram\Events\EventStore'] 			= $dir . '/includes/Events/EventStore.php';
 
 // includes/pagers (implementing Pager)
 $wgAutoloadClasses['EducationProgram\ArticleTable'] 				= $dir . '/includes/pagers/ArticleTable.php';
@@ -107,7 +110,6 @@ $wgAutoloadClasses['EducationProgram\CA'] 							= $dir . '/includes/rows/CA.php
 $wgAutoloadClasses['EducationProgram\Course'] 						= $dir . '/includes/rows/Course.php';
 $wgAutoloadClasses['EducationProgram\EPArticle'] 					= $dir . '/includes/rows/EPArticle.php';
 $wgAutoloadClasses['EducationProgram\EPRevision'] 					= $dir . '/includes/rows/EPRevision.php';
-$wgAutoloadClasses['EducationProgram\Event'] 						= $dir . '/includes/rows/Event.php';
 $wgAutoloadClasses['EducationProgram\Instructor'] 					= $dir . '/includes/rows/Instructor.php';
 $wgAutoloadClasses['EducationProgram\OA'] 							= $dir . '/includes/rows/OA.php';
 $wgAutoloadClasses['EducationProgram\Org'] 							= $dir . '/includes/rows/Org.php';

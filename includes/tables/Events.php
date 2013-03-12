@@ -38,7 +38,7 @@ class Events extends \ORMTable {
 	 * @return string
 	 */
 	public function getRowClass() {
-		return 'EducationProgram\Event';
+		return 'ORMRow';
 	}
 
 	/**

@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
+
 use IContextSource;
+use EducationProgram\Events\Event;
 
 /**
  * Education Program timeline.
@@ -65,7 +67,7 @@ class Timeline extends \ContextSource {
 		$groups = array();
 
 		foreach ( $this->events as $event ) {
-			$eventInfo = $event->getField( 'info' );
+			$eventInfo = $event->getInfo();
 
 			if ( array_key_exists( 'page', $eventInfo ) ) {
 				$groupId = $eventInfo['page'] . '|';
@@ -74,20 +76,20 @@ class Timeline extends \ContextSource {
 				if ( array_key_exists( $groupId, $groups ) ) {
 					$groups[$groupId]['events'][] = $event;
 
-					if ( $event->getField( 'time' ) > $groups[$groupId]['time'] ) {
-						$groups[$groupId]['time'] = $event->getField( 'time' );
+					if ( $event->getTime() > $groups[$groupId]['time'] ) {
+						$groups[$groupId]['time'] = $event->getTime();
 					}
 				}
 				else {
 					$groups[$groupId] = array(
-						'time' => $event->getField( 'time' ),
+						'time' => $event->getTime(),
 						'events' => array( $event ),
 					);
 				}
 			}
 			else {
 				$groups[] = array(
-					'time' => $event->getField( 'time' ),
+					'time' => $event->getTime(),
 					'events' => array( $event ),
 				);
 			}

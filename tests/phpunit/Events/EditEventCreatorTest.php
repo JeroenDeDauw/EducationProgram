@@ -72,7 +72,7 @@ class EditEventCreatorTest extends \PHPUnit_Framework_TestCase {
 		$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
 
 		$this->assertInternalType( 'array', $events );
-		$this->assertContainsOnlyInstancesOf( 'EducationProgram\Event', $events );
+		$this->assertContainsOnlyInstancesOf( 'EducationProgram\Events\Event', $events );
 	}
 
 }
