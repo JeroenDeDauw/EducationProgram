@@ -57,9 +57,9 @@ $messages['en'] = array(
 	// Navigation links
 	'ep-nav-orgs' => 'Institution list',
 	'ep-nav-courses' => 'Courses list',
-	'ep-nav-mycourses' => 'My courses',
+	'ep-nav-mycourses' => 'Your courses',
 	'ep-nav-students' => 'Student list',
-	'ep-nav-mentors' => 'Ambassador list',
+	'ep-nav-mentors' => 'Volunteer list',
 	'ep-nav-cas' => 'Campus volunteers',
 	'ep-nav-oas' => 'Online volunteers',
 	'ep-nav-oaprofile' => 'Online volunteer profile',
@@ -84,8 +84,8 @@ $messages['en'] = array(
 	'log-description-institution' => 'Log of all changes to [[Special:Institutions|institutions]].',
 	'log-description-course' => 'Log of all changes to [[Special:Courses|courses]].',
 	'log-description-instructor' => 'Log of all changes to instructors.',
-	'log-description-online' => 'Log of all changes to Education Program [[Special:OnlineAmbassadors|Online volunteers]]',
-	'log-description-campus' => 'Log of all changes to Education Program [[Special:CampusAmbassadors|Campus volunteers]]',
+	'log-description-online' => 'Log of all changes to Education Program [[Special:OnlineVolunteers|Online volunteers]]',
+	'log-description-campus' => 'Log of all changes to Education Program [[Special:CampusVolunteers|Campus volunteers]]',
 	'log-description-student' => 'Log of all changes to [[Special:Students|students]].',
 
 	'logentry-institution-add' => '$1 {{GENDER:$2|created}} institution $3',
@@ -188,8 +188,8 @@ $messages['en'] = array(
 
 	// Special pages
 	'specialpages-group-education' => 'Education',
-	'special-mycourses' => 'My courses',
-	'special-managecourses' => 'Manage my courses',
+	'special-mycourses' => 'Your courses',
+	'special-managecourses' => 'Manage your courses',
 	'special-institutions' => 'Institutions',
 	'special-student' => 'Student',
 	'special-students' => 'Students',
@@ -218,8 +218,8 @@ $messages['en'] = array(
 	'ep-specialeducationprogram-summary-student-count' => 'Number of [[Special:Students|students]]',
 	'ep-specialeducationprogram-summary-current-student-count' => 'Currently enrolled students',
 	'ep-specialeducationprogram-summary-instructor-count' => 'Number of instructors',
-	'ep-specialeducationprogram-summary-ca-count' => 'Number of [[Special:CampusAmbassadors|Campus volunteers]]',
-	'ep-specialeducationprogram-summary-oa-count' => 'Number of [[Special:OnlineAmbassadors|Online volunteers]]',
+	'ep-specialeducationprogram-summary-ca-count' => 'Number of [[Special:CampusVolunteers|Campus volunteers]]',
+	'ep-specialeducationprogram-summary-oa-count' => 'Number of [[Special:OnlineVolunteers|Online volunteers]]',
 	'ep-educationprogram-by-term' => 'Totals per term',
 	'ep-educationprogram-courses' => 'Number of courses',
 	'ep-educationprogram-students' => 'Number of students',
@@ -629,7 +629,7 @@ The deletion log for this course is provided below for convenience:",
 	'ep-enroll-invalid-name' => 'The name needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
 	'ep-enroll-invalid-gender' => 'Please select one of these genders',
 	'ep-enroll-add-token' => 'Enter your enrollment token',
-	'ep-enroll-add-token-doc' => 'In order to enroll for this course, you need a token provided by your instructor or one of the ambassadors for your course.',
+	'ep-enroll-add-token-doc' => 'In order to enroll for this course, you need a token provided by your instructor or one of the volunteers for your course.',
 	'ep-enroll-token' => 'Enrollment token',
 	'ep-enroll-submit-token' => 'Enroll with this token',
 	'ep-enroll-course-passed' => 'This course has ended, so you can no longer enroll for it. See the [[Special:Courses|list of courses]].',
@@ -761,30 +761,30 @@ The deletion log for this course is provided below for convenience:",
 
 	// API enlist
 	'ep-enlist-invalid-user-args' => 'You need to either provide the username or the userid parameter',
-	'ep-enlist-invalid-user' => 'The provided user id or name is not valid and can therefore not be associated as instructor or ambassador with the specified course',
+	'ep-enlist-invalid-user' => 'The provided user id or name is not valid and can therefore not be associated as instructor or volunteer with the specified course',
 	'ep-enlist-invalid-course' => 'There is no course with the provided ID',
 
 	// Special:OnlineAmbassadorProfile
 	'onlineambassadorprofile' => 'Online volunteer profile',
-	'onlineambassadorprofile-legend' => 'My Online volunteer profile',
-	'onlineambassadorprofile-text' => 'Your Online volunteer profile is what students get to see when they browse available ambassadors.',
+	'onlineambassadorprofile-legend' => 'Your Online volunteer profile',
+	'onlineambassadorprofile-text' => 'Your Online volunteer profile is what students get to see when they browse available volunteers.',
 	'epoa-profile-bio' => 'Short bio',
 	'epoa-profile-photo' => 'Profile photo',
 	'epoa-profile-photo-help' => 'A picture of you that will be shown next to your bio. Enter the name of an image on Wikimedia Commons and a preview will appear. You can type the first few letters of the image name and then select your image from the suggestion list. If you do not have a picture of you on commons yet, [$1 go upload one]!',
 	'epoa-profile-saved' => 'Your profile has been saved',
 	'epoa-profile-invalid-bio' => 'Your bio needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
-	'epoa-visible' => 'Publicly list me as Online volunteer',
+	'epoa-visible' => 'Publicly list you as Online volunteer',
 
 	// Special:CampusAmbassadorProfile
 	'campusambassadorprofile' => 'Campus volunteer profile',
-	'campusambassadorprofile-legend' => 'My Campus volunteer profile',
-	'campusambassadorprofile-text' => 'Your Campus volunteer profile is what students get to see when they browse available ambassadors.',
+	'campusambassadorprofile-legend' => 'Your Campus volunteer profile',
+	'campusambassadorprofile-text' => 'Your Campus volunteer profile is what students get to see when they browse available volunteers.',
 	'epca-profile-bio' => 'Short bio',
 	'epca-profile-photo' => 'Profile photo',
 	'epca-profile-photo-help' => 'A picture of you that will be shown next to your bio. Enter the name of an image on Wikimedia Commons and a preview will appear. You can type the first few letters of the image name and then select your image from the suggestion list. If you do not have a picture of you on commons yet, [$1 go upload one]!',
 	'epca-profile-saved' => 'Your profile has been saved',
 	'epca-profile-invalid-bio' => 'Your bio needs to be at least contain $1 {{PLURAL:$1|character|characters}}.',
-	'epca-visible' => 'Publicly list me as Campus volunteer',
+	'epca-visible' => 'Publicly list you as Campus volunteer',
 
 	// Special:StudentActivity
 	'ep-studentactivity-noresults' => 'There are no students that were active in the last $1.
@@ -841,7 +841,7 @@ $messages['qqq'] = array(
 	'educationprogram-desc' => '{{desc|name=Education Program|url=http://www.mediawiki.org/wiki/Extension:Education_Program}}',
 	'ep-item-summary' => 'Table column header.
 {{Identical|Summary}}',
-	'ep-toplink' => 'Text of a link the the top menu (next to "My preferences")',
+	'ep-toplink' => 'Text of a link the the top menu (next to "Preferences")',
 	'ep-org-course-delete-comment' => 'Success message. Parameters:
 * $1 - an institution name
 * $2 - a user provided comment',
