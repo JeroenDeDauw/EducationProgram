@@ -25,7 +25,7 @@ $specialPageAliases['en'] = array(
 	'EducationProgram' => array( 'EducationProgram', 'Education_Program' ),
 	'Enroll' => array( 'Enroll' ),
 	'Disenroll' => array( 'Disenroll' ),
-	'CampusAmbassadors' => array( 'CampusVolunteers',  'CampusAmbassadors' ),
+	'CampusAmbassadors' => array( 'CampusVolunteers', 'CampusAmbassadors' ),
 	'OnlineAmbassadors' => array( 'OnlineVolunteers', 'OnlineAmbassadors' ),
 	'OnlineAmbassadorProfile' => array( 'OnlineVolunteerProfile', 'OnlineAmbassadorProfile' ),
 	'CampusAmbassadorProfile' => array( 'CampusVolunteerProfile', 'CampusAmbassadorProfile' ),
@@ -119,6 +119,12 @@ $specialPageAliases['gl'] = array(
 	'CampusAmbassadorProfile' => array( 'Perfil_do_embaixador_do_campus' ),
 	'StudentActivity' => array( 'Actividade_do_usuario' ),
 	'Articles' => array( 'Artigos' ),
+);
+
+/** Hebrew (עברית) */
+$specialPageAliases['he'] = array(
+	'Student' => array( 'תלמיד' ),
+	'Students' => array( 'תלמידים' ),
 );
 
 /** Italian (italiano) */
