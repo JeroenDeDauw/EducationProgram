@@ -152,6 +152,14 @@ $specialPageAliases['ja'] = array(
 	'ManageCourses' => array( 'コース管理' ),
 	'Student' => array( '生徒' ),
 	'Courses' => array( 'コース' ),
+	'EducationProgram' => array( '教育プログラム' ),
+	'Enroll' => array( '入会' ),
+	'Disenroll' => array( '退会' ),
+	'CampusAmbassadors' => array( 'キャンパスボランティア' ),
+	'OnlineAmbassadors' => array( 'オンラインボランティア' ),
+	'OnlineAmbassadorProfile' => array( 'オンラインボランティアプロフィール' ),
+	'CampusAmbassadorProfile' => array( 'キャンパスボランティアプロフィール' ),
+	'Articles' => array( '記事' ),
 );
 
 /** Georgian (ქართული) */
