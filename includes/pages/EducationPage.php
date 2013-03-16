@@ -128,6 +128,10 @@ abstract class EducationPage implements \Page, IContextSource {
 		return $this->getContext()->getSkin();
 	}
 
+	public function exportSession() {
+		return $this->getContext()->exportSession();
+	}
+
 	public function msg( /* $args */ ) {
 		$args = func_get_args();
 		return call_user_func_array( array( $this->getContext(), 'msg' ), $args );
