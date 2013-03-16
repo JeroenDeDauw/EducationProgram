@@ -42,8 +42,4 @@ class OrgPage extends EducationPage {
 		return Orgs::singleton();
 	}
 
-	public function exportSession() {
-		return array();
-	}
-
 }

@@ -42,9 +42,5 @@ class CoursePage extends EducationPage {
 		return Courses::singleton();
 	}
 
-	public function exportSession() {
-		return array();
-	}
-
 }
 

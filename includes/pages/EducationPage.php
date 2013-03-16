@@ -179,4 +179,5 @@ abstract class EducationPage implements \Page, IContextSource {
 	public function exists() {
 		return $this->getTitle()->exists();
 	}
+
 }
