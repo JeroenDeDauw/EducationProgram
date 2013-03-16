@@ -22606,6 +22606,7 @@ $messages['yi'] = array(
  * @author Hydra
  * @author Makecat
  * @author Shirayuki
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'ep-item-summary' => '摘要',
@@ -22632,9 +22633,9 @@ $messages['zh-hans'] = array(
 	'tooltip-ep-minor' => '将此标记为小编辑',
 	'ep-nav-orgs' => '学院名单',
 	'ep-nav-courses' => '课程列表',
-	'ep-nav-mycourses' => '我的课程',
+	'ep-nav-mycourses' => '我的课程', # Fuzzy
 	'ep-nav-students' => '学生列表',
-	'ep-nav-mentors' => '大使列表',
+	'ep-nav-mentors' => '大使列表', # Fuzzy
 	'ep-nav-cas' => '校园大使', # Fuzzy
 	'ep-nav-oas' => '在线大使', # Fuzzy
 	'ep-nav-oaprofile' => '在线大使个人资料', # Fuzzy
@@ -22727,8 +22728,8 @@ $messages['zh-hans'] = array(
 	'group-epinstructor-member' => '{{GENDER:$1|课程讲师}}',
 	'grouppage-epinstructor' => '{{ns:project}}:课程讲师',
 	'specialpages-group-education' => '教育',
-	'special-mycourses' => '我的课程',
-	'special-managecourses' => '管理我的课程',
+	'special-mycourses' => '我的课程', # Fuzzy
+	'special-managecourses' => '管理我的课程', # Fuzzy
 	'special-institutions' => '学院',
 	'special-student' => '学生',
 	'special-students' => '学生',
@@ -22967,6 +22968,8 @@ $messages['zh-hans'] = array(
 	'ep-campus-add-cancel-button' => '取消',
 	'ep-campus-summary-input' => '摘要：',
 	'ep-campus-name-input' => '用户名：',
+	'onlineambassadorprofile-legend' => '您的在线志愿者个人档案',
+	'campusambassadorprofile-legend' => '您的校园志愿者个人档案',
 	'ep-timeline-ago' => '$1前',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-users-create-article' => "$1创建'''[[$2]]'''文章。",
