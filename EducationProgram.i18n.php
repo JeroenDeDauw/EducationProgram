@@ -6562,6 +6562,7 @@ $messages['fi'] = array(
  * @author Davidtsm
  * @author Erkethan
  * @author Gomoko
+ * @author Hello71
  * @author IAlex
  * @author McDutchie
  * @author Od1n
@@ -6600,7 +6601,7 @@ $messages['fr'] = array(
 	'ep-nav-courses' => 'Liste des cours',
 	'ep-nav-mycourses' => 'Mes cours', # Fuzzy
 	'ep-nav-students' => 'Liste des étudiants',
-	'ep-nav-mentors' => 'Liste des ambassadeurs', # Fuzzy
+	'ep-nav-mentors' => 'Liste des bénévoles',
 	'ep-nav-cas' => 'Bénévoles du campus',
 	'ep-nav-oas' => 'Bénévoles en ligne',
 	'ep-nav-oaprofile' => 'Profil de bénévole en ligne',
@@ -22969,7 +22970,9 @@ $messages['zh-hans'] = array(
 	'ep-campus-summary-input' => '摘要：',
 	'ep-campus-name-input' => '用户名：',
 	'onlineambassadorprofile-legend' => '您的在线志愿者个人档案',
+	'epoa-visible' => '公开列出您为在线志愿者',
 	'campusambassadorprofile-legend' => '您的校园志愿者个人档案',
+	'epca-visible' => '公开列出您为校园志愿者',
 	'ep-timeline-ago' => '$1前',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-users-create-article' => "$1创建'''[[$2]]'''文章。",
