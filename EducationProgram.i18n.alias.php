@@ -102,6 +102,17 @@ $specialPageAliases['diq'] = array(
 	'Articles' => array( 'Wesiqey' ),
 );
 
+/** Esperanto (Esperanto) */
+$specialPageAliases['eo'] = array(
+	'MyCourses' => array( 'Miaj_kursoj' ),
+	'ManageCourses' => array( 'Mastrumi_kursojn' ),
+	'Student' => array( 'Lernanto' ),
+	'Students' => array( 'Lernantoj' ),
+	'Courses' => array( 'Kursoj' ),
+	'StudentActivity' => array( 'Agado_de_lernanto' ),
+	'Articles' => array( 'Artikoloj' ),
+);
+
 /** Galician (galego) */
 $specialPageAliases['gl'] = array(
 	'MyCourses' => array( 'Os_meus_cursos' ),
