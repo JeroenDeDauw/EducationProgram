@@ -1352,7 +1352,7 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-course-articles' => 'h2 section header',
 	'viewcourseaction-none' => 'States there is no such course. Parameters:
 * $1 is the course name',
-	'ep-course-create' => 'States there is no such course but that it can be created.Parameters:
+	'ep-course-create' => 'States there is no such course, but that it can be created.Parameters:
 * $1 is the course name.',
 	'ep-course-description' => 'h2 section header',
 	'viewcourseaction-summary-org' => 'Tabel row header',
