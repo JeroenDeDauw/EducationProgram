@@ -1030,21 +1030,21 @@ Additional parameters:
 	'group-epinstructor' => '{{doc-group|epinstructor|group}}',
 	'group-epinstructor-member' => '{{doc-group|epinstructor|member}}',
 	'grouppage-epinstructor' => '{{doc-group|epinstructor|page}}',
-	'specialpages-group-education' => 'Special pages group, h2',
-	'special-mycourses' => '{{doc-special|mycourses}}',
-	'special-managecourses' => '{{doc-special|managecourses}}',
-	'special-institutions' => '{{doc-special|institutions}}',
+	'specialpages-group-education' => '{{doc-special-group|that=are related to the extension EducationProgram|like=[[Special:MyCourses]], [[Special:Institutions]], [[Special:Student]], [[Special:Students]], [[Special:Courses]], [[Special:EducationProgram]], [[Special:CampusAmbassadors]], [[Special:OnlineAmbassadors]], [[Special:CampusAmbassadorProfile]], [[Special:OnlineAmbassadorProfile]], [[Special:Enroll]], [[Special:Disenroll]], [[Special:StudentActivity]], [[Special:Articles]], [[Special:ManageCourses]]}}',
+	'special-mycourses' => '{{doc-special|MyCourses}}',
+	'special-managecourses' => '{{doc-special|ManageCourses}}',
+	'special-institutions' => '{{doc-special|Institutions}}',
 	'special-student' => '{{doc-special|student}}',
 	'special-students' => '{{doc-special|students}}',
 	'special-courses' => '{{doc-special|courses}}',
-	'special-educationprogram' => '{{doc-special|educationprogram}}',
+	'special-educationprogram' => '{{doc-special|EducationProgram}}',
 	'special-enroll' => '{{doc-special|enroll}}',
-	'special-onlineambassadors' => '{{doc-special|onlineambassadors}}',
-	'special-campusambassadors' => '{{doc-special|campusambassadors}}',
-	'special-onlineambassador' => '{{doc-special|onlineambassador}}',
-	'special-campusambassador' => '{{doc-special|campusambassador}}',
+	'special-onlineambassadors' => '{{doc-special|OnlineAmbassadors}}',
+	'special-campusambassadors' => '{{doc-special|CampusAmbassadors}}',
+	'special-onlineambassador' => '{{doc-special|OnlineAmbassador}}',
+	'special-campusambassador' => '{{doc-special|CampusAmbassador}}',
 	'special-disenroll' => '{{doc-special|disenroll}}',
-	'special-studentactivity' => '{{doc-special|studentactivity}}',
+	'special-studentactivity' => '{{doc-special|StudentActivity}}',
 	'special-articles' => '{{doc-special|articles}}',
 	'ep-course-status-passed' => 'Course status',
 	'ep-course-status-current' => 'Course status.
@@ -1293,7 +1293,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-course-edit-name-format' => '$1 ($2)
 
 {{optional}}',
-	'ep-course-edit-title' => 'Input label',
+	'ep-course-edit-title' => 'Input label.
+{{Identical|Page title}}',
 	'ep-course-help-title' => 'Extra description for the title input field',
 	'ep-course-edit-field' => 'Input label',
 	'ep-course-edit-level' => 'Input label',
@@ -5467,7 +5468,7 @@ $messages['et'] = array(
 	'tooltip-ep-minor' => 'Märgib selle pisimuudatuseks',
 	'ep-nav-orgs' => 'Asutuste nimekiri',
 	'ep-nav-courses' => 'Kursuste nimekiri',
-	'ep-nav-mycourses' => 'Minu kursused',
+	'ep-nav-mycourses' => 'Sinu kursused',
 	'ep-nav-students' => 'Õpilaste nimekiri',
 	'log-name-institution' => 'Haridusprogrammi asutuste logi',
 	'log-name-course' => 'Haridusprogrammi kursuste logi',
@@ -5530,8 +5531,8 @@ $messages['et'] = array(
 	'group-epinstructor-member' => '{{GENDER:$1|Kursuse õppejõud}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Kursuse_õppejõud',
 	'specialpages-group-education' => 'Haridus',
-	'special-mycourses' => 'Minu kursused',
-	'special-managecourses' => 'Minu kursuste haldamine',
+	'special-mycourses' => 'Minu kursused', # Fuzzy
+	'special-managecourses' => 'Minu kursuste haldamine', # Fuzzy
 	'special-institutions' => 'Asutused',
 	'special-student' => 'Õpilane',
 	'special-students' => 'Õpilased',
@@ -6257,6 +6258,7 @@ $messages['fa'] = array(
  * @author Nike
  * @author Olli
  * @author Pxos
+ * @author Silvonen
  * @author VezonThunder
  */
 $messages['fi'] = array(
@@ -6283,15 +6285,15 @@ $messages['fi'] = array(
 	'tooltip-ep-minor' => 'Merkitsee tämän pieneksi muutokseksi',
 	'ep-nav-orgs' => 'Laitosten luettelo',
 	'ep-nav-courses' => 'Kurssilista',
-	'ep-nav-mycourses' => 'Omat kurssini',
+	'ep-nav-mycourses' => 'Omat kurssini', # Fuzzy
 	'ep-nav-students' => 'Opiskelijalista',
-	'ep-nav-oas' => 'Online-valvojat',
-	'ep-nav-oaprofile' => 'Online-valvojaprofiili',
-	'ep-nav-caprofile' => 'Kampusvalvojaprofiili',
+	'ep-nav-oas' => 'Online-valvojat', # Fuzzy
+	'ep-nav-oaprofile' => 'Online-valvojaprofiili', # Fuzzy
+	'ep-nav-caprofile' => 'Kampusvalvojaprofiili', # Fuzzy
 	'log-name-student' => 'Opetusohjelman opiskelijaloki',
 	'log-description-course' => 'Kirjaa lokiin kaikki muutokset kohteeseen [[Special:Courses|kurssit]].',
 	'log-description-instructor' => 'Kirjaa lokiin kaikki muutokset kohteeseen valvojat.',
-	'log-description-online' => 'Kirjaa lokiin kaikki muutokset kohteeseen Opetusohjelman [[Special:OnlineAmbassadors|Online-valvojat]]',
+	'log-description-online' => 'Kirjaa lokiin kaikki muutokset kohteeseen Opetusohjelman [[Special:OnlineAmbassadors|Online-valvojat]]', # Fuzzy
 	'log-description-student' => 'Merkitse lokiin kaikki muutokset kohteeseen [[Special:Students|opiskelijat]].',
 	'logentry-institution-add' => '$1 loi laitoksen $3',
 	'logentry-institution-remove' => '$1 poisti laitoksen $3',
@@ -6327,8 +6329,8 @@ $messages['fi'] = array(
 	'action-ep-remstudent' => 'poistaa opiskelijoita kursseilta',
 	'action-ep-enroll' => 'liittyä kursseille',
 	'specialpages-group-education' => 'Koulutus',
-	'special-mycourses' => 'Omat kurssit',
-	'special-managecourses' => 'Kurssieni hallinta',
+	'special-mycourses' => 'Omat kurssit', # Fuzzy
+	'special-managecourses' => 'Kurssieni hallinta', # Fuzzy
 	'special-institutions' => 'Laitokset',
 	'special-student' => 'Opiskelija',
 	'special-students' => 'Opiskelijat',
@@ -6355,6 +6357,7 @@ $messages['fi'] = array(
 	'ep-educationprogram-male' => 'Mies',
 	'ep-educationprogram-female' => 'Nainen',
 	'ep-educationprogram-unknown' => 'Tuntematon',
+	'ep-educationprogram-genders' => 'Sukupuolijakauma',
 	'ep-educationprogram-nodata' => 'Tietoja ei saatavissa vielä',
 	'ep-institutions-addnew' => 'Lisää uusi laitos',
 	'ep-institutions-newname' => 'Laitoksen nimi:',
@@ -17004,7 +17007,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'epca-profile-photo-help' => 'Een foto van u die wordt weergegeven naast uw beschrijving. Voer de naam in van een afbeelding op Wikimedia Commons om een voorvertoning weer te geven. U kunt de eerste paar letters van een afbeeldingsnaam invoeren en dan uw afbeelding uit de lijst selecteren. [$1 Upload een afbeelding] als u nog geen afbeelding op Commons heeft.',
 	'epca-profile-saved' => 'Uw profiel is opgeslagen',
 	'epca-profile-invalid-bio' => 'De beschrijving moet tenminste {{PLURAL:$1|één teken|$1 tekens}} bevatten.',
-	'epca-visible' => 'U openbaar weergeven als Campus vrijwilliger',
+	'epca-visible' => 'U openbaar weergeven als Campusvrijwilliger',
 	'ep-studentactivity-noresults' => 'Er zijn geen studenten actief geweest in de afgelopen $1.
 
 Zie de [[Special:Students|lijst met alle studenten]].',
@@ -22761,6 +22764,7 @@ $messages['yi'] = array(
  * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
+	'educationprogram-desc' => '通过添加不同的接口来管理课程、制度和各种不同的教育用户角色，以此促进教育计划。',
 	'ep-item-summary' => '摘要',
 	'ep-toplink' => '课程',
 	'ep-org-course-delete-comment' => '删除$1及其所有课程，并发布此评论：$2',
@@ -22785,18 +22789,18 @@ $messages['zh-hans'] = array(
 	'tooltip-ep-minor' => '将此标记为小编辑',
 	'ep-nav-orgs' => '学院名单',
 	'ep-nav-courses' => '课程列表',
-	'ep-nav-mycourses' => '我的课程', # Fuzzy
+	'ep-nav-mycourses' => '你的课程',
 	'ep-nav-students' => '学生列表',
-	'ep-nav-mentors' => '大使列表', # Fuzzy
-	'ep-nav-cas' => '校园大使', # Fuzzy
-	'ep-nav-oas' => '在线大使', # Fuzzy
-	'ep-nav-oaprofile' => '在线大使个人资料', # Fuzzy
-	'ep-nav-caprofile' => '校园大使个人资料', # Fuzzy
+	'ep-nav-mentors' => '志愿者列表',
+	'ep-nav-cas' => '校园志愿者',
+	'ep-nav-oas' => '线上志愿者',
+	'ep-nav-oaprofile' => '在线志愿者个人资料',
+	'ep-nav-caprofile' => '校园志愿者个人资料',
 	'log-name-institution' => '教育计划学院记录',
 	'log-name-course' => '教育计划课程记录',
 	'log-name-student' => '教育计划学生记录',
-	'log-name-online' => '教育计划在线大使记录', # Fuzzy
-	'log-name-campus' => '教育计划校园大使记录', # Fuzzy
+	'log-name-online' => '教育计划线上志愿者日志',
+	'log-name-campus' => '教育计划校园志愿者日志',
 	'log-name-instructor' => '教育计划讲师记录',
 	'log-name-eparticle' => '教育计划文章记录',
 	'log-header-institution' => '这些事件跟踪教育计划学院中所有更改。',
@@ -22861,8 +22865,10 @@ $messages['zh-hans'] = array(
 	'right-ep-remreviewer' => '从文章中删除复审员',
 	'right-ep-bulkdelorgs' => '批量删除学院',
 	'right-ep-bulkdelcourses' => '批量删除课程',
+	'right-ep-addstudent' => '登记用户为学生',
 	'action-ep-org' => '管理学院',
 	'action-ep-course' => '管理课程',
+	'action-ep-token' => '查看入学令牌',
 	'action-ep-remstudent' => '从课程删除学生',
 	'action-ep-enroll' => '报读课程',
 	'action-ep-online' => '在课程中添加或删除在线大使', # Fuzzy
