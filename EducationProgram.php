@@ -87,7 +87,6 @@ $wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/include
 $wgAutoloadClasses['EducationProgram\Events\EditEventCreator'] 		= $dir . '/includes/Events/EditEventCreator.php';
 
 // includes/pagers (implementing Pager)
-$wgAutoloadClasses['EducationProgram\ArticlePager'] 				= $dir . '/includes/pagers/ArticlePager.php';
 $wgAutoloadClasses['EducationProgram\ArticleTable'] 				= $dir . '/includes/pagers/ArticleTable.php';
 $wgAutoloadClasses['EducationProgram\CAPager'] 						= $dir . '/includes/pagers/CAPager.php';
 $wgAutoloadClasses['EducationProgram\CoursePager'] 					= $dir . '/includes/pagers/CoursePager.php';
@@ -131,7 +130,6 @@ $wgAutoloadClasses['EducationProgram\SpecialOAProfile'] 			= $dir . '/includes/s
 $wgAutoloadClasses['EducationProgram\SpecialCAProfile'] 			= $dir . '/includes/specials/SpecialCAProfile.php';
 $wgAutoloadClasses['EducationProgram\SpecialAmbassadorProfile'] 	= $dir . '/includes/specials/SpecialAmbassadorProfile.php';
 $wgAutoloadClasses['EducationProgram\SpecialStudentActivity'] 		= $dir . '/includes/specials/SpecialStudentActivity.php';
-$wgAutoloadClasses['EducationProgram\SpecialArticles'] 				= $dir . '/includes/specials/SpecialArticles.php';
 $wgAutoloadClasses['EducationProgram\SpecialManageCourses'] 		= $dir . '/includes/specials/SpecialManageCourses.php';
 $wgAutoloadClasses['EducationProgram\VerySpecialPage'] 				= $dir . '/includes/specials/VerySpecialPage.php';
 
@@ -147,6 +145,8 @@ $wgAutoloadClasses['EducationProgram\Revisions'] 					= $dir . '/includes/tables
 $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/Students.php';
 
 // includes
+$wgAutoloadClasses['EducationProgram\ArticleAdder'] 				= $dir . '/includes/ArticleAdder.php';
+$wgAutoloadClasses['EducationProgram\ArticleStore'] 				= $dir . '/includes/ArticleStore.php';
 $wgAutoloadClasses['EducationProgram\DiffTable'] 					= $dir . '/includes/DiffTable.php';
 $wgAutoloadClasses['EducationProgram\DYKBox'] 						= $dir . '/includes/DYKBox.php';
 $wgAutoloadClasses['EducationProgram\Extension'] 					= $dir . '/includes/Extension.php';
@@ -185,7 +185,6 @@ $wgSpecialPages['OnlineAmbassadors'] 				= 'EducationProgram\SpecialOAs';
 $wgSpecialPages['CampusAmbassadorProfile'] 			= 'EducationProgram\SpecialCAProfile';
 $wgSpecialPages['OnlineAmbassadorProfile'] 			= 'EducationProgram\SpecialOAProfile';
 $wgSpecialPages['StudentActivity'] 					= 'EducationProgram\SpecialStudentActivity';
-$wgSpecialPages['Articles'] 						= 'EducationProgram\SpecialArticles';
 $wgSpecialPages['ManageCourses'] 					= 'EducationProgram\SpecialManageCourses';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';

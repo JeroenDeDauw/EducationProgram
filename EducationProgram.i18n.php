@@ -265,12 +265,6 @@ $messages['en'] = array(
 	'ep-pager-withselected' => 'With selected',
 	'ep-pager-delete-selected' => 'Delete',
 
-	// Article pager
-	'eparticlepager-header-page-id' => 'Article',
-	'eparticlepager-header-user-id' => 'Student',
-	'eparticlepager-header-course-id' => 'Course',
-	'eparticlepager-header-reviewers' => 'Reviewers',
-
 	// Revision pager
 	'ep-revision-undo' => 'undo',
 	'ep-revision-restore' => 'restore',
@@ -1102,10 +1096,6 @@ Additional parameters:
 	'ep-pager-withselected' => 'Header of a section with controls that allow doing bulk actions (ie affect the selected items)',
 	'ep-pager-delete-selected' => 'Delete button text.
 {{Identical|Delete}}',
-	'eparticlepager-header-page-id' => 'Table pager column header. This column shows the titles of articles students have been working on',
-	'eparticlepager-header-user-id' => 'Table pager column header. This column shows the names of students (linked to their user profile)',
-	'eparticlepager-header-course-id' => 'Table pager column header. This column shows the name of a course',
-	'eparticlepager-header-reviewers' => 'Table pager column header. This column shows a list of reviewers for an article a student is working on',
 	'ep-revision-undo' => 'Undo link shown next to revisions on history pages.
 {{Identical|Undo}}',
 	'ep-revision-restore' => 'Restore link shown next to revisions on history pages',

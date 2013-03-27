@@ -72,6 +72,9 @@ final class Hooks {
 	public static function registerUnitTests( array &$files ) {
 		$testFiles = array(
 			'Actions',
+			'ArticleAdder',
+			'ArticleStore',
+			'EPArticle',
 			'Menu',
 			'Settings',
 			'Specials',
@@ -80,8 +83,6 @@ final class Hooks {
 			'Utils',
 
 			'Events/EditEventCreator',
-
-			'rows/Article',
 
 			'tables/Orgs',
 		);
@@ -182,7 +183,7 @@ final class Hooks {
 	 * @since 0.1
 	 *
 	 * @param Title $title
-	 * @param EPArticle|null $article
+	 * @param \Article|null $article
 	 *
 	 * @return bool
 	 */

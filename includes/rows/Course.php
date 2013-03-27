@@ -603,6 +603,8 @@ class Course extends PageObject {
 	 * by default also saving the course and only
 	 * logging the role changes.
 	 *
+	 * TODO: move into its own use case
+	 *
 	 * @since 0.1
 	 *
 	 * @param array|integer $sadUsers
@@ -636,10 +638,11 @@ class Course extends PageObject {
 				// Get rid of the articles asscoaite associations with the student.
 				// No revisioning is implemented here, so this cannot be undone.
 				// Might want to add revisioning or just add a 'deleted' flag at some point.
-				Extension::globalInstance()->newArticleTable()->delete( array(
-					'course_id' => $this->getId(),
-					'user_id' => $removedUsers,
-				) );
+
+				Extension::globalInstance()->newArticleStore()->deleteArticleByCourseAndUsers(
+					$this->getId(),
+					$removedUsers
+				);
 			}
 
 			$success = true;

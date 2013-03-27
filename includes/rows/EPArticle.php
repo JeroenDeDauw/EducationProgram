@@ -1,41 +1,53 @@
 <?php
 
 namespace EducationProgram;
-use User, Title, IContextSource;
+
+use User;
+use Title;
+use MWException;
 
 /**
- * Class representing a single single article being worked upon by a student,
- * and can have zero or more associated reviewers.
+ * Class representing an article being worked on by a single user as part of a course
+ * of which the work is being reviewed by zero or more reviewers.
  *
- * @since 0.1
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @since 0.1, big changes in 0.3
  *
  * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPArticle extends \ORMRow {
+class EPArticle {
 
 	/**
 	 * Cached user object for this article.
 	 *
 	 * @since 0.1
+	 * @deprecated since 0.3
 	 * @var User|bool false
 	 */
 	protected $user = false;
 
 	/**
-	 * Cached title object for this article.
-	 *
-	 * @since 0.1
-	 * @var Title|bool false
-	 */
-	protected $title = false;
-
-	/**
 	 * Cached course object for this article.
 	 *
 	 * @since 0.1
+	 * @deprecated since 0.3
 	 * @var Course|bool false
 	 */
 	protected $course = false;
@@ -45,66 +57,88 @@ class EPArticle extends \ORMRow {
 	 * int userId => bool canBecomereviewer
 	 *
 	 * @since 0.1
+	 * @deprecated since 0.3
 	 * @var array
 	 */
 	protected $canBecomeReviwer = array();
 
 	/**
+	 * @since 0.3
+	 *
+	 * @var int|null
+	 */
+	protected $id;
+
+	/**
+	 * @since 0.3
+	 *
+	 * @var int
+	 */
+	protected $courseId;
+
+	/**
+	 * @since 0.3
+	 *
+	 * @var int
+	 */
+	protected $userId;
+
+	/**
+	 * @since 0.3
+	 *
+	 * @var int
+	 */
+	protected $pageId;
+
+	/**
+	 * @since 0.3
+	 *
+	 * @var string
+	 */
+	protected $pageTitle;
+
+	/**
+	 * @since 0.3
+	 *
+	 * @var int[]
+	 */
+	protected $reviewers;
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.3
+	 *
+	 * @param int|null $id
+	 * @param int $courseId
+	 * @param int $userId
+	 * @param int $pageId
+	 * @param string $pageTitle
+	 * @param int[] $reviewers Array of user ids (this list should not contain duplicates)
+	 */
+	public function __construct( $id, $courseId, $userId, $pageId, $pageTitle, array $reviewers ) {
+		$this->id = $id;
+		$this->courseId = $courseId;
+		$this->userId = $userId;
+		$this->pageId = $pageId;
+		$this->pageTitle = $pageTitle;
+		$this->reviewers = $reviewers;
+	}
+
+	/**
 	 * Returns the user that is working on this article.
 	 *
 	 * @since 0.1
+	 * @deprecated since 0.3
 	 *
 	 * @return User
 	 */
 	public function getUser() {
 		if ( $this->user === false ) {
-			$this->user = User::newFromId( $this->loadAndGetField( 'user_id' ) );
+			$this->user = User::newFromId( $this->userId );
 		}
 
 		return $this->user;
-	}
-
-	/**
-	 * Constructs and returns the HTML to display an article pager.
-	 *
-	 * @since 0.1
-	 *
-	 * @param IContextSource $context
-	 * @param array $conditions
-	 *
-	 * @return string
-	 */
-	public static function getPagerHTML( IContextSource $context, array $conditions = array() ) {
-		$pager = new ArticlePager( $context, $conditions );
-
-		if ( $pager->getNumRows() ) {
-			return
-				$pager->getFilterControl() .
-				$pager->getNavigationBar() .
-				$pager->getBody() .
-				$pager->getNavigationBar() .
-				$pager->getMultipleItemControl();
-		}
-		else {
-			return $pager->getFilterControl( true ) . $context->msg( 'ep-articles-noresults' )->escaped();
-		}
-	}
-
-	/**
-	 * Returns the title of this article.
-	 *
-	 * @since 0.1
-	 *
-	 * @return Title
-	 */
-	public function getTitle() {
-		if ( $this->title === false ) {
-			$this->title = $this->getField( 'page_id' ) === 0 ?
-				Title::newFromText( $this->getField( 'page_title' ) )
-				: Title::newFromID( $this->getField( 'page_id' ) );
-		}
-
-		return $this->title;
 	}
 
 	/**
@@ -113,12 +147,13 @@ class EPArticle extends \ORMRow {
 	 * @since 0.1
 	 *
 	 * @param array|string|null $fields
+	 * @deprecated since 0.3
 	 *
 	 * @return Course|bool false
 	 */
 	public function getCourse( $fields = null ) {
 		if ( $this->course === false ) {
-			$course = Courses::singleton()->selectRow( $fields, array( 'id' => $this->getField( 'course_id' ) ) );
+			$course = Courses::singleton()->selectRow( $fields, array( 'id' => $this->courseId ) );
 
 			if ( is_null( $fields ) ) {
 				$this->course = $course;
@@ -132,6 +167,7 @@ class EPArticle extends \ORMRow {
 	 * Returns if the provided User can become a reviwers for this article.
 	 *
 	 * @since 0.1
+	 * @deprecated since 0.3
 	 *
 	 * @param User $user
 	 *
@@ -143,7 +179,7 @@ class EPArticle extends \ORMRow {
 				$user->isLoggedIn()
 				&& $user->isAllowed( 'ep-bereviewer' )
 				&& $this->getUser()->getId() !== $user->getId()
-				&& !in_array( $user->getId(), $this->getField( 'reviewers' ) );
+				&& !in_array( $user->getId(), $this->reviewers );
 		}
 
 		return $this->canBecomeReviwer[$user->getId()];
@@ -151,7 +187,7 @@ class EPArticle extends \ORMRow {
 
 	/**
 	 * Adds the users matching the provided ids as reviewers to this article.
-	 * USers already a reviewer will be ignored. An array with actually added user ids
+	 * Users already a reviewer will be ignored. An array with actually added user ids
 	 * is returned.
 	 *
 	 * @since 0.1
@@ -161,10 +197,11 @@ class EPArticle extends \ORMRow {
 	 * @return array
 	 */
 	public function addReviewers( array $userIds ) {
-		$addedIds = array_diff( $userIds, $this->getField( 'reviewers' ) );
+		$userIds = array_unique( $userIds );
+		$addedIds = array_diff( $userIds, $this->reviewers);
 
 		if ( !empty( $addedIds ) ) {
-			$this->setField( 'reviewers', array_merge( $this->getField( 'reviewers' ), $addedIds ) );
+			$this->reviewers = array_merge( $this->reviewers, $addedIds );
 		}
 
 		return $addedIds;
@@ -172,7 +209,7 @@ class EPArticle extends \ORMRow {
 
 	/**
 	 * Removes the users matching the provided ids as reviewers from this article.
-	 * Users that are not a reviwer will just be ignored. An array with actually removed
+	 * Users that are not a reviewer will just be ignored. An array with actually removed
 	 * user ids is returned.
 	 *
 	 * @since 0.1
@@ -182,19 +219,20 @@ class EPArticle extends \ORMRow {
 	 * @return array
 	 */
 	public function removeReviewers( array $userIds ) {
-		$removedIds = array_intersect( $userIds, $this->getField( 'reviewers' ) );
+		$removedIds = array_intersect( $userIds, $this->reviewers );
 
 		if ( !empty( $removedIds ) ) {
-			$this->setField( 'reviewers', array_diff( $this->getField( 'reviewers' ), $userIds ) );
+			$this->reviewers = array_diff( $this->reviewers, $userIds );
 		}
 
-		return $removedIds;
+		return array_unique( $removedIds );
 	}
 
 	/**
 	 * Logs the adittion of the users matching the provided ids as reviewers to this article.
 	 *
 	 * @since 0.1
+	 * @deprecated since 0.3
 	 *
 	 * @param array $userIds
 	 * @param bool|string $comment
@@ -209,6 +247,7 @@ class EPArticle extends \ORMRow {
 	 * Logs the removal of the users matching the provided ids as reviewers for this article.
 	 *
 	 * @since 0.1
+	 * @deprecated since 0.3
 	 *
 	 * @param array $userIds
 	 * @param bool|string $comment
@@ -221,6 +260,8 @@ class EPArticle extends \ORMRow {
 
 	/**
 	 * Log adittion of the article.
+	 *
+	 * @deprecated since 0.3
 	 *
 	 * @param User $actionUser
 	 * @param bool|string $comment
@@ -235,6 +276,8 @@ class EPArticle extends \ORMRow {
 
 	/**
 	 * Log removal of the article.
+	 *
+	 * @deprecated since 0.3
 	 *
 	 * @param User $actionUser
 	 * @param bool|string $comment
@@ -251,6 +294,7 @@ class EPArticle extends \ORMRow {
 	 * Logging helper method.
 	 *
 	 * @since 0.1
+	 * @deprecated since 0.3
 	 *
 	 * @param User $actionUser
 	 * @param string $subType
@@ -261,7 +305,7 @@ class EPArticle extends \ORMRow {
 
 		$logData = array(
 			'user' => $actionUser,
-			'title' => $this->getTitle(),
+			'title' => Title::newFromID( $this->pageId ),
 			'type' => 'eparticle',
 			'subtype' => $subType,
 			'parameters' => array(
@@ -281,6 +325,7 @@ class EPArticle extends \ORMRow {
 	 * Returns if the provided user can remove the article.
 	 *
 	 * @since 0.1
+	 * @deprecated since 0.3
 	 *
 	 * @param User $user
 	 *
@@ -289,4 +334,71 @@ class EPArticle extends \ORMRow {
 	public function userCanRemove( User $user ) {
 		return $user->isAllowed( 'ep-remarticle' ) || $user->getId() === $this->getField( 'user_id' );
 	}
+
+	/**
+	 * Returns the id of the EPArticle.
+	 *
+	 * @since 0.3
+	 *
+	 * @return int|null
+	 */
+	public function getId() {
+		return $this->id;
+	}
+
+	/**
+	 * Returns the id of the course for which the article is being worked on.
+	 *
+	 * @since 0.3
+	 *
+	 * @return int
+	 */
+	public function getCourseId() {
+		return $this->courseId;
+	}
+
+	/**
+	 * Returns the id of the user working on the article.
+	 *
+	 * @since 0.3
+	 *
+	 * @return int
+	 */
+	public function getUserId() {
+		return $this->userId;
+	}
+
+	/**
+	 * Returns the id of the article being worked on itself.
+	 *
+	 * @since 0.3
+	 *
+	 * @return int
+	 */
+	public function getPageId() {
+		return $this->pageId;
+	}
+
+	/**
+	 * Returns the title of the article being worked on itself.
+	 *
+	 * @since 0.3
+	 *
+	 * @return string
+	 */
+	public function getPageTitle() {
+		return $this->pageTitle;
+	}
+
+	/**
+	 * Returns the user ids of the reviewers.
+	 *
+	 * @since 0.3
+	 *
+	 * @return int[]
+	 */
+	public function getReviewers() {
+		return $this->reviewers;
+	}
+
 }

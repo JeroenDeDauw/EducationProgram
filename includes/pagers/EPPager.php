@@ -1,11 +1,19 @@
 <?php
 
 namespace EducationProgram;
-use ORMTable, ORMRow, IContextSource, IORMTable, IORMRow, Html;
+
+use ORMTable;
+use ORMRow;
+use IContextSource;
+use IORMTable;
+use IORMRow;
+use Html;
 
 /**
  * Abstract class extending the TablePager with common functions
  * for pagers listing ORMRow deriving classes and some compatibility helpers.
+ *
+ * TODO: split query logic from UI code
  *
  * @since 0.1
  *

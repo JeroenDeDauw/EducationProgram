@@ -1,7 +1,13 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Html, User, Linker, Xml;
+
+use IContextSource;
+use Html;
+use User;
+use Linker;
+use Xml;
+use Title;
 
 /**
  * Pager that lists articles per student and for each article the associated reviewers, if any.
@@ -26,12 +32,21 @@ class ArticleTable extends EPPager {
 	protected $articles = array();
 
 	/**
-	 * Addition conditions the articles need to match.
-	 * By default all articles for the users are obtained,
+	 * Id of the course all articles should belong to.
 	 *
-	 * @var array
+	 * @since 0.3
+	 * @var int[]
 	 */
-	protected $articleConds;
+	protected $courseIds;
+
+	/**
+	 * Id of the user all articles should belong to
+	 * or null for no such restriction.
+	 *
+	 * @since 0.3
+	 * @var int|null
+	 */
+	protected $userIds;
 
 	/**
 	 * Cached name of the course for which students are shown (if any).
@@ -54,11 +69,13 @@ class ArticleTable extends EPPager {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conds
-	 * @param array $articleConds
+	 * @param int[]|int $courseIds
+	 * @param int[]|null $userIds
 	 */
-	public function __construct( IContextSource $context, array $conds = array(), $articleConds = array() ) {
+	public function __construct( IContextSource $context, array $conds = array(), $courseIds, array $userIds = null ) {
 		$this->mDefaultDirection = true;
-		$this->articleConds = $articleConds;
+		$this->courseIds = (array)$courseIds;
+		$this->userIds = $userIds;
 
 		parent::__construct( $context, $conds, Students::singleton() );
 	}
@@ -129,19 +146,23 @@ class ArticleTable extends EPPager {
 		$articles = $this->articles[$student->getField( 'user_id' )];
 		$user = $this->getUser();
 
-		$rowCount = array_reduce( $articles, function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
-			if ( $article->canBecomeReviewer( $user ) ) {
-				$sum++;
-			}
-			return $sum + count( $article->getField( 'reviewers' ) );
-		}, 0 );
+		$rowCount = array_reduce(
+			$articles,
+			function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
+				if ( $article->canBecomeReviewer( $user ) ) {
+					$sum++;
+				}
+
+				return $sum + count( $article->getReviewers() );
+			},
+			0
+		);
 
 		$html = Html::openElement( 'tr', $this->getRowAttrs( $row ) );
 
 		$showArticleAddition =
 			$user->getId() === $student->getField( 'user_id' )
-			&& array_key_exists( 'course_id', $this->articleConds )
-			&& is_integer( $this->articleConds['course_id'] );
+			&& $this->isForOneCourse();
 
 		if ( $this->showStudents ) {
 			$html .= $this->getUserCell( $student->getField( 'user_id' ), max( 1, $rowCount ) );
@@ -176,7 +197,7 @@ class ArticleTable extends EPPager {
 
 			$isFirst = false;
 
-			$reviewers = $article->getField( 'reviewers' );
+			$reviewers = $article->getReviewers();
 
 			$articleRowCount = count( $reviewers );
 
@@ -213,7 +234,7 @@ class ArticleTable extends EPPager {
 				$html .= '</tr><tr>';
 			}
 
-			$html .= $this->getArticleAdditionControl( $this->articleConds['course_id'] );
+			$html .= $this->getArticleAdditionControl( reset( $this->courseIds ) );
 		}
 		elseif ( $isFirst ) {
 			$html .= '<td></td><td></td>';
@@ -237,8 +258,7 @@ class ArticleTable extends EPPager {
 		$html = Linker::userLink( $userId, $user->getName(), $realName );
 
 		if ( $this->getUser()->isAllowed( 'ep-remstudent' )
-			&& array_key_exists( 'course_id', $this->articleConds )
-			&& is_integer( $this->articleConds['course_id'] ) ) {
+			&& $this->isForOneCourse() ) {
 
 			$html .= Utils::getToolLinks(
 				$userId,
@@ -249,10 +269,10 @@ class ArticleTable extends EPPager {
 					array(
 						'href' => '#',
 						'data-user-id' => $userId,
-						'data-course-id' => $this->articleConds['course_id'],
+						'data-course-id' => reset( $this->courseIds ),
 						'data-user-name' => $user->getName(),
 						'data-course-name' => $this->getCourseName(),
-						'data-token' => $this->getUser()->getEditToken( $this->articleConds['course_id'] . 'remstudent' . $userId ),
+						'data-token' => $this->getUser()->getEditToken( reset( $this->courseIds ) . 'remstudent' . $userId ),
 						'class' => 'ep-rem-student',
 					),
 					$this->msg( 'ep-articles-remstudent' )->text()
@@ -283,7 +303,12 @@ class ArticleTable extends EPPager {
 	 */
 	protected function getCourseName() {
 		if ( $this->courseName === false ) {
-			$this->courseName = Courses::singleton()->selectFieldsRow( 'name', array( 'id' => $this->articleConds['course_id'] ) );
+			$this->courseName = Courses::singleton()->selectFieldsRow(
+				'name',
+				array(
+					'id' => $this->courseIds
+				)
+			);
 		}
 
 		return $this->courseName;
@@ -300,26 +325,44 @@ class ArticleTable extends EPPager {
 	 * @return string
 	 */
 	protected function getArticleCell( EPArticle $article, $rowSpan ) {
-		$html = Linker::link(
-			$article->getTitle(),
-			htmlspecialchars( $article->getTitle()->getFullText() )
-		);
+		$title = Title::newFromID( $article->getPageId() );
+		$hasValidTitle = $title !== null;
+		$titleText = $hasValidTitle ? $title->getFullText() : $article->getPageTitle();
+
+		$html = htmlspecialchars( $titleText );
+
+		if ( $hasValidTitle ) {
+			$html = Linker::link(
+				$title,
+				$html
+			);
+		}
+		else {
+			wfDebugLog(
+				'bug46577',
+				json_encode( array(
+					'title' => $article->getPageTitle(),
+					'pageid' => $article->getPageId(),
+					'id' => $article->getId(),
+				) )
+			);
+		}
 
 		$attr = array(
 			'href' => '#',
 			'data-article-id' => $article->getId(),
-			'data-article-name' => $article->getTitle()->getFullText(),
+			'data-article-name' => $titleText,
 			'data-token' => $this->getUser()->getEditToken( 'remarticle' . $article->getId() ),
 			'class' => 'ep-rem-article',
 		);
 
 		$user = $this->getUser();
 
-		if ( $user->getId() !== $article->getField( 'user_id' ) ) {
+		if ( $user->getId() !== $article->getUserId() ) {
 			$attr['data-student-name'] = $user->getName();
 		}
 
-		if ( array_key_exists( 'course_id', $this->articleConds ) && is_integer( $this->articleConds['course_id'] ) ) {
+		if ( $this->isForOneCourse() ) {
 			$attr['data-course-name'] = $this->getCourseName();
 
 			$title = Courses::singleton()->getTitleFor( $this->getCourseName() );
@@ -344,6 +387,17 @@ class ArticleTable extends EPPager {
 			),
 			$html
 		);
+	}
+
+	/**
+	 * Returns if the pager is showing articles for only a single course.
+	 *
+	 * @since 0.3
+	 *
+	 * @return bool
+	 */
+	protected function isForOneCourse() {
+		return count( $this->courseIds ) == 1;
 	}
 
 	/**
@@ -373,7 +427,7 @@ class ArticleTable extends EPPager {
 						'href' => '#',
 						'data-user-id' => $userId,
 						'data-article-id' => $article->getId(),
-						'data-article-name' => $article->getTitle()->getFullText(),
+						'data-article-name' => Title::newFromID( $article->getPageId() )->getFullText(),
 						'data-student-name' => $article->getUser()->getName(),
 						'data-reviewer-name' => $user->getName(),
 						'data-reviewer-id' => $user->getId(),
@@ -393,7 +447,7 @@ class ArticleTable extends EPPager {
 					'class' => 'ep-rem-reviewer-self',
 					'disabled' => 'disabled',
 					'data-article-id' => $article->getId(),
-					'data-article-name' => $article->getTitle()->getFullText(),
+					'data-article-name' => Title::newFromID( $article->getPageId() )->getFullText(),
 					'data-student-name' => $article->getUser()->getName(),
 					'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 				),
@@ -475,7 +529,7 @@ class ArticleTable extends EPPager {
 				'class' => 'ep-become-reviewer',
 				'disabled' => 'disabled',
 				'data-article-id' => $article->getId(),
-				'data-article-name' => $article->getTitle()->getFullText(),
+				'data-article-name' => Title::newFromID( $article->getPageId() )->getFullText(),
 				'data-user-name' => $article->getUser()->getName(),
 				'data-token' => $this->getUser()->getEditToken( 'addreviewer' . $article->getId() ),
 			),
@@ -535,15 +589,14 @@ class ArticleTable extends EPPager {
 			$this->articles[$student->$field] = array();
 		}
 
-		$conditions = array_merge( array( 'user_id' => $userIds ), $this->articleConds );
+		$articles = Extension::globalInstance()->newArticleStore()->getArticlesByCourseAndUsers(
+			$this->courseIds,
+			$userIds
+		);
 
-		$articles = Extension::globalInstance()->newArticleTable()->select( null, $conditions );
-
-		/**
-		 * @var EPArticle $article
-		 */
 		foreach ( $articles as $article ) {
-			$this->articles[$article->getField( 'user_id' )][] = $article;
+			$this->articles[$article->getUserId()][] = $article;
 		}
 	}
+
 }

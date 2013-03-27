@@ -51,30 +51,25 @@ class Extension {
 	}
 
 	/**
-	 * Returns a new article ORMTable.
+	 * Returns a new ArticleStore.
 	 *
 	 * @since 0.3
 	 *
-	 * @return ORMTable
+	 * @return ArticleStore
 	 */
-	public function newArticleTable() {
-		return new ORMTable(
-			'ep_articles',
-			array(
-				'id' => 'id',
+	public function newArticleStore() {
+		return new ArticleStore( 'ep_articles' );
+	}
 
-				'course_id' => 'int',
-				'user_id' => 'int',
-				'page_id' => 'int',
-				'page_title' => 'str',
-				'reviewers' => 'array',
-			),
-			array(
-				'reviewers' => array(),
-			),
-			'EducationProgram\Article',
-			'article_'
-		);
+	/**
+	 * Returns a new ArticleAdder.
+	 *
+	 * @since 0.3
+	 *
+	 * @return ArticleAdder
+	 */
+	public function newArticleAdder() {
+		return new ArticleAdder( $this->newArticleStore() );
 	}
 
 	/**

@@ -30,17 +30,17 @@ class RemoveArticleAction extends \FormlessAction {
 		$user = $this->getUser();
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), 'remarticle' . $req->getInt( 'article-id' ) ) ) {
-			/**
-			 * @var EPArticle $article
-			 */
-			$article = Extension::globalInstance()->newArticleTable()->selectRow(
-				null,
-				array(
-					'id' => $req->getInt( 'article-id' ),
-				)
-			);
 
-			if ( $article !== false && $article->userCanRemove( $this->getUser() ) && $article->remove() ) {
+			// TODO: create dedicated ArticleRemover use case
+
+			$articleStore = Extension::globalInstance()->newArticleStore();
+
+			$article = $articleStore->getArticle( $req->getInt( 'article-id' ) );
+
+			if ( $article !== false
+				&& $article->userCanRemove( $this->getUser() )
+				&& $articleStore->deleteArticle( $article->getId() ) ) {
+
 				$article->logRemoval( $this->getUser() );
 			}
 		}

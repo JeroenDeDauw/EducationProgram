@@ -197,7 +197,7 @@ class SpecialManageCourses extends VerySpecialPage {
 				$pager = new ArticleTable(
 					$this->getContext(),
 					array( 'user_id' => $studentIds ),
-					array( 'course_id' => $course->getId() )
+					$course->getId()
 				);
 
 				$this->getOutput()->addModules( ArticleTable::getModules() );
@@ -237,10 +237,8 @@ class SpecialManageCourses extends VerySpecialPage {
 		$pager = new ArticleTable(
 			$this->getContext(),
 			array( 'user_id' => $this->getUser()->getId() ),
-			array(
-				'course_id' => $course->getId(),
-				'user_id' => $this->getUser()->getId(),
-			)
+			$course->getId(),
+			$this->getUser()->getId()
 		);
 
 		$this->getOutput()->addModules( ArticleTable::getModules() );

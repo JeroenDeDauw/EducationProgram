@@ -34,16 +34,19 @@ class AddReviewerAction extends \FormlessAction {
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) ) {
 
-			$article = Extension::globalInstance()->newArticleTable()->selectRow(
-				null,
-				array( 'id' => $req->getInt( 'article-id' ) )
+			// TODO: create dedicated ReviewerAdder use case
+
+			$articleStore = Extension::globalInstance()->newArticleStore();
+
+			$article = $articleStore->getArticle(
+				$req->getInt( 'article-id' )
 			);
 
 			if ( $article !== false && $article->canBecomeReviewer( $user ) ) {
 				$addedReviewers = $article->addReviewers( array( $user->getId() ) );
 
 				if ( !empty( $addedReviewers ) ) {
-					if ( $article->save() ) {
+					if ( $articleStore->updateArticle( $article ) ) {
 						$article->logReviewersAdittion( $addedReviewers );
 					}
 				}

@@ -35,19 +35,17 @@ class RemoveReviewerAction extends \FormlessAction {
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt )
 			&& ( $user->getId() === $userIdToRemove || $user->isAllowed( 'ep-remreviewer' ) ) ) {
 
-			/**
-			 * @var Article $article
-			 */
-			$article = Extension::globalInstance()->newArticleTable()->selectRow(
-				null,
-				array( 'id' => $req->getInt( 'article-id' ) )
-			);
+			// TODO: create dedicated ReviewerRemover use case
+
+			$articleStore = Extension::globalInstance()->newArticleStore();
+
+			$article = $articleStore->getArticle( $req->getInt( 'article-id' ) );
 
 			if ( $article !== false ) {
 				$removedReviewers = $article->removeReviewers( array( $userIdToRemove ) );
 
 				if ( !empty( $removedReviewers ) ) {
-					if ( $article->save() ) {
+					if ( $articleStore->updateArticle( $article ) ) {
 						$article->logReviewersRemoval( $removedReviewers );
 					}
 				}

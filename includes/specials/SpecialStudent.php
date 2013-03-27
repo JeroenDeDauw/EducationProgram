@@ -96,10 +96,8 @@ class SpecialStudent extends VerySpecialPage {
 			$pager = new ArticleTable(
 				$this->getContext(),
 				array( 'user_id' => $this->getUser()->getId() ),
-				array(
-					'course_id' => $courseIds,
-					'user_id' => $this->getUser()->getId(),
-				)
+				$courseIds,
+				$this->getUser()->getId()
 			);
 
 			$this->getOutput()->addModules( ArticleTable::getModules() );

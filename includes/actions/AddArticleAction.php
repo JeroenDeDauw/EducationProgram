@@ -36,31 +36,20 @@ class AddArticleAction extends \FormlessAction {
 
 		// TODO: some kind of warning when entering invalid title
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) && !is_null( $title ) ) {
+
+			// TODO: migrate into ArticleAdder
 			$course = Courses::singleton()->selectRow(
 				array( 'students', 'name' ),
 				array( 'id' => $req->getInt( 'course-id' ) )
 			);
 
 			if ( $course !== false && in_array( $user->getId(), $course->getField( 'students' ) ) ) {
-				$articleData = array(
-					'user_id' => $user->getId(),
-					'course_id' => $req->getInt( 'course-id' ),
-					'page_id' => $title->getArticleID(),
-					'page_title' => $title->getFullText(),
+				Extension::globalInstance()->newArticleAdder()->addArticle(
+					$req->getInt( 'course-id' ),
+					$user->getId(),
+					$title->getArticleID(),
+					$title->getFullText()
 				);
-
-				$articlesTable = Extension::globalInstance()->newArticleTable();
-
-				if ( !$articlesTable->has( $articleData ) ) {
-					/**
-					 * @var Article $article
-					 */
-					$article = $articlesTable->newRow( $articleData, true );
-
-					if ( $article->save() ) {
-						$article->logAdittion( $this->getUser() );
-					}
-				}
 			}
 		}
 

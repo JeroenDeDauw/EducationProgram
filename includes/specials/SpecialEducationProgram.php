@@ -267,7 +267,8 @@ class SpecialEducationProgram extends VerySpecialPage {
 			$orgs = array();
 			$courseIds = array();
 
-			foreach ( $courses as /* Course */ $course ) {
+			// FIXME: use new EPCourse object getters
+			foreach ( $courses as $course ) {
 				$students = array_merge( $students, $course->getField( 'students' ) );
 				$oas = array_merge( $oas, $course->getField( 'online_ambs' ) );
 				$cas = array_merge( $cas, $course->getField( 'campus_ambs' ) );
@@ -276,6 +277,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 				$courseIds[] = $course->getId();
 			}
 
+			// FIXME: use new ArticleStore
 			$pageIds = Extension::globalInstance()->newArticleTable()->selectFields( 'page_id', array( 'course_id' => $courseIds ), array( 'DISTINCT' ) );
 			$pageIds = array_unique( $pageIds );
 
