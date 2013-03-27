@@ -338,6 +338,7 @@ $specialPageAliases['zh-hans'] = array(
 $specialPageAliases['zh-hant'] = array(
 	'MyCourses' => array( '我的課程' ),
 	'ManageCourses' => array( '管理課程' ),
+	'Institutions' => array( '機構' ),
 	'Student' => array( '學生' ),
 	'Students' => array( '學生們' ),
 	'Courses' => array( '課程' ),
