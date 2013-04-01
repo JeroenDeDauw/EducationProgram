@@ -866,7 +866,8 @@ $messages['qqq'] = array(
 	'ep-tab-disenroll' => 'Tab label',
 	'ep-tab-delete' => 'Tab label.
 {{Identical|Delete}}',
-	'tooltip-ep-form-save' => 'Tooltip text',
+	'tooltip-ep-form-save' => 'Tooltip text.
+{{Identical|Save}}',
 	'tooltip-ep-edit-institution' => 'Tooltip text',
 	'tooltip-ep-edit-course' => 'Tooltip text',
 	'tooltip-ep-summary' => 'Tooltip text',
