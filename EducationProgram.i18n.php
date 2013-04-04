@@ -822,7 +822,10 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-dashboard-enroll-first' => 'You are not currently enrolled in any active courses. You can view the [[Special:Courses|list of courses]] and enroll in one.',
 );
 
-/** Message documentation (Message documentation)
+/** Message documentation (This is the name of the message documentation language code (qqq). Follow the rules of your languages and use small first letter if it doesn't capitalize language names always.
+
+It might be easier to translate it as "translation guidelines" or "translation help".
+{{Identical|Message documentation}})
  * @author Amire80
  * @author Beta16
  * @author Fulup
