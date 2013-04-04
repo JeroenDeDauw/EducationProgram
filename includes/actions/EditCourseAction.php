@@ -314,6 +314,10 @@ class EditCourseAction extends EditAction {
 			$value = wfTimestamp( TS_MW, strtotime( $value. ' UTC' ) );
 		}
 
+		if ( $name === 'token' ) {
+			$value = trim( $value );
+		}
+
 		return $value;
 	}
 
