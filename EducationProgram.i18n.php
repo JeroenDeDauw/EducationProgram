@@ -16935,7 +16935,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-enroll-token' => 'Inschrijvingstoken',
 	'ep-enroll-submit-token' => 'Inschrijven met dit token',
 	'ep-enroll-course-passed' => 'Deze cursus is afgelopen, dus u kunt er niet langer voor inschrijven. Zie de [[Special:Courses|lijst met cursussen]].',
-	'ep-enroll-course-planned' => 'Deze cursus is nog niet begonnen. Nog even geduld, alstublieft. Zie de [[Special:Courses|lijst met cursussen]].',
+	'ep-enroll-course-planned' => 'Deze cursus is nog niet begonnen. Zie de [[Special:Courses|lijst met cursussen]].',
 	'ep-disenroll-no-name' => 'U moet de naam opgeven van de cursus waarvoor u zich wilt uitschrijven.',
 	'ep-disenroll-invalid-name' => 'Er is geen cursus met de naam "$1".',
 	'ep-disenroll-course-passed' => 'Deze cursus is afgelopen. U kunt zich niet langer uitschrijven.',
@@ -16971,7 +16971,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-instructor-remove-retry' => 'Opnieuw proberen',
 	'ep-instructor-remove-failed' => 'Het was niet mogelijk de instructeur van de cursus te verwijderen.',
 	'ep-instructor-cancel-button' => 'Annuleren',
-	'ep-instructor-remove-text' => 'U staat op het punt $2 (gebruikersnaam $1) te verwijderen als {{GENDER:$1|instructeur|instructrice}} voor de cursus $3. Geef alstublieft een korte reden op voor deze handeling.',
+	'ep-instructor-remove-text' => 'U staat op het punt $2 (gebruikersnaam $1) te verwijderen als {{GENDER:$1|instructeur|instructrice}} voor de cursus $3. Geef een korte reden op voor deze handeling.',
 	'ep-instructor-adding' => 'Bezig met toevoegen...',
 	'ep-instructor-addittion-success' => '$1 is verwijderd als {{GENDER:$1|instructeur|instructrice}} voor de cursus $2.',
 	'ep-instructor-addittion-self-success' => 'U bent toegevoegd als {{GENDER:$1|instructeur|instructrice}} voor de cursus $2.',
@@ -17099,12 +17099,12 @@ $messages['nl-informal'] = array(
 	'ep-move-error' => "Je mag pagina's niet hernoemen in of uit de naamruimten voor het onderwijsprogramma.",
 	'ep-err-failed-to-save' => 'Er is iets misgegaan. Je wijzigingen zijn niet opgeslagen.',
 	'ep-prefs-showdyk' => '"Wist je dat"-venster weergeven op de pagina [[Special:MyCourses|mijn cursussen]].',
-	'right-ep-beonline' => 'Jezelf toevoegen of verwijderen als online ambassadeur voor semesters',
-	'right-ep-becampus' => 'Jezelf toevoegen of verwijderen als campusambassadeur voor semesters',
+	'right-ep-beonline' => 'Jezelf toevoegen of verwijderen als online ambassadeur voor semesters', # Fuzzy
+	'right-ep-becampus' => 'Jezelf toevoegen of verwijderen als campusambassadeur voor semesters', # Fuzzy
 	'right-ep-beinstructor' => 'Jezelf als instructeur toevoegen aan of verwijderen van cursussen',
 	'right-ep-bereviewer' => "Jezelf als controleur toevoegen aan of verwijderen van pagina's",
-	'action-ep-beonline' => 'jezelf toe te voegen of te verwijderen als online ambassadeur voor semesters',
-	'action-ep-becampus' => 'jezelf toe te voegen of te verwijderen als campusambassadeur voor semesters',
+	'action-ep-beonline' => 'jezelf toe te voegen of te verwijderen als online ambassadeur voor semesters', # Fuzzy
+	'action-ep-becampus' => 'jezelf toe te voegen of te verwijderen als campusambassadeur voor semesters', # Fuzzy
 	'action-ep-beinstructor' => 'jezelf als instructeur toe te voegen aan of te verwijderen van cursussen',
 	'action-ep-bereviewer' => "jezelf als controleur toe te voegen aan of te verwijderen van pagina's",
 	'ep-courses-addorgfirst' => 'Er zijn nog geen organisaties. Je moet [[Special:Institutions|een organisatie toevoegen]] voordat je cursussen kunt toevoegen.',
@@ -17156,7 +17156,7 @@ Voor je gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-enroll-invalid-token' => 'Het token dat je hebt opgegeven is ongeldig.',
 	'ep-enroll-header' => 'Om je in te schrijven voor deze cursus hoeft je alleen maar dit formulier in te vullen en op te slaan. Daarna bent je ingeschreven.',
 	'ep-enroll-add-token' => 'Voer je inschrijvingstoken in',
-	'ep-enroll-add-token-doc' => 'Om je in te schrijven voor deze cursus heb je een token nodig dat je heeft gekregen van uw instructeur of een van de ambassadeurs voor deze cursus.',
+	'ep-enroll-add-token-doc' => 'Om je in te schrijven voor deze cursus heb je een token nodig dat je heeft gekregen van uw instructeur of een van de ambassadeurs voor deze cursus.', # Fuzzy
 	'ep-enroll-course-passed' => 'Deze cursus is afgelopen, dus je kunt er niet langer voor inschrijven. Zie de [[Special:Courses|lijst met cursussen]].',
 	'ep-disenroll-no-name' => 'Je moet de naam opgeven van de cursus waarvoor je je wilt uitschrijven.',
 	'ep-disenroll-course-passed' => 'Deze cursus is afgelopen. Je kunt je niet langer uitschrijven.',
@@ -17170,29 +17170,29 @@ Voor je gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-mycourses-no-such-course' => 'Je bent niet ingeschreven voor een cursus met de naam "$1". Hieronder wordt een lijst weergegeven met de cursussen waarvoor je bent ingeschreven.',
 	'ep-mycourses-nocourses-epstudent' => 'Je bent nog niet ingeschreven voor een [[Special:Courses|cursus]].',
 	'ep-mycourses-login-first' => 'Je moet aanmelden voordat je je cursussen kunt bekijken.',
-	'ep-mycourses-nocourses-epca' => 'Je bent nog geen Campus{{GENDER:$1|ambassadeur|ambassadrice}} voor een cursus.',
-	'ep-mycourses-nocourses-epoa' => 'Je bent nog geen Online {{GENDER:$1|ambassadeur|ambassadrice}} voor een cursus.',
+	'ep-mycourses-nocourses-epca' => 'Je bent nog geen Campus{{GENDER:$1|ambassadeur|ambassadrice}} voor een cursus.', # Fuzzy
+	'ep-mycourses-nocourses-epoa' => 'Je bent nog geen Online {{GENDER:$1|ambassadeur|ambassadrice}} voor een cursus.', # Fuzzy
 	'ep-mycourses-nocourses-epinstructor' => 'Je bent nog geen {{GENDER:$1|instructeur|instructrice}} voor een cursus.',
 	'ep-mycourses-enrolledin' => 'Je bent ingeschreven voor de cursus $1 bij de organisatie $2.',
 	'ep-mycourses-articletable' => "Dit zijn de pagina's waar je aan werkt en de controleurs:",
-	'ep-instructor-remove-text' => 'Je staat op het punt $2 (gebruikersnaam $1) te verwijderen als {{GENDER:$1|instructeur|instructrice}} voor de cursus $3. Geef alsjeblieft een korte reden op voor deze handeling.',
+	'ep-instructor-remove-text' => 'Je staat op het punt $2 (gebruikersnaam $1) te verwijderen als {{GENDER:$1|instructeur|instructrice}} voor de cursus $3. Geef een korte reden op voor deze handeling.',
 	'ep-instructor-addittion-self-success' => 'Je bent toegevoegd als {{GENDER:$1|instructeur|instructrice}} voor de cursus $2.',
 	'ep-instructor-add-text' => 'Je bent een instructeur voor cursus $1 aan het toevoegen. Voer de gebruikersnaam van de instructeur in en een korte beschrijving waarom deze gebruiker wordt toegevoegd.',
 	'ep-instructor-add-self-text' => 'Je bent jezelf aan het toevoegen als {{GENDER:$2|instructeur|instructrice}} voor de cursus $1. Geeft een korte reden op waarom je dat doet.',
-	'ep-online-remove-text' => 'Je staat op het punt $2 (gebruikersnaam $1) te verwijderen als Online {{GENDER:$1|ambassadeur|ambassadrice}} voor de cursus $3. Geef alsjeblieft een korte reden op voor deze handeling.',
-	'ep-online-addittion-self-success' => 'Je bent toegevoegd als Online {{GENDER:$1|ambassadeur|ambassadrice}} voor de cursus $2.',
-	'ep-online-add-text' => 'Je bent een Online ambassadeur voor cursus $1 aan het toevoegen. Voer de gebruikersnaam van de Online ambassadeur in en een korte beschrijving waarom deze gebruiker wordt toegevoegd.',
-	'ep-online-add-self-text' => 'Je bent jezelf aan het toevoegen als Online {{GENDER:$2|ambassadeur|ambassadrice}} voor de cursus $1. Geeft een korte reden op waarom je dat doet.',
-	'ep-campus-remove-text' => 'Je staat op het punt $2 (gebruikersnaam $1) te verwijderen als Campus{{GENDER:$1|ambassadeur|ambassadrice}} voor de cursus $3. Geef alsjeblieft een korte reden op voor deze handeling.',
-	'ep-campus-addittion-self-success' => 'Je bent toegevoegd als Campus{{GENDER:$1|ambassadeur|ambassadrice}} voor de cursus $2.',
-	'ep-campus-add-text' => 'Je bent een Campusambassadeur voor cursus $1 aan het toevoegen. Voer de gebruikersnaam van de Campusambassadeur in en een korte beschrijving waarom deze gebruiker wordt toegevoegd.',
-	'ep-campus-add-self-text' => 'Je bent jezelf aan het toevoegen als Campus{{GENDER:$2|ambassadeur|ambassadrice}} voor de cursus $1. Geeft een korte reden op waarom je dat doet.',
+	'ep-online-remove-text' => 'Je staat op het punt $2 (gebruikersnaam $1) te verwijderen als Online {{GENDER:$1|ambassadeur|ambassadrice}} voor de cursus $3. Geef alsjeblieft een korte reden op voor deze handeling.', # Fuzzy
+	'ep-online-addittion-self-success' => 'Je bent toegevoegd als Online {{GENDER:$1|ambassadeur|ambassadrice}} voor de cursus $2.', # Fuzzy
+	'ep-online-add-text' => 'Je bent een Online ambassadeur voor cursus $1 aan het toevoegen. Voer de gebruikersnaam van de Online ambassadeur in en een korte beschrijving waarom deze gebruiker wordt toegevoegd.', # Fuzzy
+	'ep-online-add-self-text' => 'Je bent jezelf aan het toevoegen als Online {{GENDER:$2|ambassadeur|ambassadrice}} voor de cursus $1. Geeft een korte reden op waarom je dat doet.', # Fuzzy
+	'ep-campus-remove-text' => 'Je staat op het punt $2 (gebruikersnaam $1) te verwijderen als Campus{{GENDER:$1|ambassadeur|ambassadrice}} voor de cursus $3. Geef alsjeblieft een korte reden op voor deze handeling.', # Fuzzy
+	'ep-campus-addittion-self-success' => 'Je bent toegevoegd als Campus{{GENDER:$1|ambassadeur|ambassadrice}} voor de cursus $2.', # Fuzzy
+	'ep-campus-add-text' => 'Je bent een Campusambassadeur voor cursus $1 aan het toevoegen. Voer de gebruikersnaam van de Campusambassadeur in en een korte beschrijving waarom deze gebruiker wordt toegevoegd.', # Fuzzy
+	'ep-campus-add-self-text' => 'Je bent jezelf aan het toevoegen als Campus{{GENDER:$2|ambassadeur|ambassadrice}} voor de cursus $1. Geeft een korte reden op waarom je dat doet.', # Fuzzy
 	'ep-enlist-invalid-user-args' => 'Je moet de parameter "username" of "userid" opgeven',
-	'onlineambassadorprofile-text' => 'Als studenten kijken naar beschikbare ambassadeurs, krijgen ze je Online ambassadeursprofiel te zien.',
+	'onlineambassadorprofile-text' => 'Als studenten kijken naar beschikbare ambassadeurs, krijgen ze je Online ambassadeursprofiel te zien.', # Fuzzy
 	'epoa-profile-photo-help' => 'Een foto van jou die wordt weergegeven naast uw beschrijving. Voer de naam in van een afbeelding op Wikimedia Commons om een voorvertoning weer te geven. Je kunt de eerste paar letters van een afbeeldingsnaam invoeren en dan je afbeelding uit de lijst selecteren. [$1 Upload een afbeelding] als je nog geen afbeelding op Commons hebt.',
 	'epoa-profile-saved' => 'Je profiel is opgeslagen',
 	'epoa-profile-invalid-bio' => 'De beschrijving moet tenminste {{PLURAL:$1|één teken|$1 tekens}} bevatten.',
-	'campusambassadorprofile-text' => 'Als studenten kijken naar beschikbare ambassadeurs, krijgen ze je Campusambassadeursprofiel te zien.',
+	'campusambassadorprofile-text' => 'Als studenten kijken naar beschikbare ambassadeurs, krijgen ze je Campusambassadeursprofiel te zien.', # Fuzzy
 	'epca-profile-photo-help' => 'Een foto van u die wordt weergegeven naast je beschrijving. Voer de naam in van een afbeelding op Wikimedia Commons om een voorvertoning weer te geven. Je kunt de eerste paar letters van een afbeeldingsnaam invoeren en dan je afbeelding uit de lijst selecteren. [$1 Upload een afbeelding] als je nog geen afbeelding op Commons heeft.',
 	'epca-profile-saved' => 'Je profiel is opgeslagen',
 	'ep-dashboard-login-first' => 'Je moet aanmelden voordat je cursussen kunt bekijken.',
@@ -17209,6 +17209,7 @@ $messages['or'] = array(
 
 /** Polish (polski)
  * @author BeginaFelicysym
+ * @author Chrumps
  * @author Odie2
  * @author P0358
  * @author Przemub
@@ -17232,9 +17233,9 @@ $messages['pl'] = array(
 	'tooltip-ep-minor' => 'To jest drobna edycja',
 	'ep-nav-orgs' => 'Lista instytucji',
 	'ep-nav-courses' => 'Lista kursów',
-	'ep-nav-mycourses' => 'Moje kursy',
+	'ep-nav-mycourses' => 'Twoje kursy',
 	'ep-nav-students' => 'Lista studentów',
-	'ep-nav-mentors' => 'Lista ambasadorów',
+	'ep-nav-mentors' => 'Lista wolontariuszy',
 	'logentry-institution-add' => '$1 {{GENDER:$2|stworzył|stworzyła}} instytucję $3',
 	'logentry-institution-remove' => '$1 {{GENDER:$2|skasował|skasowała}} instytucję $3',
 	'logentry-institution-update' => '$1 {{GENDER:$2|zaktualizował|zaktualizowała}} instytucję $3',
@@ -17243,6 +17244,34 @@ $messages['pl'] = array(
 	'logentry-course-update' => '$1 {{GENDER:$2|zaktualizował|zakutalizowała}} kurs $3',
 	'logentry-instructor-add' => '$1 {{GENDER:$2|dodał|dodała}} {{PLURAL:$4|instruktora|instruktorów}} $5 do kursu $3',
 	'prefs-education' => 'Edukacja',
+	'specialpages-group-education' => 'Edukacja',
+	'special-courses' => 'Kursy',
+	'ep-educationprogram-gender-instructors' => 'Instruktorzy',
+	'eporgpager-header-city' => 'Miasto',
+	'eporgpager-header-country' => 'Państwo',
+	'eporgpager-filter-country' => 'Państwo',
+	'eporgpager-header-course-count' => 'Kursy',
+	'eporgpager-yes' => 'Tak',
+	'eporgpager-no' => 'Nie',
+	'ep-pager-cancel-button-org' => 'Anuluj',
+	'epcoursepager-header-lang' => 'Język',
+	'epcoursepager-filter-lang' => 'Język',
+	'epcoursepager-filter-org-id' => 'Instytucja',
+	'epcoursepager-filter-status' => 'Status',
+	'ep-pager-cancel-button-course' => 'Anuluj',
+	'ep-pager-summary-message-course' => 'Podsumowanie:',
+	'epstudentpager-header-user-id' => 'Nazwa użytkownika',
+	'epstudentpager-header-current-courses' => 'Aktualne kursy',
+	'epstudentpager-yes' => 'Tak',
+	'epstudentpager-no' => 'Nie',
+	'epstudentpager-header-articles' => 'Artykuły',
+	'ep-articles-addarticle-text' => 'Dodaj artykuł:',
+	'ep-articles-addarticle-button' => 'Dodaj artykuł',
+	'ep-articletable-addreviwer-cancel' => 'Anuluj',
+	'epoapager-header-bio' => 'Profil',
+	'educationprogram-org-edit-city' => 'Miasto',
+	'educationprogram-org-edit-country' => 'Państwo',
+	'educationprogram-org-submit' => 'Wyślij',
 	'ep-disenroll-returntolink' => 'Powrót do [[Education_Program:$2|kurs $1]].',
 );
 
@@ -22571,7 +22600,7 @@ $messages['ur'] = array(
  */
 $messages['vi'] = array(
 	'ep-item-summary' => 'Tóm lược',
-	'ep-toplink' => 'Khóa học của tôi', # Fuzzy
+	'ep-toplink' => 'Khóa học',
 	'ep-form-summary' => 'Tóm lược:',
 	'ep-form-minor' => 'Sửa đổi nhỏ',
 	'ep-move-error' => 'Bạn không được phép di chuyển các bài ra vào các không gian tên giáo dục.',
@@ -22588,7 +22617,7 @@ $messages['vi'] = array(
 	'tooltip-ep-summary' => 'Hãy nhập câu tóm lược',
 	'tooltip-ep-minor' => 'Đánh dấu đây là sửa đổi nhỏ',
 	'ep-nav-courses' => 'Danh sách khóa học',
-	'ep-nav-mycourses' => 'Khóa học của tôi',
+	'ep-nav-mycourses' => 'Khóa học',
 	'ep-nav-students' => 'Danh sách sinh viên',
 	'log-name-student' => 'Nhật trình sinh viên Chương trình Giáo dục',
 	'log-name-instructor' => 'Nhật trình giảng viên Chương trình Giáo dục',
@@ -22675,7 +22704,7 @@ $messages['vi'] = array(
 	'educationprogram-org-edit-country' => 'Quốc gia',
 	'ep-course-edit-start' => 'Ngày bắt đầu',
 	'ep-course-edit-end' => 'Ngày kết thúc',
-	'ep-course-edit-description' => 'Miêu tả',
+	'ep-course-edit-description' => 'Nội dung trang',
 	'ep-course-edit-title' => 'Tên trang',
 	'ep-course-edit-field' => 'Môn học',
 	'ep-course-edit-term' => 'Học kỳ',
@@ -22816,6 +22845,7 @@ $messages['yi'] = array(
  * @author Anakmalaysia
  * @author Dimension
  * @author Hydra
+ * @author Kuailong
  * @author Makecat
  * @author Shirayuki
  * @author Yfdyh000
@@ -22902,6 +22932,8 @@ $messages['zh-hans'] = array(
 	'logentry-eparticle-selfremove' => '$1从$4课程中{{GENDER:$2|自己}}的文章篇目删除$3文章',
 	'logentry-eparticle-add' => '$1在$4课程中{{GENDER:$6|$5}}的文章篇目添加$3文章',
 	'logentry-eparticle-remove' => '$1从$4课程中{{GENDER:$6|$5}}的文章篇目删除$3文章',
+	'logentry-eparticle-review' => '$1将{{GENDER:$2|他本人|她本人|他们自己}}添加为$5{{GENDER:$6|所编辑的}}课程$4下属条目$3的审核员',
+	'logentry-eparticle-unreview' => '$1移除了{{GENDER:$2|他本人|她本人|他们自己}}作为$5{{GENDER:$6|所编辑的}}课程$4下属条目$3的审核员',
 	'prefs-education' => '教育',
 	'ep-prefs-showtoplink' => '将[[Special:MyCourses|您的课程]]链接在每个页面的头部显示。',
 	'ep-prefs-bulkdelorgs' => '显示[[Special:Institutions|学院]]批量删除控制板。',
@@ -23083,6 +23115,11 @@ $messages['zh-hans'] = array(
 	'educationprogram-org-submit' => '提交',
 	'orgpage-edit-title-edit' => '编辑机构：$1',
 	'orgpage-edit-title-add' => '添加机构：$1',
+	'orgpage-edit-deleted' => "'''警告：你正在重新创建之前曾被删除过的机构。'''
+
+你应当考虑是否应当继续再次创建该机构。
+为了方便参考，下面提供该机构的删除日志：",
+	'orgpage-edit-undelete-revisions' => '该机构已被删除。你可以$1。',
 	'educationprogram-org-invalid-country' => '这不是一个有效的国家。',
 	'coursepage-edit-legend-add' => '添加课程',
 	'coursepage-edit-legend-edit' => '编辑课程',
@@ -23098,6 +23135,10 @@ $messages['zh-hans'] = array(
 	'ep-editcourse' => '您正在编辑一个已经存在的课程。',
 	'ep-course-invalid-org' => '本机构不存在。',
 	'ep-course-invalid-lang' => '该语言无效。',
+	'ep-pager-confirm-delete' => '确定要删除该项目吗？',
+	'ep-pager-delete-fail' => '无法删除该项目。',
+	'ep-pager-confirm-delete-selected' => '确定要删除已选择的{{PLURAL:$1|项目}}吗？',
+	'ep-pager-delete-selected-fail' => '无法删除已选择的{{PLURAL:$1|项目}}。',
 	'ep-institution-title' => '学院：$1',
 	'vieworgaction-summary-name' => '名称',
 	'vieworgaction-summary-city' => '城市',
@@ -23139,7 +23180,9 @@ $messages['zh-hans'] = array(
 	'coursepage-eprestore-summary' => '原因：',
 	'coursepage-eprestore-cancel-button' => '取消',
 	'orgpage-epundo-summary' => '回退的原因：',
+	'orgpage-epundo-undo-button' => '撤销修订',
 	'orgpage-epundo-cancel-button' => '取消',
+	'orgpage-epundo-summary-value' => '撤销$2于$1$3所作的修订',
 	'coursepage-epundo-summary' => '回退的理由：',
 	'coursepage-epundo-cancel-button' => '取消',
 	'coursepage-epundelete-summary' => '恢复的原因：',
@@ -23186,11 +23229,23 @@ $messages['zh-hans'] = array(
 	'onlineambassadorprofile-legend' => '您的在线志愿者个人档案',
 	'epoa-visible' => '公开列出您为在线志愿者',
 	'campusambassadorprofile-legend' => '您的校园志愿者个人档案',
+	'epca-profile-bio' => '个人简历',
+	'epca-profile-photo' => '头像',
 	'epca-visible' => '公开列出您为校园志愿者',
 	'ep-timeline-ago' => '$1前',
 	'ep-timeline-cutoff' => '$1 ...',
+	'ep-timeline-users-edit-article' => "$1编辑了条目'''[[$2]]'''。",
+	'ep-timeline-users-edit-talk' => "$1在'''[[$3]]'''的'''[[$2|讨论页]]'''上{{PLURAL:$4|留言}}。",
+	'ep-timeline-users-edit-user' => "$1编辑了'''[[$2|$3]]'''的用户页。",
+	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她}}的'''[[$2|对话页]]'''上收到了{{PLURAL:$4|留言}}。",
+	'ep-timeline-users-edit-user-self' => "$1编辑了{{GENDER:$3|他|她}}本人的'''[[$2|用户页]]'''。",
+	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她}}本人的'''[[$2|对话页]]'''上{{PLURAL:$4|留言}} 。",
 	'ep-timeline-users-create-article' => "$1创建'''[[$2]]'''文章。",
+	'ep-timeline-users-create-talk' => "$1创建了'''[[$3]]'''的'''[[$2|对话页]]'''并留下了{{PLURAL:$4|一条留言|数条留言}}。",
 	'ep-timeline-users-create-user' => "$1创建'''[[$2|$3]]'''的用户页面。",
+	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她}}新近创建的'''[[$2|对话页]]'''上受到了{{PLURAL:$4|一条留言|数条留言}}。",
+	'ep-timeline-users-create-user-self' => "$1创建了{{GENDER:$3|他|她}}本人的'''[[$2|用户页]]'''。",
+	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' 创建了{{GENDER:$3|他|她}}本人的 '''[[$2|对话页]]'''并在上面发布了{{PLURAL:$4|一条消息|数条消息}}。",
 	'ep-dashboard-login-first' => '您必须登录才可以查看您的课程。',
 	'ep-dashboard-timeline-empty' => '本课程没有最近活动。',
 );
