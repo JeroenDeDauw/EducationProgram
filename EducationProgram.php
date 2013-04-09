@@ -374,6 +374,8 @@ $wgRemoveGroups['sysop'] = array_merge( $wgRemoveGroups['sysop'], array( 'eponli
 define( 'EP_NS',					442 + 4 );
 define( 'EP_NS_TALK', 				442 + 5 );
 
+$wgNamespacesWithSubpages[EP_NS_TALK] = true;
+
 // Resource loader modules
 $moduleTemplate = array(
 	'localBasePath' => $dir . '/resources',
