@@ -52,7 +52,7 @@ $specialPageAliases['ar'] = array(
 	'Articles' => array( 'مقالات' ),
 );
 
-/** Assamese (অসমীয়া) */
+/** Assamese (অসমীয়া) */
 $specialPageAliases['as'] = array(
 	'Student' => array( 'শিক্ষাৰ্থী' ),
 	'Students' => array( 'শিক্ষাৰ্থীসকল' ),
@@ -273,6 +273,11 @@ $specialPageAliases['pa'] = array(
 	'Student' => array( 'ਵਿਦਿਆਰਥੀ' ),
 	'Courses' => array( 'ਕੋਰਸ' ),
 	'Articles' => array( 'ਲੇਖ' ),
+);
+
+/** Russian (русский) */
+$specialPageAliases['ru'] = array(
+	'Articles' => array( 'Статьи' ),
 );
 
 /** Sicilian (sicilianu) */
