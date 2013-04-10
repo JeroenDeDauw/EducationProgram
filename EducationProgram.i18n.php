@@ -1140,7 +1140,8 @@ Additional parameters:
 {{Identical|Start}}',
 	'epcoursepager-header-org-id' => 'Table column header',
 	'epcoursepager-header-end' => 'Table column header',
-	'epcoursepager-header-status' => 'Table column header',
+	'epcoursepager-header-status' => 'Table column header.
+{{Identical|Status}}',
 	'epcoursepager-header-student-count' => 'Table column header',
 	'epcoursepager-header-lang' => 'Table column header.
 {{Identical|Language}}',
@@ -1148,7 +1149,8 @@ Additional parameters:
 	'epcoursepager-filter-lang' => 'Filter control label.
 {{Identical|Language}}',
 	'epcoursepager-filter-org-id' => 'Filter control label',
-	'epcoursepager-filter-status' => 'Filter control label',
+	'epcoursepager-filter-status' => 'Filter control label.
+{{Identical|Status}}',
 	'epcoursepager-invalid-lang' => 'Indicates the selected language is not valid',
 	'ep-pager-cancel-button-course' => 'Cancel button text',
 	'ep-pager-delete-button-course' => 'Remove button text. Parameters:
@@ -1337,7 +1339,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 {{Identical|Name}}',
 	'vieworgaction-summary-city' => 'Tabel row header',
 	'vieworgaction-summary-country' => 'Tabel row header',
-	'vieworgaction-summary-status' => 'Tabel row header',
+	'vieworgaction-summary-status' => 'Tabel row header.
+{{Identical|Status}}',
 	'vieworgaction-summary-courses' => 'Tabel row header',
 	'vieworgaction-summary-students' => 'Tabel row header',
 	'ep-institution-add-course' => 'h2 section header',
@@ -1363,7 +1366,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 {{Identical|Start}}',
 	'viewcourseaction-summary-end' => 'Tabel row header',
 	'viewcourseaction-summary-students' => 'Tabel row header',
-	'viewcourseaction-summary-status' => 'Tabel row header',
+	'viewcourseaction-summary-status' => 'Table row header.
+{{Identical|Status}}',
 	'viewcourseaction-summary-token' => 'Tabel row header',
 	'viewcourseaction-summary-instructors' => 'Tabel row header',
 	'viewcourseaction-summary-online' => 'Tabel row header',
