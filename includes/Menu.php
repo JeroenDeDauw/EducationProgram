@@ -110,11 +110,11 @@ class Menu extends \ContextSource {
 			$items['ep-nav-mycourses'] = SpecialPage::getTitleFor( 'MyCourses' );
 		}
 
-		if ( OA::newFromUser( $user )->hasCourse() ) {
+		if ( $user->isAllowed( 'eponline' ) ) {
 			$items['ep-nav-oaprofile'] = SpecialPage::getTitleFor( 'OnlineAmbassadorProfile' );
 		}
 
-		if ( CA::newFromUser( $user )->hasCourse() ) {
+		if ( $user->isAllowed( 'epcampus' ) ) {
 			$items['ep-nav-caprofile'] = SpecialPage::getTitleFor( 'CampusAmbassadorProfile' );
 		}
 
