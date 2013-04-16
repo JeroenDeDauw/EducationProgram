@@ -102,6 +102,7 @@ class StudentActivityPager extends EPPager {
 						. Student::getViewLinksFor( $this->getContext(), $value, $userName );
 				}
 				else {
+					$value = '';
 					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );
 				}
 				break;
@@ -117,6 +118,7 @@ class StudentActivityPager extends EPPager {
 					}
 				}
 				else {
+					$value = '';
 					wfWarn( 'Course id not in $this->courseNames in ' . __METHOD__ );
 				}
 				break;
@@ -131,10 +133,12 @@ class StudentActivityPager extends EPPager {
 						$value .= Orgs::singleton()->getLinkFor( $this->orgData[$orgId]['name'] );
 					}
 					else {
+						$value = '';
 						wfWarn( 'Org id not in $this->orgNames in ' . __METHOD__ );
 					}
 				}
 				else {
+					$value = '';
 					wfWarn( 'Course id not in $this->courseOrgs in ' . __METHOD__ );
 				}
 				break;
