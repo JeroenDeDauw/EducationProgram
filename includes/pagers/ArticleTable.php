@@ -416,6 +416,9 @@ class ArticleTable extends EPPager {
 
 		$html = Linker::userLink( $userId, $name );
 
+		$title = Title::newFromID( $article->getPageId() );
+		$titleText = $title === null ? '' : $title->getFullText();
+
 		if ( $this->getUser()->isAllowed( 'ep-remreviewer' ) ) {
 			$html .= Utils::getToolLinks(
 				$userId,
@@ -427,7 +430,7 @@ class ArticleTable extends EPPager {
 						'href' => '#',
 						'data-user-id' => $userId,
 						'data-article-id' => $article->getId(),
-						'data-article-name' => Title::newFromID( $article->getPageId() )->getFullText(),
+						'data-article-name' => $titleText,
 						'data-student-name' => $article->getUser()->getName(),
 						'data-reviewer-name' => $user->getName(),
 						'data-reviewer-id' => $user->getId(),
@@ -447,7 +450,7 @@ class ArticleTable extends EPPager {
 					'class' => 'ep-rem-reviewer-self',
 					'disabled' => 'disabled',
 					'data-article-id' => $article->getId(),
-					'data-article-name' => Title::newFromID( $article->getPageId() )->getFullText(),
+					'data-article-name' => $titleText,
 					'data-student-name' => $article->getUser()->getName(),
 					'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 				),
@@ -523,13 +526,16 @@ class ArticleTable extends EPPager {
 	 * @return string
 	 */
 	protected function getReviewerAdditionControl( EPArticle $article ) {
+		$title = Title::newFromID( $article->getPageId() );
+		$titleText = $title === null ? '' : $title->getFullText();
+
 		$html = Html::element(
 			'button',
 			array(
 				'class' => 'ep-become-reviewer',
 				'disabled' => 'disabled',
 				'data-article-id' => $article->getId(),
-				'data-article-name' => Title::newFromID( $article->getPageId() )->getFullText(),
+				'data-article-name' => $titleText,
 				'data-user-name' => $article->getUser()->getName(),
 				'data-token' => $this->getUser()->getEditToken( 'addreviewer' . $article->getId() ),
 			),
