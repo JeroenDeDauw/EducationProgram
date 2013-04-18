@@ -248,7 +248,7 @@ class ArticleStore {
 				 'article_id' => $articleId
 			),
 			__METHOD__
-		);
+		) !== false;
 	}
 
 	/**
