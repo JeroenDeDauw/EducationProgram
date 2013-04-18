@@ -44,7 +44,7 @@ $egEPSettings = array(
 	'timelineDurationLimit' => 2 *24 * 60 *60,
 	'timelineCountLimit' => 42,
 	'timelineUserLimit' => 3,
-	'dykCategory' => 'Wikipedia:Education Program Did You Know',
+	'dykCategory' => 'MyCourses Did You Know',
 	'dykOrgCategory' => '$2/$1', // $1 = org name, $2 = dykCategory setting
 	'enableDykSetting' => true,
 	'timelineMessageLengthLimit' => 250,
