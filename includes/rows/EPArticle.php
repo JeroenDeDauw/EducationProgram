@@ -332,7 +332,7 @@ class EPArticle {
 	 * @return boolean
 	 */
 	public function userCanRemove( User $user ) {
-		return $user->isAllowed( 'ep-remarticle' ) || $user->getId() === $this->getField( 'user_id' );
+		return $user->isAllowed( 'ep-remarticle' ) || $user->getId() === $this->getUserId();
 	}
 
 	/**
