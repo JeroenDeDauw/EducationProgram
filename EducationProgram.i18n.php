@@ -813,7 +813,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	// Dashboard
 	'ep-dashboard-login-first' => 'You need to login before you can view your courses.',
 	'ep-dashboard-timeline-empty' => 'There was no recent activity for this course.',
-	'ep-dashboard-enroll-first' => 'You are not currently enrolled in any active courses. You can view the [[Special:Courses|list of courses]] and enroll in one.',
+	'ep-dashboard-enroll-first' => 'You are not currently participating in any active courses. You can view the [[Special:Courses|list of courses]].',
 );
 
 /** Message documentation (Message documentation)
