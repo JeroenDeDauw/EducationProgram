@@ -86,8 +86,13 @@ $wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/include
 
 $wgAutoloadClasses['EducationProgram\Events\EditEventCreator'] 		= $dir . '/includes/Events/EditEventCreator.php';
 $wgAutoloadClasses['EducationProgram\Events\Event'] 				= $dir . '/includes/Events/Event.php';
+$wgAutoloadClasses['EducationProgram\Events\EventGroup'] 			= $dir . '/includes/Events/EventGroup.php';
+$wgAutoloadClasses['EducationProgram\Events\EventGrouper'] 			= $dir . '/includes/Events/EventGrouper.php';
 $wgAutoloadClasses['EducationProgram\Events\EventQuery'] 			= $dir . '/includes/Events/EventQuery.php';
 $wgAutoloadClasses['EducationProgram\Events\EventStore'] 			= $dir . '/includes/Events/EventStore.php';
+$wgAutoloadClasses['EducationProgram\Events\RecentPageEventGrouper']= $dir . '/includes/Events/RecentPageEventGrouper.php';
+$wgAutoloadClasses['EducationProgram\Events\Timeline'] 				= $dir . '/includes/Events/Timeline.php';
+$wgAutoloadClasses['EducationProgram\Events\TimelineGroup'] 		= $dir . '/includes/Events/TimelineGroup.php';
 
 // includes/pagers (implementing Pager)
 $wgAutoloadClasses['EducationProgram\ArticleTable'] 				= $dir . '/includes/pagers/ArticleTable.php';
@@ -164,8 +169,6 @@ $wgAutoloadClasses['EducationProgram\RevisionAction'] 				= $dir . '/includes/Re
 $wgAutoloadClasses['EducationProgram\RevisionDiff'] 				= $dir . '/includes/RevisionDiff.php';
 $wgAutoloadClasses['EducationProgram\RoleObject'] 					= $dir . '/includes/RoleObject.php';
 $wgAutoloadClasses['EducationProgram\Settings'] 					= $dir . '/includes/Settings.php';
-$wgAutoloadClasses['EducationProgram\Timeline'] 					= $dir . '/includes/Timeline.php';
-$wgAutoloadClasses['EducationProgram\TimelineGroup'] 				= $dir . '/includes/TimelineGroup.php';
 $wgAutoloadClasses['EducationProgram\UPCUserCourseFinder'] 			= $dir . '/includes/UPCUserCourseFinder.php';
 $wgAutoloadClasses['EducationProgram\UserCourseFinder'] 			= $dir . '/includes/UserCourseFinder.php';
 $wgAutoloadClasses['EducationProgram\Utils']						= $dir . '/includes/Utils.php';

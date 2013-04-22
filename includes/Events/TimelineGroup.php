@@ -1,7 +1,8 @@
 <?php
 
-namespace EducationProgram;
+namespace EducationProgram\Events;
 
+use EducationProgram\Settings;
 use IContextSource;
 use MWException;
 use Html;
@@ -15,6 +16,21 @@ use EducationProgram\Events\Event;
  * Class for displaying a group of Education Program events in a timeline.
  *
  * FIXME: these classes are abusing inheritance.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
  *
  * @since 0.1
  *
@@ -38,23 +54,19 @@ abstract class TimelineGroup extends \ContextSource {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Event[] $events
+	 * @param EventGroup $group
 	 * @param IContextSource|null $context
 	 *
 	 * @return mixed
 	 * @throws MWException
 	 */
-	public static function newFromEvents( array $events, IContextSource $context = null ) {
-		if ( empty( $events ) ) {
-			throw new MWException( 'Need at least one event to build a ' . __CLASS__ );
-		}
-
+	public static function newFromEventGroup( EventGroup $group, IContextSource $context = null ) {
 		$type = null;
 
 		/**
 		 * @var Event $event
 		 */
-		foreach ( $events as $event ) {
+		foreach ( $group->getEvents() as $event ) {
 			if ( is_null( $type ) ) {
 				$type = $event->getType();
 			}
@@ -64,15 +76,15 @@ abstract class TimelineGroup extends \ContextSource {
 		}
 
 		$typeMap = array(
-			'edit-' . NS_MAIN => '\EducationProgram\EditGroup',
-			'edit-' . NS_TALK => '\EducationProgram\EditGroup',
-			'edit-' . NS_USER => '\EducationProgram\EditGroup',
-			'edit-' . NS_USER_TALK => '\EducationProgram\EditGroup',
+			'edit-' . NS_MAIN => '\EducationProgram\Events\EditGroup',
+			'edit-' . NS_TALK => '\EducationProgram\Events\EditGroup',
+			'edit-' . NS_USER => '\EducationProgram\Events\EditGroup',
+			'edit-' . NS_USER_TALK => '\EducationProgram\Events\EditGroup',
 		);
 
-		$class = array_key_exists( $type, $typeMap ) ? $typeMap[$type] : '\EducationProgram\UnknownGroup';
+		$class = array_key_exists( $type, $typeMap ) ? $typeMap[$type] : '\EducationProgram\Events\UnknownGroup';
 
-		return new $class( $events, $context );
+		return new $class( $group->getEvents(), $context );
 	}
 
 	/**

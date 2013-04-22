@@ -1,11 +1,9 @@
 <?php
 
-namespace EducationProgram\Tests;
-
-use EducationProgram\Events\Timeline;
+namespace EducationProgram\Events;
 
 /**
- * Tests for the EducationProgram\Events\Timeline class.
+ * Interface for objects that can group a list of events.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,36 +20,24 @@ use EducationProgram\Events\Timeline;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @file
- * @since 0.4
+ * @since 0.3
  *
- * @ingroup EducationProgramTest
- *
- * @group EducationProgram
+ * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class TimelineTest extends \MediaWikiTestCase {
-
-	public function constructorProvider() {
-		$argLists = array();
-
-		$argLists[] = array( \RequestContext::getMain(), array() );
-
-		return $argLists;
-	}
+interface EventGrouper {
 
 	/**
-	 * @dataProvider constructorProvider
+	 * Groups the events and returns them as a list of EventGroup.
 	 *
-	 * @param \IContextSource $context
-	 * @param array $events
+	 * @since 0.3
+	 *
+	 * @param Event[] $events
+	 *
+	 * @return EventGroup[]
 	 */
-	public function testConstructor( \IContextSource $context, array $events ) {
-		$timeline = new Timeline( $context, $events );
-
-		$this->assertInternalType( 'string', $timeline->getHTML() );
-	}
+	public function groupEvents( array $events );
 
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace EducationProgram\Tests;
+namespace EducationProgram\Events;
 
-use EducationProgram\Events\Timeline;
+use InvalidArgumentException;
 
 /**
- * Tests for the EducationProgram\Events\Timeline class.
+ * Collection of events. Immutable.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,36 +22,52 @@ use EducationProgram\Events\Timeline;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @file
- * @since 0.4
+ * @since 0.3
  *
- * @ingroup EducationProgramTest
- *
- * @group EducationProgram
+ * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class TimelineTest extends \MediaWikiTestCase {
+class EventGroup {
 
-	public function constructorProvider() {
-		$argLists = array();
+	private $events;
 
-		$argLists[] = array( \RequestContext::getMain(), array() );
+	/**
+	 * @param Event[] $events
+	 *
+	 * @throws InvalidArgumentException
+	 */
+	public function __construct( array $events ) {
+		if ( $events === array() ) {
+			throw new InvalidArgumentException( 'Cannot construct an EventGroup with no events' );
+		}
 
-		return $argLists;
+		$this->events = $events;
 	}
 
 	/**
-	 * @dataProvider constructorProvider
-	 *
-	 * @param \IContextSource $context
-	 * @param array $events
+	 * @return Event[]
 	 */
-	public function testConstructor( \IContextSource $context, array $events ) {
-		$timeline = new Timeline( $context, $events );
+	public function getEvents() {
+		return $this->events;
+	}
 
-		$this->assertInternalType( 'string', $timeline->getHTML() );
+	/**
+	 * @return int Unix timestamp
+	 */
+	public function getLatestEventTime() {
+		$latestEventTime = 0;
+
+		foreach ( $this->events as $event ) {
+			$currentEventTime = (int)wfTimestamp( TS_UNIX, $event->getTime() );
+
+			if ( $currentEventTime > $latestEventTime ) {
+				$latestEventTime = $currentEventTime;
+			}
+		}
+
+		return $latestEventTime;
 	}
 
 }

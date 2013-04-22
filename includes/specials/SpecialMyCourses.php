@@ -2,6 +2,7 @@
 
 namespace EducationProgram;
 
+use EducationProgram\Events\Timeline;
 use IContextSource;
 use Linker;
 use EducationProgram\Events\EventQuery;

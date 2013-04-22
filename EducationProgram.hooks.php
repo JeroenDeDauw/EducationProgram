@@ -83,9 +83,11 @@ final class Hooks {
 			'Utils',
 
 			'Events/EditEventCreator',
+			'Events/EventGroup',
 			'Events/EventQuery',
 			'Events/EventStore',
 			'Events/Event',
+			'Events/RecentPageEventGrouper',
 
 			'tables/Orgs',
 		);
