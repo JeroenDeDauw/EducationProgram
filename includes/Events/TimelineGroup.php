@@ -311,7 +311,7 @@ class EditGroup extends TimelineGroup {
 			}
 		}
 		else {
-			$text = $info['comment'];
+			$text = trim( $info['comment'] ) === '' ? $this->msg( 'ep-timeline-no-summary' )->plain() : $info['comment'];
 		}
 
 		$html .= strip_tags(

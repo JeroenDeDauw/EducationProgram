@@ -795,6 +795,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-timeline-unknown' => '$1 did something at $2, $3',
 	'ep-timeline-ago' => '$1 ago',
 	'ep-timeline-cutoff' => '$1 ...',
+	'ep-timeline-no-summary' => "''No summary provided''",
 
 	'ep-timeline-users-edit-article' => "$1 edited the article '''[[$2]]'''.",
 	'ep-timeline-users-edit-talk' => "$1 left {{PLURAL:$4|a message|messages}} on the '''[[$2|talk page]]''' of '''[[$3]]'''.",
@@ -836,6 +837,7 @@ $messages['qqq'] = array(
 	'educationprogram-desc' => '{{desc|name=Education Program|url=http://www.mediawiki.org/wiki/Extension:Education_Program}}',
 	'ep-item-summary' => 'Table column header.
 {{Identical|Summary}}',
+	'ep-timeline-no-summary' => 'Message shown in the events timeline for edits that do not have an associated summary',
 	'ep-toplink' => 'Text of a link the the top menu (next to "Preferences")',
 	'ep-org-course-delete-comment' => 'Success message. Parameters:
 * $1 - an institution name
