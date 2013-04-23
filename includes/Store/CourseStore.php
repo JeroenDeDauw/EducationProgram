@@ -42,10 +42,10 @@ class CourseStore {
 	/**
 	 * @var DatabaseBase
 	 */
-	private $database;
+	private $readDatabase;
 
-	public function __construct( $tableName, DatabaseBase $database ) {
-		$this->database = $database;
+	public function __construct( $tableName, DatabaseBase $readDatabase ) {
+		$this->readDatabase = $readDatabase;
 		$this->tableName = $tableName;
 	}
 
@@ -58,7 +58,7 @@ class CourseStore {
 	 * @throws CourseNotFoundException
 	 */
 	public function getCourseById( $courseId ) {
-		$result = $this->database->selectRow(
+		$result = $this->readDatabase->selectRow(
 			$this->tableName,
 			$this->getReadFields(),
 			array(
@@ -82,7 +82,7 @@ class CourseStore {
 	 * @throws CourseTitleNotFoundException
 	 */
 	public function getCourseByTitle( $courseTitle ) {
-		$result = $this->database->selectRow(
+		$result = $this->readDatabase->selectRow(
 			$this->tableName,
 			$this->getReadFields(),
 			array(

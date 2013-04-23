@@ -3,6 +3,7 @@
 namespace EducationProgram;
 
 use EducationProgram\Events\EventStore;
+use EducationProgram\Store\CourseStore;
 use ORMTable;
 
 /**
@@ -74,6 +75,15 @@ class Extension {
 	 */
 	public function newEventStore() {
 		return new EventStore( 'ep_events' );
+	}
+
+	/**
+	 * @since 0.3
+	 *
+	 * @return CourseStore
+	 */
+	public function newCourseStore() {
+		return new CourseStore( 'ep_courses', wfGetDB( DB_SLAVE ) );
 	}
 
 	/**
