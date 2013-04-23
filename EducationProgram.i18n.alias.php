@@ -31,6 +31,7 @@ $specialPageAliases['en'] = array(
 	'CampusAmbassadorProfile' => array( 'CampusVolunteerProfile', 'CampusAmbassadorProfile' ),
 	'StudentActivity' => array( 'StudentActivity' ),
 	'Articles' => array( 'Articles' ),
+	'CourseActivity' => array( 'CourseActivity' ),
 );
 
 /** Arabic (العربية) */

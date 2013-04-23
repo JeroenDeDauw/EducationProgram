@@ -126,21 +126,22 @@ $wgAutoloadClasses['EducationProgram\RevisionedObject'] 			= $dir . '/includes/r
 $wgAutoloadClasses['EducationProgram\Student'] 						= $dir . '/includes/rows/Student.php';
 
 // includes/specials (deriving from SpecialPage)
+$wgAutoloadClasses['EducationProgram\SpecialAmbassadorProfile'] 	= $dir . '/includes/specials/SpecialAmbassadorProfile.php';
+$wgAutoloadClasses['EducationProgram\SpecialCAProfile'] 			= $dir . '/includes/specials/SpecialCAProfile.php';
+$wgAutoloadClasses['EducationProgram\SpecialCAs'] 					= $dir . '/includes/specials/SpecialCAs.php';
 $wgAutoloadClasses['EducationProgram\SpecialCourses'] 				= $dir . '/includes/specials/SpecialCourses.php';
+$wgAutoloadClasses['EducationProgram\SpecialDisenroll'] 			= $dir . '/includes/specials/SpecialDisenroll.php';
 $wgAutoloadClasses['EducationProgram\SpecialEducationProgram'] 		= $dir . '/includes/specials/SpecialEducationProgram.php';
+$wgAutoloadClasses['EducationProgram\SpecialEnroll'] 				= $dir . '/includes/specials/SpecialEnroll.php';
+$wgAutoloadClasses['EducationProgram\SpecialCourseActivity'] 		= $dir . '/includes/specials/SpecialCourseActivity.php';
 $wgAutoloadClasses['EducationProgram\SpecialInstitutions'] 			= $dir . '/includes/specials/SpecialInstitutions.php';
 $wgAutoloadClasses['EducationProgram\SpecialMyCourses'] 			= $dir . '/includes/specials/SpecialMyCourses.php';
-$wgAutoloadClasses['EducationProgram\SpecialStudent'] 				= $dir . '/includes/specials/SpecialStudent.php';
-$wgAutoloadClasses['EducationProgram\SpecialStudents'] 				= $dir . '/includes/specials/SpecialStudents.php';
-$wgAutoloadClasses['EducationProgram\SpecialEnroll'] 				= $dir . '/includes/specials/SpecialEnroll.php';
-$wgAutoloadClasses['EducationProgram\SpecialDisenroll'] 			= $dir . '/includes/specials/SpecialDisenroll.php';
-$wgAutoloadClasses['EducationProgram\SpecialCAs'] 					= $dir . '/includes/specials/SpecialCAs.php';
-$wgAutoloadClasses['EducationProgram\SpecialOAs'] 					= $dir . '/includes/specials/SpecialOAs.php';
-$wgAutoloadClasses['EducationProgram\SpecialOAProfile'] 			= $dir . '/includes/specials/SpecialOAProfile.php';
-$wgAutoloadClasses['EducationProgram\SpecialCAProfile'] 			= $dir . '/includes/specials/SpecialCAProfile.php';
-$wgAutoloadClasses['EducationProgram\SpecialAmbassadorProfile'] 	= $dir . '/includes/specials/SpecialAmbassadorProfile.php';
-$wgAutoloadClasses['EducationProgram\SpecialStudentActivity'] 		= $dir . '/includes/specials/SpecialStudentActivity.php';
 $wgAutoloadClasses['EducationProgram\SpecialManageCourses'] 		= $dir . '/includes/specials/SpecialManageCourses.php';
+$wgAutoloadClasses['EducationProgram\SpecialOAProfile'] 			= $dir . '/includes/specials/SpecialOAProfile.php';
+$wgAutoloadClasses['EducationProgram\SpecialOAs'] 					= $dir . '/includes/specials/SpecialOAs.php';
+$wgAutoloadClasses['EducationProgram\SpecialStudent'] 				= $dir . '/includes/specials/SpecialStudent.php';
+$wgAutoloadClasses['EducationProgram\SpecialStudentActivity'] 		= $dir . '/includes/specials/SpecialStudentActivity.php';
+$wgAutoloadClasses['EducationProgram\SpecialStudents'] 				= $dir . '/includes/specials/SpecialStudents.php';
 $wgAutoloadClasses['EducationProgram\VerySpecialPage'] 				= $dir . '/includes/specials/VerySpecialPage.php';
 
 // includes/tables (deriving from ORMTable)
@@ -183,19 +184,20 @@ $wgAutoloadClasses['EducationProgram\Tests\MockSuperUser'] 			= $dir . '/tests/p
 $wgAutoloadClasses['EducationProgram\Tests\UserCourseFinderTest'] 	= $dir . '/tests/phpunit/UserCourseFinderTest.php';
 
 // Special pages
-$wgSpecialPages['MyCourses'] 						= 'EducationProgram\SpecialMyCourses';
-$wgSpecialPages['Institutions'] 					= 'EducationProgram\SpecialInstitutions';
-$wgSpecialPages['Student'] 							= 'EducationProgram\SpecialStudent';
-$wgSpecialPages['Students'] 						= 'EducationProgram\SpecialStudents';
+$wgSpecialPages['CampusAmbassadorProfile'] 			= 'EducationProgram\SpecialCAProfile';
+$wgSpecialPages['CampusAmbassadors'] 				= 'EducationProgram\SpecialCAs';
+$wgSpecialPages['CourseActivity'] 					= 'EducationProgram\SpecialCourseActivity';
 $wgSpecialPages['Courses'] 							= 'EducationProgram\SpecialCourses';
-//$wgSpecialPages['EducationProgram'] 				= 'EducationProgram\SpecialEducationProgram';
 $wgSpecialPages['Enroll'] 							= 'EducationProgram\SpecialEnroll';
 $wgSpecialPages['Disenroll'] 						= 'EducationProgram\SpecialDisenroll';
-$wgSpecialPages['CampusAmbassadors'] 				= 'EducationProgram\SpecialCAs';
+$wgSpecialPages['MyCourses'] 						= 'EducationProgram\SpecialMyCourses';
+$wgSpecialPages['Institutions'] 					= 'EducationProgram\SpecialInstitutions';
+//$wgSpecialPages['EducationProgram'] 				= 'EducationProgram\SpecialEducationProgram';
 $wgSpecialPages['OnlineAmbassadors'] 				= 'EducationProgram\SpecialOAs';
-$wgSpecialPages['CampusAmbassadorProfile'] 			= 'EducationProgram\SpecialCAProfile';
 $wgSpecialPages['OnlineAmbassadorProfile'] 			= 'EducationProgram\SpecialOAProfile';
+$wgSpecialPages['Student'] 							= 'EducationProgram\SpecialStudent';
 $wgSpecialPages['StudentActivity'] 					= 'EducationProgram\SpecialStudentActivity';
+$wgSpecialPages['Students'] 						= 'EducationProgram\SpecialStudents';
 $wgSpecialPages['ManageCourses'] 					= 'EducationProgram\SpecialManageCourses';
 
 $wgSpecialPageGroups['MyCourses'] 					= 'education';
