@@ -53,6 +53,7 @@ $egEPSettings = array(
 	'enablePageCache' => true,
 	'courseHeaderPage' => 'MediaWiki:Course header',
 	'courseHeaderPageCountry' => '$2/$1', // $1 = course country name, $2 = courseHeaderPage setting
+	'activityTabMaxAgeInSeconds' => 7 * 24 * 60 * 60,
 );
 
 unset( $epResourceDir );

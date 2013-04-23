@@ -77,6 +77,7 @@ $wgAutoloadClasses['EducationProgram\UndeleteAction'] 				= $dir . '/includes/ac
 $wgAutoloadClasses['EducationProgram\UndoAction'] 					= $dir . '/includes/actions/UndoAction.php';
 $wgAutoloadClasses['EducationProgram\ViewAction'] 					= $dir . '/includes/actions/ViewAction.php';
 $wgAutoloadClasses['EducationProgram\ViewCourseAction'] 			= $dir . '/includes/actions/ViewCourseAction.php';
+$wgAutoloadClasses['EducationProgram\ViewCourseActivityAction'] 	= $dir . '/includes/actions/ViewCourseActivityAction.php';
 $wgAutoloadClasses['EducationProgram\ViewOrgAction'] 				= $dir . '/includes/actions/ViewOrgAction.php';
 
 // includes/api (deriving from ApiBase)
@@ -243,6 +244,7 @@ $wgActions['epaddreviewer'] = 'EducationProgram\AddReviewerAction';
 $wgActions['epundo'] = 'EducationProgram\UndoAction';
 $wgActions['eprestore'] = 'EducationProgram\RestoreAction';
 $wgActions['epundelete'] = 'EducationProgram\UndeleteAction';
+$wgActions['epcourseactivity'] = 'EducationProgram\ViewCourseActivityAction';
 
 // Logging
 $wgLogTypes[] = 'institution';

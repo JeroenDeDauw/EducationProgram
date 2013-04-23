@@ -328,6 +328,12 @@ final class Hooks {
 				);
 
 				if ( Utils::isCourse( $title ) ) {
+					$links['views']['activity'] = array(
+						'class' => $type === 'activity' ? 'selected' : false,
+						'text' => $sktemplate->msg( 'ep-tab-activity' )->text(),
+						'href' => $title->getLocalUrl( array( 'action' => 'epcourseactivity' ) )
+					);
+
 					$student = Student::newFromUser( $user );
 					$hasCourse = $student !== false && $student->hasCourse( array( 'title' => $title->getText() ) );
 

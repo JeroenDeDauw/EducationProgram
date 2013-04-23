@@ -39,6 +39,7 @@ $messages['en'] = array(
 	'ep-tab-enroll' => 'Enroll',
 	'ep-tab-disenroll' => 'Disenroll',
 	'ep-tab-delete' => 'Delete',
+	'ep-tab-activity' => 'View Activity',
 
 	// Tooltips
 	'tooltip-ep-form-save' => 'Save',
@@ -512,6 +513,9 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-history-norevs' => 'There is no edit history for this course.',
 	'coursepage-history-deleted' => 'This course has been deleted. The deletion log for the course is provided below for reference.',
 
+	// Course activity
+	'ep-viewcourseactivityaction-title' => 'Activity for course "$1"',
+
 	// Course deletion
 	'coursepage-delete-text' => 'You are about to delete course $1. This will remove all associated students!',
 	'coursepage-delete-summary' => 'Reason:',
@@ -860,6 +864,7 @@ $messages['qqq'] = array(
 {{Identical|View history}}',
 	'ep-tab-enroll' => 'Tab label',
 	'ep-tab-disenroll' => 'Tab label',
+	'ep-tab-activity' => 'Tab label',
 	'ep-tab-delete' => 'Tab label.
 {{Identical|Delete}}',
 	'tooltip-ep-form-save' => 'Tooltip text.
@@ -1383,6 +1388,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'orgpage-history-description' => 'Subtitle text linking to logs',
 	'orgpage-history-title' => 'Page title. Parameters:
 * $1 is an institution name.',
+	'ep-viewcourseactivityaction-title' => 'Page title. Parameters:
+* $1 is a course name.',
 	'orgpage-history-norevs' => 'Message shown when there are no revisions to list.',
 	'orgpage-history-deleted' => 'Shown when the item was deleted so no history can be shown.',
 	'coursepage-history-description' => 'Subtitle text linking to logs.',

@@ -44,14 +44,31 @@ class CourseActivityView {
 		$this->eventStore = $eventStore;
 	}
 
-	public function display() {
-		$eventQuery = new EventQuery();
-
-//		$eventQuery->setTimeLimit(  );
-//		$eventQuery->setCourses( array() );
+	/**
+	 * @param int $courseId
+	 * @param int $maxAgeInSeconds
+	 */
+	public function displayActivity( $courseId, $maxAgeInSeconds ) {
+		$eventQuery = $this->constructQuery( $courseId, $maxAgeInSeconds );
 
 		$events = $this->eventStore->query( $eventQuery );
 
+		$this->displayEvents( $events );
+	}
+
+	protected function constructQuery( $courseId, $maxAgeInSeconds ) {
+		$eventQuery = new EventQuery();
+
+		$eventQuery->setTimeLimit(
+			wfTimestamp( TS_UNIX, time() - $maxAgeInSeconds ),
+			EventQuery::COMP_BIGGER
+		);
+		$eventQuery->setCourses( array( $courseId ) );
+
+		return $eventQuery;
+	}
+
+	protected function displayEvents( array $events ) {
 		$view = new Timeline( $this->outputPage, $this->language, $events );
 		$view->display();
 	}

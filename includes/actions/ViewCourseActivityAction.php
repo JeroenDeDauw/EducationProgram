@@ -33,20 +33,43 @@ use EducationProgram\Events\Timeline;
 class ViewCourseActivityAction extends \FormlessAction {
 
 	public function getName() {
-		return 'viewactivity';
+		return 'epcourseactivity';
 	}
 
 	public function onView() {
-		$courseId = $this->getRequest()->getCheck( 'courseid' );
-
 		$educationProgram = Extension::globalInstance();
 
-		$eventStore = $educationProgram->newEventStore();
+		$courseActivityView = new CourseActivityView(
+			$this->getOutput(),
+			$this->getLanguage(),
+			$educationProgram->newEventStore()
+		);
 
+		$courseActivityView->displayActivity(
+			$this->getRequest()->getInt( 'courseid' ), // FIXME
+			$educationProgram->getSettings()->getSetting( 'activityTabMaxAgeInSeconds' )
+		);
+	}
 
+	/**
+	 * @see Action::getDescription()
+	 */
+	protected function getDescription() {
+		return '';
+	}
 
-
-
+	/**
+	 * Returns the page title.
+	 *
+	 * @since 0.1
+	 *
+	 * @return string
+	 */
+	protected function getPageTitle() {
+		return $this->msg(
+			'ep-viewcourseactivityaction-title',
+			$this->getTitle()->getText()
+		)->text();
 	}
 
 }

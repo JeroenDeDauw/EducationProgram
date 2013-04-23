@@ -31,7 +31,7 @@ use EducationProgram\CourseActivityView;
  */
 class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 
-	public function testConstruct() {
+	public function testDisplayActivity() {
 		$outputPage = $this->getMockBuilder( 'OutputPage' )
 			->disableOriginalConstructor()->getMock();
 
@@ -46,7 +46,7 @@ class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 
 		$activityView = new CourseActivityView( $outputPage, $language, $eventStore );
 
-		$activityView->display();
+		$activityView->displayActivity( 42, 31337 );
 	}
 
 }

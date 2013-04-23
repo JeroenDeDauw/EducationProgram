@@ -77,6 +77,15 @@ class Extension {
 	}
 
 	/**
+	 * @since 0.3
+	 *
+	 * @return Settings
+	 */
+	public function getSettings() {
+		return $this->settings;
+	}
+
+	/**
 	 * Global instance access.
 	 *
 	 * This is evil and should not be used except in intermediate steps during
