@@ -5,6 +5,7 @@ namespace EducationProgram;
 use EducationProgram\Events\EventQuery;
 use EducationProgram\Events\EventStore;
 use EducationProgram\Events\Timeline;
+use EducationProgram\Store\CourseStore;
 use Language;
 use OutputPage;
 use Wikibase\Test\Api\LangAttributeBase;
@@ -37,18 +38,40 @@ class CourseActivityView {
 	protected $outputPage;
 	protected $language;
 	protected $eventStore;
+	protected $courseStore;
 
-	public function __construct( OutputPage $outputPage, Language $language, EventStore $eventStore ) {
+	public function __construct( OutputPage $outputPage, Language $language, EventStore $eventStore, CourseStore $courseStore ) {
 		$this->outputPage = $outputPage;
 		$this->language = $language;
 		$this->eventStore = $eventStore;
+		$this->courseStore = $courseStore;
 	}
 
 	/**
 	 * @param int $courseId
 	 * @param int $maxAgeInSeconds
 	 */
-	public function displayActivity( $courseId, $maxAgeInSeconds ) {
+	public function displayActivity( $courseTitle, $maxAgeInSeconds ) {
+		try {
+			$course = $this->courseStore->getCourseByTitle( $courseTitle );
+		}
+		catch ( CourseTitleNotFoundException $exception ) {
+			$this->displayNotFound();
+		}
+
+		if ( isset( $course ) ) {
+			$this->displayForCourseId(
+				$course->getId(),
+				$maxAgeInSeconds
+			);
+		}
+	}
+
+	protected function displayNotFound() {
+		$this->outputPage->addWikiMsg( 'ep-viewcourseactivityaction-nosuchcourse' );
+	}
+
+	protected function displayForCourseId( $courseId, $maxAgeInSeconds ) {
 		$eventQuery = $this->constructQuery( $courseId, $maxAgeInSeconds );
 
 		$events = $this->eventStore->query( $eventQuery );

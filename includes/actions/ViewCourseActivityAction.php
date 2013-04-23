@@ -42,28 +42,14 @@ class ViewCourseActivityAction extends \FormlessAction {
 		$courseActivityView = new CourseActivityView(
 			$this->getOutput(),
 			$this->getLanguage(),
-			$educationProgram->newEventStore()
+			$educationProgram->newEventStore(),
+			$educationProgram->newCourseStore()
 		);
 
-		$courseStore = $educationProgram->newCourseStore();
-
-		try {
-			$course = $courseStore->getCourseByTitle( $this->getTitle()->getText() );
-		}
-		catch ( CourseTitleNotFoundException $exception ) {
-			$this->displayNotFound();
-		}
-
-		if ( isset( $course ) ) {
-			$courseActivityView->displayActivity(
-				$course->getId(),
-				$educationProgram->getSettings()->getSetting( 'activityTabMaxAgeInSeconds' )
-			);
-		}
-	}
-
-	private function displayNotFound() {
-		$this->getOutput()->addWikiMsg( 'ep-viewcourseactivityaction-nosuchcourse' );
+		$courseActivityView->displayActivity(
+			$this->getTitle()->getText(),
+			$educationProgram->getSettings()->getSetting( 'activityTabMaxAgeInSeconds' )
+		);
 	}
 
 	/**

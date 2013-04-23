@@ -2,7 +2,9 @@
 
 namespace EducationProgram\Tests;
 
+use EducationProgram\Course;
 use EducationProgram\CourseActivityView;
+use EducationProgram\Courses;
 
 /**
  * This program is free software; you can redistribute it and/or modify
@@ -35,6 +37,8 @@ class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 		$outputPage = $this->getMockBuilder( 'OutputPage' )
 			->disableOriginalConstructor()->getMock();
 
+		$outputPage->expects( $this->atLeastOnce() )->method( 'addHTML' );
+
 		$language = $this->getMock( 'Language' );
 
 		$eventStore = $this->getMockBuilder( 'EducationProgram\Events\EventStore' )
@@ -42,11 +46,51 @@ class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 
 		$eventStore->expects( $this->once() )->method( 'query' )->will( $this->returnValue( array() ) );
 
-		$outputPage->expects( $this->atLeastOnce() )->method( 'addHTML' );
+		$courseStore = $this->getMockBuilder( 'EducationProgram\Store\CourseStore' )
+			->disableOriginalConstructor()->getMock();
 
-		$activityView = new CourseActivityView( $outputPage, $language, $eventStore );
+		$courseStore->expects( $this->once() )
+			->method( 'getCourseByTitle' )
+			->with( $this->equalTo( 'Foo/Bar' ) )
+			->will( $this->returnValue(
+				$this->getMockCourse()
+			) );
 
-		$activityView->displayActivity( 42, 31337 );
+		$activityView = new CourseActivityView( $outputPage, $language, $eventStore, $courseStore );
+
+		$activityView->displayActivity( 'Foo/Bar', 31337 );
+	}
+
+	protected function getMockCourse() {
+		return new Course(
+			Courses::singleton(),
+			array(
+				'id' => 42,
+
+				'org_id' => 9001,
+				'name' => 'Master in Angry Birds',
+				'title' => 'University of Foo/Master in Angry Birds',
+				'start' => '20130423135535',
+				'end' => '20130423135536',
+				'description' => 'In ur courses',
+				'token' => 'abc',
+				'students' => array( 1, 2, 3 ),
+				'instructors' => array( 4, 5, 6 ),
+				'online_ambs' => array( 7, 8 ),
+				'campus_ambs' => array(),
+				'field' => 'Leetness',
+				'level' => 'Over 9000',
+				'term' => 'Teh future',
+				'lang' => 'en',
+
+				'student_count' => 3,
+				'instructor_count' => 3,
+				'oa_count' => 2,
+				'ca_count' => 0,
+
+				'touched' => 20130423135537,
+			)
+		);
 	}
 
 }
