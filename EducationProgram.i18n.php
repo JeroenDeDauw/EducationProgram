@@ -840,10 +840,8 @@ You can find a full list of students on [[Special:Students|the student list]].',
  */
 $messages['qqq'] = array(
 	'educationprogram-desc' => '{{desc|name=Education Program|url=http://www.mediawiki.org/wiki/Extension:Education_Program}}',
-	'ep-viewcourseactivityaction-nosuchcourse' => 'Error message stating the course was not found',
 	'ep-item-summary' => 'Table column header.
 {{Identical|Summary}}',
-	'ep-timeline-no-summary' => 'Message shown in the events timeline for edits that do not have an associated summary',
 	'ep-toplink' => 'Text of a link the the top menu (next to "Preferences")',
 	'ep-org-course-delete-comment' => 'Success message. Parameters:
 * $1 - an institution name
@@ -866,9 +864,9 @@ $messages['qqq'] = array(
 {{Identical|View history}}',
 	'ep-tab-enroll' => 'Tab label',
 	'ep-tab-disenroll' => 'Tab label',
-	'ep-tab-activity' => 'Tab label',
 	'ep-tab-delete' => 'Tab label.
 {{Identical|Delete}}',
+	'ep-tab-activity' => 'Tab label',
 	'tooltip-ep-form-save' => 'Tooltip text.
 {{Identical|Save}}',
 	'tooltip-ep-edit-institution' => 'Tooltip text',
@@ -1054,7 +1052,7 @@ Additional parameters:
 	'ep-course-status-current' => 'Course status.
 {{Identical|Current}}',
 	'ep-course-status-planned' => 'Course status',
-	'ep-course-status-current-planned' => 'Course status: {{msg-mw|Ep-course-status-current}} and {{msg-mw|Ep-course-status-planned}}',
+	'ep-course-status-current-planned' => 'Course status: {{msg-mw|ep-course-status-current}} and {{msg-mw|ep-course-status-planned}}',
 	'ep-summary-table-header' => 'Table header',
 	'ep-specialeducationprogram-summary-org-count' => 'Table row header',
 	'ep-specialeducationprogram-summary-course-count' => 'Table row header',
@@ -1390,8 +1388,6 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'orgpage-history-description' => 'Subtitle text linking to logs',
 	'orgpage-history-title' => 'Page title. Parameters:
 * $1 is an institution name.',
-	'ep-viewcourseactivityaction-title' => 'Page title. Parameters:
-* $1 is a course name.',
 	'orgpage-history-norevs' => 'Message shown when there are no revisions to list.',
 	'orgpage-history-deleted' => 'Shown when the item was deleted so no history can be shown.',
 	'coursepage-history-description' => 'Subtitle text linking to logs.',
@@ -1399,6 +1395,9 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 * $1 is a course name.',
 	'coursepage-history-norevs' => 'Message shown when there are no revisions to list.',
 	'coursepage-history-deleted' => 'Shown when the item was deleted so no history can be shown.',
+	'ep-viewcourseactivityaction-title' => 'Page title. Parameters:
+* $1 is a course name.',
+	'ep-viewcourseactivityaction-nosuchcourse' => 'Error message stating the course was not found',
 	'coursepage-delete-text' => 'Warns that the user is about to delete a course. Parameters:
 * $1 is a course name.',
 	'coursepage-delete-summary' => 'Summary text input label.
@@ -1779,6 +1778,7 @@ Parameters:
 * $1 is the duration (ie 42 minutes) in "42 minutes ago"',
 	'ep-timeline-cutoff' => 'Used when a to long text is cut off. Parameters:
 * $1 is the text fragment to display.',
+	'ep-timeline-no-summary' => 'Message shown in the events timeline for edits that do not have an associated summary',
 	'ep-timeline-users-edit-article' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
@@ -3336,6 +3336,7 @@ $messages['de'] = array(
 	'ep-tab-enroll' => 'Einschreiben',
 	'ep-tab-disenroll' => 'Abmelden',
 	'ep-tab-delete' => 'Löschen',
+	'ep-tab-activity' => 'Aktivität ansehen',
 	'tooltip-ep-form-save' => 'Speichern',
 	'tooltip-ep-edit-institution' => 'Diese Einrichtung bearbeiten',
 	'tooltip-ep-edit-course' => 'Diesen Kurs bearbeiten',
@@ -3517,10 +3518,6 @@ $messages['de'] = array(
 	'ep-pager-go' => 'Los',
 	'ep-pager-withselected' => 'Mit ausgewählten',
 	'ep-pager-delete-selected' => 'Löschen',
-	'eparticlepager-header-page-id' => 'Artikel',
-	'eparticlepager-header-user-id' => 'Student',
-	'eparticlepager-header-course-id' => 'Kurs',
-	'eparticlepager-header-reviewers' => 'Prüfer',
 	'ep-revision-undo' => 'rückgängig machen',
 	'ep-revision-restore' => 'Wiederherstellen',
 	'eporgpager-header-name' => 'Name',
@@ -3727,6 +3724,8 @@ Zur Information wird unten das Lösch-Logbuch zu diesem Kurs angezeigt:",
 	'coursepage-history-title' => 'Versionsgeschichte von Kurs „$1“',
 	'coursepage-history-norevs' => 'Zu diesem Kurs ist keine Versionsgeschichte vorhanden.',
 	'coursepage-history-deleted' => 'Dieser Kurs wurde gelöscht. Zur Information wird unten das Lösch-Logbuch zum Kurs angezeigt.',
+	'ep-viewcourseactivityaction-title' => 'Aktivität für den Kurs „$1“',
+	'ep-viewcourseactivityaction-nosuchcourse' => 'Der Kurs wurde nicht gefunden!',
 	'coursepage-delete-text' => 'Du bist gerade dabei Kurs $1 zu löschen. Dies entfernt alle zugehörigen Studenten!',
 	'coursepage-delete-summary' => 'Grund:',
 	'coursepage-delete-title' => 'Kurs „$1“ löschen',
@@ -3963,6 +3962,7 @@ Du findest eine vollständige Liste der Studenten auf [[Special:Students|der Lis
 	'ep-timeline-unknown' => '$1 machte etwas am $2 um $3',
 	'ep-timeline-ago' => 'vor $1',
 	'ep-timeline-cutoff' => '$1 …',
+	'ep-timeline-no-summary' => "''Keine Zusammenfassung angegeben''",
 	'ep-timeline-users-edit-article' => "$1 bearbeitete den Artikel '''[[$2]]'''.",
 	'ep-timeline-users-edit-talk' => "$1 hinterließ {{PLURAL:$4|eine Nachricht|Nachrichten}} auf der '''[[$2|Diskussionsseite]]''' von '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "$1 bearbeitete die Benutzerseite von '''[[$2|$3]]'''.",
@@ -3977,7 +3977,7 @@ Du findest eine vollständige Liste der Studenten auf [[Special:Students|der Lis
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' erstellte {{GENDER:$3|seine|ihre}} '''[[$2|Diskussionsseite]]''' und hinterließ {{PLURAL:$4|eine Nachricht|mehrere Nachrichten}} auf ihr.",
 	'ep-dashboard-login-first' => 'Du musst dich anmelden, bevor du deine Kurse ansehen kannst.',
 	'ep-dashboard-timeline-empty' => 'Es gibt keine neuen Aktivitäten für diesen Kurs.',
-	'ep-dashboard-enroll-first' => 'Du bist derzeit für keinen aktiven Kurs eingeschrieben. Du kannst die [[Special:Courses|Liste der Kurse]] ansehen und dich für einen Kurs einschreiben.',
+	'ep-dashboard-enroll-first' => 'Du nimmst derzeit an keinem aktiven Kurs teil. Du kannst die [[Special:Courses|Liste der Kurse]] ansehen.',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -7226,6 +7226,7 @@ Vous pouvez trouver une liste complète des étudiants dans [[Special:Students|l
 	'ep-timeline-unknown' => '$1 a fait quelque chose à $2, le $3',
 	'ep-timeline-ago' => 'Il y a $1',
 	'ep-timeline-cutoff' => '$1 ...',
+	'ep-timeline-no-summary' => '« Aucun résumé fourni »',
 	'ep-timeline-users-edit-article' => "$1 a modifié l’article '''[[$2]]'''.",
 	'ep-timeline-users-edit-talk' => "$1 a laissé {{PLURAL:$4|un message|des messages}} sur la '''[[$2|page de discussion]]''' de '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "$1 a modifié la page utilisateur de '''[[$2|$3]]'''.",
@@ -7240,7 +7241,7 @@ Vous pouvez trouver une liste complète des étudiants dans [[Special:Students|l
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' a créé {{GENDER:$3|sa}} '''[[$2|page de discussion]]''' et y a publié {{PLURAL:$4|un message|plusieurs messages}}.",
 	'ep-dashboard-login-first' => 'Vous devez vous connecter avant de pouvoir voir vos cours.',
 	'ep-dashboard-timeline-empty' => 'Il n’y n’a eu aucune activité récente pour ce cours.',
-	'ep-dashboard-enroll-first' => 'Vous n’êtes pour le moment inscrit à aucun cours actif. Vous pouvez voir la [[Special:Courses|liste des cours]] et vous inscrire à l’un d’eux.',
+	'ep-dashboard-enroll-first' => 'Vous Vous ne participez actuellement à aucun cours actif. Vous pouvez voir la [[Special:Courses|liste des cours]].',
 );
 
 /** Franco-Provençal (arpetan)
@@ -8335,54 +8336,54 @@ $messages['he'] = array(
 	'log-name-institution' => 'יומן מוסד של תוכנית החינוך',
 	'log-name-course' => 'יומן קורסים של תוכנית החינוך',
 	'log-name-student' => 'יומן תלמידים של תוכנית החינוך',
-	'log-name-online' => 'יומן שגרירים מקוונים של תוכנית החינוך', # Fuzzy
-	'log-name-campus' => 'יומן שגרירי קמפוסים של תוכנית החינוך', # Fuzzy
+	'log-name-online' => 'יומן מתנדבים מקוונים של תוכנית החינוך',
+	'log-name-campus' => 'יומן מתנדבי קמפוסים של תוכנית החינוך',
 	'log-name-instructor' => 'יומן מורים של תוכנית החינוך',
 	'log-name-eparticle' => 'יומן ערכים של תוכנית החינוך',
 	'log-header-institution' => 'האירועים הללו עוקבים אחרי השינויים הנעשים למוסדות של תוכנית החינוך.',
 	'log-header-course' => 'האירועים הללו עוקבים אחרי השינויים הנעשים לקורסים של תוכנית החינוך.',
 	'log-header-instructor' => 'האירועים הללו עוקבים אחרי השינויים הנעשים למורים של תוכנית החינוך.',
-	'log-header-campus' => 'האירועים הללו עוקבים אחרי השינויים הנעשים לשגרירי הקמפוסים של תוכנית החינוך.', # Fuzzy
-	'log-header-online' => 'האירועים הללו עוקבים אחרי השינויים הנעשים לשגרירים המקוונים של תוכנית החינוך.', # Fuzzy
+	'log-header-campus' => 'האירועים הללו עוקבים אחרי השינויים הנעשים למתנדבי הקמפוסים של תוכנית החינוך.',
+	'log-header-online' => 'האירועים הללו עוקבים אחרי השינויים הנעשים למתנדבים המקוונים של תוכנית החינוך.',
 	'log-header-student' => 'האירועים הללו עוקבים אחרי השינויים הנעשים לתלמידים של תוכנית החינוך.',
 	'log-description-institution' => 'יומן של כל השינויים ב[[Special:Institutions|מוסדות]].',
 	'log-description-course' => 'יומן של כל השינויים ב[[Special:Courses|קורסים]].',
 	'log-description-instructor' => 'יומן של כל השינויים במורים.',
-	'log-description-online' => 'יומן של כל השינויים ב[[Special:OnlineAmbassadors|שגרירים המקוונים]] של תוכנית החינוך', # Fuzzy
-	'log-description-campus' => 'יומן של כל השינויים ב[[Special:CampusAmbassadors|שגרירי הקמפוסים]] של תוכנית החינוך', # Fuzzy
+	'log-description-online' => 'יומן של כל השינויים ב[[Special:OnlineVolunteers|מתנדבים המקוונים]] של תוכנית החינוך',
+	'log-description-campus' => 'יומן של כל השינויים ב[[Special:CampusVolunteers|מתנדבי הקמפוסים]] של תוכנית החינוך',
 	'log-description-student' => 'יומן של כל השינויים ב[[Special:Students|רשימת הסטודנטים]].',
-	'logentry-institution-add' => '$1 {{GENDER:$2|יצר|יצרה}} את המוסד $3', # Fuzzy
-	'logentry-institution-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את המוסד $3', # Fuzzy
-	'logentry-institution-update' => '$1 {{GENDER:$2|עדכן|עדכנה}} את המוסד $3', # Fuzzy
-	'logentry-institution-undelete' => '$1 {{GENDER:$2|שחזר|שחזרה}} את המוסד $3', # Fuzzy
+	'logentry-institution-add' => '$1 {{GENDER:$2|יצר|יצרה}} את המוסד $3',
+	'logentry-institution-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את המוסד $3',
+	'logentry-institution-update' => '$1 {{GENDER:$2|עדכן|עדכנה}} את המוסד $3',
+	'logentry-institution-undelete' => '$1 {{GENDER:$2|שחזר|שחזרה}} את המוסד $3',
 	'logentry-course-add' => '$1 {{GENDER:$2|יצר|יצרה}} את הקורס $3',
-	'logentry-course-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את הקורס $3', # Fuzzy
-	'logentry-course-update' => '$1 {{GENDER:$2|עדכן|עדכנה}} את הקורס $3', # Fuzzy
-	'logentry-course-undelete' => '$1 {{GENDER:$2|שחזר|שחזרה}} את הקורס $3', # Fuzzy
+	'logentry-course-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את הקורס $3',
+	'logentry-course-update' => '$1 {{GENDER:$2|עדכן|עדכנה}} את הקורס $3',
+	'logentry-course-undelete' => '$1 {{GENDER:$2|שחזר|שחזרה}} את הקורס $3',
 	'logentry-instructor-add' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את ה{{PLURAL:$4|מורה|מורים}} $5 לקורס $3',
 	'logentry-instructor-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את ה{{PLURAL:$4|מורה|מורים}} $5 מהקורס $3',
 	'logentry-instructor-selfadd' => '$1 {{GENDER:$2|הוסיף את עצמו|הוסיפה את עצמה}} כמורה לקורס $3',
 	'logentry-instructor-selfremove' => '$1 {{GENDER:$2|הסיר את עצמו|הסירה את עצמה}} כמורה בקורס $3',
-	'logentry-online-add' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את {{PLURAL:$4|השגריר המקוון|השגרירים המקוונים}} $5 לקורס $3', # Fuzzy
-	'logentry-online-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{PLURAL:$4|השגריר המקוון|השגרירים המקוונים}} $5 מהקורס $3', # Fuzzy
-	'logentry-online-selfadd' => '$1 {{GENDER:$2|הוסיף את עצמו|הוסיפה את עצמה}} כ{{GENDER:$2|שגריר מקוון|שגרירה מקוונת}} לקורס $3', # Fuzzy
-	'logentry-online-selfremove' => '$1 {{GENDER:$2|הסיר את עצמו|הסירה את עצמה}} כ{{GENDER:$2|שגריר מקוון|שגרירה מקוונת}} לקורס $3', # Fuzzy
-	'logentry-online-profilesave' => '$1 {{GENDER:$2|עידכן|עידכנה}} את פרופיל ה{{GENDER:$2|שגריר המקוון שלו|שגרירה המקוונת שלה}}', # Fuzzy
-	'logentry-campus-add' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את {{PLURAL:$4|שגריר הקמפוס|שגרירי הקמפוסים}} $5 לקורס $3', # Fuzzy
-	'logentry-campus-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{PLURAL:$4|שגריר הקמפוס|שגרירי הקמפוסים}} $5 מהקורס $3', # Fuzzy
-	'logentry-campus-selfadd' => '$1 {{GENDER:$2|הוסיף את עצמו|הוסיפה את עצמה}} כ{{GENDER:$2|שגריר קמפוס|שגרירת קמפוס}} לקורס $3', # Fuzzy
-	'logentry-campus-selfremove' => '$1 {{GENDER:$2|הסיר את עצמו|הסירה את עצמה}} כ{{GENDER:$2|שגריר קמפוס|שגרירת קמפוס}} מקורס $3', # Fuzzy
-	'logentry-campus-profilesave' => '$1 {{GENDER:$2|עידכן|עידכנה}} את פרופיל ה{{GENDER:$2|שגריר הקמפוס שלו|שגרירת הקמפוס שלה}}', # Fuzzy
-	'logentry-student-add' => '$1 {{GENDER:$2|נרשם|נרשמה}} לקורס $3', # Fuzzy
+	'logentry-online-add' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את {{PLURAL:$4|המתנדב המקוון|המתנדבים המקוונים}} $5 לקורס $3',
+	'logentry-online-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{PLURAL:$4|המתנדב המקוון|המתנדביםים המקוונים}} $5 מהקורס $3',
+	'logentry-online-selfadd' => '$1 {{GENDER:$2|הוסיף את עצמו|הוסיפה את עצמה}} כ{{GENDER:$2|מתנדב מקוון|מתנדבת מקוונת}} לקורס $3',
+	'logentry-online-selfremove' => '$1 {{GENDER:$2|הסיר את עצמו|הסירה את עצמה}} כ{{GENDER:$2|מתנדב מקוון|מתנדבת מקוונת}} מהקורס $3',
+	'logentry-online-profilesave' => '$1 {{GENDER:$2|עדכן|עדכנה}} את פרופיל ה{{GENDER:$2|מתנדב המקוון שלו|מתנדבת המקוונת שלה}}',
+	'logentry-campus-add' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את {{PLURAL:$4|מתנדב הקמפוס|מתנדבי הקמפוסים}} $5 לקורס $3',
+	'logentry-campus-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{PLURAL:$4|מתנדב הקמפוס|מתנדבי הקמפוסים}} $5 מהקורס $3',
+	'logentry-campus-selfadd' => '$1 {{GENDER:$2|הוסיף את עצמו|הוסיפה את עצמה}} כ{{GENDER:$2|מתנדב קמפוס|מתנדבת קמפוס}} לקורס $3',
+	'logentry-campus-selfremove' => '$1 {{GENDER:$2|הסיר את עצמו|הסירה את עצמה}} כ{{GENDER:$2|מתנדב קמפוס|מתנדבת קמפוס}} מקורס $3',
+	'logentry-campus-profilesave' => '$1 {{GENDER:$2|עידכן|עידכנה}} את פרופיל ה{{GENDER:$2|מתנדב הקמפוס שלו|מתנדבת הקמפוס שלה}}',
+	'logentry-student-add' => '$1 {{GENDER:$2|נרשם|נרשמה}} לקורס $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{PLURAL:$4|{{GENDER:$5|התלמיד|התלמידה}}|התלמידים}} $5 מהקורס $3',
-	'logentry-student-selfadd' => '$1 {{GENDER:$2|נרשם|נרשמה}} לקורס $3', # Fuzzy
-	'logentry-student-selfremove' => '$1 {{GENDER:$2|ביטל|ביטלה}} את הרשמתו לקורס $3', # Fuzzy
+	'logentry-student-selfadd' => '$1 {{GENDER:$2|נרשם|נרשמה}} לקורס $3',
+	'logentry-student-selfremove' => '$1 {{GENDER:$2|ביטל|ביטלה}} את הרשמתו לקורס $3',
 	'logentry-eparticle-selfadd' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את הערך $3 לרשימת הערכים {{GENDER:$2|שלו|שלה}} בקורס $4',
 	'logentry-eparticle-selfremove' => '$1 {{GENDER:$2|הסיר|הסירה}} את הערך $3 מרשימת הערכים {{GENDER:$2|שלו|שלה}} בקורס $4',
-	'logentry-eparticle-add' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את הערך $3 לרשימת הערכים של {{GENDER:$6|$5}} בקורס $4', # Fuzzy
-	'logentry-eparticle-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את הערך $3 מרשימת הערכים של {{GENDER:$6|$5}} בקורס $4', # Fuzzy
-	'logentry-eparticle-review' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את {{GENDER:$2|עצמו כבודק|עצמה כבודק}} של הערך $3 ש$5 {{GENDER:$6|עובד|עובדת}} עליו כחלק מהקורס $4', # Fuzzy
-	'logentry-eparticle-unreview' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{GENDER:$2|עצמו כבודק|עצמה כבודקת}} של הערך $3 ש$5 {{GENDER:$6|עובד|עובדת}} עליו כחלק מהקורס $4', # Fuzzy
+	'logentry-eparticle-add' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את הערך $3 לרשימת הערכים של {{GENDER:$6|$5}} בקורס $4',
+	'logentry-eparticle-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את הערך $3 מרשימת הערכים של {{GENDER:$6|$5}} בקורס $4',
+	'logentry-eparticle-review' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את {{GENDER:$2|עצמו כבודק|עצמה כבודקת}} של הערך $3 ש{{GRAMMAR:תחילית|$5}} {{GENDER:$6|עובד|עובדת}} עליו כחלק מהקורס $4',
+	'logentry-eparticle-unreview' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{GENDER:$2|עצמו כבודק|עצמה כבודקת}} של הערך $3 ש{{GRAMMAR:תחילית|$5}} {{GENDER:$6|עובד|עובדת}} עליו כחלק מהקורס $4',
 	'prefs-education' => 'חינוך',
 	'ep-prefs-showtoplink' => 'הצגת קישור ל[[Special:MyCourses|קורסים שלך]] מעל כל עמוד.',
 	'ep-prefs-bulkdelorgs' => 'הצגת פקד מחיקה מרובה בשביל ה[[Special:Institutions|מוסדות]].',
@@ -8393,11 +8394,11 @@ $messages['he'] = array(
 	'right-ep-token' => 'צפייה באסימוני הרשמה של תוכנית החינוך',
 	'right-ep-remstudent' => 'הסרת תלמידים מקורסים',
 	'right-ep-enroll' => 'הרשמה לקורסים של תוכנית החינוך',
-	'right-ep-online' => 'הוספה או הסרה של שגרירים מקוונים לקורסים', # Fuzzy
-	'right-ep-campus' => 'הוספה או הסרה של שגרירי קמפוסים לקורסים', # Fuzzy
+	'right-ep-online' => 'הוספה או הסרה של מתנדבים מקוונים לקורסים',
+	'right-ep-campus' => 'הוספה או הסרה של מתנדבי קמפוסים לקורסים',
 	'right-ep-instructor' => 'הוספה או הסרה של מורים לקורסים',
-	'right-ep-beonline' => 'הוספה או הסרה של עצמך מתפקיד שגריר מקוון בעונות', # Fuzzy
-	'right-ep-becampus' => 'הוספה או הסרה של עצמך מתפקיד שגריר קמפוס בעונות', # Fuzzy
+	'right-ep-beonline' => 'הוספה או הסרה של עצמך מתפקיד מתנדב מקוון בעונות',
+	'right-ep-becampus' => 'הוספה או הסרה של עצמך מתפקיד מתנדב קמפוס בעונות',
 	'right-ep-beinstructor' => 'הוספה או הסרה של עצמך מתפקיד מורה בקורסים',
 	'right-ep-bereviewer' => 'הוספה או הסרה של עצמך מתפקיד בודק בערכים',
 	'right-ep-remreviewer' => 'הסרת בודקים מערכים',
@@ -8410,11 +8411,11 @@ $messages['he'] = array(
 	'action-ep-token' => 'צפייה באסימוני הרשמה',
 	'action-ep-remstudent' => 'הסרת תלמידים מקורסים',
 	'action-ep-enroll' => 'להירשם לקורסים',
-	'action-ep-online' => 'להוסיף או להסיר שגרירים מקוונים לקורסים', # Fuzzy
-	'action-ep-campus' => 'להוסיף או להסיר שגרירי קמפוסים לקורסים', # Fuzzy
+	'action-ep-online' => 'להוסיף או להסיר מתנדבים מקוונים לקורסים',
+	'action-ep-campus' => 'להוסיף או להסיר מתנדבי קמפוסים לקורסים',
 	'action-ep-instructor' => 'להוסיף או להסיר מורים לקורסים',
-	'action-ep-beonline' => 'להוסיף או להסיר את עצמכם מלהיות שגריר מקוון בעונות', # Fuzzy
-	'action-ep-becampus' => 'להוסיף או להסיר את עצמכם מלהיות שגריר קמפוס בעונות', # Fuzzy
+	'action-ep-beonline' => 'להוסיף או להסיר את עצמכם מלהיות מתנדב מקוון בעונות',
+	'action-ep-becampus' => 'להוסיף או להסיר את עצמכם מלהיות מתנדב קמפוס בעונות',
 	'action-ep-beinstructor' => 'להוסיף או להסיר את עצמכם מלהיות מורה בקורסים',
 	'action-ep-bereviewer' => 'להוסיף או להסיר את עצמכם מלהיות בודק בערכים',
 	'action-ep-remreviewer' => 'להסיר בודקים מערכים',
@@ -8422,22 +8423,22 @@ $messages['he'] = array(
 	'action-ep-bulkdelcourses' => 'למחוק קורסים במחיקה מרובה',
 	'action-ep-remarticle' => 'ביטול שיוך ערכים לסטודנטים',
 	'action-ep-addstudent' => 'לרשום משתמשים כתלמידים',
-	'group-epinstructor' => 'מורה בתכנית החינוך', # Fuzzy
-	'group-epinstructor-member' => '{{GENDER:$1|מורה בתכנית החינוך}}', # Fuzzy
-	'grouppage-epinstructor' => '{{ns:project}}:מורים_של_תוכנית_חינוך', # Fuzzy
+	'group-epinstructor' => 'מורה בקורס',
+	'group-epinstructor-member' => '{{GENDER:$1|מורה בקורס}}',
+	'grouppage-epinstructor' => '{{ns:project}}:מורים_בקורסים',
 	'specialpages-group-education' => 'חינוך',
-	'special-mycourses' => 'הקורסים שלי', # Fuzzy
-	'special-managecourses' => 'ניהול הקורסים שלי', # Fuzzy
+	'special-mycourses' => 'הקורסים שלך',
+	'special-managecourses' => 'ניהול הקורסים שלך',
 	'special-institutions' => 'מוסדות',
 	'special-student' => 'סטודנט',
 	'special-students' => 'סטודנטים',
 	'special-courses' => 'קורסים',
 	'special-educationprogram' => 'תוכנית החינוך',
 	'special-enroll' => 'הרשמה',
-	'special-onlineambassadors' => 'שגרירים מקוונים', # Fuzzy
-	'special-campusambassadors' => 'שגרירי קמפוסים', # Fuzzy
-	'special-onlineambassador' => 'שגריר מקוון', # Fuzzy
-	'special-campusambassador' => 'שגריר קמפוס', # Fuzzy
+	'special-onlineambassadors' => 'מתנדבים מקוונים',
+	'special-campusambassadors' => 'מתנדבי קמפוסים',
+	'special-onlineambassador' => 'מתנדב מקוון',
+	'special-campusambassador' => 'מתנדב קמפוס',
 	'special-disenroll' => 'ביטול הרשמה',
 	'special-studentactivity' => 'פעילות התלמידים',
 	'special-articles' => 'ערכים (תוכנית החינוך)',
@@ -8451,19 +8452,19 @@ $messages['he'] = array(
 	'ep-specialeducationprogram-summary-student-count' => 'מספר ה[[Special:Students|תלמידים]]',
 	'ep-specialeducationprogram-summary-current-student-count' => 'תלמידית רשומים כעת',
 	'ep-specialeducationprogram-summary-instructor-count' => 'מספר המורים',
-	'ep-specialeducationprogram-summary-ca-count' => 'מספר [[Special:CampusAmbassadors|שגרירי קמפוסים]]', # Fuzzy
-	'ep-specialeducationprogram-summary-oa-count' => 'מספר [[Special:OnlineAmbassadors|שגרירים מקוונים]]', # Fuzzy
+	'ep-specialeducationprogram-summary-ca-count' => 'מספר [[Special:CampusVolunteers|מתנדבי קמפוסים]]',
+	'ep-specialeducationprogram-summary-oa-count' => 'מספר [[Special:OnlineVolunteers|מתנדבים מקוונים]]',
 	'ep-educationprogram-by-term' => 'סכומים לפי עונה',
 	'ep-educationprogram-courses' => 'מספר קורסים',
 	'ep-educationprogram-students' => 'מספר התלמידים',
 	'ep-educationprogram-instructors' => 'מספר המורים',
-	'ep-educationprogram-oas' => 'מספר השגרירים המקוונים', # Fuzzy
-	'ep-educationprogram-cas' => 'מספר שגרירי הקמפוסים', # Fuzzy
+	'ep-educationprogram-oas' => 'מספר המתנדבים המקוונים',
+	'ep-educationprogram-cas' => 'מספר מתנדבי הקמפוסים',
 	'ep-educationprogram-orgs' => 'מספר המוסדות',
 	'ep-educationprogram-articles' => 'מספר ערכים',
 	'ep-educationprogram-gender-students' => 'תלמידים',
-	'ep-educationprogram-gender-oas' => 'שגרירים מקוונים', # Fuzzy
-	'ep-educationprogram-gender-cas' => 'שגרירי קמפוסים', # Fuzzy
+	'ep-educationprogram-gender-oas' => 'מתנדבים מקוונים',
+	'ep-educationprogram-gender-cas' => 'מתנדבי קמפוסים',
 	'ep-educationprogram-gender-instructors' => 'מורים',
 	'ep-educationprogram-male' => 'זכר',
 	'ep-educationprogram-female' => 'נקבה',
@@ -8574,12 +8575,12 @@ $messages['he'] = array(
 	'epcapager-header-user-id' => 'שם המשתמש',
 	'epcapager-header-bio' => 'פרופיל',
 	'epcapager-header-courses' => 'קורסים נוכחיים',
-	'ep-ca-noresults' => 'אין שגרירי קמפוסים לפרט.', # Fuzzy
+	'ep-ca-noresults' => 'אין מתנדבי קמפוסים לפרט.',
 	'epoapager-header-photo' => 'תמונה',
 	'epoapager-header-user-id' => 'שם המשתמש',
 	'epoapager-header-bio' => 'פרופיל',
 	'epoapager-header-courses' => 'קורסים נוכחיים',
-	'ep-oa-noresults' => 'אין שגרירים מקוונים לפרט.', # Fuzzy
+	'ep-oa-noresults' => 'אין מתנדבים מקוונים לפרט.',
 	'epstudentactivitypager-header-user-id' => 'תלמיד',
 	'epstudentactivitypager-header-org-id' => 'מוסד',
 	'epstudentactivitypager-header-last-course' => 'קורס',
@@ -8613,7 +8614,7 @@ $messages['he'] = array(
 	'ep-course-edit-end' => 'תאריך סיום',
 	'ep-course-edit-token' => 'אסימון הרשמה',
 	'ep-course-help-token' => 'אופציונלי. בהרשמה יידרשו תלמידים לספק אסימון זה. אפשרות זו תסייע למנוע הרשמת משתמשים שאינם תלמידים.',
-	'ep-course-edit-description' => 'תיאור', # Fuzzy
+	'ep-course-edit-description' => 'טקסט הדף',
 	'ep-course-edit-title' => 'כותרת דף',
 	'ep-course-help-title' => 'הכותרת של דף הקורס. על-ידי המוסכמה זה צריך להיות שם הקורס ואחריו את הסמסטר בסוגריים מרובעים.',
 	'ep-course-edit-field' => 'תחום המחקר',
@@ -8670,17 +8671,17 @@ $messages['he'] = array(
 	'viewcourseaction-summary-status' => 'מצב',
 	'viewcourseaction-summary-token' => 'אסימון הרשמה',
 	'viewcourseaction-summary-instructors' => 'מורים',
-	'viewcourseaction-summary-online' => 'שגרירים מקוונים', # Fuzzy
-	'viewcourseaction-summary-campus' => 'שגרירי קמפוסים', # Fuzzy
+	'viewcourseaction-summary-online' => 'מתנדבים מקוונים',
+	'viewcourseaction-summary-campus' => 'מתנדבי קמפוסים',
 	'ep-course-no-instructor' => 'עדיין אין מורים בקורס הזה.',
 	'ep-course-become-instructor' => 'הפיכה למדריך',
 	'ep-course-add-instructor' => 'הוספת מורה',
-	'ep-course-no-online' => 'עדיין אין שגרירים מקוונים בקורס הזה.', # Fuzzy
-	'ep-course-become-online' => 'הפיכה לנציג מקוון', # Fuzzy
-	'ep-course-add-online' => 'הוספת שגריר מקוון', # Fuzzy
-	'ep-course-no-campus' => 'עדיין אין שגרירי קמפוס בקורס הזה.', # Fuzzy
-	'ep-course-become-campus' => 'הפיכה לנציג קמפוס', # Fuzzy
-	'ep-course-add-campus' => 'הוספת שגריר קמפוס.', # Fuzzy
+	'ep-course-no-online' => 'עדיין אין מתנדבים מקוונים בקורס הזה.',
+	'ep-course-become-online' => 'הפיכה למתנדב מקוון',
+	'ep-course-add-online' => 'הוספת מתנדב מקוון',
+	'ep-course-no-campus' => 'עדיין אין מתנדבי קמפוס בקורס הזה.',
+	'ep-course-become-campus' => 'הפיכה למתנדב קמפוס',
+	'ep-course-add-campus' => 'הוספת מתנדב קמפוס.',
 	'ep-instructor-summary' => 'תקציר:',
 	'ep-online-summary' => 'תקציר:',
 	'ep-campus-summary' => 'תקציר:',
@@ -8700,7 +8701,7 @@ $messages['he'] = array(
 	'coursepage-delete-delete-button' => 'מחק את הקורס',
 	'coursepage-delete-none' => 'אין קורס בשם "$1". ראו את [[Special:Courses|רשימת הקורסים]].',
 	'coursepage-delete-deleted' => 'הקורס $1 נמחק בהצלחה.',
-	'coursepage-delete-delete-failed' => 'מחיקת הקורס [[Education Program:$2|$1]] נכשלה.', # Fuzzy
+	'coursepage-delete-delete-failed' => 'מחיקת הקורס [[Education_Program:$2|$1]] נכשלה.',
 	'orgpage-delete-text' => 'אתה עומד למחוק את המוסד $1. זה יסיר את כל הקורסים והתלמידים הקשורים!',
 	'orgpage-delete-summary' => 'הסיבה:',
 	'orgpage-delete-title' => 'מחיקת מוסד "$1"',
@@ -8787,8 +8788,8 @@ $messages['he'] = array(
 	'ep-mycourses-nocourses-epstudent' => 'שמך אינו רשום [[Special:Courses|בשום קורס]].',
 	'ep-mycourses-login-first' => 'עליך להיכנס למערכת כדי שיהיה באפשרותך לצפות בקורסים.',
 	'ep-mycourses-courses-epstudent' => '{{PLURAL:$1|קורס|קורסים}} שאליהם נרשמתי',
-	'ep-mycourses-nocourses-epca' => 'אין קורסים בהם {{GENDER:$1|אתה שגריר|את שגרירת}} קמפוס.', # Fuzzy
-	'ep-mycourses-nocourses-epoa' => 'אין קורסים בהם {{GENDER:$1|אתה שגריר מקוון|את שגרירה מקוונת}}.', # Fuzzy
+	'ep-mycourses-nocourses-epca' => 'אין קורסים {{GENDER:$1|שאתה מתנדב|שאת מתנדבת}} קמפוס בהם.',
+	'ep-mycourses-nocourses-epoa' => 'אין עדיין קורסים {{GENDER:$1|שאתה המתנדב מקוון|שאת המתנדבת מקוונת}} בהם.',
 	'ep-mycourses-nocourses-epinstructor' => 'אין קורסים בהם {{GENDER:$1|אתה|את}} מורה.',
 	'ep-mycourses-course-org-links' => 'קורס $1 במוסד $2.',
 	'ep-instructor-remove-title' => 'הסרת מורה מהקורס',
@@ -8811,27 +8812,27 @@ $messages['he'] = array(
 	'ep-instructor-add-cancel-button' => 'ביטול',
 	'ep-instructor-summary-input' => 'תקציר:',
 	'ep-instructor-name-input' => 'שם משתמש:',
-	'ep-online-remove-title' => 'הסרת שגריר מקוון מקורס', # Fuzzy
-	'ep-online-remove-button' => 'הסרת שגריר מקוון', # Fuzzy
+	'ep-online-remove-title' => 'הסרת מתנדב מקוון מקורס',
+	'ep-online-remove-button' => 'הסרת מתנדב מקוון',
 	'ep-online-removing' => 'מסיר...',
-	'ep-online-removal-success' => 'הנציג המקוון נמחק בהצלחה מקורס זה.', # Fuzzy
+	'ep-online-removal-success' => 'המתנדב המקוון נמחק בהצלחה מקורס זה.',
 	'ep-online-close-button' => 'סגור',
 	'ep-online-remove-retry' => 'נסה שוב',
-	'ep-online-remove-failed' => 'אירעה שגיאה 0  לא ניתן להסיר את הנציג המקוון מקורס זה.', # Fuzzy
+	'ep-online-remove-failed' => 'משהו השתבש – לא ניתן להסיר את המתנדב המקוון מהקורס.',
 	'ep-online-cancel-button' => 'ביטול',
-	'ep-online-remove-text' => 'הסרת $2 (שם משתמש: $1) כ{{GENDER:$1|נציג מקוון|נציגה מקוונת}} של הקורס $3. נא לציין תקציר לסיבת ההסרה.', # Fuzzy
+	'ep-online-remove-text' => 'עומדת להתצבע הסרה של $2 (שם משתמש: $1) {{GENDER:$1|כמתנדב מקוון|מתנדבתת מקוונת}} מהקורס $3. נא לציין הסבר מקוצר להסרה.',
 	'ep-online-adding' => 'מוסיף...',
 	'ep-online-add-close-button' => 'סגור',
 	'ep-online-add-retry' => 'נסה שוב',
 	'ep-online-add-cancel-button' => 'ביטול',
 	'ep-online-summary-input' => 'תקציר:',
 	'ep-online-name-input' => 'שם משתמש:',
-	'ep-campus-remove-button' => 'הסרת נציג קמפוס', # Fuzzy
+	'ep-campus-remove-button' => 'הסרת מתנדב קמפוס',
 	'ep-campus-removing' => 'מסיר...',
-	'ep-campus-removal-success' => 'נציג הקמפוס הוסר בהצלחה מהקורס.', # Fuzzy
+	'ep-campus-removal-success' => 'מתנדב הקמפוס הזה הוסר בהצלחה מהקורס הזה.',
 	'ep-campus-close-button' => 'סגור',
 	'ep-campus-remove-retry' => 'נסה שוב',
-	'ep-campus-remove-failed' => 'אירעה שגיאה - לא ניתן להסיר את נציג הקמפוס מקורס זה.', # Fuzzy
+	'ep-campus-remove-failed' => 'משהו השתבש - לא ניתן להסיר את מתנדב הקמפוס מהקורס.',
 	'ep-campus-cancel-button' => 'ביטול',
 	'ep-campus-adding' => 'מוסיף...',
 	'ep-campus-addittion-invalid-user' => 'אין משתמש עם השם $1, ולכן אף אחד לא נוסף לקורס $2',
@@ -8842,11 +8843,11 @@ $messages['he'] = array(
 	'ep-campus-name-input' => 'שם משתמש:',
 	'ep-instructor-remove' => 'הסרה מלהיות מורה',
 	'ep-enlist-invalid-course' => 'אין קורס עם המזהה שניתן',
-	'onlineambassadorprofile' => 'פרופיל שגריר מקוון', # Fuzzy
+	'onlineambassadorprofile' => 'פרופיל מתנדב מקוון',
 	'epoa-profile-bio' => 'קורות חיים קצרים',
 	'epoa-profile-photo' => 'תמונת פרופיל',
 	'epoa-profile-saved' => 'הפרופיל שלך נשמר',
-	'campusambassadorprofile' => 'פרופיל שגריר קמפוס', # Fuzzy
+	'campusambassadorprofile' => 'פרופיל מתנדב קמפוס',
 	'epca-profile-bio' => 'ביוגרפיה קצרה',
 	'epca-profile-photo' => 'תמונת פרופיל',
 	'epca-profile-saved' => 'הפרופיל שלך נשמר',
@@ -10708,6 +10709,7 @@ $messages['is'] = array(
 /** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
+ * @author Rgarziera
  */
 $messages['it'] = array(
 	'educationprogram-desc' => "Facilita i programmi di istruzione con l'aggiunta di varie interfacce per la gestione di corsi, istituti e i vari ruoli utente per la formazione.",
@@ -11350,6 +11352,7 @@ Puoi trovare l'elenco completo degli studenti in [[Special:Students|questa lista
 	'ep-timeline-unknown' => '$1 ha fatto qualcosa il $2, $3',
 	'ep-timeline-ago' => '$1 fa',
 	'ep-timeline-cutoff' => '$1 ...',
+	'ep-timeline-no-summary' => '"Nessuna motivazione fornita"',
 	'ep-timeline-users-edit-article' => "$1 ha modificato la voce '''[[$2]]'''.",
 	'ep-timeline-users-edit-talk' => "$1 ha lasciato {{PLURAL:$4|un messaggio|dei messaggi}} nella '''[[$2|pagina di discussione]]''' di '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "$1 ha modificato la pagina utente di '''[[$2|$3]]'''.",
@@ -11364,7 +11367,7 @@ Puoi trovare l'elenco completo degli studenti in [[Special:Students|questa lista
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' ha creato la {{GENDER:$3|sua}} '''[[$2|pagina di discussione]]''' ed ha scritto {{PLURAL:$4|un messaggio|dei messaggi}} su di essa.",
 	'ep-dashboard-login-first' => "Devi effettuare l'accesso prima di poter vedere i tuoi corsi.",
 	'ep-dashboard-timeline-empty' => 'Non ci sono attività recenti per questo corso.',
-	'ep-dashboard-enroll-first' => 'Non sei attualmente iscritto a nessun corso attivo. Puoi vedere la [[Special:Courses|lista dei corsi]] ed iscriverti ad uno di essi.',
+	'ep-dashboard-enroll-first' => 'Non sei attualmente iscritto ad alcun corso attivo. Puoi vedere la [[Special:Courses|lista dei corsi]] ed iscriverti ad uno di essi.',
 );
 
 /** Japanese (日本語)
@@ -11507,10 +11510,6 @@ $messages['ja'] = array(
 	'ep-pager-clear' => '絞り込みを解除',
 	'ep-pager-go' => '実行',
 	'ep-pager-delete-selected' => '削除',
-	'eparticlepager-header-page-id' => '記事',
-	'eparticlepager-header-user-id' => '生徒',
-	'eparticlepager-header-course-id' => 'コース',
-	'eparticlepager-header-reviewers' => '査読者',
 	'ep-revision-undo' => '取り消し',
 	'ep-revision-restore' => '復元',
 	'eporgpager-header-name' => '名前',
@@ -11816,6 +11815,7 @@ $messages['ja'] = array(
 	'ep-timeline-unknown' => '$1 が $3 $2 に何かをしました',
 	'ep-timeline-ago' => '$1前',
 	'ep-timeline-cutoff' => '$1 ...',
+	'ep-timeline-no-summary' => "''要約なし''",
 	'ep-timeline-users-edit-article' => "$1 が記事 '''[[$2]]''' を編集しました。",
 	'ep-timeline-users-edit-talk' => "$1 が '''[[$3]]''' の'''[[$2|トークページ]]'''に{{PLURAL:$4|メッセージ}}を投稿しました。",
 	'ep-timeline-users-edit-user' => "$1 が '''[[$2|$3]]''' の利用者ページを編集しました。",
@@ -11830,7 +11830,7 @@ $messages['ja'] = array(
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' が{{GENDER:$3|自身の}}'''[[$2|トークページ]]'''を作成してそこに{{PLURAL:$4|メッセージ}}を投稿しました。",
 	'ep-dashboard-login-first' => '自分のコースを閲覧するには、まずログインする必要があります。',
 	'ep-dashboard-timeline-empty' => 'このコースには最近の活動はありませんでした。',
-	'ep-dashboard-enroll-first' => '現在、アクティブなコースのいずれにも在籍していません。[[Special:Courses|コース一覧]]を参照して、いずれかに入会してください。',
+	'ep-dashboard-enroll-first' => '現在、アクティブなコースのいずれにも参加していません。[[Special:Courses|コース一覧]]を参照してください。',
 );
 
 /** Javanese (Basa Jawa)
@@ -13513,7 +13513,7 @@ $messages['ko'] = array(
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' 사용자가 {{GENDER:$3}}'''[[$2|토론 문서]]'''를 만들었고 {{PLURAL:$4|메시지|여러 메시지}}를 게시했습니다.",
 	'ep-dashboard-login-first' => '내 과정을 보려면 로그인해야 합니다.',
 	'ep-dashboard-timeline-empty' => '이 과정에 대한 최근 활동이 없습니다.',
-	'ep-dashboard-enroll-first' => '현재 활동중인 과정에 등록하지 않았습니다. [[Special:Courses|과정 목록]]을 확인하고 과정에 등록할 수 있습니다.',
+	'ep-dashboard-enroll-first' => '현재 활동중인 과정에 등록하지 않았습니다. [[Special:Courses|과정 목록]]을 확인하고 과정에 등록할 수 있습니다.', # Fuzzy
 );
 
 /** Colognian (Ripoarisch)
@@ -14515,10 +14515,6 @@ $messages['mk'] = array(
 	'ep-pager-go' => 'Дај',
 	'ep-pager-withselected' => 'Со избраното',
 	'ep-pager-delete-selected' => 'Избриши',
-	'eparticlepager-header-page-id' => 'Статија',
-	'eparticlepager-header-user-id' => 'Ученик',
-	'eparticlepager-header-course-id' => 'Курс',
-	'eparticlepager-header-reviewers' => 'Прегледувачи',
 	'ep-revision-undo' => 'отповикај',
 	'ep-revision-restore' => 'врати',
 	'eporgpager-header-name' => 'Име',
@@ -14961,6 +14957,7 @@ $messages['mk'] = array(
 	'ep-timeline-unknown' => '$1 направи нешто на $2, $3',
 	'ep-timeline-ago' => 'пред $1',
 	'ep-timeline-cutoff' => '$1 ...',
+	'ep-timeline-no-summary' => "''Нема дадено опис''",
 	'ep-timeline-users-edit-article' => "$1 ја уреди статијата '''[[$2]]'''.",
 	'ep-timeline-users-edit-talk' => "$1 остави {{PLURAL:$4|порака|пораки}} на '''[[$2|страницата за разговор]]''' на '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "$1 ја уреди корисничката страница на '''[[$2|$3]]'''.",
@@ -14975,7 +14972,7 @@ $messages['mk'] = array(
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' ја создаде {{GENDER:$3|неговата|нејзината}} '''[[$2|корисничка страница]]''' и на неа објави {{PLURAL:$4|порака|неколку пораки}}.",
 	'ep-dashboard-login-first' => 'Треба да се најавите за да можете да ги прегледате вашите курсеви.',
 	'ep-dashboard-timeline-empty' => 'Нема скорешни активности за курсот.',
-	'ep-dashboard-enroll-first' => 'Моментално не сте запишани на ниеден активен курс. Можете да го погледате [[Special:Courses|списокот на курсеви]] и да се запишете на некој.',
+	'ep-dashboard-enroll-first' => 'Моментално не сте запишани на ниеден активен курс. Можете да го погледате [[Special:Courses|списокот на курсеви]].',
 );
 
 /** Malayalam (മലയാളം)
