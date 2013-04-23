@@ -8,6 +8,8 @@ namespace EducationProgram\Events;
  *
  * Edits and page creations are kept in distinct groups.
  *
+ * Events within a group are ordered as well, newest first.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -64,12 +66,14 @@ class RecentPageEventGrouper implements EventGrouper {
 			}
 		}
 
-		return array_map(
-			function( array $events ) {
-				return new EventGroup( $events );
-			},
-			$groups
-		);
+		$groupObjects = array();
+
+		foreach ( $groups as $events ) {
+			$events = $this->getEventsSortedByTime( $events );
+			$groupObjects[] = new EventGroup( $events );
+		}
+
+		return $groupObjects;
 	}
 
 	private function addPageEventToGroups( array &$groups, Event $event ) {
@@ -106,6 +110,29 @@ class RecentPageEventGrouper implements EventGrouper {
 		}
 
 		return $sortedGroups;
+	}
+
+	/**
+	 * @param Event[] $groups
+	 *
+	 * @return Event[]
+	 */
+	private function getEventsSortedByTime( array $events ) {
+		$eventTimes = array();
+
+		foreach ( $events as $index => $event ) {
+			$eventTimes[$index] = $event->getTime();
+		}
+
+		arsort( $eventTimes );
+
+		$sortedEvents = array();
+
+		foreach ( $eventTimes as $groupIndex => $time ) {
+			$sortedEvents[] = $events[$groupIndex];
+		}
+
+		return $sortedEvents;
 	}
 
 }

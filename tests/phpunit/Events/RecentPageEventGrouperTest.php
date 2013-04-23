@@ -116,4 +116,50 @@ class RecentPageEventGrouperTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	public function testGroupEventsGroupSorting() {
+		$grouper = new RecentPageEventGrouper();
+
+		$events = array(
+			new Event( 1, 2, 3, 1337, 'Nyan!', array( 'page' => 'Nyan' ) ),
+			new Event( 2, 8, 9, 7201010, 'Nyan!', array( 'page' => 'Nyan' ) ),
+			new Event( 3, 5, 6, 31337, 'Nyan!', array( 'page' => 'Nyan' ) ),
+
+			new Event( 4, 2, 3, 10003, 'Onoez!', array( 'page' => 'Onoez' ) ),
+			new Event( 5, 8, 9, 10001, 'Onoez!', array( 'page' => 'Onoez' ) ),
+			new Event( 6, 5, 6, 10002, 'Onoez!', array( 'page' => 'Onoez' ) ),
+		);
+
+		$groupedEvents = $grouper->groupEvents( $events );
+
+		$nyanGroup = $groupedEvents[0];
+		$onoezGroup = $groupedEvents[1];
+
+		$this->assertEquals(
+			array(
+				2,
+				3,
+				1
+			),
+			$this->eventsToIds( $nyanGroup->getEvents() )
+		);
+
+		$this->assertEquals(
+			array(
+				4,
+				6,
+				5
+			),
+			$this->eventsToIds( $onoezGroup->getEvents() )
+		);
+	}
+
+	private function eventsToIds( array $events ) {
+		return array_map(
+			function( Event $event ) {
+				return $event->getId();
+			},
+			$events
+		);
+	}
+
 }
