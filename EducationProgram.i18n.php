@@ -515,6 +515,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Course activity
 	'ep-viewcourseactivityaction-title' => 'Activity for course "$1"',
+	'ep-viewcourseactivityaction-nosuchcourse' => 'Course not found!',
 
 	// Course deletion
 	'coursepage-delete-text' => 'You are about to delete course $1. This will remove all associated students!',
@@ -839,6 +840,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
  */
 $messages['qqq'] = array(
 	'educationprogram-desc' => '{{desc|name=Education Program|url=http://www.mediawiki.org/wiki/Extension:Education_Program}}',
+	'ep-viewcourseactivityaction-nosuchcourse' => 'Error message stating the course was not found',
 	'ep-item-summary' => 'Table column header.
 {{Identical|Summary}}',
 	'ep-timeline-no-summary' => 'Message shown in the events timeline for edits that do not have an associated summary',

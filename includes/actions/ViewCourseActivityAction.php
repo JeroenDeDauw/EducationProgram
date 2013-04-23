@@ -51,13 +51,19 @@ class ViewCourseActivityAction extends \FormlessAction {
 			$course = $courseStore->getCourseByTitle( $this->getTitle()->getText() );
 		}
 		catch ( CourseTitleNotFoundException $exception ) {
-
+			$this->displayNotFound();
 		}
 
-		$courseActivityView->displayActivity(
-			$course->getId(),
-			$educationProgram->getSettings()->getSetting( 'activityTabMaxAgeInSeconds' )
-		);
+		if ( isset( $course ) ) {
+			$courseActivityView->displayActivity(
+				$course->getId(),
+				$educationProgram->getSettings()->getSetting( 'activityTabMaxAgeInSeconds' )
+			);
+		}
+	}
+
+	private function displayNotFound() {
+		$this->getOutput()->addWikiMsg( 'ep-viewcourseactivityaction-nosuchcourse' );
 	}
 
 	/**
