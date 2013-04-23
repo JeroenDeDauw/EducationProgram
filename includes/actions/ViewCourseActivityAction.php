@@ -45,8 +45,17 @@ class ViewCourseActivityAction extends \FormlessAction {
 			$educationProgram->newEventStore()
 		);
 
+		$courseStore = $educationProgram->newCourseStore();
+
+		try {
+			$course = $courseStore->getCourseByTitle( $this->getTitle()->getText() );
+		}
+		catch ( CourseTitleNotFoundException $exception ) {
+
+		}
+
 		$courseActivityView->displayActivity(
-			$this->getRequest()->getInt( 'courseid' ), // FIXME
+			$course->getId(),
 			$educationProgram->getSettings()->getSetting( 'activityTabMaxAgeInSeconds' )
 		);
 	}

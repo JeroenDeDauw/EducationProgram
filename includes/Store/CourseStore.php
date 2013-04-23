@@ -141,9 +141,26 @@ class CourseStore {
 	 * @return Course
 	 */
 	protected function newCourseFromRow( $row ) {
+		$fields = array();
+
+		foreach ( (array)$row as $fieldName => $fieldValue ) {
+			$fields[substr( $fieldName, 7 )] = $fieldValue;
+		}
+
+		$fields['students'] = unserialize( $fields['students'] );
+		$fields['instructors'] = unserialize( $fields['instructors'] );
+		$fields['online_ambs'] = unserialize( $fields['online_ambs'] );
+		$fields['campus_ambs'] = unserialize( $fields['campus_ambs'] );
+
+		$fields['id'] = (int)$fields['id'];
+		$fields['student_count'] = (int)$fields['student_count'];
+		$fields['instructor_count'] = (int)$fields['instructor_count'];
+		$fields['oa_count'] = (int)$fields['oa_count'];
+		$fields['ca_count'] = (int)$fields['ca_count'];
+
 		return new Course(
 			$courseTable = Courses::singleton(),
-			(array)$row
+			$fields
 		);
 	}
 
