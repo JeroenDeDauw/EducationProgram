@@ -2,13 +2,9 @@
 
 namespace EducationProgram\Tests;
 
-use EducationProgram\Events\Timeline;
-use Language;
-use OutputPage;
+use EducationProgram\CourseActivityView;
 
 /**
- * Tests for the EducationProgram\Events\Timeline class.
- *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -24,8 +20,7 @@ use OutputPage;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @file
- * @since 0.4
+ * @since 0.3
  *
  * @ingroup EducationProgramTest
  *
@@ -34,27 +29,24 @@ use OutputPage;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class TimelineTest extends \MediaWikiTestCase {
+class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 
-	public function constructorProvider() {
-		$argLists = array();
+	public function testConstruct() {
+		$outputPage = $this->getMockBuilder( 'OutputPage' )
+			->disableOriginalConstructor()->getMock();
 
-		$argLists[] = array(
-			\RequestContext::getMain()->getOutput(),
-			\RequestContext::getMain()->getLanguage(),
-			array()
-		);
+		$language = $this->getMock( 'Language' );
 
-		return $argLists;
-	}
+		$eventStore = $this->getMockBuilder( 'EducationProgram\Events\EventStore' )
+			->disableOriginalConstructor()->getMock();
 
-	/**
-	 * @dataProvider constructorProvider
-	 */
-	public function testConstructor( OutputPage $outputPage, Language $language, array $events ) {
-		$timeline = new Timeline( $outputPage, $language, $events );
+		$eventStore->expects( $this->once() )->method( 'query' )->will( $this->returnValue( array() ) );
 
-		$this->assertInternalType( 'string', $timeline->getHTML() );
+		$outputPage->expects( $this->atLeastOnce() )->method( 'addHTML' );
+
+		$activityView = new CourseActivityView( $outputPage, $language, $eventStore );
+
+		$activityView->display();
 	}
 
 }

@@ -3,11 +3,12 @@
 namespace EducationProgram\Events;
 
 use EducationProgram\Settings;
-use IContextSource;
+use Language;
 use MWException;
 use Html;
 use Linker;
 use Message;
+use OutputPage;
 use User;
 use Title;
 use EducationProgram\Events\Event;
@@ -39,7 +40,7 @@ use EducationProgram\Events\Event;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class TimelineGroup extends \ContextSource {
+abstract class TimelineGroup {
 
 	/**
 	 * @since 0.1
@@ -48,19 +49,36 @@ abstract class TimelineGroup extends \ContextSource {
 	protected $events;
 
 	/**
+	 * @since 0.3
+	 * @var OutputPage
+	 */
+	protected $outputPage;
+
+	/**
+	 * @since 0.3
+	 * @var Language
+	 */
+	protected $language;
+
+	/**
 	 * Creates a new TimelineGroup from a list of events.
 	 * This list needs to be non-empty and contain events with the same type.
 	 * If this is not the case, an exception will be thrown.
 	 *
+	 * FIXME: put in factory/builder
+	 * FIXME: do not restrict component interface
+	 * FIXME: do not prevent control over component lifecycle
+	 *
 	 * @since 0.1
 	 *
 	 * @param EventGroup $group
-	 * @param IContextSource|null $context
+	 * @param OutputPage $outputPage
+	 * @param Language $language
 	 *
 	 * @return mixed
 	 * @throws MWException
 	 */
-	public static function newFromEventGroup( EventGroup $group, IContextSource $context = null ) {
+	public static function newFromEventGroup( EventGroup $group, OutputPage $outputPage, Language $language ) {
 		$type = null;
 
 		/**
@@ -84,22 +102,12 @@ abstract class TimelineGroup extends \ContextSource {
 
 		$class = array_key_exists( $type, $typeMap ) ? $typeMap[$type] : '\EducationProgram\Events\UnknownGroup';
 
-		return new $class( $group->getEvents(), $context );
+		return new $class( $group->getEvents(), $outputPage, $language );
 	}
 
-	/**
-	 * Constructor.
-	 *
-	 * @since 0.1
-	 *
-	 * @param Event[] $events
-	 * @param IContextSource|null $context
-	 */
-	protected function __construct( array $events, IContextSource $context = null ) {
-		if ( !is_null( $context ) ) {
-			$this->setContext( $context );
-		}
-
+	protected function __construct( array $events, OutputPage $outputPage, Language $language ) {
+		$this->outputPage = $outputPage;
+		$this->language = $language;
 		$this->events = $events;
 	}
 
@@ -109,12 +117,10 @@ abstract class TimelineGroup extends \ContextSource {
 	 * @since 0.1
 	 */
 	public function display() {
-		$this->getOutput()->addHTML( $this->getHTML() );
+		$this->outputPage->addHTML( $this->getHTML() );
 	}
 
 	/**
-	 * Returns the events.
-	 *
 	 * @since 0.1
 	 *
 	 * @return Event[]
@@ -235,6 +241,14 @@ abstract class TimelineGroup extends \ContextSource {
 	 */
 	protected abstract function getSegmentHTML( Event $event );
 
+	protected function newMessage( $key ) {
+		$params = func_get_args();
+		array_shift( $params );
+
+		$message = new Message( $key, $params );
+		return $message->inLanguage( $this->language );
+	}
+
 }
 
 /**
@@ -260,11 +274,11 @@ class UnknownGroup extends TimelineGroup {
 	 * @return string
 	 */
 	protected function getSegmentHTML( Event $event ) {
-		return $this->msg(
+		return $this->newMessage(
 			'ep-timeline-unknown',
 			User::newFromId( $event->getUserId() ),
-			$this->getLanguage()->time( $event->getTime() ),
-			$this->getLanguage()->date( $event->getTime() )
+			$this->language->time( $event->getTime() ),
+			$this->language->date( $event->getTime() )
 
 		)->escaped();
 	}
@@ -307,23 +321,23 @@ class EditGroup extends TimelineGroup {
 
 			if ( strlen( $text ) > Settings::get( 'timelineMessageLengthLimit' ) ) {
 				$text = substr( $text, 0, Settings::get( 'timelineMessageLengthLimit' ) );
-				$text = $this->msg( 'ep-timeline-cutoff', $text )->plain();
+				$text = $this->newMessage( 'ep-timeline-cutoff', $text )->plain();
 			}
 		}
 		else {
-			$text = trim( $info['comment'] ) === '' ? $this->msg( 'ep-timeline-no-summary' )->plain() : $info['comment'];
+			$text = trim( $info['comment'] ) === '' ? $this->newMessage( 'ep-timeline-no-summary' )->plain() : $info['comment'];
 		}
 
 		$html .= strip_tags(
-			$this->getOutput()->parseInline( $text ),
+			$this->outputPage->parseInline( $text ),
 			'<a><b><i>'
 		);
 
 		$html .= '<br />';
 
-		$html .= '<span class="ep-event-ago">' . $this->msg(
+		$html .= '<span class="ep-event-ago">' . $this->newMessage(
 			'ep-timeline-ago',
-			$this->getLanguage()->formatDuration( $event->getAge(), array( 'days', 'hours', 'minutes' ) )
+			$this->language->formatDuration( $event->getAge(), array( 'days', 'hours', 'minutes' ) )
 		)->escaped() . '</span>';
 
 		return $html;
@@ -356,12 +370,10 @@ class EditGroup extends TimelineGroup {
 
 		$remainingUsers = count( $userIds ) - count( $userLinks );
 
-		$language = $this->getLanguage();
-
 		if ( !empty( $remainingUsers ) ) {
-			$userLinks[] = $this->msg(
+			$userLinks[] = $this->newMessage(
 				'ep-timeline-remaining',
-				$language->formatNum( $remainingUsers )
+				$this->language->formatNum( $remainingUsers )
 			)->escaped();
 		}
 
@@ -386,14 +398,6 @@ class EditGroup extends TimelineGroup {
 
 		$subjectText = Title::newFromText( $info['page'] )->getSubjectPage()->getText();
 
-		$messageArgs = array(
-			Message::rawParam( $language->listToText( $userLinks ) ),
-			$info['page'],
-			$subjectText,
-			count( $this->events ),
-			count( $userIds ),
-		);
-
 		if ( in_array( $type, array( NS_USER, NS_USER_TALK ) )
 			&& count( $userIds ) == 1 ) {
 			$user = User::newFromName( $subjectText );
@@ -403,9 +407,13 @@ class EditGroup extends TimelineGroup {
 			}
 		}
 
-		return $this->msg(
+		return $this->newMessage(
 			$messageKey,
-			$messageArgs
+			Message::rawParam( $this->language->listToText( $userLinks ) ),
+			$info['page'],
+			$subjectText,
+			count( $this->events ),
+			count( $userIds )
 		)->parse() . '<br />';
 	}
 

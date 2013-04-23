@@ -74,6 +74,7 @@ final class Hooks {
 			'Actions',
 			'ArticleAdder',
 			'ArticleStore',
+			'CourseActivityView',
 			'EPArticle',
 			'Menu',
 			'Settings',

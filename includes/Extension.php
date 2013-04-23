@@ -2,6 +2,7 @@
 
 namespace EducationProgram;
 
+use EducationProgram\Events\EventStore;
 use ORMTable;
 
 /**
@@ -40,8 +41,6 @@ class Extension {
 	protected $settings;
 
 	/**
-	 * Constructor
-	 *
 	 * @since 0.3
 	 *
 	 * @param Settings $settings
@@ -51,8 +50,6 @@ class Extension {
 	}
 
 	/**
-	 * Returns a new ArticleStore.
-	 *
 	 * @since 0.3
 	 *
 	 * @return ArticleStore
@@ -62,14 +59,21 @@ class Extension {
 	}
 
 	/**
-	 * Returns a new ArticleAdder.
-	 *
 	 * @since 0.3
 	 *
 	 * @return ArticleAdder
 	 */
 	public function newArticleAdder() {
 		return new ArticleAdder( $this->newArticleStore() );
+	}
+
+	/**
+	 * @since 0.3
+	 *
+	 * @return EventStore
+	 */
+	public function newEventStore() {
+		return new EventStore( 'ep_events' );
 	}
 
 	/**

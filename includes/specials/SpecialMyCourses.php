@@ -213,7 +213,8 @@ class SpecialMyCourses extends VerySpecialPage {
 				}
 				else {
 					$timeline = new Timeline(
-						$context,
+						$context->getOutput(),
+						$context->getLanguage(),
 						$events
 					);
 

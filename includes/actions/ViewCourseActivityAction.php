@@ -1,13 +1,11 @@
 <?php
 
-namespace EducationProgram\Tests;
+namespace EducationProgram;
 
 use EducationProgram\Events\Timeline;
-use Language;
-use OutputPage;
 
 /**
- * Tests for the EducationProgram\Events\Timeline class.
+ * Action for viewing a course.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,37 +22,31 @@ use OutputPage;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @file
- * @since 0.4
+ * @since 0.3
  *
- * @ingroup EducationProgramTest
- *
- * @group EducationProgram
+ * @ingroup EducationProgram
+ * @ingroup Action
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class TimelineTest extends \MediaWikiTestCase {
+class ViewCourseActivityAction extends \FormlessAction {
 
-	public function constructorProvider() {
-		$argLists = array();
-
-		$argLists[] = array(
-			\RequestContext::getMain()->getOutput(),
-			\RequestContext::getMain()->getLanguage(),
-			array()
-		);
-
-		return $argLists;
+	public function getName() {
+		return 'viewactivity';
 	}
 
-	/**
-	 * @dataProvider constructorProvider
-	 */
-	public function testConstructor( OutputPage $outputPage, Language $language, array $events ) {
-		$timeline = new Timeline( $outputPage, $language, $events );
+	public function onView() {
+		$courseId = $this->getRequest()->getCheck( 'courseid' );
 
-		$this->assertInternalType( 'string', $timeline->getHTML() );
+		$educationProgram = Extension::globalInstance();
+
+		$eventStore = $educationProgram->newEventStore();
+
+
+
+
+
 	}
 
 }

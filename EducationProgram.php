@@ -154,6 +154,7 @@ $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/
 // includes
 $wgAutoloadClasses['EducationProgram\ArticleAdder'] 				= $dir . '/includes/ArticleAdder.php';
 $wgAutoloadClasses['EducationProgram\ArticleStore'] 				= $dir . '/includes/ArticleStore.php';
+$wgAutoloadClasses['EducationProgram\CourseActivityView'] 			= $dir . '/includes/CourseActivityView.php';
 $wgAutoloadClasses['EducationProgram\DiffTable'] 					= $dir . '/includes/DiffTable.php';
 $wgAutoloadClasses['EducationProgram\DYKBox'] 						= $dir . '/includes/DYKBox.php';
 $wgAutoloadClasses['EducationProgram\Extension'] 					= $dir . '/includes/Extension.php';

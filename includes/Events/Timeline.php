@@ -3,6 +3,8 @@
 namespace EducationProgram\Events;
 
 use IContextSource;
+use Language;
+use OutputPage;
 
 /**
  * Education Program timeline.
@@ -29,7 +31,7 @@ use IContextSource;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class Timeline extends \ContextSource {
+class Timeline {
 
 	/**
 	 * List of events to display in this timeline.
@@ -40,16 +42,30 @@ class Timeline extends \ContextSource {
 	protected $events;
 
 	/**
+	 * @since 0.3
+	 * @var OutputPage
+	 */
+	protected $outputPage;
+
+	/**
+	 * @since 0.3
+	 * @var Language
+	 */
+	protected $language;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 0.1
 	 *
-	 * @param IContextSource $context
+	 * @param OutputPage $outputPage
+	 * @param Language $language
 	 * @param Event[] $events
 	 */
-	public function __construct( IContextSource $context, array $events ) {
-		$this->setContext( $context );
+	public function __construct( OutputPage $outputPage, Language $language, array $events ) {
 		$this->events = $events;
+		$this->outputPage = $outputPage;
+		$this->language = $language;
 	}
 
 	/**
@@ -62,11 +78,14 @@ class Timeline extends \ContextSource {
 	public function getHTML() {
 		$grouper = new RecentPageEventGrouper();
 
+		$outputPage = $this->outputPage;
+		$language = $this->language;
+
 		return implode(
 			'<br />',
 			array_map(
-				function( EventGroup $group ) {
-					return TimelineGroup::newFromEventGroup( $group )->getHTML();
+				function( EventGroup $group ) use ( $outputPage, $language ) {
+					return TimelineGroup::newFromEventGroup( $group, $outputPage, $language )->getHTML();
 				},
 				$grouper->groupEvents( $this->events )
 			)
@@ -79,10 +98,8 @@ class Timeline extends \ContextSource {
 	 * @since 0.1
 	 */
 	public function display() {
-		$out = $this->getOutput();
-
-		$out->addModules( self::getModules() );
-		$out->addHTML( $this->getHTML() );
+		$this->outputPage->addModules( self::getModules() );
+		$this->outputPage->addHTML( $this->getHTML() );
 	}
 
 	/**
