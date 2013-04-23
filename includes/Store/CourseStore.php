@@ -63,7 +63,8 @@ class CourseStore {
 			$this->getReadFields(),
 			array(
 				'course_id' => $courseId
-			)
+			),
+			__METHOD__
 		);
 
 		if ( !is_object( $result ) ) {
@@ -87,7 +88,8 @@ class CourseStore {
 			$this->getReadFields(),
 			array(
 				'course_title' => $courseTitle
-			)
+			),
+			__METHOD__
 		);
 
 		if ( !is_object( $result ) ) {
