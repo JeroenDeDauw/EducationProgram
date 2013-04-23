@@ -238,7 +238,7 @@ class SpecialManageCourses extends VerySpecialPage {
 			$this->getContext(),
 			array( 'user_id' => $this->getUser()->getId() ),
 			$course->getId(),
-			$this->getUser()->getId()
+			array( $this->getUser()->getId() )
 		);
 
 		$this->getOutput()->addModules( ArticleTable::getModules() );

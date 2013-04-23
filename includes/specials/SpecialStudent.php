@@ -97,7 +97,7 @@ class SpecialStudent extends VerySpecialPage {
 				$this->getContext(),
 				array( 'user_id' => $this->getUser()->getId() ),
 				$courseIds,
-				$this->getUser()->getId()
+				array( $this->getUser()->getId() )
 			);
 
 			$this->getOutput()->addModules( ArticleTable::getModules() );
