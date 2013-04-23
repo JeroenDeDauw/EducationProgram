@@ -95,6 +95,8 @@ $wgAutoloadClasses['EducationProgram\Events\RecentPageEventGrouper']= $dir . '/i
 $wgAutoloadClasses['EducationProgram\Events\Timeline'] 				= $dir . '/includes/Events/Timeline.php';
 $wgAutoloadClasses['EducationProgram\Events\TimelineGroup'] 		= $dir . '/includes/Events/TimelineGroup.php';
 
+$wgAutoloadClasses['EducationProgram\Store\CourseStore'] 			= $dir . '/includes/Store/CourseStore.php';
+
 // includes/pagers (implementing Pager)
 $wgAutoloadClasses['EducationProgram\ArticleTable'] 				= $dir . '/includes/pagers/ArticleTable.php';
 $wgAutoloadClasses['EducationProgram\CAPager'] 						= $dir . '/includes/pagers/CAPager.php';
@@ -156,6 +158,8 @@ $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/
 $wgAutoloadClasses['EducationProgram\ArticleAdder'] 				= $dir . '/includes/ArticleAdder.php';
 $wgAutoloadClasses['EducationProgram\ArticleStore'] 				= $dir . '/includes/ArticleStore.php';
 $wgAutoloadClasses['EducationProgram\CourseActivityView'] 			= $dir . '/includes/CourseActivityView.php';
+$wgAutoloadClasses['EducationProgram\CourseNotFoundException'] 		= $dir . '/includes/CourseNotFoundException.php';
+$wgAutoloadClasses['EducationProgram\CourseTitleNotFoundException'] = $dir . '/includes/CourseTitleNotFoundException.php';
 $wgAutoloadClasses['EducationProgram\DiffTable'] 					= $dir . '/includes/DiffTable.php';
 $wgAutoloadClasses['EducationProgram\DYKBox'] 						= $dir . '/includes/DYKBox.php';
 $wgAutoloadClasses['EducationProgram\Extension'] 					= $dir . '/includes/Extension.php';

@@ -90,6 +90,8 @@ final class Hooks {
 			'Events/Event',
 			'Events/RecentPageEventGrouper',
 
+			'Store/CourseStore',
+
 			'tables/Orgs',
 		);
 
