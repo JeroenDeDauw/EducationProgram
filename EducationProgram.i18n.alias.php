@@ -82,6 +82,7 @@ $specialPageAliases['de'] = array(
 	'CampusAmbassadorProfile' => array( 'Campusvolontärprofil', 'Campusvolontär-Profil' ),
 	'StudentActivity' => array( 'Studentenaktivität' ),
 	'Articles' => array( 'Artikel' ),
+	'CourseActivity' => array( 'Kursaktivität' ),
 );
 
 /** Zazaki (Zazaki) */
@@ -239,6 +240,7 @@ $specialPageAliases['mk'] = array(
 	'CampusAmbassadorProfile' => array( 'ПрофилУниверзитетскиПретставник' ),
 	'StudentActivity' => array( 'УченичкиАктивности' ),
 	'Articles' => array( 'Статии' ),
+	'CourseActivity' => array( 'КурсАктивности' ),
 );
 
 /** Malayalam (മലയാളം) */
@@ -317,6 +319,11 @@ $specialPageAliases['tr'] = array(
 	'CampusAmbassadorProfile' => array( 'KampüsTemsilcisiProfili' ),
 	'StudentActivity' => array( 'ÖğrenciEtkinliği' ),
 	'Articles' => array( 'Maddeler' ),
+);
+
+/** Ukrainian (українська) */
+$specialPageAliases['uk'] = array(
+	'Articles' => array( 'Статті' ),
 );
 
 /** Vietnamese (Tiếng Việt) */
