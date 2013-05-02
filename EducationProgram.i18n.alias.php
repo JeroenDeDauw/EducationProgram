@@ -328,6 +328,7 @@ $specialPageAliases['uk'] = array(
 
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
+	'Institutions' => array( 'Học_viện' ),
 	'EducationProgram' => array( 'Chương_trình_Giáo_dục' ),
 );
 
