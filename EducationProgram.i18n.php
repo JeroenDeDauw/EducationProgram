@@ -8576,9 +8576,9 @@ $messages['he'] = array(
 	'ep-articletable-remstudent-title' => 'הסרת {{GENDER:$1|תלמיד|תלמידה}} מהקורס',
 	'ep-articletable-remstudent-button' => 'הסרת {{GENDER:$1|תלמיד|תלמידה}}',
 	'ep-articletable-remstudent-cancel' => 'ביטול',
-	'ep-articletable-remstudent-text' => 'הנכם עומדים להסיר את $3 כ{{GENDER:$1|תלמיד|תלמידה}} מהקורס $2 .
+	'ep-articletable-remstudent-text' => 'עומדת להתבצע הסרה של $3 {{GENDER:$1|כתלמיד|כתלמידה}} מהקורס $2.
 
-פעולה זו תסיר לצמיתות ערכים ומבקרים הקשורים {{GENDER:$1|אליו|אליה|אליהם}!', # Fuzzy
+פעולה זו תסיר לצמיתות ערכים וסוקרים שקשורים {{GENDER:$1|אליו|אליה}}!',
 	'ep-articletable-remarticle-title' => 'הסרת ערך $1',
 	'ep-articletable-remarticle-button' => 'הסרת ערך',
 	'ep-articletable-remarticle-cancel' => 'ביטול',
@@ -8827,7 +8827,7 @@ $messages['he'] = array(
 	'ep-mycourses-login-first' => 'עליך להיכנס למערכת כדי שיהיה באפשרותך לצפות בקורסים.',
 	'ep-mycourses-courses-epoa' => '{{PLURAL:$1|הקורס|הקורסים}} שאני {{GENDER:$2|מתנדב מקוון|מתנדבת מקוונת}} בהם',
 	'ep-mycourses-courses-epca' => '{{PLURAL:$1|הקורס|הקורסים}} שאני {{GENDER:$2|מתנדב|מתנדבת}} קמפוס בהם',
-	'ep-mycourses-courses-epinstructor' => '{{PLURAL:$1|הקורס|הקורסים}} שאני מורה בהם', # Fuzzy
+	'ep-mycourses-courses-epinstructor' => '{{PLURAL:$1|הקורס|הקורסים}} שאני {{GENDER:$2|מורה}} בהם',
 	'ep-mycourses-courses-epstudent' => '{{PLURAL:$1|קורס|קורסים}} שאליהם נרשמתי',
 	'ep-mycourses-nocourses-epca' => 'אין קורסים {{GENDER:$1|שאתה מתנדב|שאת מתנדבת}} קמפוס בהם.',
 	'ep-mycourses-nocourses-epoa' => 'אין עדיין קורסים {{GENDER:$1|שאתה המתנדב מקוון|שאת המתנדבת מקוונת}} בהם.',
@@ -14217,7 +14217,7 @@ $messages['lb'] = array(
 	'ep-timeline-users-create-user-self' => "$1 huet {{GENDER:$3|seng|hir}} '''[[$2|Benotzersäit]]''' gemaach.",
 	'ep-dashboard-login-first' => 'Dir musst Iech aloggen fir Är Coursen ze gesinn.',
 	'ep-dashboard-timeline-empty' => 'Et gëtt keng rezent Aktivitéit fir dëse Cours.',
-	'ep-dashboard-enroll-first' => "Dir sidd elo a kengem aktive Cours ageschriwwen. Dir kënnt d'[[Special:Courses|Lëscht vun de Course]] kucken an Iech an een aschreiwen.",
+	'ep-dashboard-enroll-first' => "Dir huelt elo u kengem aktive Cours deel. Dir kënnt d'[[Special:Courses|Lëscht vun de Course]] kucken.",
 );
 
 /** Lithuanian (lietuvių)
@@ -23665,9 +23665,9 @@ $messages['zh-hant'] = array(
 	'coursepage-history-description' => '查看本課程的日誌',
 	'coursepage-history-norevs' => '沒有課程的修訂記錄。',
 	'ep-viewcourseactivityaction-nosuchcourse' => '找不到課程 ！',
-	'coursepage-delete-summary' => '刪除的原因：', # Fuzzy
+	'coursepage-delete-summary' => '原因：',
 	'coursepage-delete-cancel-button' => '取消',
-	'orgpage-delete-summary' => '刪除的原因：', # Fuzzy
+	'orgpage-delete-summary' => '原因：',
 	'orgpage-delete-cancel-button' => '取消',
 	'orgpage-eprestore-summary' => '原因：',
 	'orgpage-eprestore-restore-button' => '恢復修訂',
@@ -23676,11 +23676,11 @@ $messages['zh-hant'] = array(
 	'coursepage-eprestore-summary' => '原因：',
 	'coursepage-eprestore-restore-button' => '恢復修訂',
 	'coursepage-eprestore-cancel-button' => '取消',
-	'orgpage-epundo-summary' => '回退的原因：', # Fuzzy
+	'orgpage-epundo-summary' => '原因：',
 	'orgpage-epundo-cancel-button' => '取消',
-	'coursepage-epundo-summary' => '回退的理由：', # Fuzzy
+	'coursepage-epundo-summary' => '原因：',
 	'coursepage-epundo-cancel-button' => '取消',
-	'coursepage-epundelete-summary' => '恢復的原因：', # Fuzzy
+	'coursepage-epundelete-summary' => '原因：',
 	'coursepage-epundelete-cancel-button' => '取消',
 	'orgpage-epundelete-summary' => '原因：',
 	'orgpage-epundelete-cancel-button' => '取消',
