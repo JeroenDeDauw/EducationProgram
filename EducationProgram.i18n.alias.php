@@ -200,8 +200,9 @@ $specialPageAliases['ko'] = array(
 	'OnlineAmbassadors' => array( '온라인지원자', '온라인대사관' ),
 	'OnlineAmbassadorProfile' => array( '온라인지원자프로필', '온라인대사관프로필' ),
 	'CampusAmbassadorProfile' => array( '캠퍼스지원자프로필', '캠퍼스대사관프로필' ),
-	'StudentActivity' => array( '학생확동' ),
+	'StudentActivity' => array( '학생활동' ),
 	'Articles' => array( '문서목록' ),
+	'CourseActivity' => array( '과정활동' ),
 );
 
 /** Cornish (kernowek) */
