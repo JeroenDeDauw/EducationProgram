@@ -2,6 +2,7 @@
 
 namespace EducationProgram\Tests;
 
+use EducationProgram\Course;
 use EducationProgram\EPArticle;
 
 /**
@@ -270,6 +271,37 @@ class EPArticleTest extends \PHPUnit_Framework_TestCase {
 			$expected,
 			$article->getReviewers()
 		);
+	}
+
+	public function testLogAdditionNonExistingPage() {
+		$course = $this->getMock( 'EducationProgram\Course' );
+
+		$course->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( \Title::newFromText( 'Foobar' ) ) );
+
+		$article = $this->getMock(
+			'EducationProgram\EPArticle',
+			array( 'getCourse', 'getUser' ),
+			array( 1, 2, 3, 0, 'sdncjsdhbfkdhbgsfxdfg', array() )
+		);
+
+		$article->expects( $this->any() )
+			->method( 'getCourse' )
+			->will( $this->returnValue( $course ) );
+
+		$user = new MockSuperUser();
+
+		$article->expects( $this->any() )
+			->method( 'getUser' )
+			->will( $this->returnValue( $user ) );
+
+		$article->logAdittion(
+			$user,
+			false
+		);
+
+		$this->assertTrue( true );
 	}
 
 }
