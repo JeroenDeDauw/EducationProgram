@@ -18289,6 +18289,7 @@ $messages['pt'] = array(
 );
 
 /** Brazilian Portuguese (português do Brasil)
+ * @author Luckas
  * @author Luckas Blade
  */
 $messages['pt-br'] = array(
@@ -18314,12 +18315,12 @@ $messages['pt-br'] = array(
 	'epcapager-header-user-id' => 'Nome de usuário',
 	'epcapager-header-bio' => 'Perfil',
 	'epcapager-header-courses' => 'Cursos atuais',
-	'ep-ca-noresults' => 'Não há nenhum embaixador de campus para listar.',
+	'ep-ca-noresults' => 'Não há nenhum embaixador de campus para listar.', # Fuzzy
 	'epoapager-header-photo' => 'Foto',
 	'epoapager-header-user-id' => 'Nome de usuário',
 	'epoapager-header-bio' => 'Perfil',
 	'epoapager-header-courses' => 'Cursos atuais',
-	'ep-oa-noresults' => 'Não há nenhum embaixador online para listar.',
+	'ep-oa-noresults' => 'Não há nenhum embaixador online para listar.', # Fuzzy
 	'epstudentactivitypager-header-user-id' => 'Estudante',
 	'epstudentactivitypager-header-org-id' => 'Instituição',
 	'epstudentactivitypager-header-last-course' => 'Cursos',
@@ -18350,7 +18351,7 @@ O registro de exclusão para esta instituição é fornecido abaixo para sua con
 	'ep-course-edit-org' => 'Instituição',
 	'ep-course-edit-start' => 'Data de início',
 	'ep-course-edit-end' => 'Data de término',
-	'ep-course-edit-description' => 'Descrição',
+	'ep-course-edit-description' => 'Texto da página',
 	'ep-course-edit-title' => 'Título da página',
 	'ep-institution-title' => 'Instituição:$1',
 	'vieworgaction-summary-name' => 'Nome',
@@ -18377,13 +18378,13 @@ O registro de exclusão para esta instituição é fornecido abaixo para sua con
 	'viewcourseaction-summary-students' => 'Número de estudantes',
 	'viewcourseaction-summary-status' => 'Estado',
 	'viewcourseaction-summary-instructors' => 'Instrutores',
-	'viewcourseaction-summary-online' => 'Embaixadores on-line',
-	'viewcourseaction-summary-campus' => 'Embaixadores de campus',
+	'viewcourseaction-summary-online' => 'Embaixadores on-line', # Fuzzy
+	'viewcourseaction-summary-campus' => 'Embaixadores de campus', # Fuzzy
 	'ep-course-no-instructor' => 'Não há nenhum instrutor para este curso ainda.',
 	'ep-course-become-instructor' => 'Tornar-se um instrutor',
 	'ep-course-add-instructor' => 'Adicionar um instrutor',
-	'ep-course-no-online' => 'Não há nenhum embaixador online para este curso ainda.',
-	'ep-course-become-online' => 'Torne-se um embaixador on-line',
+	'ep-course-no-online' => 'Não há nenhum embaixador online para este curso ainda.', # Fuzzy
+	'ep-course-become-online' => 'Torne-se um embaixador on-line', # Fuzzy
 	'ep-instructor-summary' => 'Sumário:',
 	'ep-online-summary' => 'Sumário:',
 	'ep-campus-summary' => 'Sumário:',
