@@ -1124,7 +1124,8 @@ Additional parameters:
 * $1 indicates the number of affected institutions.',
 	'ep-pager-confirm-delete-org' => 'Deletion confirmation dialog title. Parameters:
 * $1 indicates the number of affected institutions.',
-	'ep-pager-retry-button-org' => 'Retry button text',
+	'ep-pager-retry-button-org' => 'Retry button text.
+{{Identical|Retry}}',
 	'ep-pager-summary-message-org' => 'Summary input label.
 {{Identical|Summary}}',
 	'ep-pager-confirm-message-org' => 'Notifies the user they are about to delete an institution. Parameters:
@@ -1155,7 +1156,8 @@ Additional parameters:
 * $1 indicates the number of affected courses.',
 	'ep-pager-confirm-delete-course' => 'Deletion confirmation dialog title. Parameters:
 * $1 indicates the number of affected courses.',
-	'ep-pager-retry-button-course' => 'Retry button text',
+	'ep-pager-retry-button-course' => 'Retry button text.
+{{Identical|Retry}}',
 	'ep-pager-summary-message-course' => 'Summary input label.
 {{Identical|Summary}}',
 	'ep-pager-confirm-message-course' => 'Notifies the user they are about to delete a course Parameters:
@@ -1605,7 +1607,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-instructor-removing' => 'Remove button text while removal is in progress',
 	'ep-instructor-removal-success' => 'Success message',
 	'ep-instructor-close-button' => 'Close button text',
-	'ep-instructor-remove-retry' => 'Retry button text',
+	'ep-instructor-remove-retry' => 'Retry button text.
+{{Identical|Retry}}',
 	'ep-instructor-remove-failed' => 'Error message',
 	'ep-instructor-cancel-button' => 'Cancel button text',
 	'ep-instructor-remove-text' => 'Notifies the user of what they are about to do. Parameters:
@@ -1627,7 +1630,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 * $2 - course name
 $1 is unknown, so unknown is the [[gender]].',
 	'ep-instructor-add-close-button' => 'Close button text.',
-	'ep-instructor-add-retry' => 'Retry button text.',
+	'ep-instructor-add-retry' => 'Retry button text.
+{{Identical|Retry}}',
 	'ep-instructor-addittion-failed' => 'Error message.',
 	'ep-instructor-add-title' => 'Dialog title.',
 	'ep-instructor-add-self-title' => "Dialog title. Parameters:
@@ -1650,7 +1654,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-online-removing' => 'Remove button text while removal is in progress.',
 	'ep-online-removal-success' => 'Success message.',
 	'ep-online-close-button' => 'Close button text.',
-	'ep-online-remove-retry' => 'Retry button text.',
+	'ep-online-remove-retry' => 'Retry button text.
+{{Identical|Retry}}',
 	'ep-online-remove-failed' => 'Error message.',
 	'ep-online-cancel-button' => 'Cancel button text.',
 	'ep-online-remove-text' => 'Notifies the user of what they are about to do. Parameters:
@@ -1671,7 +1676,8 @@ $1 is unknown, so unknown is the [[gender]].',
 * $1 - the (not) affected user's name
 * $2 - a course name",
 	'ep-online-add-close-button' => 'Close button text.',
-	'ep-online-add-retry' => 'Retry button text.',
+	'ep-online-add-retry' => 'Retry button text.
+{{Identical|Retry}}',
 	'ep-online-addittion-failed' => 'Error message.',
 	'ep-online-add-title' => 'Dialog title.',
 	'ep-online-add-self-title' => "Dialog title. Parameters:
@@ -1694,7 +1700,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-campus-removing' => 'Remove button text while removal is in progress.',
 	'ep-campus-removal-success' => 'Success message.',
 	'ep-campus-close-button' => 'Close button text.',
-	'ep-campus-remove-retry' => 'Retry button text.',
+	'ep-campus-remove-retry' => 'Retry button text.
+{{Identical|Retry}}',
 	'ep-campus-remove-failed' => 'Error message.',
 	'ep-campus-cancel-button' => 'Cancel button text.',
 	'ep-campus-remove-text' => 'Notifies the user of what they are about to do. Parameters:
@@ -1715,7 +1722,8 @@ $1 is unknown, so unknown is the [[gender]].',
 * $1 - the (not) affected user's name
 * $2 - a course name",
 	'ep-campus-add-close-button' => 'Close button text.',
-	'ep-campus-add-retry' => 'Retry button text.',
+	'ep-campus-add-retry' => 'Retry button text.
+{{Identical|Retry}}',
 	'ep-campus-addittion-failed' => 'Error message.',
 	'ep-campus-add-title' => 'Dialog title.',
 	'ep-campus-add-self-title' => "Dialog title. Parameters:
