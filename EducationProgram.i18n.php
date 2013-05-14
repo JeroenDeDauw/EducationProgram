@@ -8367,14 +8367,15 @@ Pode atopar unha lista completa dos estudantes na [[Special:Students|lista de es
  * @author YaronSh
  * @author אור שפירא
  * @author חיים
+ * @author ליאור
  * @author ערן
  */
 $messages['he'] = array(
-	'educationprogram-desc' => 'תמיכה בתוכניות חינוכיות על־ידי הוספת ממשקים שונים לניהול קורסים, מוסדות חינוכיים ותפקידי המשתמשים השונים בחינוך.',
+	'educationprogram-desc' => 'תמיכה בתוכניות הוראה בעזרת ממשקים לניהול קורסים, מוסדות חינוכיים וסגל ההוראה.',
 	'ep-item-summary' => 'תקציר',
 	'ep-toplink' => 'קורסים',
-	'ep-org-course-delete-comment' => 'המוסד $1 נמחק, וכך גם כל הקורסים שלו, בתוספת ההערה $2',
-	'ep-org-course-delete' => 'המוסד $1 נמחק, וכך גם כל הקורסים שלו',
+	'ep-org-course-delete-comment' => 'המוסד $1 הוסר וכך גם כל הקורסים שלו, בתוספת ההערה $2',
+	'ep-org-course-delete' => 'המוסד $1 הוסר וכך גם כל הקורסים שלו',
 	'ep-form-summary' => 'תקציר:',
 	'ep-form-minor' => 'זוהי עריכה משנית',
 	'ep-move-error' => 'אין לך הרשאות להעביר ערכים לתוך או מחוץ למרחב השם "חינוך".',
@@ -8390,8 +8391,8 @@ $messages['he'] = array(
 	'ep-tab-delete' => 'מחיקה',
 	'ep-tab-activity' => 'צפייה בפעילות',
 	'tooltip-ep-form-save' => 'שמירה',
-	'tooltip-ep-edit-institution' => 'עריכת מוסד זה',
-	'tooltip-ep-edit-course' => 'עריכת קורס זה',
+	'tooltip-ep-edit-institution' => 'עריכת פרטי המוסד',
+	'tooltip-ep-edit-course' => 'עריכת פרטי הקורס',
 	'tooltip-ep-summary' => 'הזנת סיכום קצר',
 	'tooltip-ep-minor' => 'סימון עריכה זו כמשנית',
 	'ep-nav-orgs' => 'רשימת מוסדות',
@@ -8399,7 +8400,7 @@ $messages['he'] = array(
 	'ep-nav-mycourses' => 'הקורסים שלך',
 	'ep-nav-students' => 'רשימת תלמידים',
 	'ep-nav-mentors' => 'רשימת מתנדבים',
-	'ep-nav-cas' => 'מתנדבי קמפוס',
+	'ep-nav-cas' => 'מתנדבים בקמפוס',
 	'ep-nav-oas' => 'מתנדבים מקוונים',
 	'ep-nav-oaprofile' => 'פרופיל מתנדב מקוון',
 	'ep-nav-caprofile' => 'פרופיל מתנדב קמפוס',
