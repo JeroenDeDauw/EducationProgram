@@ -20170,9 +20170,11 @@ $messages['sr-el'] = array(
 
 /** Swedish (svenska)
  * @author Ainali
+ * @author Eihpossophie
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'educationprogram-desc' => 'Underlättar utbildningsprogram genom att lägga till olika gränssnitt för att hantera kurser, institutioner och de olika användarnas roller på lärosätet.',
 	'ep-item-summary' => 'Sammanfattning',
 	'ep-toplink' => 'Kurser',
 	'ep-org-course-delete-comment' => 'Raderade institution $1och alla dess kurser med kommentar $2',
@@ -20190,6 +20192,7 @@ $messages['sv'] = array(
 	'ep-tab-enroll' => 'Registrera',
 	'ep-tab-disenroll' => 'Avregistrera',
 	'ep-tab-delete' => 'Radera',
+	'ep-tab-activity' => 'Visa aktivitet',
 	'tooltip-ep-form-save' => 'Spara',
 	'tooltip-ep-edit-institution' => 'Redigera denna institution',
 	'tooltip-ep-edit-course' => 'Redigera den här kursen',
@@ -20204,9 +20207,24 @@ $messages['sv'] = array(
 	'ep-nav-oas' => 'Online-volontärer',
 	'ep-nav-oaprofile' => 'Onlinevolontärens profil',
 	'ep-nav-caprofile' => 'Campusvolontärens profil',
+	'log-name-institution' => 'Lärosätets logg för utbildningsprogrammet',
+	'log-name-course' => 'Kurslogg för utbildningsprogrammet',
+	'log-name-student' => 'Studentlogg för utbildningsprogrammet',
+	'log-name-online' => 'Onlineambassadörslogg för utbildningsprogrammet',
+	'log-name-campus' => 'Wikipediaambassadörslogg för utbildningsprogrammet',
+	'log-name-instructor' => 'Instruktörslogg för utbildningsprogrammet',
+	'log-name-eparticle' => 'Artikellogg för utbildningsprogrammet',
+	'log-header-institution' => 'Dessa händelser spårar ändringar som görs vid institutioner som har utbildningsprogram.',
+	'log-header-course' => 'Dessa händelser spårar ändringar som görs vid kurser som är engagerade i ett utbildningsprogram.',
+	'log-header-instructor' => 'Dessa händelser spårar ändringar som görs för instruktörer som är engagerade i utbildningsprogram.',
+	'log-header-campus' => 'Dessa händelser spårar ändringar som görs för Wikipediaambassadörer',
+	'log-header-online' => 'Dessa händelser spårar ändringar som görs för onlineambassadörer.',
+	'log-header-student' => 'Dessa händelser spårar ändringar som görs för studenter som är engagerade i ett utbildningsprogram.',
 	'log-description-institution' => 'Logg över alla ändringar av [[Special:Institutions|institutioner]].',
 	'log-description-course' => 'Logg över alla ändringar av [[Special:Courses|kurser]].',
 	'log-description-instructor' => 'Logg över alla ändringar av instruktörer.',
+	'log-description-online' => 'Logg för alla ändringar av utbildningsprogram [[Special:onlineambassadörer|onlineambassadörer]]', # Fuzzy
+	'log-description-campus' => 'Logg för alla ändringar av utbildningsprogram [[special:Wikipediaambassadör|Wikipediaambassadör]]', # Fuzzy
 	'log-description-student' => 'Logg över alla ändringar av [[Special:Students|studenter]].',
 	'logentry-institution-add' => '$1skapade institution $3',
 	'logentry-institution-remove' => '$1 radedrade institution $3',
@@ -20225,6 +20243,12 @@ $messages['sv'] = array(
 	'logentry-online-selfadd' => '$1 lade till {{GENDER:$2|sig själv}} som {{GENDER:$2|onlinevolontär}} till kursen $3',
 	'logentry-online-selfremove' => '$1 tog bort {{GENDER:$2|sig själv|sig själv}} som {{GENDER:$2|onlinevolontär}} från kursen $3',
 	'logentry-online-profilesave' => '$1 uppdaterade {{GENDER:$2|hans|hennes}} onlinevolontärsprofil',
+	'logentry-campus-add' => '$1 {{GENDER:$2|lade till}} {{PLURAL:$4|Wikipediaambassadör|Wikipediaambassadör}} $5 till kurs $3', # Fuzzy
+	'logentry-campus-remove' => '$1 {{GENDER:$2|tog bort}} {{PLURAL:$4|Wikipediaambassadör|Wikipediaambassadör}} $5 från kurs $3', # Fuzzy
+	'logentry-campus-selfadd' => '$1 lade till {{GENDER:$2|sig själv}} som {{GENDER:$2|Wikipediaambassadör}} till kurs $3',
+	'logentry-campus-selfremove' => '$1 tog bort {{GENDER:$2|sig själv}} som {{GENDER:$2|Wikipediaambassadör}} från kurs $3',
+	'logentry-campus-profilesave' => '$1 uppdaterade {{GENDER:$2|sin}} profil som Wikipediaambassadör',
+	'logentry-student-add' => '$1 {{GENDER:$2|registrerade sig}} för kurs $3',
 	'logentry-student-remove' => '$1 tog bort $5 som {{PLURAL:$4|{{GENDER:$5|student}}|studenter}} från kurs $3',
 	'logentry-eparticle-remove' => '$1 {{GENDER:$2|tog bort}} artikeln $3 från {{GENDER:$6|$5}}s lista över artiklar för kursen $4',
 	'prefs-education' => 'Utbildning',

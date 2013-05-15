@@ -269,6 +269,7 @@ $specialPageAliases['nl'] = array(
 	'CampusAmbassadorProfile' => array( 'Campusambassadeurprofiel' ),
 	'StudentActivity' => array( 'Studentactiviteit' ),
 	'Articles' => array( 'Artikelen' ),
+	'CourseActivity' => array( 'Cursusactiviteit' ),
 );
 
 /** Punjabi (ਪੰਜਾਬੀ) */
