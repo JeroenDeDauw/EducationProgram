@@ -22,13 +22,9 @@ namespace EducationProgram;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @since 0.4
+ * @since 0.3
  *
- * @ingroup EducationProgramTest
- *
- * @group EducationProgram
- * @group ArticleStoreTest
- * @group Database
+ * @ingroup EducationProgram
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
