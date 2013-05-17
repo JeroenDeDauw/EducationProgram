@@ -20670,6 +20670,9 @@ Du borde överväga om det är lämpligt att fortsätta skapa denna kurs igen. R
 	'ep-enroll-signup-and-enroll' => 'Skapa ett nytt konto och registrera dig',
 	'ep-enroll-not-allowed' => 'Ditt konto är inte tillåtet att registrera sig',
 	'ep-enroll-invalid-id' => 'Kursen du försökte registrerar dig till existerar inte. Se [[Special:Courses|lista över kurser]].',
+	'ep-enroll-no-id' => 'Du behöver specificera en kurs att registrera dig på. Se [[Special:Courses|lista över kurser]].',
+	'ep-enroll-invalid-token' => 'Registreringsnyckeln du angav är felaktig.',
+	'ep-enroll-legend' => 'Registrera dig',
 	'ep-enroll-gender' => 'Kön (valfritt)',
 	'ep-enroll-realname' => 'Riktigt namn (obligatoriskt)',
 	'ep-enroll-realname-optional' => 'Riktigt namn (valfritt)',
@@ -23244,6 +23247,7 @@ $messages['yi'] = array(
  * @author Dimension
  * @author Hydra
  * @author Kuailong
+ * @author Li3939108
  * @author Linforest
  * @author Makecat
  * @author Shirayuki
@@ -23591,8 +23595,11 @@ $messages['zh-hans'] = array(
 	'coursepage-epundelete-summary' => '恢复的原因：',
 	'coursepage-epundelete-cancel-button' => '取消',
 	'orgpage-epundelete-summary' => '原因：',
+	'orgpage-epundelete-undelete-button' => '撤消删除机构',
 	'orgpage-epundelete-cancel-button' => '取消',
 	'orgpage-epundelete-undeleted' => '成功恢复机构 $1 。',
+	'ep-student-title' => '学生：$1',
+	'specialstudent-summary-last-active' => '上次活动',
 	'specialstudent-summary-user' => '用户名',
 	'ep-enroll-gender' => '性别（可选）',
 	'ep-enroll-realname' => '真实姓名（必填）',
