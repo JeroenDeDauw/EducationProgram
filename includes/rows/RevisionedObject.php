@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+use IORMRow;
 use ORMResult;
 
 /**
@@ -131,6 +132,14 @@ abstract class RevisionedObject extends \ORMRow {
 		}
 	}
 
+	public function save( $functionName = null ) {
+		if ( $this->hasIdField() ) {
+			return $this->saveExisting( $functionName );
+		} else {
+			return $this->insert( $functionName );
+		}
+	}
+
 	/**
 	 * @see ORMRow::saveExisting()
 	 */
@@ -156,6 +165,36 @@ abstract class RevisionedObject extends \ORMRow {
 		}
 
 		return $success;
+	}
+
+	/**
+	 * Return if any fields got changed.
+	 *
+	 * @since 1.20
+	 *
+	 * @param IORMRow $object
+	 * @param boolean|array $excludeSummaryFields
+	 *  When set to true, summary field changes are ignored.
+	 *  Can also be an array of fields to ignore.
+	 *
+	 * @return boolean
+	 */
+	protected function fieldsChanged( IORMRow $object, $excludeSummaryFields = false ) {
+		$exclusionFields = array();
+
+		if ( $excludeSummaryFields !== false ) {
+			$exclusionFields = is_array( $excludeSummaryFields ) ? $excludeSummaryFields : $this->table->getSummaryFields();
+		}
+
+		foreach ( $this->fields as $name => $value ) {
+			$excluded = $excludeSummaryFields && in_array( $name, $exclusionFields );
+
+			if ( !$excluded && $object->getField( $name ) !== $value ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
