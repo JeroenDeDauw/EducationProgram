@@ -158,9 +158,14 @@ class Org extends PageObject {
 			 * @var Course $course
 			 */
 			foreach ( $courses as $course ) {
-				$titleParts = explode( '/', $course->getField( 'title' ), 2 );
-				$course->setField( 'title', $this->getField( 'name' ) . '/' . array_pop( $titleParts ) );
-				$course->save( __METHOD__ );
+				$originalTitle = $course->getField( 'title' );
+				$titleParts = explode( '/', $originalTitle, 2 );
+				$newTitle = $this->getField( 'name' ) . '/' . array_pop( $titleParts );
+
+				if ( $originalTitle !== $newTitle ) {
+					$course->setField( 'title', $newTitle );
+					$course->save( __METHOD__ );
+				}
 			}
 		}
 
