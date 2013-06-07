@@ -303,9 +303,12 @@ class EPArticle {
 	protected function log( User $actionUser, $subType, $comment = false ) {
 		$articleOwner = $this->getUser();
 
+		$title = Title::newFromID( $this->pageId );
+		$title = $title === null ? Title::newFromText( $this->pageTitle ) : $title;
+
 		$logData = array(
 			'user' => $actionUser,
-			'title' => Title::newFromID( $this->pageId ),
+			'title' => $title,
 			'type' => 'eparticle',
 			'subtype' => $subType,
 			'parameters' => array(
