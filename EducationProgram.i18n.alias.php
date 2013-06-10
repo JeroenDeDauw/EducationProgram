@@ -208,7 +208,7 @@ $specialPageAliases['ko'] = array(
 /** Cornish (kernowek) */
 $specialPageAliases['kw'] = array(
 	'MyCourses' => array( 'OwHorsow' ),
-	'ManageCourses' => array( 'MenystraCorsow' ),
+	'ManageCourses' => array( 'MenystraKorsow' ),
 );
 
 /** Luxembourgish (Lëtzebuergesch) */
