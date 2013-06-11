@@ -23,3 +23,7 @@ $namespaceNames['en'] = array(
 	EP_NS		  	=> 'Education_Program',
 	EP_NS_TALK  		=> 'Education_Program_talk',
 );
+$namespaceNames['he'] = array(
+	EP_NS		  	=> 'הוראה',
+	EP_NS_TALK  		=> 'שיחת הוראה',
+);
