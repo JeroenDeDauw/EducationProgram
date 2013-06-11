@@ -10941,7 +10941,7 @@ $messages['it'] = array(
 	'logentry-campus-selfremove' => '$1 ha rimosso {{GENDER:$2|se stesso|se stessa}} come {{GENDER:$2|volontario|volontaria}} del campus dal corso $3',
 	'logentry-campus-profilesave' => '$1 ha aggiornato il suo profilo di {{GENDER:$2|volontario|volontaria}} del campus',
 	'logentry-student-add' => '$1 si è iscritto al corso $3',
-	'logentry-student-remove' => '$1 {{GENDER:$2|ha rimosso}} $5 come {{PLURAL:$4|{{GENDER:$5|studente|studentessa}}|{{GENDER:$5|studenti|studentesse}}}} dal corso $3', # Fuzzy
+	'logentry-student-remove' => '$1 {{GENDER:$2|ha rimosso}} $5 come {{PLURAL:$4|{{GENDER:$5|studente|studentessa}}|{{GENDER:$5|studenti|studentesse}}}} dal corso $3',
 	'logentry-student-selfadd' => '$1 si è iscritto al corso $3',
 	'logentry-student-selfremove' => '$1 si è disiscritto dal corso $3',
 	'logentry-eparticle-selfadd' => '$1 ha aggiunto la voce $3 alla {{GENDER:$2|sua}} lista di voci per il corso $4',
@@ -14608,7 +14608,7 @@ $messages['mk'] = array(
 	'logentry-campus-selfremove' => '$1 {{GENDER:$2|се отстрани себеси|се отстрани себеси}} како {{GENDER:$2|универзитетски доброволец}} на курсот $3',
 	'logentry-campus-profilesave' => '$1 го измени {{GENDER:$2|неговиот|нејзиниот}} универзитетски доброволечки профил',
 	'logentry-student-add' => '$1 се запиша на курсот $3',
-	'logentry-student-remove' => '$1 {{PLURAL:$4|го|ги}} {{GENDER:$2|отстрани}} {{PLURAL:$4|{{GENDER:$5|ученикот}}|учениците}} $5 од курсот $3', # Fuzzy
+	'logentry-student-remove' => '$1 {{PLURAL:$4|го|ги}} {{GENDER:$2|отстрани}} {{PLURAL:$4|{{GENDER:$5|ученикот}}|учениците}} $5 од курсот $3',
 	'logentry-student-selfadd' => '$1 се запиша на курсот $3',
 	'logentry-student-selfremove' => '$1 се отпиша од курсот $3',
 	'logentry-eparticle-selfadd' => '$1 ја додаде статијата $3 во {{GENDER:$2|неговиот|нејзиниот}} список на статии за курсот $4',
@@ -23866,6 +23866,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author Justincheng12345
+ * @author Radish10cm
  * @author Shirayuki
  * @author Simon Shek
  * @author Toliño
@@ -24091,9 +24092,13 @@ $messages['zh-hant'] = array(
 	'ep-articles-addarticle-text' => '添加一個條目：',
 	'ep-articles-addarticle-button' => '添加條目',
 	'ep-articletable-addreviwer-cancel' => '取消',
+	'ep-articletable-remreviwer-button-self' => '刪除您自己',
 	'ep-articletable-remreviwer-cancel' => '取消',
 	'ep-articletable-remstudent-cancel' => '取消',
+	'ep-articletable-remarticle-title' => '刪除文章$1',
+	'ep-articletable-remarticle-button' => '刪除文章',
 	'ep-articletable-remarticle-cancel' => '取消',
+	'ep-articles-noresults' => '沒有文章可列出。',
 	'epcapager-header-photo' => '照片',
 	'epcapager-header-user-id' => '用戶名',
 	'epcapager-header-bio' => '個人資料',
