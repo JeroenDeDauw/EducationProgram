@@ -2857,6 +2857,7 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'ep-tab-history' => 'Исторега хьажар',
 	'epcoursepager-header-lang' => 'Мотт',
 	'epcoursepager-filter-lang' => 'Мотт',
 	'ep-course-edit-description' => 'Цунах лаьцна',
