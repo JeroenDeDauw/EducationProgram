@@ -20311,6 +20311,7 @@ $messages['sr-el'] = array(
 /** Swedish (svenska)
  * @author Ainali
  * @author Eihpossophie
+ * @author Jopparn
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
@@ -20571,7 +20572,7 @@ $messages['sv'] = array(
 	'ep-articles-remarticle' => 'ta bort artikel',
 	'ep-articles-addarticle-text' => 'Lägg till en artikel:',
 	'ep-articles-addarticle-button' => 'Lägg till artikel',
-	'ep-articles-becomereviewer' => 'Lägg till som {{GENDER:$1|granskare}}',
+	'ep-articles-becomereviewer' => 'Lägg till dig själv som {{GENDER:$1|granskare}}',
 	'ep-articletable-addreviwer-title' => 'Bli {{GENDER:$1|granskare}}',
 	'ep-articletable-addreviwer-button' => 'Bli {{GENDER:$1|granskare}}',
 	'ep-articletable-addreviwer-cancel' => 'Avbryt',
