@@ -17437,6 +17437,7 @@ $messages['or'] = array(
  * @author Odie2
  * @author P0358
  * @author Przemub
+ * @author Rzuwig
  */
 $messages['pl'] = array(
 	'ep-item-summary' => 'Podsumowanie',
@@ -17469,9 +17470,19 @@ $messages['pl'] = array(
 	'logentry-course-update' => '$1 {{GENDER:$2|zaktualizował|zakutalizowała}} kurs $3',
 	'logentry-instructor-add' => '$1 {{GENDER:$2|dodał|dodała}} {{PLURAL:$4|instruktora|instruktorów}} $5 do kursu $3',
 	'prefs-education' => 'Edukacja',
+	'group-epcoordinator' => 'Koordynatorzy kursów',
+	'group-eponline' => 'Wolontariusze kursów online',
+	'group-epcampus' => 'Wolontariusze kursów na uczelniach',
+	'group-epinstructor' => 'Instruktorzy kursów',
 	'specialpages-group-education' => 'Edukacja',
+	'special-mycourses' => 'Twoje kursy',
+	'special-managecourses' => 'Zarządzaj swoimi kursami',
 	'special-institutions' => 'Instytucje',
+	'special-students' => 'Studenci',
 	'special-courses' => 'Kursy',
+	'special-onlineambassadors' => 'Wolontariusze online',
+	'special-campusambassadors' => 'Wolontariusze na uczelniach',
+	'special-studentactivity' => 'Aktywność studentów',
 	'ep-educationprogram-gender-instructors' => 'Instruktorzy',
 	'ep-courses-neworg' => 'Instytucja:',
 	'ep-revision-undo' => 'cofnij',
