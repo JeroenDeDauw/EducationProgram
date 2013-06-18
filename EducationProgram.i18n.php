@@ -923,8 +923,10 @@ Additional parameters:
 Additional parameters:
 * $4 - the amount of added people
 * $5 - a list of removed people',
-	'logentry-instructor-selfadd' => '{{logentry}}',
-	'logentry-instructor-selfremove' => '{{logentry}}',
+	'logentry-instructor-selfadd' => '{{doc-singularthey}}
+{{logentry}}',
+	'logentry-instructor-selfremove' => '{{doc-singularthey}}
+{{logentry}}',
 	'logentry-online-add' => '{{logentry}}
 Additional parameters:
 * $4 - the amount of added people
@@ -933,9 +935,12 @@ Additional parameters:
 Additional parameters:
 * $4 - the amount of added people
 * $5 - a list of removed people',
-	'logentry-online-selfadd' => '{{logentry}}',
-	'logentry-online-selfremove' => '{{logentry}}',
-	'logentry-online-profilesave' => '{{logentry}}',
+	'logentry-online-selfadd' => '{{doc-singularthey}}
+{{logentry}}',
+	'logentry-online-selfremove' => '{{doc-singularthey}}
+{{logentry}}',
+	'logentry-online-profilesave' => '{{doc-singularthey}}
+{{logentry}}',
 	'logentry-campus-add' => '{{logentry}}
 Additional parameters:
 * $4 - the amount of added people
@@ -944,9 +949,12 @@ Additional parameters:
 Additional parameters:
 * $4 - the amount of added people
 * $5 - a list of removed people',
-	'logentry-campus-selfadd' => '{{logentry}}',
-	'logentry-campus-selfremove' => '{{logentry}}',
-	'logentry-campus-profilesave' => '{{logentry}}',
+	'logentry-campus-selfadd' => '{{doc-singularthey}}
+{{logentry}}',
+	'logentry-campus-selfremove' => '{{doc-singularthey}}
+{{logentry}}',
+	'logentry-campus-profilesave' => '{{doc-singularthey}}
+{{logentry}}',
 	'logentry-student-add' => '{{logentry}}',
 	'logentry-student-remove' => '{{logentry}}
 Additional parameters:
@@ -972,15 +980,17 @@ Additional parameters:
 * $4 - the course,
 * $5 - the user that own the article (link),
 * $6 - the name of this user',
-	'logentry-eparticle-review' => '{{logentry}}
+	'logentry-eparticle-review' => '{{doc-singularthey}}
+{{logentry}}
 Additional parameters:
-* $4 - the course,
-* $5 - the user that own the article (link),
+* $4 - the course
+* $5 - the user that own the article (link)
 * $6 - the name of this user',
-	'logentry-eparticle-unreview' => '{{logentry}}
+	'logentry-eparticle-unreview' => '{{doc-singularthey}}
+{{logentry}}
 Additional parameters:
-* $4 - the course,
-* $5 - the user that own the article (link),
+* $4 - the course
+* $5 - the user that own the article (link)
 * $6 - the name of this user',
 	'prefs-education' => 'Preferences tab label',
 	'ep-prefs-showtoplink' => 'Preference checkbox label',
@@ -1220,11 +1230,13 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 * $1 is the name of the user',
 	'ep-articletable-remstudent-button' => 'Link text. $1 is the name of the user',
 	'ep-articletable-remstudent-cancel' => 'Cancel button text',
-	'ep-articletable-remstudent-text' => 'Message explaining what the user is about to do in a confirmation dialog. This will permanently remove their associated articles and reviewers! Parameters:
-* $1 is user name.
-* $2 is a course.
-* $3 is a link to user $1.
-{{Doc-singularthey}}',
+	'ep-articletable-remstudent-text' => '{{doc-singularthey}}
+Message explaining what the user is about to do in a confirmation dialog. This will permanently remove their associated articles and reviewers!
+
+Parameters:
+* $1 - user name
+* $2 - a course
+* $3 - a link to user <code>$1</code>',
 	'ep-articletable-remarticle-title' => 'Dialog title. Parameters:
 * $1 - the name of the affected article
 {{Identical|Remove article}}',
@@ -1794,17 +1806,34 @@ Parameters:
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
 * $5 - the number of editors',
-	'ep-timeline-users-edit-talk' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-edit-user' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-edit-usertalk' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-edit-user-self' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-edit-usertalk-self' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-create-article' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-create-talk' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-create-user' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-create-usertalk' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-create-user-self' => '{{Identical|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-create-usertalk-self' => '{{Identical|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-edit-talk' => 'See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-edit-user' => 'See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-edit-usertalk' => '{{doc-singularthey}}
+See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-edit-user-self' => '{{doc-singularthey}}
+See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-edit-usertalk-self' => '{{doc-singularthey}}
+See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-article' => 'See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-talk' => 'See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-user' => 'See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-usertalk' => '{{doc-singularthey}}
+See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-user-self' => '{{doc-singularthey}}
+See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
+	'ep-timeline-users-create-usertalk-self' => '{{doc-singularthey}}
+See also:
+* {{msg-mw|ep-timeline-users-edit-article}}',
 	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',
 	'ep-dashboard-timeline-empty' => 'Shown instead of an event timeline when there are no events',
 	'ep-dashboard-enroll-first' => 'Message shown when the user is not enrolled in any courses and views their education dashboard.',
@@ -11579,14 +11608,14 @@ $messages['ja'] = array(
 	'logentry-course-undelete' => '$1 がコース $3 を{{GENDER:$2|復帰しました}}',
 	'logentry-online-add' => '$1 がコース $3 に{{PLURAL:$4|オンラインボランティア}} $5 を追加しました', # Fuzzy
 	'logentry-online-remove' => '$1 がコース $3 から{{PLURAL:$4|オンラインボランティア}} $5 を除去しました', # Fuzzy
-	'logentry-online-selfadd' => '$1 が{{GENDER:$2|オンラインボランティア}}として{{GENDER:$2|自分}}をコース $3 に追加しました',
-	'logentry-online-selfremove' => '$1 が{{GENDER:$2|オンラインボランティア}}としての{{GENDER:$2|自分}}をコース $3 から除去しました',
-	'logentry-online-profilesave' => '$1 が{{GENDER:$2|自分の}}オンラインボランティアのプロフィールを更新しました',
+	'logentry-online-selfadd' => '$1 が{{GENDER:$2|オンラインボランティア}}として{{GENDER:$2|自身}}をコース $3 に追加しました',
+	'logentry-online-selfremove' => '$1 が{{GENDER:$2|オンラインボランティア}}としての{{GENDER:$2|自身}}をコース $3 から除去しました',
+	'logentry-online-profilesave' => '$1 が{{GENDER:$2|自身の}}オンラインボランティアのプロフィールを更新しました',
 	'logentry-campus-add' => '$1 がコース $3 に{{PLURAL:$4|キャンパスボランティア}} $5 を追加しました', # Fuzzy
 	'logentry-campus-remove' => '$1 がコース $3 から{{PLURAL:$4|キャンパスボランティア}} $5 を{{GENDER:$2|除去しました}}',
-	'logentry-campus-selfadd' => '$1 が{{GENDER:$2|キャンパスボランティア}}として{{GENDER:$2|自分}}をコース $3 に追加しました',
-	'logentry-campus-selfremove' => '$1 が{{GENDER:$2|キャンパスボランティア}}としての{{GENDER:$2|自分}}をコース $3 から除去しました',
-	'logentry-campus-profilesave' => '$1 が{{GENDER:$2|自分の}}キャンパスボランティアのプロフィールを更新しました',
+	'logentry-campus-selfadd' => '$1 が{{GENDER:$2|キャンパスボランティア}}として{{GENDER:$2|自身}}をコース $3 に追加しました',
+	'logentry-campus-selfremove' => '$1 が{{GENDER:$2|キャンパスボランティア}}としての{{GENDER:$2|自身}}をコース $3 から除去しました',
+	'logentry-campus-profilesave' => '$1 が{{GENDER:$2|自身の}}キャンパスボランティアのプロフィールを更新しました',
 	'logentry-student-add' => '$1 がコース $3 に{{GENDER:$2|入会しました}}',
 	'logentry-student-remove' => '$1 がコース $3 から{{PLURAL:$4|{{GENDER:$5|生徒}}}}としての $5 を除去しました', # Fuzzy
 	'logentry-student-selfadd' => '$1 がコース $3 に{{GENDER:$2|入会しました}}',
@@ -11986,7 +12015,7 @@ $messages['ja'] = array(
 	'ep-timeline-users-create-article' => "$1 が記事 '''[[$2]]''' を作成しました。",
 	'ep-timeline-users-create-talk' => "$1 が '''[[$3]]''' の'''[[$2|トークページ]]'''を作成してそこに{{PLURAL:$4|メッセージ}}を投稿しました。",
 	'ep-timeline-users-create-user' => "$1 が '''[[$2|$3]]''' の利用者ページを作成しました。",
-	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' が新たに作成された'''[[$2|トークページ]]'''に{{PLURAL:$4|メッセージ}}を受け取りました。",
+	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' が自身の新規作成された'''[[$2|トークページ]]'''に{{PLURAL:$4|メッセージ}}を受け取りました。",
 	'ep-timeline-users-create-user-self' => "$1 が{{GENDER:$3|自身の}}'''[[$2|利用者ページ]]'''を作成しました。",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' が{{GENDER:$3|自身の}}'''[[$2|トークページ]]'''を作成してそこに{{PLURAL:$4|メッセージ}}を投稿しました。",
 	'ep-dashboard-login-first' => '自分のコースを閲覧するには、まずログインする必要があります。',
@@ -23887,6 +23916,7 @@ $messages['zh-hans'] = array(
  * @author Toliño
  */
 $messages['zh-hant'] = array(
+	'educationprogram-desc' => '通過添加各種介面來管理課程、制度及各種不同教育用戶角色，藉此促進教育計劃。',
 	'ep-item-summary' => '摘要',
 	'ep-toplink' => '課程',
 	'ep-org-course-delete-comment' => '刪除$1及其所有課程，並發布此評論：$2',
@@ -23915,28 +23945,28 @@ $messages['zh-hant'] = array(
 	'ep-nav-mycourses' => '你的課程',
 	'ep-nav-students' => '學生列表',
 	'ep-nav-mentors' => '志願者名單',
-	'ep-nav-cas' => '校園志願者',
-	'ep-nav-oas' => '線上志願者',
+	'ep-nav-cas' => '校園義工',
+	'ep-nav-oas' => '線上義工',
 	'ep-nav-oaprofile' => '線上志願者個人資料',
-	'ep-nav-caprofile' => '校園大使個人資料', # Fuzzy
+	'ep-nav-caprofile' => '校園義工個人資料',
 	'log-name-institution' => '教育計劃學院記錄',
 	'log-name-course' => '教育計劃課程記錄',
 	'log-name-student' => '教育計劃學生記錄',
-	'log-name-online' => '教育計劃在線大使記錄', # Fuzzy
-	'log-name-campus' => '教育計劃校園大使記錄', # Fuzzy
+	'log-name-online' => '教育計劃網上義工日誌',
+	'log-name-campus' => '教育計劃校園義工記錄',
 	'log-name-instructor' => '教育計劃講師記錄',
 	'log-name-eparticle' => '教育計劃文章記錄',
 	'log-header-institution' => '這些事件跟蹤教育計劃學院中所有更改。',
 	'log-header-course' => '這些事件跟蹤教育計劃課程中所有更改。',
 	'log-header-instructor' => '這些事件跟蹤教育計劃講師中所有更改。',
-	'log-header-campus' => '這些事件跟蹤教育計劃校園大使中所有更改。', # Fuzzy
-	'log-header-online' => '這些事件跟蹤教育計劃在線大使中所有更改。', # Fuzzy
+	'log-header-campus' => '這些活動追蹤給教育計劃校園義工的所有更改。',
+	'log-header-online' => '這些活動追蹤教育計劃網上義工的所有更改。',
 	'log-header-student' => '這些事件跟蹤教育計劃學生中所有更改。',
 	'log-description-institution' => '[[Special:Institutions|學院]]所有更改記錄。',
 	'log-description-course' => '[[Special:Courses|課程]]所有更改記錄。',
 	'log-description-instructor' => '講師所有更改記錄。',
-	'log-description-online' => '[[Special:OnlineAmbassadors|教育計劃在線大使]]所有更改記錄', # Fuzzy
-	'log-description-campus' => '[[Special:CampusAmbassadors|教育計劃校園大使]]所有更改記錄', # Fuzzy
+	'log-description-online' => '[[Special:OnlineVolunteers|教育計劃網上義工]]所有更改日誌',
+	'log-description-campus' => '[[Special:CampusAmbassadors|教育計劃校園義工]]所有更改日誌', # Fuzzy
 	'log-description-student' => '[[Special:Students|學生]]所有更改記錄。',
 	'logentry-institution-add' => '$1創建機構$3',
 	'logentry-institution-remove' => '$1刪除機構$3',
@@ -23950,20 +23980,20 @@ $messages['zh-hant'] = array(
 	'logentry-instructor-remove' => '$1從$3課程中{{GENDER:$2|刪除}}{{PLURAL:$4|講師|以下講師們：}}$5',
 	'logentry-instructor-selfadd' => '$1在$3課程中添加{{GENDER:$2|自己}}成為{{GENDER:$2|講師}}',
 	'logentry-instructor-selfremove' => '$1從$3課程中刪除{{GENDER:$2|自己}}身為{{GENDER:$2|講師}}',
-	'logentry-online-add' => '$1在$3課程中添加{{PLURAL:$4|在線大使|以下在線大使們：}}$5', # Fuzzy
-	'logentry-online-remove' => '$1從$3課程中刪除{{PLURAL:$4|在線大使|以下在線大使們：}}$5', # Fuzzy
-	'logentry-online-selfadd' => '$1在$3課程中添加{{GENDER:$2|自己}}成為{{GENDER:$2|在線大使}}', # Fuzzy
-	'logentry-online-selfremove' => '$1從$3課程中刪除{{GENDER:$2|自己}}身為{{GENDER:$2|在線大使}}', # Fuzzy
-	'logentry-online-profilesave' => '$1更新{{GENDER:$2|自己}}的在線大使個人資料', # Fuzzy
-	'logentry-campus-add' => '$1在$3課程中添加{{PLURAL:$4|校園大使|以下校園大使們：}}$5', # Fuzzy
-	'logentry-campus-remove' => '$1從$3課程中刪除{{PLURAL:$4|校園大使|以下校園大使們：}}$5', # Fuzzy
-	'logentry-campus-selfadd' => '$1在$3課程中添加{{GENDER:$2|自己}}成為{{GENDER:$2|校園大使}}', # Fuzzy
-	'logentry-campus-selfremove' => '$1從$3課程中刪除{{GENDER:$2|自己}}身為{{GENDER:$2|校園大使}}', # Fuzzy
-	'logentry-campus-profilesave' => '$1更新{{GENDER:$2|他|她}}自己的校園大使個人資料', # Fuzzy
-	'logentry-student-add' => '$1註冊$3課程', # Fuzzy
-	'logentry-student-remove' => '$1從$3課程中刪除{{PLURAL:$4|{{GENDER:$5|這位學生}}|以下學生們：}}$5', # Fuzzy
-	'logentry-student-selfadd' => '$1註冊$3課程', # Fuzzy
-	'logentry-student-selfremove' => '$1退出$3課程', # Fuzzy
+	'logentry-online-add' => '$1{{GENDER:$2|已增加}}$3課程的{{PLURAL:$4|此|下列}}網上義工：$5',
+	'logentry-online-remove' => '$1{{GENDER:$2|已移除}}$3課程的{{PLURAL:$4|此|下列}}網上義工：$5',
+	'logentry-online-selfadd' => '$1已增加{{GENDER:$2|自己}}為$3課程的網上義工',
+	'logentry-online-selfremove' => '$1已取消{{GENDER:$2|自己}}為$3課程的網上義工',
+	'logentry-online-profilesave' => '$1更新了{{GENDER:$2|自己}}的網上義工個人資料',
+	'logentry-campus-add' => '$1{{GENDER:$2|已增加}}$3課程的{{PLURAL:$4|此|下列}}校園義工：$5',
+	'logentry-campus-remove' => '$1{{GENDER:$2|已移除}}$3課程的{{PLURAL:$4|此|下列}}校園義工：$5',
+	'logentry-campus-selfadd' => '$1已增加{{GENDER:$2|自己}}為$3課程的校園義工',
+	'logentry-campus-selfremove' => '$1已取消{{GENDER:$2|自己}}為$3課程的網上義工',
+	'logentry-campus-profilesave' => '$1更新了{{GENDER:$2|自己}}的校園義工個人資料',
+	'logentry-student-add' => '$1{{GENDER:$2|已參加}}$3課程',
+	'logentry-student-remove' => '$1從$3課程{{GENDER:$2|移除}}{{PLURAL:$4|此|以下}}學生：$5',
+	'logentry-student-selfadd' => '$1{{GENDER:$2|已參加}}$3課程',
+	'logentry-student-selfremove' => '$1{{GENDER:$2|已退出}}$3課程',
 	'logentry-eparticle-selfadd' => '$1在$4課程中{{GENDER:$2|自己}}的文章篇目添加$3文章',
 	'logentry-eparticle-selfremove' => '$1從$4課程中{{GENDER:$2|自己}}的文章篇目刪除$3文章',
 	'logentry-eparticle-add' => '$1在$4課程中{{GENDER:$6|$5}}的文章篇目添加$3文章', # Fuzzy
@@ -24234,6 +24264,6 @@ $messages['zh-hant'] = array(
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-users-create-article' => "$1創建'''[[$2]]'''文章。",
 	'ep-timeline-users-create-user' => "$1創建'''[[$2|$3]]'''的用戶頁面。",
-	'ep-dashboard-login-first' => '您必須登錄才可以查看您的課程。',
+	'ep-dashboard-login-first' => '您必須登入才可查看您的課程。',
 	'ep-dashboard-timeline-empty' => '本課程沒有最近活動。',
 );
