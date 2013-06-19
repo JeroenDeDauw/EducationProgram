@@ -2890,6 +2890,7 @@ $messages['ce'] = array(
 	'epcoursepager-header-lang' => 'Мотт',
 	'epcoursepager-filter-lang' => 'Мотт',
 	'ep-course-edit-description' => 'Цунах лаьцна',
+	'ep-course-edit-title' => 'АгӀона цӀе',
 	'ep-course-description' => 'Цуьнах лаьцна',
 );
 
