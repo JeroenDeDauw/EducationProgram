@@ -1128,7 +1128,8 @@ Additional parameters:
 {{Identical|Active}}',
 	'eporgpager-filter-active' => 'Filter control label',
 	'eporgpager-yes' => 'Select option text, also displayed in table cells',
-	'eporgpager-no' => 'Select option text, also displayed in table cells',
+	'eporgpager-no' => 'Select option text, also displayed in table cells.
+{{Identical|No}}',
 	'ep-pager-cancel-button-org' => 'Cancel button text',
 	'ep-pager-delete-button-org' => 'Remove button text. Parameters:
 * $1 indicates the number of affected institutions.',
@@ -1176,14 +1177,16 @@ Additional parameters:
 * $1 is a list of to be deleted courses.',
 	'epstudentpager-header-user-id' => 'Table column header.
 {{Identical|Username}}',
-	'epstudentpager-header-id' => 'Table column header',
+	'epstudentpager-header-id' => 'Table column header.
+{{Identical|ID}}',
 	'epstudentpager-header-current-courses' => 'Table column header',
 	'epstudentpager-header-passed-courses' => 'Table column header',
 	'epstudentpager-header-first-enroll' => 'Table column header',
 	'epstudentpager-header-last-active' => 'Table column header that refers to the time when a student was last active.',
 	'epstudentpager-header-active-enroll' => 'Table column header',
 	'epstudentpager-yes' => 'Select option text, also displayed in table cells',
-	'epstudentpager-no' => 'Select option text, also displayed in table cells',
+	'epstudentpager-no' => 'Select option text, also displayed in table cells.
+{{Identical|No}}',
 	'epstudentpager-header-student' => 'Table column header',
 	'epstudentpager-header-articles' => 'Table column header',
 	'epstudentpager-header-reviewers' => 'Table column header',
