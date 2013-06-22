@@ -47,7 +47,14 @@ class EPRevision extends \ORMRow {
 
 		$tableClass = $map[$tableClass];
 
-		return $tableClass::singleton()->newRow( $this->getField( 'data' ), true );
+		$data = $this->getField( 'data' );
+
+		// Workaround for bug 49971
+		if ( is_string( $data ) ) {
+			$data = unserialize( $data );
+		}
+
+		return $tableClass::singleton()->newRow( $data, true );
 	}
 
 	/**
