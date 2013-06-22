@@ -44,7 +44,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	protected function newInstanceFromGlobalSettings() {
-		return new Extension( Settings::newFromGlobals( $GLOBALS ) );
+		return new Extension( new Settings( $GLOBALS['egEPSettings'] ) );
 	}
 
 }
