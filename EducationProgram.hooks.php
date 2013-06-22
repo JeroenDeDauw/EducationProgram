@@ -3,6 +3,9 @@
 namespace EducationProgram;
 
 use DatabaseUpdater;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use SplFileInfo;
 use Title;
 use User;
 use SkinTemplate;
@@ -70,37 +73,20 @@ final class Hooks {
 	 * @return bool
 	 */
 	public static function registerUnitTests( array &$files ) {
-		$testFiles = array(
-			'Actions',
-			'ArticleAdder',
-			'ArticleStore',
-			'CourseActivityView',
-			'EPArticle',
-			'Extension',
-			'Menu',
-			'Settings',
-			'Specials',
-			'Timeline',
-			'UPCUserCourseFinder',
-			'Utils',
+		// @codeCoverageIgnoreStart
+		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/phpunit/' );
 
-			'Events/EditEventCreator',
-			'Events/EventGroup',
-			'Events/EventQuery',
-			'Events/EventStore',
-			'Events/Event',
-			'Events/RecentPageEventGrouper',
-
-			'Store/CourseStore',
-
-			'tables/Orgs',
-		);
-
-		foreach ( $testFiles as $file ) {
-			$files[] = __DIR__ . '/tests/phpunit/' . $file . 'Test.php';
+		/**
+		 * @var SplFileInfo $fileInfo
+		 */
+		foreach ( new RecursiveIteratorIterator( $directoryIterator ) as $fileInfo ) {
+			if ( substr( $fileInfo->getFilename(), -8 ) === 'Test.php' ) {
+				$files[] = $fileInfo->getPathname();
+			}
 		}
 
 		return true;
+		// @codeCoverageIgnoreEnd
 	}
 
 	/**
