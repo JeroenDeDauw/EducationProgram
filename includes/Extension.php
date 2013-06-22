@@ -110,7 +110,7 @@ class Extension {
 		static $instance = null;
 
 		if ( $instance === null ) {
-			$instance = new static( Settings::newFromGlobals( $GLOBALS ) );
+			$instance = new static( new Settings( $GLOBALS['egEPSettings'] ) );
 		}
 
 		return $instance;
