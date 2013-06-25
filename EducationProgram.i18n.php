@@ -2892,6 +2892,7 @@ $messages['ce'] = array(
 	'ep-tab-history' => 'Исторега хьажар',
 	'epcoursepager-header-lang' => 'Мотт',
 	'epcoursepager-filter-lang' => 'Мотт',
+	'educationprogram-org-submit' => 'ДӀадахьийта',
 	'ep-course-edit-description' => 'Цунах лаьцна',
 	'ep-course-edit-title' => 'АгӀона цӀе',
 	'ep-course-description' => 'Цуьнах лаьцна',
