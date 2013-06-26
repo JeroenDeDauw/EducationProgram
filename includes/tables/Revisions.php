@@ -82,7 +82,7 @@ class Revisions extends \ORMTable {
 			'minor_edit' => $revAction->isMinor(),
 			'time' => $revAction->getTime(),
 			'deleted' => $revAction->isDelete(),
-			'data' => serialize( $object->toArray() )
+			'data' => $object->toArray()
 		) );
 
 		$identifier = $object->getIdentifier();
