@@ -856,7 +856,8 @@ $messages['qqq'] = array(
 	'ep-err-failed-to-save' => 'Error message indicating a save operation for the current page failed.',
 	'ep-didyouknow-header' => 'Message displayed as a header in the did you know box.
 {{Identical|Did you know}}',
-	'ep-tab-view' => 'Label for a tab at the top of the page.',
+	'ep-tab-view' => 'Label for a tab at the top of the page.
+{{Identical|Read}}',
 	'ep-tab-edit' => 'Label for a tab at the top of the page.',
 	'ep-tab-create' => 'Label for a tab at the top of the page.
 {{Identical|Create}}',
@@ -1116,7 +1117,8 @@ Additional parameters:
 {{Identical|Delete}}',
 	'ep-revision-undo' => 'Undo link shown next to revisions on history pages.
 {{Identical|Undo}}',
-	'ep-revision-restore' => 'Restore link shown next to revisions on history pages',
+	'ep-revision-restore' => 'Restore link shown next to revisions on history pages.
+{{Identical|Restore}}',
 	'eporgpager-header-name' => 'Table column header.
 {{Identical|Name}}',
 	'eporgpager-header-city' => 'Table column header',
@@ -1419,8 +1421,7 @@ Parameters:
 	'coursepage-delete-text' => 'Warns that the user is about to delete a course. Parameters:
 * $1 is a course name.',
 	'coursepage-delete-summary' => 'Summary text input label.
-
-{{Identical|Reason for deletion}}',
+{{Identical|Reason}}',
 	'coursepage-delete-title' => 'Page title. Parameters:
 * $1 is a course name.',
 	'coursepage-delete-cancel-button' => 'Cancel button text.',
@@ -1435,8 +1436,7 @@ Parameters:
 	'orgpage-delete-text' => 'Warns that the user is about to delete and institution and all associated courses. Parameters:
 * $1 is the name of an institution.',
 	'orgpage-delete-summary' => 'Summary text input label.
-
-{{Identical|Reason for deletion}}',
+{{Identical|Reason}}',
 	'orgpage-delete-title' => 'Page title. Parameters:
 * $1 is institution name',
 	'orgpage-delete-cancel-button' => 'Cancel button text.',
@@ -1451,7 +1451,8 @@ Parameters:
 * $1 is an institution name.',
 	'orgpage-eprestore-text' => 'Indicates what the user is about to do if they continue. Parameters:
 * $1 is an institution name.',
-	'orgpage-eprestore-summary' => 'Summary text input label.',
+	'orgpage-eprestore-summary' => 'Summary text input label.
+{{Identical|Reason}}',
 	'orgpage-eprestore-restore-button' => 'Submission button text.',
 	'orgpage-eprestore-cancel-button' => 'Cancel button text.',
 	'orgpage-eprestore-summary-value' => 'Default value for the summary. Parameters:
@@ -1466,7 +1467,8 @@ Parameters:
 * $1 is a course name.',
 	'coursepage-eprestore-text' => 'Indicates what the user is about to do if they continue. Parameters:
 * $1 is a course name.',
-	'coursepage-eprestore-summary' => 'Summary text input label.',
+	'coursepage-eprestore-summary' => 'Summary text input label.
+{{Identical|Reason}}',
 	'coursepage-eprestore-restore-button' => 'Submission button text.',
 	'coursepage-eprestore-cancel-button' => 'Cancel button text.',
 	'coursepage-eprestore-summary-value' => 'Default value for the summary. Parameters:
@@ -1481,7 +1483,8 @@ Parameters:
 * $1 is an institution name.',
 	'orgpage-epundo-text' => 'Indicates what the user is about to do if they continue. Parameters:
 * $1 is an institution name.',
-	'orgpage-epundo-summary' => 'Summary text input label.',
+	'orgpage-epundo-summary' => 'Summary text input label.
+{{Identical|Reason}}',
 	'orgpage-epundo-undo-button' => 'Submission button text.',
 	'orgpage-epundo-cancel-button' => 'Cancel button text.',
 	'orgpage-epundo-summary-value' => 'Default value for the summary. Parameters:
@@ -1496,7 +1499,8 @@ Parameters:
 * $1 is a course name.',
 	'coursepage-epundo-text' => 'Indicates what the user is about to do if they continue. Parameters:
 * $1 is a course name.',
-	'coursepage-epundo-summary' => 'Summary text input label.',
+	'coursepage-epundo-summary' => 'Summary text input label.
+{{Identical|Reason}}',
 	'coursepage-epundo-undo-button' => 'Submission button text.',
 	'coursepage-epundo-cancel-button' => 'Cancel button text.',
 	'coursepage-epundo-summary-value' => 'Default value for the summary. Parameters:
@@ -1511,7 +1515,8 @@ Parameters:
 * $1 is a course name',
 	'coursepage-epundelete-text' => 'Indicates what the user is about to do if they continue. Parameters:
 * $1 is a course name.',
-	'coursepage-epundelete-summary' => 'Summary text input label.',
+	'coursepage-epundelete-summary' => 'Summary text input label.
+{{Identical|Reason}}',
 	'coursepage-epundelete-undelete-button' => 'Submission button text.',
 	'coursepage-epundelete-cancel-button' => 'Cancel button text.',
 	'coursepage-epundelete-undeleted' => 'Success message, shown at top of page in success box. Parameters:
@@ -1526,7 +1531,8 @@ Parameters:
 * $1 is an institution name.',
 	'orgpage-epundelete-text' => 'Indicates what the user is about to do if they continue. Parameters:
 * $1 is an institution name.',
-	'orgpage-epundelete-summary' => 'Summary text input label.',
+	'orgpage-epundelete-summary' => 'Summary text input label.
+{{Identical|Reason}}',
 	'orgpage-epundelete-undelete-button' => 'Submission button text.',
 	'orgpage-epundelete-cancel-button' => 'Cancel button text.',
 	'orgpage-epundelete-undeleted' => 'Success message, shown at top of page in success box. Parameters:
@@ -1621,7 +1627,8 @@ Parameters:
 	'ep-instructor-remove-button' => 'Remove button text',
 	'ep-instructor-removing' => 'Remove button text while removal is in progress',
 	'ep-instructor-removal-success' => 'Success message',
-	'ep-instructor-close-button' => 'Close button text',
+	'ep-instructor-close-button' => 'Close button text.
+{{Identical|Close}}',
 	'ep-instructor-remove-retry' => 'Retry button text.
 {{Identical|Retry}}',
 	'ep-instructor-remove-failed' => 'Error message',
@@ -1644,7 +1651,8 @@ Parameters:
 * $1 - the (not) affected user name
 * $2 - course name
 $1 is unknown, so unknown is the [[gender]].',
-	'ep-instructor-add-close-button' => 'Close button text.',
+	'ep-instructor-add-close-button' => 'Close button text.
+{{Identical|Close}}',
 	'ep-instructor-add-retry' => 'Retry button text.
 {{Identical|Retry}}',
 	'ep-instructor-addittion-failed' => 'Error message.',
@@ -1668,7 +1676,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-online-remove-button' => 'Remove button text.',
 	'ep-online-removing' => 'Remove button text while removal is in progress.',
 	'ep-online-removal-success' => 'Success message.',
-	'ep-online-close-button' => 'Close button text.',
+	'ep-online-close-button' => 'Close button text.
+{{Identical|Close}}',
 	'ep-online-remove-retry' => 'Retry button text.
 {{Identical|Retry}}',
 	'ep-online-remove-failed' => 'Error message.',
@@ -1690,7 +1699,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-online-addittion-invalid-user' => "Error message. Parameters:
 * $1 - the (not) affected user's name
 * $2 - a course name",
-	'ep-online-add-close-button' => 'Close button text.',
+	'ep-online-add-close-button' => 'Close button text.
+{{Identical|Close}}',
 	'ep-online-add-retry' => 'Retry button text.
 {{Identical|Retry}}',
 	'ep-online-addittion-failed' => 'Error message.',
@@ -1714,7 +1724,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-campus-remove-button' => 'Remove button text.',
 	'ep-campus-removing' => 'Remove button text while removal is in progress.',
 	'ep-campus-removal-success' => 'Success message.',
-	'ep-campus-close-button' => 'Close button text.',
+	'ep-campus-close-button' => 'Close button text.
+{{Identical|Close}}',
 	'ep-campus-remove-retry' => 'Retry button text.
 {{Identical|Retry}}',
 	'ep-campus-remove-failed' => 'Error message.',
@@ -1736,7 +1747,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-campus-addittion-invalid-user' => "Error message. Parameters:
 * $1 - the (not) affected user's name
 * $2 - a course name",
-	'ep-campus-add-close-button' => 'Close button text.',
+	'ep-campus-add-close-button' => 'Close button text.
+{{Identical|Close}}',
 	'ep-campus-add-retry' => 'Retry button text.
 {{Identical|Retry}}',
 	'ep-campus-addittion-failed' => 'Error message.',
