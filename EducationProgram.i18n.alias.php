@@ -96,12 +96,12 @@ $specialPageAliases['diq'] = array(
 	'EducationProgram' => array( 'ProgrameMısnayışi' ),
 	'Enroll' => array( 'Qeydkerdış' ),
 	'Disenroll' => array( 'Qeydnêkerdış' ),
-	'CampusAmbassadors' => array( 'VacerêKampus' ),
+	'CampusAmbassadors' => array( 'VaceréKampus' ),
 	'OnlineAmbassadors' => array( 'VaceroÇerxmiyan' ),
-	'OnlineAmbassadorProfile' => array( 'ProfilêVacerdêÇerxmiyani' ),
-	'CampusAmbassadorProfile' => array( 'ProfilêVacerdêKampus' ),
-	'StudentActivity' => array( 'AktiviteyêTeleban' ),
-	'Articles' => array( 'Wesiqey' ),
+	'OnlineAmbassadorProfile' => array( 'ProfiléVacerdéÇerxmiyani' ),
+	'CampusAmbassadorProfile' => array( 'ProfiléVacerdéKampus' ),
+	'StudentActivity' => array( 'AktiwiteyéTeleban' ),
+	'Articles' => array( 'Nebestey' ),
 );
 
 /** Esperanto (Esperanto) */

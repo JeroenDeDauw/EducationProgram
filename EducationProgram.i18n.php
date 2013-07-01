@@ -1129,10 +1129,12 @@ Additional parameters:
 	'eporgpager-header-active' => 'Table column header.
 {{Identical|Active}}',
 	'eporgpager-filter-active' => 'Filter control label',
-	'eporgpager-yes' => 'Select option text, also displayed in table cells',
+	'eporgpager-yes' => 'Select option text, also displayed in table cells.
+{{Identical|Yes}}',
 	'eporgpager-no' => 'Select option text, also displayed in table cells.
 {{Identical|No}}',
-	'ep-pager-cancel-button-org' => 'Cancel button text',
+	'ep-pager-cancel-button-org' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-pager-delete-button-org' => 'Remove button text. Parameters:
 * $1 indicates the number of affected institutions.',
 	'ep-pager-confirm-delete-org' => 'Deletion confirmation dialog title. Parameters:
@@ -1163,8 +1165,10 @@ Additional parameters:
 	'epcoursepager-filter-org-id' => 'Filter control label',
 	'epcoursepager-filter-status' => 'Filter control label.
 {{Identical|Status}}',
-	'epcoursepager-invalid-lang' => 'Indicates the selected language is not valid',
-	'ep-pager-cancel-button-course' => 'Cancel button text',
+	'epcoursepager-invalid-lang' => 'Indicates the selected language is not valid.
+{{Identical|Invalid}}',
+	'ep-pager-cancel-button-course' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-pager-delete-button-course' => 'Remove button text. Parameters:
 * $1 indicates the number of affected courses.',
 	'ep-pager-confirm-delete-course' => 'Deletion confirmation dialog title. Parameters:
@@ -1186,12 +1190,14 @@ Additional parameters:
 	'epstudentpager-header-first-enroll' => 'Table column header',
 	'epstudentpager-header-last-active' => 'Table column header that refers to the time when a student was last active.',
 	'epstudentpager-header-active-enroll' => 'Table column header',
-	'epstudentpager-yes' => 'Select option text, also displayed in table cells',
+	'epstudentpager-yes' => 'Select option text, also displayed in table cells.
+{{Identical|Yes}}',
 	'epstudentpager-no' => 'Select option text, also displayed in table cells.
 {{Identical|No}}',
 	'epstudentpager-header-student' => 'Table column header',
 	'epstudentpager-header-articles' => 'Table column header',
-	'epstudentpager-header-reviewers' => 'Table column header',
+	'epstudentpager-header-reviewers' => 'Table column header.
+{{Identical|Reviewer}}',
 	'ep-articles-remstudent' => 'Link text shown in user tool links section',
 	'ep-articles-remreviewer-self' => 'Link text, displayed next to a reviewer that is the current user. Parameters:
 * $1 is the user name',
@@ -1207,7 +1213,8 @@ Additional parameters:
 * $1 is the name of the user',
 	'ep-articletable-addreviwer-button' => 'Link text. Parameters:
 * $1 is the name of the user.',
-	'ep-articletable-addreviwer-cancel' => 'Cancel button text',
+	'ep-articletable-addreviwer-cancel' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-articletable-addreviwer-text' => "Message explaining what the user is about to do in a confirmation dialog. Parameters:
 * $1 - the user's username
 * $2 - an article
@@ -1221,7 +1228,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 * $1 is the name of the user',
 	'ep-articletable-remreviwer-button-self' => 'Remove button text. Parameters:
 * $1 is the name of the user.',
-	'ep-articletable-remreviwer-cancel' => 'Cancel button text',
+	'ep-articletable-remreviwer-cancel' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-articletable-remreviwer-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
 * $1 - user name
 * $2 - an article
@@ -1234,7 +1242,8 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 	'ep-articletable-remstudent-title' => 'Dialog title. Parameters:
 * $1 is the name of the user',
 	'ep-articletable-remstudent-button' => 'Link text. $1 is the name of the user',
-	'ep-articletable-remstudent-cancel' => 'Cancel button text',
+	'ep-articletable-remstudent-cancel' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-articletable-remstudent-text' => '{{doc-singularthey}}
 Message explaining what the user is about to do in a confirmation dialog. This will permanently remove their associated articles and reviewers!
 
@@ -1247,7 +1256,8 @@ Parameters:
 {{Identical|Remove article}}',
 	'ep-articletable-remarticle-button' => 'Remove button text.
 {{Identical|Remove article}}',
-	'ep-articletable-remarticle-cancel' => 'Cancel button text',
+	'ep-articletable-remarticle-cancel' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-articletable-remarticle-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
 * $1 is article name,
 * $2 is course name',
@@ -1282,7 +1292,8 @@ Parameters:
 	'orgpage-edit-legend-edit' => 'Form header',
 	'educationprogram-org-edit-city' => 'Text input label',
 	'educationprogram-org-edit-country' => 'Text input label',
-	'educationprogram-org-submit' => 'Submit button text',
+	'educationprogram-org-submit' => 'Submit button text.
+{{Identical|Submit}}',
 	'ep-addorg' => 'Message shown when viewing an non-existing institution page',
 	'ep-editorg' => 'Message shown when editing an institution page',
 	'ep-editorg-exists-already' => 'Message shown when the user tries to create a new institution with a name that already exists, and so ends up editing that one',
@@ -1424,7 +1435,8 @@ Parameters:
 {{Identical|Reason}}',
 	'coursepage-delete-title' => 'Page title. Parameters:
 * $1 is a course name.',
-	'coursepage-delete-cancel-button' => 'Cancel button text.',
+	'coursepage-delete-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'coursepage-delete-delete-button' => 'Delete button text.',
 	'coursepage-delete-none' => 'Shown when trying to delete a non-existing course. Parameters:
 * $1 is a course title.',
@@ -1439,7 +1451,8 @@ Parameters:
 {{Identical|Reason}}',
 	'orgpage-delete-title' => 'Page title. Parameters:
 * $1 is institution name',
-	'orgpage-delete-cancel-button' => 'Cancel button text.',
+	'orgpage-delete-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'orgpage-delete-delete-button' => 'Delete button text',
 	'orgpage-delete-none' => 'Shown when trying to delete a non-existing institution. Parameters:
 * $1 is the given institution name.',
@@ -1454,7 +1467,8 @@ Parameters:
 	'orgpage-eprestore-summary' => 'Summary text input label.
 {{Identical|Reason}}',
 	'orgpage-eprestore-restore-button' => 'Submission button text.',
-	'orgpage-eprestore-cancel-button' => 'Cancel button text.',
+	'orgpage-eprestore-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'orgpage-eprestore-summary-value' => 'Default value for the summary. Parameters:
 * $1 - a date
 * $2 - a user name
@@ -1470,7 +1484,8 @@ Parameters:
 	'coursepage-eprestore-summary' => 'Summary text input label.
 {{Identical|Reason}}',
 	'coursepage-eprestore-restore-button' => 'Submission button text.',
-	'coursepage-eprestore-cancel-button' => 'Cancel button text.',
+	'coursepage-eprestore-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'coursepage-eprestore-summary-value' => 'Default value for the summary. Parameters:
 * $1 - a date
 * $2 - a user name
@@ -1486,7 +1501,8 @@ Parameters:
 	'orgpage-epundo-summary' => 'Summary text input label.
 {{Identical|Reason}}',
 	'orgpage-epundo-undo-button' => 'Submission button text.',
-	'orgpage-epundo-cancel-button' => 'Cancel button text.',
+	'orgpage-epundo-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'orgpage-epundo-summary-value' => 'Default value for the summary. Parameters:
 * $1 - a date
 * $2 - a user name
@@ -1502,7 +1518,8 @@ Parameters:
 	'coursepage-epundo-summary' => 'Summary text input label.
 {{Identical|Reason}}',
 	'coursepage-epundo-undo-button' => 'Submission button text.',
-	'coursepage-epundo-cancel-button' => 'Cancel button text.',
+	'coursepage-epundo-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'coursepage-epundo-summary-value' => 'Default value for the summary. Parameters:
 * $1 - a date
 * $2 - a user name
@@ -1518,7 +1535,8 @@ Parameters:
 	'coursepage-epundelete-summary' => 'Summary text input label.
 {{Identical|Reason}}',
 	'coursepage-epundelete-undelete-button' => 'Submission button text.',
-	'coursepage-epundelete-cancel-button' => 'Cancel button text.',
+	'coursepage-epundelete-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'coursepage-epundelete-undeleted' => 'Success message, shown at top of page in success box. Parameters:
 * $1 is a course name.',
 	'coursepage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters:
@@ -1534,7 +1552,8 @@ Parameters:
 	'orgpage-epundelete-summary' => 'Summary text input label.
 {{Identical|Reason}}',
 	'orgpage-epundelete-undelete-button' => 'Submission button text.',
-	'orgpage-epundelete-cancel-button' => 'Cancel button text.',
+	'orgpage-epundelete-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'orgpage-epundelete-undeleted' => 'Success message, shown at top of page in success box. Parameters:
 * $1 is institution name.',
 	'orgpage-epundelete-undo-failed' => 'Fail message, shown at top of page in an error box. Parameters:
@@ -1587,7 +1606,8 @@ Parameters:
 	'ep-disenroll-text' => 'Message indicating what the user is about to do.',
 	'ep-disenroll-button' => 'Disenroll button text',
 	'ep-disenroll-summary' => 'Summary text input label',
-	'ep-disenroll-cancel' => 'Cancel button text',
+	'ep-disenroll-cancel' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-disenroll-fail' => 'Error message shown in error box at top of page',
 	'ep-disenroll-success' => 'Success message shown in success box at top of page',
 	'ep-disenroll-returntolink' => 'Return to text with link. Parameters:
@@ -1632,7 +1652,8 @@ Parameters:
 	'ep-instructor-remove-retry' => 'Retry button text.
 {{Identical|Retry}}',
 	'ep-instructor-remove-failed' => 'Error message',
-	'ep-instructor-cancel-button' => 'Cancel button text',
+	'ep-instructor-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-instructor-remove-text' => 'Notifies the user of what they are about to do. Parameters:
 * $1 - an name of an affected user
 * $2 - the real name of this user
@@ -1667,7 +1688,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-instructor-add-self-text' => "Notifies the user of what they are doing. Parameters:
 * $1 - a course name
 * $2 - the current user's name",
-	'ep-instructor-add-cancel-button' => 'Cancel button text.',
+	'ep-instructor-add-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-instructor-summary-input' => 'Text input label.
 {{Identical|Summary}}',
 	'ep-instructor-name-input' => 'Text input label.
@@ -1681,7 +1703,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-online-remove-retry' => 'Retry button text.
 {{Identical|Retry}}',
 	'ep-online-remove-failed' => 'Error message.',
-	'ep-online-cancel-button' => 'Cancel button text.',
+	'ep-online-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-online-remove-text' => 'Notifies the user of what they are about to do. Parameters:
 * $1 - name of affected user
 * $2 - real the name of this user
@@ -1715,7 +1738,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-online-add-self-text' => "Notifies the user of what they are doing. Parameters:
 * $1 - a course name
 * $2 - the affected user's name",
-	'ep-online-add-cancel-button' => 'Cancel button text.',
+	'ep-online-add-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-online-summary-input' => 'Text input label.
 {{Identical|Summary}}',
 	'ep-online-name-input' => 'Text input label.
@@ -1729,7 +1753,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-campus-remove-retry' => 'Retry button text.
 {{Identical|Retry}}',
 	'ep-campus-remove-failed' => 'Error message.',
-	'ep-campus-cancel-button' => 'Cancel button text.',
+	'ep-campus-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-campus-remove-text' => 'Notifies the user of what they are about to do. Parameters:
 * $1 - name of affected user
 * $2 - real name of this user
@@ -1763,7 +1788,8 @@ $1 is unknown, so unknown is the [[gender]].',
 	'ep-campus-add-self-text' => "Notifies the user of what they are doing. Parameters:
 * $1 - a course name
 * $2 - the affected user's name",
-	'ep-campus-add-cancel-button' => 'Cancel button text.',
+	'ep-campus-add-cancel-button' => 'Cancel button text.
+{{Identical|Cancel}}',
 	'ep-campus-summary-input' => 'Text input label.
 {{Identical|Summary}}',
 	'ep-campus-name-input' => 'Text input label.
@@ -17518,7 +17544,10 @@ $messages['pl'] = array(
 	'ep-tab-edit' => 'Edycja',
 	'ep-tab-create' => 'Tworzenie',
 	'ep-tab-history' => 'Przeglądanie historii',
+	'ep-tab-enroll' => 'Zapisz się',
+	'ep-tab-disenroll' => 'Wypisz się',
 	'ep-tab-delete' => 'Usuń',
+	'ep-tab-activity' => 'Przeglądanie aktywności',
 	'tooltip-ep-form-save' => 'Zapisz',
 	'tooltip-ep-edit-institution' => 'Edytuj tą instytucję',
 	'tooltip-ep-edit-course' => 'Edytuj ten kurs',
@@ -17602,6 +17631,7 @@ $messages['pl'] = array(
 	'orgpage-delete-cancel-button' => 'Anuluj',
 	'orgpage-eprestore-cancel-button' => 'Anuluj',
 	'ep-disenroll-returntolink' => 'Powrót do [[Education_Program:$2|kurs $1]].',
+	'ep-mycourses-courses-epstudent' => '{{PLURAL:$1|Kurs, do którego|Kursy, do których}} jesteś zapisany',
 );
 
 /** Piedmontese (Piemontèis)
@@ -19601,7 +19631,7 @@ $messages['si'] = array(
 	'tooltip-ep-minor' => 'මෙය සුළු සංස්කරණයක් ලෙස සලකුණු කරන්න',
 	'ep-nav-orgs' => 'ආයතන ලැයිස්තුව',
 	'ep-nav-courses' => 'පාඨමාලා ලැයිස්තුව',
-	'ep-nav-mycourses' => 'මගේ පාඨමාලාවන්', # Fuzzy
+	'ep-nav-mycourses' => 'ඔබේ පාඨමාලාවන්',
 	'ep-nav-students' => 'ශිෂ්‍ය ලැයිස්තුව',
 	'ep-nav-mentors' => 'තානාපති ලැයිස්තුව', # Fuzzy
 	'ep-nav-cas' => 'විශ්වවිද්‍යාලීය තානාපතිවරු', # Fuzzy
