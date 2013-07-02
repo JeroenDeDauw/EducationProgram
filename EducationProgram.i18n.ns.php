@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Namespace internationalization for the Education Program extension.
  *
@@ -13,23 +12,23 @@
  */
 
 if ( !defined( 'EP_NS' ) ) {
-	define( 'EP_NS',					442 + 4 );
-	define( 'EP_NS_TALK', 				442 + 5 );
+	define( 'EP_NS',      442 + 4 );
+	define( 'EP_NS_TALK', 442 + 5 );
 }
 
 $namespaceNames = array();
 
 $namespaceNames['en'] = array(
-	EP_NS		  	=> 'Education_Program',
-	EP_NS_TALK  		=> 'Education_Program_talk',
+	EP_NS      => 'Education_Program',
+	EP_NS_TALK => 'Education_Program_talk',
 );
 
 $namespaceNames['he'] = array(
-	EP_NS		  	=> 'הוראה',
-	EP_NS_TALK  		=> 'שיחת הוראה',
+	EP_NS      => 'הוראה',
+	EP_NS_TALK => 'שיחת הוראה',
 );
 
 $namespaceNames['nl'] = array(
-	EP_NS		  	=> 'Onderwijsprogramma',
-	EP_NS_TALK  		=> 'Overleg_onderwijsprogramma',
+	EP_NS      => 'Onderwijsprogramma',
+	EP_NS_TALK => 'Overleg_onderwijsprogramma',
 );
