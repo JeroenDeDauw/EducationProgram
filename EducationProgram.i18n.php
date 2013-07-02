@@ -886,7 +886,8 @@ $messages['qqq'] = array(
 	'ep-nav-students' => 'Text of link to students list',
 	'ep-nav-mentors' => 'Text of link to mentors list',
 	'ep-nav-cas' => 'Text of link to Campus volunteers list',
-	'ep-nav-oas' => 'Text of link to Online volunteers list',
+	'ep-nav-oas' => 'Text of link to Online volunteers list.
+{{Identical|Online volunteer}}',
 	'ep-nav-oaprofile' => 'Text of link to a users Online volunteers profile',
 	'ep-nav-caprofile' => 'Text of link to a users Campus volunteers profile',
 	'log-name-institution' => '{{log-name|institution}}',
@@ -1053,9 +1054,11 @@ Additional parameters:
 	'special-courses' => '{{doc-special|courses}}',
 	'special-educationprogram' => '{{doc-special|EducationProgram}}',
 	'special-enroll' => '{{doc-special|enroll}}',
-	'special-onlineambassadors' => '{{doc-special|OnlineAmbassadors}}',
+	'special-onlineambassadors' => '{{doc-special|OnlineAmbassadors}}
+{{Identical|Online volunteer}}',
 	'special-campusambassadors' => '{{doc-special|CampusAmbassadors}}',
-	'special-onlineambassador' => '{{doc-special|OnlineAmbassador}}',
+	'special-onlineambassador' => '{{doc-special|OnlineAmbassador}}
+{{Identical|Online volunteer}}',
 	'special-campusambassador' => '{{doc-special|CampusAmbassador}}',
 	'special-disenroll' => '{{doc-special|disenroll}}',
 	'special-studentactivity' => '{{doc-special|StudentActivity}}',
@@ -1083,7 +1086,8 @@ Additional parameters:
 	'ep-educationprogram-orgs' => 'Table row header',
 	'ep-educationprogram-articles' => 'Table row header',
 	'ep-educationprogram-gender-students' => 'Table row header on Special:EducationProgram',
-	'ep-educationprogram-gender-oas' => 'Table row header on Special:EducationProgram',
+	'ep-educationprogram-gender-oas' => 'Table row header on [[Special:EducationProgram]].
+{{Identical|Online volunteer}}',
 	'ep-educationprogram-gender-cas' => 'Table row header on Special:EducationProgram',
 	'ep-educationprogram-gender-instructors' => 'Table row header on Special:EducationProgram',
 	'ep-educationprogram-male' => 'Table row header on Special:EducationProgram
@@ -1189,7 +1193,8 @@ Additional parameters:
 	'epstudentpager-header-passed-courses' => 'Table column header',
 	'epstudentpager-header-first-enroll' => 'Table column header',
 	'epstudentpager-header-last-active' => 'Table column header that refers to the time when a student was last active.',
-	'epstudentpager-header-active-enroll' => 'Table column header',
+	'epstudentpager-header-active-enroll' => 'Table column header.
+{{Identical|Currently enrolled}}',
 	'epstudentpager-yes' => 'Select option text, also displayed in table cells.
 {{Identical|Yes}}',
 	'epstudentpager-no' => 'Select option text, also displayed in table cells.
@@ -1363,14 +1368,14 @@ Parameters:
 	'ep-institution-create' => 'There is no institution with name "$1" yet, but you can create it.',
 	'ep-institution-title' => 'Page title. Parameters:
 * $1 is an institution name',
-	'vieworgaction-summary-name' => 'Tabel row header.
+	'vieworgaction-summary-name' => 'Table row header.
 {{Identical|Name}}',
-	'vieworgaction-summary-city' => 'Tabel row header',
-	'vieworgaction-summary-country' => 'Tabel row header',
-	'vieworgaction-summary-status' => 'Tabel row header.
+	'vieworgaction-summary-city' => 'Table row header',
+	'vieworgaction-summary-country' => 'Table row header',
+	'vieworgaction-summary-status' => 'Table row header.
 {{Identical|Status}}',
-	'vieworgaction-summary-courses' => 'Tabel row header',
-	'vieworgaction-summary-students' => 'Tabel row header',
+	'vieworgaction-summary-courses' => 'Table row header',
+	'vieworgaction-summary-students' => 'Table row header',
 	'ep-institution-add-course' => 'h2 section header',
 	'ep-institution-inactive' => 'Course state, displayed in selection menues and in tables.
 {{Identical|Inactive}}',
@@ -1388,18 +1393,19 @@ Parameters:
 	'ep-course-create' => 'States there is no such course, but that it can be created.Parameters:
 * $1 is the course name.',
 	'ep-course-description' => 'h2 section header',
-	'viewcourseaction-summary-org' => 'Tabel row header',
-	'viewcourseaction-summary-term' => 'Tabel row header',
-	'viewcourseaction-summary-start' => 'Tabel row header.
+	'viewcourseaction-summary-org' => 'Table row header',
+	'viewcourseaction-summary-term' => 'Table row header',
+	'viewcourseaction-summary-start' => 'Table row header.
 {{Identical|Start}}',
-	'viewcourseaction-summary-end' => 'Tabel row header',
-	'viewcourseaction-summary-students' => 'Tabel row header',
+	'viewcourseaction-summary-end' => 'Table row header',
+	'viewcourseaction-summary-students' => 'Table row header',
 	'viewcourseaction-summary-status' => 'Table row header.
 {{Identical|Status}}',
-	'viewcourseaction-summary-token' => 'Tabel row header',
-	'viewcourseaction-summary-instructors' => 'Tabel row header',
-	'viewcourseaction-summary-online' => 'Tabel row header',
-	'viewcourseaction-summary-campus' => 'Tabel row header',
+	'viewcourseaction-summary-token' => 'Table row header',
+	'viewcourseaction-summary-instructors' => 'Table row header',
+	'viewcourseaction-summary-online' => 'Table row header.
+{{Identical|Online volunteer}}',
+	'viewcourseaction-summary-campus' => 'Table row header',
 	'ep-course-no-instructor' => 'States that there are no instructors for the course yet',
 	'ep-course-become-instructor' => 'Link text to make the user an instructor',
 	'ep-course-add-instructor' => 'Link text to add an instructor',
@@ -1566,7 +1572,8 @@ Parameters:
 * $1 is a name.',
 	'ep-student-title' => 'Page title. Parameters:
 * $1 is a student name.',
-	'ep-student-actively-enrolled' => 'Enrollment status.',
+	'ep-student-actively-enrolled' => 'Enrollment status.
+{{Identical|Currently enrolled}}',
 	'ep-student-no-active-enroll' => 'Enrollment status.',
 	'specialstudent-summary-active-enroll' => 'Table row header.',
 	'specialstudent-summary-last-active' => 'Table row header.',
