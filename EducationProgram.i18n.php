@@ -172,19 +172,19 @@ $messages['en'] = array(
 
 	// Groups
 	'group-epcoordinator' => 'Course coordinators',
-	'group-epcoordinator-member' => '{{GENDER:$1|Course coordinator}}',
+	'group-epcoordinator-member' => '{{GENDER:$1|course coordinator}}',
 	'grouppage-epcoordinator' => '{{ns:project}}:Course_coordinators',
 
 	'group-eponline' => 'Course online volunteers',
-	'group-eponline-member' => '{{GENDER:$1|Course online volunteer}}',
+	'group-eponline-member' => '{{GENDER:$1|course online volunteer}}',
 	'grouppage-eponline' => '{{ns:project}}:Course_online_volunteers',
 
 	'group-epcampus' => 'Course campus volunteers',
-	'group-epcampus-member' => '{{GENDER:$1|Course campus volunteer}}',
+	'group-epcampus-member' => '{{GENDER:$1|course campus volunteer}}',
 	'grouppage-epcampus' => '{{ns:project}}:Course_campus_volunteers',
 
 	'group-epinstructor' => 'Course instructor',
-	'group-epinstructor-member' => '{{GENDER:$1|Course instructor}}',
+	'group-epinstructor-member' => '{{GENDER:$1|course instructor}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Course_instructors',
 
 	// Special pages
