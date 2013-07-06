@@ -1392,7 +1392,8 @@ Parameters:
 * $1 is the course name',
 	'ep-course-create' => 'States there is no such course, but that it can be created.Parameters:
 * $1 is the course name.',
-	'ep-course-description' => 'h2 section header',
+	'ep-course-description' => 'h2 section header.
+{{Identical|Description}}',
 	'viewcourseaction-summary-org' => 'Table row header',
 	'viewcourseaction-summary-term' => 'Table row header',
 	'viewcourseaction-summary-start' => 'Table row header.
@@ -10866,7 +10867,7 @@ Anda bisa temukan daftar lengkap peserta di [[Special:Students|daftar peserta]].
 	'ep-timeline-users-edit-talk' => "$1 meninggalkan {{PLURAL:$4|sebuah pesan|pesan}} di '''[[$2|halaman pembicaraan]]''' '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "$1 menyunting halaman pengguna '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' menerima {{PLURAL:$4|pesan|pesan}} di '''[[$2|{{GENDER:$3|halaman pembicaraannya|halaman pembicaraannya}}]]'''.",
-	'ep-timeline-users-edit-user-self' => "$1 menyunting '''[[$2|{{GENDER:$3|halaman penggunanya|halaman penggunanya}}]]'''.",
+	'ep-timeline-users-edit-user-self' => "$1 menyunting '''[[$2|{{GENDER:$3|halaman penggunanya}}]]'''.",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' mengirimkan {{PLURAL:$4|pesan|pesan}} di '''[[$2|{{GENDER:$3|halaman pembicaraannya-halaman pembicaraannya}}]]'''.",
 	'ep-timeline-users-create-article' => "$1 membuat artikel '''[[$2]]'''.",
 	'ep-timeline-users-create-talk' => "$1 membuat '''[[$2|halaman pembicaraan]]''' '''[[$3]]''' dan meninggalkan {{PLURAL:$4|pesan|beberapa pesan}} di sana.",
