@@ -559,7 +559,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Institution undo revision
 	'orgpage-epundo-title' => 'Undo revision of institution "$1"',
-	'orgpage-epundo-text' => 'You are about undo a single revison of institution $1.',
+	'orgpage-epundo-text' => 'You are about undo a single revision of institution $1.',
 	'orgpage-epundo-summary' => 'Reason:',
 	'orgpage-epundo-undo-button' => 'Undo revision',
 	'orgpage-epundo-cancel-button' => 'Cancel',
@@ -569,7 +569,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Course undo revision
 	'coursepage-epundo-title' => 'Undo revision of course "$1"',
-	'coursepage-epundo-text' => 'You are about undo a single revison of course $1.',
+	'coursepage-epundo-text' => 'You are about undo a single revision of course $1.',
 	'coursepage-epundo-summary' => 'Reason:',
 	'coursepage-epundo-undo-button' => 'Undo revision',
 	'coursepage-epundo-cancel-button' => 'Cancel',
