@@ -172,19 +172,19 @@ $messages['en'] = array(
 
 	// Groups
 	'group-epcoordinator' => 'Course coordinators',
-	'group-epcoordinator-member' => '{{GENDER:$1|Course coordinator}}',
+	'group-epcoordinator-member' => '{{GENDER:$1|course coordinator}}',
 	'grouppage-epcoordinator' => '{{ns:project}}:Course_coordinators',
 
 	'group-eponline' => 'Course online volunteers',
-	'group-eponline-member' => '{{GENDER:$1|Course online volunteer}}',
+	'group-eponline-member' => '{{GENDER:$1|course online volunteer}}',
 	'grouppage-eponline' => '{{ns:project}}:Course_online_volunteers',
 
 	'group-epcampus' => 'Course campus volunteers',
-	'group-epcampus-member' => '{{GENDER:$1|Course campus volunteer}}',
+	'group-epcampus-member' => '{{GENDER:$1|course campus volunteer}}',
 	'grouppage-epcampus' => '{{ns:project}}:Course_campus_volunteers',
 
 	'group-epinstructor' => 'Course instructor',
-	'group-epinstructor-member' => '{{GENDER:$1|Course instructor}}',
+	'group-epinstructor-member' => '{{GENDER:$1|course instructor}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Course_instructors',
 
 	// Special pages
@@ -559,7 +559,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Institution undo revision
 	'orgpage-epundo-title' => 'Undo revision of institution "$1"',
-	'orgpage-epundo-text' => 'You are about undo a single revison of institution $1.',
+	'orgpage-epundo-text' => 'You are about undo a single revision of institution $1.',
 	'orgpage-epundo-summary' => 'Reason:',
 	'orgpage-epundo-undo-button' => 'Undo revision',
 	'orgpage-epundo-cancel-button' => 'Cancel',
@@ -569,7 +569,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Course undo revision
 	'coursepage-epundo-title' => 'Undo revision of course "$1"',
-	'coursepage-epundo-text' => 'You are about undo a single revison of course $1.',
+	'coursepage-epundo-text' => 'You are about undo a single revision of course $1.',
 	'coursepage-epundo-summary' => 'Reason:',
 	'coursepage-epundo-undo-button' => 'Undo revision',
 	'coursepage-epundo-cancel-button' => 'Cancel',
