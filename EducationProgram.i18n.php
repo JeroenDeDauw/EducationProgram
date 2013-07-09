@@ -85,8 +85,8 @@ $messages['en'] = array(
 	'log-description-institution' => 'Log of all changes to [[Special:Institutions|institutions]].',
 	'log-description-course' => 'Log of all changes to [[Special:Courses|courses]].',
 	'log-description-instructor' => 'Log of all changes to instructors.',
-	'log-description-online' => 'Log of all changes to Education Program [[Special:OnlineVolunteers|Online volunteers]]',
-	'log-description-campus' => 'Log of all changes to Education Program [[Special:CampusVolunteers|Campus volunteers]]',
+	'log-description-online' => 'Log of all changes to Education Program [[Special:OnlineVolunteers|Online volunteers]].',
+	'log-description-campus' => 'Log of all changes to Education Program [[Special:CampusVolunteers|Campus volunteers]].',
 	'log-description-student' => 'Log of all changes to [[Special:Students|students]].',
 
 	'logentry-institution-add' => '$1 {{GENDER:$2|created}} institution $3',
@@ -559,7 +559,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Institution undo revision
 	'orgpage-epundo-title' => 'Undo revision of institution "$1"',
-	'orgpage-epundo-text' => 'You are about undo a single revision of institution $1.',
+	'orgpage-epundo-text' => 'You are about to undo a single revision of institution $1.',
 	'orgpage-epundo-summary' => 'Reason:',
 	'orgpage-epundo-undo-button' => 'Undo revision',
 	'orgpage-epundo-cancel-button' => 'Cancel',
@@ -569,7 +569,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Course undo revision
 	'coursepage-epundo-title' => 'Undo revision of course "$1"',
-	'coursepage-epundo-text' => 'You are about undo a single revision of course $1.',
+	'coursepage-epundo-text' => 'You are about to undo a single revision of course $1.',
 	'coursepage-epundo-summary' => 'Reason:',
 	'coursepage-epundo-undo-button' => 'Undo revision',
 	'coursepage-epundo-cancel-button' => 'Cancel',
@@ -579,7 +579,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Course undeletion
 	'coursepage-epundelete-title' => 'Undelete course "$1"',
-	'coursepage-epundelete-text' => 'You are about to undelete course $1',
+	'coursepage-epundelete-text' => 'You are about to undelete course $1.',
 	'coursepage-epundelete-summary' => 'Reason:',
 	'coursepage-epundelete-undelete-button' => 'Undelete course',
 	'coursepage-epundelete-cancel-button' => 'Cancel',
@@ -590,7 +590,7 @@ The deletion log for this course is provided below for convenience:",
 
 	// Institution undeletion
 	'orgpage-epundelete-title' => 'Undelete institution "$1"',
-	'orgpage-epundelete-text' => 'You are about to undelete institution $1',
+	'orgpage-epundelete-text' => 'You are about to undelete institution $1.',
 	'orgpage-epundelete-summary' => 'Reason:',
 	'orgpage-epundelete-undelete-button' => 'Undelete institution',
 	'orgpage-epundelete-cancel-button' => 'Cancel',
