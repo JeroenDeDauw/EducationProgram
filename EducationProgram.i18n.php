@@ -2947,6 +2947,7 @@ $messages['ce'] = array(
 	'educationprogram-org-submit' => 'ДӀадахьийта',
 	'ep-course-edit-description' => 'Цунах лаьцна',
 	'ep-course-edit-title' => 'АгӀона цӀе',
+	'ep-course-edit-lang' => 'Курсан мотт',
 	'ep-course-description' => 'Цуьнах лаьцна',
 	'coursepage-delete-cancel-button' => 'Цаоьшу',
 	'orgpage-delete-cancel-button' => 'Цаоьшу',
