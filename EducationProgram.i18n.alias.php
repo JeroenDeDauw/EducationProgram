@@ -115,6 +115,26 @@ $specialPageAliases['eo'] = array(
 	'Articles' => array( 'Artikoloj' ),
 );
 
+/** Persian (فارسی) */
+$specialPageAliases['fa'] = array(
+	'MyCourses' => array( 'درس‌های_من' ),
+	'ManageCourses' => array( 'مدیریت_درس‌ها' ),
+	'Institutions' => array( 'مؤسسه‌ها' ),
+	'Student' => array( 'دانشجو' ),
+	'Students' => array( 'دانشجویان' ),
+	'Courses' => array( 'درس‌ها' ),
+	'EducationProgram' => array( 'برنامه_آموزشی' ),
+	'Enroll' => array( 'عضویت' ),
+	'Disenroll' => array( 'عدم_عضویت' ),
+	'CampusAmbassadors' => array( 'داوطلبان_کمپ' ),
+	'OnlineAmbassadors' => array( 'داوطلبان_برخط' ),
+	'OnlineAmbassadorProfile' => array( 'پروفایل_داوطلبان_برخط' ),
+	'CampusAmbassadorProfile' => array( 'پروفایل_داوطلبان_کمپ' ),
+	'StudentActivity' => array( 'فعالیت_دانشجو' ),
+	'Articles' => array( 'مقالات' ),
+	'CourseActivity' => array( 'فعالیت_درس' ),
+);
+
 /** Galician (galego) */
 $specialPageAliases['gl'] = array(
 	'MyCourses' => array( 'Os_meus_cursos' ),
