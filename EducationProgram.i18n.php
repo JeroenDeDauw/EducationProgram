@@ -6766,6 +6766,7 @@ $messages['fi'] = array(
  * @author Urhixidur
  * @author VIGNERON
  * @author Verdy p
+ * @author Wyz
  * @author 아라
  */
 $messages['fr'] = array(
@@ -6969,7 +6970,7 @@ $messages['fr'] = array(
 	'ep-pager-go' => 'Aller',
 	'ep-pager-withselected' => 'Avec les sélectionnés',
 	'ep-pager-delete-selected' => 'Supprimer',
-	'ep-revision-undo' => 'défaire',
+	'ep-revision-undo' => 'annuler',
 	'ep-revision-restore' => 'rétablir',
 	'eporgpager-header-name' => 'Nom',
 	'eporgpager-header-city' => 'Ville',
@@ -23658,6 +23659,7 @@ $messages['yi'] = array(
  * @author Li3939108
  * @author Linforest
  * @author Makecat
+ * @author Qiyue2001
  * @author Shirayuki
  * @author StephDC
  * @author Xiaomingyan
@@ -24008,8 +24010,13 @@ $messages['zh-hans'] = array(
 	'orgpage-epundo-summary-value' => '撤销$2于$1$3所作的修订',
 	'coursepage-epundo-summary' => '回退的理由：',
 	'coursepage-epundo-cancel-button' => '取消',
+	'coursepage-epundelete-title' => '撤消删除课程“$1”',
+	'coursepage-epundelete-text' => '您将要撤消删除课程$1。',
 	'coursepage-epundelete-summary' => '恢复的原因：',
+	'coursepage-epundelete-undelete-button' => '撤消删除课程',
 	'coursepage-epundelete-cancel-button' => '取消',
+	'coursepage-epundelete-undeleted' => '未成功删除课程$1。',
+	'coursepage-epundelete-undo-failed' => '无法撤消删除课程$1。',
 	'orgpage-epundelete-summary' => '原因：',
 	'orgpage-epundelete-undelete-button' => '撤消删除机构',
 	'orgpage-epundelete-cancel-button' => '取消',
@@ -24017,6 +24024,7 @@ $messages['zh-hans'] = array(
 	'ep-student-title' => '学生：$1',
 	'specialstudent-summary-last-active' => '上次活动',
 	'specialstudent-summary-user' => '用户名',
+	'ep-enroll-legend' => '注册',
 	'ep-enroll-gender' => '性别（可选）',
 	'ep-enroll-realname' => '真实姓名（必填）',
 	'ep-disenroll-button' => '取消注册',
