@@ -19699,6 +19699,7 @@ $messages['rue'] = array(
 
 /** Sinhala (සිංහල)
  * @author පසිඳු කාවින්ද
+ * @author ශ්වෙත
  */
 $messages['si'] = array(
 	'ep-item-summary' => 'සාරාංශය',
@@ -19798,7 +19799,7 @@ $messages['si'] = array(
 	'grouppage-epinstructor' => '{{ns:project}}:පාඨමාලා_උපදේශකවරු',
 	'specialpages-group-education' => 'අධ්‍යාපනය',
 	'special-mycourses' => 'ඔබේ පාඨමාලාවන්',
-	'special-managecourses' => 'ඔබේ පාඨමාලාවන් කළමනාකරණය කරන්න',
+	'special-managecourses' => 'ඔබේ පාඨමාලාවන් හසුරුවාගන්න',
 	'special-institutions' => 'ආයතන',
 	'special-student' => 'ශිෂ්‍යයා',
 	'special-students' => 'ශිෂ්‍යයන්',
@@ -23653,6 +23654,7 @@ $messages['yi'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
+ * @author Byfserag
  * @author Dimension
  * @author Hydra
  * @author Kuailong
@@ -23709,14 +23711,14 @@ $messages['zh-hans'] = array(
 	'log-header-institution' => '这些事件跟踪教育计划学院中所有更改。',
 	'log-header-course' => '这些事件跟踪教育计划课程中所有更改。',
 	'log-header-instructor' => '这些事件跟踪教育计划讲师中所有更改。',
-	'log-header-campus' => '这些事件跟踪教育计划校园大使中所有更改。', # Fuzzy
-	'log-header-online' => '这些事件跟踪教育计划在线大使中所有更改。', # Fuzzy
+	'log-header-campus' => '这些事件跟踪教育计划校园志愿者中的所有更改。',
+	'log-header-online' => '这些事件跟踪教育计划在线志愿者中的所有更改。',
 	'log-header-student' => '这些事件跟踪教育计划学生中所有更改。',
 	'log-description-institution' => '[[Special:Institutions|学院]]所有更改记录。',
 	'log-description-course' => '[[Special:Courses|课程]]所有更改记录。',
 	'log-description-instructor' => '讲师所有更改记录。',
-	'log-description-online' => '[[Special:OnlineAmbassadors|教育计划在线大使]]所有更改记录', # Fuzzy
-	'log-description-campus' => '[[Special:CampusAmbassadors|教育计划校园大使]]所有更改记录', # Fuzzy
+	'log-description-online' => '[[Special:OnlineVolunteers|教育计划在线志愿者]]所有更改记录',
+	'log-description-campus' => '[[Special:CampusVolunteers|教育计划校园志愿者]所有更改记录', # Fuzzy
 	'log-description-student' => '[[Special:Students|学生]]所有更改记录。',
 	'logentry-institution-add' => '$1创建$3',
 	'logentry-institution-remove' => '$1删除$3',
@@ -23730,7 +23732,7 @@ $messages['zh-hans'] = array(
 	'logentry-instructor-remove' => '$1从$3课程中{{GENDER:$2|删除}}{{PLURAL:$4|讲师|以下讲师们：}}$5',
 	'logentry-instructor-selfadd' => '$1在$3课程中添加{{GENDER:$2|自己}}成为{{GENDER:$2|讲师}}',
 	'logentry-instructor-selfremove' => '$1从$3课程中删除{{GENDER:$2|自己}}身为{{GENDER:$2|讲师}}',
-	'logentry-online-add' => '$1在$3课程中添加{{PLURAL:$4|在线大使|以下在线大使们：}}$5', # Fuzzy
+	'logentry-online-add' => '$1在$3课程中添加{{PLURAL:$4|在线志愿者|以下在线志愿者们：}}$5', # Fuzzy
 	'logentry-online-remove' => '$1从$3课程中删除{{PLURAL:$4|在线大使|以下在线大使们：}}$5', # Fuzzy
 	'logentry-online-selfadd' => '$1在$3课程中添加{{GENDER:$2|自己}}成为{{GENDER:$2|在线大使}}', # Fuzzy
 	'logentry-online-selfremove' => '$1从$3课程中删除{{GENDER:$2|自己}}身为{{GENDER:$2|在线大使}}', # Fuzzy
