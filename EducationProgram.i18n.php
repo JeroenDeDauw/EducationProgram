@@ -3331,6 +3331,7 @@ $messages['cu'] = array(
 	'ep-tab-create' => 'сътворѥниѥ',
 	'ep-tab-delete' => 'поничьжєниѥ',
 	'tooltip-ep-form-save' => 'съхранѥниѥ',
+	'eporgpager-header-name' => 'имѧ',
 	'eporgpager-yes' => 'да',
 	'eporgpager-no' => 'нѣтъ',
 	'epcoursepager-header-name' => 'имѧ',
@@ -3343,6 +3344,7 @@ $messages['cu'] = array(
 	'epstudentpager-no' => 'нѣтъ',
 	'epcapager-header-user-id' => 'польꙃєватєлꙗ имѧ',
 	'epoapager-header-user-id' => 'польꙃєватєлꙗ имѧ',
+	'vieworgaction-summary-name' => 'имѧ',
 );
 
 /** Danish (dansk)
@@ -6368,7 +6370,7 @@ $messages['fa'] = array(
 	'ep-articletable-remarticle-title' => 'حذف مقاله $1',
 	'ep-articletable-remarticle-button' => 'حذف مقاله',
 	'ep-articletable-remarticle-cancel' => 'انصراف',
-	'ep-articles-noresults' => 'هیج مقاله‌ای برای فهرست کردن وجود ندارد.',
+	'ep-articles-noresults' => 'هیج مقاله‌ای برای فهرست‌کردن وجود ندارد.',
 	'epcapager-header-photo' => 'عکس',
 	'epcapager-header-user-id' => 'نام کاربری',
 	'epcapager-header-bio' => 'نمایه',
