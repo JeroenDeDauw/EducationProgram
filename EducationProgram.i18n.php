@@ -2964,6 +2964,7 @@ $messages['ce'] = array(
 	'ep-online-add-cancel-button' => 'Цаоьшу',
 	'ep-campus-cancel-button' => 'Цаоьшу',
 	'ep-campus-add-cancel-button' => 'Цаоьшу',
+	'ep-timeline-ago' => '$1 юха',
 );
 
 /** Sorani Kurdish (کوردی)
