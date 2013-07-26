@@ -1845,7 +1845,8 @@ Parameters:
 * $2 - a time
 * $3 - a date',
 	'ep-timeline-ago' => 'Parameters:
-* $1 is the duration (ie 42 minutes) in "42 minutes ago"',
+* $1 is the duration (ie 42 minutes) in "42 minutes ago"
+{{Identical|$1 ago}}',
 	'ep-timeline-cutoff' => 'Used when a to long text is cut off. Parameters:
 * $1 is the text fragment to display.',
 	'ep-timeline-no-summary' => 'Message shown in the events timeline for edits that do not have an associated summary',
@@ -2958,11 +2959,17 @@ $messages['ce'] = array(
 	'coursepage-epundelete-cancel-button' => 'Цаоьшу',
 	'orgpage-epundelete-cancel-button' => 'Цаоьшу',
 	'ep-disenroll-cancel' => 'Цаоьшу',
+	'ep-instructor-close-button' => 'ДӀачӀагӀа',
 	'ep-instructor-cancel-button' => 'Цаоьшу',
+	'ep-instructor-add-close-button' => 'ДӀачӀагӀа',
 	'ep-instructor-add-cancel-button' => 'Цаоьшу',
+	'ep-online-close-button' => 'ДӀачӀагӀа',
 	'ep-online-cancel-button' => 'Цаоьшу',
+	'ep-online-add-close-button' => 'ДӀачӀагӀа',
 	'ep-online-add-cancel-button' => 'Цаоьшу',
+	'ep-campus-close-button' => 'ДӀачӀагӀа',
 	'ep-campus-cancel-button' => 'Цаоьшу',
+	'ep-campus-add-close-button' => 'ДӀачӀагӀа',
 	'ep-campus-add-cancel-button' => 'Цаоьшу',
 	'ep-timeline-ago' => '$1 юха',
 );
@@ -19499,8 +19506,8 @@ $messages['ru'] = array(
 	'group-epinstructor-member' => 'Инструктор курса', # Fuzzy
 	'grouppage-epinstructor' => '{{ns:project}}:Инструкторы_курса',
 	'specialpages-group-education' => 'Образование',
-	'special-mycourses' => 'Мои курсы', # Fuzzy
-	'special-managecourses' => 'Управление Мои курсы', # Fuzzy
+	'special-mycourses' => 'Ваши курсы',
+	'special-managecourses' => 'Управление вашими курсами',
 	'special-institutions' => 'Учреждения',
 	'special-student' => 'Студент',
 	'special-students' => 'Студенты',
@@ -19520,7 +19527,7 @@ $messages['ru'] = array(
 	'ep-educationprogram-courses' => 'Количество курсов',
 	'ep-educationprogram-students' => 'Количество студентов',
 	'ep-educationprogram-instructors' => 'Количество преподавателей',
-	'ep-educationprogram-oas' => 'Число послов-онлайн', # Fuzzy
+	'ep-educationprogram-oas' => 'Число добровольцев в сети',
 	'ep-educationprogram-cas' => 'Число послов-Кампус', # Fuzzy
 	'ep-educationprogram-orgs' => 'Количество учреждений',
 	'ep-educationprogram-articles' => 'Количество статей',
@@ -19633,7 +19640,7 @@ $messages['ru'] = array(
 	'ep-course-edit-org' => 'Учреждение',
 	'ep-course-edit-start' => 'Дата начала',
 	'ep-course-edit-end' => 'Дата окончания',
-	'ep-course-edit-description' => 'Описание', # Fuzzy
+	'ep-course-edit-description' => 'Текст страницы',
 	'ep-course-edit-title' => 'Название страницы',
 	'ep-course-edit-level' => 'Уровень курса',
 	'ep-course-edit-name' => 'Название курса',
