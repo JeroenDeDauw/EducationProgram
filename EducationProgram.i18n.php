@@ -183,7 +183,7 @@ $messages['en'] = array(
 	'group-epcampus-member' => '{{GENDER:$1|course campus volunteer}}',
 	'grouppage-epcampus' => '{{ns:project}}:Course_campus_volunteers',
 
-	'group-epinstructor' => 'Course instructor',
+	'group-epinstructor' => 'Course instructors',
 	'group-epinstructor-member' => '{{GENDER:$1|course instructor}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Course_instructors',
 
