@@ -15559,6 +15559,13 @@ $messages['ml'] = array(
 	'ep-timeline-ago' => '$1 മുമ്പ്',
 );
 
+/** Marathi (मराठी)
+ * @author V.narsikar
+ */
+$messages['mr'] = array(
+	'group-epinstructor' => 'अभ्यासक्रमाचे निदेशक',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Anakmalaysia
  */
@@ -18669,6 +18676,9 @@ $messages['pt'] = array(
 );
 
 /** Brazilian Portuguese (português do Brasil)
+ * @author Cainamarques
+ * @author Helder.wiki
+ * @author HenriqueCrang
  * @author Lechatjaune
  * @author Luckas
  * @author Luckas Blade
@@ -18678,11 +18688,11 @@ $messages['pt-br'] = array(
 	'educationprogram-desc' => 'Facilita programas educacionais ao adicionar várias interfaces para gestão de cursos, instituições e os diferentes papeis que assumem os participantes de um projeto educacional.',
 	'ep-item-summary' => 'Sumário',
 	'ep-toplink' => 'Cursos',
-	'ep-org-course-delete-comment' => 'Eliminada a instituição $1 e todos os seus cursos, com o comentário $2',
+	'ep-org-course-delete-comment' => 'Eliminada a instituição $1 e todos os seus cursos com o comentário $2',
 	'ep-org-course-delete' => 'Eliminada a instituição $1 e todos seus cursos',
 	'ep-form-summary' => 'Sumário:',
 	'ep-form-minor' => 'Esta é uma edição menor',
-	'ep-move-error' => 'Você não tem permissão para mover artigos para dentro ou para fora do domínio educação.',
+	'ep-move-error' => 'Você não tem permissão para mover artigos para dentro ou para fora dos domínios de educação.',
 	'ep-student-view-profile' => 'perfil do estudante',
 	'ep-err-failed-to-save' => 'Algo deu errado - suas mudanças não foram salvas.',
 	'ep-didyouknow-header' => 'Você sabia ... ?',
@@ -18807,7 +18817,7 @@ $messages['pt-br'] = array(
 	'group-epcampus' => 'Voluntários de campus de curso',
 	'group-epcampus-member' => '{{GENDER:$1|voluntário de campus de curso|voluntária de campus de curso}}',
 	'grouppage-epcampus' => '{{ns:project}}:Voluntários de campus do curso',
-	'group-epinstructor' => 'Professor do curso', # Fuzzy
+	'group-epinstructor' => 'Professores do curso',
 	'group-epinstructor-member' => '{{GENDER:$1|professor do curso|professora do curso}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Professores do curso',
 	'specialpages-group-education' => 'Educação',
