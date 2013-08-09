@@ -163,6 +163,12 @@ class Utils {
 			$context->msg( 'contribslink' )->escaped()
 		);
 
+                // Add a link showing all the user subpages for the user.
+		$links[] = Linker::link(
+                        \SpecialPage::getTitleFor( 'PrefixIndex', 'User:' . $userName, '' ),
+			$context->msg( 'ep-articles-sandboxes' )->escaped()
+		);
+
 		// @todo FIXME: Hard coded parentheses.
 		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( array_merge( $links, $extraLinks ) ) . ')</span>';
 	}

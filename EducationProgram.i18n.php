@@ -328,6 +328,7 @@ $messages['en'] = array(
 	'epstudentpager-header-student' => 'Student',
 	'epstudentpager-header-articles' => 'Articles',
 	'epstudentpager-header-reviewers' => 'Reviewers',
+        'ep-articles-sandboxes' => 'sandboxes',
 	'ep-articles-remstudent' => 'remove from course',
 	'ep-articles-remreviewer-self' => 'Remove you as {{GENDER:$1|reviewer}}',
 	'ep-articles-remreviewer' => 'remove as {{GENDER:$1|reviewer}}',
@@ -1218,6 +1219,7 @@ Additional parameters:
 	'epstudentpager-header-articles' => 'Table column header',
 	'epstudentpager-header-reviewers' => 'Table column header.
 {{Identical|Reviewer}}',
+        'ep-articles-sandboxes' => 'Link text shown in user tool links section, for list of user subpages',
 	'ep-articles-remstudent' => 'Link text shown in user tool links section',
 	'ep-articles-remreviewer-self' => 'Link text, displayed next to a reviewer that is the current user. Parameters:
 * $1 is the user name',
