@@ -206,7 +206,7 @@ $messages['en'] = array(
 	'special-articles' => 'Articles (Education Program)',
 
 	// Course statuses
-	'ep-course-status-passed' => 'Passed',
+	'ep-course-status-passed' => 'Ended',
 	'ep-course-status-current' => 'Current',
 	'ep-course-status-planned' => 'Planned',
 	'ep-course-status-current-planned' => 'Current and planned',
@@ -317,7 +317,7 @@ $messages['en'] = array(
 	'epstudentpager-header-user-id' => 'Username',
 	'epstudentpager-header-id' => 'Id',
 	'epstudentpager-header-current-courses' => 'Current courses',
-	'epstudentpager-header-passed-courses' => 'Passed courses',
+	'epstudentpager-header-passed-courses' => 'Ended courses',
 	'epstudentpager-header-first-enroll' => 'First enrollment',
 	'epstudentpager-header-last-active' => 'Last active',
 	'epstudentpager-header-active-enroll' => 'Currently enrolled',
