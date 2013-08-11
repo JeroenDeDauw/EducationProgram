@@ -66,6 +66,21 @@ $specialPageAliases['bxr'] = array(
 	'Students' => array( 'Оюутад' ),
 );
 
+/** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
+$specialPageAliases['cdo'] = array(
+	'MyCourses' => array( '我其課程' ),
+	'ManageCourses' => array( '合併其課程' ),
+	'Institutions' => array( '機構' ),
+	'Student' => array( '學生' ),
+	'Courses' => array( '課程' ),
+	'EducationProgram' => array( '教育過程' ),
+	'Enroll' => array( '入取' ),
+	'Disenroll' => array( '除名' ),
+	'OnlineAmbassadors' => array( '在線志願者' ),
+	'OnlineAmbassadorProfile' => array( '在線志願者個人資料' ),
+	'Articles' => array( '文章' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'MyCourses' => array( 'Meine_Kurse' ),

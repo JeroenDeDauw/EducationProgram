@@ -1864,7 +1864,10 @@ Parameters:
 * $2 - a time
 * $3 - a date',
 	'ep-timeline-ago' => 'Parameters:
-* $1 is the duration (ie 42 minutes) in "42 minutes ago"
+* $1 - the duration (e.g. "{{int:Duration-minutes|42}}"), uses following messages:
+** {{msg-mw|Duration-days}}
+** {{msg-mw|Duration-hours}}
+** {{msg-mw|Duration-minutes}}
 {{Identical|$1 ago}}',
 	'ep-timeline-cutoff' => 'Used when a to long text is cut off. Parameters:
 * $1 is the text fragment to display.',
@@ -14320,6 +14323,7 @@ $messages['lb'] = array(
 	'epstudentpager-no' => 'Neen',
 	'epstudentpager-header-student' => 'Student',
 	'epstudentpager-header-articles' => 'Artikelen',
+	'epstudentpager-header-reviewers' => 'Iwwerlieser',
 	'ep-articles-remstudent' => 'Aus dem Cours eraushuelen',
 	'ep-articles-remarticle' => 'Artikel ewechhuelen',
 	'ep-articles-addarticle-text' => 'En Artikel derbäisetzen:',
@@ -14358,6 +14362,7 @@ $messages['lb'] = array(
 	'orgpage-edit-title-edit' => "D'Institutioun $1 änneren",
 	'orgpage-edit-title-add' => "D'Institutioun $1 derbäisetzen",
 	'orgpage-edit-undelete-revisions' => 'Dës Institutioun gouf geläscht. Dir kënnt se $1.',
+	'orgpage-edit-undelete-link' => '$1 {{PLURAL:$1|Versioun|Versioune}} restauréieren',
 	'educationprogram-org-invalid-country' => 'Dëst ass kee valabelt Land.',
 	'coursepage-edit-legend-add' => 'Cours derbäisetzen',
 	'coursepage-edit-legend-edit' => 'Cours änneren',
@@ -18662,6 +18667,7 @@ $messages['ps'] = array(
 
 /** Portuguese (português)
  * @author Lijealso
+ * @author Luckas
  */
 $messages['pt'] = array(
 	'ep-item-summary' => 'Sumário',
@@ -18675,9 +18681,31 @@ $messages['pt'] = array(
 	'ep-tab-enroll' => 'Inscreva-se',
 	'ep-tab-disenroll' => 'Desinscreva-se',
 	'ep-tab-delete' => 'Eliminar',
+	'tooltip-ep-form-save' => 'Salvar',
 	'ep-nav-orgs' => 'Lista de instituições',
 	'ep-nav-mycourses' => 'Os meus cursos', # Fuzzy
 	'action-ep-org' => 'administrar instituições',
+	'ep-pager-cancel-button-org' => 'Cancelar',
+	'ep-pager-cancel-button-course' => 'Cancelar',
+	'ep-articletable-addreviwer-cancel' => 'Cancelar',
+	'ep-articletable-remreviwer-cancel' => 'Cancelar',
+	'ep-articletable-remstudent-cancel' => 'Cancelar',
+	'ep-articletable-remarticle-cancel' => 'Cancelar',
+	'coursepage-delete-cancel-button' => 'Cancelar',
+	'orgpage-delete-cancel-button' => 'Cancelar',
+	'orgpage-eprestore-cancel-button' => 'Cancelar',
+	'coursepage-eprestore-cancel-button' => 'Cancelar',
+	'orgpage-epundo-cancel-button' => 'Cancelar',
+	'coursepage-epundo-cancel-button' => 'Cancelar',
+	'coursepage-epundelete-cancel-button' => 'Cancelar',
+	'orgpage-epundelete-cancel-button' => 'Cancelar',
+	'ep-disenroll-cancel' => 'Cancelar',
+	'ep-instructor-cancel-button' => 'Cancelar',
+	'ep-instructor-add-cancel-button' => 'Cancelar',
+	'ep-online-cancel-button' => 'Cancelar',
+	'ep-online-add-cancel-button' => 'Cancelar',
+	'ep-campus-cancel-button' => 'Cancelar',
+	'ep-campus-add-cancel-button' => 'Cancelar',
 );
 
 /** Brazilian Portuguese (português do Brasil)
@@ -19722,6 +19750,8 @@ $messages['roa-tara'] = array(
 	'ep-nav-mentors' => 'Elenghe de le volondarie',
 	'ep-nav-cas' => "Volondarie d'u cambus",
 	'ep-nav-oas' => 'Volondarie in linèe',
+	'ep-nav-oaprofile' => "Profile de 'nu volondarije in linèe",
+	'ep-nav-caprofile' => "Profile de 'nu volondarije d'u cambus",
 	'logentry-institution-add' => '$1 istituzione $3 {{GENDER:$2|ccrejate}}',
 	'logentry-institution-remove' => '$1 istituzione $3 {{GENDER:$2|luate}}',
 	'logentry-institution-update' => '$1 istituzione $3 {{GENDER:$2|aggiornate}}',
@@ -19736,7 +19766,9 @@ $messages['roa-tara'] = array(
 	'action-ep-remstudent' => 'live le studinde da le corse',
 	'action-ep-enroll' => 'iscrivite a le corse',
 	'group-epcoordinator-member' => "{{GENDER:$1|Coordinatore d'u corse}}",
-	'group-epinstructor' => "'Struttore d'u corse",
+	'group-epinstructor' => "Istrutture d'u corse",
+	'group-epinstructor-member' => "{{GENDER:$1|istruttore d'u corse}}",
+	'grouppage-epinstructor' => '{{ns:project}}:Istrutture_du_corse',
 	'specialpages-group-education' => 'Formazione',
 	'special-mycourses' => 'Le corse tune',
 	'special-managecourses' => 'Gestisce le corse tune',
@@ -19752,11 +19784,16 @@ $messages['roa-tara'] = array(
 	'special-campusambassador' => "Volondarie d'u cambus",
 	'special-disenroll' => 'Scangillate',
 	'special-studentactivity' => "Attività d'u studende",
+	'special-articles' => 'Vôsce (Programme de Formazione)',
 	'ep-course-status-passed' => 'Passate',
 	'ep-course-status-current' => 'Corrende',
 	'ep-course-status-planned' => 'Pianificate',
 	'ep-course-status-current-planned' => 'De mò e pianificate',
+	'ep-summary-table-header' => 'Totale de le Programme de Formazione',
+	'ep-specialeducationprogram-summary-org-count' => ' Numere de le [[Special:Institutions|istituziune]]',
+	'ep-specialeducationprogram-summary-course-count' => 'Numere de le [[Special:Courses|corse]]',
 	'ep-specialeducationprogram-summary-active-course-count' => 'Numere de corse attive',
+	'ep-specialeducationprogram-summary-student-count' => 'Numere de le [[Special:Students|studinde]]',
 	'ep-educationprogram-courses' => 'Numere de corse',
 	'ep-educationprogram-students' => 'Numere de studinde',
 	'ep-educationprogram-instructors' => "Numere de le 'strutture",
@@ -19829,7 +19866,7 @@ $messages['roa-tara'] = array(
 	'epstudentpager-header-reviewers' => 'Rivisitature',
 	'ep-articles-remstudent' => "live da 'u corse",
 	'ep-articles-addarticle-button' => 'Aggiunge vôsce',
-	'ep-articles-becomereviewer' => 'Aggiungeme cumme {{GENDER:$1|revisitatore}}', # Fuzzy
+	'ep-articles-becomereviewer' => 'Aggiungeme cumme {{GENDER:$1|revisitatore}}',
 	'ep-articletable-addreviwer-title' => 'Divende {{GENDER:$1|revisitatore}}',
 	'ep-articletable-addreviwer-button' => 'Divende {{GENDER:$1|revisitatore}}',
 	'ep-articletable-addreviwer-cancel' => 'Annulle',
