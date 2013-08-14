@@ -280,7 +280,7 @@ class ArticleTable extends EPPager {
 			);
 		}
 		else {
-			$html .= Linker::userToolLinks( $userId, $user->getName() );
+			$html .= Utils::getToolLinks( $userId, $user->getName(), $this->getContext() );
 		}
 
 		return html::rawElement(
