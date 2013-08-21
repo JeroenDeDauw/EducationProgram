@@ -11220,7 +11220,7 @@ $messages['it'] = array(
 	'group-epcampus' => 'Volontari del campus del corso',
 	'group-epcampus-member' => '{{GENDER:$1|Volontario|Volontaria|Volontario/a}} del campus del corso',
 	'grouppage-epcampus' => '{{ns:project}}:Volontari del campus del corso',
-	'group-epinstructor' => 'Insegnanti del corso', # Fuzzy
+	'group-epinstructor' => 'Insegnanti del corso',
 	'group-epinstructor-member' => '{{GENDER:$1|Insegnante del corso}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Insegnanti del corso',
 	'specialpages-group-education' => 'Istruzione',
@@ -11339,6 +11339,7 @@ $messages['it'] = array(
 	'epstudentpager-header-student' => 'Studente',
 	'epstudentpager-header-articles' => 'Voci',
 	'epstudentpager-header-reviewers' => 'Revisori',
+	'ep-articles-sandboxes' => 'sandbox',
 	'ep-articles-remstudent' => 'rimuovi dal corso',
 	'ep-articles-remreviewer-self' => 'Rimuovi te {{GENDER:$1|stesso|stessa}} come revisore',
 	'ep-articles-remreviewer' => 'rimuovi come {{GENDER:$1|revisore}}',
@@ -24290,6 +24291,7 @@ $messages['yi'] = array(
  * @author Byfserag
  * @author Dimension
  * @author Hydra
+ * @author Hzy980512
  * @author Kuailong
  * @author Li3939108
  * @author Linforest
@@ -24396,7 +24398,7 @@ $messages['zh-hans'] = array(
 	'right-ep-remstudent' => '从课程删除学生',
 	'right-ep-enroll' => '注册教育计划课程',
 	'right-ep-online' => '在课程中添加或删除在线大使', # Fuzzy
-	'right-ep-campus' => '在课程中添加或删除校园大使', # Fuzzy
+	'right-ep-campus' => '在课程中添加或删除校园志愿者',
 	'right-ep-instructor' => '在课程中添加或删除讲师',
 	'right-ep-beonline' => '在学期中添加或删除自己身为在线大使', # Fuzzy
 	'right-ep-becampus' => '在学期中添加或删除自己身为校园大使', # Fuzzy
@@ -24546,6 +24548,7 @@ $messages['zh-hans'] = array(
 	'epstudentpager-header-student' => '学生',
 	'epstudentpager-header-articles' => '文章',
 	'epstudentpager-header-reviewers' => '复审员',
+	'ep-articles-sandboxes' => '沙盒',
 	'ep-articles-remstudent' => '从课程中删除',
 	'ep-articles-remarticle' => '移除条目',
 	'ep-articles-addarticle-text' => '添加一个条目：',
@@ -24657,6 +24660,7 @@ $messages['zh-hans'] = array(
 	'orgpage-history-norevs' => '没有这一机构的编辑历史记录。',
 	'coursepage-history-description' => '查看本课程的日志',
 	'coursepage-history-norevs' => '本课程没有编辑历史记录。',
+	'ep-viewcourseactivityaction-title' => '课程“$1”的活动',
 	'ep-viewcourseactivityaction-nosuchcourse' => '找不到课程！',
 	'coursepage-delete-text' => '您将要删除课程$1。这将删除所有关联的学生！',
 	'coursepage-delete-summary' => '删除的原因：',
@@ -24664,15 +24668,19 @@ $messages['zh-hans'] = array(
 	'coursepage-delete-cancel-button' => '取消',
 	'coursepage-delete-delete-button' => '删除课程',
 	'coursepage-delete-deleted' => '已成功删除课程$1。',
+	'coursepage-delete-delete-failed' => '删除课程[[Education_Program:$2|$1]]失败。',
 	'orgpage-delete-summary' => '删除的原因：',
 	'orgpage-delete-cancel-button' => '取消',
 	'orgpage-delete-delete-button' => '删除机构',
 	'orgpage-eprestore-summary' => '原因：',
 	'orgpage-eprestore-restore-button' => '恢复版本',
 	'orgpage-eprestore-cancel-button' => '取消',
+	'coursepage-eprestore-title' => '回复课程“$1”',
+	'coursepage-eprestore-text' => '您正准备将课程$1恢复至上一个版本。',
 	'coursepage-eprestore-summary' => '原因：',
 	'coursepage-eprestore-restore-button' => '恢复修订版本',
 	'coursepage-eprestore-cancel-button' => '取消',
+	'coursepage-eprestore-restore-failed' => '恢复课程$1失败。',
 	'orgpage-epundo-summary' => '回退的原因：',
 	'orgpage-epundo-undo-button' => '撤销修订',
 	'orgpage-epundo-cancel-button' => '取消',
