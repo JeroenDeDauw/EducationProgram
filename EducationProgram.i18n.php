@@ -1629,11 +1629,15 @@ Parameters:
 	'ep-enroll-course-passed' => 'Shown when the user tries to enroll for ended course',
 	'ep-enroll-course-planned' => 'Shown when the user tries to enroll for planned course',
 	'ep-disenroll-no-name' => 'Error message shown when the user tries to unroll from an unspecified course',
-	'ep-disenroll-invalid-name' => 'Error message shown when the user tries to unroll from a non-existing course',
+	'ep-disenroll-invalid-name' => 'Used as warning shown when the user tries to unroll from a non-existing course.
+
+Parameters:
+* $1 - course name',
 	'ep-disenroll-course-passed' => 'Error message shown when the user tries to unroll from an ended course',
 	'ep-disenroll-not-enrolled' => 'Error message shown when the user tries to unroll from a course they are not enrolled in',
 	'ep-disenroll-title' => 'Page title. $1 is course name',
-	'ep-disenroll-text' => 'Message indicating what the user is about to do.',
+	'ep-disenroll-text' => 'Message indicating what the user is about to do. Parameters:
+* $1 - course name',
 	'ep-disenroll-button' => 'Disenroll button text',
 	'ep-disenroll-summary' => 'Summary text input label',
 	'ep-disenroll-cancel' => 'Cancel button text.
@@ -5019,6 +5023,7 @@ $messages['eo'] = array(
  * @author Mr.Ajedrez
  * @author Ralgis
  * @author Rodrigo Molinero
+ * @author Vivaelcelta
  */
 $messages['es'] = array(
 	'educationprogram-desc' => 'Facilita programas educativos mediante la adición de varias interfaces para administrar los cursos, las instituciones y los diversos roles de los usuario educativos.',
@@ -5306,7 +5311,7 @@ $messages['es'] = array(
 	'epcapager-header-bio' => 'Perfil',
 	'epcapager-header-courses' => 'Cursos actuales',
 	'ep-ca-noresults' => 'No hay ningún voluntario de campus que enumerar.',
-	'epoapager-header-photo' => 'Fotografía',
+	'epoapager-header-photo' => 'Foto',
 	'epoapager-header-user-id' => 'Nombre de usuario',
 	'epoapager-header-bio' => 'Perfil',
 	'epoapager-header-courses' => 'Cursos actuales',
@@ -5690,7 +5695,7 @@ $messages['et'] = array(
 	'ep-toplink' => 'Kursused',
 	'ep-org-course-delete-comment' => 'Kustutatud asutus $1 ja kõik selle kursused. Kommentaar: $2',
 	'ep-org-course-delete' => 'Kustutatud asutus $1 ja kõik selle kursused',
-	'ep-form-summary' => 'Kokkuvõte:',
+	'ep-form-summary' => 'Lühikokkuvõte:',
 	'ep-form-minor' => 'See on pisiparandus',
 	'ep-move-error' => 'Sul pole lubatud teisaldada artikleid haridusnimeruumidesse ega neist välja.',
 	'ep-student-view-profile' => 'õpilase profiil',
@@ -5783,7 +5788,7 @@ $messages['et'] = array(
 	'special-disenroll' => 'Registreerumise tühistamine',
 	'special-studentactivity' => 'Õpilase tegevus',
 	'special-articles' => 'Artiklid (haridusprogramm)',
-	'ep-course-status-passed' => 'Läbitud',
+	'ep-course-status-passed' => 'Möödunud',
 	'ep-course-status-current' => 'Praegune',
 	'ep-course-status-planned' => 'Planeeritav',
 	'ep-specialeducationprogram-summary-org-count' => '[[Special:Institutions|Asutuste]] arv',
@@ -5838,7 +5843,7 @@ $messages['et'] = array(
 	'ep-pager-delete-button-org' => 'Eemalda {{PLURAL:$1|asutus|asutused}}',
 	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Asutuse|Mitme asutuse}} eemaldamise kinnitus',
 	'ep-pager-retry-button-org' => 'Proovi uuesti',
-	'ep-pager-summary-message-org' => 'Kokkuvõte:',
+	'ep-pager-summary-message-org' => 'Lühikokkuvõte:',
 	'ep-pager-confirm-message-org' => 'Oled eemaldamas asutust $1. Seejuures eemaldatakse kõik seotud kursused ja õpilaste andmed!',
 	'ep-pager-confirm-message-org-many' => 'Oled eemaldamas järgmisi asutusi: $1. Seejuures eemaldatakse kõik seotud kursused ja õpilaste andmed!',
 	'epcoursepager-header-name' => 'Nimi',
