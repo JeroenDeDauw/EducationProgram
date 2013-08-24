@@ -1884,35 +1884,91 @@ Parameters:
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
-* $5 - the number of editors',
-	'ep-timeline-users-edit-talk' => 'See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-edit-user' => 'See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
+	'ep-timeline-users-edit-talk' => 'Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
+	'ep-timeline-users-edit-user' => 'Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-usertalk' => '{{doc-singularthey}}
-See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
+Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-user-self' => '{{doc-singularthey}}
-See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
+Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-usertalk-self' => '{{doc-singularthey}}
-See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-create-article' => 'See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-create-talk' => 'See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
-	'ep-timeline-users-create-user' => 'See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
+Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
+	'ep-timeline-users-create-article' => 'Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
+	'ep-timeline-users-create-talk' => 'Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
+	'ep-timeline-users-create-user' => 'Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-usertalk' => '{{doc-singularthey}}
-See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
+Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-user-self' => '{{doc-singularthey}}
-See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
+Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-usertalk-self' => '{{doc-singularthey}}
-See also:
-* {{msg-mw|ep-timeline-users-edit-article}}',
+Header for a group of events in a timeline. Parameters:
+* $1 - html for a user link of list of user links
+* $2 - the full name of the edited article
+* $3 - the name of the article (without namespace)
+* $4 - the number of events in the group
+* $5 - the number of editors
+{{Related|Ep-timeline-users}}',
 	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',
 	'ep-dashboard-timeline-empty' => 'Shown instead of an event timeline when there are no events',
 	'ep-dashboard-enroll-first' => 'Message shown when the user is not enrolled in any courses and views their education dashboard.',
@@ -2018,40 +2074,98 @@ $messages['af'] = array(
 
 /** Arabic (العربية)
  * @author Ali1
+ * @author Faris knight
  * @author Meno25
  * @author Mido
  * @author OsamaK
+ * @author Samir I. Sharbaty
  * @author Zanatos
  */
 $messages['ar'] = array(
+	'educationprogram-desc' => 'وتساعد البرامج التعليمية عن طريق إضافات واجهات عديدة لإدارة المناهج والمؤسسات وأدوار المستفيدين من العملية التعليمية.',
 	'ep-item-summary' => 'ملخص',
 	'ep-toplink' => 'مقرراتي',
 	'ep-form-summary' => 'ملخص:',
 	'ep-form-minor' => 'هذا تعديل طفيف',
+	'ep-move-error' => 'غير مسموح لك نقل المقالات داخل أو خارج المجال التعليمي.',
 	'ep-student-view-profile' => 'ملف الطالب',
+	'ep-err-failed-to-save' => 'حدث خطأ ما، ولم تُحفظ تغييراتك.',
+	'ep-didyouknow-header' => 'هل تعلم...؟',
 	'ep-tab-view' => 'اقرأ',
 	'ep-tab-edit' => 'تعديل',
 	'ep-tab-create' => 'أنشئ',
 	'ep-tab-history' => 'اعرض التاريخ',
+	'ep-tab-enroll' => 'انتساب',
+	'ep-tab-disenroll' => 'الانسحاب',
 	'ep-tab-delete' => 'حذف',
+	'ep-tab-activity' => 'نشاط المستخدم',
 	'tooltip-ep-form-save' => 'احفظ',
 	'tooltip-ep-edit-institution' => 'عدل هذه المؤسسة',
 	'tooltip-ep-edit-course' => 'عدل هذا المقرر',
 	'tooltip-ep-summary' => 'أدخل ملخصا قصيرا',
+	'tooltip-ep-minor' => 'عَلّم كتعديل طفيف',
 	'ep-nav-orgs' => 'قائمة المؤسسات',
 	'ep-nav-courses' => 'قائمة المقررات',
-	'ep-nav-mycourses' => 'مقرراتي', # Fuzzy
+	'ep-nav-mycourses' => 'مقرراتك',
 	'ep-nav-students' => 'قائمة الطلاب',
-	'ep-nav-mentors' => 'قائمة السفراء', # Fuzzy
-	'ep-nav-cas' => 'سفراء الجامعة', # Fuzzy
-	'ep-nav-oas' => 'سفراء الويب', # Fuzzy
-	'ep-nav-oaprofile' => 'ملف سفير وب', # Fuzzy
-	'ep-nav-caprofile' => 'ملف سفير جامعة', # Fuzzy
+	'ep-nav-mentors' => 'قائمة المتطوعين',
+	'ep-nav-cas' => 'سفراء الجامعة',
+	'ep-nav-oas' => 'سفراء الوب',
+	'ep-nav-oaprofile' => 'ملف سفير وب',
+	'ep-nav-caprofile' => 'ملف سفير جامعة',
+	'log-name-institution' => 'سجل مؤسسة مشاركة في برنامج التعليم',
+	'log-name-course' => 'سجل مقرر دراسي ضمن برنامج التعليم',
+	'log-name-student' => 'سجل الطالب في برنامج التعليم',
+	'log-name-online' => 'سجل سفراء الوب في برنامج التعليم',
+	'log-name-campus' => 'سجل سفراء الجامعة في برنامج التعليم',
+	'log-name-instructor' => 'سجل معلم مشارك ببرنامج التعليم',
+	'log-name-eparticle' => 'سجل المقالات برنامج التعليم',
+	'log-header-institution' => 'هذه المناسبات تتعقب التغييرات التي جرت على مؤسسات برنامج التعليم.',
+	'log-header-course' => 'هذه المناسبات تتعقب التغييرات التي جرت على مقررات برنامج التعليم.',
+	'log-header-instructor' => 'هذه المناسبات تتعقب التغييرات التي جرت على معلمي برنامج التعليم.',
+	'log-header-campus' => 'هذه المناسبات تتعقب التغييرات التي جرت على سفراء الجامعة ببرنامج التعليم.',
+	'log-header-online' => 'هذه المناسبات تتعقب التغييرات التي جرت على سفراء الوب ببرنامج التعليم.',
+	'log-header-student' => 'هذه المناسبات تتعقب التغييرات التي جرت على طلاب برنامج التعليم.',
+	'log-description-institution' => 'سجل بجميع التغييرات التي جرت على 
+[[Special:Institutions|institutions]].',
+	'log-description-course' => 'سجل بجميع التغييرات التي جرت على
+[[Special:Courses|courses]].',
+	'log-description-instructor' => 'سجل بجميع التغييرات التي جرت على المعلمين.',
+	'log-description-online' => 'سجل بجميع التغييرات التي جرت على 
+[[Special:OnlineVolunteers|Online volunteers]]. ببرنامج التعليم',
+	'log-description-campus' => 'سجل بجميع التغيرات التي جرت على [[Special:CampusVolunteers|Campus volunteers]].ببرنامج التعليم.',
+	'log-description-student' => 'سجل بجميع التغييرات التي جرت على [[Special:Students|students]].',
 	'prefs-education' => 'تعليم',
+	'ep-prefs-showtoplink' => 'أظهر رابطًا إلى [[Special:MyCourses|your courses]] في أعلى كل صفحة.',
+	'ep-prefs-bulkdelorgs' => 'أظهر أداة حذف لـ [[Special:Institutions|institutions]].',
+	'ep-prefs-bulkdelcourses' => 'أظهر أداة حذف لـ[[Special:Courses|courses]].',
+	'ep-prefs-showdyk' => 'أظهر "صندوق هل تعلم أن" في صفحة [[Special:Courses|courses]].', # Fuzzy
+	'right-ep-org' => 'إدارة مؤسسات برنامج التعليم',
+	'right-ep-course' => 'إدارة مقررات برنامج التعليم',
+	'right-ep-token' => 'أنظر هدايا الانضمام لبرنامج التعليم التذكارية.',
+	'right-ep-remstudent' => 'إخراج طالب من مقررات دراسية',
+	'right-ep-enroll' => 'الانضمام لمقررات برنامج التعليم',
+	'right-ep-online' => 'إضافة أو إزالة سفراء وب لمجموعات دراسية',
+	'right-ep-campus' => 'إضافة أو إزالة سفراء جامعة إلى مجموعات دراسية',
+	'right-ep-instructor' => 'إضافة أو إزالة معلمين إلى مجموعات دراسية',
+	'right-ep-beonline' => 'أضف أو أزل اسمك من سفراء الوب',
+	'right-ep-becampus' => 'أضف أو أزل اسمك من سفراء الجامعة',
+	'right-ep-beinstructor' => 'أضف أو أزل اسمك من معلمي المقررات',
+	'right-ep-bereviewer' => 'إضف أو أزل اسمك من مراجعي المقالات.',
+	'right-ep-remreviewer' => 'إزالة مراجعي المقالات',
+	'right-ep-remarticle' => 'سحب مقالات من طلاب',
+	'right-ep-addstudent' => 'ضم مستخدمين ليكونوا طلابًا بالبرنامج',
+	'action-ep-org' => 'إدارة المؤسسات',
+	'action-ep-course' => 'إدارة المقررات',
+	'action-ep-token' => 'انظر هدايا الانضمام التذكارية',
+	'action-ep-remstudent' => 'إزالة طلاب من المقررات',
+	'action-ep-enroll' => 'الانضمام لمقررات',
 	'specialpages-group-education' => 'تعليم',
 	'special-student' => 'طالب',
 	'special-students' => 'طلاب',
+	'special-courses' => 'مقرراتي',
 	'special-educationprogram' => 'برنامج التعليم',
+	'special-enroll' => 'انتساب',
 	'special-studentactivity' => 'نشاط الطالب',
 	'ep-course-status-current' => 'حالي',
 	'ep-course-status-planned' => 'مخطط له',
@@ -5863,12 +5977,12 @@ $messages['et'] = array(
 	'ep-pager-delete-button-course' => 'Eemalda {{PLURAL:$1|kursus|kursused}}',
 	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Kursuse|Mitme kursuse}} eemaldamise kinnitus',
 	'ep-pager-retry-button-course' => 'Proovi uuesti',
-	'ep-pager-summary-message-course' => 'Resümee:',
+	'ep-pager-summary-message-course' => 'Lühikokkuvõte:',
 	'ep-pager-confirm-message-course' => 'Oled eemaldamas kursust $1. Seejuures eemaldatakse kõigi õpilaste andmed!',
 	'ep-pager-confirm-message-course-many' => 'Oled eemaldamas järgmisi kursusi: $1. Seejuures eemaldatakse kõigi õpilaste andmed!',
 	'epstudentpager-header-user-id' => 'Kasutajanimi',
 	'epstudentpager-header-current-courses' => 'Praegused kursused',
-	'epstudentpager-header-passed-courses' => 'Läbitud kursused',
+	'epstudentpager-header-passed-courses' => 'Möödunud kursused',
 	'epstudentpager-header-first-enroll' => 'Esimene registreerimine',
 	'epstudentpager-header-last-active' => 'Viimati aktiivne',
 	'epstudentpager-header-active-enroll' => 'Praegu registreeritud',
@@ -5901,7 +6015,7 @@ $messages['et'] = array(
 	'ep-articletable-remstudent-text' => 'Oled eemaldamas {{GENDER:$1|õpilast}} $3 kursuselt $2.
 
 Seejuures eemaldatakse jäädavalt temaga seotud artiklid ja retsensendid.',
-	'ep-articletable-remarticle-title' => 'Eemalda artikkel $1',
+	'ep-articletable-remarticle-title' => 'Artikli $1 eemaldamine',
 	'ep-articletable-remarticle-button' => 'Eemalda artikkel',
 	'ep-articletable-remarticle-cancel' => 'Loobu',
 	'ep-articletable-remarticle-text-self' => 'Oled eemaldamas artiklit $1 oma kursuse $2 tööde nimekirjast.',
@@ -6030,7 +6144,7 @@ Allpool on ära toodud seonduvad kustutuslogi sissekanded:",
 	'coursepage-delete-delete-failed' => 'Kursuse [[Education_Program:$2|$1]] kustutamine ebaõnnestus.',
 	'orgpage-delete-text' => 'Oled kustutamas asutust $1. Seejuures eemaldatakse kõik seotud kursused ja õpilased!',
 	'orgpage-delete-summary' => 'Põhjus:',
-	'orgpage-delete-title' => 'Kustuta asutus "$1"',
+	'orgpage-delete-title' => 'Asutuse "$1" kustutamine',
 	'orgpage-delete-cancel-button' => 'Loobu',
 	'orgpage-delete-delete-button' => 'Kustuta asutus',
 	'orgpage-delete-none' => 'Asutust nimega "$1" pole. Vaata [[Special:Institutions|asutuste nimekirja]].',
@@ -6105,7 +6219,7 @@ Allpool on ära toodud seonduvad kustutuslogi sissekanded:",
 	'ep-enroll-realname' => 'Tegelik nimi (nõutav)',
 	'ep-enroll-realname-optional' => 'Tegelik nimi (valikuline)',
 	'ep-enroll-invalid-name' => 'Nimi peab sisaldama vähemalt {{PLURAL:$1|ühe märgi|$1 märki}}.',
-	'ep-enroll-invalid-gender' => 'Palun valige üks neist sugudest',
+	'ep-enroll-invalid-gender' => 'Palun vali üks neist sugudest',
 	'ep-enroll-add-token' => 'Oma registreerumistunnuse sisestamine',
 	'ep-enroll-token' => 'Registreerumistunnus',
 	'ep-enroll-submit-token' => 'Registreeru selle tunnusega',
@@ -6138,7 +6252,7 @@ Allpool on ära toodud seonduvad kustutuslogi sissekanded:",
 	'ep-instructor-adding' => 'Lisamine...',
 	'ep-instructor-add-close-button' => 'Sule',
 	'ep-instructor-add-retry' => 'Proovi uuesti',
-	'ep-instructor-add-button' => 'Lisa instruktor',
+	'ep-instructor-add-button' => 'Lisa õppejõud',
 	'ep-instructor-add-cancel-button' => 'Loobu',
 	'ep-instructor-summary-input' => 'Resümee:',
 	'ep-instructor-name-input' => 'Kasutajanimi:',
@@ -6162,7 +6276,7 @@ Allpool on ära toodud seonduvad kustutuslogi sissekanded:",
 	'ep-campus-add-cancel-button' => 'Loobu',
 	'ep-campus-summary-input' => 'Resümee:',
 	'ep-campus-name-input' => 'Kasutajanimi:',
-	'epoa-profile-bio' => 'CV lühidalt',
+	'epoa-profile-bio' => 'Lühielulugu',
 	'epoa-profile-photo' => 'Profiili foto',
 	'epoa-profile-saved' => 'Sinu profiil on salvestatud',
 	'epoa-profile-invalid-bio' => 'Sinu elulugu sisaldama vähemalt {{PLURAL:$1|ühe märgi|$1 märki}}.',
@@ -6174,7 +6288,7 @@ Allpool on ära toodud seonduvad kustutuslogi sissekanded:",
 	'ep-diff-new' => 'Uus väärtus',
 	'ep-timeline-unknown' => '$1 tegi midagi kuupäeval $3, kell $2',
 	'ep-timeline-ago' => '$1 tagasi',
-	'ep-timeline-users-edit-article' => " $1 muutis artiklit '''[[$2]]'''.",
+	'ep-timeline-users-edit-article' => "$1 muutis artiklit '''[[$2]]'''.",
 	'ep-timeline-users-edit-user' => "$1 muutis kasutaja '''[[$2|$3]]''' lehekülge.",
 	'ep-timeline-users-create-user' => "$1 lõi kasutaja '''[[$2|$3]]''' lehekülje.",
 	'ep-dashboard-login-first' => 'Enda kursuste vaatamiseks peab olema sisse logitud.',
