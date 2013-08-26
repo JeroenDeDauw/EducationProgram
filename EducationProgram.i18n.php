@@ -2160,43 +2160,103 @@ $messages['ar'] = array(
 	'action-ep-token' => 'انظر هدايا الانضمام التذكارية',
 	'action-ep-remstudent' => 'إزالة طلاب من المقررات',
 	'action-ep-enroll' => 'الانضمام لمقررات',
+	'action-ep-online' => 'إضافة أو إزالة سفراء وب للمناهج',
+	'action-ep-campus' => 'إضافة أو إزالة سفراء جامعة للمناهج',
+	'action-ep-instructor' => 'إضافة أو إزالة معلمين للمناهج',
+	'action-ep-beonline' => 'إضافة أو إزالة نفسك بصفة سفير وب لفصل دراسي',
+	'action-ep-becampus' => 'إضافة أو إزالة نفسك بصفة سفير جامعة لفصل دراسي',
+	'action-ep-beinstructor' => 'إضافة أو إزالة نفسك بصفة معلم للمناهج',
+	'action-ep-bereviewer' => 'إضافة أو إزالة نفسك بصفة مراجع للمقالات',
+	'action-ep-remreviewer' => 'إزالة المراجعين من المقالات',
+	'action-ep-remarticle' => 'سحب مقالات من طلاب',
+	'action-ep-addstudent' => 'ضم مستخدمين بصفة طالب مشارك',
+	'group-epcoordinator' => 'منسقي المناهج',
+	'group-eponline' => 'سفراء وب لمنهج دراسي',
+	'group-epcampus' => 'سفراء جامعة لمنهج دراسي',
+	'group-epinstructor' => 'معلمي منهج دراسي',
 	'specialpages-group-education' => 'تعليم',
+	'special-mycourses' => 'مناهجك الدراسية',
+	'special-managecourses' => 'تحكم بمناهجك الدراسية',
+	'special-institutions' => 'المؤسسات التعليمية',
 	'special-student' => 'طالب',
 	'special-students' => 'طلاب',
 	'special-courses' => 'مقرراتي',
 	'special-educationprogram' => 'برنامج التعليم',
 	'special-enroll' => 'انتساب',
+	'special-onlineambassadors' => 'سفراء الوب',
+	'special-campusambassadors' => 'سفراء الجامعة',
+	'special-onlineambassador' => 'سفير وب',
+	'special-campusambassador' => 'سفير الجامعة',
+	'special-disenroll' => 'الانسحاب',
 	'special-studentactivity' => 'نشاط الطالب',
+	'special-articles' => 'المقالات (برنامج التعليم)',
+	'ep-course-status-passed' => 'ناجح',
 	'ep-course-status-current' => 'حالي',
 	'ep-course-status-planned' => 'مخطط له',
+	'ep-course-status-current-planned' => 'الحالية والمخطط لها',
+	'ep-summary-table-header' => 'مجموع برنامج التعليم',
+	'ep-specialeducationprogram-summary-active-course-count' => 'عدد المناهج الدراسية النشطة',
+	'ep-specialeducationprogram-summary-current-student-count' => 'عدد الطلاب المسجلين حاليًا',
+	'ep-specialeducationprogram-summary-instructor-count' => 'عدد المعلمين',
+	'ep-educationprogram-by-term' => 'الإجماليات لكل فصل دراسي',
+	'ep-educationprogram-courses' => 'عدد المناهج الدراسية',
 	'ep-educationprogram-students' => 'عدد الطلاب',
+	'ep-educationprogram-instructors' => 'عدد المعلمين',
+	'ep-educationprogram-oas' => 'عدد سفراء الوب',
+	'ep-educationprogram-cas' => 'عدد سفراء الجامعة',
+	'ep-educationprogram-orgs' => 'عدد المؤسسات التعليمية',
 	'ep-educationprogram-articles' => 'عدد المقالات',
 	'ep-educationprogram-gender-students' => 'طلاب',
+	'ep-educationprogram-gender-oas' => 'سفراء الوب',
+	'ep-educationprogram-gender-cas' => 'سفراء الجامعة',
+	'ep-educationprogram-gender-instructors' => 'المعلمين',
 	'ep-educationprogram-male' => 'ذكر',
 	'ep-educationprogram-female' => 'أنثى',
 	'ep-educationprogram-unknown' => 'غير معروف',
+	'ep-educationprogram-genders' => 'التوزيع حسب الجنس',
+	'ep-educationprogram-nodata' => 'لا توجد أية بيانات يمكن عرضها حتى الآن!',
+	'ep-institutions-noresults' => 'لا توجد بالقائمة أية مؤسسات',
+	'ep-institutions-addnew' => 'إضافة مؤسسة جديدة',
+	'ep-institutions-namedoc' => 'أدخل اسم المؤسسة الجديدة (المفترض أن تكون فريدة) واضغط الزر.',
+	'ep-institutions-newname' => 'اسم المؤسسة:',
+	'ep-institutions-add' => 'إضافة مؤسسة',
+	'ep-courses-noresults' => 'لا توجد أية مناهج بالقائمة',
+	'ep-courses-addnew' => 'إضافة منهج جديد',
+	'ep-courses-namedoc' => 'أدخل المؤسسة التابع لها المنهج الدراسي وسنة نشاطه فيها.',
+	'ep-courses-newterm' => 'الفصل الدراسي:',
+	'ep-courses-newname' => 'اسم المنهج:',
+	'ep-courses-neworg' => 'المؤسسة التعليمية:',
+	'ep-courses-add' => 'أضف مقررا',
+	'ep-students-noresults' => 'لا يوجد أية طلاب بالقائمة',
+	'ep-pager-clear' => 'مسح المرشحات',
 	'ep-pager-go' => 'اذهب',
 	'ep-pager-delete-selected' => 'حذف',
 	'ep-revision-undo' => 'رجوع',
+	'ep-revision-restore' => 'استرجاع',
 	'eporgpager-header-name' => 'الاسم',
 	'eporgpager-header-city' => 'المدينة',
 	'eporgpager-header-country' => 'الدولة',
 	'eporgpager-filter-country' => 'الدولة',
+	'eporgpager-header-course-count' => 'مقرراتي',
 	'eporgpager-header-student-count' => 'طلاب',
 	'eporgpager-header-active' => 'نشط',
+	'eporgpager-filter-active' => 'المقررات النشطة',
 	'eporgpager-yes' => 'نعم',
 	'eporgpager-no' => 'لا',
 	'ep-pager-cancel-button-org' => 'إلغاء',
 	'ep-pager-retry-button-org' => 'أعد المحاولة',
 	'ep-pager-summary-message-org' => 'الملخص:',
 	'epcoursepager-header-name' => 'الاسم',
+	'epcoursepager-header-term' => 'فصل دراسي',
 	'epcoursepager-header-start' => 'البداية',
+	'epcoursepager-header-org-id' => 'مؤسسة تعليمية',
 	'epcoursepager-header-end' => 'النهاية',
 	'epcoursepager-header-status' => 'الحالة',
 	'epcoursepager-header-student-count' => 'طلاب',
 	'epcoursepager-header-lang' => 'اللغة',
 	'epcoursepager-filter-term' => 'الفصل',
 	'epcoursepager-filter-lang' => 'اللغة',
+	'epcoursepager-filter-org-id' => 'مؤسسة تعليمية',
 	'epcoursepager-filter-status' => 'الحالة',
 	'epcoursepager-invalid-lang' => 'غير صحيح',
 	'ep-pager-cancel-button-course' => 'إلغاء',
@@ -2204,6 +2264,9 @@ $messages['ar'] = array(
 	'ep-pager-summary-message-course' => 'ملخص:',
 	'epstudentpager-header-user-id' => 'اسم المستخدم',
 	'epstudentpager-header-id' => 'رقم',
+	'epstudentpager-header-current-courses' => 'المقررات الحالية',
+	'epstudentpager-header-passed-courses' => 'المقررات الناجحة',
+	'epstudentpager-header-first-enroll' => 'الانضمام الأولي',
 	'epstudentpager-yes' => 'نعم',
 	'epstudentpager-no' => 'لا',
 	'epstudentpager-header-student' => 'طالب',
@@ -8099,7 +8162,7 @@ $messages['gl'] = array(
 	'logentry-campus-selfremove' => '$1 eliminouse como {{GENDER:$2|voluntario|voluntaria}} do campus do curso "$3"',
 	'logentry-campus-profilesave' => '$1 actualizou o seu perfil de {{GENDER:$2|voluntario|voluntaria}} do campus',
 	'logentry-student-add' => '$1 {{GENDER:$2|inscribiuse}} no curso "$3"',
-	'logentry-student-remove' => '$1 {{GENDER:$2|eliminou}} a $5 como {{PLURAL:$4|{{GENDER:$5|estudante}}|estudantes}} do curso "$3"', # Fuzzy
+	'logentry-student-remove' => '$1 {{GENDER:$2|eliminou}} a $5 como {{PLURAL:$4|{{GENDER:$5|estudante}}|estudantes}} do curso "$3"',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|inscribiuse}} no curso "$3"',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|deuse de baixa}} do curso "$3"',
 	'logentry-eparticle-selfadd' => '$1 engadiu o artigo "$3" á {{GENDER:$2|súa}} lista de artigos no curso "$4"',
@@ -8275,6 +8338,7 @@ $messages['gl'] = array(
 	'epstudentpager-header-student' => 'Estudante',
 	'epstudentpager-header-articles' => 'Artigos',
 	'epstudentpager-header-reviewers' => 'Revisores',
+	'ep-articles-sandboxes' => 'zonas de probas',
 	'ep-articles-remstudent' => 'eliminar do curso',
 	'ep-articles-remreviewer-self' => '{{GENDER:$1|Eliminalo|Eliminala}} como {{GENDER:$1|revisor|revisora}}',
 	'ep-articles-remreviewer' => 'eliminar como {{GENDER:$1|revisor|revisora}}',
@@ -17838,6 +17902,13 @@ Voor je gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-dashboard-enroll-first' => 'Je bent niet ingeschreven voor een actieve cursus. Je kunt de [[Special:Courses|lijst met cursussen]] bekijken en je voor een cursus inschrijven.', # Fuzzy
 );
 
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'ep-articles-sandboxes' => 'naucs de sabla',
+);
+
 /** Oriya (ଓଡ଼ିଆ)
  * @author Jnanaranjan Sahu
  */
@@ -18849,6 +18920,7 @@ $messages['pt'] = array(
  * @author Lechatjaune
  * @author Luckas
  * @author Luckas Blade
+ * @author Oona
  * @author Rodrigo Padula
  */
 $messages['pt-br'] = array(
@@ -19103,6 +19175,7 @@ $messages['pt-br'] = array(
 	'epstudentpager-header-student' => 'Estudante',
 	'epstudentpager-header-articles' => 'Artigos',
 	'epstudentpager-header-reviewers' => 'Revisores',
+	'ep-articles-sandboxes' => 'Caixa de areia (subpágina do(a) usuário(a))',
 	'ep-articles-remstudent' => 'remover do curso',
 	'ep-articles-remreviewer-self' => 'Remover-se como {{GENDER:$1|revisor|revisora}}',
 	'ep-articles-remreviewer' => 'Remover como {{GENDER:$1|revisor|revisora}}',
@@ -24423,6 +24496,7 @@ $messages['yi'] = array(
  * @author Qiyue2001
  * @author Shirayuki
  * @author StephDC
+ * @author TianyinLee
  * @author Xiaomingyan
  * @author Yfdyh000
  */
@@ -24477,7 +24551,7 @@ $messages['zh-hans'] = array(
 	'log-description-course' => '[[Special:Courses|课程]]所有更改记录。',
 	'log-description-instructor' => '讲师所有更改记录。',
 	'log-description-online' => '[[Special:OnlineVolunteers|教育计划在线志愿者]]所有更改记录',
-	'log-description-campus' => '[[Special:CampusVolunteers|教育计划校园志愿者]所有更改记录', # Fuzzy
+	'log-description-campus' => '教育计划[[Special:CampusVolunteers|校园志愿者]]的所有更改记录',
 	'log-description-student' => '[[Special:Students|学生]]所有更改记录。',
 	'logentry-institution-add' => '$1创建$3',
 	'logentry-institution-remove' => '$1删除$3',
@@ -24491,9 +24565,9 @@ $messages['zh-hans'] = array(
 	'logentry-instructor-remove' => '$1从$3课程中{{GENDER:$2|删除}}{{PLURAL:$4|讲师|以下讲师们：}}$5',
 	'logentry-instructor-selfadd' => '$1在$3课程中添加{{GENDER:$2|自己}}成为{{GENDER:$2|讲师}}',
 	'logentry-instructor-selfremove' => '$1从$3课程中删除{{GENDER:$2|自己}}身为{{GENDER:$2|讲师}}',
-	'logentry-online-add' => '$1在$3课程中添加{{PLURAL:$4|在线志愿者|以下在线志愿者们：}}$5', # Fuzzy
-	'logentry-online-remove' => '$1从$3课程中删除{{PLURAL:$4|在线大使|以下在线大使们：}}$5', # Fuzzy
-	'logentry-online-selfadd' => '$1在$3课程中添加{{GENDER:$2|自己}}成为{{GENDER:$2|在线大使}}', # Fuzzy
+	'logentry-online-add' => '$1{{GENDER:$2|添加}}了{{PLURAL:$4|在线志愿者}}$5到课程$3中',
+	'logentry-online-remove' => '$1从$3课程中{{GENDER:$2|移除}}了{{PLURAL:$4|在线志愿者}}$5',
+	'logentry-online-selfadd' => '$1在$3课程中添加{{GENDER:$2|自己}}成为{{GENDER:$2|在线志愿者}}',
 	'logentry-online-selfremove' => '$1从$3课程中删除{{GENDER:$2|自己}}身为{{GENDER:$2|在线大使}}', # Fuzzy
 	'logentry-online-profilesave' => '$1更新{{GENDER:$2|自己}}的在线大使个人资料', # Fuzzy
 	'logentry-campus-add' => '$1在$3课程中添加{{PLURAL:$4|校园大使|以下校园大使们：}}$5', # Fuzzy
