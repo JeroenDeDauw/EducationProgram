@@ -1247,10 +1247,14 @@ As $3 is a username, it should be possible to use [[Gender]] for it as for $1.",
 * $1 is the name of the user',
 	'ep-articletable-remreviwer-title-self' => 'Dialog title. Parameters:
 * $1 is the name of the user',
-	'ep-articletable-remreviwer-button' => 'Remove button text. Parameters:
-* $1 is the name of the user',
-	'ep-articletable-remreviwer-button-self' => 'Remove button text. Parameters:
-* $1 is the name of the user.',
+	'ep-articletable-remreviwer-button' => 'Used as label for the "Remove" button. Parameters:
+* $1 - the name of the user
+See also:
+* {{msg-mw|Ep-articletable-remreviwer-button-self}}',
+	'ep-articletable-remreviwer-button-self' => 'Used as label for the "Remove" button. Parameters:
+* $1 - (Unused) the name of the user
+See also:
+* {{msg-mw|Ep-articletable-remreviwer-button}}',
 	'ep-articletable-remreviwer-cancel' => 'Cancel button text.
 {{Identical|Cancel}}',
 	'ep-articletable-remreviwer-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
@@ -18922,6 +18926,7 @@ $messages['pt'] = array(
  * @author Luckas Blade
  * @author Oona
  * @author Rodrigo Padula
+ * @author Teles
  */
 $messages['pt-br'] = array(
 	'educationprogram-desc' => 'Facilita programas educacionais ao adicionar várias interfaces para gestão de cursos, instituições e os diferentes papeis que assumem os participantes de um projeto educacional.',
@@ -19009,13 +19014,13 @@ $messages['pt-br'] = array(
 	'logentry-eparticle-review' => '$1 adicionou-se como {{GENDER:$2|revisor|revisora}} do artigo $3 {{GENDER:$6|elaborado}} por $5 como parte do curso $4',
 	'logentry-eparticle-unreview' => '$1 removeu-se como {{GENDER:$2|revisor|revisora}} do artigo $3 {{GENDER:$6|elaborado}} por $5 como parte do curso $4',
 	'prefs-education' => 'Educação',
-	'ep-prefs-showtoplink' => 'Mostrar uma ligação para [[Special:MyCourses|Seus cursos]] no topo de cada página.',
+	'ep-prefs-showtoplink' => 'Mostrar uma ligação para [[Special:MyCourses|seus cursos]] no topo de cada página.',
 	'ep-prefs-bulkdelorgs' => 'Mostrar um controle de eliminação em bloco para as [[Special:Institutions|instituições]].',
-	'ep-prefs-bulkdelcourses' => 'Mostrar um controle de eliminação em bloco para as [[Special:Courses|cursos]].',
-	'ep-prefs-showdyk' => 'Mostrar a caixa "Você sabia?" na página [[Special:MyCourses|seus cursos]].',
+	'ep-prefs-bulkdelcourses' => 'Mostrar um controle de eliminação em bloco para os [[Special:Courses|cursos]].',
+	'ep-prefs-showdyk' => 'Mostrar a caixa "Você sabia?" na página dos [[Special:MyCourses|seus cursos]].',
 	'right-ep-org' => 'Gerir as instituições do programa educacional',
 	'right-ep-course' => 'Gerir os cursos do programa educacional',
-	'right-ep-token' => 'Ver as ficas de inscrição do programa educacional',
+	'right-ep-token' => 'Ver as fichas de inscrição do programa educacional',
 	'right-ep-remstudent' => 'Remover estudantes de cursos',
 	'right-ep-enroll' => 'Inscrever-se em cursos do programa educacional',
 	'right-ep-online' => 'Adicionar ou remover voluntários online aos cursos',
@@ -19026,8 +19031,8 @@ $messages['pt-br'] = array(
 	'right-ep-beinstructor' => 'Adicionar-se ou remover-se como professor dos cursos',
 	'right-ep-bereviewer' => 'Adicionar-se ou remover-se como revisor de artigos',
 	'right-ep-remreviewer' => 'Remover revisores de artigos',
-	'right-ep-bulkdelorgs' => 'Eliminação em bloco de instituições',
-	'right-ep-bulkdelcourses' => 'Eliminação em bloco de cursos',
+	'right-ep-bulkdelorgs' => 'Eliminar instituições em bloco',
+	'right-ep-bulkdelcourses' => 'Eliminar cursos em bloco',
 	'right-ep-remarticle' => 'Dissociar artigos de estudantes',
 	'right-ep-addstudent' => 'Inscrever usuários como estudantes',
 	'action-ep-org' => 'gerir instituições',
@@ -19043,22 +19048,22 @@ $messages['pt-br'] = array(
 	'action-ep-beinstructor' => 'adicionar-se ou remover-se como professor dos cursos',
 	'action-ep-bereviewer' => 'adicionar-se ou remover-se como revisor de artigos',
 	'action-ep-remreviewer' => 'remover revisores de artigos',
-	'action-ep-bulkdelorgs' => 'eliminação em bloco de instituições',
-	'action-ep-bulkdelcourses' => 'eliminação em bloco de cursos',
+	'action-ep-bulkdelorgs' => 'eliminar instituições em bloco',
+	'action-ep-bulkdelcourses' => 'eliminar cursos em bloco',
 	'action-ep-remarticle' => 'dissociar artigos de estudantes',
 	'action-ep-addstudent' => 'inscrever usuários como estudantes',
 	'group-epcoordinator' => 'Coordenadores de curso',
 	'group-epcoordinator-member' => '{{GENDER:$1|coordenador de curso|coordenadora de cursos}}',
-	'grouppage-epcoordinator' => '{{ns:project}}:Coordenadores de curso',
+	'grouppage-epcoordinator' => '{{ns:project}}:Coordenadores_de_curso',
 	'group-eponline' => 'Voluntários online do curso',
 	'group-eponline-member' => '{{GENDER:$1|voluntário online de curso|voluntária online de curso}}',
-	'grouppage-eponline' => '{{ns:project}}:Voluntários online do curso',
+	'grouppage-eponline' => '{{ns:project}}:Voluntários_online_do_curso',
 	'group-epcampus' => 'Voluntários de campus de curso',
 	'group-epcampus-member' => '{{GENDER:$1|voluntário de campus de curso|voluntária de campus de curso}}',
-	'grouppage-epcampus' => '{{ns:project}}:Voluntários de campus do curso',
+	'grouppage-epcampus' => '{{ns:project}}:Voluntários_de_campus_do_curso',
 	'group-epinstructor' => 'Professores do curso',
 	'group-epinstructor-member' => '{{GENDER:$1|professor do curso|professora do curso}}',
-	'grouppage-epinstructor' => '{{ns:project}}:Professores do curso',
+	'grouppage-epinstructor' => '{{ns:project}}:Professores_do_curso',
 	'specialpages-group-education' => 'Educação',
 	'special-mycourses' => 'Seus cursos',
 	'special-managecourses' => 'Gerir seus cursos',
@@ -19093,7 +19098,7 @@ $messages['pt-br'] = array(
 	'ep-educationprogram-students' => 'Número de estudantes',
 	'ep-educationprogram-instructors' => 'Número de professores',
 	'ep-educationprogram-oas' => 'Número de voluntários online',
-	'ep-educationprogram-cas' => 'Número de de voluntários de campus',
+	'ep-educationprogram-cas' => 'Número de voluntários de campus',
 	'ep-educationprogram-orgs' => 'Número de instituições',
 	'ep-educationprogram-articles' => 'Número de artigos',
 	'ep-educationprogram-gender-students' => 'Estudantes',
@@ -19175,7 +19180,7 @@ $messages['pt-br'] = array(
 	'epstudentpager-header-student' => 'Estudante',
 	'epstudentpager-header-articles' => 'Artigos',
 	'epstudentpager-header-reviewers' => 'Revisores',
-	'ep-articles-sandboxes' => 'Caixa de areia (subpágina do(a) usuário(a))',
+	'ep-articles-sandboxes' => 'páginas de teste',
 	'ep-articles-remstudent' => 'remover do curso',
 	'ep-articles-remreviewer-self' => 'Remover-se como {{GENDER:$1|revisor|revisora}}',
 	'ep-articles-remreviewer' => 'Remover como {{GENDER:$1|revisor|revisora}}',
@@ -19241,7 +19246,7 @@ O registro de exclusão para esta instituição é fornecido abaixo para sua con
 	'educationprogram-org-invalid-name' => 'O nome deve conter pelo menos $1 {{PLURAL:$1|caractere|caracteres}}.',
 	'educationprogram-org-invalid-city' => 'O nome da cidade deve conter pelo menos $1 {{PLURAL:$1|caractere|caracteres}}.',
 	'educationprogram-org-invalid-country' => 'Este não é um país válido.',
-	'ep-org-no-slashes' => 'O título da instituição não pode conter conter barras oblíquas !',
+	'ep-org-no-slashes' => 'O título da instituição não pode conter conter barras oblíquas!',
 	'coursepage-edit-legend-add' => 'Adicionar curso',
 	'coursepage-edit-legend-edit' => 'Editar curso',
 	'ep-course-edit-org' => 'Instituição',
@@ -19271,7 +19276,7 @@ O registro de exclusão para este curso é fornecido abaixo para sua conveniênc
 	'ep-course-invalid-token' => 'A ficha deve conter pelo menos $1 {{PLURAL:$1|caractere|caracteres}}.',
 	'ep-course-invalid-description' => 'A descrição deve conter pelo menos $1 {{PLURAL:$1|caractere|caracteres}}.',
 	'ep-course-invalid-lang' => 'Este idioma não é válido.',
-	'ep-course-no-slashes' => 'O título do curso não pode conter conter barras oblíquas !',
+	'ep-course-no-slashes' => 'O título do curso não pode conter conter barras oblíquas!',
 	'coursepage-edit-undelete-revisions' => 'Este curso foi eliminado. Você pode $1.',
 	'coursepage-edit-undelete-link' => 'restaurar $1 {{PLURAL:$1|revisão|revisões}}',
 	'ep-pager-confirm-delete' => 'Tem certeza que deseja excluir este item?',
