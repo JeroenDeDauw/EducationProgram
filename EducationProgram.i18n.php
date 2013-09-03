@@ -1886,92 +1886,92 @@ Parameters:
 	'ep-timeline-users-edit-article' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
-* $3 - the name of the article (without namespace)
-* $4 - the number of events in the group
-* $5 - the number of editors
+* $3 - (Unused) the name of the article (without namespace)
+* $4 - (Unused) the number of events in the group
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-talk' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
-* $5 - the number of editors
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-user' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
-* $4 - the number of events in the group
-* $5 - the number of editors
+* $4 - (Unused) the number of events in the group
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-usertalk' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
-* $1 - html for a user link of list of user links
+* $1 - (Unused) html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
-* $5 - the number of editors
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-user-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
-* $4 - the number of events in the group
-* $5 - the number of editors
+* $4 - (Unused) the number of events in the group
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-usertalk-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
-* $1 - html for a user link of list of user links
+* $1 - (Unused) html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
-* $5 - the number of editors
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-article' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
-* $3 - the name of the article (without namespace)
-* $4 - the number of events in the group
-* $5 - the number of editors
+* $3 - (Unused) the name of the article (without namespace)
+* $4 - (Unused) the number of events in the group
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-talk' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
-* $5 - the number of editors
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-user' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
-* $4 - the number of events in the group
-* $5 - the number of editors
+* $4 - (Unused) the number of events in the group
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-usertalk' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
-* $1 - html for a user link of list of user links
+* $1 - (Unused) html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
-* $5 - the number of editors
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-user-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
-* $4 - the number of events in the group
-* $5 - the number of editors
+* $4 - (Unused) the number of events in the group
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-usertalk-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
-* $1 - html for a user link of list of user links
+* $1 - (Unused) html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
-* $5 - the number of editors
+* $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
 	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',
 	'ep-dashboard-timeline-empty' => 'Shown instead of an event timeline when there are no events',
@@ -2903,7 +2903,7 @@ $messages['br'] = array(
 	'epcapager-header-user-id' => 'Anv implijer',
 	'epcapager-header-bio' => 'Profil',
 	'epoapager-header-photo' => 'Skeudenn',
-	'epoapager-header-user-id' => 'Implijer', # Fuzzy
+	'epoapager-header-user-id' => 'Anv implijer',
 	'epoapager-header-bio' => 'Profil',
 	'epoapager-header-courses' => 'Kentelioù digor',
 	'epstudentactivitypager-header-user-id' => 'Studier',
@@ -2920,7 +2920,7 @@ $messages['br'] = array(
 	'ep-course-edit-org' => 'Ensavadur',
 	'ep-course-edit-start' => 'Deiziad kregiñ',
 	'ep-course-edit-end' => 'Deiziad echuiñ',
-	'ep-course-edit-description' => 'Deskrivadur', # Fuzzy
+	'ep-course-edit-description' => 'Testenn ar bajenn',
 	'ep-course-edit-title' => 'Anv ar bajenn',
 	'ep-course-edit-field' => 'Tachenn studi',
 	'ep-course-edit-level' => 'Live ar gentel',
@@ -2957,10 +2957,13 @@ $messages['br'] = array(
 	'orgpage-delete-summary' => 'Abeg :',
 	'orgpage-delete-cancel-button' => 'Nullañ',
 	'orgpage-delete-delete-button' => 'Diverkañ an ensavadur',
+	'orgpage-eprestore-summary' => 'Abeg :',
 	'orgpage-eprestore-cancel-button' => 'Nullañ',
+	'coursepage-eprestore-summary' => 'Abeg :',
 	'coursepage-eprestore-cancel-button' => 'Nullañ',
 	'orgpage-epundo-summary' => 'Abeg :',
 	'orgpage-epundo-cancel-button' => 'Nullañ',
+	'coursepage-epundo-summary' => 'Abeg :',
 	'coursepage-epundo-cancel-button' => 'Nullañ',
 	'coursepage-epundelete-summary' => 'Abeg :',
 	'coursepage-epundelete-cancel-button' => 'Nullañ',
