@@ -9,8 +9,8 @@
  *
  * The source code makes use of a number of terms different from but corresponding to those in the UI:
  * * Org instead of Institution
- * * CA for campus ambassador
- * * OA for online ambassador
+ * * CA for campus volunteer (formly "campus ambassador") 
+ * * OA for online volunteer (formly "online ambassador")
  * * Article is often used to refer to "article student associations" rather then the Article class.
  *
  * @file EducationProgram.php
@@ -26,10 +26,12 @@
  * @defgroup EducationProgram Education Program
  */
 
+// This makes sure the script is not called directly.
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
+// This checks that compatible up-to-date version of MediaWiki is being used.
 if ( version_compare( $wgVersion, '1.21c', '<' ) ) { // Needs to be 1.21c because version_compare() works in confusing ways.
 	die( '<strong>Error:</strong> Education Program requires MediaWiki 1.21 or above.' );
 }
@@ -38,8 +40,10 @@ if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version c
 	die( '<strong>Error:</strong> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
 }
 
+// This is the version number for the Education Program extension. Bump it up after significant software changes.
 define( 'EP_VERSION', '0.4 alpha' );
 
+// This adds an entry to the extension credits that get displayed at Special:Version
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Education Program',
@@ -51,16 +55,17 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'educationprogram-desc'
 );
 
-// i18n
+// i18n: This tells MediaWiki where to look for all the message strings for the extension, which are kept in the standard i18n files.
 $dir = __DIR__;
 $wgExtensionMessagesFiles['EducationProgram'] 		= $dir . '/EducationProgram.i18n.php';
 $wgExtensionMessagesFiles['EducationProgramAlias']	= $dir . '/EducationProgram.i18n.alias.php';
 $wgExtensionMessagesFiles['EPNamespaces'] 			= $dir . '/EducationProgram.i18n.ns.php';
 
-// Autoloading
+// Autoloading: This tells MediaWiki where to look for the hooks that get loaded to integrate the features of the extension into the rest of the wiki, such as new entries in Special:MyPreferences
 $wgAutoloadClasses['EducationProgram\Hooks'] 						= $dir . '/EducationProgram.hooks.php';
 
 // includes/actions (deriving from Action)
+// These tell Mediawiki where to look for the new actions used by the extension for interacting with course pages and the like.
 $wgAutoloadClasses['EducationProgram\EditCourseAction'] 			= $dir . '/includes/actions/EditCourseAction.php';
 $wgAutoloadClasses['EducationProgram\EditOrgAction'] 				= $dir . '/includes/actions/EditOrgAction.php';
 $wgAutoloadClasses['EducationProgram\Action'] 						= $dir . '/includes/actions/Action.php';
@@ -81,6 +86,7 @@ $wgAutoloadClasses['EducationProgram\ViewCourseActivityAction'] 	= $dir . '/incl
 $wgAutoloadClasses['EducationProgram\ViewOrgAction'] 				= $dir . '/includes/actions/ViewOrgAction.php';
 
 // includes/api (deriving from ApiBase)
+// Many of the actions can also be performed through the API.
 $wgAutoloadClasses['EducationProgram\ApiDeleteEducation'] 			= $dir . '/includes/api/ApiDeleteEducation.php';
 $wgAutoloadClasses['EducationProgram\ApiEnlist'] 					= $dir . '/includes/api/ApiEnlist.php';
 $wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/includes/api/ApiRefreshEducation.php';
@@ -98,6 +104,7 @@ $wgAutoloadClasses['EducationProgram\Events\TimelineGroup'] 		= $dir . '/include
 $wgAutoloadClasses['EducationProgram\Store\CourseStore'] 			= $dir . '/includes/Store/CourseStore.php';
 
 // includes/pagers (implementing Pager)
+// These are the Pager classes, which are used for displaying page-by-page results of long lists of info related to the extension, such as the tables of students and their articles on course pages.
 $wgAutoloadClasses['EducationProgram\ArticleTable'] 				= $dir . '/includes/pagers/ArticleTable.php';
 $wgAutoloadClasses['EducationProgram\CAPager'] 						= $dir . '/includes/pagers/CAPager.php';
 $wgAutoloadClasses['EducationProgram\CoursePager'] 					= $dir . '/includes/pagers/CoursePager.php';
@@ -109,6 +116,7 @@ $wgAutoloadClasses['EducationProgram\StudentPager'] 				= $dir . '/includes/page
 $wgAutoloadClasses['EducationProgram\StudentActivityPager'] 		= $dir . '/includes/pagers/StudentActivityPager.php';
 
 // includes/pages (here core is a mess :)
+// The extension introduces a class of article-like pages, EducationPage. There are two specific types: CoursePage, for course pages, and OrgPage, for organization pages.
 $wgAutoloadClasses['EducationProgram\CoursePage'] 					= $dir . '/includes/pages/CoursePage.php';
 $wgAutoloadClasses['EducationProgram\EducationPage'] 				= $dir . '/includes/pages/EducationPage.php';
 $wgAutoloadClasses['EducationProgram\OrgPage'] 						= $dir . '/includes/pages/OrgPage.php';
@@ -126,6 +134,7 @@ $wgAutoloadClasses['EducationProgram\RevisionedObject'] 			= $dir . '/includes/r
 $wgAutoloadClasses['EducationProgram\Student'] 						= $dir . '/includes/rows/Student.php';
 
 // includes/specials (deriving from SpecialPage)
+// These are the special pages created by the extension, some of which may be disable for performance reasons. VerySpecialPage is a base class with common functions used by many of the individual special pages.
 $wgAutoloadClasses['EducationProgram\SpecialAmbassadorProfile'] 	= $dir . '/includes/specials/SpecialAmbassadorProfile.php';
 $wgAutoloadClasses['EducationProgram\SpecialCAProfile'] 			= $dir . '/includes/specials/SpecialCAProfile.php';
 $wgAutoloadClasses['EducationProgram\SpecialCAs'] 					= $dir . '/includes/specials/SpecialCAs.php';
@@ -145,6 +154,7 @@ $wgAutoloadClasses['EducationProgram\SpecialStudents'] 				= $dir . '/includes/s
 $wgAutoloadClasses['EducationProgram\VerySpecialPage'] 				= $dir . '/includes/specials/VerySpecialPage.php';
 
 // includes/tables (deriving from ORMTable)
+// These classes correspond to the database tables associated with this extension, and provide functions for interacting with the data in these tables.
 $wgAutoloadClasses['EducationProgram\CAs'] 							= $dir . '/includes/tables/CAs.php';
 $wgAutoloadClasses['EducationProgram\Courses'] 						= $dir . '/includes/tables/Courses.php';
 $wgAutoloadClasses['EducationProgram\Events'] 						= $dir . '/includes/tables/Events.php';
@@ -156,6 +166,7 @@ $wgAutoloadClasses['EducationProgram\Revisions'] 					= $dir . '/includes/tables
 $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/Students.php';
 
 // includes
+// These are other miscellaneous classes used by the extension and their corresponding PHP files.
 $wgAutoloadClasses['EducationProgram\ArticleAdder'] 				= $dir . '/includes/ArticleAdder.php';
 $wgAutoloadClasses['EducationProgram\ArticleStore'] 				= $dir . '/includes/ArticleStore.php';
 $wgAutoloadClasses['EducationProgram\CourseActivityView'] 			= $dir . '/includes/CourseActivityView.php';
@@ -184,6 +195,7 @@ $wgAutoloadClasses['EducationProgram\Tests\MockSuperUser'] 			= $dir . '/tests/p
 $wgAutoloadClasses['EducationProgram\Tests\UserCourseFinderTest'] 	= $dir . '/tests/phpunit/UserCourseFinderTest.php';
 
 // Special pages
+// These are the Special pages that are part of the extension. The default name and url for some of these is different, as set by EducationProgram.i18n.alias.php, but these are the names used within the rest of the extension code.
 $wgSpecialPages['CampusAmbassadorProfile'] 			= 'EducationProgram\SpecialCAProfile';
 $wgSpecialPages['CampusAmbassadors'] 				= 'EducationProgram\SpecialCAs';
 $wgSpecialPages['CourseActivity'] 					= 'EducationProgram\SpecialCourseActivity';
@@ -216,10 +228,11 @@ $wgSpecialPageGroups['StudentActivity'] 			= 'education';
 $wgSpecialPageGroups['Articles'] 					= 'education';
 $wgSpecialPageGroups['ManageCourses'] 				= 'education';
 
-define( 'EP_STUDENT', 0 );
-define( 'EP_INSTRUCTOR', 1 );
-define( 'EP_OA', 2 );
-define( 'EP_CA', 3 );
+//Define named constants corresponding to the user roles introduced by the extension.
+define( 'EP_STUDENT', 0 );      //Students
+define( 'EP_INSTRUCTOR', 1 );   //Instructors
+define( 'EP_OA', 2 );           //Online volunteers
+define( 'EP_CA', 3 );           //Campus volunteers
 
 // API
 $wgAPIModules['deleteeducation'] 					= 'EducationProgram\ApiDeleteEducation';
@@ -285,18 +298,19 @@ $wgAvailableRights[] = 'ep-remstudent';		// Disassociate students from terms
 $wgAvailableRights[] = 'ep-online';			// Add or remove online ambassadors from terms
 $wgAvailableRights[] = 'ep-campus';			// Add or remove campus ambassadors from terms
 $wgAvailableRights[] = 'ep-instructor';		// Add or remove instructors from courses
-$wgAvailableRights[] = 'ep-beonline';		// Add or remove yourself as online ambassador from terms
-$wgAvailableRights[] = 'ep-becampus';		// Add or remove yourself as campus ambassador from terms
-$wgAvailableRights[] = 'ep-beinstructor';	// Add or remove yourself as instructor from courses
+$wgAvailableRights[] = 'ep-beonline';		        // Add or remove yourself as online ambassador from terms
+$wgAvailableRights[] = 'ep-becampus';		        // Add or remove yourself as campus ambassador from terms
+$wgAvailableRights[] = 'ep-beinstructor';	        // Add or remove yourself as instructor from courses
 $wgAvailableRights[] = 'ep-bereviewer';		// Add or remove yourself as reviewer from articles
-$wgAvailableRights[] = 'ep-remreviewer';	// Remove reviewers from articles
-$wgAvailableRights[] = 'ep-bulkdelorgs';	// Bulk delete institutions
-$wgAvailableRights[] = 'ep-bulkdelcourses';	// Bulk delete courses
-$wgAvailableRights[] = 'ep-remarticle';		// Remove artiles (from being student associated)
+$wgAvailableRights[] = 'ep-remreviewer';	        // Remove reviewers from articles
+$wgAvailableRights[] = 'ep-bulkdelorgs';	        // Bulk delete institutions
+$wgAvailableRights[] = 'ep-bulkdelcourses';	        // Bulk delete courses
+$wgAvailableRights[] = 'ep-remarticle';		// Remove a student's associated article(s)
 $wgAvailableRights[] = 'ep-addstudent';		// Enroll users as student
 
 
 // User group rights
+// These set the defaults for which users can perform which actions, beginning with the '*' defaults that apply to all users unless specifically set in a subsequent block of permissions. These can be overridden locally if a wiki wishes to use a different permissions setup.
 $wgGroupPermissions['*']['ep-enroll'] = true;
 $wgGroupPermissions['*']['ep-org'] = false;
 $wgGroupPermissions['*']['ep-course'] = false;
@@ -369,6 +383,7 @@ $wgGroupPermissions['epinstructor']['ep-remarticle'] = true;
 
 $wgGroupPermissions['epcoordinator']['userrights'] = false;
 
+// These permissions let those with the epcoordinator (Course coordinator) user right to assign the other extension rights to other users.
 $wgAddGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
 $wgRemoveGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
 
@@ -380,13 +395,16 @@ if ( !array_key_exists( 'sysop', $wgRemoveGroups ) ) {
 	$wgRemoveGroups['sysop'] = array();
 }
 
+// Sysops can assign any of the extension user rights, including the epcoordinator user right.
 $wgAddGroups['sysop'] = array_merge( $wgAddGroups['sysop'], array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ) );
 $wgRemoveGroups['sysop'] = array_merge( $wgRemoveGroups['sysop'], array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ) );
 
 // Namespaces
+// See https://www.mediawiki.org/wiki/Extension_default_namespaces
 define( 'EP_NS',					442 + 4 );
 define( 'EP_NS_TALK', 				442 + 5 );
 
+// The Education Program talk namespaces has subpages enabled (while the Education Program namespace itself does not).
 $wgNamespacesWithSubpages[EP_NS_TALK] = true;
 
 // Resource loader modules
@@ -714,4 +732,4 @@ require_once 'EducationProgram.settings.php';
 $wgDefaultUserOptions['ep_showtoplink'] = false;
 $wgDefaultUserOptions['ep_bulkdelorgs'] = false;
 $wgDefaultUserOptions['ep_bulkdelcourses'] = true;
-$wgDefaultUserOptions['ep_showdyk'] = true;
+$wgDefaultUserOptions['ep_showdyk'] = true;     // This enables the "Did You Know" boxes that appear on course activities feeds. See the eponymous extension, which was folded into this one: https://www.mediawiki.org/wiki/Extension:Did_You_Know
