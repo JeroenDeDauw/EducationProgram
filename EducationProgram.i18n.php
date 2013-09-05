@@ -1349,9 +1349,10 @@ Parameters:
 	'ep-course-edit-token' => 'Input label',
 	'ep-course-help-token' => 'Extra description for the token input field',
 	'ep-course-edit-description' => 'Input label',
-	'ep-course-edit-name-format' => '$1 ($2)
-
-{{optional}}',
+	'ep-course-edit-name-format' => '{{optional}}
+Parameters:
+* $1 - course name
+* $2 - number of new terms?',
 	'ep-course-edit-title' => 'Input label.
 {{Identical|Page title}}',
 	'ep-course-help-title' => 'Extra description for the title input field',
@@ -2816,6 +2817,9 @@ $messages['br'] = array(
 	'logentry-course-remove' => '$1 en deus dilamet ar gentel $3',
 	'logentry-course-update' => '$1 en deus hizivaet ar gentel $3',
 	'logentry-course-undelete' => '$1 en deus diziverket ar gentel $3',
+	'logentry-instructor-add' => "$1 {{GENDER:$2|en deus|he deus}} ouzhpennet {{PLURAL:$4|ur c'helenner|kelennerien}} $5 d'ar c'hentelioù $3",
+	'logentry-instructor-remove' => "$1 {{GENDER:$2|en deus|he deus}} lamet {{PLURAL:$4|ur c'helenner|kelennerien}} $5 eus ar c'hentelioù $3",
+	'logentry-online-add' => "$1 {{GENDER:$2|en deus|he deus}} ouzhpennet {{PLURAL:$4|un den a-youl vat|tud a-youl vat}} $5 d'ar c'hentelioù $3",
 	'logentry-student-add' => "$1 a zo en em enskrivet d'ar gentel $3",
 	'prefs-education' => 'Deskadurezh',
 	'right-ep-bulkdelcourses' => 'Dilemel kentelioù a-vras',
