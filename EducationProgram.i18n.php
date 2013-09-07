@@ -1285,13 +1285,17 @@ Parameters:
 {{Identical|Remove article}}',
 	'ep-articletable-remarticle-cancel' => 'Cancel button text.
 {{Identical|Cancel}}',
-	'ep-articletable-remarticle-text-self' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
-* $1 is article name,
-* $2 is course name',
-	'ep-articletable-remarticle-text' => 'Message explaining what the user is about to do in a confirmation dialog. Parameters:
-* $1 is article name,
-* $2 is course name,
-* $3 is the student working on the article',
+	'ep-articletable-remarticle-text-self' => 'Message explaining what the user is about to do in a confirmation dialog.
+
+Parameters:
+* $1 - article name
+* $2 - course name',
+	'ep-articletable-remarticle-text' => 'Message explaining what the user is about to do in a confirmation dialog.
+
+Parameters:
+* $1 - article name
+* $2 - course name
+* $3 - the student working on the article',
 	'ep-articles-noresults' => 'Shown instead of a pager as notification that there are no results.',
 	'epcapager-header-photo' => 'Table column header.
 {{Identical|Photo}}',
@@ -1611,8 +1615,8 @@ Parameters:
 	'ep-student-courses' => 'h2 section header.',
 	'ep-student-articles' => 'h2 section header.',
 	'ep-enroll-title' => 'Page title. Parameters:
-* $1 is a course name,
-* $2 is an institution name',
+* $1 - a course name
+* $2 - an institution name',
 	'ep-enroll-login-first' => 'States you need to login before you can enroll.',
 	'ep-enroll-login-and-enroll' => 'Link text. Links to login page.',
 	'ep-enroll-signup-and-enroll' => 'Link text. Links to signup page.',
