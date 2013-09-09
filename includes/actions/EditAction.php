@@ -47,7 +47,7 @@ abstract class EditAction extends Action {
 	 * @param IContextSource $context
 	 * @param PageTable|IORMTable $table
 	 */
-	protected function __construct( Page $page, IContextSource $context = null, PageTable $table ) {
+	public function __construct( Page $page, IContextSource $context = null, PageTable $table ) {
 		$this->table = $table;
 		parent::__construct( $page, $context );
 	}
