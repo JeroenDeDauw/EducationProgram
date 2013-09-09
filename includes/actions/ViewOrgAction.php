@@ -23,7 +23,7 @@ class ViewOrgAction extends ViewAction {
 	 * @param Page $page
 	 * @param IContextSource $context
 	 */
-	protected function __construct( Page $page, IContextSource $context = null ) {
+	public function __construct( Page $page, IContextSource $context = null ) {
 		parent::__construct( $page, $context, Orgs::singleton() );
 	}
 
