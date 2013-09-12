@@ -18968,6 +18968,7 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
+ * @author Helder.wiki
  * @author Lijealso
  * @author Luckas
  */
@@ -18986,6 +18987,11 @@ $messages['pt'] = array(
 	'tooltip-ep-form-save' => 'Salvar',
 	'ep-nav-orgs' => 'Lista de instituições',
 	'ep-nav-mycourses' => 'Os meus cursos', # Fuzzy
+	'log-name-institution' => 'Registo de instituição do programa educacional',
+	'log-name-student' => 'Registo de estudante do programa educacional',
+	'log-name-online' => 'Registo de voluntário online do programa educacional',
+	'log-name-instructor' => 'Registo de professor do programa educacional',
+	'log-description-institution' => 'Registo de todas as alterações de  [[Special:Institutions|instituições]].',
 	'action-ep-org' => 'administrar instituições',
 	'ep-pager-cancel-button-org' => 'Cancelar',
 	'ep-pager-cancel-button-course' => 'Cancelar',
@@ -19145,8 +19151,8 @@ $messages['pt-br'] = array(
 	'action-ep-bulkdelcourses' => 'eliminar cursos em bloco',
 	'action-ep-remarticle' => 'dissociar artigos de estudantes',
 	'action-ep-addstudent' => 'inscrever usuários como estudantes',
-	'group-epcoordinator' => 'Coordenadores de curso',
-	'group-epcoordinator-member' => '{{GENDER:$1|coordenador de curso|coordenadora de cursos}}',
+	'group-epcoordinator' => 'Supervisor',
+	'group-epcoordinator-member' => '{{GENDER:$1|supervisor|supervisores}}',
 	'grouppage-epcoordinator' => '{{ns:project}}:Coordenadores_de_curso',
 	'group-eponline' => 'Voluntários online do curso',
 	'group-eponline-member' => '{{GENDER:$1|voluntário online de curso|voluntária online de curso}}',
