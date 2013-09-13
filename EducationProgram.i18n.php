@@ -2086,6 +2086,7 @@ $messages['af'] = array(
 
 /** Arabic (العربية)
  * @author Ali1
+ * @author Asaifm
  * @author Faris knight
  * @author Meno25
  * @author Mido
@@ -2097,6 +2098,7 @@ $messages['ar'] = array(
 	'educationprogram-desc' => 'وتساعد البرامج التعليمية عن طريق إضافات واجهات عديدة لإدارة المناهج والمؤسسات وأدوار المستفيدين من العملية التعليمية.',
 	'ep-item-summary' => 'ملخص',
 	'ep-toplink' => 'مقرراتي',
+	'ep-org-course-delete-comment' => 'تم إزالة مؤسسة $1 وجميع مقرراتها. مدرج التعليق $2',
 	'ep-form-summary' => 'ملخص:',
 	'ep-form-minor' => 'هذا تعديل طفيف',
 	'ep-move-error' => 'غير مسموح لك نقل المقالات داخل أو خارج المجال التعليمي.',
