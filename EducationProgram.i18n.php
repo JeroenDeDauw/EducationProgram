@@ -20316,6 +20316,7 @@ $messages['roa-tara'] = array(
  * @author Iluvatar
  * @author KPu3uC B Poccuu
  * @author Kaganer
+ * @author Okras
  */
 $messages['ru'] = array(
 	'ep-item-summary' => 'Резюме',
@@ -20363,7 +20364,7 @@ $messages['ru'] = array(
 	'right-ep-course' => 'Управление образования программа курсов',
 	'right-ep-remstudent' => 'Удалить студентов из курсов',
 	'right-ep-instructor' => 'Добавить или удалить инструкторов из курсов',
-	'group-epinstructor' => 'Инструктор курса', # Fuzzy
+	'group-epinstructor' => 'Инструкторы курса',
 	'group-epinstructor-member' => 'Инструктор курса', # Fuzzy
 	'grouppage-epinstructor' => '{{ns:project}}:Инструкторы_курса',
 	'specialpages-group-education' => 'Образование',
