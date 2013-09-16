@@ -367,6 +367,7 @@ $specialPageAliases['uk'] = array(
 $specialPageAliases['vi'] = array(
 	'Institutions' => array( 'Học_viện' ),
 	'EducationProgram' => array( 'Chương_trình_Giáo_dục' ),
+	'Articles' => array( 'Bài_viết' ),
 );
 
 /** Simplified Chinese (中文（简体）‎) */
