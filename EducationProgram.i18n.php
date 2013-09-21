@@ -1887,7 +1887,7 @@ Parameters:
 ** {{msg-mw|Duration-days}}
 ** {{msg-mw|Duration-hours}}
 ** {{msg-mw|Duration-minutes}}
-{{Identical|$1 ago}}',
+{{Identical|Ago}}',
 	'ep-timeline-cutoff' => 'Used when a to long text is cut off. Parameters:
 * $1 is the text fragment to display.',
 	'ep-timeline-no-summary' => 'Message shown in the events timeline for edits that do not have an associated summary',
@@ -20678,7 +20678,7 @@ $messages['ru'] = array(
 	'right-ep-remstudent' => 'Удалить студентов из курсов',
 	'right-ep-instructor' => 'Добавить или удалить инструкторов из курсов',
 	'group-epinstructor' => 'Инструкторы курса',
-	'group-epinstructor-member' => 'Инструктор курса', # Fuzzy
+	'group-epinstructor-member' => '{{GENDER:$1|инструктор курса}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Инструкторы_курса',
 	'specialpages-group-education' => 'Образование',
 	'special-mycourses' => 'Ваши курсы',
