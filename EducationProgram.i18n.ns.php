@@ -28,6 +28,11 @@ $namespaceNames['he'] = array(
 	EP_NS_TALK => 'שיחת הוראה',
 );
 
+$namespaceNames['mk'] = array(
+	EP_NS      => 'Образовен_програм',
+	EP_NS_TALK => 'Разговор_за_Образовен_програм',
+);
+
 $namespaceNames['nl'] = array(
 	EP_NS      => 'Onderwijsprogramma',
 	EP_NS_TALK => 'Overleg_onderwijsprogramma',
