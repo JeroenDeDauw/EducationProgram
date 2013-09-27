@@ -315,6 +315,44 @@ $specialPageAliases['pa'] = array(
 	'Articles' => array( 'ਲੇਖ' ),
 );
 
+/** Portuguese (português) */
+$specialPageAliases['pt'] = array(
+	'MyCourses' => array( 'MeusCursos' ),
+	'ManageCourses' => array( 'AdministrarCursos' ),
+	'Institutions' => array( 'Instituições' ),
+	'Student' => array( 'Estudante' ),
+	'Students' => array( 'Estudantes' ),
+	'Courses' => array( 'Cursos' ),
+	'EducationProgram' => array( 'Ensino' ),
+	'Enroll' => array( 'Inscrever-se' ),
+	'Disenroll' => array( 'CancelarInscrição' ),
+	'CampusAmbassadors' => array( 'EmbaixadoresDeCampus' ),
+	'OnlineAmbassadors' => array( 'EmbaixadoresOnline' ),
+	'OnlineAmbassadorProfile' => array( 'PerfilDoEmbaixadorOnline' ),
+	'CampusAmbassadorProfile' => array( 'PerfilDoEmbaixadorDeCampus' ),
+	'StudentActivity' => array( 'AtividadeDoEstudante' ),
+	'Articles' => array( 'Artigos' ),
+);
+
+/** Brazilian Portuguese (português do Brasil) */
+$specialPageAliases['pt-br'] = array(
+	'MyCourses' => array( 'MeusCursos' ),
+	'ManageCourses' => array( 'AdministrarCursos' ),
+	'Institutions' => array( 'Instituições' ),
+	'Student' => array( 'Estudante' ),
+	'Students' => array( 'Estudantes' ),
+	'Courses' => array( 'Cursos' ),
+	'EducationProgram' => array( 'Ensino' ),
+	'Enroll' => array( 'Inscrever-se' ),
+	'Disenroll' => array( 'CancelarInscrição' ),
+	'CampusAmbassadors' => array( 'EmbaixadoresDeCampus' ),
+	'OnlineAmbassadors' => array( 'EmbaixadoresOnline' ),
+	'OnlineAmbassadorProfile' => array( 'PerfilDoEmbaixadorOnline' ),
+	'CampusAmbassadorProfile' => array( 'PerfilDoEmbaixadorDeCampus' ),
+	'StudentActivity' => array( 'AtividadeDoEstudante' ),
+	'Articles' => array( 'Artigos' ),
+);
+
 /** Russian (русский) */
 $specialPageAliases['ru'] = array(
 	'Articles' => array( 'Статьи' ),

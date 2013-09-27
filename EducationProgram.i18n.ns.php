@@ -37,3 +37,13 @@ $namespaceNames['nl'] = array(
 	EP_NS      => 'Onderwijsprogramma',
 	EP_NS_TALK => 'Overleg_onderwijsprogramma',
 );
+
+$namespaceNames['pt'] = array(
+	EP_NS      => 'Ensino',
+	EP_NS_TALK => 'Ensino_Discussão',
+);
+
+$namespaceNames['pt-br'] = array(
+	EP_NS      => 'Ensino',
+	EP_NS_TALK => 'Ensino_Discussão',
+);
