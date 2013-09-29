@@ -995,7 +995,8 @@ Additional parameters:
 * $4 - the course
 * $5 - the user that own the article (link)
 * $6 - the name of this user',
-	'prefs-education' => 'Preferences tab label',
+	'prefs-education' => 'Preferences tab label.
+{{Identical|Education}}',
 	'ep-prefs-showtoplink' => 'Preference checkbox label',
 	'ep-prefs-bulkdelorgs' => 'Preference checkbox label',
 	'ep-prefs-bulkdelcourses' => 'Preference checkbox label',
@@ -1046,7 +1047,8 @@ Additional parameters:
 	'group-epinstructor' => '{{doc-group|epinstructor|group}}',
 	'group-epinstructor-member' => '{{doc-group|epinstructor|member}}',
 	'grouppage-epinstructor' => '{{doc-group|epinstructor|page}}',
-	'specialpages-group-education' => '{{doc-special-group|that=are related to the extension EducationProgram|like=[[Special:MyCourses]], [[Special:Institutions]], [[Special:Student]], [[Special:Students]], [[Special:Courses]], [[Special:EducationProgram]], [[Special:CampusAmbassadors]], [[Special:OnlineAmbassadors]], [[Special:CampusAmbassadorProfile]], [[Special:OnlineAmbassadorProfile]], [[Special:Enroll]], [[Special:Disenroll]], [[Special:StudentActivity]], [[Special:Articles]], [[Special:ManageCourses]]}}',
+	'specialpages-group-education' => '{{doc-special-group|that=are related to the extension EducationProgram|like=[[Special:MyCourses]], [[Special:Institutions]], [[Special:Student]], [[Special:Students]], [[Special:Courses]], [[Special:EducationProgram]], [[Special:CampusAmbassadors]], [[Special:OnlineAmbassadors]], [[Special:CampusAmbassadorProfile]], [[Special:OnlineAmbassadorProfile]], [[Special:Enroll]], [[Special:Disenroll]], [[Special:StudentActivity]], [[Special:Articles]], [[Special:ManageCourses]]}}
+{{Identical|Education}}',
 	'special-mycourses' => '{{doc-special|MyCourses}}',
 	'special-managecourses' => '{{doc-special|ManageCourses}}',
 	'special-institutions' => '{{doc-special|Institutions}}',
@@ -2093,6 +2095,7 @@ $messages['af'] = array(
  * @author OsamaK
  * @author Samir I. Sharbaty
  * @author Zanatos
+ * @author زكريا
  */
 $messages['ar'] = array(
 	'educationprogram-desc' => 'وتساعد البرامج التعليمية عن طريق إضافات واجهات عديدة لإدارة المناهج والمؤسسات وأدوار المستفيدين من العملية التعليمية.',
@@ -2106,7 +2109,7 @@ $messages['ar'] = array(
 	'ep-err-failed-to-save' => 'حدث خطأ ما، ولم تُحفظ تغييراتك.',
 	'ep-didyouknow-header' => 'هل تعلم...؟',
 	'ep-tab-view' => 'اقرأ',
-	'ep-tab-edit' => 'تعديل',
+	'ep-tab-edit' => 'عدل',
 	'ep-tab-create' => 'أنشئ',
 	'ep-tab-history' => 'اعرض التاريخ',
 	'ep-tab-enroll' => 'انتساب',
@@ -2845,6 +2848,7 @@ $messages['bn'] = array(
 $messages['br'] = array(
 	'ep-item-summary' => 'Diverrañ',
 	'ep-toplink' => 'Kentelioù',
+	'ep-org-course-delete' => 'Dilamet eo bet an ensavadur $1 hag e holl gentelioù',
 	'ep-form-summary' => 'Diverrañ :',
 	'ep-form-minor' => "Ur c'hemm dister eo hemañ",
 	'ep-student-view-profile' => 'profil ar studier',
@@ -2881,10 +2885,13 @@ $messages['br'] = array(
 	'logentry-online-add' => "$1 {{GENDER:$2|en deus|he deus}} ouzhpennet {{PLURAL:$4|un den a-youl vat|tud a-youl vat}} $5 d'ar c'hentelioù $3",
 	'logentry-student-add' => "$1 a zo en em enskrivet d'ar gentel $3",
 	'prefs-education' => 'Deskadurezh',
+	'right-ep-course' => 'Merañ kentelioù ar programm deskadurezh',
+	'right-ep-bulkdelorgs' => 'Dilemel ensavadurioù a-vras',
 	'right-ep-bulkdelcourses' => 'Dilemel kentelioù a-vras',
 	'right-ep-remarticle' => 'Distagan ar pennadoù diouzh ar studierien',
 	'action-ep-org' => 'merañ an ensavadurioù',
 	'action-ep-course' => "merañ ar c'hentelioù",
+	'action-ep-remstudent' => 'tennañ studierien eus kentelioù',
 	'action-ep-enroll' => 'en em enskrivañ e kentelioù',
 	'action-ep-bulkdelorgs' => 'Dilemel ensavadurioù a-vras',
 	'action-ep-bulkdelcourses' => 'dilemel kentelioù a-vras',
@@ -5585,6 +5592,7 @@ $messages['eo'] = array(
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Ayaita
  * @author Dalton2
  * @author Fitoschido
  * @author Invadinado
@@ -5659,13 +5667,13 @@ $messages['es'] = array(
 	'logentry-instructor-remove' => '$1 {{GENDER:$2|ha eliminado}} {{PLURAL:$4|al instructor|a los instructores}} $5 del curso $3',
 	'logentry-instructor-selfadd' => '$1 se ha agregado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|instructor|instructora}} del curso $3',
 	'logentry-instructor-selfremove' => '$1 se ha eliminado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|instructor|instructora}} del curso $3',
-	'logentry-online-add' => '$1 ha añadido {{PLURAL:$4|al voluntario en línea|a los voluntarios en línea}} $5 al curso $3', # Fuzzy
-	'logentry-online-remove' => '$1 ha eliminado {{PLURAL:$4|al voluntario en línea|a los voluntarios en línea}} $5 del curso $3', # Fuzzy
+	'logentry-online-add' => '$1 {{GENERO:$2|añadido}} {{PLURAL:$4|al voluntario en línea|a los voluntarios en línea}} $5 al curso $3',
+	'logentry-online-remove' => '$1  {{GENDER:$2|ha eliminado}} {{PLURAL:$4|al voluntario en línea|a los voluntarios en línea}} $5 del curso $3',
 	'logentry-online-selfadd' => '$1 se ha agregado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|voluntario en línea|voluntaria en línea}} del curso $3',
 	'logentry-online-selfremove' => '$1 se ha eliminado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|voluntario en línea|voluntaria en línea}} del curso $3',
 	'logentry-online-profilesave' => '$1 ha actualizado su perfil de {{GENDER:$2|Voluntario en línea|Voluntaria en línea}}',
-	'logentry-campus-add' => '$1 ha añadido {{PLURAL:$4|al voluntario de campus|a los voluntarios de campus}} $5 al curso $3', # Fuzzy
-	'logentry-campus-remove' => '$1 ha eliminado {{PLURAL:$4|al voluntario de campus|a los voluntarios de campus}} $5 del curso $3', # Fuzzy
+	'logentry-campus-add' => '$1 {{GENERO:$2|añadido}} {{PLURAL:$4|al voluntario de campus|a los voluntarios de campus}} $5 al curso $3',
+	'logentry-campus-remove' => '$1 {{GENDER:$2|ha eliminado}} {{PLURAL:$4|al voluntario de campus|a los voluntarios de campus}} $5 del curso $3',
 	'logentry-campus-selfadd' => '$1 se ha agregado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|voluntario de campus|voluntaria de campus}} del curso $3',
 	'logentry-campus-selfremove' => '$1 se ha eliminado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|voluntario de campus|voluntaria de campus}} del curso $3',
 	'logentry-campus-profilesave' => '$1 ha actualizado su perfil de {{GENDER:$2|Voluntario de campus|Voluntaria de campus}}',
@@ -5727,12 +5735,12 @@ $messages['es'] = array(
 	'group-epcampus' => 'Voluntarios de campus del curso',
 	'group-epcampus-member' => '{{GENDER:$1|Voluntario de campus del curso|Voluntaria de campus del curso}}',
 	'grouppage-epcampus' => '{{ns:project}}:Voluntarios de campus del curso',
-	'group-epinstructor' => 'Instructor del curso', # Fuzzy
+	'group-epinstructor' => 'Instructor del curso',
 	'group-epinstructor-member' => '{{GENDER:$1|Instructor del curso|Instructora del curso}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Instructores del curso',
 	'specialpages-group-education' => 'Educación',
-	'special-mycourses' => 'Mis cursos', # Fuzzy
-	'special-managecourses' => 'Administrar mis cursos', # Fuzzy
+	'special-mycourses' => 'Mis cursos',
+	'special-managecourses' => 'Administrar mis cursos',
 	'special-institutions' => 'Instituciones',
 	'special-student' => 'Alumno',
 	'special-students' => 'Alumnos',
@@ -5749,6 +5757,7 @@ $messages['es'] = array(
 	'ep-course-status-passed' => 'Pasados',
 	'ep-course-status-current' => 'Actuales',
 	'ep-course-status-planned' => 'Planificados',
+	'ep-course-status-current-planned' => 'Actuales y planificadas',
 	'ep-summary-table-header' => 'Datos totales del programa educativo',
 	'ep-specialeducationprogram-summary-org-count' => 'Número de [[Special:Institutions|instituciones]]',
 	'ep-specialeducationprogram-summary-course-count' => 'Número de [[Special:Courses|cursos]]',
@@ -5845,13 +5854,14 @@ $messages['es'] = array(
 	'epstudentpager-header-student' => 'Alumno',
 	'epstudentpager-header-articles' => 'Artículos',
 	'epstudentpager-header-reviewers' => 'Revisores',
+	'ep-articles-sandboxes' => 'Zona de pruebas',
 	'ep-articles-remstudent' => 'quitar del curso',
-	'ep-articles-remreviewer-self' => 'Eliminarme como {{GENDER:$1|revisor|revisora}}', # Fuzzy
+	'ep-articles-remreviewer-self' => 'Eliminarme como {{GENDER:$1|revisor|revisora}}',
 	'ep-articles-remreviewer' => 'quitar como {{GENDER:$1|revisor|revisora}}',
 	'ep-articles-remarticle' => 'Eliminar artículo',
 	'ep-articles-addarticle-text' => 'Añadir un artículo:',
 	'ep-articles-addarticle-button' => 'Agregar artículo',
-	'ep-articles-becomereviewer' => 'Agregarme como {{GENDER:$1|revisor|revisora}}', # Fuzzy
+	'ep-articles-becomereviewer' => 'Agregarme como {{GENDER:$1|revisor|revisora}}',
 	'ep-articletable-addreviwer-title' => 'Convertido en {{GENDER:$1| revisor|revisora}}',
 	'ep-articletable-addreviwer-button' => 'Convertido en {{GENDER:$1|revisor|revisora}}',
 	'ep-articletable-addreviwer-cancel' => 'Cancelar',
@@ -6198,35 +6208,35 @@ El registro de borrado para este curso se indica a continuación por convenienci
 	'ep-campus-add-self-title' => 'Convertirse en {{GENDER:$1|un Voluntario de campus|una Voluntaria de campus}} para este curso',
 	'ep-campus-add-button' => 'Agregar un voluntario de campus',
 	'ep-campus-add-self-button' => 'Convertirse en {{GENDER:$1|Voluntario de campus|Voluntaria de campus}}',
-	'ep-campus-add-text' => 'Estás agregando un embajador de campus para el curso $1. Introduce el nombre de usuario del embajador de campus y una breve descripción de por qué esta persona está siendo agregada.', # Fuzzy
-	'ep-campus-add-self-text' => 'Te estás agregando como {{GENDER:$2|embajador de campus|embajadora de campus}} para el curso $1. Agrega una breve descripción de los motivos.', # Fuzzy
+	'ep-campus-add-text' => 'Estás agregando un embajador de campus para el curso $1. Introduce el nombre de usuario del embajador de campus y describe de forma breve por qué esta persona está siendo agregada.',
+	'ep-campus-add-self-text' => 'Te estás agregando como {{GENDER:$2|embajador de campus|embajadora de campus}} para el curso $1. Agrega una breve descripción de los motivos.',
 	'ep-campus-add-cancel-button' => 'Cancelar',
 	'ep-campus-summary-input' => 'Resumen:',
 	'ep-campus-name-input' => 'Nombre de usuario:',
 	'ep-instructor-remove' => 'quitar como instructor',
-	'ep-campus-remove' => 'quitar como Embajador de Campus', # Fuzzy
-	'ep-online-remove' => 'quitar como Embajador en línea', # Fuzzy
+	'ep-campus-remove' => 'quitar como Embajador de Campus',
+	'ep-online-remove' => 'quitar como Embajador en línea',
 	'ep-enlist-invalid-user-args' => 'Necesitas proporcionar el nombre de usuario o el parámetro identificador de usuario',
-	'ep-enlist-invalid-user' => 'El nombre o identificador de usuario proporcionado no es válido y, por tanto, no puede ser asociado como instructor o embajador en el curso especificado', # Fuzzy
+	'ep-enlist-invalid-user' => 'El nombre o identificador de usuario proporcionado no es válido y, por tanto, no puede ser asociado como instructor o embajador en el curso especificado',
 	'ep-enlist-invalid-course' => 'No hay ningún curso con el identificador proporcionado',
-	'onlineambassadorprofile' => 'Perfil de embajador en línea', # Fuzzy
-	'onlineambassadorprofile-legend' => 'Mi perfil de Embajador en línea', # Fuzzy
-	'onlineambassadorprofile-text' => 'Tu perfil de Embajador en línea es el que los estudiantes van a ver cuando hojean los embajadores disponibles.', # Fuzzy
+	'onlineambassadorprofile' => 'Perfil de embajador en línea',
+	'onlineambassadorprofile-legend' => 'Mi perfil de Embajador en línea',
+	'onlineambassadorprofile-text' => 'Tu perfil de Embajador en línea es el que los estudiantes van a ver cuando hojean los embajadores disponibles.',
 	'epoa-profile-bio' => 'Breve biografía',
 	'epoa-profile-photo' => 'Foto de perfil',
 	'epoa-profile-photo-help' => 'Una imagen tuya se mostrará junto a tu biografía. Introduce el nombre de una imagen de Wikimedia Commons y aparecerá una vista previa. Puedes escribir las primeras letras del nombre de la imagen y, a continuación, selecciona tu imagen en la lista de sugerencias. Si aún no tienes una imagen tuya en Commons, ¡[$1 sube una]!',
 	'epoa-profile-saved' => 'Se ha guardado tu perfil',
 	'epoa-profile-invalid-bio' => 'Tu biografía debe contener al menos $1 {{PLURAL:$1|carácter|caracteres}}.',
-	'epoa-visible' => 'Incluirme en lista pública como Embajador en línea', # Fuzzy
-	'campusambassadorprofile' => 'Perfil de Embajador de campus', # Fuzzy
-	'campusambassadorprofile-legend' => 'Mi perfil de Embajador de campus', # Fuzzy
-	'campusambassadorprofile-text' => 'Tu perfil de Embajador de campus es el que los alumnos van a ver cuando hojean los embajadores disponibles.', # Fuzzy
+	'epoa-visible' => 'Incluirme en lista pública como Embajador en línea',
+	'campusambassadorprofile' => 'Perfil de Embajador de campus',
+	'campusambassadorprofile-legend' => 'Mi perfil de Embajador de campus',
+	'campusambassadorprofile-text' => 'Tu perfil de Embajador de campus es el que los alumnos van a ver cuando hojean los embajadores disponibles.',
 	'epca-profile-bio' => 'Breve biografía',
 	'epca-profile-photo' => 'Foto del perfil',
 	'epca-profile-photo-help' => 'Una imagen tuya se mostrará junto a tu biografía. Introduce el nombre de una imagen de Wikimedia Commons y aparecerá una vista previa. Puedes escribir las primeras letras del nombre de la imagen y, a continuación, selecciona tu imagen en la lista de sugerencias. Si aún no tienes una imagen tuya en Commons, ¡[$1 sube una]!',
 	'epca-profile-saved' => 'Se ha guardado tu perfil',
 	'epca-profile-invalid-bio' => 'Tu biografía debe contener al menos $1 {{PLURAL:$1|carácter|caracteres}}.',
-	'epca-visible' => 'Incluirme en lista pública como Embajador de campus', # Fuzzy
+	'epca-visible' => 'Incluirme en lista pública como Embajador de campus',
 	'ep-studentactivity-noresults' => 'No hay ningún alumno que esté activo en los últimos $1
 
 Puedes encontrar una lista completa de alumnos en [[Special:Students|la lista de alumnos]].',
@@ -6252,7 +6262,7 @@ Puedes encontrar una lista completa de alumnos en [[Special:Students|la lista de
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' ha creado su '''[[$2|página de usuari{{GENDER:$3|o|a}}]]''' y ha publicado {{PLURAL:$4|un mensaje|varios mensajes}}.",
 	'ep-dashboard-login-first' => 'Necesitas iniciar sesión antes de poder ver tus cursos.',
 	'ep-dashboard-timeline-empty' => 'No ha habido ninguna actividad reciente para este curso.',
-	'ep-dashboard-enroll-first' => 'No estás actualmente inscrito en ningún curso activo. Puedes ver la [[Special:Courses|lista de cursos]] e inscribirte en uno.', # Fuzzy
+	'ep-dashboard-enroll-first' => 'No estás actualmente inscrito en ningún curso activo. Puedes ver la [[Special:Courses|lista de cursos]] e inscribirte en uno.',
 );
 
 /** Estonian (eesti)
@@ -7777,7 +7787,7 @@ Le journal des suppressions de cette institution est affiché ci-dessous :",
 	'coursepage-edit-title-add' => 'Ajouter le cours : $1',
 	'coursepage-edit-deleted' => "'''Attention : vous êtes en train de recréer un cours qui a été précédemment supprimé.'''
 
-Assurez-vous qu’il est pertinent de poursuivre les modifications de ce cours.
+Assurez-vous qu’il soit pertinent de poursuivre les modifications de ce cours.
 Le journal des suppressions de ce cours est affiché ci-dessous pour plus de commodité :",
 	'ep-course-invalid-org' => 'Cette institution n’existe pas.',
 	'ep-course-invalid-token' => 'Le texte doit contenir au moins $1 {{PLURAL:$1|caractère|caractères}}',
@@ -7840,7 +7850,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'orgpage-history-deleted' => 'Cette institution a été supprimée. Le journal de la suppression de cette institution est affiché ci-dessous pour référence.',
 	'coursepage-history-description' => 'Voir les journaux pour ce cours',
 	'coursepage-history-title' => 'Historique des révisions du cours de "$1"',
-	'coursepage-history-norevs' => "Il n’existe pas d’historique d'éditions pour ce cours.",
+	'coursepage-history-norevs' => 'Il n’existe pas d’historique d’éditions pour ce cours.',
 	'coursepage-history-deleted' => 'Ce cours a été supprimé. Le journal de la suppression du cours est affiché ci-dessous pour référence.',
 	'ep-viewcourseactivityaction-title' => 'Activité pour le cours « $1 »',
 	'ep-viewcourseactivityaction-nosuchcourse' => 'Cours non trouvé !',
@@ -7873,7 +7883,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'coursepage-eprestore-summary' => 'Motif :',
 	'coursepage-eprestore-restore-button' => 'Restaurer la version',
 	'coursepage-eprestore-cancel-button' => 'Annuler',
-	'coursepage-eprestore-summary-value' => "Restaurer le cours d’après l'édition du $1 à $3 par $2",
+	'coursepage-eprestore-summary-value' => 'Restaurer le cours d’après l’édition du $1 à $3 par $2',
 	'coursepage-eprestore-restored' => 'Cours $1 restauré avec succès.',
 	'coursepage-eprestore-restore-failed' => 'Échec de la restauration du cours $1.',
 	'orgpage-epundo-title' => 'Annuler la version de l’institution "$1"',
@@ -9145,6 +9155,7 @@ Pode atopar unha lista completa dos estudantes na [[Special:Students|lista de es
 /** Hebrew (עברית)
  * @author Amire80
  * @author Esh77
+ * @author Guycn1
  * @author Inkbug
  * @author Kulystab
  * @author Matanya
@@ -9290,7 +9301,7 @@ $messages['he'] = array(
 	'grouppage-epcampus' => '{{ns:project}}:מתנדבי קמפוס של קורס',
 	'group-epinstructor' => 'מורים בקורס',
 	'group-epinstructor-member' => '{{GENDER:$1|מורה בקורס}}',
-	'grouppage-epinstructor' => '{{ns:project}}:מורים_בקורסים',
+	'grouppage-epinstructor' => '{{ns:project}}:מורים בקורסים',
 	'specialpages-group-education' => 'חינוך',
 	'special-mycourses' => 'הקורסים שלך',
 	'special-managecourses' => 'ניהול הקורסים שלך',
@@ -19157,7 +19168,7 @@ $messages['ps'] = array(
 	'ep-tab-edit' => 'سمول',
 	'ep-tab-create' => 'جوړول',
 	'ep-tab-history' => 'پېښليک کتل',
-	'ep-tab-delete' => 'ړنګول',
+	'ep-tab-delete' => 'ړنگول',
 	'tooltip-ep-form-save' => 'خوندي کول',
 	'prefs-education' => 'زده کړې',
 	'specialpages-group-education' => 'زده کړې',
@@ -19172,7 +19183,7 @@ $messages['ps'] = array(
 	'ep-educationprogram-female' => 'ښځه',
 	'ep-educationprogram-unknown' => 'ناجوت',
 	'ep-pager-go' => 'ورځه',
-	'ep-pager-delete-selected' => 'ړنګول',
+	'ep-pager-delete-selected' => 'ړنگول',
 	'ep-revision-undo' => 'ناکړ',
 	'eporgpager-header-name' => 'نوم',
 	'eporgpager-header-city' => 'ښار',
@@ -20655,6 +20666,7 @@ $messages['ru'] = array(
 	'ep-nav-courses' => 'Список курсов',
 	'ep-nav-mycourses' => 'Ваши курсы',
 	'ep-nav-students' => 'Список студентов',
+	'ep-nav-mentors' => 'Список добровольцев',
 	'log-description-institution' => 'Журнал всех изменений в [[Special:Institutions|институтах]].',
 	'log-description-course' => 'Журнал всех изменений в [[Special:Courses|курсах]].',
 	'logentry-course-add' => '$1 {{GENDER:$2|создал|создала}} курс $3',
@@ -25224,6 +25236,7 @@ $messages['zh-hans'] = array(
 	'ep-articletable-addreviwer-cancel' => '取消',
 	'ep-articletable-remreviwer-button-self' => '删除您自己',
 	'ep-articletable-remreviwer-cancel' => '取消',
+	'ep-articletable-remstudent-button' => '删除 {{GENDER:$1|学生}}',
 	'ep-articletable-remstudent-cancel' => '取消',
 	'ep-articletable-remarticle-title' => '删除文章$1',
 	'ep-articletable-remarticle-button' => '移除条目',
@@ -25279,6 +25292,8 @@ $messages['zh-hans'] = array(
 	'coursepage-edit-title-add' => '添加课程：$1',
 	'ep-course-invalid-org' => '本机构不存在。',
 	'ep-course-invalid-lang' => '该语言无效。',
+	'ep-course-no-slashes' => '课程名称不应包含任何斜杠！',
+	'coursepage-edit-undelete-revisions' => '此课程已被删除。你可以 $1 。',
 	'ep-pager-confirm-delete' => '确定要删除该项目吗？',
 	'ep-pager-delete-fail' => '无法删除该项目。',
 	'ep-pager-confirm-delete-selected' => '确定要删除已选择的{{PLURAL:$1|项}}吗？',
@@ -25336,6 +25351,7 @@ $messages['zh-hans'] = array(
 	'coursepage-delete-deleted' => '已成功删除课程$1。',
 	'coursepage-delete-delete-failed' => '删除课程[[Education_Program:$2|$1]]失败。',
 	'orgpage-delete-summary' => '删除的原因：',
+	'orgpage-delete-title' => '删除机构“$1”',
 	'orgpage-delete-cancel-button' => '取消',
 	'orgpage-delete-delete-button' => '删除机构',
 	'orgpage-eprestore-summary' => '原因：',
@@ -25370,26 +25386,38 @@ $messages['zh-hans'] = array(
 	'ep-student-actively-enrolled' => '目前就读',
 	'specialstudent-summary-last-active' => '上次活动',
 	'specialstudent-summary-user' => '用户名',
+	'ep-student-courses' => '这名学生已修读的课程',
+	'ep-enroll-signup-and-enroll' => '创建一个新帐户并加入',
+	'ep-enroll-not-allowed' => '您的帐户不允许加入',
 	'ep-enroll-legend' => '注册',
 	'ep-enroll-gender' => '性别（可选）',
 	'ep-enroll-realname' => '真实姓名（必填）',
 	'ep-enroll-realname-optional' => '真实姓名（可选）',
+	'ep-enroll-add-token' => '请输入您的加入令牌',
 	'ep-disenroll-button' => '取消注册',
 	'ep-disenroll-summary' => '您为什么要取消注册？',
 	'ep-disenroll-cancel' => '取消',
+	'ep-instructor-remove-button' => '移除讲师',
 	'ep-instructor-removing' => '正在刪除...',
+	'ep-instructor-removal-success' => '此讲师已成功从这门课程删除。',
 	'ep-instructor-close-button' => '关闭',
 	'ep-instructor-remove-retry' => '重试',
+	'ep-instructor-remove-failed' => '出了错-无法删除课程讲师。',
 	'ep-instructor-cancel-button' => '取消',
 	'ep-instructor-adding' => '正在添加…',
 	'ep-instructor-add-close-button' => '关闭',
 	'ep-instructor-add-retry' => '重试',
+	'ep-instructor-add-button' => '添加讲师',
+	'ep-instructor-add-self-button' => '成为 {{GENDER:$1|讲师}}',
 	'ep-instructor-add-cancel-button' => '取消',
 	'ep-instructor-summary-input' => '摘要：',
 	'ep-instructor-name-input' => '用户名：',
+	'ep-online-remove-button' => '移除在线志愿者',
 	'ep-online-removing' => '正在删除…',
+	'ep-online-removal-success' => '已成功从本课程删除此在线志愿者。',
 	'ep-online-close-button' => '关闭',
 	'ep-online-remove-retry' => '重试',
+	'ep-online-remove-failed' => '出了错-无法从该课程删除在线志愿者。',
 	'ep-online-cancel-button' => '取消',
 	'ep-online-adding' => '正在添加…',
 	'ep-online-add-close-button' => '关闭',
@@ -25405,10 +25433,14 @@ $messages['zh-hans'] = array(
 	'ep-campus-adding' => '正在添加…',
 	'ep-campus-add-close-button' => '关闭',
 	'ep-campus-add-retry' => '重试',
+	'ep-campus-add-button' => '添加校园志愿者',
+	'ep-campus-add-self-button' => '成为 {{GENDER:$1|校园志愿者}}',
 	'ep-campus-add-cancel-button' => '取消',
 	'ep-campus-summary-input' => '摘要：',
 	'ep-campus-name-input' => '用户名：',
 	'onlineambassadorprofile-legend' => '您的在线志愿者个人档案',
+	'epoa-profile-bio' => '个人简历',
+	'epoa-profile-photo' => '个人资料照片',
 	'epoa-visible' => '公开列出您为在线志愿者',
 	'campusambassadorprofile-legend' => '您的校园志愿者个人档案',
 	'epca-profile-bio' => '个人简历',
