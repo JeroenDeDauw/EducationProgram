@@ -424,6 +424,7 @@ $specialPageAliases['zh-hans'] = array(
 	'CampusAmbassadorProfile' => array( '校园大使个人资料' ),
 	'StudentActivity' => array( '学生活动' ),
 	'Articles' => array( '文章' ),
+	'CourseActivity' => array( '课程活动' ),
 );
 
 /** Traditional Chinese (中文（繁體）‎) */
