@@ -16523,6 +16523,7 @@ $messages['ms'] = array(
 	'epstudentpager-header-student' => 'Pelajar',
 	'epstudentpager-header-articles' => 'Rencana',
 	'epstudentpager-header-reviewers' => 'Penyemak',
+	'ep-articles-sandboxes' => 'kotak pasir',
 	'ep-articles-remstudent' => 'gugurkan dari kursus',
 	'ep-articles-remreviewer-self' => 'Gugurkan anda sebagai {{GENDER:$1|penyemak}}',
 	'ep-articles-remreviewer' => 'gugurkan sebagai {{GENDER:$1|penyemak}}',
