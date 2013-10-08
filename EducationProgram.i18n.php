@@ -1351,7 +1351,8 @@ Parameters:
 	'ep-course-edit-org' => 'Input label',
 	'ep-course-edit-start' => 'Input label.
 {{Identical|Start date}}',
-	'ep-course-edit-end' => 'Input label',
+	'ep-course-edit-end' => 'Input label.
+{{Identical|End date}}',
 	'ep-course-edit-token' => 'Input label',
 	'ep-course-help-token' => 'Extra description for the token input field',
 	'ep-course-edit-description' => 'Input label',
@@ -4078,7 +4079,7 @@ Všechny studenty můžete nalézt [[Special:Students|v seznamu studentů]].',
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' {{GENDER:obdržel|obdržela|obdržel/a}} {{PLURAL:$4|zprávu|zprávy}} na {{GENDER:$3|svoji}} nově vytvořené '''[[$2|diskusní stránce]]'''.",
 	'ep-timeline-users-create-user-self' => "$1 {{GENDER:vytvořil|vytvořila|vytvořil/a}}{{GENDER:$3|svoji}} '''[[$2|diskusní stránku]]'''.",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' {{GENDER:vytvořil|vytvořila|vytvořil/a}} {{GENDER:$3|svoji}} '''[[$2|diskusní stránku]]''' a {{GENDER:zanechal|zanechala|zanechal/a}} v ní {{PLURAL:$4|zprávu|několik zpráv}}.",
-	'ep-dashboard-login-first' => 'Musíte se nejprve přihlásit abyste zobrazili své kurzy.',
+	'ep-dashboard-login-first' => 'Musíte se nejprve přihlásit, abyste zobrazili své kurzy.',
 	'ep-dashboard-timeline-empty' => 'Není zde žádná nedávná aktivita tohoto kurzu.',
 	'ep-dashboard-enroll-first' => 'Nejste momentálně součástí žádného běžícího kurzu. Nahlédněte do [[Special:Courses|seznamu kurzů]].',
 );
