@@ -346,7 +346,7 @@ final class Hooks {
 				}
 			}
 		}
-		wfProfileIn( __METHOD__ );
+		wfProfileOut( __METHOD__ );
 	}
 
 	/**
