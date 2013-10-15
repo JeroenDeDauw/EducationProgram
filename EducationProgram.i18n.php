@@ -7007,6 +7007,7 @@ $messages['eu'] = array(
 
 /** Persian (فارسی)
  * @author Alireza
+ * @author Ebraminio
  * @author Hooshmand.hasannia
  * @author Mjbmr
  * @author Reza1615
@@ -7025,7 +7026,7 @@ $messages['fa'] = array(
 	'ep-move-error' => 'شما اجازهٔ انتقال یا جابجایی مقالات از فضای نام آموزشی ندارید.',
 	'ep-student-view-profile' => 'حساب کاربری دانش‌آموز',
 	'ep-err-failed-to-save' => 'خطایی رخ داد-تغییرات شما ذخیره نشد.',
-	'ep-didyouknow-header' => 'آیا می‌دانستید...؟',
+	'ep-didyouknow-header' => 'آیا می‌دانستید که ...؟',
 	'ep-tab-view' => 'خواندن',
 	'ep-tab-edit' => 'ویرایش',
 	'ep-tab-create' => 'ایجاد',
@@ -7130,7 +7131,7 @@ $messages['fa'] = array(
 	'epstudentpager-header-user-id' => 'نام کاربری',
 	'epstudentpager-header-id' => 'شناسه',
 	'epstudentpager-header-current-courses' => 'دوره‌های فعلی',
-	'epstudentpager-header-passed-courses' => 'دوره‌های به اتمام رسیده',
+	'epstudentpager-header-passed-courses' => 'دوره‌های به اتمام رسیده', # Fuzzy
 	'epstudentpager-yes' => 'بله',
 	'epstudentpager-no' => 'خیر',
 	'epstudentpager-header-student' => 'دانش‌آموز',
@@ -17861,7 +17862,7 @@ $messages['nl'] = array(
 	'special-disenroll' => 'Uitschrijven',
 	'special-studentactivity' => 'Studentactiviteit',
 	'special-articles' => "Pagina's (Onderwijsprogramma)",
-	'ep-course-status-passed' => 'Geslaagd',
+	'ep-course-status-passed' => 'Afgesloten',
 	'ep-course-status-current' => 'Huidige',
 	'ep-course-status-planned' => 'Gepland',
 	'ep-course-status-current-planned' => 'Huidig en gepland',
@@ -17952,7 +17953,7 @@ $messages['nl'] = array(
 	'epstudentpager-header-user-id' => 'Gebruikersnaam',
 	'epstudentpager-header-id' => 'ID',
 	'epstudentpager-header-current-courses' => 'Huidige cursussen',
-	'epstudentpager-header-passed-courses' => 'Gehaalde cursussen',
+	'epstudentpager-header-passed-courses' => 'Afgesloten cursussen',
 	'epstudentpager-header-first-enroll' => 'Eerste inschrijving',
 	'epstudentpager-header-last-active' => 'Laatst actief',
 	'epstudentpager-header-active-enroll' => 'Ingeschreven',
