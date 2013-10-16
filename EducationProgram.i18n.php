@@ -15214,6 +15214,7 @@ $messages['lb'] = array(
 	'orgpage-eprestore-summary' => 'Grond:',
 	'orgpage-eprestore-restore-button' => 'Versioun restauréieren',
 	'orgpage-eprestore-cancel-button' => 'Ofbriechen',
+	'orgpage-eprestore-summary-value' => "Institutioun op d'Versioun vum $1, $3 vum $2 restauréiert",
 	'orgpage-eprestore-restored' => "D'Institutioun $1 gouf restauréiert.",
 	'orgpage-eprestore-restore-failed' => "D'Institutioun $1 konnt net restauréiert ginn.",
 	'coursepage-eprestore-title' => 'Cours "$1" restauréieren',
@@ -15225,6 +15226,7 @@ $messages['lb'] = array(
 	'orgpage-epundo-summary' => 'Grond:',
 	'orgpage-epundo-undo-button' => 'Versioun zrécksetzen',
 	'orgpage-epundo-cancel-button' => 'Ofbriechen',
+	'orgpage-epundo-summary-value' => 'Versioun vum $1, $3 vum $2 zrécksetzen',
 	'coursepage-epundo-title' => 'Versioun vum Cours "$1" annulléieren',
 	'coursepage-epundo-summary' => 'Grond:',
 	'coursepage-epundo-undo-button' => 'Versioun annulléieren',
@@ -15258,6 +15260,7 @@ $messages['lb'] = array(
 	'ep-student-articles' => 'Artikelen un deenen dëse Student schafft.',
 	'ep-enroll-title' => 'Fir de Cours $1 vu(n) $2 aschreiwen',
 	'ep-enroll-login-first' => 'Ier Dir Iech an dëse Cours aschreiwe kënnt, musst Dir Iech aloggen.',
+	'ep-enroll-login-and-enroll' => 'Mat engem Benotzerkont deen et gëtt aloggen & aschreiwen',
 	'ep-enroll-signup-and-enroll' => 'En neie Kont opmaachen an aschreiwen',
 	'ep-enroll-not-allowed' => 'Äre Benotzerkont erlaabt et net fir sech anzeschreiwen',
 	'ep-enroll-invalid-id' => "De Cours an deen Dir Iech aschreiwe wollt gëtt et net. Kuckt d'[[Special:Courses|Lëscht vun de Coursen]].",
@@ -21971,7 +21974,7 @@ $messages['sv'] = array(
 	'ep-nav-courses' => 'Kurslista',
 	'ep-nav-mycourses' => 'Dina kurser',
 	'ep-nav-students' => 'Studentlista',
-	'ep-nav-mentors' => 'Ambassadörslista',
+	'ep-nav-mentors' => 'Volontärlista',
 	'ep-nav-cas' => 'Wikipediaambassadörer',
 	'ep-nav-oas' => 'Onlineambassadörer',
 	'ep-nav-oaprofile' => 'Onlineambassadörens profil',
@@ -22094,7 +22097,7 @@ $messages['sv'] = array(
 	'special-disenroll' => 'Avregistrera dig',
 	'special-studentactivity' => 'Studentaktivitet',
 	'special-articles' => 'Artiklar (utbildningsprogram)',
-	'ep-course-status-passed' => 'Hoppat över',
+	'ep-course-status-passed' => 'Avslutad',
 	'ep-course-status-current' => 'Aktuell',
 	'ep-course-status-planned' => 'Planerad',
 	'ep-course-status-current-planned' => 'Pågående och planerade',
@@ -22185,7 +22188,7 @@ $messages['sv'] = array(
 	'epstudentpager-header-user-id' => 'Användarnamn',
 	'epstudentpager-header-id' => 'Id',
 	'epstudentpager-header-current-courses' => 'Aktuella kurser',
-	'epstudentpager-header-passed-courses' => 'Avklarade kurser',
+	'epstudentpager-header-passed-courses' => 'Avslutade kurser',
 	'epstudentpager-header-first-enroll' => 'Första registrering',
 	'epstudentpager-header-last-active' => 'Senaste aktiv',
 	'epstudentpager-header-active-enroll' => 'Nuvarande registrerade',
@@ -23805,6 +23808,7 @@ $messages['tly'] = array(
 /** Turkish (Türkçe)
  * @author Erdemaslancan
  * @author Incelemeelemani
+ * @author Rapsar
  */
 $messages['tr'] = array(
 	'educationprogram-desc' => 'Çeşitli eğitim rolü bulunan kullanıcılar ve kurumlar için, kurslar yönetim arayüzünü ekleyerek eğitim programlarının uygulanmasını kolaylaştırır.',
@@ -23851,6 +23855,9 @@ $messages['tr'] = array(
 	'ep-educationprogram-gender-oas' => 'Sefirê xetmiyani', # Fuzzy
 	'ep-educationprogram-gender-instructors' => 'Eğitmenler',
 	'epcapager-header-bio' => 'Profil',
+	'ep-instructor-removing' => 'Kaldırılıyor...',
+	'ep-online-removing' => 'Kaldırılıyor...',
+	'ep-campus-removing' => 'Removing...',
 );
 
 /** Uyghur (Arabic script) (ئۇيغۇرچە)
