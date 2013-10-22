@@ -145,6 +145,20 @@ class Org extends PageObject {
 	public function save( $functionName = null ) {
 		wfGetDB( DB_MASTER )->begin( __METHOD__ );
 
+		// Check if we're attempting to create an institution that already exists.
+		// This can happen if the user clicks the "Submit" button of the
+		// second form for creating an institution more than once.
+		if ( !$this->hasIdField() ) {
+			$name = $this->getField( 'name' );
+
+			if ( $this->table->has( array( 'name' => $name ) ) ) {
+
+				$pageTitle = $this->getTitle(); // title of the Wiki page
+				throw new ErrorPageErrorWithSelflink( 'ep-err-org-exists-title',
+						'ep-err-org-exists-text', $pageTitle, $name );
+			}
+		}
+
 		$success = parent::save( $functionName );
 
 		if ( $success ) {

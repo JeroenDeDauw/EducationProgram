@@ -215,6 +215,21 @@ class Course extends PageObject {
 	 * @see ORMRow::save()
 	 */
 	public function save( $functionName = null ) {
+
+		// Check if we're attempting to create a course that already exists.
+		// This can happen if the user clicks the "Submit" button of the
+		// second form for course creation more than once.
+		if ( !$this->hasIdField() ) {
+			$title = $this->getField( 'title' );
+
+			if ( $this->table->has( array( 'title' => $title ) ) ) {
+
+				$pageTitle = $this->getTitle(); // title of the Wiki page
+				throw new ErrorPageErrorWithSelflink( 'ep-err-course-exists-title',
+						'ep-err-course-exists-text', $pageTitle, $title );
+			}
+		}
+
 		if ( $this->hasField( 'name' ) ) {
 			$this->setField( 'name', $GLOBALS['wgLang']->ucfirst( $this->getField( 'name' ) ) );
 		}
