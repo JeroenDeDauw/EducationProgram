@@ -10619,7 +10619,7 @@ $messages['ia'] = array(
 	'special-disenroll' => 'Disinscriber se',
 	'special-studentactivity' => 'Activitate de studentes',
 	'special-articles' => 'Articulos (programma de education)',
-	'ep-course-status-passed' => 'Passate',
+	'ep-course-status-passed' => 'Finite',
 	'ep-course-status-current' => 'In curso',
 	'ep-course-status-planned' => 'Planificate',
 	'ep-course-status-current-planned' => 'Actual e planificate',
@@ -10710,7 +10710,7 @@ $messages['ia'] = array(
 	'epstudentpager-header-user-id' => 'Nomine de usator',
 	'epstudentpager-header-id' => 'ID',
 	'epstudentpager-header-current-courses' => 'Cursos actual',
-	'epstudentpager-header-passed-courses' => 'Cursos passate',
+	'epstudentpager-header-passed-courses' => 'Cursos finite',
 	'epstudentpager-header-first-enroll' => 'Prime inscription',
 	'epstudentpager-header-last-active' => 'Ultime active',
 	'epstudentpager-header-active-enroll' => 'Actualmente inscribite',
@@ -23900,7 +23900,7 @@ $messages['tr'] = array(
 	'epcapager-header-bio' => 'Profil',
 	'ep-instructor-removing' => 'Kaldırılıyor...',
 	'ep-online-removing' => 'Kaldırılıyor...',
-	'ep-campus-removing' => 'Removing...',
+	'ep-campus-removing' => 'Kaldırılıyor...',
 );
 
 /** Uyghur (Arabic script) (ئۇيغۇرچە)
