@@ -264,6 +264,34 @@
 		return false;
 	}
 
+	function autocompleteSource( request, response ) {
+		$.getJSON(
+			mw.config.get( 'wgScriptPath' ) + '/api.php',
+			{
+				'action': 'opensearch',
+				'format': 'json',
+				'search': request.term,
+				'limit': 8
+			},
+			function( data ) {
+				response( $.map( data[1], function( item ) {
+					return {
+						'label': item,
+						'value': item
+					};
+				} ) );
+			}
+		);
+	}
+
+	function autocompleteOpen() {
+		$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+	}
+
+	function autocompleteClose() {
+		$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+	}
+
 	$( document ).ready( function() {
 
 		$( '.ep-rem-reviewer-self, .ep-become-reviewer' ).removeAttr( 'disabled' );
@@ -276,33 +304,11 @@
 
 		$( '.ep-rem-article' ).click( removeArticle );
 
-		$( '#addarticlename' ).autocomplete( {
-			source: function( request, response ) {
-				$.getJSON(
-					mw.config.get( 'wgScriptPath' ) + '/api.php',
-					{
-						'action': 'opensearch',
-						'format': 'json',
-						'search': request.term,
-						'limit': 8
-					},
-					function( data ) {
-						response( $.map( data[1], function( item ) {
-							return {
-								'label': item,
-								'value': item
-							};
-						} ) );
-					}
-				);
-			},
+		$( '.ep-addarticlename' ).autocomplete( {
+			source: autocompleteSource,
 			minLength: 2,
-			open: function() {
-				$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-			},
-			close: function() {
-				$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
-			}
+			open: autocompleteOpen,
+			close: autocompleteClose
 		} );
 
 	} );

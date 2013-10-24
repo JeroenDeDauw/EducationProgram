@@ -40,6 +40,14 @@ class ArticleTable extends EPPager {
 	protected $courseIds;
 
 	/**
+	 * The course object for these articles, if the table is for only one course.
+	 *
+	 * @since 0.4 alpha
+	 * @var Course
+	 */
+	protected $course;
+
+	/**
 	 * Id of the user all articles should belong to
 	 * or null for no such restriction.
 	 *
@@ -71,11 +79,15 @@ class ArticleTable extends EPPager {
 	 * @param array $conds
 	 * @param int[]|int $courseIds
 	 * @param int[]|null $userIds
+	 * @param Course $course The course object or these articles. Should be sent
+	 *   when the table is for only one course.
 	 */
-	public function __construct( IContextSource $context, array $conds = array(), $courseIds, array $userIds = null ) {
+	public function __construct( IContextSource $context, array $conds = array(),
+			$courseIds, array $userIds = null, $course = null ) {
 		$this->mDefaultDirection = true;
 		$this->courseIds = (array)$courseIds;
 		$this->userIds = $userIds;
+		$this->course = $course;
 
 		parent::__construct( $context, $conds, Students::singleton() );
 	}
@@ -94,6 +106,7 @@ class ArticleTable extends EPPager {
 	/**
 	 * Returns the resource loader modules used by the pager.
 	 *
+	 * TODO fix this version number?
 	 * @since 0.4
 	 *
 	 * @return array
@@ -145,30 +158,64 @@ class ArticleTable extends EPPager {
 		$student = $this->currentObject;
 		$articles = $this->articles[$student->getField( 'user_id' )];
 		$user = $this->getUser();
+		$userId = $user->getId();
+		$showArticleAddition = false;
 
+		// Show the article addition control for this student?
+		// Only if the table contains articles for only one course, and...
+		if ( ( $this->isForOneCourse() ) &&
+
+			// ...the user is the student referred to by this row, or...
+			( ( $userId === $student->getField( 'user_id' ) ) ||
+
+			// we received a valid $this->course object, and the user is
+			// an instructor, an online ambassador or a campus ambassador
+			// for this course.
+			( !is_null($this->course) && ( RoleObject::isInRoleObjArray(
+				$userId, $this->course->getAllNonStudentRoleObjs() ) ) ) ) ) {
+
+				$showArticleAddition = true;
+		}
+
+		// initial calculation for row count
 		$rowCount = array_reduce(
 			$articles,
 			function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
-				if ( $article->canBecomeReviewer( $user ) ) {
-					$sum++;
+
+				// At least one row per article the student has to review;
+				// for articles that have more than one reviewer, provide extra rows for them.
+				$reviewersCount = count( $article->getReviewers() );
+				$inc = max( 1, $reviewersCount );
+
+				// The "Become a reviewer" control also adds an extra row, unless there are no
+				// reviewers.
+				if ( $article->canBecomeReviewer( $user ) && ( $reviewersCount > 0 ) ) {
+					$inc++;
 				}
 
-				return $sum + count( $article->getReviewers() );
+				return $sum + $inc;
 			},
 			0
 		);
 
-		$html = Html::openElement( 'tr', $this->getRowAttrs( $row ) );
-
-		$showArticleAddition =
-			$user->getId() === $student->getField( 'user_id' )
-			&& $this->isForOneCourse();
-
-		if ( $this->showStudents ) {
-			$html .= $this->getUserCell( $student->getField( 'user_id' ), max( 1, $rowCount ) );
+		// one extra row for showing the article addition control (which spans the
+		// last two columns)
+		if ($showArticleAddition) {
+			$rowCount++;
 		}
 
-		$this->addNonStudentHTML( $html, $articles, $showArticleAddition );
+		// must be at least one, even if there's nothing in the following columns
+		$rowCount = max( 1, $rowCount );
+
+		$html = Html::openElement( 'tr', $this->getRowAttrs( $row ) );
+
+		$studentUserId = $student->getField( 'user_id' );
+
+		if ( $this->showStudents ) {
+			$html .= $this->getUserCell( $studentUserId, $rowCount );
+		}
+
+		$this->addNonStudentHTML( $html, $articles, $showArticleAddition, $studentUserId );
 
 		$html .= '</tr>';
 
@@ -184,7 +231,7 @@ class ArticleTable extends EPPager {
 	 * @param array $articles
 	 * @param boolean $showArticleAddition
 	 */
-	protected function addNonStudentHTML( &$html, array $articles, $showArticleAddition ) {
+	protected function addNonStudentHTML( &$html, array $articles, $showArticleAddition, $studentUserId ) {
 		$isFirst = true;
 
 		/**
@@ -199,9 +246,11 @@ class ArticleTable extends EPPager {
 
 			$reviewers = $article->getReviewers();
 
+			$canBecomeReviewer = $article->canBecomeReviewer( $this->getUser() );
+
 			$articleRowCount = count( $reviewers );
 
-			if ( $article->canBecomeReviewer( $this->getUser() ) ) {
+			if ($canBecomeReviewer) {
 				$articleRowCount++;
 			}
 
@@ -209,15 +258,19 @@ class ArticleTable extends EPPager {
 
 			$html .= $this->getArticleCell( $article, $articleRowCount );
 
+			$isFirstReviewer = true;
+
 			foreach ( $reviewers as $nr => $userId ) {
-				if ( $nr !== 0 ) {
+				if ( !$isFirstReviewer ) {
 					$html .= '</tr><tr>';
 				}
+
+				$isFirstReviewer = false;
 
 				$html .= $this->getReviewerCell( $article, $userId );
 			}
 
-			if ( $article->canBecomeReviewer( $this->getUser() ) ) {
+			if ( $canBecomeReviewer ) {
 				if ( count( $reviewers ) !== 0 ) {
 					$html .= '</tr><tr>';
 				}
@@ -234,7 +287,7 @@ class ArticleTable extends EPPager {
 				$html .= '</tr><tr>';
 			}
 
-			$html .= $this->getArticleAdditionControl( reset( $this->courseIds ) );
+			$html .= $this->getArticleAdditionControl( reset( $this->courseIds ), $studentUserId );
 		}
 		elseif ( $isFirst ) {
 			$html .= '<td></td><td></td>';
@@ -477,7 +530,7 @@ class ArticleTable extends EPPager {
 	 *
 	 * @return string
 	 */
-	protected function getArticleAdditionControl( $courseId ) {
+	protected function getArticleAdditionControl( $courseId, $studentUserId ) {
 		$courseTitle = Courses::singleton()->selectFieldsRow( 'title', array( 'id' => $courseId ) );
 		$query = array( 'action' => 'epaddarticle' );
 
@@ -496,7 +549,10 @@ class ArticleTable extends EPPager {
 		$html .=  Xml::inputLabel(
 			$this->msg( 'ep-articles-addarticle-text' )->text(),
 			'addarticlename',
-			'addarticlename'
+			'addarticlename',
+			false,
+			false,
+			array ( 'class' => 'ep-addarticlename' )
 		);
 
 		$html .= '&#160;' . Html::input(
@@ -509,11 +565,12 @@ class ArticleTable extends EPPager {
 		);
 
 		$html .= Html::hidden( 'course-id', $courseId );
-		$html .= Html::hidden( 'token', $this->getUser()->getEditToken( 'addarticle' . $courseId ) );
+		$html .= Html::hidden( 'token', $this->getUser()->getEditToken( 'addarticle' . $courseId . $studentUserId) );
+		$html .= Html::hidden( 'student-user-id', $studentUserId );
 
 		$html .= '</form>';
 
-		return '<td colspan="2">' . $html . '</td>';
+		return '<td colspan="2" class="ep-addarticle-cell">' . $html . '</td>';
 	}
 
 	/**

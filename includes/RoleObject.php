@@ -327,4 +327,21 @@ abstract class RoleObject extends \ORMRow implements IRole {
 		$this->getUser()->saveSettings();
 	}
 
+	/**
+	 * Convenience method for checking if any RoleObjects in $roleObjectArray
+	 * refer to the user with the id $userId.
+	 *
+	 * @param int $userId
+	 * @param RoleObject $roleObjectArray
+	 * @return boolean
+	 */
+	public static function isInRoleObjArray ( $userId, $roleObjectArray ) {
+		foreach ( $roleObjectArray as $roleObject ) {
+			if ( $userId === $roleObject->getUser()->getId() ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 }

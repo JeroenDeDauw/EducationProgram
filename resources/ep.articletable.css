@@ -1,0 +1,33 @@
+/**
+ * CSS for the Education Program MediaWiki extension.
+ * @see https://www.mediawiki.org/wiki/Extension:Education_Program
+ *
+ * @licence GNU GPL v2+
+ * @author Andrew Green <andrew.green.df at gmail dot com>
+ */
+
+/* padding inside cells */
+.ep-articletable td,
+.ep-articletable th {
+	padding: 4px;
+}
+
+/* thicker border to separate each student's region of the table, */
+/* and above and below the table */
+.ep-articletable-row,
+.ep-articletable th {
+	border-top: 2px solid rgb(150, 150, 150);
+}
+
+.ep-articletable {
+	/* TODO remove "!important" declaration, see EPPager->getStartBody() */
+	border-bottom: 2px solid rgb(150, 150, 150) !important;
+}
+
+/* different background for two-column cell for add article control */
+/* Note: the element type is necessary in the following declaration */
+/* to override styles in skins/common/shared.css */
+td.ep-addarticle-cell {
+	background-color: #f2f2f2;
+}
+

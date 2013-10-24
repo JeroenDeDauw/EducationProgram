@@ -57,6 +57,7 @@ class ArticleAdderTest extends \MediaWikiTestCase {
 		$argLists = array();
 
 		$argLists[] = array(
+			new MockSuperUser(), // Action user
 			10, // Course id
 			20, // User id
 			30, // Page id,
@@ -76,16 +77,16 @@ class ArticleAdderTest extends \MediaWikiTestCase {
 	 * @param string $pageTitle
 	 * @param int[] $reviewers
 	 */
-	public function testAddArticle( $courseId, $userId, $pageId, $pageTitle, array $reviewers ) {
+	public function testAddArticle( $actionUser, $courseId, $userId, $pageId, $pageTitle, array $reviewers ) {
 		$adder = $this->newAdder();
 
-		$success = $adder->addArticle( $courseId, $userId, $pageId, $pageTitle, $reviewers );
+		$success = $adder->addArticle( $actionUser, $courseId, $userId, $pageId, $pageTitle, $reviewers );
 		$this->assertTrue( $success, 'addArticle should return true' );
 
 		$hasArticle = $this->newStore()->hasArticleWith( $courseId, $userId, $pageId );
 		$this->assertTrue( $hasArticle, 'the article is present after calling addArticle' );
 
-		$success = $adder->addArticle( $courseId, $userId, $pageId, $pageTitle, $reviewers );
+		$success = $adder->addArticle( $actionUser, $courseId, $userId, $pageId, $pageTitle, $reviewers );
 		$this->assertFalse( $success, 'addArticle should return false when called a second time' );
 	}
 

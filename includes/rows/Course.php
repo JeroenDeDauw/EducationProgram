@@ -474,6 +474,17 @@ class Course extends PageObject {
 	}
 
 	/**
+	 * Returns the role objects for all roles other than student (i.e.,
+	 * instructors, campus ambassadors and online ambassadors).
+	 */
+	public function getAllNonStudentRoleObjs() {
+		return array_merge(
+			$this->getInstructors(),
+			$this->getCampusAmbassadors(),
+			$this->getOnlineAmbassadors() );
+	}
+
+	/**
 	 * Returns the online ambassadors as a list of OA objects.
 	 *
 	 * @since 0.1

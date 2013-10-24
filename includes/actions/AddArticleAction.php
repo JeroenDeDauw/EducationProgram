@@ -30,8 +30,10 @@ class AddArticleAction extends \FormlessAction {
 	public function onView() {
 		$req = $this->getRequest();
 		$user = $this->getUser();
+		$courseId = $req->getInt( 'course-id' );
+		$studentUserId = $req->getInt( 'student-user-id' );
 
-		$salt = 'addarticle' . $req->getInt( 'course-id' );
+		$salt = 'addarticle' . $courseId . $studentUserId;
 		$title = \Title::newFromText( $req->getText( 'addarticlename' ) );
 
 		// TODO: some kind of warning when entering invalid title
@@ -40,13 +42,14 @@ class AddArticleAction extends \FormlessAction {
 			// TODO: migrate into ArticleAdder
 			$course = Courses::singleton()->selectRow(
 				array( 'students', 'name' ),
-				array( 'id' => $req->getInt( 'course-id' ) )
+				array( 'id' => $courseId )
 			);
 
-			if ( $course !== false && in_array( $user->getId(), $course->getField( 'students' ) ) ) {
+			if ( $course !== false && in_array( $studentUserId, $course->getField( 'students' ) ) ) {
 				Extension::globalInstance()->newArticleAdder()->addArticle(
-					$req->getInt( 'course-id' ),
-					$user->getId(),
+					$user,
+					$courseId,
+					$studentUserId,
 					$title->getArticleID(),
 					$title->getFullText()
 				);

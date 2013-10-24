@@ -127,7 +127,9 @@ class ViewCourseAction extends ViewAction {
 			$pager = new ArticleTable(
 				$this->getContext(),
 				array( 'user_id' => $studentIds ),
-				$course->getId()
+				$course->getId(),
+				null,
+				$course
 			);
 
 			$pager->mLimit = 200;

@@ -54,6 +54,7 @@ class ArticleAdder {
 	 *
 	 * @since 0.3
 	 *
+	 * @param User $actionUser The user performing this action
 	 * @param int $courseId
 	 * @param int $userId
 	 * @param int $pageId
@@ -62,7 +63,7 @@ class ArticleAdder {
 	 *
 	 * @return boolean Indicates if the article was actually added. False means it already existed.
 	 */
-	public function addArticle( $courseId, $userId, $pageId, $pageTitle, $reviewers = array() ) {
+	public function addArticle( $actionUser, $courseId, $userId, $pageId, $pageTitle, $reviewers = array() ) {
 		$articleExists = $this->articleStore->hasArticleWith(
 			$courseId,
 			$userId,
@@ -83,9 +84,7 @@ class ArticleAdder {
 		);
 
 		if ( $this->articleStore->insertArticle( $article ) && $this->doLog ) {
-			$article->logAddition(
-				\User::newFromId( $userId ) // FIXME
-			);
+			$article->logAddition( $actionUser );
 		}
 
 		return true;
