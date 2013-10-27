@@ -25,6 +25,10 @@ class ViewOrgAction extends ViewAction {
 	 */
 	public function __construct( Page $page, IContextSource $context = null ) {
 		parent::__construct( $page, $context, Orgs::singleton() );
+
+		// Only cache for anon users, to avoid potential confusion due to
+		// cached versions
+		$this->cacheEnabled = $this->cacheEnabled && $this->getUser()->isAnon();
 	}
 
 	/**
