@@ -17754,6 +17754,7 @@ $messages['nds'] = array(
  * @author McDutchie
  * @author SPQRobin
  * @author Siebrand
+ * @author Sjoerddebruin
  * @author Wiki13
  */
 $messages['nl'] = array(
@@ -18008,6 +18009,7 @@ $messages['nl'] = array(
 	'epstudentpager-header-student' => 'Student',
 	'epstudentpager-header-articles' => "Pagina's",
 	'epstudentpager-header-reviewers' => 'Controleurs',
+	'ep-articles-sandboxes' => 'zandbakken',
 	'ep-articles-remstudent' => 'uit cursus verwijderen',
 	'ep-articles-remreviewer-self' => 'U als {{GENDER:$1|controleur}} verwijderen',
 	'ep-articles-remreviewer' => 'als {{GENDER:$1|controleur}} verwijderen',
@@ -18693,6 +18695,41 @@ $messages['oc'] = array(
 	'orgpage-epundelete-summary' => 'Motiu :',
 	'orgpage-epundelete-cancel-button' => 'Anullar',
 	'specialstudent-summary-user' => "Nom d'utilizaire",
+	'ep-enroll-gender' => 'Sèxe (facultatiu)',
+	'ep-enroll-realname' => 'Nom (obligatòri)',
+	'ep-enroll-realname-optional' => 'Nom vertadièr (facultatiu)',
+	'ep-enroll-invalid-name' => 'Lo nom deu conténer al mens $1 {{PLURAL:$1|caractèr|caractèrs}}.',
+	'ep-disenroll-button' => 'Se desinscriure',
+	'ep-disenroll-cancel' => 'Anullar',
+	'ep-instructor-close-button' => 'Tampar',
+	'ep-instructor-remove-retry' => 'Ensajar tornarmai',
+	'ep-instructor-cancel-button' => 'Anullar',
+	'ep-instructor-adding' => 'Apondon…',
+	'ep-instructor-add-close-button' => 'Tampar',
+	'ep-instructor-add-retry' => 'Ensajar tornarmai',
+	'ep-instructor-add-cancel-button' => 'Anullar',
+	'ep-instructor-summary-input' => 'Resumit :',
+	'ep-instructor-name-input' => "Nom de l'utilizaire :",
+	'ep-online-removing' => 'Supression…',
+	'ep-online-close-button' => 'Tampar',
+	'ep-online-remove-retry' => 'Ensajar tornarmai',
+	'ep-online-cancel-button' => 'Anullar',
+	'ep-online-adding' => 'Apondon…',
+	'ep-online-add-close-button' => 'Tampar',
+	'ep-online-add-retry' => 'Ensajar tornarmai',
+	'ep-online-add-cancel-button' => 'Anullar',
+	'ep-online-summary-input' => 'Resumit :',
+	'ep-online-name-input' => "Nom d'utilizaire :",
+	'ep-campus-removing' => 'Supression…',
+	'ep-campus-close-button' => 'Tampar',
+	'ep-campus-remove-retry' => 'Ensajar tornarmai',
+	'ep-campus-cancel-button' => 'Anullar',
+	'ep-campus-adding' => 'Apondon…',
+	'ep-campus-add-close-button' => 'Tampar',
+	'ep-campus-add-retry' => 'Ensajar tornarmai',
+	'ep-campus-add-cancel-button' => 'Anullar',
+	'ep-campus-summary-input' => 'Resumit :',
+	'ep-campus-name-input' => "Nom d'utilizaire :",
 );
 
 /** Oriya (ଓଡ଼ିଆ)
