@@ -2799,6 +2799,19 @@ $messages['ba'] = array(
 	'viewcourseaction-summary-status' => 'Статус',
 );
 
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
+ * @author Renessaince
+ */
+$messages['be-tarask'] = array(
+	'ep-item-summary' => 'Падсумаваньне',
+	'ep-toplink' => 'Курсы',
+	'ep-org-course-delete-comment' => 'Выдаленая ўстанова $1 і ўсе ейныя курсы з камэнтаром $2',
+	'ep-org-course-delete' => 'Выдаленая ўстанова $1 і ўсе ейныя курсы',
+	'ep-form-summary' => 'Апісаньне:',
+	'ep-form-minor' => 'Гэта дробнае рэдагаваньне',
+	'ep-revision-undo' => 'скасаваць',
+);
+
 /** Bulgarian (български)
  * @author DCLXVI
  * @author පසිඳු කාවින්ද
@@ -5777,6 +5790,7 @@ $messages['eo'] = array(
 /** Spanish (español)
  * @author Armando-Martin
  * @author Ayaita
+ * @author Benfutbol10
  * @author Dalton2
  * @author Fitoschido
  * @author Invadinado
@@ -5938,7 +5952,7 @@ $messages['es'] = array(
 	'special-disenroll' => 'Darse de baja',
 	'special-studentactivity' => 'Actividad del alumno',
 	'special-articles' => 'Artículos (programa educativo)',
-	'ep-course-status-passed' => 'Pasados',
+	'ep-course-status-passed' => 'Pasados', # Fuzzy
 	'ep-course-status-current' => 'Actuales',
 	'ep-course-status-planned' => 'Planificados',
 	'ep-course-status-current-planned' => 'Actuales y planificadas',
@@ -6029,7 +6043,7 @@ $messages['es'] = array(
 	'epstudentpager-header-user-id' => 'Nombre de usuario',
 	'epstudentpager-header-id' => 'Identificador',
 	'epstudentpager-header-current-courses' => 'Cursos actuales',
-	'epstudentpager-header-passed-courses' => 'Cursos pasados',
+	'epstudentpager-header-passed-courses' => 'Cursos finalizados',
 	'epstudentpager-header-first-enroll' => 'Primera inscripción',
 	'epstudentpager-header-last-active' => 'Último activo',
 	'epstudentpager-header-active-enroll' => 'Actualmente inscritos',
@@ -14966,6 +14980,7 @@ $messages['ku-latn'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'ep-item-summary' => 'Resumé',
@@ -15017,10 +15032,10 @@ $messages['lb'] = array(
 	'ep-prefs-showdyk' => 'D\'Këscht "Wosst Dir" op der Säit [[Special:MyCourses|Är Course]] weisen.',
 	'right-ep-remstudent' => 'Studente vu Coursen ewechhuelen',
 	'right-ep-enroll' => 'Sech a Course vum Formatiouns Programm aschreiwen',
-	'right-ep-instructor' => 'Instruktere bäi Coursen derbäisetzen oder ewechhuelen',
+	'right-ep-instructor' => 'Instruktere bei Coursen derbäisetzen oder ewechhuelen',
 	'right-ep-bulkdelorgs' => 'Institutiounen en bloc läschen',
 	'right-ep-bulkdelcourses' => 'Coursen en bloc läschen',
-	'right-ep-remarticle' => "D'Verbindung tëschent Artikelen a Studenten ewechhuelen",
+	'right-ep-remarticle' => "D'Verbindung tëscht Artikelen a Studenten ewechhuelen",
 	'right-ep-addstudent' => 'Benotzer als Student aschreiwen',
 	'action-ep-org' => 'Institutioune geréieren',
 	'action-ep-course' => 'Course geréieren',
@@ -15028,7 +15043,7 @@ $messages['lb'] = array(
 	'action-ep-enroll' => 'a Coursen aschreiwen',
 	'action-ep-bulkdelorgs' => 'Institutiounen en bloc läschen',
 	'action-ep-bulkdelcourses' => 'Coursen en bloc läschen',
-	'action-ep-remarticle' => 'Verbindung tëschent Artikelen a Studenten ewechhuelen',
+	'action-ep-remarticle' => 'Verbindung tëscht Artikelen a Studenten ewechhuelen',
 	'action-ep-addstudent' => 'Benotzer als Studenten aschreiwen',
 	'group-epcoordinator' => 'Coordinateure vu Coursen',
 	'grouppage-epcoordinator' => '{{ns:project}}:Coordinateure vun de Coursen',
@@ -15215,7 +15230,7 @@ $messages['lb'] = array(
 	'ep-course-summary-students' => 'Resumé a Studenten',
 	'ep-course-articles' => 'Artikelen',
 	'viewcourseaction-none' => 'Et gëtt kee cours mam Numm "$1". Kuckt d\'[[Special:Courses|Lëscht vun de Coursen]].',
-	'ep-course-create' => 'Et gëtt kee Cours mam Numm "$1", Dir kënnt awer esou een uleeën.',
+	'ep-course-create' => 'Et gëtt kee Cours mam Numm "$1", Dir kënnt awer sou een uleeën.',
 	'ep-course-description' => 'Beschreiwung',
 	'viewcourseaction-summary-org' => 'Institutioun',
 	'viewcourseaction-summary-term' => 'Semester',
@@ -15320,7 +15335,7 @@ $messages['lb'] = array(
 	'ep-disenroll-summary' => 'Firwat mellt Dir Iech of?',
 	'ep-disenroll-cancel' => 'Ofbriechen',
 	'ep-disenroll-success' => 'Dir sidd elo net méi an dësem Cours ageschriwwen!',
-	'ep-disenroll-returntolink' => 'Zréck bäi de [[Education_Program:$2|Cours $1]].',
+	'ep-disenroll-returntolink' => 'Zréck bei de [[Education_Program:$2|Cours $1]].',
 	'ep-mycourses-enrolled' => 'Dir sidd elo am Cours $1 vu(n) $2 ageschriwwen.',
 	'ep-mycourses-not-enrolled' => "Dir sidd a kengem Cours ageschriwwen. Kuckt d'[[Special:Courses|Lëscht vun de Coursen]].",
 	'ep-mycourses-no-such-course' => 'Dir sidd a kee Cours mam Numm "$1" ageschriwwen. D\'Coursen an déi Dir ageschriwwe sidd stinn hei drënner.',
