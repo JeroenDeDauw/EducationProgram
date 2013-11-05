@@ -39,7 +39,7 @@ $messages['en'] = array(
 	'ep-tab-enroll' => 'Enroll',
 	'ep-tab-disenroll' => 'Disenroll',
 	'ep-tab-delete' => 'Delete',
-	'ep-tab-activity' => 'View Activity',
+	'ep-tab-activity' => 'View activity',
 
 	// Tooltips
 	'tooltip-ep-form-save' => 'Save',
