@@ -50,7 +50,9 @@ class CourseStoreTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	protected function newMockStoreForRowSelect() {
-		$database = $this->getMock( 'DatabaseMysql' );
+		$database = $this->getMockBuilder( 'DatabaseMysql' )
+			->disableOriginalConstructor()
+			->getMock();
 
 		$database->expects( $this->once() )->method( 'selectRow' )
 			->with(
@@ -106,7 +108,9 @@ class CourseStoreTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetCourseByIdNotFoundBehaviour() {
-		$database = $this->getMock( 'DatabaseMysql' );
+		$database = $this->getMockBuilder( 'DatabaseMysql' )
+			->disableOriginalConstructor()
+			->getMock();
 
 		$database->expects( $this->once() )
 			->method( 'selectRow' )
@@ -120,7 +124,9 @@ class CourseStoreTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetCourseByTitleNotFoundBehaviour() {
-		$database = $this->getMock( 'DatabaseMysql' );
+		$database = $this->getMockBuilder( 'DatabaseMysql' )
+			->disableOriginalConstructor()
+			->getMock();
 
 		$database->expects( $this->once() )
 			->method( 'selectRow' )
