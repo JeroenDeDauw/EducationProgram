@@ -16,7 +16,7 @@
 
 		var _this = this,
 		$this = $( _this ),
-		$img = undefined;
+		$img = null;
 
 		this.setup = function() {
 			$img = $( '<img>' ).attr( {
@@ -103,7 +103,7 @@
 				function( data ) {
 					if ( data.query && data.query.pages ) {
 						var pages = data.query.pages,
-							info;
+							info, p, i;
 
 						for ( p in pages ) {
 							info = pages[p].imageinfo;

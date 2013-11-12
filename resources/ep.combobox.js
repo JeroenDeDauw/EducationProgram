@@ -10,9 +10,8 @@
 
 	$.widget( "ep.combobox", {
 		_create: function() {
-			var self, input, select, selected, value;
-
-			self = this,
+			var input,
+				self = this,
 				select = this.element.hide(),
 				selected = select.children( ":selected" ),
 				value = selected.val() ? selected.text() : "";

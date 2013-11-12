@@ -28,7 +28,7 @@
 
 		for ( i in list ) {
 			if ( list.hasOwnProperty( i ) ) {
-				$element = $( '#' + list[i] ),
+				$element = $( '#' + list[i] );
 				val = $element.val();
 
 				$element.removeAttr( 'value' );

@@ -20,7 +20,7 @@
 			userName = $this.attr( 'data-username' ),
 			bestName = $this.attr( 'data-bestname' ),
 			role = $this.attr( 'data-role' ),
-			$dialog = undefined,
+			$dialog = null,
 			summaryLabel, summaryInput,
 			doRemove;
 
@@ -136,7 +136,7 @@
 			this.courseId = $this.attr( 'data-courseid' );
 			this.courseName = $this.attr( 'data-coursename' );
 			this.selfMode = $this.attr( 'data-mode' ) === 'self';
-			this.$dialog = undefined;
+			this.$dialog = null;
 
 			this.nameInput = $( '<input>' ).attr( {
 				'type': 'text',

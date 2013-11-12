@@ -8,12 +8,12 @@
 
 ( function ( $, mw ) {
 
-	var compatMode = undefined,
+	var compatMode = null,
 	ep = {
 		msg: function () {
 			// Yeah, doing it here, since "mw.loader.using( 'mediawiki.language',"
 			// does not have mediaWiki.language loaded.
-			if ( compatMode === undefined ) {
+			if ( compatMode === null ) {
 				compatMode = window.mediaWiki.language.gender === undefined;
 
 				if ( compatMode ) {

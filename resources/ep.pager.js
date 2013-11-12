@@ -19,20 +19,21 @@
 			return false;
 		} );
 
-		var $dialog = undefined,
-		$remove = undefined,
-		$summaryInput = undefined,
+		var $dialog = null,
+		$remove = null,
+		$summaryInput = null,
 		showConfirmDialog,
 		onFail;
 
 		showConfirmDialog = function( args, onConfirm ) {
 			var names, summaryLabel,
-				args = $.extend( {
-					'type': 'unknown',
-					'ids': [],
-					'names': []
-				}, args ),
 				deferred = $.Deferred();
+
+			args = $.extend( {
+				'type': 'unknown',
+				'ids': [],
+				'names': []
+			}, args );
 
 			$dialog = $( '<div>' ).html( '' ).dialog( {
 				'title': ep.msg( 'ep-pager-confirm-delete-' + args.type, args.ids.length ),
@@ -167,7 +168,8 @@
 				return;
 			}
 
-			pagerId = $( this ).attr( 'data-pager-id' ),
+			pagerId = $( this ).attr( 'data-pager-id' );
+
 			args = {
 				'type': $( this ).attr( 'data-type' ),
 				'ids': ids,
@@ -181,7 +183,7 @@
 						$dialog.dialog( 'close' );
 
 						if ( $table.find( 'tr' ).length - ids.length > 1 ) {
-							for ( i in ids ) {
+							for ( var i in ids ) {
 								if ( ids.hasOwnProperty( i ) ) {
 									$( '#select-' + pagerId + '-' + ids[i] ).closest( 'tr' ).remove();
 								}
