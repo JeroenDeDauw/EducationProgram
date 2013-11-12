@@ -296,7 +296,7 @@ class EPArticleTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getUser' )
 			->will( $this->returnValue( $user ) );
 
-		$article->logAdittion(
+		$article->logAddition(
 			$user,
 			false
 		);

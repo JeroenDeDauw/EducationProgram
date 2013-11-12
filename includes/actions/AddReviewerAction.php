@@ -47,7 +47,7 @@ class AddReviewerAction extends \FormlessAction {
 
 				if ( !empty( $addedReviewers ) ) {
 					if ( $articleStore->updateArticle( $article ) ) {
-						$article->logReviewersAdittion( $addedReviewers );
+						$article->logReviewersAddition( $addedReviewers );
 					}
 				}
 			}

@@ -176,7 +176,7 @@ class Org extends PageObject {
 
 	/**
 	 * Returns thr HTML for a control to add a new org to the provided context.
-	 * Adittional arguments can be provided to set the default values for the control fields.
+	 * Additional arguments can be provided to set the default values for the control fields.
 	 *
 	 * @since 0.1
 	 *

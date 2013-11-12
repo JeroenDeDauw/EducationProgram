@@ -142,7 +142,7 @@ class Utils {
 	}
 
 	/**
-	 * Returns tool links for the provided user details plus any adittional links.
+	 * Returns tool links for the provided user details plus any additional links.
 	 *
 	 * @since 0.1
 	 *

@@ -541,7 +541,7 @@ class Course extends PageObject {
 	/**
 	 * Adds a role for a number of users to this course,
 	 * by default also saving the course and only
-	 * logging the adittion of the users/roles.
+	 * logging the addition of the users/roles.
 	 *
 	 * @since 0.1
 	 *
