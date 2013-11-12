@@ -14,14 +14,21 @@ Education Program requires:
 
 == Download ==
 
-You can get the code directly from SVN. Tags can be obtained via
+Released versions can be downloaded from the extension page on mediawiki.org.
 
- svn checkout http://svn.wikimedia.org/svnroot/mediawiki/tags/extensions/EducationProgram/REL_version
+You can also get the latest code directly from git:
 
-Where 'version' is the version number of the tag, such as 0_1 (see the available tags at http://svn.wikimedia.org/svnroot/mediawiki/tags/extensions/EducationProgram/).
-The latest code can be obtained from trunk:
+ cd extensions
+ git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/EducationProgram.git
 
- svn checkout http://svn.wikimedia.org/svnroot/mediawiki/trunk/extensions/EducationProgram/
+To use a specific released version, first list the available tags with:
+
+ cd EducationProgram
+ git tag -l
+
+Then to use a specific tagged version (such as <code>0.2</code>) do:
+
+ git checkout 0.2
 
 == Installation ==
 
