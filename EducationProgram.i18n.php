@@ -859,7 +859,8 @@ $messages['qqq'] = array(
 {{Identical|Did you know}}',
 	'ep-tab-view' => 'Label for a tab at the top of the page.
 {{Identical|Read}}',
-	'ep-tab-edit' => 'Label for a tab at the top of the page.',
+	'ep-tab-edit' => 'Label for a tab at the top of the page.
+{{Identical|Edit}}',
 	'ep-tab-create' => 'Label for a tab at the top of the page.
 {{Identical|Create}}',
 	'ep-tab-history' => 'Label for a tab at the top of the page.
@@ -5107,16 +5108,18 @@ Sie finden eine vollständige Liste der Studenten auf [[Special:Students|der Lis
 
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
+ * @author Gorizon
  * @author Mirzali
  */
 $messages['diq'] = array(
 	'ep-item-summary' => 'Xulasa',
 	'ep-toplink' => 'Qursi',
 	'ep-form-summary' => 'Xulasa:',
+	'ep-form-minor' => "'''vurnayışo qıckeko'''",
 	'ep-student-view-profile' => 'profilê telebi',
 	'ep-tab-view' => 'Bıwane',
 	'ep-tab-edit' => 'Bıvurne',
-	'ep-tab-create' => 'Vıraze',
+	'ep-tab-create' => 'İycad ke',
 	'ep-tab-history' => 'Vurnayışê verêni',
 	'ep-tab-enroll' => 'Bıloxne',
 	'ep-tab-disenroll' => 'Meloxne',
@@ -5168,7 +5171,7 @@ $messages['diq'] = array(
 	'ep-revision-undo' => 'peyser bia',
 	'ep-revision-restore' => 'Timar bike',
 	'eporgpager-header-name' => 'Name',
-	'eporgpager-header-city' => 'Sûke',
+	'eporgpager-header-city' => 'Suk',
 	'eporgpager-header-country' => 'Dewlet',
 	'eporgpager-filter-country' => 'Dewlet',
 	'eporgpager-header-course-count' => 'Kursi',
@@ -5223,7 +5226,7 @@ $messages['diq'] = array(
 	'educationprogram-org-edit-name' => 'Nameya enstituyan',
 	'orgpage-edit-legend-add' => 'Enstituye deke',
 	'orgpage-edit-legend-edit' => 'Enstituye bıvurne',
-	'educationprogram-org-edit-city' => 'Bacar',
+	'educationprogram-org-edit-city' => 'Suk',
 	'educationprogram-org-edit-country' => 'Dewlet',
 	'educationprogram-org-submit' => 'Bırışên',
 	'coursepage-edit-legend-add' => 'Kurs deke',
@@ -5238,7 +5241,7 @@ $messages['diq'] = array(
 	'ep-course-edit-name' => 'Sernamey pela',
 	'ep-course-edit-lang' => 'Zıwanê kursi',
 	'vieworgaction-summary-name' => 'Name',
-	'vieworgaction-summary-city' => 'Sûke',
+	'vieworgaction-summary-city' => 'Suk',
 	'vieworgaction-summary-country' => 'Dewlet',
 	'vieworgaction-summary-status' => 'Weziyet',
 	'ep-institution-inactive' => 'Aktiv niyo',
@@ -10089,7 +10092,7 @@ $messages['he'] = array(
 	'ep-campus-removing' => 'מסיר...',
 	'ep-campus-removal-success' => 'מתנדב הקמפוס הזה הוסר בהצלחה מהקורס הזה.',
 	'ep-campus-close-button' => 'סגור',
-	'ep-campus-remove-retry' => 'נסה שוב',
+	'ep-campus-remove-retry' => 'נסו שוב',
 	'ep-campus-remove-failed' => 'משהו השתבש - לא ניתן להסיר את מתנדב הקמפוס מהקורס.',
 	'ep-campus-cancel-button' => 'ביטול',
 	'ep-campus-remove-text' => 'עומדת להתבצע הסרה של $2 (שם משתמש: $1) {{GENDER:$1|כמתנדב|כמתנדבת}} קמפוס מהקורס $3. נא לתאר בקיצור את הסיבה להסרה.',
@@ -18163,7 +18166,7 @@ $messages['nl'] = array(
 	'epstudentpager-header-student' => 'Student',
 	'epstudentpager-header-articles' => "Pagina's",
 	'epstudentpager-header-reviewers' => 'Controleurs',
-	'ep-articles-sandboxes' => 'zandbakken',
+	'ep-articles-sandboxes' => 'oefenruimte',
 	'ep-articles-remstudent' => 'uit cursus verwijderen',
 	'ep-articles-remreviewer-self' => 'U als {{GENDER:$1|controleur}} verwijderen',
 	'ep-articles-remreviewer' => 'als {{GENDER:$1|controleur}} verwijderen',
@@ -21965,6 +21968,7 @@ $messages['si'] = array(
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Rancher
  * @author Милан Јелисавчић
  * @author Михајло Анђелковић
@@ -22290,11 +22294,12 @@ $messages['sr-ec'] = array(
 	'ep-timeline-ago' => 'пре $1',
 	'ep-timeline-cutoff' => '$1…',
 	'ep-timeline-users-edit-article' => "$1 {{GENDER:$1|је уредио|је уредила|је уредио}} чланак '''[[$2]]'''.",
-	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|је оставио|је оставила|је оставио}} {{PLURAL:$4|поруку|поруке}} на '''[[$2|страници за разговор]]''' корисника '''[[$3]]'''.",
+	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|је оставио|је оставила}} {{PLURAL:$4|поруку|поруке}} на '''[[$2|страници за разговор]]''' корисника '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "$1 {{GENDER:$1|је уредио|је уредила|је уредио}} страницу корисника '''[[$2|$3]]'''.",
 );
 
 /** Serbian (Latin script) (srpski (latinica)‎)
+ * @author Milicevic01
  */
 $messages['sr-el'] = array(
 	'ep-form-minor' => 'Ovo je manja izmena',
@@ -22333,7 +22338,7 @@ $messages['sr-el'] = array(
 	'ep-timeline-ago' => 'pre $1',
 	'ep-timeline-cutoff' => '$1…',
 	'ep-timeline-users-edit-article' => "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} članak '''[[$2]]'''.",
-	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|je ostavio|je ostavila|je ostavio}} {{PLURAL:$4|poruku|poruke}} na '''[[$2|stranici za razgovor]]''' korisnika '''[[$3]]'''.",
+	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|je ostavio|je ostavila}} {{PLURAL:$4|poruku|poruke}} na '''[[$2|stranici za razgovor]]''' korisnika '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} stranicu korisnika '''[[$2|$3]]'''.",
 );
 
