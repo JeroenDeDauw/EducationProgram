@@ -198,7 +198,7 @@ class EPArticle {
 	 */
 	public function addReviewers( array $userIds ) {
 		$userIds = array_unique( $userIds );
-		$addedIds = array_diff( $userIds, $this->reviewers);
+		$addedIds = array_diff( $userIds, $this->reviewers );
 
 		if ( !empty( $addedIds ) ) {
 			$this->reviewers = array_merge( $this->reviewers, $addedIds );

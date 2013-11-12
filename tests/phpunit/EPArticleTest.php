@@ -209,35 +209,35 @@ class EPArticleTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$argLists[] = array(
-			array( 1, 2 ,3 ),
+			array( 1, 2 , 3 ),
 			array( 1 ),
 			array( 1 ),
 			array( 2, 3 ),
 		);
 
 		$argLists[] = array(
-			array( 1, 2 ,3 ),
+			array( 1, 2 , 3 ),
 			array( 1, 3 ),
 			array( 1, 3 ),
 			array( 2 ),
 		);
 
 		$argLists[] = array(
-			array( 1, 2 ,3 ),
+			array( 1, 2 , 3 ),
 			array( 1, 3, 2 ),
 			array( 1, 3, 2 ),
 			array(),
 		);
 
 		$argLists[] = array(
-			array( 1, 2 ,3 ),
+			array( 1, 2 , 3 ),
 			array( 4, 2, 5, 3, 42 ),
 			array( 2, 3 ),
 			array( 1 ),
 		);
 
 		$argLists[] = array(
-			array( 1, 2 ,3 ),
+			array( 1, 2 , 3 ),
 			array( 1, 1, 1 ),
 			array( 1 ),
 			array( 2, 3 ),

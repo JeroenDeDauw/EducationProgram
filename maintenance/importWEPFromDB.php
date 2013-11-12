@@ -54,13 +54,13 @@ class ImportWEPFromDB extends \Maintenance {
 
 		$conds = array(
 			'orgs' => array( 'university_country <> "India"' ),
-			'courses'=> array(),
+			'courses' => array(),
 			'students' => array(),
 		);
 
 		$tables = array(
 			'orgs' => 'imp_universities',
-			'courses'=> 'imp_courses',
+			'courses' => 'imp_courses',
 			'students' => 'imp_students',
 		);
 
@@ -247,7 +247,7 @@ class ImportWEPFromDB extends \Maintenance {
 			$currentId === false
 		);
 
-		try{
+		try {
 			$courseObject->revisionedSave( $revAction );
 			$this->courseIds[$course->course_id] = $courseObject->getId();
 		}

@@ -52,7 +52,7 @@ class Org extends PageObject {
 
 		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $field ) {
 			$fields[$field] = Courses::singleton()->rawSelectRow(
-				array( 'SUM(' . Courses::singleton()->getPrefixedField( $field ). ') AS sum' ),
+				array( 'SUM(' . Courses::singleton()->getPrefixedField( $field ) . ') AS sum' ),
 				Courses::singleton()->getPrefixedValues( array(
 					'org_id' => $this->getId()
 				) )

@@ -195,7 +195,7 @@ class Utils {
 
 		if ( $req->getSessionData( 'epfail' ) ) {
 			$out->addHTML(
-				'<p class="visualClear errorbox">' . $req->getSessionData( 'epfail' ). '</p>'
+				'<p class="visualClear errorbox">' . $req->getSessionData( 'epfail' ) . '</p>'
 					. '<hr style="display: block; clear: both; visibility: hidden;" />'
 			);
 			$req->setSessionData( 'epfail', false );

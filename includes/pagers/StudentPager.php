@@ -158,7 +158,7 @@ class StudentPager extends EPPager {
 		$userIds = array();
 		$field = $this->table->getPrefixedField( 'user_id' );
 
-		foreach( $this->mResult as $student ) {
+		foreach ( $this->mResult as $student ) {
 			$userIds[] = (int)$student->$field;
 		}
 
@@ -170,7 +170,7 @@ class StudentPager extends EPPager {
 				__METHOD__
 			);
 
-			foreach( $result as $user ) {
+			foreach ( $result as $user ) {
 				$real = $user->user_real_name === '' ? $user->user_name : $user->user_real_name;
 				$this->userNames[$user->user_id] = array( $user->user_name, $real );
 			}
@@ -191,7 +191,7 @@ class StudentPager extends EPPager {
 				)
 			);
 
-			foreach( $result as $courseForUser ) {
+			foreach ( $result as $courseForUser ) {
 				if ( !array_key_exists( $courseForUser->upc_user_id, $this->courseTitles ) ) {
 					$this->courseTitles[$courseForUser->upc_user_id] = array();
 				}

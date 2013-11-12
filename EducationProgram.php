@@ -9,7 +9,7 @@
  *
  * The source code makes use of a number of terms different from but corresponding to those in the UI:
  * * Org instead of Institution
- * * CA for campus volunteer (formly "campus ambassador") 
+ * * CA for campus volunteer (formly "campus ambassador")
  * * OA for online volunteer (formly "online ambassador")
  * * Article is often used to refer to "article student associations" rather then the Article class.
  *
@@ -97,7 +97,7 @@ $wgAutoloadClasses['EducationProgram\Events\EventGroup'] 			= $dir . '/includes/
 $wgAutoloadClasses['EducationProgram\Events\EventGrouper'] 			= $dir . '/includes/Events/EventGrouper.php';
 $wgAutoloadClasses['EducationProgram\Events\EventQuery'] 			= $dir . '/includes/Events/EventQuery.php';
 $wgAutoloadClasses['EducationProgram\Events\EventStore'] 			= $dir . '/includes/Events/EventStore.php';
-$wgAutoloadClasses['EducationProgram\Events\RecentPageEventGrouper']= $dir . '/includes/Events/RecentPageEventGrouper.php';
+$wgAutoloadClasses['EducationProgram\Events\RecentPageEventGrouper'] = $dir . '/includes/Events/RecentPageEventGrouper.php';
 $wgAutoloadClasses['EducationProgram\Events\Timeline'] 				= $dir . '/includes/Events/Timeline.php';
 $wgAutoloadClasses['EducationProgram\Events\TimelineGroup'] 		= $dir . '/includes/Events/TimelineGroup.php';
 
@@ -228,11 +228,11 @@ $wgSpecialPageGroups['StudentActivity'] 			= 'education';
 $wgSpecialPageGroups['Articles'] 					= 'education';
 $wgSpecialPageGroups['ManageCourses'] 				= 'education';
 
-//Define named constants corresponding to the user roles introduced by the extension.
-define( 'EP_STUDENT', 0 );      //Students
-define( 'EP_INSTRUCTOR', 1 );   //Instructors
-define( 'EP_OA', 2 );           //Online volunteers
-define( 'EP_CA', 3 );           //Campus volunteers
+// Define named constants corresponding to the user roles introduced by the extension.
+define( 'EP_STUDENT', 0 );      // Students
+define( 'EP_INSTRUCTOR', 1 );   // Instructors
+define( 'EP_OA', 2 );           // Online volunteers
+define( 'EP_CA', 3 );           // Campus volunteers
 
 // API
 $wgAPIModules['deleteeducation'] 					= 'EducationProgram\ApiDeleteEducation';

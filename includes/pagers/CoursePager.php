@@ -325,7 +325,7 @@ class CoursePager extends EPPager {
 		$orgIds = array();
 		$field = $this->table->getPrefixedField( 'org_id' );
 
-		foreach( $this->mResult as $course ) {
+		foreach ( $this->mResult as $course ) {
 			$orgIds[] = $course->$field;
 		}
 

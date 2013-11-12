@@ -30,7 +30,7 @@ class RemoveReviewerAction extends \FormlessAction {
 		$user = $this->getUser();
 		$userIdToRemove = $req->getCheck( 'user-id' ) ? $req->getInt( 'user-id' ) : $user->getId();
 
-		$salt = $userIdToRemove .'remreviewer' . $req->getInt( 'article-id' );
+		$salt = $userIdToRemove . 'remreviewer' . $req->getInt( 'article-id' );
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt )
 			&& ( $user->getId() === $userIdToRemove || $user->isAllowed( 'ep-remreviewer' ) ) ) {

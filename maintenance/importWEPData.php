@@ -157,7 +157,7 @@ class ImportWEPData extends \Maintenance {
 				true
 			);
 
-			try{
+			try {
 				/**
 				 * @var RevisionedObject $course
 				 */

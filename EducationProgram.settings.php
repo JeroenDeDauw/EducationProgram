@@ -41,7 +41,7 @@ $egEPSettings = array(
 	'courseDescPage' => 'MediaWiki:Course description',
 	'courseOrgDescPage' => '$2/$1', // $1 = org name, $2 = courseDescPage setting
 	'useStudentRealNames' => false,
-	'timelineDurationLimit' => 5 *24 * 60 *60,
+	'timelineDurationLimit' => 5 * 24 * 60 * 60,
 	'timelineCountLimit' => 200,
 	'timelineUserLimit' => 3,
 	'dykCategory' => 'MyCourses Did You Know',
