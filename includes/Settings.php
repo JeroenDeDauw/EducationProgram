@@ -31,6 +31,19 @@ namespace EducationProgram;
 class Settings {
 
 	/**
+	 * Constructs a new instance of the settings object from global state.
+	 *
+	 * @since 0.3
+	 *
+	 * @param array $globalVariables
+	 *
+	 * @return Settings
+	 */
+	public static function newFromGlobals( array $globalVariables ) {
+		return new self( $globalVariables['egEPSettings'] );
+	}
+
+	/**
 	 * @since 0.3
 	 *
 	 * @var array
@@ -76,7 +89,7 @@ class Settings {
 		static $settings = null;
 
 		if ( $settings === null ) {
-			$settings = new self( $GLOBALS['egEPSettings'] );
+			$settings = static::newFromGlobals( $GLOBALS );
 		}
 
 		return $settings->getSetting( $settingName );
