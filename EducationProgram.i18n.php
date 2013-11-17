@@ -10619,6 +10619,7 @@ $messages['hu'] = array(
 
 /** Interlingua (interlingua)
  * @author McDutchie
+ * @author Shirayuki
  */
 $messages['ia'] = array(
 	'educationprogram-desc' => 'Facilita programmas educative per adder varie interfacies pro gerer cursos, institutiones e le varie rolos de usator de education.',
