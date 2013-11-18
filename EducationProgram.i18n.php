@@ -5112,6 +5112,7 @@ Sie finden eine vollständige Liste der Studenten auf [[Special:Students|der Lis
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
  * @author Gorizon
+ * @author Marmase
  * @author Mirzali
  */
 $messages['diq'] = array(
@@ -5120,10 +5121,10 @@ $messages['diq'] = array(
 	'ep-form-summary' => 'Xulasa:',
 	'ep-form-minor' => "'''vurnayışo qıckeko'''",
 	'ep-student-view-profile' => 'profilê telebi',
-	'ep-tab-view' => 'Bıwane',
+	'ep-tab-view' => 'Buwan',
 	'ep-tab-edit' => 'Bıvurne',
 	'ep-tab-create' => 'İycad ke',
-	'ep-tab-history' => 'Vurnayışê verêni',
+	'ep-tab-history' => 'Veréni bıvin',
 	'ep-tab-enroll' => 'Bıloxne',
 	'ep-tab-disenroll' => 'Meloxne',
 	'ep-tab-delete' => 'Besterne',
