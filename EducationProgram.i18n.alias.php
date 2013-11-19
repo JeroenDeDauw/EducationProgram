@@ -120,6 +120,26 @@ $specialPageAliases['diq'] = array(
 	'Articles' => array( 'Nebestey' ),
 );
 
+/** Greek (Ελληνικά) */
+$specialPageAliases['el'] = array(
+	'MyCourses' => array( 'ΤαΜαθήματάΜου' ),
+	'ManageCourses' => array( 'ΔιαχείρισηΜαθημάτων' ),
+	'Institutions' => array( 'Ιδρύματα', 'Οργανισμοί' ),
+	'Student' => array( 'Φοιτητής' ),
+	'Students' => array( 'Φοιτητές' ),
+	'Courses' => array( 'Μαθήματα' ),
+	'EducationProgram' => array( 'Εκπαιδευτικό_Πρόγραμμα', 'ΕκπαιδευτικόΠρόγραμμα', 'ΠρόγραμμαΕκπαίδευσης', 'Πρόγραμμα_Εκπαίδευσης' ),
+	'Enroll' => array( 'Εγγραφή' ),
+	'Disenroll' => array( 'Αποχώρηση' ),
+	'CampusAmbassadors' => array( 'ΠανεπιστημιακόςΕθελοντής', 'ΕθελοντήςΠανεπιστήμιου', 'ΕθελοντήςΠανεπισημιούπολης' ),
+	'OnlineAmbassadors' => array( 'ΔικτυακόςΕθελοντής' ),
+	'OnlineAmbassadorProfile' => array( 'ΠροφίλΔικτυακούΕθελοντή' ),
+	'CampusAmbassadorProfile' => array( 'ΠροφίλΠανεπιστημιακούΕθελοντή' ),
+	'StudentActivity' => array( 'ΔραστηριότηταΦοιτητή' ),
+	'Articles' => array( 'Λήμματα' ),
+	'CourseActivity' => array( 'ΔραστηριότηταΜαθήματος' ),
+);
+
 /** Esperanto (Esperanto) */
 $specialPageAliases['eo'] = array(
 	'MyCourses' => array( 'Miaj_kursoj' ),
