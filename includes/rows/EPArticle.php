@@ -229,7 +229,7 @@ class EPArticle {
 	}
 
 	/**
-	 * Logs the adittion of the users matching the provided ids as reviewers to this article.
+	 * Logs the addition of the users matching the provided ids as reviewers to this article.
 	 *
 	 * @since 0.1
 	 * @deprecated since 0.3
@@ -237,7 +237,7 @@ class EPArticle {
 	 * @param array $userIds
 	 * @param bool|string $comment
 	 */
-	public function logReviewersAdittion( array $userIds, $comment = false ) {
+	public function logReviewersAddition( array $userIds, $comment = false ) {
 		foreach ( $userIds as $userId ) {
 			$this->log( User::newFromId( $userId ), 'review', $comment );
 		}
@@ -259,14 +259,14 @@ class EPArticle {
 	}
 
 	/**
-	 * Log adittion of the article.
+	 * Log addition of the article.
 	 *
 	 * @deprecated since 0.3
 	 *
 	 * @param User $actionUser
 	 * @param bool|string $comment
 	 */
-	public function logAdittion( User $actionUser, $comment = false ) {
+	public function logAddition( User $actionUser, $comment = false ) {
 		$this->log(
 			$actionUser,
 			$actionUser->getId() === $this->getUser()->getId() ? 'selfadd' : 'add',

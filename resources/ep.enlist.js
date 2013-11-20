@@ -177,14 +177,14 @@
 					var	messageKey = null, $ul;
 
 					// Give grep a chance to find the usages:
-					// ep-instructor-addittion-null, ep-online-addittion-null, ep-campus-addittion-null,
-					// ep-instructor-addittion-self-success, ep-online-addittion-self-success, ep-campus-addittion-self-success,
-					// ep-instructor-addittion-success, ep-online-addittion-success, ep-campus-addittion-success
+					// ep-instructor-addition-null, ep-online-addition-null, ep-campus-addition-null,
+					// ep-instructor-addition-self-success, ep-online-addition-self-success, ep-campus-addition-self-success,
+					// ep-instructor-addition-success, ep-online-addition-success, ep-campus-addition-success
 					if ( data.count === 0 ) {
-						messageKey = 'ep-' + role + '-addittion-null';
+						messageKey = 'ep-' + role + '-addition-null';
 					}
 					else {
-						messageKey = _this.selfMode ? 'ep-' + role + '-addittion-self-success' : 'ep-' + role + '-addittion-success';
+						messageKey = _this.selfMode ? 'ep-' + role + '-addition-self-success' : 'ep-' + role + '-addition-success';
 					}
 
 					_this.$dialog.text( ep.msg(
@@ -217,8 +217,8 @@
 					$add.button( 'option', 'label', ep.msg( 'ep-' + role + '-add-retry' ) );
 
 					// Give grep a chance to find the usages:
-					// ep-instructor-addittion-failed, ep-online-addittion-failed, ep-campus-addittion-failed
-					var msgKey = data.error ? 'ep-' + role + '-addittion-' + data.error.code : 'ep-' + role + '-addittion-failed';
+					// ep-instructor-addition-failed, ep-online-addition-failed, ep-campus-addition-failed
+					var msgKey = data.error ? 'ep-' + role + '-addition-' + data.error.code : 'ep-' + role + '-addition-failed';
 
 					alert( ep.msg(
 						msgKey,

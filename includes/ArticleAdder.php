@@ -83,7 +83,7 @@ class ArticleAdder {
 		);
 
 		if ( $this->articleStore->insertArticle( $article ) && $this->doLog ) {
-			$article->logAdittion(
+			$article->logAddition(
 				\User::newFromId( $userId ) // FIXME
 			);
 		}
