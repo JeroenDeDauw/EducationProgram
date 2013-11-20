@@ -24,10 +24,24 @@
 	border-bottom: 2px solid rgb(150, 150, 150) !important;
 }
 
-/* different background for two-column cell for add article control */
-/* Note: the element type is necessary in the following declaration */
+/* Note: the element type is necessary in the following declarations */
 /* to override styles in skins/common/shared.css */
+
+/* different background for two-column cell for add article control */
 td.ep-addarticle-cell {
 	background-color: #f2f2f2;
 }
 
+/* initial highlight for the cells of students just added */
+td.ep-addedstudent-cell-initial {
+	background-color: #0023bc;
+}
+
+/* fade-to highlight for the cells of students just added */
+td.ep-addedstudent-cell {
+	background-color: #dfeaf7;
+	-webkit-transition: background-color 1.5s ease;
+	-moz-transition: background-color 1.5s ease;
+	-o-transition: background-color 1.5s ease;
+	transition: background-color 1.5s ease;
+}

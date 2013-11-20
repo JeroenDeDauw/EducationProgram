@@ -156,7 +156,8 @@ class ArticleTable extends EPPager {
 		$this->currentObject = $this->table->newRowFromDBResult( $row );
 
 		$student = $this->currentObject;
-		$articles = $this->articles[$student->getField( 'user_id' )];
+		$studentUserId = $student->getField( 'user_id' );
+		$articles = $this->articles[$studentUserId];
 		$user = $this->getUser();
 		$userId = $user->getId();
 		$showArticleAddition = false;
@@ -207,9 +208,12 @@ class ArticleTable extends EPPager {
 		// must be at least one, even if there's nothing in the following columns
 		$rowCount = max( 1, $rowCount );
 
-		$html = Html::openElement( 'tr', $this->getRowAttrs( $row ) );
-
 		$studentUserId = $student->getField( 'user_id' );
+
+		$html = Html::openElement( 'tr', array_merge (
+				$this->getRowAttrs( $row ),
+				array( 'data-user-id' => $studentUserId )
+		) );
 
 		if ( $this->showStudents ) {
 			$html .= $this->getUserCell( $studentUserId, $rowCount );
@@ -412,7 +416,7 @@ class ArticleTable extends EPPager {
 		$user = $this->getUser();
 
 		if ( $user->getId() !== $article->getUserId() ) {
-			$attr['data-student-name'] = $article->getUser()->getName();
+			$attr['data-student-name'] = $user->getName();
 		}
 
 		if ( $this->isForOneCourse() ) {

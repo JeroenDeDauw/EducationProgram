@@ -571,14 +571,18 @@ class Course extends PageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array|integer $newUsers
+	 * @param array|integer $newUserIds
 	 * @param string $role
 	 * @param boolean $save
 	 * @param RevisionAction|null $revAction
+	 * @param array &$addedUserIds Reference to an array, for info sending
+	 *    a list of the ids of users that were actually enlisted. (That is,
+	 *    $newUserIds minus any that were already enlisted in this role.)
 	 *
 	 * @return integer|bool false The amount of enlisted users or false on failiure
 	 */
-	public function enlistUsers( $newUsers, $role, $save = true, RevisionAction $revAction = null ) {
+	public function enlistUsers( $newUserIds, $role, $save = true,
+			RevisionAction $revAction = null, &$addedUserIds = null ) {
 		$roleMap = array(
 			'student' => 'students',
 			'campus' => 'campus_ambs',
@@ -587,14 +591,14 @@ class Course extends PageObject {
 		);
 
 		$field = $roleMap[$role];
-		$users = $this->getField( $field );
-		$addedUsers = array_diff( (array)$newUsers, $users );
+		$userIds = $this->getField( $field );
+		$usersToAddIds = array_diff( (array) $newUserIds, $userIds );
 
-		if ( $addedUsers === array() ) {
+		if ( empty( $usersToAddIds ) ) {
 			return 0;
 		}
 		else {
-			$this->setField( $field, array_merge( $users, $addedUsers ) );
+			$this->setField( $field, array_merge( $userIds, $usersToAddIds ) );
 
 			$success = true;
 
@@ -605,7 +609,7 @@ class Course extends PageObject {
 			}
 
 			if ( $success ) {
-				foreach ( $addedUsers as $userId ) {
+				foreach ( $usersToAddIds as $userId ) {
 					/**
 					 * @var RoleObject $person
 					 */
@@ -613,14 +617,20 @@ class Course extends PageObject {
 					$person->onEnrolled( $this->getId(), $role );
 					$person->save();
 				}
+
+				// If we have a value for $addedUserIds, pass in
+				// the ids of users that were enlisted.
+				if ($addedUserIds !== null) {
+					$addedUserIds = $usersToAddIds;
+				}
 			}
 
 			if ( $success && !is_null( $revAction ) ) {
-				$action = count( $addedUsers ) == 1 && $revAction->getUser()->getId() === $addedUsers[0] ? 'selfadd' : 'add';
-				$this->logRoleChange( $action, $role, $addedUsers, $revAction->getComment() );
+				$action = count( $usersToAddIds ) == 1 && $revAction->getUser()->getId() === $usersToAddIds[0] ? 'selfadd' : 'add';
+				$this->logRoleChange( $action, $role, $usersToAddIds, $revAction->getComment() );
 			}
 
-			return $success ? count( $addedUsers ) : false;
+			return $success ? count( $usersToAddIds ) : false;
 		}
 	}
 

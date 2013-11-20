@@ -1,0 +1,95 @@
+/*
+ * Adaptation of Bootstrap Tags Input library - CSS
+ * @see https://github.com/timschlechter/bootstrap-tagsinput
+ * @see http://timschlechter.github.io/bootstrap-tagsinput/examples/
+ *
+ * @license MIT
+ *
+ * (Significantly modified) upstream: https://raw.github.com/TimSchlechter/bootstrap-tagsinput/a1e07e3da271cadee58aa888c0721ba56cc777f7/dist/bootstrap-tagsinput.css
+ *
+ * Included in the the Education Program MediaWiki extension.
+ * @see https://www.mediawiki.org/wiki/Extension:Education_Program
+ *
+ */
+.ep-tagsinput {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	display: inline-block;
+	padding: 3px 3px;
+	margin-bottom: 10px;
+	color: #555;
+	border-radius: 4px;
+	max-width: 100%;
+}
+
+.ep-tagsinput .tt-query,
+.ep-tagsinput .tt-hint,
+.ep-tagsinput-textmeter {
+	border: none;
+	box-shadow: none;
+	outline: none;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	max-width: inherit;
+	resize: none;
+	font-family: inherit;
+	overflow: hidden;
+	line-height: inherit;
+	display: inline-block !important;
+	vertical-align: middle !important;
+	white-space: nowrap;
+}
+
+.ep-tagsinput .tt-query:focus {
+	border: none;
+	box-shadow: none;
+}
+
+.ep-tagsinput .tt-hint {
+/* 	background-color: red !important; */
+/* 	opacity: 0.5; */
+}
+
+.ep-tagsinput-tag {
+	margin-right: 2px;
+	color: white;
+	display: inline-block;
+	vertical-align: top;
+
+	/* preserves consecutive spaces without &nbsp; entites, which
+	somehow are problematic for versions of Chrome (?) */
+	white-space: pre;
+
+	/* set in pixels to be very sure jquery will give a pixel value */
+	margin-right: 5px;
+}
+
+.ep-tagsinput-tag [data-role="remove"] {
+	margin-left: 8px;
+	cursor: pointer;
+}
+
+.ep-tagsinput-tag [data-role="remove"]:after {
+	content: "x";
+	padding: 0px 2px;
+}
+
+.ep-tagsinput-tag [data-role="remove"]:hover {
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 2px
+		rgba(0, 0, 0, 0.5);
+}
+
+.ep-tagsinput-tag [data-role="remove"]:hover:active {
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* styles for default tag class */
+.ep-tagsinfo-label {
+	background-color: #5577cc;
+	padding: 0 3px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}

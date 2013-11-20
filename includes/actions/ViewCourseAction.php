@@ -123,6 +123,8 @@ class ViewCourseAction extends ViewAction {
 
 		$html .= parent::getPageHTML( $course );
 
+		$html .= Html::element('a', array( 'name' => 'studentstable' ) );
+
 		if ( !empty( $studentIds ) ) {
 			$pager = new ArticleTable(
 				$this->getContext(),
@@ -142,6 +144,15 @@ class ViewCourseAction extends ViewAction {
 						$pager->getNavigationBar() .
 						$pager->getMultipleItemControl();
 			}
+		}
+
+		$user = $this->getUser();
+
+		if ( $user->isAllowed( 'ep-addstudent' ) || RoleObject::isInRoleObjArray(
+			$user->getId(),
+			$course->getAllNonStudentRoleObjs() ) ) {
+
+			$html .= $this->getAddStudentsControls($course);
 		}
 
 		return $html;
@@ -286,6 +297,149 @@ class ViewCourseAction extends ViewAction {
 			$this->getOutput()->addModules( 'ep.enlist' );
 			return '<br />' . $this->getLanguage()->pipeList( $links );
 		}
+	}
+
+	protected function getAddStudentsControls( $course ) {
+
+		// add the required client-side module
+		$this->getOutput()->addModules( 'ep.addstudents' );
+
+		// Are we here following a page reload due to adding students?
+		// Check by looking at URl params. If so, controls start out
+		// expanded. Otherwise, they start out collapsed.
+		$queryVals = $this->getContext()->getRequest()->getQueryValues();
+
+		if ( isset ( $queryVals['studentsadded'] )  ||
+			isset ( $queryVals['alreadyenrolled'] ) ) {
+
+			$collapsedClassStr = '';
+			$expandMsg = $this->msg( 'collapsible-collapse' )->text();
+
+		} else {
+
+			$collapsedClassStr = ' mw-collapsed';
+			$expandMsg = $this->msg( 'collapsible-expand' )->text();
+		}
+
+		// open outer div
+		$html = Html::openElement(
+			'div',
+			array( 'class' => 'ep-addstudents-area' )
+		);
+
+		// open div for headline and expand/collapse link
+		$html .= Html::openElement(
+			'div',
+			array( 'class' => 'ep-addstudents-headline-area' )
+		);
+
+		// headline (looks like a wiki page "section")
+		$html .= Html::openElement( 'h2' );
+
+		$html .= Html::element(
+			'span',
+			array( 'class' => 'mw-headline' ),
+			$this->msg( 'ep-addstudents-section' )->text()
+		);
+
+		$html .= Html::closeElement( 'h2' );
+
+		// expand/collapse link
+		$html .= ' ['
+			. Html::element(
+				'a',
+				array(
+					'class' => 'mw-customtoggle-addstudents',
+					'href' => '#'
+				),
+				$expandMsg
+			)
+			.']';
+
+		// close div for headline and expand/collapse link
+		$html .= Html::closeElement( 'div' );
+
+		// open div with collapsible contents
+		$html .= Html::openElement(
+			'div',
+			array(
+				'id' => 'mw-customcollapsible-addstudents',
+				'class' => 'mw-collapsible ep-addstudents-controls' . $collapsedClassStr
+			)
+		);
+
+		// general instructions
+		$html .= Html::openElement(
+			'div',
+			array( 'id' => 'ep-addstudents-instructions' )
+		);
+
+		$html .= $this->msg( 'ep-addstudents-instructions' )->parseAsBlock();
+
+		$html .= Html::closeElement( 'div' );
+
+		// input for hooking up tagsinput
+		$html .= Html::element(
+			'input',
+			array(
+				'id' => 'ep-addstudents-input',
+				'data-courseid' => $course->getId()
+			)
+		);
+
+		// hidden empty div for error messages
+		$html .= Html::element(
+			'div',
+			array(
+				'id' => 'ep-addstudents-error',
+				'style' => 'display: none;'
+			)
+		);
+
+		// "Add" button
+		$html .= Html::element(
+			'button',
+			array(
+				'id' => 'ep-addstudents-btn',
+				'disabled' => 'true'
+			),
+			$this->msg( 'ep-addstudents-btn' )->text()
+		);
+
+		// open div for instructions on enroll link
+		$html .= Html::openElement(
+			'div',
+			array( 'id' => 'ep-addstudents-link-instructions' )
+		);
+
+		// instructions for enroll link
+		$html .= Html::element(
+			'p',
+			array(),
+			$this->msg( 'ep-addstudents-url-instructions' )->text()
+		);
+
+		// URL for enroll link (not a live link, but rather text for pasting)
+		$enrollLink = SpecialPage::getTitleFor(
+			'Enroll', $course->getField( 'title' ) . '/' .
+			$course->getField( 'token' ) )->getFullUrl();
+
+		$html .= Html::element(
+			'p',
+			array( 'id' => 'ep-addstudents-link' ),
+			$enrollLink
+		);
+
+		// close div for instructions on enroll link
+		$html .= Html::closeElement( 'div' );
+
+		// close div with collapsible contents
+		$html .= Html::closeElement( 'div' );
+
+		// close outer div
+		$html .= Html::closeElement( 'div' );
+
+		return $html;
 	}
 
 	/**

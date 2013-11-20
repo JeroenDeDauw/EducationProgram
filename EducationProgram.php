@@ -90,6 +90,7 @@ $wgAutoloadClasses['EducationProgram\ViewOrgAction'] 				= $dir . '/includes/act
 $wgAutoloadClasses['EducationProgram\ApiDeleteEducation'] 			= $dir . '/includes/api/ApiDeleteEducation.php';
 $wgAutoloadClasses['EducationProgram\ApiEnlist'] 					= $dir . '/includes/api/ApiEnlist.php';
 $wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/includes/api/ApiRefreshEducation.php';
+$wgAutoloadClasses['EducationProgram\ApiAddStudents'] 				= $dir . '/includes/api/ApiAddStudents.php';
 
 $wgAutoloadClasses['EducationProgram\Events\EditEventCreator'] 		= $dir . '/includes/Events/EditEventCreator.php';
 $wgAutoloadClasses['EducationProgram\Events\Event'] 				= $dir . '/includes/Events/Event.php';
@@ -247,6 +248,7 @@ define( 'EP_CA', 3 );           // Campus volunteers
 $wgAPIModules['deleteeducation'] 					= 'EducationProgram\ApiDeleteEducation';
 $wgAPIModules['enlist'] 							= 'EducationProgram\ApiEnlist';
 $wgAPIModules['refresheducation'] 					= 'EducationProgram\ApiRefreshEducation';
+$wgAPIModules['addstudents'] 						= 'EducationProgram\ApiAddStudents';
 
 // Hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] 			= 'EducationProgram\Hooks::onSchemaUpdate';
@@ -744,6 +746,43 @@ $wgResourceModules['ep.userrolesmessage'] = $moduleTemplate + array(
 		'styles' => array(
 				'ep.userrolesmessage.css',
 		),
+);
+
+$wgResourceModules['ep.addstudents'] = $moduleTemplate + array(
+	'scripts' => array(
+		'ep.addstudents.js',
+	),
+	'styles' => array(
+		'ep.addstudents.css',
+	),
+	'dependencies' => array(
+		'jquery.ui.core',
+		'ep.tagsinput',
+		'mediawiki.user',	// for obtaining edit token in js
+		'mediawiki.Uri',	// for building URI for page reload
+	),
+	'messages' => array(
+		'collapsible-expand',
+		'collapsible-collapse',
+		'ep-addstudents-invalid-users',
+		'ep-addstudents-success',
+		'ep-addstudents-alreadyenrolled',
+		'ep-addstudents-servercallerror',
+		'comma-separator',
+	),
+);
+
+$wgResourceModules['ep.tagsinput'] = $moduleTemplate + array(
+	'scripts' => array(
+		'ep.tagsinput/ep.tagsinput.js',
+		'ep.tagsinput/ep.typeahead.js',
+	),
+	'styles' => array(
+		'ep.tagsinput/ep.tagsinput.css',
+	),
+	'dependencies' => array(
+		'jquery.ui.core',
+	),
 );
 
 unset( $moduleTemplate );

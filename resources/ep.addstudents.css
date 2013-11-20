@@ -1,0 +1,141 @@
+/**
+ * CSS for the Education Program MediaWiki extension.
+ * This file provides styles for UI elements for adding students to courses.
+ * @see https://www.mediawiki.org/wiki/Extension:Education_Program
+ *
+ * @licence GNU GPL v2+
+ * @author Andrew Green <andrew.green.df at gmail dot com>
+ */
+
+/* the whole area for the add students controls, including heading */
+.ep-addstudents-area {
+	margin: 10px 0 10px 0;
+}
+
+.ep-addstudents-headline-area {
+	width: 100%;
+}
+
+/* The heading is in an h2 element. Use some global h2 styles, but not all. */
+.ep-addstudents-headline-area h2 {
+	border: none;
+	display: inline;
+	line-height: 2.3em;
+}
+
+/* prevent toggle-link outline when you click it */
+.mw-customtoggle-addstudents {
+	outline: none;
+}
+
+#mw-customcollapsible-addstudents {
+/* 	width: 50em; */
+}
+#ep-addstudents-instructions,
+#ep-addstudents-link-instructions,
+#ep-addstudents-error,
+.ep-addstudents-area .ep-tagsinput {
+	width: 50em;
+	clear: both;
+}
+
+/* tag input area */
+.ep-addstudents-area .ep-tagsinput {
+	line-height: 2.2em;
+	margin: 0.3em 0 0.3em 0;
+	background: none;
+	float: left;
+	clear: both;
+	/* This wonky padding makes tags appear centered, though */
+	/* they're really top-aligned. */
+	/* Set h padding in pixels to be very sure jquery will give a pixel value. */
+	padding: 0.3em 6px 0.1em 6px;
+}
+
+/* font size in input area and for related elements */
+.ep-addstudents-area .tt-query,
+.ep-addstudents-area .tt-hint,
+.ep-addstudents-area .ep-tagsinput-textmeter {
+	font-size: 1.2em;
+	height: 2em;
+}
+
+.ep-addstudents-area .ep-tagsinput-tag {
+	font-size: 1.1em;
+}
+
+.ep-addstudents-area .tt-suggestions {
+	border: 1px solid #ccc;
+	border-radius: 0; /* symmetry avoids issues for dropup/dropdown */
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+	background-color: #fff;
+}
+
+.ep-addstudents-area .tt-suggestion {
+	padding: 3px;
+}
+
+.ep-addstudents-area .tt-is-under-cursor {
+	color: #fff;
+	background-color: #5588cc;
+}
+
+.ep-addstudents-area .ep-tagsinput-tag {
+	line-height: 1.6em;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+}
+
+.ep-invalid-user-tag {
+	background-color: #cc4466;
+}
+
+#ep-addstudents-instructions {
+	padding: 7px;
+	background-color: #e6e6e6;
+	border-radius: 5px;
+	margin-bottom: 0.2em;
+}
+
+#ep-addstudents-error {
+	width: 100%;
+	color: #cc4466;
+	clear: both;
+}
+
+#ep-addstudents-link-instructions {
+	padding-top: 0.2em;
+}
+
+#ep-addstudents-btn {
+	float: left;
+	clear: both;
+}
+
+#ep-addstudents-link {
+	font-family: monospace;
+	font-size: 1.1em;
+}
+
+#ep-addstudent-msg {
+	width: 80%;
+	margin: 1em 0 0.3em 0;
+	border: 3px solid #2f3c6d;
+	padding: 0.4em;
+}
+
+#ep-addstudent-msg [data-role="remove"] {
+	margin-left: 8px;
+	cursor: pointer;
+	float:right;
+	font-size: 1.3em;
+}
+
+#ep-addstudent-msg [data-role="remove"]:hover {
+	text-decoration: underline;
+}
+
+.ep-addstudent-msg-main {
+	font-size: 1.3em;
+}

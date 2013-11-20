@@ -118,8 +118,8 @@ $messages['en'] = array(
 	'logentry-campus-selfadd' => '$1 added {{GENDER:$2|himself|herself|themself}} as {{GENDER:$2|Campus volunteer}} to course $3',
 	'logentry-campus-selfremove' => '$1 removed {{GENDER:$2|himself|herself|themself}} as {{GENDER:$2|Campus volunteer}} from course $3',
 	'logentry-campus-profilesave' => '$1 updated {{GENDER:$2|his|her|their}} Campus volunteer profile',
-	'logentry-student-add' => '$1 {{GENDER:$2|enrolled}} in course $3',
-	'logentry-student-remove' => '$1 {{GENDER:$2|removed}} $5 as {{PLURAL:$4|{{GENDER:$5|student}}|students}} from course $3',
+	'logentry-student-add' => '$1 {{GENDER:$2|enrolled}} $5 as {{PLURAL:$4|{{GENDER:$5|a student}}|students}} in course $3',
+	'logentry-student-remove' => '$1 {{GENDER:$2|removed}} $5 as {{PLURAL:$4|{{GENDER:$5|a student}}|students}} from course $3',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|enrolled}} in course $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|disenrolled}} from course $3',
 	'logentry-eparticle-selfadd' => '$1 added article $3 to {{GENDER:$2|his|her|their}} list of articles at course $4',
@@ -437,6 +437,16 @@ The deletion log for this institution is provided below for convenience:",
 	'ep-addcourse' => 'There is no course with this name yet, but you can add it.',
 	'ep-editcourse' => 'You are editing an existing course.',
 	'ep-editcourse-exists-already' => 'This course already exists. You are editing it.',
+	'ep-addstudents-section' => "Add students to this course",
+	'ep-addstudents-instructions' => "Type the usernames of the students you want to add. Press Enter after each one, or click on the menu that appears. You can also paste a list of usernames.
+
+	Click \"{{int:ep-addstudents-btn}}\" when you're done.",
+	'ep-addstudents-url-instructions' => "Note that students may also add themselves by opening this link in their web browsers:",
+	'ep-addstudents-invalid-users' => "{{PLURAL:$1|This user doesn't|These users don't}} exist: $2.",
+	'ep-addstudents-btn' => "Add",
+	'ep-addstudents-success' => "You added $1 {{PLURAL:$1|{{GENDER:$2|student}}|students}} to this course.",
+	'ep-addstudents-alreadyenrolled' => "The following {{PLURAL:$1|student was not added because {{GENDER:$3|he was|she was|they were}}|students were not added because they were}} already in the course: $2.",
+	'ep-addstudents-servercallerror' => 'While addding students, the following error occured: $1.',
 	'coursepage-edit-title-edit' => 'Editing course: $1',
 	'coursepage-edit-title-add' => 'Adding course: $1',
 	'coursepage-edit-deleted' => "'''Warning: You are recreating a course that was previously deleted.'''
@@ -1011,8 +1021,8 @@ Additional parameters:
 	'logentry-student-add' => '{{logentry}}',
 	'logentry-student-remove' => '{{logentry}}
 Additional parameters:
-* $4 - the number of removed people
-* $5 - a list of removed people',
+* $4 - the number of added/removed people
+* $5 - a list of added/removed people',
 	'logentry-student-selfadd' => '{{logentry}}',
 	'logentry-student-selfremove' => '{{logentry}}',
 	'logentry-eparticle-selfadd' => '{{doc-singularthey}}
@@ -1443,6 +1453,22 @@ Parameters:
 
 See also:
 * {{msg-mw|Ep-addorg-exists-already}}',
+	'ep-editcourse-exists-already' => 'Message shown when the user tries to create a new course with a name that already exists, and so ends up editing that one',
+	'ep-addstudents-section' => "Title of the section of a course page with controls for adding students.",
+	'ep-addstudents-instructions' => "Instructions on how to use the controls for adding students.",
+	'ep-addstudents-url-instructions' => "Instructions on how students may add themselves to a course with the enroll token.",
+	'ep-addstudents-invalid-users' => "Message explaining that one or more users typed into a form don't exist. Parameters:
+* $1 is the number of non-existent users
+* $2 is a list of non-existent users",
+	'ep-addstudents-btn' => "Text of button for actually adding users.",
+	'ep-addstudents-success' => "Message stating the number of students added to a course. Parameters:
+* $1 is the number of students added
+* $2 is the gender of the student if only one was added",
+	'ep-addstudents-alreadyenrolled' => "Message expalining that some students weren't added because they were already enrolled. Parameters:
+* $1 is the number of students not added
+* $2 is a list of students not added
+* $3 is the gender of the student if only one was not added",
+	'ep-addstudents-servercallerror' => 'Error message from server call to add students.',
 	'coursepage-edit-title-edit' => 'Page title. Parameters:
 * $1 is the course name.',
 	'coursepage-edit-title-add' => 'Page title. Parameters:
