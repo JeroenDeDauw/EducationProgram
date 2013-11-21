@@ -209,10 +209,11 @@ $specialPageAliases['it'] = array(
 	'Disenroll' => array( 'Smatricolati' ),
 	'CampusAmbassadors' => array( 'AmbasciatoriCampus' ),
 	'OnlineAmbassadors' => array( 'AmbasciatoriOnline' ),
-	'OnlineAmbassadorProfile' => array( 'ProfiloAmbasciatoreOnline' ),
-	'CampusAmbassadorProfile' => array( 'ProfiloAmbasciatoreCampus' ),
+	'OnlineAmbassadorProfile' => array( 'ProfiloVolontarioOnline', 'ProfiloAmbasciatoreOnline' ),
+	'CampusAmbassadorProfile' => array( 'ProfiloVolontarioCampus', 'ProfiloAmbasciatoreCampus' ),
 	'StudentActivity' => array( 'AttivitàStudente' ),
 	'Articles' => array( 'Voci' ),
+	'CourseActivity' => array( 'AttivitàCorso' ),
 );
 
 /** Japanese (日本語) */
