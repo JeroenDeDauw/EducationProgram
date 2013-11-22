@@ -12,7 +12,7 @@ use Page;
 use DatabaseBase;
 use MWNamespace;
 use Diff;
-use _DiffOp;
+use DiffOp;
 
 /**
  * Class that generates edit based events by handling new edits.
@@ -151,12 +151,12 @@ class EditEventCreator {
 			// Only an order of magnitude more lines then the python equivalent, but oh well... >_>
 			// lines = [ diffOp->closing for diffOp in diff->edits if diffOp->type == 'add' ]
 			$lines = array_map(
-				function( _DiffOp $diffOp ) {
+				function( DiffOp $diffOp ) {
 					return $diffOp->closing;
 				},
 				array_filter(
 					$diff->edits,
-					function( _DiffOp $diffOp ) {
+					function( DiffOp $diffOp ) {
 						return $diffOp->type == 'add';
 					}
 				)
