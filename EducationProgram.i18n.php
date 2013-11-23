@@ -1333,6 +1333,8 @@ Parameters:
 {{Identical|City}}',
 	'educationprogram-org-edit-country' => 'Text input label',
 	'educationprogram-org-submit' => 'Submit button text.
+
+Used in {{msg-mw|Ep-enroll-header}}.
 {{Identical|Submit}}',
 	'ep-addorg' => 'Message shown when viewing an non-existing institution page',
 	'ep-editorg' => 'Message shown when editing an institution page',
@@ -1636,7 +1638,9 @@ Parameters:
 	'ep-enroll-no-id' => 'Error message shown when the user does not specify a course.',
 	'ep-enroll-invalid-token' => 'Error message shown when the user provides an invalid enrolment token.',
 	'ep-enroll-legend' => 'Enroll form header',
-	'ep-enroll-header' => 'Enroll form description',
+	'ep-enroll-header' => 'Enroll form description.
+
+Refers to {{msg-mw|Educationprogram-org-submit}}.',
 	'ep-enroll-gender' => 'Input label',
 	'ep-enroll-realname' => 'Input label',
 	'ep-enroll-realname-optional' => 'Input label',
@@ -5644,6 +5648,7 @@ $messages['el'] = array(
 	'ep-editorg-exists-already' => 'Αυτό το ίδρυμα, υπάρχει ήδη. Το επεξεργάζεστε.',
 	'orgpage-edit-title-edit' => 'Επεξεργασία ιδρύματος: $1',
 	'orgpage-edit-title-add' => 'Προσθήκη ιδρύματος: $1',
+	'educationprogram-org-invalid-city' => 'Το όνομα της πόλης πρέπει να περιέχει τουλάχιστον $1 {{PLURAL:$1|χαρακτήρα|χαρακτήρες}}.',
 	'educationprogram-org-invalid-country' => 'Αυτή δεν είναι έγκυρη χώρα',
 	'coursepage-edit-legend-add' => 'Προσθήκη μαθήματος',
 	'coursepage-edit-legend-edit' => 'Επεξεργασία μαθήματος',
@@ -5784,7 +5789,7 @@ $messages['el'] = array(
 	'ep-enroll-not-allowed' => 'Ο λογαριασμός σας δεν επιτρέπεται να εγγραφεί',
 	'ep-enroll-invalid-token' => 'Το διακριτικό που δώσατε δεν είναι έγκυρο.',
 	'ep-enroll-legend' => 'Εγγραφή',
-	'ep-enroll-header' => 'Προκειμένου να εγγραφείτε σε αυτό το μάθημα, το μόνο που χρειάζεται να κάνετε είναι να συμπληρώσετε αυτή τη φόρμα και να κάνετε κλικ στο κουμπί υποβολής. Μετά από αυτό θα είστε εγγεγραμμένοι.', # Fuzzy
+	'ep-enroll-header' => 'Προκειμένου να εγγραφείτε σε αυτό το μάθημα, το μόνο που χρειάζεται να κάνετε είναι να συμπληρώσετε αυτή τη φόρμα και να κάνετε κλικ στο κουμπί "{{int:educationprogram-org-submit}}". Μετά από αυτό θα είστε εγγεγραμμένοι.',
 	'ep-enroll-gender' => 'Φύλο (προαιρετικό)',
 	'ep-enroll-realname' => 'Πραγματικό όνομα (απαιτείται)',
 	'ep-enroll-realname-optional' => 'Πραγματικό όνομα (προαιρετικό)',
@@ -5841,9 +5846,11 @@ $messages['el'] = array(
 	'ep-campus-name-input' => 'Όνομα χρήστη:',
 	'epoa-profile-bio' => 'Σύντομο βιογραφικό',
 	'epoa-profile-photo' => 'Φωτογραφία προφίλ',
+	'epoa-profile-invalid-bio' => 'Το βιογραφικό σας πρέπει να περιλαμβάνει τουλάχιστον $1 {{PLURAL:$1|χαρακτήρα|χαρακτήρες}}.',
 	'epca-profile-bio' => 'Σύντομο βιογραφικό',
 	'epca-profile-photo' => 'Φωτογραφία προφίλ',
 	'epca-profile-saved' => 'Το προφίλ σας έχει αποθηκευτεί',
+	'epca-profile-invalid-bio' => 'Το βιογραφικό σας πρέπει να περιλαμβάνει τουλάχιστον $1 {{PLURAL:$1|χαρακτήρα|χαρακτήρες}}.',
 	'ep-diff-old' => 'Τρέχουσα τιμή',
 	'ep-diff-new' => 'Νέα τιμή',
 	'ep-timeline-unknown' => '{{GENDER:$1|Ο|Η}} $1 έκανε κάτι στις $2 $3',
@@ -6091,6 +6098,7 @@ $messages['eo'] = array(
  * @author Benfutbol10
  * @author Dalton2
  * @author Fitoschido
+ * @author Ihojose
  * @author Invadinado
  * @author Larjona
  * @author Mr.Ajedrez
@@ -6250,7 +6258,7 @@ $messages['es'] = array(
 	'special-disenroll' => 'Darse de baja',
 	'special-studentactivity' => 'Actividad del alumno',
 	'special-articles' => 'Artículos (programa educativo)',
-	'ep-course-status-passed' => 'Pasados', # Fuzzy
+	'ep-course-status-passed' => 'Finalizados',
 	'ep-course-status-current' => 'Actuales',
 	'ep-course-status-planned' => 'Planificados',
 	'ep-course-status-current-planned' => 'Actuales y planificadas',
@@ -6592,7 +6600,7 @@ El registro de borrado para este curso se indica a continuación por convenienci
 	'ep-enroll-no-id' => 'Es necesario especificar un curso para inscribirte. Consulta la [[Special:Courses|lista de cursos]].',
 	'ep-enroll-invalid-token' => 'La clave (token) que has proporcionado no es válida.',
 	'ep-enroll-legend' => 'Inscribirse',
-	'ep-enroll-header' => 'A fin de inscribirte en este curso, todo lo que necesitas hacer es rellenar este formulario y hacer clic en el botón de envío. Después de eso, estarás inscrito.',
+	'ep-enroll-header' => 'Para inscribirse en este curso, todo lo que necesita hacer es llenar este formulario y pulse el botón "{{int:educationprogram-org-submit}}". Luego quedará inscrito.',
 	'ep-enroll-gender' => 'Género (opcional)',
 	'ep-enroll-realname' => 'Nombre real (requerido)',
 	'ep-enroll-realname-optional' => 'Nombre real (opcional)',
@@ -12691,7 +12699,7 @@ L'elenco delle relative cancellazioni e degli spostamenti viene riportato di seg
 	'ep-enroll-no-id' => 'Devi specificare un corso per iscriverti. Vedi la [[Special:Courses|lista dei corsi]].',
 	'ep-enroll-invalid-token' => 'Il token che hai fornito non è valido.',
 	'ep-enroll-legend' => 'Iscriversi',
-	'ep-enroll-header' => 'Per iscriversi a questo corso, tutto quello che devi fare è compilare questo modulo e fare clic sul pulsante di invio. Dopo ciò sarai iscritto.',
+	'ep-enroll-header' => 'Per iscriversi a questo corso, tutto quello che devi fare è compilare questo modulo e fare clic sul pulsante "{{int:educationprogram-org-submit}}". Dopo ciò sarai iscritto.',
 	'ep-enroll-gender' => 'Genere (facoltativo)',
 	'ep-enroll-realname' => 'Nome reale (obbligatorio)',
 	'ep-enroll-realname-optional' => 'Nome reale (opzionale)',
@@ -13226,7 +13234,7 @@ $messages['ja'] = array(
 	'ep-enroll-no-id' => '入会するコースを指定する必要があります。[[Special:Courses|コース一覧]]を参照してください。',
 	'ep-enroll-invalid-token' => '指定したトークンは無効です。',
 	'ep-enroll-legend' => '入会',
-	'ep-enroll-header' => 'このフォームに記入して送信ボタンをクリックするだけで、このコースに入会できます。送信すると入会が完了します。', # Fuzzy
+	'ep-enroll-header' => 'このフォームに記入して「{{int:educationprogram-org-submit}}」ボタンをクリックするだけで、このコースに入会できます。送信すると入会が完了します。',
 	'ep-enroll-gender' => '性別 (省略可能)',
 	'ep-enroll-realname' => '本名 (必須)',
 	'ep-enroll-realname-optional' => '本名 (省略可能)',
@@ -16449,7 +16457,7 @@ $messages['mk'] = array(
 	'ep-enroll-no-id' => 'Треба да наведете на кој курс сакате да се запишете. Погледајте го [[Special:Courses|списокот на курсеви]].',
 	'ep-enroll-invalid-token' => 'Наведената шифра е неважечка.',
 	'ep-enroll-legend' => 'Запиши ме',
-	'ep-enroll-header' => 'За да се запишете на курсот, едноставно пополнете го образецов и стиснете на „Поднеси“. Со тоа ќе бидете запишани.',
+	'ep-enroll-header' => 'За да се запишете на курсот, едноставно пополнете го образецов и стиснете на копчето „{{int:educationprogram-org-submit}}“. Со тоа ќе бидете запишани.',
 	'ep-enroll-gender' => 'Пол (незадолжително)',
 	'ep-enroll-realname' => 'Вистинско име (задолжително)',
 	'ep-enroll-realname-optional' => 'Вистинско име (незадолжително)',
