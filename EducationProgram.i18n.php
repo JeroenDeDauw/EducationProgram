@@ -3440,10 +3440,12 @@ $messages['ce'] = array(
 	'ep-tab-history' => 'Исторега хьажар',
 	'ep-pager-clear' => 'Литтарш цӀанъян',
 	'ep-pager-go' => 'Дехьа гӀо',
+	'eporgpager-yes' => 'ХӀаъ',
 	'ep-pager-cancel-button-org' => 'Цаоьшу',
 	'epcoursepager-header-lang' => 'Мотт',
 	'epcoursepager-filter-lang' => 'Мотт',
 	'ep-pager-cancel-button-course' => 'Цаоьшу',
+	'epstudentpager-yes' => 'ХӀаъ',
 	'ep-articles-remarticle' => 'АгӀо дӀаяккхар',
 	'ep-articletable-addreviwer-cancel' => 'Цаоьшу',
 	'ep-articletable-remreviwer-cancel' => 'Цаоьшу',
@@ -10786,6 +10788,13 @@ $messages['hu'] = array(
 	'ep-online-add-cancel-button' => 'Mégse',
 	'ep-online-summary-input' => 'Összefoglaló:',
 	'ep-online-name-input' => 'Felhasználónév:',
+);
+
+/** Armenian (Հայերեն)
+ * @author M hamlet
+ */
+$messages['hy'] = array(
+	'ep-enroll-invalid-name' => 'Անունը պետք է պարունակի նվազագույնը $1 նշան։', # Fuzzy
 );
 
 /** Interlingua (interlingua)
@@ -26147,6 +26156,7 @@ $messages['zh-hans'] = array(
 	'orgpage-delete-title' => '删除机构“$1”',
 	'orgpage-delete-cancel-button' => '取消',
 	'orgpage-delete-delete-button' => '删除机构',
+	'orgpage-delete-delete-failed' => '删除机构[[Institution:$1|$1]]失败。',
 	'orgpage-eprestore-title' => '恢复机构“$1”。',
 	'orgpage-eprestore-summary' => '原因：',
 	'orgpage-eprestore-restore-button' => '恢复版本',
@@ -26180,6 +26190,7 @@ $messages['zh-hans'] = array(
 	'orgpage-epundelete-undelete-button' => '撤消删除机构',
 	'orgpage-epundelete-cancel-button' => '取消',
 	'orgpage-epundelete-undeleted' => '成功恢复机构 $1 。',
+	'ep-student-none' => "这里没有名叫''$1''的学生。请参阅[[Special:Students|所有学生的列表]]。",
 	'ep-student-title' => '学生：$1',
 	'ep-student-actively-enrolled' => '目前就读',
 	'specialstudent-summary-active-enroll' => '学籍',
@@ -26266,6 +26277,7 @@ $messages['zh-hans'] = array(
 	'campusambassadorprofile-legend' => '您的校园志愿者个人档案',
 	'epca-profile-bio' => '个人简历',
 	'epca-profile-photo' => '头像',
+	'epca-profile-saved' => '您的个人资料已保存',
 	'epca-visible' => '公开列出您为校园志愿者',
 	'ep-diff-old' => '当前值',
 	'ep-diff-new' => '新值',
