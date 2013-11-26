@@ -2187,7 +2187,7 @@ $messages['ar'] = array(
 	'logentry-campus-selfremove' => '{{GENDER:$2|أزال|أزالت}} $1 {{GENDER:$2|نفسه كمتطوع جامعة|نفسها كمتطوعة جامعة}} من منهج $3',
 	'logentry-campus-profilesave' => '{{GENDER:$2|حدث|حدثت}} $1 ملف تطوع الجامعة',
 	'logentry-student-add' => '{{GENDER:$2|التحق|التحقت}} $1 بمنهج $3',
-	'logentry-student-remove' => '{{GENDER:$2|أزال|أزالت}} $1 {{GENDER:$6|$5}} من طلبة منهج $3', # Fuzzy
+	'logentry-student-remove' => '{{GENDER:$2|أزال|أزالت}} $1 $5 من طلبة منهج $3', # Fuzzy
 	'logentry-student-selfadd' => '{{GENDER:$2|التحق|التحقت}} $1 بمنهج $3',
 	'logentry-student-selfremove' => '{{GENDER:$2|انسحب|انسحبت}} $1 من منهج $3',
 	'logentry-eparticle-selfadd' => '{{GENDER:$2|أضاف|أضافت}} $1 مقالة $3 إلى قائمة {{GENDER:$2|مقالاته|مقالاتها}} في منهج $4',
@@ -9903,6 +9903,7 @@ Pode atopar unha lista completa dos estudantes na [[Special:Students|lista de es
  * @author Amire80
  * @author Esh77
  * @author Guycn1
+ * @author Guycn2
  * @author Inkbug
  * @author Kulystab
  * @author Matanya
@@ -19438,6 +19439,7 @@ $messages['pl'] = array(
 	'educationprogram-org-edit-country' => 'Państwo',
 	'educationprogram-org-submit' => 'Wyślij',
 	'ep-course-edit-org' => 'Instytucja',
+	'ep-course-invalid-description' => 'Opis musi zawierać co najmniej $1 {{PLURAL:$1|znak|znaki|znaków}}.',
 	'vieworgaction-summary-city' => 'Miasto',
 	'vieworgaction-summary-country' => 'Państwo',
 	'ep-course-articles' => 'Artykuły',
@@ -19464,6 +19466,7 @@ $messages['pl'] = array(
 	'coursepage-epundelete-cancel-button' => 'Anuluj',
 	'orgpage-epundelete-summary' => 'Powód:',
 	'orgpage-epundelete-cancel-button' => 'Anuluj',
+	'ep-enroll-invalid-name' => 'Nazwa powinna zawierać co najmniej $1 {{PLURAL:$1|znak|znaki|znaków}}.',
 	'ep-disenroll-cancel' => 'Anuluj',
 	'ep-disenroll-returntolink' => 'Powrót do [[Education_Program:$2|kurs $1]].',
 	'ep-mycourses-courses-epstudent' => '{{PLURAL:$1|Kurs, do którego|Kursy, do których}} jesteś zapisany',
@@ -21632,6 +21635,7 @@ $messages['roa-tara'] = array(
  * @author Iluvatar
  * @author KPu3uC B Poccuu
  * @author Kaganer
+ * @author Midnight Gambler
  * @author Okras
  */
 $messages['ru'] = array(
@@ -21873,6 +21877,7 @@ $messages['ru'] = array(
 	'orgpage-eprestore-cancel-button' => 'Отмена',
 	'coursepage-eprestore-summary' => 'Причина:',
 	'coursepage-eprestore-cancel-button' => 'Отмена',
+	'orgpage-epundo-summary' => 'Причина:',
 	'orgpage-epundo-cancel-button' => 'Отмена',
 	'coursepage-epundo-cancel-button' => 'Отмена',
 	'coursepage-epundelete-cancel-button' => 'Отмена',
