@@ -1223,7 +1223,8 @@ Additional parameters:
 {{Identical|No}}',
 	'epstudentpager-header-student' => 'Table column header.
 {{Identical|Student}}',
-	'epstudentpager-header-articles' => 'Table column header',
+	'epstudentpager-header-articles' => 'Table column header.
+{{Identical|Article}}',
 	'epstudentpager-header-reviewers' => 'Table column header.
 {{Identical|Reviewer}}',
 	'ep-articles-sandboxes' => 'Link text shown in user tool links section, for list of user subpages.
@@ -1428,7 +1429,8 @@ Parameters:
 	'ep-course-students' => 'h2 section header.
 {{Identical|Student}}',
 	'ep-course-summary-students' => 'h2 section header',
-	'ep-course-articles' => 'h2 section header',
+	'ep-course-articles' => 'h2 section header.
+{{Identical|Article}}',
 	'viewcourseaction-none' => 'States there is no such course. Parameters:
 * $1 is the course name',
 	'ep-course-create' => 'States there is no such course, but that it can be created.Parameters:
@@ -3738,7 +3740,7 @@ $messages['ckb'] = array(
 	'vieworgaction-summary-country' => 'وڵات',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Chmee2
  * @author Dominikmatus
  * @author Jkjk
@@ -4132,7 +4134,7 @@ Záznam smazání tohoto kurzu:",
 	'viewcourseaction-summary-online' => 'Online dobrovolníci',
 	'viewcourseaction-summary-campus' => 'Dobrovolníci dostupní osobně',
 	'ep-course-no-instructor' => 'Zatím nejsou žádní instruktoři pro tento kurz.',
-	'ep-course-become-instructor' => 'Pověřit instruktorem',
+	'ep-course-become-instructor' => 'Stát se instruktorem',
 	'ep-course-add-instructor' => 'Přidat instruktora',
 	'ep-course-no-online' => 'Zatím nejsou žádní Online dobrovolníci pro tento kurz.',
 	'ep-course-become-online' => 'Stát se online dobrovolníkem',
@@ -4239,7 +4241,7 @@ Záznam smazání tohoto kurzu:",
 	'ep-enroll-no-id' => 'Je potřeba specifikovat kurz do kterého se chcete zapsat. Nahlédněte do [[Special:Courses|seznamu kurzů]].',
 	'ep-enroll-invalid-token' => 'Token, který jste zadali, je neplatný.',
 	'ep-enroll-legend' => 'Zapsat',
-	'ep-enroll-header' => 'Vše co musíte udělat, pro zápis do tohoto kurzu, je vyplnit tento formulář a klepnout na tlačítko odeslat. Poté budete zapsáni.',
+	'ep-enroll-header' => 'Vše co musíte udělat, pro zápis do tohoto kurzu, je vyplnit tento formulář a klepnout na tlačítko "{{int:educationprogram-org-submit}}" odeslat. Poté budete zapsáni.',
 	'ep-enroll-gender' => 'Pohlaví (volitelné)',
 	'ep-enroll-realname' => 'Vaše jméno (požadováno)',
 	'ep-enroll-realname-optional' => 'Skutečné jméno (nepovinné)',
@@ -5390,7 +5392,7 @@ $messages['diq'] = array(
 	'ep-tab-view' => 'Buwan',
 	'ep-tab-edit' => 'Bıvurne',
 	'ep-tab-create' => 'İycad ke',
-	'ep-tab-history' => 'Veréni bıvin',
+	'ep-tab-history' => 'Verénan bıvin',
 	'ep-tab-enroll' => 'Bıloxne',
 	'ep-tab-disenroll' => 'Meloxne',
 	'ep-tab-delete' => 'Besterne',
@@ -10000,7 +10002,7 @@ $messages['he'] = array(
 	'logentry-eparticle-review' => '$1 {{GENDER:$2|הוסיף|הוסיפה}} את {{GENDER:$2|עצמו כבודק|עצמה כבודקת}} של הערך $3 ש{{GRAMMAR:תחילית|$5}} {{GENDER:$6|עובד|עובדת}} עליו כחלק מהקורס $4',
 	'logentry-eparticle-unreview' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{GENDER:$2|עצמו כבודק|עצמה כבודקת}} של הערך $3 ש{{GRAMMAR:תחילית|$5}} {{GENDER:$6|עובד|עובדת}} עליו כחלק מהקורס $4',
 	'prefs-education' => 'הוראה',
-	'ep-prefs-showtoplink' => 'הצגת קישור ל[[Special:MyCourses|הקורסים שלך]] מעל כל עמוד.',
+	'ep-prefs-showtoplink' => 'הצגת קישור ל[[Special:MyCourses|קורסים שלך]] מעל כל עמוד.',
 	'ep-prefs-bulkdelorgs' => 'הצגת פקודת מחיקה מרובה ל[[Special:Institutions|מוסדות]].',
 	'ep-prefs-bulkdelcourses' => 'הצגת פקודת מחיקה מרובה ל[[Special:Courses|קורסים]].',
 	'ep-prefs-showdyk' => 'הצגת תיבת "הידעת?" בעמוד [[Special:MyCourses|הקורסים שלך]].',
@@ -10220,7 +10222,7 @@ $messages['he'] = array(
 	'educationprogram-org-submit' => 'שלח',
 	'ep-addorg' => 'אין מוסד בשם זה עדיין, אבל אפשר להוסיף אותו.',
 	'ep-editorg' => 'הנכם עורכים מוסד קיים.',
-	'ep-editorg-exists-already' => 'מוסד זה כבר קיים. הנך עורך אותה.',
+	'ep-editorg-exists-already' => 'מוסד זה כבר קיים. הנכם עורכים אותו.',
 	'orgpage-edit-title-edit' => 'עריכת מוסד: $1',
 	'orgpage-edit-title-add' => 'הוספת מוסד: $1',
 	'orgpage-edit-deleted' => "'''אזהרה: הנכם יוצרים מוסד חדש שנמחק בעבר.'''
@@ -10251,7 +10253,7 @@ $messages['he'] = array(
 	'ep-course-edit-lang' => 'שפת הקורס',
 	'ep-addcourse' => 'עדיין אין קורס בשם זה, אך אפשר להוסיף אותו.',
 	'ep-editcourse' => 'הנכם עורכים קורס קיים.',
-	'ep-editcourse-exists-already' => 'קורס זה כבר קיים. הנך עורך אותה.',
+	'ep-editcourse-exists-already' => 'קורס זה כבר קיים. הנכם עורכים אותו.',
 	'coursepage-edit-title-edit' => 'עריכת קורס: $1',
 	'coursepage-edit-title-add' => 'הוספת קורס: $1',
 	'coursepage-edit-deleted' => "'''אזהרה: הנכם יוצרים קורס חדש שנמחק בעבר.'''
@@ -10263,7 +10265,7 @@ $messages['he'] = array(
 	'ep-course-invalid-description' => 'התיאור חייב להכיל לפחות {{PLURAL:$1|תו אחד|$1 תווים}}.',
 	'ep-course-invalid-lang' => 'השפה הזאת אינה חוקית.',
 	'ep-course-no-slashes' => 'לוכסנים אינם מותרים בכותרת הקורס!',
-	'coursepage-edit-undelete-revisions' => 'קורס זה נמחק. אתה יכול $1.',
+	'coursepage-edit-undelete-revisions' => 'קורס זה נמחק. באפשרותך $1.',
 	'coursepage-edit-undelete-link' => 'לשחזר {{PLURAL:$1|גרסה אחת|$1 גרסאות}}',
 	'ep-pager-confirm-delete' => 'האם אתם בטוחים שברצונכם למחוק פריט זה?',
 	'ep-pager-delete-fail' => 'לא הייתה אפשרות למחוק פריט זה.',
