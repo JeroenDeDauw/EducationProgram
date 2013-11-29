@@ -1,0 +1,18 @@
+/**
+ * CSS for the Education Program MediaWiki extension.
+ * @see https://www.mediawiki.org/wiki/Extension:Education_Program
+ *
+ * Style for a message about a user's role(s) in courses (as a
+ * student, instructor or volunteer). Currently this message appears on
+ * Special:Contributions.
+ *
+ * @licence GNU GPL v2+
+ * @author Andrew Green < andrew at wikimedia dot org>
+ */
+
+/* box for message, similar to fmbox in Common.css on English Wikipedia */
+.userrolesmessage {
+	padding: 0.25em 0.9em;
+	border: 1px solid #aaa;
+	background: #f9f9f9; 
+}

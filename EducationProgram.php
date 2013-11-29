@@ -189,6 +189,7 @@ $wgAutoloadClasses['EducationProgram\RoleObject'] 					= $dir . '/includes/RoleO
 $wgAutoloadClasses['EducationProgram\Settings'] 					= $dir . '/includes/Settings.php';
 $wgAutoloadClasses['EducationProgram\UPCUserCourseFinder'] 			= $dir . '/includes/UPCUserCourseFinder.php';
 $wgAutoloadClasses['EducationProgram\UserCourseFinder'] 			= $dir . '/includes/UserCourseFinder.php';
+$wgAutoloadClasses['EducationProgram\UserRolesMessage'] 			= $dir . '/includes/UserRolesMessage.php';
 $wgAutoloadClasses['EducationProgram\Utils']						= $dir . '/includes/Utils.php';
 
 $wgAutoloadClasses['EducationProgram\Tests\MockSuperUser'] 			= $dir . '/tests/phpunit/MockSuperUser.php';
@@ -252,7 +253,8 @@ $wgHooks['TitleIsAlwaysKnown'][] 					= 'EducationProgram\Hooks::onTitleIsAlways
 $wgHooks['AbortMove'][] 							= 'EducationProgram\Hooks::onAbortMove';
 $wgHooks['NewRevisionFromEditComplete'][] 			= 'EducationProgram\Hooks::onNewRevisionFromEditComplete';
 $wgHooks['NamespaceIsMovable'][] 					= 'EducationProgram\Hooks::onNamespaceIsMovable';
-
+$wgHooks['SpecialContributionsBeforeMainOutput'][]	= 'EducationProgram\Hooks::onSpecialContributionsBeforeMainOutput';
+$wgHooks['ContributionsToolLinks'][]				= 'EducationProgram\Hooks::onContributionsToolLinks';
 
 // Actions
 $wgActions['epremarticle'] = 'EducationProgram\RemoveArticleAction';
@@ -722,6 +724,12 @@ $wgResourceModules['ep.dyk'] = $moduleTemplate + array(
 	'styles' => array(
 		'ep.dyk.css',
 	),
+);
+
+$wgResourceModules['ep.userrolesmessage'] = $moduleTemplate + array(
+		'styles' => array(
+				'ep.userrolesmessage.css',
+		),
 );
 
 unset( $moduleTemplate );

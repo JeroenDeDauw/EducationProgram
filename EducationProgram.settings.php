@@ -54,6 +54,11 @@ $egEPSettings = array(
 	'courseHeaderPage' => 'MediaWiki:Course header',
 	'courseHeaderPageCountry' => '$2/$1', // $1 = course country name, $2 = courseHeaderPage setting
 	'activityTabMaxAgeInSeconds' => 7 * 24 * 60 * 60,
+
+	// In the user role message showing a user's roles and courses (inserted
+	// into User contributions page), this is the maximum number of courses
+	// to mention.
+	'maxCoursesInUserRolesMessage' => 3,
 );
 
 unset( $epResourceDir );
