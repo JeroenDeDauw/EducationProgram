@@ -362,7 +362,7 @@ This will permanently remove {{GENDER:$1|his|her|their}} associated articles and
 	'ep-articletable-remarticle-button' => 'Remove article',
 	'ep-articletable-remarticle-cancel' => 'Cancel',
 	'ep-articletable-remarticle-text-self' => 'You are about to remove article $1 from the list of articles you are working on as part of course $2.',
-	'ep-articletable-remarticle-text' => 'You are about to remove article $1 from the list of articles $3 is working on as part of course $2.',
+	'ep-articletable-remarticle-text' => 'You are about to remove article $1 from the list of articles {{GENDER:$4|$3}} is working on as part of course $2.',
 
 	// Article pager
 	'ep-articles-noresults' => 'There are no articles to list.',
@@ -1305,7 +1305,8 @@ Parameters:
 Parameters:
 * $1 - article name
 * $2 - course name
-* $3 - the student working on the article',
+* $3 - the student working on the article
+* $4 - used for GENDER in JavaScript',
 	'ep-articles-noresults' => 'Shown instead of a pager as notification that there are no results.',
 	'epcapager-header-photo' => 'Table column header.
 {{Identical|Photo}}',

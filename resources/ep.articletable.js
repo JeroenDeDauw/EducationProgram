@@ -146,7 +146,8 @@
 			'ep-articletable-remarticle-text' + selfSuffix,
 			$( '<strong>' ).text( $this.attr( 'data-article-name' ) ),
 			$( '<strong>' ).text( courseName ),
-			$( '<strong>' ).text( studentName )
+			$( '<strong>' ).text( studentName ),
+			mw.user
 		);
 
 		$form.append( $( '<input>' ).attr( {
