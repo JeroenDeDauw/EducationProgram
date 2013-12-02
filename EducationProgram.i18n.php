@@ -397,7 +397,7 @@ This will permanently remove {{GENDER:$1|his|her|their}} associated articles and
 	'educationprogram-org-submit' => 'Submit',
 	'ep-addorg' => 'There is no institution with this name yet, but you can add it.',
 	'ep-editorg' => 'You are editing an existing institution.',
-	'ep-editorg-exists-already' => 'This institution already exists. You are editing it.',
+	'ep-addorg-exists-already' => 'This institution already exists. You are editing it.',
 	'orgpage-edit-title-edit' => 'Editing institution: $1',
 	'orgpage-edit-title-add' => 'Adding institution: $1',
 	'orgpage-edit-deleted' => "'''Warning: You are recreating an institution that was previously deleted.'''
@@ -1339,7 +1339,7 @@ Used in {{msg-mw|Ep-enroll-header}}.
 {{Identical|Submit}}',
 	'ep-addorg' => 'Message shown when viewing an non-existing institution page',
 	'ep-editorg' => 'Message shown when editing an institution page',
-	'ep-editorg-exists-already' => 'Message shown when the user tries to create a new institution with a name that already exists, and so ends up editing that one',
+	'ep-addorg-exists-already' => 'Message shown when the user tries to create a new institution with a name that already exists, and so ends up editing that one',
 	'orgpage-edit-title-edit' => 'Page title. Parameters:
 * $1 is insitution name',
 	'orgpage-edit-title-add' => 'Page title. Parameters:
