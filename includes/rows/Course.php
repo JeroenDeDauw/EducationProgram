@@ -747,7 +747,6 @@ class Course extends PageObject {
 	 * @return string
 	 */
 	protected function getTypeId() {
-		return 'EPCourses';
+		return $this->table->getRevisionedObjectTypeId();
 	}
-
 }

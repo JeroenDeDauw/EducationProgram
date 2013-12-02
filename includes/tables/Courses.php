@@ -137,6 +137,15 @@ class Courses extends PageTable {
 		);
 	}
 
+	/**
+	 * @see \EducationProgram\PageTable::getRevisionedObjectTypeId()
+	 * @since 0.4 alpha
+	 * @return string
+	 */
+	public function getRevisionedObjectTypeId() {
+		return "EPCourses";
+	}
+
 	public function hasActiveTitle( $courseTitle ) {
 		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
 
@@ -280,5 +289,4 @@ class Courses extends PageTable {
 	public function getEditRight() {
 		return 'ep-course';
 	}
-
 }

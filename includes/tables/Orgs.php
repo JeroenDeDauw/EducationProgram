@@ -98,6 +98,15 @@ class Orgs extends PageTable {
 	}
 
 	/**
+	 * @see \EducationProgram\PageTable::getRevisionedObjectTypeId()
+	 * @since 0.4 alpha
+	 * @return string
+	 */
+	public function getRevisionedObjectTypeId() {
+		return "EPOrgs";
+	}
+
+	/**
 	 * @see ORMTable::getSummaryFields()
 	 * @since 0.1
 	 * @return array
@@ -134,5 +143,4 @@ class Orgs extends PageTable {
 	public function getEditRight() {
 		return 'ep-org';
 	}
-
 }
