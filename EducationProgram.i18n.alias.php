@@ -194,6 +194,7 @@ $specialPageAliases['gl'] = array(
 $specialPageAliases['he'] = array(
 	'Student' => array( 'תלמיד' ),
 	'Students' => array( 'תלמידים' ),
+	'Courses' => array( 'קורסים', 'רשימת_הקורסים', 'כל_הקורסים' ),
 );
 
 /** Italian (italiano) */
