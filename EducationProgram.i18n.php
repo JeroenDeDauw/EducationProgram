@@ -282,13 +282,13 @@ $messages['en'] = array(
 	'eporgpager-yes' => 'Yes',
 	'eporgpager-no' => 'No',
 	'ep-pager-cancel-button-org' => 'Cancel',
-	'ep-pager-delete-button-org' => 'Remove {{PLURAL:$1|institution|institutions}}',
-	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Confirm institution removal|Confirm removal of multiple institutions}}',
+	'ep-pager-delete-button-org' => 'Delete {{PLURAL:$1|institution|institutions}}',
+	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Confirm institution deletion|Confirm deletion of multiple institutions}}',
 	'ep-pager-retry-button-org' => 'Retry',
 	'ep-pager-summary-message-org' => 'Summary:',
 	// Yeah we need two of these - having a jQuery node in PLURAL breaks, at least at r110788.
-	'ep-pager-confirm-message-org' => 'You are about to remove institution $1. This will remove all associated courses and student data!',
-	'ep-pager-confirm-message-org-many' => 'You are about to remove these institutions: $1. This will remove all associated courses and student data!',
+	'ep-pager-confirm-message-org' => 'You are about to delete institution $1. This will delete all associated courses and student data!',
+	'ep-pager-confirm-message-org-many' => 'You are about to delete these institutions: $1. This will delete all associated courses and student data!',
 
 	// Course pager
 	'epcoursepager-header-name' => 'Name',
@@ -305,13 +305,13 @@ $messages['en'] = array(
 	'epcoursepager-filter-status' => 'Status',
 	'epcoursepager-invalid-lang' => 'Invalid',
 	'ep-pager-cancel-button-course' => 'Cancel',
-	'ep-pager-delete-button-course' => 'Remove {{PLURAL:$1|course|courses}}',
-	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Confirm course removal|Confirm removal of multiple courses}}',
+	'ep-pager-delete-button-course' => 'Delete {{PLURAL:$1|course|courses}}',
+	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Confirm course deletion|Confirm deletion of multiple courses}}',
 	'ep-pager-retry-button-course' => 'Retry',
 	'ep-pager-summary-message-course' => 'Summary:',
 	// Yeah we need two of these - having a jQuery node in PLURAL breaks, at least at r110788.
-	'ep-pager-confirm-message-course' => 'You are about to remove course $1. This will remove all associated student data!',
-	'ep-pager-confirm-message-course-many' => 'You are about to remove these courses: $1. This will remove all associated student data!',
+	'ep-pager-confirm-message-course' => 'You are about to delete course $1. This will remove all associated students!',
+	'ep-pager-confirm-message-course-many' => 'You are about to delete these courses: $1. This will remove all associated students!',
 
 	// Student pager
 	'epstudentpager-header-user-id' => 'Username',
