@@ -32,7 +32,8 @@
 			args = $.extend( {
 				'type': 'unknown',
 				'ids': [],
-				'names': []
+				'names': [],
+				'cssClass': ''
 			}, args );
 
 			$dialog = $( '<div>' ).html( '' ).dialog( {
@@ -72,10 +73,12 @@
 			// Give grep a chance to find the usages:
 			// ep-pager-confirm-message-org, ep-pager-confirm-message-course,
 			// ep-pager-confirm-message-org-many, ep-pager-confirm-message-course-many
-			$dialog.msg(
-				'ep-pager-confirm-message-' + args.type + ( args.names.length > 1 ? '-many' : '' ),
-				$( '<span>' ).html( names ),
-				args.names.length
+			$dialog.append(
+				$( '<div>' ).addClass( args.cssClass ).msg(
+					'ep-pager-confirm-message-' + args.type + ( args.names.length > 1 ? '-many' : '' ),
+					$( '<span>' ).html( names ),
+					args.names.length
+				)
 			);
 
 			// Give grep a chance to find the usages:
@@ -91,7 +94,7 @@
 				'id': 'epsummaryinput'
 			} );
 
-			$dialog.append( '<br /><br />', summaryLabel, $summaryInput );
+			$dialog.append( summaryLabel, $summaryInput );
 
 			$summaryInput.keypress( function( event ) {
 				if ( event.which == '13' ) {
@@ -117,7 +120,8 @@
 			args = {
 				'type': $this.attr( 'data-type' ),
 				'ids': [ $this.attr( 'data-id' ) ],
-				'names': [ $this.attr( 'data-name' ) ]
+				'names': [ $this.attr( 'data-name' ) ],
+				'cssClass': 'pagerDeleteWarning'
 			};
 
 			showConfirmDialog(
@@ -173,7 +177,8 @@
 			args = {
 				'type': $( this ).attr( 'data-type' ),
 				'ids': ids,
-				'names': names
+				'names': names,
+				'cssClass': 'pagerDeleteWarning'
 			};
 
 			showConfirmDialog(

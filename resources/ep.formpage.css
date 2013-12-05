@@ -11,3 +11,10 @@ td.htmlform-tip {
 	padding: .2em 2em;
 	color: #666666;
 }
+
+/* see similar class in ep.pager.css */
+.formpageDeleteWarning {
+	font-size: 1.2em;
+	color: #aa2222;
+	margin-bottom: 0.8em;
+}

@@ -9,3 +9,10 @@
 td.TablePager_col__select {
 	text-align: center;
 }
+
+/* see similar class in ep.formpage.css */
+.pagerDeleteWarning {
+	font-size: 1.2em;
+	color: #aa2222;
+	margin-bottom: 0.8em;
+}

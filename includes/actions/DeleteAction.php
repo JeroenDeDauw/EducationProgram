@@ -114,7 +114,14 @@ class DeleteAction extends Action {
 
 		$out->addModules( 'ep.formpage' );
 
+		$out->addHTML( Html::openElement(
+			'div',
+			array( 'class' => 'formpageDeleteWarning' )
+		) );
+
 		$out->addWikiMsg( $this->prefixMsg( 'text' ), $object->getField( 'name' ) );
+
+		$out->addHTML( Html::closeElement( 'div' ) );
 
 		$out->addHTML( Html::openElement(
 			'form',
