@@ -803,18 +803,18 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-no-summary' => "''No summary provided''",
 
-	'ep-timeline-users-edit-article' => "$1 edited the article '''[[$2]]'''.",
-	'ep-timeline-users-edit-talk' => "$1 left {{PLURAL:$4|a message|messages}} on the '''[[$2|talk page]]''' of '''[[$3]]'''.",
-	'ep-timeline-users-edit-user' => "$1 edited the user page of '''[[$2|$3]]'''.",
+	'ep-timeline-users-edit-article' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} edited the article '''[[$2]]'''.",
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} left {{PLURAL:$4|a message|messages}} on the '''[[$2|talk page]]''' of '''[[$3]]'''.",
+	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} edited the user page of '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' received {{PLURAL:$4|a message|messages}} on {{GENDER:$3|his|her|their}} '''[[$2|talk page]]'''.",
-	'ep-timeline-users-edit-user-self' => "$1 edited {{GENDER:$3|his|her|their}} '''[[$2|user page]]'''.",
+	'ep-timeline-users-edit-user-self' => "$1 edited {{GENDER:$6|his|her|their}} '''[[$2|user page]]'''.",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' posted {{PLURAL:$4|a message|messages}} on {{GENDER:$3|his|her|their}} '''[[$2|talk page]]'''.",
 
-	'ep-timeline-users-create-article' => "$1 created the article '''[[$2]]'''.",
-	'ep-timeline-users-create-talk' => "$1 created the '''[[$2|talk page]]''' of '''[[$3]]''' and left {{PLURAL:$4|a message|several messages}} on it.",
-	'ep-timeline-users-create-user' => "$1 created the user page of '''[[$2|$3]]'''.",
+	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}} created the article '''[[$2]]'''.",
+	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}} created the '''[[$2|talk page]]''' of '''[[$3]]''' and left {{PLURAL:$4|a message|several messages}} on it.",
+	'ep-timeline-users-create-user' => "{{GENDER:$6|$1}} created the user page of '''[[$2|$3]]'''.",
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' received {{PLURAL:$4|a message|messages}} on {{GENDER:$3|his|her|their}} newly created '''[[$2|talk page]]'''.",
-	'ep-timeline-users-create-user-self' => "$1 created {{GENDER:$3|his|her|their}} '''[[$2|user page]]'''.",
+	'ep-timeline-users-create-user-self' => "$1 created {{GENDER:$6|his|her|their}} '''[[$2|user page]]'''.",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' created {{GENDER:$3|his|her|their}} '''[[$2|talk page]]''' and posted {{PLURAL:$4|a message|several messages}} on.",
 
 	// Dashboard
@@ -1919,21 +1919,24 @@ Parameters:
 * $2 - the full name of the edited article
 * $3 - (Unused) the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
-* $5 - (Unused) the number of editors
+* $5 - the number of editors
+* $6 - the names of the editors, concatenated (used for gender)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-talk' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
-* $5 - (Unused) the number of editors
+* $5 - the number of editors
+* $6 - the names of the editors, concatenated (used for gender)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-user' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
-* $5 - (Unused) the number of editors
+* $5 - the number of editors
+* $6 - the names of the editors, concatenated (used for gender)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-usertalk' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
@@ -1949,7 +1952,8 @@ Header for a group of events in a timeline. Parameters:
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
-* $5 - (Unused) the number of editors
+* $5 - the number of editors
+* $6 - the names of the editors, concatenated (used for gender)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-usertalk-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
@@ -1965,6 +1969,7 @@ Header for a group of events in a timeline. Parameters:
 * $3 - (Unused) the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
 * $5 - (Unused) the number of editors
+* $6 - the name of the editor (used for GENDER)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-talk' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
@@ -1972,6 +1977,7 @@ Header for a group of events in a timeline. Parameters:
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
 * $5 - (Unused) the number of editors
+* $6 - the name of the editor (used for GENDER)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-user' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
@@ -1979,6 +1985,7 @@ Header for a group of events in a timeline. Parameters:
 * $3 - the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
 * $5 - (Unused) the number of editors
+* $6 - the name of the editor (used for GENDER)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-usertalk' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
@@ -1987,6 +1994,7 @@ Header for a group of events in a timeline. Parameters:
 * $3 - the name of the article (without namespace)
 * $4 - the number of events in the group
 * $5 - (Unused) the number of editors
+* $6 - the name of the editor (used for GENDER)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-user-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
@@ -1995,6 +2003,7 @@ Header for a group of events in a timeline. Parameters:
 * $3 - the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
 * $5 - (Unused) the number of editors
+* $6 - the name of the editor (used for GENDER)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-usertalk-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:

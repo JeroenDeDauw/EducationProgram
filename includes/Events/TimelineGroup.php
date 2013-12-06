@@ -363,9 +363,11 @@ class EditGroup extends TimelineGroup {
 		$userIds = array_unique( $userIds );
 
 		$userLinks = array();
+		$userNames = array();
 
 		foreach ( array_slice( $userIds, 0, Settings::get( 'timelineUserLimit' ) ) as $userId ) {
-			$userLinks[] = '<b>' . Linker::userLink( $userId, User::newFromId( $userId )->getName() ) . '</b>';
+			$userNames[$userId] = User::newFromId( $userId )->getName();
+			$userLinks[] = '<b>' . Linker::userLink( $userId, $userNames[$userId] ) . '</b>';
 		}
 
 		$remainingUsers = count( $userIds ) - count( $userLinks );
@@ -413,7 +415,8 @@ class EditGroup extends TimelineGroup {
 			$info['page'],
 			$subjectText,
 			count( $this->events ),
-			count( $userIds )
+			count( $userIds ),
+			implode( '', $userNames )
 		)->parse() . '<br />';
 	}
 
