@@ -86,6 +86,22 @@ abstract class EditAction extends Action {
 	}
 
 	/**
+	 * Returns the base string for generating message keys.
+	 *
+	 * Used by getDescription() and showContent()
+	 *
+	 * @return string
+	 */
+	protected abstract function getMessageKeyBase();
+
+	/**
+	 * @see Action::getDescription()
+	 */
+	protected function getDescription() {
+		return $this->msg( $this->getMessageKeyBase() )->escaped();
+	}
+
+	/**
 	 * Display the form and set the item field, or redirect the user.
 	 *
 	 * @since 0.1
@@ -111,7 +127,7 @@ abstract class EditAction extends Action {
 			elseif ( $this->isNewPost() ) {
 				// Give grep a chance to find the usages:
 				// ep-editorg-exists-already, ep-editcourse-exists-already
-				$this->showWarning( $this->msg( 'ep-' . strtolower( $this->getName() ) . '-exists-already' ) );
+				$this->showWarning( $this->msg( $this->getMessageKeyBase() . '-exists-already' ) );
 			}
 
 			$out->setPageTitle( $this->getPageTitle() );

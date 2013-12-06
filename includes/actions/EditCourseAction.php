@@ -35,10 +35,14 @@ class EditCourseAction extends EditAction {
 	}
 
 	/**
-	 * @see Action::getDescription()
+	 * Returns the base string for generating message keys, which vary based
+	 * on whether one has attempted to create a new course or edit an
+	 * existing one.
+	 *
+	 * @return string
 	 */
-	protected function getDescription() {
-		return $this->msg( $this->isNew() ? 'ep-addcourse' : 'ep-editcourse' )->escaped();
+	protected function getMessageKeyBase() {
+		return $this->isNew() ? 'ep-addcourse' : 'ep-editcourse';
 	}
 
 	/**

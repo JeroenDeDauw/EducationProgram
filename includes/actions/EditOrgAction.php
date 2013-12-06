@@ -35,10 +35,15 @@ class EditOrgAction extends EditAction {
 	}
 
 	/**
-	 * @see Action::getDescription()
+	 * Returns the base string for generating message keys, which vary based
+	 * on whether one has attempted to create a new institution or edit an
+	 * existing one.
+	 *
+	 * @see EditAction::getMessageKeyBase()
+	 * @return string
 	 */
-	protected function getDescription() {
-		return $this->msg( $this->isNew() ? 'ep-addorg' : 'ep-editorg' )->escaped();
+	protected function getMessageKeyBase() {
+		return $this->isNew() ? 'ep-addorg' : 'ep-editorg';
 	}
 
 	/**
