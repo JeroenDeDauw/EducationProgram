@@ -1937,7 +1937,7 @@ Parameters:
 * $6 - the names of the editors, concatenated (used for gender)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-user' => 'Header for a group of events in a timeline. Parameters:
-* $1 - html for a user link of list of user links
+* $1 - html for a user link or list of user links
 * $2 - the full name of the edited article
 * $3 - the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
@@ -7669,7 +7669,7 @@ $messages['fa'] = array(
 	'log-name-course' => 'سیاههٔ دوره‌های برنامه آموزشی',
 	'log-name-student' => 'سیاههٔ دانشجویان برنامهٔ آموزشی',
 	'log-name-online' => 'سیاههٔ داوطلب‌های برخط برنامه آموزشی',
-	'log-name-campus' => 'سیاههٔ کمپ دانشگاهی برنامهٔ آموزشی',
+	'log-name-campus' => 'سیاههٔ داوطلب کمپ برنامهٔ آموزشی',
 	'log-name-instructor' => 'سیاههٔ استاد برنامهٔ آموزشی',
 	'log-name-eparticle' => 'سیاههٔ مقاله برنامه آموزشی',
 	'log-header-institution' => 'این رویدادها تغییراتی که به برنامهٔ آموزشی نهاد داده شده‌است را دنبال می‌کند.',
@@ -7723,7 +7723,7 @@ $messages['fa'] = array(
 	'ep-prefs-showdyk' => 'نمایش «جعبهٔ آیا می‌دانستید که» در صفحهٔ [[Special:MyCourses|دوره‌های شما]].',
 	'right-ep-org' => 'مدیریت برنامهٔ آموزشی نهادها',
 	'right-ep-course' => 'مدیریت دوره‌های برنامه‌های آموزشی',
-	'right-ep-token' => 'نشانه‌های ثبت نام برنامهٔ آموزشی را ببینید',
+	'right-ep-token' => 'رمز‌های ثبت نام برنامهٔ آموزشی را ببینید',
 	'right-ep-remstudent' => 'حذف دانشجویان از دوره‌ها',
 	'right-ep-enroll' => 'ثبت نام در دوره‌های برنامهٔ آموزشی',
 	'right-ep-online' => 'افزودن یا حذف داوطلبان برخط به دوره‌ها',
@@ -7850,7 +7850,7 @@ $messages['fa'] = array(
 	'ep-pager-retry-button-org' => 'تلاش دوباره',
 	'ep-pager-summary-message-org' => 'خلاصه:',
 	'ep-pager-confirm-message-org' => 'شما در حذف نهاد $1 هستید. این باعث حذف همهٔ داده‌های دوره‌ها و دانشجویان می‌شود!',
-	'ep-pager-confirm-message-org-many' => 'شما در حال حذف این موسسات هستید:  $1. این عمل همۀ دروس مرتبط و داده‌های دانش‌آموز را حذف می کند!',
+	'ep-pager-confirm-message-org-many' => 'شما در حال حذف این نهاد هستید:  $1. این عمل همۀ دروس مرتبط و داده‌های دانشجو را حذف می‌کند!',
 	'epcoursepager-header-name' => 'نام',
 	'epcoursepager-header-term' => 'مدت',
 	'epcoursepager-header-start' => 'شروع',
@@ -8014,7 +8014,7 @@ $messages['fa'] = array(
 	'viewcourseaction-summary-end' => 'پایان',
 	'viewcourseaction-summary-students' => 'تعداد دانشجویان',
 	'viewcourseaction-summary-status' => 'وضعیت',
-	'viewcourseaction-summary-token' => 'نشانهٔ ثبت نام',
+	'viewcourseaction-summary-token' => 'رمز ثبت نام',
 	'viewcourseaction-summary-instructors' => 'مربیان',
 	'viewcourseaction-summary-online' => 'داوطلبان برخط',
 	'viewcourseaction-summary-campus' => 'داوطلبان کمپ',
@@ -16246,6 +16246,7 @@ $messages['lb'] = array(
 	'ep-online-summary' => 'Resumé:',
 	'ep-campus-summary' => 'Resumé:',
 	'orgpage-history-description' => 'Logbicher fir dës Institutioun weisen',
+	'orgpage-history-title' => 'Historique vun de Versioune vun der Insitutioun "$1"',
 	'orgpage-history-norevs' => 'Et gëtt keng al Versioune fir dës Institutioun.',
 	'orgpage-history-deleted' => "Dës Institutioun gouf geläscht. D'Läschlogbuch fir d'Institutioun steet hei drënner.",
 	'coursepage-history-description' => 'Logbicher fir dëse Cours weisen',
@@ -16337,6 +16338,7 @@ $messages['lb'] = array(
 	'ep-disenroll-button' => 'Ofmellen',
 	'ep-disenroll-summary' => 'Firwat mellt Dir Iech of?',
 	'ep-disenroll-cancel' => 'Ofbriechen',
+	'ep-disenroll-fail' => 'Et ass eppes schif gaang - Dir konnt net aus dësem Cours ofgemellt ginn.',
 	'ep-disenroll-success' => 'Dir sidd elo net méi an dësem Cours ageschriwwen!',
 	'ep-disenroll-returntolink' => 'Zréck bei de [[Education_Program:$2|Cours $1]].',
 	'ep-mycourses-enrolled' => 'Dir sidd elo am Cours $1 vu(n) $2 ageschriwwen.',
@@ -23248,6 +23250,7 @@ $messages['sr-el'] = array(
  * @author Ainali
  * @author Eihpossophie
  * @author Jopparn
+ * @author Tobulos1
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
@@ -23464,12 +23467,12 @@ $messages['sv'] = array(
 	'eporgpager-yes' => 'Ja',
 	'eporgpager-no' => 'Nej',
 	'ep-pager-cancel-button-org' => 'Avbryt',
-	'ep-pager-delete-button-org' => 'Radera {{PLURAL:$1|institution|institutioner}}', # Fuzzy
-	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Bekräfta borttagandet av institution|Bekräfta borttagning av flera institutioner}}', # Fuzzy
+	'ep-pager-delete-button-org' => 'Radera {{PLURAL:$1|institution|institutioner}}',
+	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Bekräfta borttagandet av institution|Bekräfta borttagning av flera institutioner}}',
 	'ep-pager-retry-button-org' => 'Försök igen',
 	'ep-pager-summary-message-org' => 'Sammanfattning:',
-	'ep-pager-confirm-message-org' => 'Du är på väg att ta bort en institution $1. Detta kommer att ta bort alla kurser vilka tillhör institutionen och all studenters data!', # Fuzzy
-	'ep-pager-confirm-message-org-many' => 'Du är på väg att ta bort dessa institutioner $1. Detta kommer att ta bort alla alla kurser vilka tillhör institutionerna och all studenters data!', # Fuzzy
+	'ep-pager-confirm-message-org' => 'Du är på väg att ta bort en institution $1. Detta kommer att ta bort alla kurser vilka tillhör institutionen och all studenters data!',
+	'ep-pager-confirm-message-org-many' => 'Du är på väg att ta bort dessa institutioner $1. Detta kommer att ta bort alla alla kurser vilka tillhör institutionerna och all studenters data!',
 	'epcoursepager-header-name' => 'Namn',
 	'epcoursepager-header-term' => 'Termin',
 	'epcoursepager-header-start' => 'Start',
@@ -23484,12 +23487,12 @@ $messages['sv'] = array(
 	'epcoursepager-filter-status' => 'Status',
 	'epcoursepager-invalid-lang' => 'Ogiltig',
 	'ep-pager-cancel-button-course' => 'Avbryt',
-	'ep-pager-delete-button-course' => 'Ta bort {{PLURAL:$1|kurs|kurser}}', # Fuzzy
-	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Bekräfta borttagning av kurs|Bekräfta borttagning av flera kurser}}', # Fuzzy
+	'ep-pager-delete-button-course' => 'Ta bort {{PLURAL:$1|kurs|kurser}}',
+	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Bekräfta borttagning av kurs|Bekräfta borttagning av flera kurser}}',
 	'ep-pager-retry-button-course' => 'Försök igen',
 	'ep-pager-summary-message-course' => 'Sammanfattning:',
-	'ep-pager-confirm-message-course' => 'Du är på väg att ta bort kurs $1. Detta kommer att radera all data associerad till studenter!', # Fuzzy
-	'ep-pager-confirm-message-course-many' => 'Du är på väg att ta bort kurser $1. Detta kommer att radera all data associerad till studenter!', # Fuzzy
+	'ep-pager-confirm-message-course' => 'Du är på väg att ta bort kurs $1. Detta kommer att radera alla associerade studenter!',
+	'ep-pager-confirm-message-course-many' => 'Du är på väg att ta bort kurser $1. Detta kommer att radera all data associerad till studenter!',
 	'epstudentpager-header-user-id' => 'Användarnamn',
 	'epstudentpager-header-id' => 'Id',
 	'epstudentpager-header-current-courses' => 'Aktuella kurser',
@@ -23894,17 +23897,17 @@ Du finner en komplett lista över studenter på [[Special:Students|studentlistan
 	'ep-timeline-ago' => '$1 sedan',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-no-summary' => '"Ingen sammanfattning är ifylld"',
-	'ep-timeline-users-edit-article' => "$1 redigerade artikeln '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-edit-talk' => "$1 lämnade {{PLURAL:$4|ett meddelande|meddelanden}} på '''[[$3]]'''s '''[[$2|diskussionssida]]'''.", # Fuzzy
-	'ep-timeline-users-edit-user' => "$1 redigerade användarsidan för '''[[$2|$3]]'''.", # Fuzzy
+	'ep-timeline-users-edit-article' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} redigerade artikeln '''[[$2]]'''.",
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} lämnade {{PLURAL:$4|ett meddelande|meddelanden}} på '''[[$2|diskussionssidan]]''' av '''[[$3]]'''.",
+	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} redigerade användarsidan på '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' fick {{PLURAL:$4|ett meddelande|meddelanden}} på {{GENDER:$3|sin}} '''[[$2|diskussionssida]]'''.",
-	'ep-timeline-users-edit-user-self' => "$1 redigerade {{GENDER:$3|sin}} '''[[$2|användarsida]]'''.", # Fuzzy
+	'ep-timeline-users-edit-user-self' => "$1 redigerade {{GENDER:$6|hans|hennes|deras}} '''[[$2|användarsida]]'''.",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' postade {{PLURAL:$4|ett meddelande|meddelanden}} på {{GENDER:$3|sin}} '''[[$2|diskussionssida]]'''.",
-	'ep-timeline-users-create-article' => "$1 skapade artikeln '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-create-talk' => "$1 skapade '''[[$2|diskussionssidan]]''' för '''[[$3]]''' och lämnade {{PLURAL:$4|ett meddelande|flera meddelanden}} på den.", # Fuzzy
-	'ep-timeline-users-create-user' => "$1 skapade användarsidan för '''[[$2|$3]]'''.", # Fuzzy
+	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}} skapade artikeln '''[[$2]]'''.",
+	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}} skapade '''[[$2|diskussionssidan]]''' av '''[[$3]]''' och lämnade {{PLURAL:$4|ett meddelande|flera meddelanden}} på den.",
+	'ep-timeline-users-create-user' => "{{GENDER:$6|$1}} skapade användarsidan av '''[[$2|$3]]'''.",
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' fick {{PLURAL:$4|ett meddelande|meddelanden}} på {{GENDER:$3|sin}} '''[[$2|diskussionssida]]'''.",
-	'ep-timeline-users-create-user-self' => "$1 skapade {{GENDER:$3|sin}} '''[[$2|användarsida]]'''.", # Fuzzy
+	'ep-timeline-users-create-user-self' => "$1 skapade {{GENDER:$6|hans|hennes|deras}} '''[[$2|användarsida]]'''.",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' skapade {{GENDER:$3|sin}} '''[[$2|diskussionssida]]''' och skrev {{PLURAL:$4|ett meddelande|flera meddelanden}} på.",
 	'ep-dashboard-login-first' => 'Du måste logga in innan du kan visa dina kurser.',
 	'ep-dashboard-timeline-empty' => 'Det fanns ingen senaste aktivitet för denna kurs.',
