@@ -4051,7 +4051,7 @@ Tento krok trvale smaže {{GENDER:$1|jeho|její|jeho}} přidružené články a 
 	'ep-articletable-remarticle-button' => 'Odstranit článek',
 	'ep-articletable-remarticle-cancel' => 'Zrušit',
 	'ep-articletable-remarticle-text-self' => 'Hodláte se smazat článek $1 ze seznamu článků na kterých pracujete v rámci kurzu $2.',
-	'ep-articletable-remarticle-text' => 'Hodláte se smazat článek $1 ze seznamu článků na kterých $3 pracuje v rámci kurzu $2.', # Fuzzy
+	'ep-articletable-remarticle-text' => 'Chystáte se smazat článek $1 ze seznamu článků, na kterých {{GENDER:$4|$3}} pracuje v rámci kurzu $2.',
 	'ep-articles-noresults' => 'V seznamu nejsou žádné kurzy',
 	'epcapager-header-photo' => 'Obrázek',
 	'epcapager-header-user-id' => 'Uživatelské jméno',
@@ -7526,12 +7526,13 @@ Allpool on ära toodud seonduvad kustutuslogi sissekanded:",
 );
 
 /** Basque (euskara)
+ * @author Xabier Armendaritz
  * @author පසිඳු කාවින්ද
  */
 $messages['eu'] = array(
 	'ep-item-summary' => 'Laburpena',
 	'ep-form-summary' => 'Laburpena:',
-	'ep-form-minor' => 'Hau aldaketa txikia da',
+	'ep-form-minor' => 'Aldaketa hau txikia da',
 	'ep-tab-view' => 'Irakurri',
 	'ep-tab-edit' => 'Aldatu',
 	'ep-tab-create' => 'Sortu',
@@ -7627,6 +7628,7 @@ $messages['eu'] = array(
  * @author Hooshmand.hasannia
  * @author Mjbmr
  * @author Movyn
+ * @author Omidh
  * @author Reza1615
  * @author Taha
  * @author ZxxZxxZ
@@ -7913,7 +7915,7 @@ $messages['fa'] = array(
 	'ep-articletable-remarticle-button' => 'حذف مقاله',
 	'ep-articletable-remarticle-cancel' => 'انصراف',
 	'ep-articletable-remarticle-text-self' => 'شما در حال حذف مقالهٔ $1 از فهرست مقاله‌هایی که شما در حال کار کردن در طول دورهٔ $2 هستید.',
-	'ep-articletable-remarticle-text' => 'شما در حال حذف مقالهٔ $1 از فهرست مقاله‌هایی هستید مقاله‌هایی $3 که در طول دورهٔ $2 کار می‌کنید هستید.', # Fuzzy
+	'ep-articletable-remarticle-text' => 'شما در حال حذف مقالهٔ $1 از فهرست مقاله‌هایی هستید که{{GENDER:$4|$3}} بر روی آن‌ها در طول دورهٔ $2 کار می‌کند.',
 	'ep-articles-noresults' => 'هیج مقاله‌ای برای فهرست‌کردن وجود ندارد.',
 	'epcapager-header-photo' => 'عکس',
 	'epcapager-header-user-id' => 'نام کاربری',
@@ -8911,7 +8913,7 @@ Cela supprimera définitivement {{GENDER:$1|ses}} articles et relecteurs associ�
 	'ep-articletable-remarticle-button' => 'Supprimer l’article',
 	'ep-articletable-remarticle-cancel' => 'Annuler',
 	'ep-articletable-remarticle-text-self' => 'Vous êtes sur le point de supprimer l’article $1 de la liste des articles sur lesquels vous travaillez dans le cadre du cours $2.',
-	'ep-articletable-remarticle-text' => 'Vous êtes sur le point de supprimer l’article $1 de la liste des articles sur lesquels $3 travaille dans le cadre du cours $2.', # Fuzzy
+	'ep-articletable-remarticle-text' => 'Vous êtes sur le point de supprimer l’article $1 de la liste des articles sur lesquels {{GENDER:$4|$3}} travaille dans le cadre du cours $2.',
 	'ep-articles-noresults' => 'Il n’y a aucun article à lister.',
 	'epcapager-header-photo' => 'Photo',
 	'epcapager-header-user-id' => 'Nom d’utilisateur',
@@ -16930,7 +16932,7 @@ $messages['mk'] = array(
 	'ep-articletable-remarticle-button' => 'Отстрани статија',
 	'ep-articletable-remarticle-cancel' => 'Откажи',
 	'ep-articletable-remarticle-text-self' => 'На пат сте да ја отстраните статијата $1 од списокот на статии на коишто работите како дел од курсот $2.',
-	'ep-articletable-remarticle-text' => 'На пат сте да ја отстраните статијата $1 од списокот на статии на коишто работи $3 како дел од курсот $2.', # Fuzzy
+	'ep-articletable-remarticle-text' => 'На пат сте да ја отстраните статијата $1 од списокот на статии на коишто работи {{GENDER:$4|$3}}  како дел од курсот $2.',
 	'ep-articles-noresults' => 'Нема статии за наведување.',
 	'epcapager-header-photo' => 'Слика',
 	'epcapager-header-user-id' => 'Корисничко име',
