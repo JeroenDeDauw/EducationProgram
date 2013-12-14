@@ -1953,8 +1953,7 @@ Header for a group of events in a timeline. Parameters:
 * $4 - the number of events in the group
 * $5 - (Unused) the number of editors
 {{Related|Ep-timeline-users}}',
-	'ep-timeline-users-edit-user-self' => '{{doc-singularthey}}
-Header for a group of events in a timeline. Parameters:
+	'ep-timeline-users-edit-user-self' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - (Unused) the name of the article (without namespace)
@@ -2003,14 +2002,13 @@ Header for a group of events in a timeline. Parameters:
 * $5 - (Unused) the number of editors
 * $6 - (Optional) the name of the editor (used for GENDER)
 {{Related|Ep-timeline-users}}',
-	'ep-timeline-users-create-user-self' => '{{doc-singularthey}}
-Header for a group of events in a timeline. Parameters:
+	'ep-timeline-users-create-user-self' => 'Header for a group of events in a timeline. Parameters:
 * $1 - html for a user link of list of user links
 * $2 - the full name of the edited article
 * $3 - (Unused) the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
 * $5 - (Unused) the number of editors
-* $6 - the name of the editor (used for GENDER)
+* $6 - the names of the editors, concatenated (used for gender)
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-usertalk-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
@@ -7185,12 +7183,12 @@ $messages['et'] = array(
 	'eporgpager-yes' => 'Jah',
 	'eporgpager-no' => 'Ei',
 	'ep-pager-cancel-button-org' => 'Loobu',
-	'ep-pager-delete-button-org' => 'Eemalda {{PLURAL:$1|asutus|asutused}}', # Fuzzy
-	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Asutuse|Mitme asutuse}} eemaldamise kinnitus', # Fuzzy
+	'ep-pager-delete-button-org' => 'Kustuta {{PLURAL:$1|asutus|asutused}}',
+	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Asutuse|Mitme asutuse}} kustutamise kinnitus',
 	'ep-pager-retry-button-org' => 'Proovi uuesti',
 	'ep-pager-summary-message-org' => 'Lühikokkuvõte:',
-	'ep-pager-confirm-message-org' => 'Oled eemaldamas asutust $1. Seejuures eemaldatakse kõik seotud kursused ja õpilaste andmed!', # Fuzzy
-	'ep-pager-confirm-message-org-many' => 'Oled eemaldamas järgmisi asutusi: $1. Seejuures eemaldatakse kõik seotud kursused ja õpilaste andmed!', # Fuzzy
+	'ep-pager-confirm-message-org' => 'Oled kustutamas asutust $1. Seejuures kustutatakse kõik seotud kursused ja õpilaste andmed!',
+	'ep-pager-confirm-message-org-many' => 'Oled kustutamas järgmisi asutusi: $1. Seejuures kustutatakse kõik seotud kursused ja õpilaste andmed!',
 	'epcoursepager-header-name' => 'Nimi',
 	'epcoursepager-header-term' => 'Toimumisperiood',
 	'epcoursepager-header-start' => 'Algus',
@@ -7205,12 +7203,12 @@ $messages['et'] = array(
 	'epcoursepager-filter-status' => 'Olek',
 	'epcoursepager-invalid-lang' => 'Lubamatu',
 	'ep-pager-cancel-button-course' => 'Loobu',
-	'ep-pager-delete-button-course' => 'Eemalda {{PLURAL:$1|kursus|kursused}}', # Fuzzy
-	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Kursuse|Mitme kursuse}} eemaldamise kinnitus', # Fuzzy
+	'ep-pager-delete-button-course' => 'Kustuta {{PLURAL:$1|kursus|kursused}}',
+	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Kursuse|Mitme kursuse}} kustutamise kinnitus',
 	'ep-pager-retry-button-course' => 'Proovi uuesti',
 	'ep-pager-summary-message-course' => 'Lühikokkuvõte:',
-	'ep-pager-confirm-message-course' => 'Oled eemaldamas kursust $1. Seejuures eemaldatakse kõigi õpilaste andmed!', # Fuzzy
-	'ep-pager-confirm-message-course-many' => 'Oled eemaldamas järgmisi kursusi: $1. Seejuures eemaldatakse kõigi õpilaste andmed!', # Fuzzy
+	'ep-pager-confirm-message-course' => 'Oled kustutamas kursust $1. Seejuures kustutatakse kõigi õpilaste andmed!',
+	'ep-pager-confirm-message-course-many' => 'Oled kustutamas järgmisi kursusi: $1. Seejuures eemaldatakse kõik õpilased!',
 	'epstudentpager-header-user-id' => 'Kasutajanimi',
 	'epstudentpager-header-current-courses' => 'Praegused kursused',
 	'epstudentpager-header-passed-courses' => 'Lõppenud kursused',
@@ -7250,7 +7248,7 @@ Seejuures eemaldatakse jäädavalt temaga seotud artiklid ja retsensendid.',
 	'ep-articletable-remarticle-button' => 'Eemalda artikkel',
 	'ep-articletable-remarticle-cancel' => 'Loobu',
 	'ep-articletable-remarticle-text-self' => 'Oled eemaldamas artiklit $1 oma kursuse $2 tööde nimekirjast.',
-	'ep-articletable-remarticle-text' => 'Oled eemaldamas artiklit $1 kasutaja $3 kursuse $2 tööde nimekirjast.',
+	'ep-articletable-remarticle-text' => 'Oled eemaldamas artiklit $1 kasutaja {{GENDER:$4|$3}} kursuse $2 tööde nimekirjast.',
 	'ep-articles-noresults' => 'Puuduvad artiklid, mida loetleda.',
 	'epcapager-header-photo' => 'Foto',
 	'epcapager-header-user-id' => 'Kasutajanimi',
@@ -7519,9 +7517,9 @@ Allpool on ära toodud seonduvad kustutuslogi sissekanded:",
 	'ep-diff-new' => 'Uus väärtus',
 	'ep-timeline-unknown' => '$1 tegi midagi kuupäeval $3, kell $2',
 	'ep-timeline-ago' => '$1 tagasi',
-	'ep-timeline-users-edit-article' => "$1 muutis artiklit '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-edit-user' => "$1 muutis kasutaja '''[[$2|$3]]''' lehekülge.", # Fuzzy
-	'ep-timeline-users-create-user' => "$1 lõi kasutaja '''[[$2|$3]]''' lehekülje.", # Fuzzy
+	'ep-timeline-users-edit-article' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} muutis artiklit '''[[$2]]'''.",
+	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} muutis kasutaja '''[[$2|$3]]''' lehekülge.",
+	'ep-timeline-users-create-user' => "{{GENDER:$6|$1}} lõi kasutaja '''[[$2|$3]]''' lehekülje.",
 	'ep-dashboard-login-first' => 'Enda kursuste vaatamiseks peab olema sisse logitud.',
 );
 
@@ -11691,12 +11689,12 @@ $messages['ia'] = array(
 	'eporgpager-yes' => 'Si',
 	'eporgpager-no' => 'No',
 	'ep-pager-cancel-button-org' => 'Cancellar',
-	'ep-pager-delete-button-org' => 'Remover {{PLURAL:$1|institution|institutiones}}', # Fuzzy
-	'ep-pager-confirm-delete-org' => 'Confirmar le remotion {{PLURAL:$1|del institution|de plure institutiones}}', # Fuzzy
+	'ep-pager-delete-button-org' => 'Deler {{PLURAL:$1|institution|institutiones}}',
+	'ep-pager-confirm-delete-org' => 'Confirmar le deletion {{PLURAL:$1|del institution|de plure institutiones}}',
 	'ep-pager-retry-button-org' => 'Reprobar',
 	'ep-pager-summary-message-org' => 'Summario:',
-	'ep-pager-confirm-message-org' => 'Tu es sur le puncto de remover le institution $1. Isto removera tote le cursos associate e le datos del studentes!', # Fuzzy
-	'ep-pager-confirm-message-org-many' => 'Tu es sur le puncto de remover le sequente institutiones: $1. Isto removera tote le cursos associate e le datos del studentes!', # Fuzzy
+	'ep-pager-confirm-message-org' => 'Tu es sur le puncto de deler le institution $1. Isto delera tote le cursos associate e le datos del studentes!',
+	'ep-pager-confirm-message-org-many' => 'Tu es sur le puncto de deler le sequente institutiones: $1. Isto delera tote le cursos associate e le datos del studentes!',
 	'epcoursepager-header-name' => 'Nomine',
 	'epcoursepager-header-term' => 'Periodo',
 	'epcoursepager-header-start' => 'Initio',
@@ -11711,12 +11709,12 @@ $messages['ia'] = array(
 	'epcoursepager-filter-status' => 'Stato',
 	'epcoursepager-invalid-lang' => 'Invalide',
 	'ep-pager-cancel-button-course' => 'Cancellar',
-	'ep-pager-delete-button-course' => 'Remover {{PLURAL:$1|curso|cursos}}', # Fuzzy
-	'ep-pager-confirm-delete-course' => 'Confirmar le remotion {{PLURAL:$1|del curso|de plure cursos}}', # Fuzzy
+	'ep-pager-delete-button-course' => 'Deler {{PLURAL:$1|curso|cursos}}',
+	'ep-pager-confirm-delete-course' => 'Confirmar le deletion {{PLURAL:$1|del curso|de plure cursos}}',
 	'ep-pager-retry-button-course' => 'Reprobar',
 	'ep-pager-summary-message-course' => 'Summario:',
-	'ep-pager-confirm-message-course' => 'Tu es sur le puncto de remover le curso $1. Isto removera tote le datos del studentes de illo!', # Fuzzy
-	'ep-pager-confirm-message-course-many' => 'Tu es sur le puncto de remover le sequente cursos: $1. Isto removera tote le datos del studentes de illos!', # Fuzzy
+	'ep-pager-confirm-message-course' => 'Tu es sur le puncto de deler le curso $1. Isto removera tote le studentes associate!',
+	'ep-pager-confirm-message-course-many' => 'Tu es sur le puncto de deler le sequente cursos: $1. Isto removera tote le studentes associate!',
 	'epstudentpager-header-user-id' => 'Nomine de usator',
 	'epstudentpager-header-id' => 'ID',
 	'epstudentpager-header-current-courses' => 'Cursos actual',
@@ -11758,7 +11756,7 @@ Isto removera permanentemente {{GENDER:$1|su}} articulos e revisores associate!'
 	'ep-articletable-remarticle-button' => 'Remover articulo',
 	'ep-articletable-remarticle-cancel' => 'Cancellar',
 	'ep-articletable-remarticle-text-self' => 'Tu es sur le puncto de remover le articulo $1 del lista de articulos al quales tu labora como parte del curso $2.',
-	'ep-articletable-remarticle-text' => 'Tu es sur le puncto de remover le articulo $1 del lista de articulos al quales $3 labora como parte del curso $2.',
+	'ep-articletable-remarticle-text' => 'Tu es sur le puncto de remover le articulo $1 del lista de articulos al quales {{GENDER:$4|$3}} labora como parte del curso $2.',
 	'ep-articles-noresults' => 'Il non ha articulos a listar.',
 	'epcapager-header-photo' => 'Photo',
 	'epcapager-header-user-id' => 'Nomine de usator',
@@ -11971,7 +11969,7 @@ Ecce le registro de deletiones pro iste curso:",
 	'ep-enroll-no-id' => 'Tu debe specificar un curso pro le qual inscriber te. Vide le [[Special:Courses|lista de cursos]].',
 	'ep-enroll-invalid-token' => 'Le indicio que tu forniva es invalide.',
 	'ep-enroll-legend' => 'Inscriber se',
-	'ep-enroll-header' => 'Pro inscriber se a iste curso, tote lo que tu debe facer es completar iste formulario e cliccar sur le button de submission. Postea tu essera inscribite.', # Fuzzy
+	'ep-enroll-header' => 'Pro inscriber te a iste curso, tote lo que tu debe facer es completar iste formulario e cliccar sur le button "{{int:educationprogram-org-submit}}". Postea tu essera inscribite.',
 	'ep-enroll-gender' => 'Genere (optional)',
 	'ep-enroll-realname' => 'Nomine real (obligatori)',
 	'ep-enroll-realname-optional' => 'Nomine real (optional)',
@@ -12123,15 +12121,15 @@ Tu pote examinar le [[Special:Students|lista complete de studentes]].',
 	'ep-timeline-ago' => '$1 retro',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-no-summary' => "''Nulle summario fornite''",
-	'ep-timeline-users-edit-article' => "$1 modificava le articulo '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-edit-talk' => "$1 lassava {{PLURAL:$4|un message|messages}} in le '''[[$2|pagina de discussion]]''' de '''[[$3]]'''.", # Fuzzy
-	'ep-timeline-users-edit-user' => "$1 modificava le pagina de usator de '''[[$2|$3]]'''.", # Fuzzy
+	'ep-timeline-users-edit-article' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} modificava le articulo '''[[$2]]'''.",
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}  lassava {{PLURAL:$4|un message|messages}} in le '''[[$2|pagina de discussion]]''' de '''[[$3]]'''.",
+	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}  modificava le pagina de usator de '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' recipeva {{PLURAL:$4|un message|messages}} in su '''[[$2|pagina de discussion]]'''.",
 	'ep-timeline-users-edit-user-self' => "$1 modificava {{GENDER:$3|su}} '''[[$2|pagina de usator]]'''.", # Fuzzy
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' scribeva {{PLURAL:$4|un message|messages}} in su '''[[$2|pagina de discussion]]'''.",
-	'ep-timeline-users-create-article' => "$1 creava le articulo '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-create-talk' => "$1 creava le '''[[$2|pagina de discussion]]''' de '''[[$3]]''' e lassava {{PLURAL:$4|un message|plure messages}} in illo.", # Fuzzy
-	'ep-timeline-users-create-user' => "$1 creava le pagina de usator de '''[[$2|$3]]'''.", # Fuzzy
+	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}} creava le articulo '''[[$2]]'''.",
+	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}} creava le '''[[$2|pagina de discussion]]''' de '''[[$3]]''' e lassava {{PLURAL:$4|un message|plure messages}} in illo.",
+	'ep-timeline-users-create-user' => "{{GENDER:$6|$1}} creava le pagina de usator de '''[[$2|$3]]'''.",
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' recipeva {{PLURAL:$4|un message|messages}} in su '''[[$2|pagina de discussion]]''' novemente create.",
 	'ep-timeline-users-create-user-self' => "$1 creava {{GENDER:$3|su}} '''[[$2|pagina de usator]]'''.", # Fuzzy
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' creava su '''[[$2|pagina de discussion]]''' e scribeva {{PLURAL:$4|un message|plure messages}} in illo.",
@@ -16085,15 +16083,15 @@ $messages['lb'] = array(
 	'ep-educationprogram-genders' => 'Opdeelung no Geschlecht',
 	'ep-educationprogram-nodata' => 'Et gëtt nach keng Donnéeë fir ze weisen!',
 	'ep-institutions-noresults' => 'Et gëtt keng Institutioune fir opzezielen.',
-	'ep-institutions-addnew' => 'Eng nei Institutioun derbäisetzen',
+	'ep-institutions-addnew' => 'Eng nei Institutioun dobäisetzen',
 	'ep-institutions-newname' => 'Numm vun der Institutioun:',
-	'ep-institutions-add' => 'Institutioun derbäisetzen',
+	'ep-institutions-add' => 'Institutioun dobäisetzen',
 	'ep-courses-noresults' => 'Et gëtt keng Course fir dës Lëscht.',
-	'ep-courses-addnew' => 'En neie Cours derbäisetzen',
+	'ep-courses-addnew' => 'En neie Cours dobäisetzen',
 	'ep-courses-newterm' => 'Periode:',
 	'ep-courses-newname' => 'Numm vum Cours:',
 	'ep-courses-neworg' => 'Institutioun:',
-	'ep-courses-add' => 'Cours derbäisetzen',
+	'ep-courses-add' => 'Cours dobäisetzen',
 	'ep-students-noresults' => 'Et gëtt keng Studenten déi gewise kënne ginn.',
 	'ep-pager-showonly' => 'Nëmmen Elementer weise mat',
 	'ep-pager-clear' => 'Filteren eidel maachen',
@@ -16149,8 +16147,8 @@ $messages['lb'] = array(
 	'ep-articles-sandboxes' => 'Sandkëschten',
 	'ep-articles-remstudent' => 'Aus dem Cours eraushuelen',
 	'ep-articles-remarticle' => 'Artikel ewechhuelen',
-	'ep-articles-addarticle-text' => 'En Artikel derbäisetzen:',
-	'ep-articles-addarticle-button' => 'Artikel derbäisetzen',
+	'ep-articles-addarticle-text' => 'En Artikel dobäisetzen:',
+	'ep-articles-addarticle-button' => 'Artikel dobäisetzen',
 	'ep-articletable-addreviwer-cancel' => 'Ofbriechen',
 	'ep-articletable-remreviwer-button-self' => 'Mech selwer ewechuelen',
 	'ep-articletable-remreviwer-cancel' => 'Ofbriechen',
@@ -16174,21 +16172,21 @@ $messages['lb'] = array(
 	'epstudentactivitypager-header-last-course' => 'Cours',
 	'epstudentactivitypager-header-last-active' => 'Lescht Aktivitéit',
 	'educationprogram-org-edit-name' => 'Numm vun der Institutioun',
-	'orgpage-edit-legend-add' => 'Institutioun derbäisetzen',
+	'orgpage-edit-legend-add' => 'Institutioun dobäisetzen',
 	'orgpage-edit-legend-edit' => 'Institutioun änneren',
 	'educationprogram-org-edit-city' => 'Stad',
 	'educationprogram-org-edit-country' => 'Land',
 	'educationprogram-org-submit' => 'Späicheren',
-	'ep-addorg' => 'Et gëtt nach keng Institutioun mat dësem Numm, Dir kënnt se awer derbäisetzen.',
+	'ep-addorg' => 'Et gëtt nach keng Institutioun mat dësem Numm, Dir kënnt se awer dobäisetzen.',
 	'ep-editorg' => 'Dir ännert eng Institutioun déi et scho gëtt.',
 	'ep-addorg-exists-already' => 'Dës Institutioun gëtt et schonn. Dir ännert se.',
 	'orgpage-edit-title-edit' => "D'Institutioun $1 änneren",
-	'orgpage-edit-title-add' => "D'Institutioun $1 derbäisetzen",
+	'orgpage-edit-title-add' => "D'Institutioun $1 dobäisetzen",
 	'orgpage-edit-undelete-revisions' => 'Dës Institutioun gouf geläscht. Dir kënnt se $1.',
 	'orgpage-edit-undelete-link' => '$1 {{PLURAL:$1|Versioun|Versioune}} restauréieren',
 	'educationprogram-org-invalid-country' => 'Dëst ass kee valabelt Land.',
 	'ep-org-no-slashes' => 'Am Numm vun der Institutioun däerfe keng schif Stricher dra sinn!',
-	'coursepage-edit-legend-add' => 'Cours derbäisetzen',
+	'coursepage-edit-legend-add' => 'Cours dobäisetzen',
 	'coursepage-edit-legend-edit' => 'Cours änneren',
 	'ep-course-edit-org' => 'Institutioun',
 	'ep-course-edit-start' => 'Ufanksdatum',
@@ -16201,11 +16199,11 @@ $messages['lb'] = array(
 	'ep-course-edit-name' => 'Numm vum Cours',
 	'ep-course-help-name' => 'Den Numm vum Cours. Wann de Cours schonn an engem virege Semester organiséiert gouf, da soll en deeselwechten Numm hunn.',
 	'ep-course-edit-lang' => 'Sprooch vum Cours',
-	'ep-addcourse' => 'Et gëtt nach kee Cours mat deem Numm, Dir kënnt en derbäisetzen.',
+	'ep-addcourse' => 'Et gëtt nach kee Cours mat deem Numm, Dir kënnt en dobäisetzen.',
 	'ep-editcourse' => 'Dir ännert e Cours deen et scho gëtt.',
 	'ep-editcourse-exists-already' => 'Dëse Cours gëtt et schonn. Dir ännert en.',
 	'coursepage-edit-title-edit' => 'Cours $1 änneren',
-	'coursepage-edit-title-add' => 'Cours $1 derbäisetzen',
+	'coursepage-edit-title-add' => 'Cours $1 dobäisetzen',
 	'ep-course-invalid-org' => 'Dës Institutioun gëtt et net.',
 	'ep-course-invalid-lang' => 'Dës Sprooch ass net valabel.',
 	'ep-course-no-slashes' => 'Am Titel vum Cours däerfe keng schif Stricher dra sinn!',
@@ -16224,7 +16222,7 @@ $messages['lb'] = array(
 	'vieworgaction-summary-status' => 'Status',
 	'vieworgaction-summary-courses' => 'Zuel vun de Coursen',
 	'vieworgaction-summary-students' => 'Zuel vun de Studenten',
-	'ep-institution-add-course' => 'E Cours derbäisetzen',
+	'ep-institution-add-course' => 'E Cours dobäisetzen',
 	'ep-institution-inactive' => 'Inaktiv',
 	'ep-institution-active' => 'Aktiv',
 	'ep-institution-courses' => 'Coursen',
@@ -16244,7 +16242,7 @@ $messages['lb'] = array(
 	'viewcourseaction-summary-status' => 'Status',
 	'viewcourseaction-summary-instructors' => 'Instrukteren',
 	'ep-course-become-instructor' => 'Gitt Instrukter',
-	'ep-course-add-instructor' => 'En Instrukter derbäisetzen',
+	'ep-course-add-instructor' => 'En Instrukter dobäisetzen',
 	'ep-instructor-summary' => 'Resumé:',
 	'ep-online-summary' => 'Resumé:',
 	'ep-campus-summary' => 'Resumé:',
@@ -16356,11 +16354,11 @@ $messages['lb'] = array(
 	'ep-instructor-close-button' => 'Zoumaachen',
 	'ep-instructor-remove-retry' => 'Nach eng Kéier probéieren',
 	'ep-instructor-cancel-button' => 'Ofbriechen',
-	'ep-instructor-adding' => 'Derbäisetzen...',
+	'ep-instructor-adding' => 'Dobäisetzen...',
 	'ep-instructor-addition-invalid-user' => 'Et gëtt kee Benotzer mam Numm $1, dofir gouf kee bei de Cours $2 derbäigesat.',
 	'ep-instructor-add-close-button' => 'Zoumaachen',
 	'ep-instructor-add-retry' => 'Nach eng Kéier probéieren',
-	'ep-instructor-add-button' => 'Instrukter derbäisetzen',
+	'ep-instructor-add-button' => 'Instrukter dobäisetzen',
 	'ep-instructor-add-cancel-button' => 'Ofbriechen',
 	'ep-instructor-summary-input' => 'Resumé:',
 	'ep-instructor-name-input' => 'Benotzernumm:',
@@ -16368,7 +16366,7 @@ $messages['lb'] = array(
 	'ep-online-close-button' => 'Zoumaachen',
 	'ep-online-remove-retry' => 'Nach eng Kéier probéieren',
 	'ep-online-cancel-button' => 'Ofbriechen',
-	'ep-online-adding' => 'Derbäisetzen...',
+	'ep-online-adding' => 'Dobäisetzen...',
 	'ep-online-addition-invalid-user' => 'Et gëtt kee Benotzer mam Numm $1, dofir gouf kee bei de Cours $2 derbäigesat.',
 	'ep-online-add-close-button' => 'Zoumaachen',
 	'ep-online-add-retry' => 'Nach eng Kéier probéieren',
@@ -16379,7 +16377,7 @@ $messages['lb'] = array(
 	'ep-campus-close-button' => 'Zoumaachen',
 	'ep-campus-remove-retry' => 'Nach eng Kéier probéieren',
 	'ep-campus-cancel-button' => 'Ofbriechen',
-	'ep-campus-adding' => 'Derbäisetzen...',
+	'ep-campus-adding' => 'Dobäisetzen...',
 	'ep-campus-add-close-button' => 'Zoumaachen',
 	'ep-campus-add-retry' => 'Nach eng Kéier probéieren',
 	'ep-campus-add-cancel-button' => 'Ofbriechen',
@@ -16414,6 +16412,7 @@ $messages['lb'] = array(
 
 /** Lithuanian (lietuvių)
  * @author Eitvys200
+ * @author Hugo.arg
  * @author Mantak111
  */
 $messages['lt'] = array(
@@ -16638,6 +16637,7 @@ $messages['lt'] = array(
 	'ep-diff-new' => 'Nauja vertė',
 	'ep-timeline-ago' => 'prieš $1',
 	'ep-timeline-cutoff' => '$1 ...',
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} paliko {{PLURAL:$4|pranešimą|pranešimus|pranešimų}} '''[[$3]]''' '''[[$2|aptarimų puslapyje]]'''.",
 );
 
 /** Minangkabau (Baso Minangkabau)
@@ -17703,7 +17703,7 @@ Ini akan memadamkan semua hasil kerja rencana dan {{GENDER:$1|semakannya|semakan
 	'ep-articletable-remarticle-button' => 'Gugurkan rencana',
 	'ep-articletable-remarticle-cancel' => 'Batalkan',
 	'ep-articletable-remarticle-text-self' => 'Anda hendak menggugurkan rencana $1 dari senarai rencana yang anda usahakan dalam kursus $2.',
-	'ep-articletable-remarticle-text' => 'Anda hendak menggugurkan rencana $1 dari senarai rencana yang diusahakan oleh $3 dalam kursus $2.',
+	'ep-articletable-remarticle-text' => 'Anda hendak menggugurkan rencana $1 dari senarai rencana yang diusahakan oleh {{GENDER:$4|$3}} dalam kursus $2.',
 	'ep-articles-noresults' => 'Tiada rencana untuk disenaraikan.',
 	'epcapager-header-photo' => 'Gambar',
 	'epcapager-header-user-id' => 'Nama pengguna',
@@ -18068,17 +18068,17 @@ Anda boleh membaca senarai penuh pelajar dalam [[Special:Students|senarai pelaja
 	'ep-timeline-ago' => '$1 yang lalu',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-no-summary' => "''Tiada ringkasan disediakan''",
-	'ep-timeline-users-edit-article' => "$1 menyunting rencana '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-edit-talk' => "$1 meninggalkan {{PLURAL:$4|pesanan|pesanan-pesanan}} di '''[[$2|halaman perbincangan]]''' '''[[$3]]'''.", # Fuzzy
-	'ep-timeline-users-edit-user' => "$1 menyunting halaman perbincangan '''[[$2|$3]]'''.", # Fuzzy
+	'ep-timeline-users-edit-article' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} menyunting rencana '''[[$2]]'''.",
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} meninggalkan {{PLURAL:$4|pesanan|pesanan-pesanan}} di '''[[$2|halaman perbincangan]]''' '''[[$3]]'''.",
+	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} menyunting halaman perbincangan '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' menerima {{PLURAL:$4|satu|beberapa}} pesanan di '''[[$2|halaman perbincangannya]]'''.",
-	'ep-timeline-users-edit-user-self' => "$1 telah menyunting '''[[$2|halaman perbincangan]]'''{{GENDER:$3|nya}}.", # Fuzzy
+	'ep-timeline-users-edit-user-self' => "$1 telah menyunting '''[[$2|halaman perbincangan]]'''{{GENDER:$6|nya}}.",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' mengepos {{PLURAL:$4|satu|beberapa}} pesanan di '''[[$2|halaman perbincangannya]]'''.",
-	'ep-timeline-users-create-article' => "$1 mewujudkan rencana '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-create-talk' => "$1 mewujudkan '''[[$2|halaman perbincangan]]''' '''[[$3]]''', lalu meninggalkan {{PLURAL:$4|satu|beberapa}} pesanan padanya.", # Fuzzy
-	'ep-timeline-users-create-user' => "$1 mewujudkan halaman perbincangan '''[[$2|$3]]'''.", # Fuzzy
+	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}} mewujudkan rencana '''[[$2]]'''.",
+	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}} mewujudkan '''[[$2|halaman perbincangan]]''' '''[[$3]]''', lalu meninggalkan {{PLURAL:$4|satu|beberapa}} pesanan padanya.",
+	'ep-timeline-users-create-user' => "{{GENDER:$6|$1}} mewujudkan halaman perbincangan '''[[$2|$3]]'''.",
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' menerima {{PLURAL:$4|satu|beberapa}} pesanan di '''[[$2|halaman perbincangannya]]''' yang baru dibuka.",
-	'ep-timeline-users-create-user-self' => "$1 mewujudkan '''[[$2|halaman pengguna{{GENDER:$3|nya}}]]'''.", # Fuzzy
+	'ep-timeline-users-create-user-self' => "$1 mewujudkan '''[[$2|halaman pengguna{{GENDER:$6|nya}}]]'''.",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' mewujudkan '''[[$2|halaman perbincangannya]]''', lalu meninggalkan {{PLURAL:$4|satu|beberapa}} pesanan padanya.",
 	'ep-dashboard-login-first' => 'Anda perlu log masuk sebelum melihat kursus-kursus anda.',
 	'ep-dashboard-timeline-empty' => 'Tiada kegiatan terbaru untuk kursus ini.',
@@ -23543,7 +23543,7 @@ Detta kommer permanent att radera {{GENDER:$1|hennes|hans|deras}} associerade ar
 	'ep-articletable-remarticle-button' => 'Ta bort artikel',
 	'ep-articletable-remarticle-cancel' => 'Avbryt',
 	'ep-articletable-remarticle-text-self' => 'Du är på väg att radera artikel $1 från listan med artiklar som du redigerar som en del i kurs $2.',
-	'ep-articletable-remarticle-text' => 'Du är på väg att radera $1 från listan med artiklar $3 redigerar som en del av kurs $2.', # Fuzzy
+	'ep-articletable-remarticle-text' => 'Du är på väg att radera artikel $1 från listan med artiklar {{GENDER:$4|$3}} som fungerar som en del i kurs $2.',
 	'ep-articles-noresults' => 'Det finns inga artiklar att lista.',
 	'epcapager-header-photo' => 'Foto',
 	'epcapager-header-user-id' => 'Användarnamn',
