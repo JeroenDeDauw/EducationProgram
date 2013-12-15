@@ -117,7 +117,8 @@ $specialPageAliases['diq'] = array(
 	'OnlineAmbassadorProfile' => array( 'ProfiléVacerdéÇerxmiyani' ),
 	'CampusAmbassadorProfile' => array( 'ProfiléVacerdéKampus' ),
 	'StudentActivity' => array( 'AktiwiteyéTeleban' ),
-	'Articles' => array( 'Nebestey' ),
+	'Articles' => array( 'Neştey' ),
+	'CourseActivity' => array( 'AktiviteyaQurser' ),
 );
 
 /** Greek (Ελληνικά) */
@@ -192,6 +193,7 @@ $specialPageAliases['gl'] = array(
 
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
+	'Institutions' => array( 'מוסדות', 'רשימת_המוסדות' ),
 	'Student' => array( 'תלמיד' ),
 	'Students' => array( 'תלמידים' ),
 	'Courses' => array( 'קורסים', 'רשימת_הקורסים', 'כל_הקורסים' ),
