@@ -52,6 +52,7 @@ $specialPageAliases['ar'] = array(
 	'CampusAmbassadorProfile' => array( 'ملف_سفير_الجامعة' ),
 	'StudentActivity' => array( 'نشاط_الطالب' ),
 	'Articles' => array( 'مقالات' ),
+	'CourseActivity' => array( 'نشاط_الدروس' ),
 );
 
 /** Assamese (অসমীয়া) */
