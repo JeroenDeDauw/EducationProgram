@@ -194,6 +194,7 @@ $specialPageAliases['gl'] = array(
 
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
+	'MyCourses' => array( 'הקורסים_שלי' ),
 	'Institutions' => array( 'מוסדות', 'רשימת_המוסדות' ),
 	'Student' => array( 'תלמיד' ),
 	'Students' => array( 'תלמידים' ),
