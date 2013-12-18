@@ -925,7 +925,7 @@ Additional parameters:
 * $5 - a list of added people',
 	'logentry-instructor-remove' => '{{logentry}}
 Additional parameters:
-* $4 - the amount of added people
+* $4 - the amount of removed people
 * $5 - a list of removed people',
 	'logentry-instructor-selfadd' => '{{doc-singularthey}}
 {{logentry}}',
@@ -937,7 +937,7 @@ Additional parameters:
 * $5 - a list of added people',
 	'logentry-online-remove' => '{{logentry}}
 Additional parameters:
-* $4 - the amount of added people
+* $4 - the amount of removed people
 * $5 - a list of removed people',
 	'logentry-online-selfadd' => '{{doc-singularthey}}
 {{logentry}}',
@@ -951,7 +951,7 @@ Additional parameters:
 * $5 - a list of added people',
 	'logentry-campus-remove' => '{{logentry}}
 Additional parameters:
-* $4 - the amount of added people
+* $4 - the amount of removed people
 * $5 - a list of removed people',
 	'logentry-campus-selfadd' => '{{doc-singularthey}}
 {{logentry}}',
@@ -962,7 +962,7 @@ Additional parameters:
 	'logentry-student-add' => '{{logentry}}',
 	'logentry-student-remove' => '{{logentry}}
 Additional parameters:
-* $4 - the number of added people
+* $4 - the number of removed people
 * $5 - a list of removed people',
 	'logentry-student-selfadd' => '{{logentry}}',
 	'logentry-student-selfremove' => '{{logentry}}',
