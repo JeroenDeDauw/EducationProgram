@@ -155,9 +155,9 @@ $specialPageAliases['eo'] = array(
 
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
-	'MyCourses' => array( 'درس‌های_من' ),
-	'ManageCourses' => array( 'مدیریت_درس‌ها' ),
-	'Institutions' => array( 'مؤسسه‌ها' ),
+	'MyCourses' => array( 'دوره‌های_من' ),
+	'ManageCourses' => array( 'مدیریت_دوره‌ها' ),
+	'Institutions' => array( 'نهادها' ),
 	'Student' => array( 'دانشجو' ),
 	'Students' => array( 'دانشجویان' ),
 	'Courses' => array( 'درس‌ها' ),
@@ -166,10 +166,10 @@ $specialPageAliases['fa'] = array(
 	'Disenroll' => array( 'عدم_عضویت' ),
 	'CampusAmbassadors' => array( 'داوطلبان_کمپ' ),
 	'OnlineAmbassadors' => array( 'داوطلبان_برخط' ),
-	'OnlineAmbassadorProfile' => array( 'پروفایل_داوطلبان_برخط' ),
-	'CampusAmbassadorProfile' => array( 'پروفایل_داوطلبان_کمپ' ),
+	'OnlineAmbassadorProfile' => array( 'نمایه_داوطلبان_برخط' ),
+	'CampusAmbassadorProfile' => array( 'نمایه_داوطلبان_کمپ' ),
 	'StudentActivity' => array( 'فعالیت_دانشجو' ),
-	'Articles' => array( 'مقالات' ),
+	'Articles' => array( 'مقاله‌ها' ),
 	'CourseActivity' => array( 'فعالیت_درس' ),
 );
 
