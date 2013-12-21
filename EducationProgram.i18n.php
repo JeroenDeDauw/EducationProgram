@@ -9613,6 +9613,62 @@ $messages['frp'] = array(
 	'ep-timeline-users-edit-article' => "$1 at changiê l’articllo '''[[$2]]'''.", # Fuzzy
 );
 
+/** Western Frisian (Frysk)
+ * @author Kening Aldgilles
+ */
+$messages['fy'] = array(
+	'eporgpager-yes' => 'Ja',
+	'eporgpager-no' => 'Nee',
+	'ep-pager-cancel-button-org' => 'Ofbrekke',
+	'ep-pager-cancel-button-course' => 'Ofbrekke',
+	'ep-articletable-addreviwer-cancel' => 'Ofbrekke',
+	'ep-articletable-remreviwer-cancel' => 'Ofbrekke',
+	'ep-articletable-remstudent-cancel' => 'Ofbrekke',
+	'ep-articletable-remarticle-title' => 'Side $1 fuortsmite',
+	'ep-articletable-remarticle-button' => 'Side fuortsmite',
+	'ep-articletable-remarticle-cancel' => 'Ofbrekke',
+	'epcapager-header-photo' => 'Foto',
+	'epcapager-header-user-id' => 'Meidoggernamme',
+	'epcapager-header-bio' => 'Profyl',
+	'epoapager-header-photo' => 'Foto',
+	'epoapager-header-user-id' => 'Meidoggernamme',
+	'epoapager-header-bio' => 'Profyl',
+	'epstudentactivitypager-header-user-id' => 'Studint',
+	'epstudentactivitypager-header-org-id' => 'Ynstitút',
+	'epstudentactivitypager-header-last-course' => 'Kursus',
+	'educationprogram-org-edit-city' => 'Stêd',
+	'educationprogram-org-edit-country' => 'Lân',
+	'educationprogram-org-submit' => 'Ferstjoere',
+	'coursepage-delete-cancel-button' => 'Ofbrekke',
+	'orgpage-delete-cancel-button' => 'Ofbrekke',
+	'orgpage-eprestore-cancel-button' => 'Ofbrekke',
+	'coursepage-eprestore-cancel-button' => 'Ofbrekke',
+	'orgpage-epundo-cancel-button' => 'Ofbrekke',
+	'coursepage-epundo-cancel-button' => 'Ofbrekke',
+	'coursepage-epundelete-cancel-button' => 'Ofbrekke',
+	'orgpage-epundelete-cancel-button' => 'Ofbrekke',
+	'ep-disenroll-cancel' => 'Ofbrekke',
+	'ep-instructor-cancel-button' => 'Ofbrekke',
+	'ep-instructor-add-cancel-button' => 'Ofbrekke',
+	'ep-instructor-summary-input' => 'Gearfetting:',
+	'ep-instructor-name-input' => 'Meidoggernamme:',
+	'ep-online-close-button' => 'Slute',
+	'ep-online-remove-retry' => 'Nochris besykje',
+	'ep-online-cancel-button' => 'Ofbrekke',
+	'ep-online-add-close-button' => 'Slute',
+	'ep-online-add-cancel-button' => 'Ofbrekke',
+	'ep-online-summary-input' => 'Gearfetting:',
+	'ep-online-name-input' => 'Meidoggernamme:',
+	'ep-campus-close-button' => 'Slute',
+	'ep-campus-remove-retry' => 'Nochris besykje',
+	'ep-campus-cancel-button' => 'Ofbrekke',
+	'ep-campus-add-close-button' => 'Slute',
+	'ep-campus-add-retry' => 'Nochris besykje',
+	'ep-campus-add-cancel-button' => 'Ofbrekke',
+	'ep-campus-summary-input' => 'Gearfetting:',
+	'ep-campus-name-input' => 'Meidoggernamme:',
+);
+
 /** Irish (Gaeilge)
  * @author පසිඳු කාවින්ද
  */
@@ -14804,7 +14860,7 @@ $messages['ka'] = array(
 	'eporgpager-yes' => 'დიახ',
 	'eporgpager-no' => 'არა',
 	'ep-pager-cancel-button-org' => 'გაუქმება',
-	'ep-pager-delete-button-org' => '{{PLURAL:$1|დასწესებულების|დაწესებულებების}} წაშლა', # Fuzzy
+	'ep-pager-delete-button-org' => 'წაშალეთ {{PLURAL:$1|დასწესებულება|დაწესებულებები}}',
 	'ep-pager-retry-button-org' => 'გამეორება',
 	'ep-pager-summary-message-org' => 'რეზიუმე:',
 	'epcoursepager-header-name' => 'სახელი',
@@ -14821,7 +14877,7 @@ $messages['ka'] = array(
 	'epcoursepager-filter-status' => 'სტატუსი',
 	'epcoursepager-invalid-lang' => 'არასწორი',
 	'ep-pager-cancel-button-course' => 'გაუქმება',
-	'ep-pager-delete-button-course' => 'წაშალე {{PLURAL:$1|კურსი|კურსები}}', # Fuzzy
+	'ep-pager-delete-button-course' => 'წაშალეთ {{PLURAL:$1|კურსი|კურსები}}',
 	'ep-pager-retry-button-course' => 'გამეორება',
 	'ep-pager-summary-message-course' => 'რეზიუმე:',
 	'epstudentpager-header-user-id' => 'მომხმარებლის სახელი',
@@ -14838,7 +14894,7 @@ $messages['ka'] = array(
 	'ep-articles-remarticle' => 'სტატიის წაშლა',
 	'ep-articles-addarticle-text' => 'სტატიის დამატება:',
 	'ep-articles-addarticle-button' => 'სტატიის დამატება',
-	'ep-articles-becomereviewer' => 'დამამატე როგორც {{GENDER:$1|შემმოწმებელი}}', # Fuzzy
+	'ep-articles-becomereviewer' => 'დაამატეთ საკუთარი თავი როგორც {{GENDER:$1|შემმოწმებელი}}',
 	'ep-articletable-addreviwer-title' => 'გახდი {{GENDER:$1|შემმოწმებელი}}',
 	'ep-articletable-addreviwer-button' => 'გახდი {{GENDER:$1|შემმოწმებელი}}',
 	'ep-articletable-addreviwer-cancel' => 'გაუქმება',
@@ -14858,7 +14914,7 @@ $messages['ka'] = array(
 	'ep-articletable-remarticle-button' => 'სტატიის წაშლა',
 	'ep-articletable-remarticle-cancel' => 'გაუქმება',
 	'ep-articletable-remarticle-text-self' => 'თქვენ შლით სტატია $1-ს, რომელზეც თქვენ მუშაობთ კურსი $2-ის ფარგლებში.',
-	'ep-articletable-remarticle-text' => 'თქვენ შლით სტატია $1-ს $3 სტატიების სიიდან, რომელზეც თქვენ მუშაობთ კურსი $2-ის ფარგლებში.',
+	'ep-articletable-remarticle-text' => 'თქვენ შლით სტატია $1-ს {{GENDER:$4|$3}} სტატიების სიიდან, რომელზეც თქვენ მუშაობთ კურსი $2-ის ფარგლებში.',
 	'ep-articles-noresults' => 'სიაში სტატიები არ არის.',
 	'epcapager-header-photo' => 'ფოტოსურათი',
 	'epcapager-header-user-id' => 'მომხმარებლის სახელი',
@@ -15071,10 +15127,10 @@ $messages['ka'] = array(
 	'ep-timeline-remaining' => '$1 {{PLURAL:$1|სხვა|სხვა}}',
 	'ep-timeline-ago' => '$1 წინ',
 	'ep-timeline-cutoff' => '$1 ...',
-	'ep-timeline-users-edit-article' => "$1-მ დაარედაქტირა სტატია '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-edit-talk' => "$1-მ დატოვა {{PLURAL:$4|შეტყობინება|შეტყობინებები}} '''[[$3]]-ის''' '''[[$2|განხილვის გვერდზე]]'''.", # Fuzzy
-	'ep-timeline-users-edit-user' => "$1-მ დაარედაქტირა '''[[$2|$3]]-ის''' მომხმარებლის გვერდი.", # Fuzzy
-	'ep-timeline-users-create-article' => "$1-მ შექმნა სტატია '''[[$2]]'''.", # Fuzzy
+	'ep-timeline-users-edit-article' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} დაარედაქტირა სტატია '''[[$2]]'''.",
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} დატოვა {{PLURAL:$4|შეტყობინება|შეტყობინება}} '''[[$3]]-ის''' '''[[$2|განხილვის გვერდზე]]'''.",
+	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} დაარედაქტირა '''[[$2|$3]]-ის''' მომხმარებლის გვერდი.",
+	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}} შექმნა სტატია '''[[$2]]'''.",
 	'ep-dashboard-login-first' => 'თქვენი კურსების სანახავად გთხოვთ გაიარეთ ავტორიზაცია.',
 );
 
