@@ -11279,7 +11279,7 @@ $messages['hsb'] = array(
 	'eporgpager-yes' => 'Haj',
 	'eporgpager-no' => 'Ně',
 	'ep-pager-cancel-button-org' => 'Přetorhnyć',
-	'ep-pager-delete-button-org' => '{{PLURAL:$1|Instituciju|Instituciji|Institucije}} wotstronić', # Fuzzy
+	'ep-pager-delete-button-org' => '{{PLURAL:$1|Instituciju|Instituciji|Institucije}} zhašeć',
 	'ep-pager-summary-message-org' => 'Zjeće:',
 	'epcoursepager-header-name' => 'Mjeno',
 	'epcoursepager-header-start' => 'Spočatk',
@@ -11293,12 +11293,12 @@ $messages['hsb'] = array(
 	'epcoursepager-filter-status' => 'Status',
 	'epcoursepager-invalid-lang' => 'Njepłaćiwy',
 	'ep-pager-cancel-button-course' => 'Přetorhnyć',
-	'ep-pager-delete-button-course' => '{{PLURAL:$1|Kurs|Kursaj|Kursy}} wotstronić', # Fuzzy
+	'ep-pager-delete-button-course' => '{{PLURAL:$1|Kurs|Kursaj|Kursy}} zhašeć',
 	'ep-pager-summary-message-course' => 'Zjeće:',
 	'epstudentpager-header-user-id' => 'Wužiwarske mjeno',
 	'epstudentpager-header-id' => 'ID',
 	'epstudentpager-header-current-courses' => 'Aktualne kursy',
-	'epstudentpager-header-passed-courses' => 'Zańdźene kursy', # Fuzzy
+	'epstudentpager-header-passed-courses' => 'Skónčene kursy',
 	'epstudentpager-yes' => 'Haj',
 	'epstudentpager-no' => 'Ně',
 	'epstudentpager-header-student' => 'Student',
@@ -26664,8 +26664,8 @@ $messages['vi'] = array(
 	'ep-diff-new' => 'Giá trị mới',
 	'ep-timeline-ago' => 'cách đây $1',
 	'ep-timeline-cutoff' => '$1 …',
-	'ep-timeline-users-edit-article' => "$1 đã sửa bài '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-create-article' => "$1 đã tạo bài '''[[$2]]'''.", # Fuzzy
+	'ep-timeline-users-edit-article' => "{{PLURAL:$5}}{{GENDER:$6}}$1 đã sửa bài '''[[$2]]'''.",
+	'ep-timeline-users-create-article' => "{{GENDER:$6}}$1 đã tạo bài '''[[$2]]'''.",
 );
 
 /** Yiddish (ייִדיש)
