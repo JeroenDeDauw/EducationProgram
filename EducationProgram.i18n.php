@@ -3696,6 +3696,7 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'ep-tab-edit' => 'Тае',
 	'ep-tab-history' => 'Исторега хьажар',
 	'ep-institutions-add' => 'ТӀетоха кхоллар',
 	'ep-courses-add' => 'ТӀетоха Ӏалашо',
@@ -9736,6 +9737,7 @@ $messages['ga'] = array(
 );
 
 /** Galician (galego)
+ * @author Elisardojm
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -9952,12 +9954,12 @@ $messages['gl'] = array(
 	'eporgpager-yes' => 'Si',
 	'eporgpager-no' => 'Non',
 	'ep-pager-cancel-button-org' => 'Cancelar',
-	'ep-pager-delete-button-org' => 'Eliminar {{PLURAL:$1|a institución|as institucións}}', # Fuzzy
-	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Confirmar a eliminación da institución|Confirmar a eliminación de varias institucións}}', # Fuzzy
+	'ep-pager-delete-button-org' => 'Eliminar {{PLURAL:$1|a institución|as institucións}}',
+	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Confirmar a eliminación da institución|Confirmar a eliminación de varias institucións}}',
 	'ep-pager-retry-button-org' => 'Reintentar',
 	'ep-pager-summary-message-org' => 'Resumo:',
-	'ep-pager-confirm-message-org' => 'Está a piques de eliminar a institución $1. Isto ha eliminar todos os cursos asociados e os datos dos estudantes!', # Fuzzy
-	'ep-pager-confirm-message-org-many' => 'Está a piques de eliminar estas institucións: $1. Isto ha eliminar todos os cursos asociados e os datos dos estudantes!', # Fuzzy
+	'ep-pager-confirm-message-org' => 'Está a piques de eliminar a institución $1. Isto ha eliminar todos os cursos asociados e os datos dos estudantes!',
+	'ep-pager-confirm-message-org-many' => 'Está a piques de eliminar estas institucións: $1. Isto ha eliminar todos os cursos asociados e os datos dos estudantes!',
 	'epcoursepager-header-name' => 'Nome',
 	'epcoursepager-header-term' => 'Trimestre',
 	'epcoursepager-header-start' => 'Inicio',
@@ -9972,12 +9974,12 @@ $messages['gl'] = array(
 	'epcoursepager-filter-status' => 'Estado',
 	'epcoursepager-invalid-lang' => 'Inválida',
 	'ep-pager-cancel-button-course' => 'Cancelar',
-	'ep-pager-delete-button-course' => 'Eliminar {{PLURAL:$1|o curso|os cursos}}', # Fuzzy
-	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Confirmar a eliminación do curso|Confirmar a eliminación de varios cursos}}', # Fuzzy
+	'ep-pager-delete-button-course' => 'Eliminar {{PLURAL:$1|o curso|os cursos}}',
+	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Confirmar a eliminación do curso|Confirmar a eliminación de varios cursos}}',
 	'ep-pager-retry-button-course' => 'Reintentar',
 	'ep-pager-summary-message-course' => 'Resumo:',
-	'ep-pager-confirm-message-course' => 'Está a piques de eliminar o curso "$1". Isto ha eliminar todos os datos dos estudantes!', # Fuzzy
-	'ep-pager-confirm-message-course-many' => 'Está a piques de eliminar estes cursos: $1. Isto ha eliminar todos os datos dos estudantes!', # Fuzzy
+	'ep-pager-confirm-message-course' => 'Está a piques de eliminar o curso "$1". Isto ha eliminar todos os datos dos estudantes!',
+	'ep-pager-confirm-message-course-many' => 'Está a piques de eliminar estes cursos: $1. Isto ha eliminar todos os datos dos estudantes!',
 	'epstudentpager-header-user-id' => 'Nome de usuario',
 	'epstudentpager-header-id' => 'ID',
 	'epstudentpager-header-current-courses' => 'Cursos actuais',
@@ -10019,7 +10021,7 @@ Isto ha eliminar de xeito permanente {{GENDER:$1|os seus}} artigos e revisores a
 	'ep-articletable-remarticle-button' => 'Eliminar o artigo',
 	'ep-articletable-remarticle-cancel' => 'Cancelar',
 	'ep-articletable-remarticle-text-self' => 'Está a piques de eliminar o artigo "$1" da lista de artigos nos que vostede traballa como parte do curso "$2".',
-	'ep-articletable-remarticle-text' => 'Está a piques de eliminar o artigo "$1" da lista de artigos nos que $3 traballa como parte do curso "$2".',
+	'ep-articletable-remarticle-text' => 'Está a piques de eliminar o artigo "$1" da lista de artigos nos que{{GENDER:$4|$3}} traballa como parte do curso "$2".',
 	'ep-articles-noresults' => 'Non hai ningún artigo que listar.',
 	'epcapager-header-photo' => 'Foto',
 	'epcapager-header-user-id' => 'Nome de usuario',
@@ -10232,7 +10234,7 @@ Velaquí está o rexistro de borrados deste curso, por se quere consultalo:",
 	'ep-enroll-no-id' => 'Debe especificar o curso no que se quere inscribir. Olle a [[Special:Courses|lista de cursos]].',
 	'ep-enroll-invalid-token' => 'O pase achegado non é válido.',
 	'ep-enroll-legend' => 'Inscribirse',
-	'ep-enroll-header' => 'A fin de se inscribir neste curso, todo o que ten que facer é encher este formulario e premer no botón de envío. Despois diso, xa estará inscrito.', # Fuzzy
+	'ep-enroll-header' => 'A fin de se inscribir neste curso, todo o que ten que facer é encher este formulario e premer no botón "{{int:educationprogram-org-submit}}". Despois diso, xa estará inscrito.',
 	'ep-enroll-gender' => 'Sexo (opcional)',
 	'ep-enroll-realname' => 'Nome real (obrigatorio)',
 	'ep-enroll-realname-optional' => 'Nome real (opcional)',
@@ -16475,6 +16477,15 @@ $messages['lb'] = array(
 	'ep-dashboard-enroll-first' => "Dir huelt elo u kengem aktive Cours deel. Dir kënnt d'[[Special:Courses|Lëscht vun de Course]] kucken.",
 );
 
+/** Lezghian (лезги)
+ * @author Soul Train
+ */
+$messages['lez'] = array(
+	'vieworgaction-summary-name' => 'ТӀвар',
+	'vieworgaction-summary-city' => 'Шегьер',
+	'vieworgaction-summary-country' => 'Уьлкве',
+);
+
 /** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Hugo.arg
@@ -22504,6 +22515,13 @@ $messages['rue'] = array(
 	'epstudentpager-header-id' => 'Id',
 	'educationprogram-org-edit-city' => 'Місто',
 	'educationprogram-org-edit-country' => 'Країна',
+);
+
+/** Samogitian (žemaitėška)
+ * @author Hugo.arg
+ */
+$messages['sgs'] = array(
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} palėka {{PLURAL:$4|pranešėma|pranešėmo|pranešėmus|pranešėmu}} '''[[$3]]''' '''[[$2|aptarėmu poslapi]]'''.",
 );
 
 /** Sinhala (සිංහල)
