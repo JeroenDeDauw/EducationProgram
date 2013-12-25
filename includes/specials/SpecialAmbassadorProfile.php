@@ -98,14 +98,22 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 
 		$msgPrefix = $this->getMsgPrefix();
 
+		// Messages that can be used here:
+		// * epoa-visible
+		// * epca-visible
 		$fields['visible'] = array(
 			'type' => 'check',
-			'label-message' => $this->getMsgPrefix() . 'visible',
+			'label' => wfMessage( $this->getMsgPrefix() . 'visible', $this->getUser() )->text(),
 			'required' => true,
 			'rows' => 10,
 			'default' => $ambassador->getField( 'visible' ),
 		);
 
+		// Messages that can be used here:
+		// * epoa-profile-bio
+		// * epca-profile-bio
+		// * epoa-profile-invalid-bio
+		// * epca-profile-invalid-bio
 		$fields['bio'] = array(
 			'type' => 'textarea',
 			'label-message' => $this->getMsgPrefix() . 'profile-bio',
@@ -118,6 +126,11 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 			'default' => $ambassador->getField( 'bio' ),
 		);
 
+		// Messages that can be used here:
+		// * epoa-profile-photo
+		// * epca-profile-photo
+		// * epoa-profile-photo-help
+		// * epca-profile-photo-help
 		$fields['photo'] = array(
 			'type' => 'text',
 			'label-message' => $this->getMsgPrefix() . 'profile-photo',
