@@ -56,7 +56,7 @@ class SpecialsTest extends \MediaWikiTestCase {
 		foreach ( $specials as $special ) {
 			if ( array_key_exists( $special, $GLOBALS['wgSpecialPages'] ) ) {
 				$specialPage = \SpecialPageFactory::getPage( $special );
-				$context = \RequestContext::newExtraneousContext( $specialPage->getTitle() );
+				$context = \RequestContext::newExtraneousContext( $specialPage->getPageTitle() );
 
 				$specialPage->setContext( clone $context );
 				$argLists[] = array( clone $specialPage );

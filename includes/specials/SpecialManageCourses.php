@@ -60,7 +60,7 @@ class SpecialManageCourses extends VerySpecialPage {
 				$this->msg( 'ep-mycourses-login-first' )->escaped(),
 				array(),
 				array(
-					'returnto' => $this->getTitle( $this->subPage )->getFullText()
+					'returnto' => $this->getPageTitle( $this->subPage )->getFullText()
 				)
 			) );
 		}
