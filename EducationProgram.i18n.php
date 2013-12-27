@@ -773,7 +773,7 @@ The deletion log for this course is provided below for convenience:",
 	'epoa-profile-photo-help' => 'A picture of you that will be shown next to your bio. Enter the name of an image on Wikimedia Commons and a preview will appear. You can type the first few letters of the image name and then select your image from the suggestion list. If you do not have a picture of you on Commons yet, [$1 go upload one]!',
 	'epoa-profile-saved' => 'Your profile has been saved',
 	'epoa-profile-invalid-bio' => 'Your bio needs to contain at least $1 {{PLURAL:$1|character|characters}}.',
-	'epoa-visible' => 'Publicly list you as Online volunteer',
+	'epoa-visible' => 'Publicly list {{GENDER:$1|you}} as Online volunteer',
 
 	// Special:CampusAmbassadorProfile
 	'campusambassadorprofile' => 'Campus volunteer profile',
@@ -784,7 +784,7 @@ The deletion log for this course is provided below for convenience:",
 	'epca-profile-photo-help' => 'A picture of you that will be shown next to your bio. Enter the name of an image on Wikimedia Commons and a preview will appear. You can type the first few letters of the image name and then select your image from the suggestion list. If you do not have a picture of you on Commons yet, [$1 go upload one]!',
 	'epca-profile-saved' => 'Your profile has been saved',
 	'epca-profile-invalid-bio' => 'Your bio needs to contain at least $1 {{PLURAL:$1|character|characters}}.',
-	'epca-visible' => 'Publicly list you as Campus volunteer',
+	'epca-visible' => 'Publicly list {{GENDER:$1|you}} as Campus volunteer',
 
 	// Special:StudentActivity
 	'ep-studentactivity-noresults' => 'There are no students that were active in the last $1.
@@ -1886,7 +1886,8 @@ Parameters:
 	'epoa-profile-saved' => 'Success message shown in success box at top of page after save.',
 	'epoa-profile-invalid-bio' => 'Error message stating the bio must contain more characters. Parameters:
 * $1 is the minimum number of characters.',
-	'epoa-visible' => 'Check box input label.',
+	'epoa-visible' => 'Check box input label. Parameters:
+* $1 is a plain text username of the current user, used for GENDER',
 	'campusambassadorprofile' => 'Page title.',
 	'campusambassadorprofile-legend' => 'Ambassador form legend.',
 	'campusambassadorprofile-text' => 'Ambassador form description.',
@@ -1897,7 +1898,8 @@ Parameters:
 	'epca-profile-saved' => 'Success message shown in success box at top of page after save.',
 	'epca-profile-invalid-bio' => 'Error message stating the bio must contain more characters. Parameters:
 * $1 is the minimum number of characters.',
-	'epca-visible' => 'Check box input label.',
+	'epca-visible' => 'Check box input label. Parameters:
+* $1 is a plain text username of the current user, used for GENDER',
 	'ep-studentactivity-noresults' => 'Message shown when there are no students that where recently active. Parameters:
 * $1 is a duration.',
 	'ep-studentactivity-count' => 'Parameters:
