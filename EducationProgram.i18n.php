@@ -3698,6 +3698,7 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'ep-tab-view' => 'Éшар',
 	'ep-tab-edit' => 'Тае',
 	'ep-tab-history' => 'Исторега хьажар',
 	'ep-institutions-add' => 'ТӀетоха кхоллар',
@@ -3749,6 +3750,7 @@ $messages['ce'] = array(
 	'ep-campus-add-close-button' => 'ДӀачӀагӀа',
 	'ep-campus-add-cancel-button' => 'Цаоьшу',
 	'ep-diff-old' => 'Карара маьӀна',
+	'ep-timeline-remaining' => 'кхин $1 {{PLURAL:$1|декъашхо|декъашхой}}',
 	'ep-timeline-ago' => '$1 юха',
 );
 
