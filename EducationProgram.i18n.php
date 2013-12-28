@@ -1887,7 +1887,9 @@ Parameters:
 	'epoa-profile-invalid-bio' => 'Error message stating the bio must contain more characters. Parameters:
 * $1 is the minimum number of characters.',
 	'epoa-visible' => 'Check box input label. Parameters:
-* $1 is a plain text username of the current user, used for GENDER',
+* $1 - a plain text username of the current user, used for GENDER
+See also:
+* {{msg-mw|Epca-visible}}',
 	'campusambassadorprofile' => 'Page title.',
 	'campusambassadorprofile-legend' => 'Ambassador form legend.',
 	'campusambassadorprofile-text' => 'Ambassador form description.',
@@ -1899,7 +1901,9 @@ Parameters:
 	'epca-profile-invalid-bio' => 'Error message stating the bio must contain more characters. Parameters:
 * $1 is the minimum number of characters.',
 	'epca-visible' => 'Check box input label. Parameters:
-* $1 is a plain text username of the current user, used for GENDER',
+* $1 - a plain text username of the current user, used for GENDER
+See also:
+* {{msg-mw|Epoa-visible}}',
 	'ep-studentactivity-noresults' => 'Message shown when there are no students that where recently active. Parameters:
 * $1 is a duration.',
 	'ep-studentactivity-count' => 'Parameters:
@@ -5271,7 +5275,7 @@ Zur Information wird unten das Lösch-Logbuch zu diesem Kurs angezeigt:",
 	'epoa-profile-photo-help' => 'Ein Bild von dir, das neben deiner Biografie angezeigt wird. Gib den Namen eines Bildes auf Wikimedia Commons ein. Daraufhin wird eine Vorschau erscheinen. Du kannst die ersten Buchstaben des Bildes eingeben und dann dein Bild aus der Vorschlagsliste auswählen. Falls du noch kein Bild von dir auf Commons hast, dann [$1 lade jetzt eins hoch]!',
 	'epoa-profile-saved' => 'Dein Profil wurde gespeichert.',
 	'epoa-profile-invalid-bio' => 'Deine Biografie muss aus mindestens {{PLURAL:$1|einem Zeichen|$1 Zeichen}} bestehen.',
-	'epoa-visible' => 'Dich öffentlich als Onlinevolontär anzeigen',
+	'epoa-visible' => '{{GENDER:$1|Dich}} öffentlich als Onlinevolontär anzeigen',
 	'campusambassadorprofile' => 'Campusvolontärprofil',
 	'campusambassadorprofile-legend' => 'Dein Campusvolontärprofil',
 	'campusambassadorprofile-text' => 'Dein Campusvolontärprofil sehen Studenten, wenn sie verfügbare Volontäre durchstöbern.',
@@ -5280,7 +5284,7 @@ Zur Information wird unten das Lösch-Logbuch zu diesem Kurs angezeigt:",
 	'epca-profile-photo-help' => 'Ein Bild von dir, das neben deiner Biografie angezeigt wird. Gib den Namen eines Bildes auf Wikimedia Commons ein. Daraufhin wird eine Vorschau erscheinen. Du kannst die ersten Buchstaben des Bildes eingeben und dann dein Bild aus der Vorschlagsliste auswählen. Falls du noch kein Bild von dir auf Commons hast, dann [$1 lade jetzt eins hoch]!',
 	'epca-profile-saved' => 'Dein Profil wurde gespeichert.',
 	'epca-profile-invalid-bio' => 'Deine Biografie muss aus mindestens {{PLURAL:$1|einem Zeichen|$1 Zeichen}} bestehen.',
-	'epca-visible' => 'Dich öffentlich als Campusvolontär anzeigen',
+	'epca-visible' => '{{GENDER:$1|Dich}} öffentlich als Campusvolontär anzeigen',
 	'ep-studentactivity-noresults' => 'Es gibt keine Studenten, die in den letzten $1 aktiv waren.
 
 Du findest eine vollständige Liste der Studenten auf [[Special:Students|der Liste der Studenten]].',
@@ -5423,10 +5427,10 @@ $messages['diq'] = array(
 	'ep-form-summary' => 'Xulasa:',
 	'ep-form-minor' => 'Vırnayışa werkek',
 	'ep-student-view-profile' => 'profilê telebi',
-	'ep-tab-view' => 'Buwan',
+	'ep-tab-view' => 'Bıwane',
 	'ep-tab-edit' => 'Bıvurne',
 	'ep-tab-create' => 'İycad ke',
-	'ep-tab-history' => 'Verénan bıvin',
+	'ep-tab-history' => 'Verênan bıvêne',
 	'ep-tab-enroll' => 'Bıloxne',
 	'ep-tab-disenroll' => 'Meloxne',
 	'ep-tab-delete' => 'Besterne',
@@ -8271,7 +8275,7 @@ $messages['fa'] = array(
 	'epoa-profile-photo-help' => 'تصویری از شما که در کنار زندگی‌نامه‌تان نمایش داده خواهد شد. نام تصویر را در ویکی‌مدیا انبار وارد کنید و پیش‌نمایشی نمایش داده خواهد شد. شما می‌توانید حروف اول نام تصویر را وارد کنید و تصویر خودتان را بین فهرست پیشنهادها انتخاب کنید. اگر شما تصویری از خودتان در انبار ندارد، [$1 بروید و یکی بارگذاری کنید]!',
 	'epoa-profile-saved' => 'نمایهٔ شما ذخیره شد',
 	'epoa-profile-invalid-bio' => 'زندگی‌نامهٔ شما نیازمند داشتن حداقل $1 {{PLURAL:$1|نویسه}} است.',
-	'epoa-visible' => 'فهرست‌کردن شما به‌عنوان داوطلب برخط به‌صورت عمومی',
+	'epoa-visible' => 'فهرست‌کردن شما به‌عنوان داوطلب برخط به‌صورت عمومی', # Fuzzy
 	'campusambassadorprofile' => 'نمایهٔ داوطلب کمپ',
 	'campusambassadorprofile-legend' => 'نمایهٔ داوطلب کمپ شما',
 	'campusambassadorprofile-text' => 'نمایهٔ داوطلب کمپ شما چیزی است که دانشجویان وقتی داوطلبان موجود را جستجو کنند می‌بینند.',
@@ -8280,7 +8284,7 @@ $messages['fa'] = array(
 	'epca-profile-photo-help' => 'تصویر شما در کنار زندگی‌نامهٔ شما نمایش داده خواهد شد. نام تصویری در ویکی‌مدیا انبار را وارد کنید و پیش‌نمایشی نمایش داده خواهد شد. شما می‌توانید ابتدا چند حرف اول تصویر را وارد کنید و تصویرتان را فهرست پیشنهادها انتخاب کنید. اگر هنوز تصویری از خودتان در انبار ندارید، [$1 بروید یکی بارگذاری کنید]!',
 	'epca-profile-saved' => 'نمایهٔ شما ذخیره شده‌است',
 	'epca-profile-invalid-bio' => 'زندگی‌نامهٔ شما نیازمند است که شامل $1 {{PLURAL:$1|نویسه}} باشد.',
-	'epca-visible' => 'فهرست‌کردن به‌صورت عمومی شما به‌عنوان داوطلب کمپ.',
+	'epca-visible' => 'فهرست‌کردن به‌صورت عمومی شما به‌عنوان داوطلب کمپ.', # Fuzzy
 	'ep-studentactivity-noresults' => 'دانشجویان در $1 اخیر فعال نبود.
 
 شما می‌توانید فهرست کاملی از دانشجویان را در [[Special:Students|فهرست دانشجویان]] بیابید!',
@@ -10369,7 +10373,7 @@ Velaquí está o rexistro de borrados deste curso, por se quere consultalo:",
 	'epoa-profile-photo-help' => 'Unha foto súa que se mostrará ao carón da súa biografía. Insira o nome dunha imaxe da Wikimedia Commons e aparecerá unha vista previa. Pode teclear as primeiras letras do nome da imaxe e logo seleccionar unha foto da lista de suxestións. Se aínda non ten unha foto súa en Commons, [$1 cargue unha]!',
 	'epoa-profile-saved' => 'Gardouse o seu perfil',
 	'epoa-profile-invalid-bio' => 'A súa biografía debe conter, polo menos, $1 {{PLURAL:$1|carácter|caracteres}}.',
-	'epoa-visible' => 'Incluírme na lista pública como voluntario en liña',
+	'epoa-visible' => 'Incluírme na lista pública como voluntario en liña', # Fuzzy
 	'campusambassadorprofile' => 'Perfil do voluntario do campus',
 	'campusambassadorprofile-legend' => 'O seu perfil de voluntario do campus',
 	'campusambassadorprofile-text' => 'O seu perfil de voluntario do campus é o que os estudantes ven cando exploran os voluntarios dispoñibles.',
@@ -10378,7 +10382,7 @@ Velaquí está o rexistro de borrados deste curso, por se quere consultalo:",
 	'epca-profile-photo-help' => 'Unha foto súa que se mostrará ao carón da súa biografía. Insira o nome dunha imaxe da Wikimedia Commons e aparecerá unha vista previa. Pode teclear as primeiras letras do nome da imaxe e logo seleccionar unha foto da lista de suxestións. Se aínda non ten unha foto súa en Commons, [$1 cargue unha]!',
 	'epca-profile-saved' => 'Gardouse o seu perfil',
 	'epca-profile-invalid-bio' => 'A súa biografía debe conter, polo menos, $1 {{PLURAL:$1|carácter|caracteres}}.',
-	'epca-visible' => 'Incluírme na lista pública como voluntario do campus',
+	'epca-visible' => 'Incluírme na lista pública como voluntario do campus', # Fuzzy
 	'ep-studentactivity-noresults' => 'Non houbo ningún estudante activo nos últimos $1.
 
 Pode atopar unha lista completa dos estudantes na [[Special:Students|lista de estudantes]].',
@@ -19485,7 +19489,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'epoa-profile-photo-help' => 'Een foto van u die wordt weergegeven naast uw beschrijving. Voer de naam in van een afbeelding op Wikimedia Commons om een voorvertoning weer te geven. U kunt de eerste paar letters van een afbeeldingsnaam invoeren en dan uw afbeelding uit de lijst selecteren. [$1 Upload een afbeelding] als u nog geen afbeelding op Commons heeft.',
 	'epoa-profile-saved' => 'Uw profiel is opgeslagen',
 	'epoa-profile-invalid-bio' => 'De beschrijving moet tenminste {{PLURAL:$1|één teken|$1 tekens}} bevatten.',
-	'epoa-visible' => 'U openbaar weergeven als online vrijwilliger',
+	'epoa-visible' => '{{GENDER:$1|U}} openbaar weergeven als online vrijwilliger',
 	'campusambassadorprofile' => 'Uw Campusvrijwilligersprofiel',
 	'campusambassadorprofile-legend' => 'Uw Campus vrijwilligersprofiel',
 	'campusambassadorprofile-text' => 'Uw Campus vrijwilligersprofiel is wat studenten te zien krijgen als ze zoeken naar beschikbare vrijwilligers.',
@@ -19494,7 +19498,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'epca-profile-photo-help' => 'Een foto van u die wordt weergegeven naast uw beschrijving. Voer de naam in van een afbeelding op Wikimedia Commons om een voorvertoning weer te geven. U kunt de eerste paar letters van een afbeeldingsnaam invoeren en dan uw afbeelding uit de lijst selecteren. [$1 Upload een afbeelding] als u nog geen afbeelding op Commons heeft.',
 	'epca-profile-saved' => 'Uw profiel is opgeslagen',
 	'epca-profile-invalid-bio' => 'De beschrijving moet tenminste {{PLURAL:$1|één teken|$1 tekens}} bevatten.',
-	'epca-visible' => 'U openbaar weergeven als Campusvrijwilliger',
+	'epca-visible' => '{{GENDER:$1|U}} openbaar weergeven als Campusvrijwilliger',
 	'ep-studentactivity-noresults' => 'Er zijn geen studenten actief geweest in de afgelopen $1.
 
 Zie de [[Special:Students|lijst met alle studenten]].',
@@ -26251,7 +26255,7 @@ $messages['uk'] = array(
 	'epoa-profile-photo-help' => "Ваше фото, яке буде відображатись поряд з біографією. Введіть назву зображення на Вікісховищі, і з'явиться попередній перегляд. Ви можете набрати перші кілька літер назви зображення і потім вибрати ваше фото із запропонованого списку. Якщо у Вас ще немає фото на Сховищі, [$1 завантажте його]!",
 	'epoa-profile-saved' => 'Ваш профіль було збережено',
 	'epoa-profile-invalid-bio' => 'Ваша біографія має містити щонайменше $1 {{PLURAL:$1|символ|символи|символів}}.',
-	'epoa-visible' => 'Публічно відображати мене як онлайн-добровольця',
+	'epoa-visible' => 'Публічно відображати  {{GENDER:$1|мене}} як онлайн-добровольця',
 	'campusambassadorprofile' => 'Профіль добровольця кампусу',
 	'campusambassadorprofile-legend' => 'Мій профіль добровольця кампусу',
 	'campusambassadorprofile-text' => 'Ваш профіль добровольця кампусу - це те, що побачать студенти, коли переглядатимуть наявних добровольців.',
@@ -26260,7 +26264,7 @@ $messages['uk'] = array(
 	'epca-profile-photo-help' => "Ваше фото, яке буде відображатись поряд з біографією. Введіть назву зображення на Вікісховищі, і з'явиться попередній перегляд. Ви можете набрати перші кілька літер назви зображення і потім вибрати ваше фото із запропонованого списку. Якщо у Вас ще немає фото на Сховищі, [$1 завантажте його]!",
 	'epca-profile-saved' => 'Ваш профіль було збережено',
 	'epca-profile-invalid-bio' => 'Ваша біографія має містити щонайменше $1 {{PLURAL:$1|символ|символи|символів}}.',
-	'epca-visible' => 'Публічно відображати мене як добровольця кампусу',
+	'epca-visible' => 'Публічно відображати  {{GENDER:$1|мене}} як добровольця кампусу',
 	'ep-studentactivity-noresults' => 'Немає студентів, що були активними минулий $1.
 
 Ви можете переглянути повний [[Special:Students|список студентів]].',
@@ -27293,12 +27297,12 @@ $messages['zh-hans'] = array(
 	'epoa-profile-bio' => '个人简历',
 	'epoa-profile-photo' => '个人资料照片',
 	'epoa-profile-saved' => '已保存您的个人资料',
-	'epoa-visible' => '公开列出您为在线志愿者',
+	'epoa-visible' => '公开列出您为在线志愿者', # Fuzzy
 	'campusambassadorprofile-legend' => '您的校园志愿者个人档案',
 	'epca-profile-bio' => '个人简历',
 	'epca-profile-photo' => '头像',
 	'epca-profile-saved' => '您的个人资料已保存',
-	'epca-visible' => '公开列出您为校园志愿者',
+	'epca-visible' => '公开列出您为校园志愿者', # Fuzzy
 	'ep-diff-old' => '当前值',
 	'ep-diff-new' => '新值',
 	'ep-timeline-remaining' => '$1{{PLURAL:$1|other|其他}}',
