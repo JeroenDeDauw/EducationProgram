@@ -17361,7 +17361,7 @@ $messages['mk'] = array(
 	'epoa-profile-photo-help' => 'До биографијата ќе стои ваша слика. Внесете име на слика од Заедничката Ризница, и ќе се појави преглед на истата. Можете да ги внесете првите неколку букви од името, а потоа одберете ја сликата од списокот со предлози. Доколку сè уште немате ваша слика на Ризницата, тогаш [$1 подигнете]!',
 	'epoa-profile-saved' => 'Профилот е зачуван',
 	'epoa-profile-invalid-bio' => 'Биографијата мора да содржи барем $1 {{PLURAL:$1|знак|знаци}}.',
-	'epoa-visible' => 'Јавно наведи ме како мрежен доброволец',
+	'epoa-visible' => 'Јавно наведи {{GENDER:$1|ме}} како мрежен доброволец',
 	'campusambassadorprofile' => 'Универзитетски доброволечки профил',
 	'campusambassadorprofile-legend' => 'Вашиот универзитетски доброволечки профил',
 	'campusambassadorprofile-text' => 'Вашиот универзитетски доброволечки профил е она што го гледаат учениците кога прелистуваат доброволци на располагање.',
@@ -17370,7 +17370,7 @@ $messages['mk'] = array(
 	'epca-profile-photo-help' => 'До биографијата ќе стои ваша слика. Внесете име на слика од Заедничката Ризница, и ќе се појави преглед на истата. Можете да ги внесете првите неколку букви од името, а потоа одберете ја сликата од списокот со предлози. Доколку сè уште немате ваша слика на Ризницата, тогаш [$1 подигнете]!',
 	'epca-profile-saved' => 'Профилот е зачуван',
 	'epca-profile-invalid-bio' => 'Биографијата мора да содржи барем $1 {{PLURAL:$1|знак|знаци}}.',
-	'epca-visible' => 'Јавно наведи ме како универзитетски доброволец',
+	'epca-visible' => 'Јавно наведи {{GENDER:$1|ме}} како универзитетски доброволец',
 	'ep-studentactivity-noresults' => 'Нема ученици активни во последниве $1.
 
 Еве [[Special:Students|список на сите ученици]].',
@@ -23978,7 +23978,7 @@ Du borde överväga om det är lämpligt att fortsätta skapa denna kurs igen. R
 	'epoa-profile-photo-help' => 'En bild av dig som kommer att synas bredvid din presentationstext. Fyll i namn på en bild från Wikimedia Commons så kommer en förhandsgranskning upp. Du kan fylla i de första bokstäverna i bildnamnet och välja bild från förslagslistan. Om du inte har någon bild på dig själv på Commons än, [$1 gå dit och ladda upp en]!',
 	'epoa-profile-saved' => 'Din profil har sparats',
 	'epoa-profile-invalid-bio' => 'Din biografi måste innehålla minst $1 {{PLURAL:$1|tecken}}.',
-	'epoa-visible' => 'Lista dig publikt som onlineambassadör',
+	'epoa-visible' => 'Lista {{GENDER:$1|dig}} publikt som onlineambassadör',
 	'campusambassadorprofile' => 'Profil på {{SITENAME}}ambassadör',
 	'campusambassadorprofile-legend' => 'Din profil som {{SITENAME}}ambassadör',
 	'campusambassadorprofile-text' => 'Din profil som {{SITENAME}}ambassadör är vad studenter ser när de letar efter tillgängliga ambassadörer.',
@@ -23987,7 +23987,7 @@ Du borde överväga om det är lämpligt att fortsätta skapa denna kurs igen. R
 	'epca-profile-photo-help' => 'En bild av dig som kommer att synas bredvid din presentationstext. Fyll i namn på en bild från Wikimedia Commons så kommer en förhandsgranskning upp. Du kan fylla i de första bokstäverna i bildnamnet och välja bild från förslagslistan. Om du inte har någon bild på dig själv på Commons än, [$1 gå dit och ladda upp en]!',
 	'epca-profile-saved' => 'Din profil har sparats',
 	'epca-profile-invalid-bio' => 'Din biografi måste innehålla minst $1 {{PLURAL:$1|tecken}}.',
-	'epca-visible' => 'Lista dig publikt som {{SITENAME}}ambassadör',
+	'epca-visible' => 'Lista {{GENDER:$1|dig}} publikt som {{SITENAME}}ambassadör',
 	'ep-studentactivity-noresults' => 'Det finns inga studenter som var aktiva i den senaste $1.
 
 Du finner en komplett lista över studenter på [[Special:Students|studentlistan]].',
