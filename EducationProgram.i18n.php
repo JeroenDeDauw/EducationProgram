@@ -8275,7 +8275,7 @@ $messages['fa'] = array(
 	'epoa-profile-photo-help' => 'تصویری از شما که در کنار زندگی‌نامه‌تان نمایش داده خواهد شد. نام تصویر را در ویکی‌مدیا انبار وارد کنید و پیش‌نمایشی نمایش داده خواهد شد. شما می‌توانید حروف اول نام تصویر را وارد کنید و تصویر خودتان را بین فهرست پیشنهادها انتخاب کنید. اگر شما تصویری از خودتان در انبار ندارد، [$1 بروید و یکی بارگذاری کنید]!',
 	'epoa-profile-saved' => 'نمایهٔ شما ذخیره شد',
 	'epoa-profile-invalid-bio' => 'زندگی‌نامهٔ شما نیازمند داشتن حداقل $1 {{PLURAL:$1|نویسه}} است.',
-	'epoa-visible' => 'فهرست‌کردن شما به‌عنوان داوطلب برخط به‌صورت عمومی', # Fuzzy
+	'epoa-visible' => 'فهرست‌کردن {{GENDER:$1|شما}} به‌عنوان داوطلب برخط به‌صورت عمومی',
 	'campusambassadorprofile' => 'نمایهٔ داوطلب کمپ',
 	'campusambassadorprofile-legend' => 'نمایهٔ داوطلب کمپ شما',
 	'campusambassadorprofile-text' => 'نمایهٔ داوطلب کمپ شما چیزی است که دانشجویان وقتی داوطلبان موجود را جستجو کنند می‌بینند.',
@@ -8284,7 +8284,7 @@ $messages['fa'] = array(
 	'epca-profile-photo-help' => 'تصویر شما در کنار زندگی‌نامهٔ شما نمایش داده خواهد شد. نام تصویری در ویکی‌مدیا انبار را وارد کنید و پیش‌نمایشی نمایش داده خواهد شد. شما می‌توانید ابتدا چند حرف اول تصویر را وارد کنید و تصویرتان را فهرست پیشنهادها انتخاب کنید. اگر هنوز تصویری از خودتان در انبار ندارید، [$1 بروید یکی بارگذاری کنید]!',
 	'epca-profile-saved' => 'نمایهٔ شما ذخیره شده‌است',
 	'epca-profile-invalid-bio' => 'زندگی‌نامهٔ شما نیازمند است که شامل $1 {{PLURAL:$1|نویسه}} باشد.',
-	'epca-visible' => 'فهرست‌کردن به‌صورت عمومی شما به‌عنوان داوطلب کمپ.', # Fuzzy
+	'epca-visible' => 'فهرست‌کردن به‌صورت عمومی {{GENDER:$1|شما}} به‌عنوان داوطلب کمپ.',
 	'ep-studentactivity-noresults' => 'دانشجویان در $1 اخیر فعال نبود.
 
 شما می‌توانید فهرست کاملی از دانشجویان را در [[Special:Students|فهرست دانشجویان]] بیابید!',
@@ -9272,7 +9272,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'epoa-profile-photo-help' => 'Une photo de vous qui sera affichée à côté de votre biographie. Saisissez le nom d’une image de Wikimedia Commons et un aperçu s’affichera. Vous pouvez taper les premières lettres du nom de l’image et sélectionner ensuite votre image dans la liste de suggestions. Si vous n’avez pas encore de photo partagée de vous, [ $1 allez en télécharger une]!',
 	'epoa-profile-saved' => 'Votre profil a été enregistré',
 	'epoa-profile-invalid-bio' => 'Votre biographie doit contenir au moins $1 {{PLURAL:$1|caractère|caractères}}.',
-	'epoa-visible' => 'Vous afficher publiquement comme bénévole en ligne',
+	'epoa-visible' => '{{GENDER:$1|Vous}} afficher publiquement comme bénévole en ligne',
 	'campusambassadorprofile' => 'Profil de bénévole de campus',
 	'campusambassadorprofile-legend' => 'Votre profil de bénévole de campus',
 	'campusambassadorprofile-text' => 'Votre profil de bénévole de campus est ce que les étudiants verront en parcourant les bénévoles disponibles.',
@@ -9281,7 +9281,7 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'epca-profile-photo-help' => 'Une photo de vous qui sera affichée à côté de votre biographie. Saisissez le nom d’une image de Wikimedia Commons et un aperçu s’affichera. Vous pouvez taper les premières lettres du nom de l’image et sélectionner ensuite votre image dans la liste de suggestions. Si vous n’avez pas encore de photo partagée de vous, [ $1 allez en télécharger une]!',
 	'epca-profile-saved' => 'Votre profil a été enregistré',
 	'epca-profile-invalid-bio' => 'Votre biographie doit contenir au moins $1 {{PLURAL:$1|caractère|caractères}}.',
-	'epca-visible' => 'Vous afficher publiquement comme bénévole de campus',
+	'epca-visible' => '{{GENDER:$1|Vous}} afficher publiquement comme bénévole de campus',
 	'ep-studentactivity-noresults' => 'Il n’y a eu aucun élève actif depuis $1.
 
 Vous pouvez trouver une liste complète des étudiants dans [[Special:Students|la liste des étudiants]].',
@@ -11051,7 +11051,7 @@ $messages['he'] = array(
 	'epoa-profile-photo-help' => 'תמונתך תוצג ליד המדיע אודותיך. יש להזין את שם התמונה מוויקישיתוף ותוצג תצוגה. ניתן להקליד מספר אותיות ראשונות של שם התמונה ואז לבחור את תמונתך מתוך הרשימה שתוצג. אם עדיין אין לך תמונה בוויקישיתוף, [$1 הוסף אחת]!',
 	'epoa-profile-saved' => 'הפרופיל שלך נשמר',
 	'epoa-profile-invalid-bio' => 'קורות החיים חייבים להכיל לפחות {{PLURAL:$1|תו אחד|$1 תווים}}.',
-	'epoa-visible' => 'פרסום ברשימת המתנדבים המקוונים',
+	'epoa-visible' => 'לפרסם {{GENDER:$1|אותך}} ברשימת המתנדבים המקוונים',
 	'campusambassadorprofile' => 'פרופיל מתנדב קמפוס',
 	'campusambassadorprofile-legend' => 'פרופיל מתנדב הקמפוס שלך',
 	'campusambassadorprofile-text' => 'פרופיל מתנדב הקמפוס שלך הוא מה שמוצג לתלמידים כשהם מחפשים מתנדבים זמינים.',
@@ -11060,7 +11060,7 @@ $messages['he'] = array(
 	'epca-profile-photo-help' => 'תמונתך תוצג ליד המידע אודותיך. יש להזין את שם התמונה מוויקישיתוף ותופיע תצוגה מקדימה של התמונה. ניתן להקליד מספר אותיות ראשונות של שם התמונה ואז לבחור את תמונתך מתוך הרשימה שתוצג. אם אין לך תמונה בוויקישיתוף עדיין, [$1 הוסף אחת]',
 	'epca-profile-saved' => 'הפרופיל שלך נשמר',
 	'epca-profile-invalid-bio' => 'קורות החיים חייבים להכיל לפחות {{PLURAL:$1|תו אחד|$1 תווים}}.',
-	'epca-visible' => 'פרסום ברשימת מתנדבי הקמפוס',
+	'epca-visible' => 'לפרסם {{GENDER:$1|אותך}} ברשימת מתנדבי קמפוס',
 	'ep-studentactivity-noresults' => 'אין תלמידים שהיו פעילים ב$1 האחרון.
 
 ניתן למצוא רשימת תלמידים מלאה בדף [[Special:Students|רשימת התלמידים]].',
