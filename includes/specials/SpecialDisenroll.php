@@ -68,7 +68,7 @@ class SpecialDisenroll extends VerySpecialPage {
 
 				$editTokenMatches = $this->getUser()->matchEditToken(
 					$req->getText( 'disenrollToken' ),
-					$this->getTitle( $this->subPage )->getLocalURL()
+					$this->getPageTitle( $this->subPage )->getLocalURL()
 				);
 
 				if ( $req->wasPosted() && $editTokenMatches ) {
@@ -105,7 +105,7 @@ class SpecialDisenroll extends VerySpecialPage {
 			$this->msg( 'ep-enroll-login-and-enroll' )->escaped(),
 			array(),
 			array(
-				'returnto' => $this->getTitle( $this->subPage )->getFullText()
+				'returnto' => $this->getPageTitle( $this->subPage )->getFullText()
 			)
 		) );
 	}
@@ -122,7 +122,7 @@ class SpecialDisenroll extends VerySpecialPage {
 
 		$out->addModules( 'ep.disenroll' );
 
-		$target = $this->getTitle( $this->subPage )->getLocalURL();
+		$target = $this->getPageTitle( $this->subPage )->getLocalURL();
 
 		$out->addWikiMsg( 'ep-disenroll-text', $course->getField( 'name' ) );
 

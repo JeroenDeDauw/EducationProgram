@@ -152,7 +152,7 @@ class SpecialEnroll extends VerySpecialPage {
 			'form',
 			array(
 				'method' => 'get',
-				'action' => $this->getTitle( $this->subPage )->getLocalURL(),
+				'action' => $this->getPageTitle( $this->subPage )->getLocalURL(),
 			)
 		) );
 
@@ -211,7 +211,7 @@ class SpecialEnroll extends VerySpecialPage {
 			$this->msg( 'ep-enroll-login-and-enroll' )->escaped(),
 			array(),
 			array(
-				'returnto' => $this->getTitle( $subPage )->getFullText()
+				'returnto' => $this->getPageTitle( $subPage )->getFullText()
 			)
 		) );
 
@@ -222,7 +222,7 @@ class SpecialEnroll extends VerySpecialPage {
 			$this->msg( 'ep-enroll-signup-and-enroll' )->escaped(),
 			array(),
 			array(
-				'returnto' => $this->getTitle( $subPage )->getFullText(),
+				'returnto' => $this->getPageTitle( $subPage )->getFullText(),
 				'type' => 'signup'
 			)
 		) );

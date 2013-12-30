@@ -161,11 +161,11 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 			'type' => $class::newFromUser( $this->getUser() )->getRoleName(),
 			'subtype' => 'profilesave',
 			'user' => $this->getUser(),
-			'title' => $this->getTitle(),
+			'title' => $this->getPageTitle(),
 		) );
 
 		$this->getRequest()->setSessionData( 'epprofilesaved', true );
-		$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
+		$this->getOutput()->redirect( $this->getPageTitle()->getLocalURL() );
 	}
 
 	/**

@@ -68,7 +68,7 @@ class SpecialMyCourses extends VerySpecialPage {
 				\SpecialPage::getTitleFor( 'Userlogin' ),
 				$this->msg( 'ep-dashboard-login-first' )->escaped(),
 				array(),
-				array( 'returnto' => $this->getTitle( $this->subPage )->getFullText() )
+				array( 'returnto' => $this->getPageTitle( $this->subPage )->getFullText() )
 			) );
 		}
 	}
