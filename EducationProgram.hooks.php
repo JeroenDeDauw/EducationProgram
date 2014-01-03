@@ -519,4 +519,77 @@ final class Hooks {
 			);
 		}
 	}
+
+	/**
+	 * Register Echo notification types and categories. (Just hands off to the
+	 * NotificationsManager for the actual work.)
+	 *
+	 * @see https://www.mediawiki.org/wiki/Extension:Echo/BeforeCreateEchoEvent
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param array $notifications
+	 * @param array $notificationCategories
+	 * @param array $icons
+	 *
+	 * @return boolean
+	 */
+	public static function onBeforeCreateEchoEvent( array &$notifications,
+			array &$notificationCategories, array &$icons ) {
+
+		Extension::globalInstance()->getNotificationsManager()->
+			setUpTypesAndCategories(
+			$notifications, $notificationCategories, $icons );
+
+		return true;
+	}
+
+	/**
+	 * Determine which users get a notification. (Just hands off to the
+	 * NotificationsManager for the actual work.)
+	 *
+	 * @see https://www.mediawiki.org/wiki/Echo_(Notifications)/Developer_guide
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param $event \EchoEvent
+	 * @param $users array
+	 *
+	 * @return boolean
+	 */
+	public static function onEchoGetDefaultNotifiedUsers(
+			\EchoEvent $event, array &$users ) {
+
+		Extension::globalInstance()->getNotificationsManager()->
+			getUsersNotified( $event, $users );
+
+		return true;
+	}
+
+	/**
+	 * Check for changes to course talk pages, possibly trigger a notification.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
+	 */
+	public static function onPageContentSaveComplete( $article, $user, $content,
+			$summary, $isMinor, $isWatch, $section, $flags, $revision, $status,
+			$baseRevId ) {
+
+		$title = $article->getTitle();
+
+		// check if the page saved was a course in the EP talk namespace
+		if ( ( $title->getNamespace() === EP_NS_TALK ) &&
+			( Utils::isCourse( $title ) ) ) {
+
+			Extension::globalInstance()->getNotificationsManager()->trigger(
+				'ep-course-talk-notification',
+				array(
+					'course-talk-title' => $title,
+					'agent' => $user,
+					'revision' => $revision,
+				)
+			);
+		}
+
+		return true;
+	}
 }

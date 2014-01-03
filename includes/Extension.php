@@ -42,6 +42,15 @@ class Extension {
 	protected $settings;
 
 	/**
+	 * Singleton instance that manages echo notifications
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @var NotificationsManager
+	 */
+	protected $notificationsMgr;
+
+	/**
 	 * @since 0.3
 	 *
 	 * @param Settings $settings
@@ -93,6 +102,28 @@ class Extension {
 	 */
 	public function getSettings() {
 		return $this->settings;
+	}
+
+	/**
+	 *
+	 * Get the singleton NotificationsManager. If it doesn't exist yet, we
+	 * create it and set it up.
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @return NotificationsManager
+	 */
+	public function getNotificationsManager() {
+		if ( $this->notificationsMgr === null ) {
+
+			$this->notificationsMgr = new NotificationsManager();
+
+			$this->notificationsMgr->registerTypeAndFormatter(
+				'EducationProgram\CourseTalkNotification',
+				'EducationProgram\CourseTalkFormatter' );
+		}
+
+		return $this->notificationsMgr;
 	}
 
 	/**

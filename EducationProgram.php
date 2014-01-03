@@ -165,6 +165,13 @@ $wgAutoloadClasses['EducationProgram\PageTable'] 					= $dir . '/includes/tables
 $wgAutoloadClasses['EducationProgram\Revisions'] 					= $dir . '/includes/tables/Revisions.php';
 $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/Students.php';
 
+// includes/notifications
+// Classes for Echo notifications
+$wgAutoloadClasses['EducationProgram\NotificationsManager']			= $dir . '/includes/notifications/NotificationsManager.php';
+$wgAutoloadClasses['EducationProgram\INotificationType']			= $dir . '/includes/notifications/INotificationType.php';
+$wgAutoloadClasses['EducationProgram\CourseTalkNotification']		= $dir . '/includes/notifications/CourseTalkNotification.php';
+$wgAutoloadClasses['EducationProgram\CourseTalkFormatter']			= $dir . '/includes/notifications/CourseTalkFormatter.php';
+
 // includes
 // These are other miscellaneous classes used by the extension and their corresponding PHP files.
 $wgAutoloadClasses['EducationProgram\ArticleAdder'] 				= $dir . '/includes/ArticleAdder.php';
@@ -256,6 +263,9 @@ $wgHooks['NewRevisionFromEditComplete'][] 			= 'EducationProgram\Hooks::onNewRev
 $wgHooks['NamespaceIsMovable'][] 					= 'EducationProgram\Hooks::onNamespaceIsMovable';
 $wgHooks['SpecialContributionsBeforeMainOutput'][]	= 'EducationProgram\Hooks::onSpecialContributionsBeforeMainOutput';
 $wgHooks['ContributionsToolLinks'][]				= 'EducationProgram\Hooks::onContributionsToolLinks';
+$wgHooks['BeforeCreateEchoEvent'][] 				= 'EducationProgram\Hooks::onBeforeCreateEchoEvent';
+$wgHooks['EchoGetDefaultNotifiedUsers'][] 			= 'EducationProgram\Hooks::onEchoGetDefaultNotifiedUsers';
+$wgHooks['PageContentSaveComplete'][] 				= 'EducationProgram\Hooks::onPageContentSaveComplete';
 
 // Actions
 $wgActions['epremarticle'] = 'EducationProgram\RemoveArticleAction';
@@ -745,3 +755,6 @@ $wgDefaultUserOptions['ep_showtoplink'] = false;
 $wgDefaultUserOptions['ep_bulkdelorgs'] = false;
 $wgDefaultUserOptions['ep_bulkdelcourses'] = true;
 $wgDefaultUserOptions['ep_showdyk'] = true;     // This enables the "Did You Know" boxes that appear on course activities feeds. See the eponymous extension, which was folded into this one: https://www.mediawiki.org/wiki/Extension:Did_You_Know
+// The following must coordinate with NotificationsManager::CATEGORY
+$wgDefaultUserOptions['echo-subscriptions-web-education-program'] = true;
+$wgDefaultUserOptions['echo-subscriptions-email-education-program'] = false;

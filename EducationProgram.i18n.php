@@ -841,6 +841,15 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|an instructor}}',
 	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|an online volunteer}}',
 	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|a campus volunteer}}',
+
+	// Notifications
+	'echo-category-title-education-program' => 'Education Program', // key must take this form
+	'ep-echo-pref-tooltip' => 'Notify me of events related to Education Program courses I\'m involved in.',
+	'ep-course-talk-link-text-view-message' => 'View message',
+	'ep-course-talk-link-text-view-changes' => 'View changes',
+	'ep-course-talk-notification-title' => 'The [[$2|course talk page of $3]] was {{GENDER:$1|edited}} by [[User:$1|$1]].',
+	'ep-course-talk-notification-title-email-subject' => 'The course talk page of $2 was {{GENDER:$1|edited}} by $1.',
+	'ep-course-talk-notification-title-email-body' => 'The course talk page of $2 was {{GENDER:$1|edited}} by $1.',
 );
 
 /** Message documentation (Message documentation)
@@ -2120,6 +2129,20 @@ A message about other Education Program roles the user has. Parameters:
 * $1 the username (for grammatical gender)',
 	'ep-user-roles-message-rolename-campus' => 'The campus volunteer role, for use in a list of roles the user has. Parameters:
 * $1 the username (for grammatical gender)',
+	'echo-category-title-education-program' => 'Title of notifications category in preferences',
+	'ep-echo-pref-tooltip' => 'Tooltip for notifications category in preferences',
+	'ep-course-talk-link-text-view-message' => 'Text for primary link in course talk notification',
+	'ep-course-talk-link-text-view-changes' => 'Text for secondary link in course talk notification',
+	'ep-course-talk-notification-title' => 'Default title for course talk notification. Parameters:
+* $1 - the user who modified the course talk page
+* $2 - the full name of the course talk page
+* $3 - the name of the course with the term in parentheses',
+	'ep-course-talk-notification-title-email-subject' => 'E-mail subject line for course talk notification. Parameters:
+* $1 - the user who modified the course talk page
+* $2 - the name of the course with the term in parentheses',
+	'ep-course-talk-notification-title-email-body' => 'E-mail body content for course talk notification. Parameters:
+* $1 - the user who modified the course talk page
+* $2 - the name of the course with the term in parentheses',
 );
 
 /** Afrikaans (Afrikaans)

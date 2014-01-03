@@ -8,9 +8,11 @@ Latest version of the install file: https://gerrit.wikimedia.org/r/gitweb?p=medi
 
 Education Program requires:
 
-* MediaWiki 1.20 or above
+* MediaWiki 1.23 or above
 * PHP 5.3 or above
 * MySQL
+* Mediawiki CLDR extension
+* Mediawiki Echo extension (for notifications)
 
 == Download ==
 
