@@ -3754,7 +3754,7 @@ $messages['ce'] = array(
 	'ep-campus-add-close-button' => 'ДӀачӀагӀа',
 	'ep-campus-add-cancel-button' => 'Цаоьшу',
 	'ep-diff-old' => 'Карара маьӀна',
-	'ep-timeline-remaining' => 'кхин $1 {{PLURAL:$1|декъашхо|декъашхой}}',
+	'ep-timeline-remaining' => 'кхин $1 {{PLURAL:$1|1=декъашхо|декъашхой}}', # Fuzzy
 	'ep-timeline-ago' => '$1 юха',
 );
 
@@ -22209,11 +22209,11 @@ $messages['ru'] = array(
 	'logentry-course-remove' => '$1 {{GENDER:$2|удалил|удалила}} курс $3',
 	'logentry-course-update' => '$1 {{GENDER:$2|обновил|обновила}} курс $3',
 	'logentry-course-undelete' => '$1 {{GENDER:$2|восстановил|восстановила}} курс $3',
-	'logentry-instructor-add' => '$1 {{GENDER:$2|добавил|добавила}} {{PLURAL:$4|инструктора|инструкторов}} $5 к курсу $3',
-	'logentry-instructor-remove' => '$1 {{GENDER:$2|удалил|удалила}} {{PLURAL:$4|инструктора|инструкторов}} $5 из курса $3',
+	'logentry-instructor-add' => '$1 {{GENDER:$2|добавил|добавила}} {{PLURAL:$4|1=инструктора|инструкторов}} $5 к курсу $3', # Fuzzy
+	'logentry-instructor-remove' => '$1 {{GENDER:$2|удалил|удалила}} {{PLURAL:$4|1=инструктора|инструкторов}} $5 из курса $3', # Fuzzy
 	'logentry-instructor-selfadd' => '$1 {{GENDER:$2|добавил|добавила}} себя как инструктора к курсу $3',
 	'logentry-instructor-selfremove' => '$1 {{GENDER:$2|удалил|удалила}} себя как инструктора из курса $3',
-	'logentry-student-remove' => '$1 {{GENDER:$2|удалил|удалила}} {{PLURAL:$4|студента|студентов}} $5 из курса $3',
+	'logentry-student-remove' => '$1 {{GENDER:$2|удалил|удалила}} {{PLURAL:$4|1=студента|студентов}} $5 из курса $3', # Fuzzy
 	'logentry-eparticle-selfadd' => '$1 {{GENDER:$2|добавил|добавила}} статью $3 в {{GENDER:$2|его|её}} список статей в курсе $4',
 	'logentry-eparticle-selfremove' => '$1 {{GENDER:$2|удалил|удалила}} статью $3 из {{GENDER:$2|его|её}} списка статей в курсе $4',
 	'logentry-eparticle-add' => '$1 {{GENDER:$2|добавил|добавила}} статью $3 в список статей {{GENDER:$6|участника|участницы}} $5 в курсе $4',
@@ -22312,8 +22312,8 @@ $messages['ru'] = array(
 	'epcoursepager-filter-status' => 'Статус',
 	'epcoursepager-invalid-lang' => 'Недопустимый',
 	'ep-pager-cancel-button-course' => 'Отмена',
-	'ep-pager-delete-button-course' => 'Удалить {{PLURAL:$1|курс|курсы}}',
-	'ep-pager-confirm-delete-course' => 'Подтвердить удаление {{PLURAL:$1|курса|нескольких курсов}}',
+	'ep-pager-delete-button-course' => 'Удалить {{PLURAL:$1|1=курс|курсы}}', # Fuzzy
+	'ep-pager-confirm-delete-course' => 'Подтвердить удаление {{PLURAL:$1|1=курса|нескольких курсов}}', # Fuzzy
 	'ep-pager-retry-button-course' => 'Повторите',
 	'ep-pager-summary-message-course' => 'Резюме:',
 	'ep-pager-confirm-message-course' => 'Вы собираетесь удалить курс $1. Это удалит всех связанных с ним студентов!',
@@ -22390,7 +22390,7 @@ $messages['ru'] = array(
 	'ep-course-invalid-lang' => 'Этот язык не является допустимым.',
 	'ep-course-no-slashes' => 'Название курса не должен содержать символы косой черты!',
 	'coursepage-edit-undelete-revisions' => 'Этот курс был удален. Вы можете $1.',
-	'coursepage-edit-undelete-link' => 'восстановить $1 {{PLURAL:$1|версию|версии|версий}}',
+	'coursepage-edit-undelete-link' => 'восстановить $1 {{PLURAL:$1|версию|версий|версии}}', # Fuzzy
 	'ep-institution-title' => 'Учреждение: $1',
 	'vieworgaction-summary-name' => 'Имя',
 	'vieworgaction-summary-city' => 'Город',
@@ -22446,7 +22446,7 @@ $messages['ru'] = array(
 	'ep-enroll-gender' => 'Пол (опционально)',
 	'ep-enroll-realname' => 'Реальное имя (обязательно)',
 	'ep-enroll-realname-optional' => 'Реальное имя (необязательно)',
-	'ep-enroll-invalid-name' => 'Имя должно, по крайней мере, содержать $1 {{PLURAL:$1|символ|символа|символов}}.',
+	'ep-enroll-invalid-name' => 'Имя должно, по крайней мере, содержать $1 {{PLURAL:$1|символ|символов|символа}}.', # Fuzzy
 	'ep-enroll-invalid-gender' => 'Пожалуйста, выберите один из этих полов',
 	'ep-disenroll-button' => 'Выйти',
 	'ep-disenroll-cancel' => 'Отмена',
@@ -22490,11 +22490,11 @@ $messages['ru'] = array(
 	'epca-profile-saved' => 'Ваш профайл был сохранён',
 	'ep-diff-old' => 'Текущее значение',
 	'ep-diff-new' => 'Новое значение',
-	'ep-timeline-remaining' => 'ещё $1 {{PLURAL:$1|участник|участника|участников}}',
+	'ep-timeline-remaining' => 'ещё $1 {{PLURAL:$1|участник|участников|участника}}', # Fuzzy
 	'ep-timeline-unknown' => '$1 что-то сделал $2, $3',
 	'ep-timeline-ago' => '$1 назад',
 	'ep-timeline-cutoff' => '$1 ...',
-	'ep-timeline-users-edit-article' => "$1 отредактировал{{PLURAL:$5|{{GENDER:$6||а}}|и}} статью '''[[$2]]'''.",
+	'ep-timeline-users-edit-article' => "$1 отредактировал{{PLURAL:$5|{{GENDER:$6||а}}|и}} статью '''[[$2]]'''.", # Fuzzy
 	'ep-timeline-users-create-article' => "$1 создал{{GENDER:$6||а}} статью '''[[$2]]'''.",
 	'ep-timeline-users-create-user' => "$1 создал{{GENDER:$6||а}} страницу участника '''[[$2|$3]]'''.",
 );
@@ -23064,7 +23064,7 @@ $messages['sr-ec'] = array(
 	'eporgpager-yes' => 'Да',
 	'eporgpager-no' => 'Не',
 	'ep-pager-cancel-button-org' => 'Откажи',
-	'ep-pager-delete-button-org' => 'Уклони {{PLURAL:$1|установу|установе}}', # Fuzzy
+	'ep-pager-delete-button-org' => 'Уклони {{PLURAL:$1|1=установу|установе}}', # Fuzzy
 	'ep-pager-retry-button-org' => 'Пробај опет',
 	'ep-pager-summary-message-org' => 'Опис:',
 	'epcoursepager-header-name' => 'Име',
@@ -23081,7 +23081,7 @@ $messages['sr-ec'] = array(
 	'epcoursepager-filter-status' => 'Статус',
 	'epcoursepager-invalid-lang' => 'Неисправан језик',
 	'ep-pager-cancel-button-course' => 'Откажи',
-	'ep-pager-delete-button-course' => 'Уклони {{PLURAL:$1|курс|курсеве}}', # Fuzzy
+	'ep-pager-delete-button-course' => 'Уклони {{PLURAL:$1|1=курс|курсеве}}', # Fuzzy
 	'ep-pager-retry-button-course' => 'Пробај опет',
 	'ep-pager-summary-message-course' => 'Опис:',
 	'epstudentpager-header-user-id' => 'Корисничко име',
@@ -23300,7 +23300,7 @@ $messages['sr-ec'] = array(
 	'ep-timeline-ago' => 'пре $1',
 	'ep-timeline-cutoff' => '$1…',
 	'ep-timeline-users-edit-article' => "$1 {{GENDER:$1|је уредио|је уредила|је уредио}} чланак '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|је оставио|је оставила}} {{PLURAL:$4|поруку|поруке}} на '''[[$2|страници за разговор]]''' корисника '''[[$3]]'''.", # Fuzzy
+	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|је оставио|је оставила}} {{PLURAL:$4|1=поруку|поруке}} на '''[[$2|страници за разговор]]''' корисника '''[[$3]]'''.", # Fuzzy
 	'ep-timeline-users-edit-user' => "$1 {{GENDER:$1|је уредио|је уредила|је уредио}} страницу корисника '''[[$2|$3]]'''.", # Fuzzy
 );
 
@@ -23344,7 +23344,7 @@ $messages['sr-el'] = array(
 	'ep-timeline-ago' => 'pre $1',
 	'ep-timeline-cutoff' => '$1…',
 	'ep-timeline-users-edit-article' => "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} članak '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|je ostavio|je ostavila}} {{PLURAL:$4|poruku|poruke}} na '''[[$2|stranici za razgovor]]''' korisnika '''[[$3]]'''.", # Fuzzy
+	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|je ostavio|je ostavila}} {{PLURAL:$4|1=poruku|poruke}} na '''[[$2|stranici za razgovor]]''' korisnika '''[[$3]]'''.", # Fuzzy
 	'ep-timeline-users-edit-user' => "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} stranicu korisnika '''[[$2|$3]]'''.", # Fuzzy
 );
 
@@ -25703,12 +25703,12 @@ $messages['uk'] = array(
 	'logentry-online-selfremove' => '$1 {{GENDER:$2|видалив|видалила}} себе як {{GENDER:$2|добровольця}} з курсу $3',
 	'logentry-online-profilesave' => '$1 {{GENDER:$2|оновив|оновила}} свій профіль онлайн-добровольця.',
 	'logentry-campus-add' => '$1 {{GENDER:$2|додав|додала}} {{PLURAL:$4|добровольця кампусу|добровольці кампусу|добровольців кампусу}} $5 до курсу $3',
-	'logentry-campus-remove' => '$1 {{GENDER:$2|видалив|видалила}} {{PLURAL:$4|добровольця кампусу|добровольців кампусу}} $5 з курсу $3',
+	'logentry-campus-remove' => '$1 {{GENDER:$2|видалив|видалила}} {{PLURAL:$4|1=добровольця кампусу|добровольців кампусу}} $5 з курсу $3',
 	'logentry-campus-selfadd' => '$1 {{GENDER:$2|додав|додала}} себе як {{GENDER:$2|добровольця кампусу}} до курсу $3',
 	'logentry-campus-selfremove' => '$1 {{GENDER:$2|видалив|видалила}} себе як {{GENDER:$2|добровольця кампусу}} з курсу $3',
 	'logentry-campus-profilesave' => '$1 {{GENDER:$2|оновив|оновила}} свій профіль добровольця кампусу.',
 	'logentry-student-add' => '$1 {{GENDER:$2|записався|записалась}} до курсу $3',
-	'logentry-student-remove' => '$1 {{GENDER:$2|видалив|видалила}} $5 як {{PLURAL:$4|{{GENDER:$5|студента}}|студентів}} з курсу $3',
+	'logentry-student-remove' => '$1 {{GENDER:$2|видалив|видалила}} $5 як {{PLURAL:$4|1={{GENDER:$5|студента}}|студентів}} з курсу $3',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|записався|записалась}} до курсу $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|відписався|відписалась}} з курсу $3',
 	'logentry-eparticle-selfadd' => '$1 {{GENDER:$2|додав|додала}} статтю $3 до свого списку статей у курсі $4',
@@ -25847,7 +25847,7 @@ $messages['uk'] = array(
 	'eporgpager-no' => 'Ні',
 	'ep-pager-cancel-button-org' => 'Скасувати',
 	'ep-pager-delete-button-org' => 'Видалити {{PLURAL:$1|заклад|заклади|закладів}}',
-	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Підтвердити видалення закладу|Підтвердити видалення кількох закладів}}',
+	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|1=Підтвердити видалення закладу|Підтвердити видалення кількох закладів}}',
 	'ep-pager-retry-button-org' => 'Повторити',
 	'ep-pager-summary-message-org' => 'Резюме:',
 	'ep-pager-confirm-message-org' => 'Ви збираєтесь видалити заклад $1. Разом з ним видаляться дані про курси і студентів!',
@@ -25866,8 +25866,8 @@ $messages['uk'] = array(
 	'epcoursepager-filter-status' => 'Статус',
 	'epcoursepager-invalid-lang' => 'Неприпустимий',
 	'ep-pager-cancel-button-course' => 'Скасувати',
-	'ep-pager-delete-button-course' => 'Видалити {{PLURAL:$1|курс|курси}}',
-	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|Підтвердити видалення курсу|Підтвердити видалення кількох курсів}}',
+	'ep-pager-delete-button-course' => 'Видалити {{PLURAL:$1|1=курс|курси}}',
+	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|1=Підтвердити видалення курсу|Підтвердити видалення кількох курсів}}',
 	'ep-pager-retry-button-course' => 'Повторити',
 	'ep-pager-summary-message-course' => 'Резюме:',
 	'ep-pager-confirm-message-course' => "Ви збираєтесь видалити курс $1. Разом з ним видаляться прив'язані студенти!",
@@ -25983,8 +25983,8 @@ $messages['uk'] = array(
 	'coursepage-edit-undelete-link' => 'відновити $1 {{PLURAL:$1|версію|версії|версій}}',
 	'ep-pager-confirm-delete' => 'Ви дійсно хочете вилучити цей елемент?',
 	'ep-pager-delete-fail' => 'Не вдалося видалити цей елемент.',
-	'ep-pager-confirm-delete-selected' => 'Ви дійсно хочете видалити {{PLURAL:$1|виділений елемент|виділені елементи}}?',
-	'ep-pager-delete-selected-fail' => 'Не вдалося видалити {{PLURAL:$1|виділений елемент|виділені елементи}}.',
+	'ep-pager-confirm-delete-selected' => 'Ви дійсно хочете видалити {{PLURAL:$1|1=виділений елемент|виділені елементи}}?',
+	'ep-pager-delete-selected-fail' => 'Не вдалося видалити {{PLURAL:$1|1=виділений елемент|виділені елементи}}.',
 	'vieworgaction-none' => 'Немає закладу з назвою "$1". Див. [[Special:Institutions|список закладів]].',
 	'ep-institution-create' => 'Іще немає закладу з назвою "$1", але Ви можете його додати.',
 	'ep-institution-title' => 'Заклад: $1',
@@ -26271,23 +26271,23 @@ $messages['uk'] = array(
 	'ep-studentactivity-count' => '{{PLURAL:$1|Один студент був|$1 студенти були|$1 студентів було}} активними минулий $2.',
 	'ep-diff-old' => 'Поточне значення',
 	'ep-diff-new' => 'Нове значення',
-	'ep-timeline-remaining' => '$1 {{PLURAL:$1|інший|інших}}',
+	'ep-timeline-remaining' => '$1 {{PLURAL:$1|1=інший|інших}}',
 	'ep-timeline-unknown' => '$1 щось {{GENDER:$1|робив|робила}} о $2, $3',
 	'ep-timeline-ago' => '$1 тому',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-no-summary' => '„Не надано підсумку“',
 	'ep-timeline-users-edit-article' => "{{PLURAL:$5|{{GENDER:$6|$1 редагував|$1 редагувала}}|$1 редагували}} статтю '''[[$2]]'''.",
-	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1 залишив|$1 залишила}}|$1 залишили}}  {{PLURAL:$4|повідомлення|кілька повідомлень}} на '''[[$2|сторінці обговорення]]''' '''[[$3]]'''.",
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1 залишив|$1 залишила}}|$1 залишили}}  {{PLURAL:$4|1=повідомлення|кілька повідомлень}} на '''[[$2|сторінці обговорення]]''' '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1 редагував|$1 редагувала}}|$1 редагували}} сторінку користувача '''[[$2|$3]]'''.",
-	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' {{GENDER:$3|отримав|отримала}} {{PLURAL:$4|повідомлення|кілька повідомлень}} на своїй '''[[$2|сторінці обговорення]]'''.",
+	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' {{GENDER:$3|отримав|отримала}} {{PLURAL:$4|1=повідомлення|кілька повідомлень}} на своїй '''[[$2|сторінці обговорення]]'''.",
 	'ep-timeline-users-edit-user-self' => "$1 {{GENDER:$6|редагував свою|редагувала свою|редагували свою}} '''[[$2|сторінку користувача]]'''.",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' {{GENDER:$3|написав|написала}} {{PLURAL:$4|повідомлення|повідомлення|повідомлень}} на своїй '''[[$2|сторінці обговорення]]'''.",
 	'ep-timeline-users-create-article' => "$1 {{GENDER:$6|створив|створила}} статтю '''[[$2]]'''.",
-	'ep-timeline-users-create-talk' => "$1 {{GENDER:$6|створив|створила}} '''[[$2|сторінку обговорення]]''' '''[[$3]]''' і {{GENDER:$6|залишив|залишила}} на ній {{PLURAL:$4|повідомлення|кілька повідомлень}}.",
+	'ep-timeline-users-create-talk' => "$1 {{GENDER:$6|створив|створила}} '''[[$2|сторінку обговорення]]''' '''[[$3]]''' і {{GENDER:$6|залишив|залишила}} на ній {{PLURAL:$4|1=повідомлення|кілька повідомлень}}.",
 	'ep-timeline-users-create-user' => "$1 {{GENDER:$6|створив|створила}} сторінку користувача '''[[$2|$3]]'''.",
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' {{GENDER:$3|отримав|отримала}}  {{PLURAL:$4|повідомлення}} на своїй новоствореній '''[[$2|сторінці обговорення]]'''.",
 	'ep-timeline-users-create-user-self' => "$1 {{GENDER:$6|створив|створила|створили}} свою '''[[$2|сторінку користувача]]'''.",
-	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' {{GENDER:$3|створив|створила}} свою '''[[$2|сторінку обговорення]]''' і залишив на ній {{PLURAL:$4|повідомлення|декілька повідомлень}}.",
+	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' {{GENDER:$3|створив|створила}} свою '''[[$2|сторінку обговорення]]''' і залишив на ній {{PLURAL:$4|1=повідомлення|декілька повідомлень}}.",
 	'ep-dashboard-login-first' => 'Потрібно увійти у систему, щоб могти переглянути свої курси.',
 	'ep-dashboard-timeline-empty' => 'Не було ніяких останніх дій стосовно цього курсу.',
 	'ep-dashboard-enroll-first' => 'Ви зараз не записані на жоден поточний курс. Ви можете переглянути [[Special:Courses|список курсів]].',
