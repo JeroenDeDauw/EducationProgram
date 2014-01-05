@@ -1966,6 +1966,7 @@ Header for a group of events in a timeline. Parameters:
 * $4 - (Unused) the number of events in the group
 * $5 - (Unused) the number of editors
 * $6 - the names of the editors, concatenated (used for gender)
+{{Doc-singularthey}}
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-usertalk-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
@@ -2015,6 +2016,7 @@ Header for a group of events in a timeline. Parameters:
 * $4 - (Unused) the number of events in the group
 * $5 - (Unused) the number of editors
 * $6 - the names of the editors, concatenated (used for gender)
+{{Doc-singularthey}}
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-usertalk-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
@@ -4502,7 +4504,7 @@ $messages['da'] = array(
 	'tooltip-ep-form-save' => 'Gem',
 	'ep-nav-orgs' => 'Institutionsliste',
 	'ep-nav-courses' => 'Kursusliste',
-	'ep-nav-mycourses' => 'Mine kurser', # Fuzzy
+	'ep-nav-mycourses' => 'Dine kurser',
 	'ep-nav-students' => 'Liste over studerende',
 	'prefs-education' => 'Undervisning',
 	'right-ep-instructor' => 'Tilføj eller fjern kursusundervisere',
@@ -4511,7 +4513,7 @@ $messages['da'] = array(
 	'action-ep-addstudent' => 'Tilmeld brugere som studerende',
 	'special-enroll' => 'Tilmeld dig',
 	'special-disenroll' => 'Frameld',
-	'ep-course-status-passed' => 'Bestået', # Fuzzy
+	'ep-course-status-passed' => 'Afsluttet',
 	'ep-course-status-current' => 'Nuværende',
 	'ep-course-status-planned' => 'Planlagte',
 	'ep-educationprogram-gender-students' => 'Studerende',
@@ -4545,7 +4547,7 @@ $messages['da'] = array(
 	'epstudentpager-header-user-id' => 'Brugernavn',
 	'epstudentpager-header-id' => 'Id',
 	'epstudentpager-header-current-courses' => 'Aktuelle kurser',
-	'epstudentpager-header-passed-courses' => 'Beståede kurser', # Fuzzy
+	'epstudentpager-header-passed-courses' => 'Afsluttede kurser',
 	'epstudentpager-header-first-enroll' => 'Første tilmelding',
 	'epstudentpager-header-last-active' => 'Sidste aktive',
 	'epstudentpager-header-active-enroll' => 'I øjeblikket tilmeldt',
@@ -9297,13 +9299,13 @@ Vous pouvez trouver une liste complète des étudiants dans [[Special:Students|l
 	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} a laissé {{PLURAL:$4|un message|des messages}} sur la '''[[$2|page de discussion]]''' de '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} a modifié la page utilisateur de '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' a reçu {{PLURAL:$4|un message|des messages}} sur {{GENDER:$3|sa}} '''[[$2|page de discussion]]'''.",
-	'ep-timeline-users-edit-user-self' => "$1 a modifié {{GENDER:$6|sa|sa|leur}} '''[[$2|page d’utilisateur]]'''.",
+	'ep-timeline-users-edit-user-self' => "$1 a modifié {{GENDER:$6|sa}} '''[[$2|page d’utilisateur]]'''.",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' a publié {{PLURAL:$4|un message|$4 messages}} sur {{GENDER:$3|sa}} '''[[$2|page de discussion]]'''.",
 	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}} a créé l’article '''[[$2]]'''.",
 	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}} a créé la '''[[$2|page de discussion]]''' de '''[[$3]]''' et y a laissé {{PLURAL:$4|un message|plusieurs messages}}.",
 	'ep-timeline-users-create-user' => "{{GENDER:$6|$1}} a créé la page utilisateur de '''[[$2|$3]]'''.",
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' a reçu {{PLURAL:$4|un message$4 messages}} sur {{GENDER:$3|sa}} '''[[$2|page de discussion]]''' nouvellement créée.",
-	'ep-timeline-users-create-user-self' => "$1 a créé {{GENDER:$6|sa|sa|leur}} '''[[$2|page d’utilisateur]]'''.",
+	'ep-timeline-users-create-user-self' => "$1 a créé {{GENDER:$6|sa}} '''[[$2|page d’utilisateur]]'''.",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' a créé {{GENDER:$3|sa}} '''[[$2|page de discussion]]''' et y a publié {{PLURAL:$4|un message|plusieurs messages}}.",
 	'ep-dashboard-login-first' => 'Vous devez vous connecter avant de pouvoir voir vos cours.',
 	'ep-dashboard-timeline-empty' => 'Il n’y a eu aucune activité récente pour ce cours.',
@@ -12174,7 +12176,7 @@ Ecce le registro de deletiones pro iste curso:",
 	'epoa-profile-photo-help' => 'Un imagine de te que essera monstrate al latere de tu biographia. Entra le nomine de un imagine in Wikimedia Commons e un previsualisation apparera. Tu pote dactylographar le prime pauc litteras del nomine del imagine e postea seliger tu imagine del lista de suggestiones. Si tu non ha ancora un imagine de te in Commons, tu pote [$1 incargar un].',
 	'epoa-profile-saved' => 'Tu profilo ha essite salveguardate',
 	'epoa-profile-invalid-bio' => 'Tu biographia debe continer al minus $1 {{PLURAL:$1|character|characteres}}.',
-	'epoa-visible' => 'Includer te in le lista public de voluntarios in linea',
+	'epoa-visible' => 'Includer {{GENDER:$1|te}} in le lista public de voluntarios in linea',
 	'campusambassadorprofile' => 'Profilo de voluntario de campus',
 	'campusambassadorprofile-legend' => 'Tu profilo de voluntario de campus',
 	'campusambassadorprofile-text' => 'Tu profilo de voluntario de campus es lo que le studentes vide quando illes explora le voluntarios disponibile.',
@@ -12183,7 +12185,7 @@ Ecce le registro de deletiones pro iste curso:",
 	'epca-profile-photo-help' => 'Un imagine de te que essera monstrate al latere de tu biographia. Entra le nomine de un imagine in Wikimedia Commons e un previsualisation apparera. Tu pote dactylographar le prime pauc litteras del nomine del imagine e postea seliger tu imagine del lista de suggestiones. Si tu non ha ancora un imagine de te in Commons, tu pote [$1 incargar un].',
 	'epca-profile-saved' => 'Tu profilo ha essite salveguardate',
 	'epca-profile-invalid-bio' => 'Tu biographia debe continer al minus $1 {{PLURAL:$1|character|characteres}}.',
-	'epca-visible' => 'Includer te in le lista public de voluntarios de campus',
+	'epca-visible' => 'Includer {{GENDER:$1|te}} in le lista public de voluntarios de campus',
 	'ep-studentactivity-noresults' => 'Il non ha studentes active in le ultime $1.
 
 Tu pote examinar le [[Special:Students|lista complete de studentes]].',
@@ -12199,13 +12201,13 @@ Tu pote examinar le [[Special:Students|lista complete de studentes]].',
 	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}  lassava {{PLURAL:$4|un message|messages}} in le '''[[$2|pagina de discussion]]''' de '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}  modificava le pagina de usator de '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' recipeva {{PLURAL:$4|un message|messages}} in su '''[[$2|pagina de discussion]]'''.",
-	'ep-timeline-users-edit-user-self' => "$1 modificava {{GENDER:$3|su}} '''[[$2|pagina de usator]]'''.", # Fuzzy
+	'ep-timeline-users-edit-user-self' => "$1 modificava {{GENDER:$6|su}} '''[[$2|pagina de usator]]'''.",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' scribeva {{PLURAL:$4|un message|messages}} in su '''[[$2|pagina de discussion]]'''.",
 	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}} creava le articulo '''[[$2]]'''.",
 	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}} creava le '''[[$2|pagina de discussion]]''' de '''[[$3]]''' e lassava {{PLURAL:$4|un message|plure messages}} in illo.",
 	'ep-timeline-users-create-user' => "{{GENDER:$6|$1}} creava le pagina de usator de '''[[$2|$3]]'''.",
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' recipeva {{PLURAL:$4|un message|messages}} in su '''[[$2|pagina de discussion]]''' novemente create.",
-	'ep-timeline-users-create-user-self' => "$1 creava {{GENDER:$3|su}} '''[[$2|pagina de usator]]'''.", # Fuzzy
+	'ep-timeline-users-create-user-self' => "$1 creava {{GENDER:$6|su}} '''[[$2|pagina de usator]]'''.",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' creava su '''[[$2|pagina de discussion]]''' e scribeva {{PLURAL:$4|un message|plure messages}} in illo.",
 	'ep-dashboard-login-first' => 'Tu debe aperir session ante de poter vider tu cursos.',
 	'ep-dashboard-timeline-empty' => 'Il non ha activitate recente pro iste curso.',
@@ -23352,6 +23354,7 @@ $messages['sr-el'] = array(
  * @author Ainali
  * @author Eihpossophie
  * @author Jopparn
+ * @author McDutchie
  * @author Tobulos1
  * @author WikiPhoenix
  */
@@ -23631,7 +23634,7 @@ $messages['sv'] = array(
 	'ep-articletable-remstudent-cancel' => 'Avbryt',
 	'ep-articletable-remstudent-text' => 'Du är på väg att ta bort $3 som {{GENDER:$1|student}} på kurs $2.
 
-Detta kommer permanent att radera {{GENDER:$1|hennes|hans|deras}} associerade artiklar och granskare!',
+Detta kommer permanent att radera {{GENDER:$1|hans|hennes|hans/hennes}} associerade artiklar och granskare!',
 	'ep-articletable-remarticle-title' => 'Ta bort artikel $1',
 	'ep-articletable-remarticle-button' => 'Ta bort artikel',
 	'ep-articletable-remarticle-cancel' => 'Avbryt',
@@ -24003,13 +24006,13 @@ Du finner en komplett lista över studenter på [[Special:Students|studentlistan
 	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} lämnade {{PLURAL:$4|ett meddelande|meddelanden}} på '''[[$2|diskussionssidan]]''' av '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} redigerade användarsidan på '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' fick {{PLURAL:$4|ett meddelande|meddelanden}} på {{GENDER:$3|sin}} '''[[$2|diskussionssida]]'''.",
-	'ep-timeline-users-edit-user-self' => "$1 redigerade {{GENDER:$6|hans|hennes|deras}} '''[[$2|användarsida]]'''.",
+	'ep-timeline-users-edit-user-self' => "$1 redigerade {{GENDER:$6|sin}} '''[[$2|användarsida]]'''.",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' postade {{PLURAL:$4|ett meddelande|meddelanden}} på {{GENDER:$3|sin}} '''[[$2|diskussionssida]]'''.",
 	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}} skapade artikeln '''[[$2]]'''.",
 	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}} skapade '''[[$2|diskussionssidan]]''' av '''[[$3]]''' och lämnade {{PLURAL:$4|ett meddelande|flera meddelanden}} på den.",
 	'ep-timeline-users-create-user' => "{{GENDER:$6|$1}} skapade användarsidan av '''[[$2|$3]]'''.",
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' fick {{PLURAL:$4|ett meddelande|meddelanden}} på {{GENDER:$3|sin}} '''[[$2|diskussionssida]]'''.",
-	'ep-timeline-users-create-user-self' => "$1 skapade {{GENDER:$6|hans|hennes|deras}} '''[[$2|användarsida]]'''.",
+	'ep-timeline-users-create-user-self' => "$1 skapade {{GENDER:$6|sin}} '''[[$2|användarsida]]'''.",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' skapade {{GENDER:$3|sin}} '''[[$2|diskussionssida]]''' och skrev {{PLURAL:$4|ett meddelande|flera meddelanden}} på.",
 	'ep-dashboard-login-first' => 'Du måste logga in innan du kan visa dina kurser.',
 	'ep-dashboard-timeline-empty' => 'Det fanns ingen senaste aktivitet för denna kurs.',
