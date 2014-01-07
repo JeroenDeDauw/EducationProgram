@@ -1965,8 +1965,7 @@ Header for a group of events in a timeline. Parameters:
 * $3 - (Unused) the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
 * $5 - (Unused) the number of editors
-* $6 - the names of the editors, concatenated (used for gender)
-{{Doc-singularthey}}
+* $6 - the names of the editors, concatenated (used for gender). e.g. "User1User2User3"
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-edit-usertalk-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
@@ -2015,8 +2014,7 @@ Header for a group of events in a timeline. Parameters:
 * $3 - (Unused) the name of the article (without namespace)
 * $4 - (Unused) the number of events in the group
 * $5 - (Unused) the number of editors
-* $6 - the names of the editors, concatenated (used for gender)
-{{Doc-singularthey}}
+* $6 - the names of the editors, concatenated (used for gender). e.g. "User1User2User3"
 {{Related|Ep-timeline-users}}',
 	'ep-timeline-users-create-usertalk-self' => '{{doc-singularthey}}
 Header for a group of events in a timeline. Parameters:
@@ -7903,7 +7901,7 @@ $messages['fa'] = array(
 	'epstudentpager-no' => 'خیر',
 	'epstudentpager-header-student' => 'دانشجو',
 	'epstudentpager-header-articles' => 'مقاله‌ها',
-	'epstudentpager-header-reviewers' => 'مرورگران',
+	'epstudentpager-header-reviewers' => 'بازبینی‌کنندگان',
 	'ep-articles-sandboxes' => 'صفحه‌های تمرین',
 	'ep-articles-remstudent' => 'حذف از دوره',
 	'ep-articles-remreviewer-self' => 'حذف شما به‌عنوان {{GENDER:$1|بازبین}}',
@@ -7915,7 +7913,7 @@ $messages['fa'] = array(
 	'ep-articletable-addreviwer-title' => '{{GENDER:$1|بازبین}} شوید',
 	'ep-articletable-addreviwer-button' => '{{GENDER:$1|بازبین}} شوید',
 	'ep-articletable-addreviwer-cancel' => 'انصراف',
-	'ep-articletable-addreviwer-text' => 'شما نیازمند افزودن خودتان به فهرست به‌عنوان {{GENDER:$1|بازبین}} برای مقالهٔ $2 کار شده توسط $3 هستید.',
+	'ep-articletable-addreviwer-text' => 'درحال افزودن خودتان به فهرست به‌عنوان {{GENDER:$1|بازبین}} برای مقالهٔ $2 که توسط $3 ویرایش‌شده‌است، می‌باشید.',
 	'ep-articletable-remreviwer-title' => 'حذف $1 از {{GENDER:$1|بازبینی}}',
 	'ep-articletable-remreviwer-title-self' => 'حذف خودتان از {{GENDER:$1|بازبین}}',
 	'ep-articletable-remreviwer-button' => 'حذف {{GENDER:$1|بازبین}}',
@@ -22212,11 +22210,11 @@ $messages['ru'] = array(
 	'logentry-course-remove' => '$1 {{GENDER:$2|удалил|удалила}} курс $3',
 	'logentry-course-update' => '$1 {{GENDER:$2|обновил|обновила}} курс $3',
 	'logentry-course-undelete' => '$1 {{GENDER:$2|восстановил|восстановила}} курс $3',
-	'logentry-instructor-add' => '$1 {{GENDER:$2|добавил|добавила}} {{PLURAL:$4|1=инструктора|инструкторов}} $5 к курсу $3', # Fuzzy
-	'logentry-instructor-remove' => '$1 {{GENDER:$2|удалил|удалила}} {{PLURAL:$4|1=инструктора|инструкторов}} $5 из курса $3', # Fuzzy
+	'logentry-instructor-add' => '$1 {{GENDER:$2|добавил|добавила}} {{PLURAL:$4|1=инструктора|инструкторов}} $5 к курсу $3',
+	'logentry-instructor-remove' => '$1 {{GENDER:$2|удалил|удалила}} {{PLURAL:$4|1=инструктора|инструкторов}} $5 из курса $3',
 	'logentry-instructor-selfadd' => '$1 {{GENDER:$2|добавил|добавила}} себя как инструктора к курсу $3',
 	'logentry-instructor-selfremove' => '$1 {{GENDER:$2|удалил|удалила}} себя как инструктора из курса $3',
-	'logentry-student-remove' => '$1 {{GENDER:$2|удалил|удалила}} {{PLURAL:$4|1=студента|студентов}} $5 из курса $3', # Fuzzy
+	'logentry-student-remove' => '$1 {{GENDER:$2|удалил|удалила}} {{PLURAL:$4|1=студента|студентов}} $5 из курса $3',
 	'logentry-eparticle-selfadd' => '$1 {{GENDER:$2|добавил|добавила}} статью $3 в {{GENDER:$2|его|её}} список статей в курсе $4',
 	'logentry-eparticle-selfremove' => '$1 {{GENDER:$2|удалил|удалила}} статью $3 из {{GENDER:$2|его|её}} списка статей в курсе $4',
 	'logentry-eparticle-add' => '$1 {{GENDER:$2|добавил|добавила}} статью $3 в список статей {{GENDER:$6|участника|участницы}} $5 в курсе $4',
@@ -22315,8 +22313,8 @@ $messages['ru'] = array(
 	'epcoursepager-filter-status' => 'Статус',
 	'epcoursepager-invalid-lang' => 'Недопустимый',
 	'ep-pager-cancel-button-course' => 'Отмена',
-	'ep-pager-delete-button-course' => 'Удалить {{PLURAL:$1|1=курс|курсы}}', # Fuzzy
-	'ep-pager-confirm-delete-course' => 'Подтвердить удаление {{PLURAL:$1|1=курса|нескольких курсов}}', # Fuzzy
+	'ep-pager-delete-button-course' => 'Удалить {{PLURAL:$1|1=курс|курсы}}',
+	'ep-pager-confirm-delete-course' => 'Подтвердить удаление {{PLURAL:$1|1=курса|нескольких курсов}}',
 	'ep-pager-retry-button-course' => 'Повторите',
 	'ep-pager-summary-message-course' => 'Резюме:',
 	'ep-pager-confirm-message-course' => 'Вы собираетесь удалить курс $1. Это удалит всех связанных с ним студентов!',
@@ -22393,7 +22391,7 @@ $messages['ru'] = array(
 	'ep-course-invalid-lang' => 'Этот язык не является допустимым.',
 	'ep-course-no-slashes' => 'Название курса не должен содержать символы косой черты!',
 	'coursepage-edit-undelete-revisions' => 'Этот курс был удален. Вы можете $1.',
-	'coursepage-edit-undelete-link' => 'восстановить $1 {{PLURAL:$1|версию|версий|версии}}', # Fuzzy
+	'coursepage-edit-undelete-link' => 'восстановить {{PLURAL:$1|$1 версию|$1 версий|$1 версии|1=версию}}',
 	'ep-institution-title' => 'Учреждение: $1',
 	'vieworgaction-summary-name' => 'Имя',
 	'vieworgaction-summary-city' => 'Город',
@@ -22449,7 +22447,7 @@ $messages['ru'] = array(
 	'ep-enroll-gender' => 'Пол (опционально)',
 	'ep-enroll-realname' => 'Реальное имя (обязательно)',
 	'ep-enroll-realname-optional' => 'Реальное имя (необязательно)',
-	'ep-enroll-invalid-name' => 'Имя должно, по крайней мере, содержать $1 {{PLURAL:$1|символ|символов|символа}}.', # Fuzzy
+	'ep-enroll-invalid-name' => 'Имя должно содержать по крайней мере $1 {{PLURAL:$1|символ|символов|символа}}.',
 	'ep-enroll-invalid-gender' => 'Пожалуйста, выберите один из этих полов',
 	'ep-disenroll-button' => 'Выйти',
 	'ep-disenroll-cancel' => 'Отмена',
@@ -22493,11 +22491,11 @@ $messages['ru'] = array(
 	'epca-profile-saved' => 'Ваш профайл был сохранён',
 	'ep-diff-old' => 'Текущее значение',
 	'ep-diff-new' => 'Новое значение',
-	'ep-timeline-remaining' => 'ещё $1 {{PLURAL:$1|участник|участников|участника}}', # Fuzzy
+	'ep-timeline-remaining' => 'ещё $1 {{PLURAL:$1|участник|участников|участника}}',
 	'ep-timeline-unknown' => '$1 что-то сделал $2, $3',
 	'ep-timeline-ago' => '$1 назад',
 	'ep-timeline-cutoff' => '$1 ...',
-	'ep-timeline-users-edit-article' => "$1 отредактировал{{PLURAL:$5|{{GENDER:$6||а}}|и}} статью '''[[$2]]'''.", # Fuzzy
+	'ep-timeline-users-edit-article' => "$1 отредактировал{{PLURAL:$5|1={{GENDER:$6||а}}|и}} статью '''[[$2]]'''.",
 	'ep-timeline-users-create-article' => "$1 создал{{GENDER:$6||а}} статью '''[[$2]]'''.",
 	'ep-timeline-users-create-user' => "$1 создал{{GENDER:$6||а}} страницу участника '''[[$2|$3]]'''.",
 );
