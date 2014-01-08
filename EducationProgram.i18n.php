@@ -22169,6 +22169,7 @@ $messages['roa-tara'] = array(
  * @author Midnight Gambler
  * @author Okras
  * @author Rubin
+ * @author Rubin16
  * @author Yurik
  */
 $messages['ru'] = array(
@@ -27317,17 +27318,17 @@ $messages['zh-hans'] = array(
 	'ep-timeline-ago' => '$1前',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-no-summary' => "''没有递交总结''",
-	'ep-timeline-users-edit-article' => "$6个$1编辑了条目'''[[$2]]'''。", # Fuzzy
-	'ep-timeline-users-edit-talk' => "$1在'''[[$3]]'''的'''[[$2|讨论页]]'''上{{PLURAL:$4|留言}}。", # Fuzzy
-	'ep-timeline-users-edit-user' => "$1编辑了'''[[$2|$3]]'''的用户页。", # Fuzzy
+	'ep-timeline-users-edit-article' => "$5个{{GENDER:$6|$1}}编辑了条目'''[[$2]]'''。",
+	'ep-timeline-users-edit-talk' => "$5个{{GENDER:$6|$1}}在'''[[$3]]'''的'''[[$2|讨论页]]'''上留下了$4条留言。",
+	'ep-timeline-users-edit-user' => "$5个{{GENDER:$6|$1}}编辑了'''[[$2|$3]]'''的用户页。",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她}}的'''[[$2|对话页]]'''上收到了{{PLURAL:$4|留言}}。",
-	'ep-timeline-users-edit-user-self' => "$1编辑{{GENDER:$3|他|她}}的'''[[$2|用户页面]]'''。", # Fuzzy
+	'ep-timeline-users-edit-user-self' => "$1编辑了{{GENDER:$6|他|她|他们}}的'''[[$2|用户页面]]'''。",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她}}本人的'''[[$2|对话页]]'''上{{PLURAL:$4|留言}} 。",
-	'ep-timeline-users-create-article' => "$1创建'''[[$2]]'''文章。", # Fuzzy
-	'ep-timeline-users-create-talk' => "$1创建了'''[[$3]]'''的'''[[$2|对话页]]'''并留下了{{PLURAL:$4|一条留言|数条留言}}。", # Fuzzy
-	'ep-timeline-users-create-user' => "$1创建'''[[$2|$3]]'''的用户页面。", # Fuzzy
+	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}}创建了条目'''[[$2]]'''。",
+	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}}创建了'''[[$3]]'''的'''[[$2|对话页]]'''并留下了$4条留言。",
+	'ep-timeline-users-create-user' => "{{GENDER:$6|$1}}创建了'''[[$2|$3]]'''的用户页面。",
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她}}新近创建的'''[[$2|对话页]]'''上受到了{{PLURAL:$4|一条留言|数条留言}}。",
-	'ep-timeline-users-create-user-self' => "$1创建{{GENDER:$3|他|她}}的'''[[$2|用户页面]]'''。", # Fuzzy
+	'ep-timeline-users-create-user-self' => "$1创建了{{GENDER:$6|他|她|他们}}的'''[[$2|用户页]]'''。",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' 创建了{{GENDER:$3|他|她}}本人的 '''[[$2|对话页]]'''并在上面发布了{{PLURAL:$4|一条消息|数条消息}}。",
 	'ep-dashboard-login-first' => '您必须登录才可以查看您的课程。',
 	'ep-dashboard-timeline-empty' => '本课程没有最近活动。',
