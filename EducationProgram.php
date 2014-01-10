@@ -174,6 +174,7 @@ $wgAutoloadClasses['EducationProgram\CourseNotFoundException'] 		= $dir . '/incl
 $wgAutoloadClasses['EducationProgram\CourseTitleNotFoundException'] = $dir . '/includes/CourseTitleNotFoundException.php';
 $wgAutoloadClasses['EducationProgram\DiffTable'] 					= $dir . '/includes/DiffTable.php';
 $wgAutoloadClasses['EducationProgram\DYKBox'] 						= $dir . '/includes/DYKBox.php';
+$wgAutoloadClasses['EducationProgram\ErrorPageErrorWithSelflink'] 	= $dir . '/includes/ErrorPageErrorWithSelflink.php';
 $wgAutoloadClasses['EducationProgram\Extension'] 					= $dir . '/includes/Extension.php';
 $wgAutoloadClasses['EducationProgram\FailForm'] 					= $dir . '/includes/FailForm.php';
 $wgAutoloadClasses['EducationProgram\HTMLCombobox'] 				= $dir . '/includes/HTMLCombobox.php';

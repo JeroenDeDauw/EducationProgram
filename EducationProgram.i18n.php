@@ -29,6 +29,10 @@ $messages['en'] = array(
 	'ep-move-error' => 'You are not allowed to move articles in or out of the education namespaces.',
 	'ep-student-view-profile' => 'student profile',
 	'ep-err-failed-to-save' => 'Something went wrong - your changes have not been saved.',
+	'ep-err-course-exists-title' => 'Error: Course exists',
+	'ep-err-course-exists-text' => 'You’re attempting to create the course $1, but it already exists.',
+	'ep-err-org-exists-title' => 'Error: Institution exists',
+	'ep-err-org-exists-text' => 'You’re attempting to create the institution $1, but it already exists.',
 	'ep-didyouknow-header' => 'Did you know ... ?',
 
 	// Tabs
@@ -871,6 +875,10 @@ $messages['qqq'] = array(
 	'ep-move-error' => 'Error message you get when you try to move stuff in or out of an EP namespace',
 	'ep-student-view-profile' => 'Text of links to student profiles, typically used in tool link lists, next to stuff such as "talk" and "contributions"',
 	'ep-err-failed-to-save' => 'Error message indicating a save operation for the current page failed.',
+	'ep-err-course-exists-title' => 'Title of error page if a user re-submits form for course creation.',
+	'ep-err-course-exists-text' => 'Text of error page if a user re-submits form for course creation.',
+	'ep-err-org-exists-title' => 'Title of error page if a user re-submits form for creating an institution.',
+	'ep-err-org-exists-text' => 'Text of error page if a user re-submits form for creating an institution.',
 	'ep-didyouknow-header' => 'Message displayed as a header in the did you know box.
 {{Identical|Did you know}}',
 	'ep-tab-view' => 'Label for a tab at the top of the page.
