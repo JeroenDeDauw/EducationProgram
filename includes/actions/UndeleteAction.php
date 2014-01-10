@@ -48,8 +48,8 @@ class UndeleteAction extends Action {
 		if ( $object === false ) {
 			$revision = Revisions::singleton()->getLatestRevision( array(
 				'object_identifier' => $this->getTitle()->getText(),
-				'type' => get_class( $this->page->getTable() ),
- 			) );
+				'type' => $this->page->getTable()->getRevisionedObjectTypeId(),
+			) );
 
 			if ( $revision === false ) {
 				$this->getRequest()->setSessionData(

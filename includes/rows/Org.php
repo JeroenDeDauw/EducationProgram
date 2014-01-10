@@ -256,7 +256,7 @@ class Org extends PageObject {
 	 * @return string
 	 */
 	protected function getTypeId() {
-		return 'EPOrgs';
+		return $this->table->getRevisionedObjectTypeId();
 	}
 
 }

@@ -44,6 +44,21 @@ abstract class PageTable extends \ORMTable {
 	public abstract function getRevertibleFields();
 
 	/**
+	 * Get a string for use in the 'type' field of the Revisions table for
+	 * identifying revisions of rows in this table.
+	 *
+	 * (Note: In theory, if a subclass of PageTable does not store previous
+	 * revisions of its rows in the Revisions table, it may return null here.
+	 * However, at this time there are no subclasses of PageTable that do not
+	 * store revisions. PageObject inherits from RevisionedObject.)
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @return string|null
+	 */
+	public abstract function getRevisionedObjectTypeId();
+
+	/**
 	 * Returns the right needed to edit items in this table.
 	 *
 	 * @since 0.1
