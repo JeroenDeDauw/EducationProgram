@@ -740,6 +740,21 @@ class Course extends PageObject {
 	}
 
 	/**
+	 * Gets the course's name, i.e. the "name" part in this standard format:
+	 * institution/name (term)
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @returns string
+	 */
+	// TODO: Logic related to formatting the course title in the
+	// "institution/name (term)" format is peppered all around the codebase
+	// (in ep.addcourse.js, EditCourseAction.php, Courses.php).
+	public function getName() {
+		return $this->getField( 'name' );
+	}
+
+	/**
 	 * @see RevisionedObject::getTypeId
 	 *
 	 * @since 0.3
@@ -749,5 +764,4 @@ class Course extends PageObject {
 	protected function getTypeId() {
 		return 'EPCourses';
 	}
-
 }

@@ -821,6 +821,22 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-dashboard-login-first' => 'You need to login before you can view your courses.',
 	'ep-dashboard-timeline-empty' => 'There was no recent activity for this course.',
 	'ep-dashboard-enroll-first' => 'You are not currently participating in any active courses. You can view the [[Special:Courses|list of courses]].',
+
+	// User roles messsage
+	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|is a student}} in {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-instructor' => '[[$1|$2]] {{GENDER:$2|is an instructor}} for {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-online' => '[[$1|$2]] {{GENDER:$2|is an online volunteer}} for {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-campus' => '[[$1|$2]] {{GENDER:$2|is a campus volunteer}} for {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|course talk]])',
+	'ep-user-roles-message-main-many-student' => '[[$1|$2]] {{GENDER:$2|is a student}} in [[$4|$3 {{PLURAL:$3|course|courses}}]].',
+	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] {{GENDER:$2|is an instructor}} for $3 {{PLURAL:$3|course|courses}}.',
+	'ep-user-roles-message-main-many-online' => '[[$1|$2]] {{GENDER:$2|is an online volunteer}} for $3 {{PLURAL:$3|course|courses}}.',
+	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] {{GENDER:$2|is a campus volunteer}} for $3 {{PLURAL:$3|course|courses}}.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|He is|She is|They are}} also $2.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|a student}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|an instructor}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|an online volunteer}}',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|a campus volunteer}}',
 );
 
 /** Message documentation (Message documentation)
@@ -2027,6 +2043,59 @@ Header for a group of events in a timeline. Parameters:
 	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',
 	'ep-dashboard-timeline-empty' => 'Shown instead of an event timeline when there are no events',
 	'ep-dashboard-enroll-first' => 'Message shown when the user is not enrolled in any courses and views their education dashboard.',
+
+	'ep-user-roles-message-main-student' => 'Main message about a student\'s participation in courses. Uses wikitext. Parameters:
+* $1 the user page
+* $2 the username
+* $3 a list of courses the user is a student in
+* $4 the number of items in the list',
+	'ep-user-roles-message-main-instructor' => 'Main message about an instructor\'s participation in courses. Uses wikitext. Parameters:
+* $1 the user page
+* $2 the username
+* $3 a list of courses the user is an instructor for
+* $4 the number of items in the list',
+	'ep-user-roles-message-main-online' => 'Main message about an online volunteer\'s participation in courses. Uses wikitext. Parameters:
+* $1 the user page
+* $2 the username
+* $3 a list of courses the user is an online volunteer for
+* $4 the number of items in the list',
+	'ep-user-roles-message-main-campus' => 'Main message about a campus volunteer\'s participation in courses. Uses wikitext. Parameters:
+* $1 the user page
+* $2 the username
+* $3 a list of courses the user is a campus volunteer for
+* $4 the number of items in the list',
+	'ep-user-roles-message-course-link-for-list' => 'A link to a course and its talk page. Uses wikitext. Parameters:
+* $1 the course page
+* $2 the course name
+* $3 the course\'s talk page',
+	'ep-user-roles-message-main-many-student' => 'Message about the number of courses a student participates in. Parameters:
+* $1 the user page
+* $2 the username
+* $3 the number of courses the student is in
+* $4 the student profile page',
+	'ep-user-roles-message-main-many-instructor' => 'Message about the number of courses an instructor instructs. Parameters:
+* $1 the user page
+* $2 the username
+* $3 the number of courses the instructor instructs',
+	'ep-user-roles-message-main-many-online' => 'Message about the number of courses an online volunteer collaborates with. Parameters:
+* $1 the user page
+* $2 the username
+* $3 the number of courses the volunteer collaborates with',
+	'ep-user-roles-message-main-many-campus' => 'Message about the number of courses a campus volunteer collaborates with. Parameters:
+* $1 the user page
+* $2 the username
+* $3 the number of courses the volunteer collaborates with',
+	'ep-user-roles-message-additional' => 'A message about other Education Prgram roles the user has. Parameters:
+* $1 the username
+* $2 a list of the user\'s other roles',
+	'ep-user-roles-message-rolename-student' => 'The student role, for use in a list of roles the user has. Parameters:
+* $1 the username (for grammatical gender)',
+	'ep-user-roles-message-rolename-instructor' => 'The instructor role, for use in a list of roles the user has. Parameters:
+* $1 the username (for grammatical gender)',
+	'ep-user-roles-message-rolename-online' => 'The online volunteer role, for use in a list of roles the user has. Parameters:
+* $1 the username (for grammatical gender)',
+	'ep-user-roles-message-rolename-campus' => 'The campus volunteer role, for use in a list of roles the user has. Parameters:
+* $1 the username (for grammatical gender)',
 );
 
 /** Afrikaans (Afrikaans)
