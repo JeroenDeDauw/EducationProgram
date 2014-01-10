@@ -537,6 +537,8 @@ abstract class EPPager extends \TablePager {
 		$tableClass = htmlspecialchars( $this->getTableClass() );
 		$sortClass = htmlspecialchars( $this->getSortHeaderClass() );
 
+		# TODO move inline style to css, then remove !important from border-bottom
+		# property for ep-articletable class in ep.articletable.css
 		$s = "<table style='border: 1px;' class=\"mw-datatable $tableClass\"><thead><tr>\n";
 		$fields = $this->getFieldNames();
 

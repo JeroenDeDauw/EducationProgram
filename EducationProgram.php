@@ -559,6 +559,9 @@ $wgResourceModules['ep.articletable'] = $moduleTemplate + array(
 	'scripts' => array(
 		'ep.articletable.js',
 	),
+	'styles' => array(
+		'ep.articletable.css'
+	),
 	'dependencies' => array(
 		'jquery.ui.button',
 		'jquery.ui.dialog',
