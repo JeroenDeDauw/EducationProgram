@@ -1093,11 +1093,15 @@ Additional parameters:
 	'special-disenroll' => '{{doc-special|disenroll}}',
 	'special-studentactivity' => '{{doc-special|StudentActivity}}',
 	'special-articles' => '{{doc-special|articles}}',
-	'ep-course-status-passed' => 'Course status',
+	'ep-course-status-passed' => 'Course status.
+{{Related|Ep-course-status}}',
 	'ep-course-status-current' => 'Course status.
+{{Related|Ep-course-status}}
 {{Identical|Current}}',
-	'ep-course-status-planned' => 'Course status',
-	'ep-course-status-current-planned' => 'Course status: {{msg-mw|ep-course-status-current}} and {{msg-mw|ep-course-status-planned}}',
+	'ep-course-status-planned' => 'Course status.
+{{Related|Ep-course-status}}',
+	'ep-course-status-current-planned' => 'Course status: {{msg-mw|ep-course-status-current}} and {{msg-mw|ep-course-status-planned}}.
+{{Related|Ep-course-status}}',
 	'ep-summary-table-header' => 'Table header',
 	'ep-specialeducationprogram-summary-org-count' => 'Table row header.
 {{Identical|Number of institutions}}',
@@ -1906,7 +1910,9 @@ Parameters:
 	'epoa-profile-bio' => 'Form input label.',
 	'epoa-profile-photo' => 'Form input label.',
 	'epoa-profile-photo-help' => 'Description for the photo input. Parameters:
-* $1 is a URL linking to commons file upload.',
+* $1 - a URL linking to Commons file upload
+See also:
+* {{msg-mw|Epca-profile-photo-help}}',
 	'epoa-profile-saved' => 'Success message shown in success box at top of page after save.',
 	'epoa-profile-invalid-bio' => 'Error message stating the bio must contain more characters. Parameters:
 * $1 is the minimum number of characters.',
@@ -1920,7 +1926,9 @@ See also:
 	'epca-profile-bio' => 'Form input label.',
 	'epca-profile-photo' => 'Form input label.',
 	'epca-profile-photo-help' => 'Description for the photo input. Parameters:
-* $1 is a URL linking to commons file upload.',
+* $1 - a URL linking to commons file upload
+See also:
+* {{msg-mw|Epoa-profile-photo-help}}',
 	'epca-profile-saved' => 'Success message shown in success box at top of page after save.',
 	'epca-profile-invalid-bio' => 'Error message stating the bio must contain more characters. Parameters:
 * $1 is the minimum number of characters.',
@@ -2051,51 +2059,59 @@ Header for a group of events in a timeline. Parameters:
 	'ep-dashboard-login-first' => 'Notifies the user that they should login before they can use the page.',
 	'ep-dashboard-timeline-empty' => 'Shown instead of an event timeline when there are no events',
 	'ep-dashboard-enroll-first' => 'Message shown when the user is not enrolled in any courses and views their education dashboard.',
-
-	'ep-user-roles-message-main-student' => 'Main message about a student\'s participation in courses. Uses wikitext. Parameters:
-* $1 the user page
-* $2 the username
-* $3 a list of courses the user is a student in
-* $4 the number of items in the list',
-	'ep-user-roles-message-main-instructor' => 'Main message about an instructor\'s participation in courses. Uses wikitext. Parameters:
-* $1 the user page
-* $2 the username
-* $3 a list of courses the user is an instructor for
-* $4 the number of items in the list',
-	'ep-user-roles-message-main-online' => 'Main message about an online volunteer\'s participation in courses. Uses wikitext. Parameters:
-* $1 the user page
-* $2 the username
-* $3 a list of courses the user is an online volunteer for
-* $4 the number of items in the list',
-	'ep-user-roles-message-main-campus' => 'Main message about a campus volunteer\'s participation in courses. Uses wikitext. Parameters:
-* $1 the user page
-* $2 the username
-* $3 a list of courses the user is a campus volunteer for
-* $4 the number of items in the list',
-	'ep-user-roles-message-course-link-for-list' => 'A link to a course and its talk page. Uses wikitext. Parameters:
+	'ep-user-roles-message-main-student' => "Main message about a student's participation in courses. Uses wikitext. Parameters:
+* $1 - the user page
+* $2 - the username
+* $3 - a list of courses the user is a student in
+* $4 - the number of items in the list
+{{Related|Ep-user-roles-message-main}}",
+	'ep-user-roles-message-main-instructor' => "Main message about an instructor's participation in courses. Uses wikitext. Parameters:
+* $1 - the user page
+* $2 - the username
+* $3 - a list of courses the user is an instructor for
+* $4 - the number of items in the list
+{{Related|Ep-user-roles-message-main}}",
+	'ep-user-roles-message-main-online' => "Main message about an online volunteer's participation in courses. Uses wikitext. Parameters:
+* $1 - the user page
+* $2 - the username
+* $3 - a list of courses the user is an online volunteer for
+* $4 - the number of items in the list
+{{Related|Ep-user-roles-message-main}}",
+	'ep-user-roles-message-main-campus' => "Main message about a campus volunteer's participation in courses. Uses wikitext. Parameters:
+* $1 - the user page
+* $2 - the username
+* $3 - a list of courses the user is a campus volunteer for
+* $4 - the number of items in the list
+{{Related|Ep-user-roles-message-main}}",
+	'ep-user-roles-message-course-link-for-list' => "A link to a course and its talk page. Uses wikitext. Parameters:
 * $1 the course page
 * $2 the course name
-* $3 the course\'s talk page',
+* $3 the course's talk page",
 	'ep-user-roles-message-main-many-student' => 'Message about the number of courses a student participates in. Parameters:
-* $1 the user page
-* $2 the username
-* $3 the number of courses the student is in
-* $4 the student profile page',
+* $1 - the user page
+* $2 - the username
+* $3 - the number of courses the student is in
+* $4 - the student profile page
+{{Related|Ep-user-roles-message-main}}',
 	'ep-user-roles-message-main-many-instructor' => 'Message about the number of courses an instructor instructs. Parameters:
-* $1 the user page
-* $2 the username
-* $3 the number of courses the instructor instructs',
+* $1 - the user page
+* $2 - the username
+* $3 - the number of courses the instructor instructs
+{{Related|Ep-user-roles-message-main}}',
 	'ep-user-roles-message-main-many-online' => 'Message about the number of courses an online volunteer collaborates with. Parameters:
-* $1 the user page
-* $2 the username
-* $3 the number of courses the volunteer collaborates with',
+* $1 - the user page
+* $2 - the username
+* $3 - the number of courses the volunteer collaborates with
+{{Related|Ep-user-roles-message-main}}',
 	'ep-user-roles-message-main-many-campus' => 'Message about the number of courses a campus volunteer collaborates with. Parameters:
-* $1 the user page
-* $2 the username
-* $3 the number of courses the volunteer collaborates with',
-	'ep-user-roles-message-additional' => 'A message about other Education Prgram roles the user has. Parameters:
-* $1 the username
-* $2 a list of the user\'s other roles',
+* $1 - the user page
+* $2 - the username
+* $3 - the number of courses the volunteer collaborates with
+{{Related|Ep-user-roles-message-main}}',
+	'ep-user-roles-message-additional' => "{{doc-singularthey}}
+A message about other Education Program roles the user has. Parameters:
+* $1 - the username
+* $2 - a list of the user's other roles",
 	'ep-user-roles-message-rolename-student' => 'The student role, for use in a list of roles the user has. Parameters:
 * $1 the username (for grammatical gender)',
 	'ep-user-roles-message-rolename-instructor' => 'The instructor role, for use in a list of roles the user has. Parameters:
@@ -5388,6 +5404,20 @@ Du findest eine vollständige Liste der Studenten auf [[Special:Students|der Lis
 	'ep-dashboard-login-first' => 'Du musst dich anmelden, bevor du deine Kurse ansehen kannst.',
 	'ep-dashboard-timeline-empty' => 'Es gibt keine neuen Aktivitäten für diesen Kurs.',
 	'ep-dashboard-enroll-first' => 'Du nimmst derzeit an keinem aktiven Kurs teil. Du kannst die [[Special:Courses|Liste der Kurse]] ansehen.',
+	'ep-user-roles-message-main-student' => '[[$1|$2]] ist {{GENDER:$2|ein Student|eine Studentin}} in {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-instructor' => '[[$1|$2]] ist {{GENDER:$2|ein Kursleiter|eine Kursleiterin}} für {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-online' => '[[$1|$2]] ist {{GENDER:$2|ein Online-Volontär|eine Online-Volontärin}} für {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-campus' => '[[$1|$2]] ist {{GENDER:$2|ein Campus-Volontär|eine Campus-Volontärin}} für {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|Kursdiskussion]])',
+	'ep-user-roles-message-main-many-student' => '[[$1|$2]] ist {{GENDER:$2|ein Student|eine Studentin}} in [[$4|{{PLURAL:$3|einem Kurs|$3 Kursen}}]].',
+	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] ist {{GENDER:$2|ein Kursleiter|eine Kursleiterin}} für {{PLURAL:$3|einen Kurs|$3 Kurse}}.',
+	'ep-user-roles-message-main-many-online' => '[[$1|$2]] ist {{GENDER:$2|ein Online-Volontär|eine Online-Volontärin}} für {{PLURAL:$3|einen Kurs|$3 Kurse}}.',
+	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] ist {{GENDER:$2|ein Campus-Volontär|eine Campus-Volontärin}} für {{PLURAL:$3|einen Kurs|$3 Kurse}}.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|Er ist|Sie ist|Sie sind}} auch $2.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|ein Student|eine Studentin}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|ein Kursleiter|eine Kursleiterin}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|ein Online-Volontär|eine Online-Volontärin}}',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|ein Campus-Volontär|eine Campus-Volontärin}}',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -7716,6 +7746,7 @@ $messages['eu'] = array(
 
 /** Persian (فارسی)
  * @author Alireza
+ * @author Armin1392
  * @author Calak
  * @author Ebraminio
  * @author Hooshmand.hasannia
@@ -8389,6 +8420,20 @@ $messages['fa'] = array(
 	'ep-dashboard-login-first' => 'شما نیازمند ورود قبل از دیدن دوره‌هایتان هستید.',
 	'ep-dashboard-timeline-empty' => 'هیچ فعالیت جدیدی برای این دوره وجود ندارد.',
 	'ep-dashboard-enroll-first' => 'شما در حال حاضر در هیچ دورهٔ فعالی شرکت نکرده‌اید. شما می‌توانید [[Special:Courses|فهرست دوره‌ها]] را ببینید.',
+	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|یک دانشجو است}} in {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-instructor' => '[[$1|$2]] {{GENDER:$2|یک استاد است}} for {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-online' => '[[$1|$2]] {{GENDER:$2|یک داوطلب آنلاین است}} برای {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-campus' => '[[$1|$2]] {{GENDER:$2|یک داوطلب پردیس است}} برای {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|گفتگوی دوره]])',
+	'ep-user-roles-message-main-many-student' => '[[$1|$2]] {{GENDER:$2|یک دانشجو است}} در [[$4|$3 {{PLURAL:$3|دوره|دوره‌ها}}]].',
+	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] {{GENDER:$2|یک استاد است}} برای $3 {{PLURAL:$3|دوره|دوره‌ها}}.',
+	'ep-user-roles-message-main-many-online' => '[[$1|$2]] {{GENDER:$2|یک داوطلب آنلاین است}} برای $3 {{PLURAL:$3|دوره|دوره‌ها}}.',
+	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] {{GENDER:$2|یک داوطلب پردیس است}} برای $3 {{PLURAL:$3|دوره|دوره‌ها}}.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|او هست|او هست|آنها هستند}} همچنین $2.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|دانشجو}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|استاد}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|داوطلب آنلاین}}',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|داوطلب پردیس}}',
 );
 
 /** Finnish (suomi)
@@ -9386,6 +9431,20 @@ Vous pouvez trouver une liste complète des étudiants dans [[Special:Students|l
 	'ep-dashboard-login-first' => 'Vous devez vous connecter avant de pouvoir voir vos cours.',
 	'ep-dashboard-timeline-empty' => 'Il n’y a eu aucune activité récente pour ce cours.',
 	'ep-dashboard-enroll-first' => 'Vous ne participez actuellement à aucun cours actif. Vous pouvez voir la [[Special:Courses|liste des cours]].',
+	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|est un étudiant|est une étudiante}} dans {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-instructor' => '[[$1|$2]] {{GENDER:$2|est un instructeur|est une instructrice}} pour {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-online' => '[[$1|$2]] {{GENDER:$2|est un bénévole en ligne|est une bénévole en ligne}} pour {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-campus' => '[[$1|$2]] {{GENDER:$2|est un bénévole de campus|est une bénévole de campus}} pour {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|discussion du cours]])',
+	'ep-user-roles-message-main-many-student' => '[[$1|$2]] {{GENDER:$2|est un étudiant|est une étudiante}} dans [[$4|$3 {{PLURAL:$3|cours}}]].',
+	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] {{GENDER:$2|est un instructeur|est une instructrice}} pour $3 {{PLURAL:$3|cours}}.',
+	'ep-user-roles-message-main-many-online' => '[[$1|$2]] {{GENDER:$2|est un bénévole en ligne|est une bénévole en ligne}} pour $3 {{PLURAL:$3|cours}}.',
+	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] {{GENDER:$2|est un bénévole de campus|est une bénévole de campus}} pour $3 {{PLURAL:$3|cours}}.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|Il est|Elle est|Ils sont}} aussi $2.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|un étudiant|une étudiante}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|un instructeur|une instructrice}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|un bénévole en ligne|une bénévole en ligne}}',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|un bénévole de campus|une bénévole de campus}}',
 );
 
 /** Franco-Provençal (arpetan)
@@ -13665,7 +13724,7 @@ L'elenco delle relative cancellazioni e degli spostamenti viene riportato di seg
 	'epoa-profile-photo-help' => "Una foto di te che verrà mostrata accanto alla tua biografia. Inserisci il nome di un'immagine presente su Wikimedia Commons e apparirà un'anteprima. Puoi digitare le prime lettere del nome dell'immagine e quindi selezionare l'immagine dalla lista proposta. Se ancora non hai una tua foto su Commons, [$1 caricane una]!",
 	'epoa-profile-saved' => 'Il tuo profilo è stato salvato',
 	'epoa-profile-invalid-bio' => 'La tua biografia deve contenere almeno $1 {{PLURAL:$1|carattere|caratteri}}.',
-	'epoa-visible' => "Inseriscimi nell'elenco pubblico dei volontari online",
+	'epoa-visible' => "{{GENDER:$1|Inseriscimi}} nell'elenco pubblico dei volontari online",
 	'campusambassadorprofile' => 'Profilo volontario del campus',
 	'campusambassadorprofile-legend' => 'Il tuo profilo come volontario del campus',
 	'campusambassadorprofile-text' => 'Il tuo profilo come volontario del campus è ciò che gli studenti vedono quando navigano fra i volontari disponibili.',
@@ -13674,7 +13733,7 @@ L'elenco delle relative cancellazioni e degli spostamenti viene riportato di seg
 	'epca-profile-photo-help' => "Una foto di te che verrà mostrata accanto alla tua biografia. Inserisci il nome di un'immagine presente su Wikimedia Commons e apparirà un'anteprima. Puoi digitare le prime lettere del nome dell'immagine e quindi selezionare l'immagine dalla lista proposta. Se ancora non hai una tua foto su Commons, [$1 caricane una]!",
 	'epca-profile-saved' => 'Il tuo profilo è stato salvato',
 	'epca-profile-invalid-bio' => 'La tua biografia deve contenere almeno $1 {{PLURAL:$1|carattere|caratteri}}.',
-	'epca-visible' => "Inseriscimi nell'elenco pubblico dei volontari del campus",
+	'epca-visible' => "{{GENDER:$1|Inseriscimi}} nell'elenco pubblico dei volontari del campus",
 	'ep-studentactivity-noresults' => "Non ci sono stati studenti attivi nelle ultime $1.
 
 Puoi trovare l'elenco completo degli studenti in [[Special:Students|questa lista]].",
@@ -13701,6 +13760,20 @@ Puoi trovare l'elenco completo degli studenti in [[Special:Students|questa lista
 	'ep-dashboard-login-first' => "Devi effettuare l'accesso prima di poter vedere i tuoi corsi.",
 	'ep-dashboard-timeline-empty' => 'Non ci sono attività recenti per questo corso.',
 	'ep-dashboard-enroll-first' => 'Non sei attualmente iscritto ad alcun corso attivo. Puoi vedere la [[Special:Courses|lista dei corsi]] ed iscriverti ad uno di essi.',
+	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|uno studente|una studentessa|un/una studente/essa}} di {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-instructor' => '[[$1|$2]] {{GENDER:$2|un|una|un/una}} insegnante di {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-online' => '[[$1|$2]] {{GENDER:$2|un volontario|una volontaria|un/una volontario/a}} online di {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-campus' => '[[$1|$2]] {{GENDER:$1|un volontario|una volontaria|un/una volontario/a}} del campus di {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|discussione del corso]])',
+	'ep-user-roles-message-main-many-student' => '[[$1|$2]] {{GENDER:$2|uno studente|una studentessa|un/una studente/essa}} in [[$4|$3 {{PLURAL:$3|corso|corsi}}]].',
+	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] {{GENDER:$2|un|una|un/una}} insegnante in $3 {{PLURAL:$3|corso|corsi}}.',
+	'ep-user-roles-message-main-many-online' => '[[$1|$2]] {{GENDER:$2|un volontario|una volontaria|un/una volontario/a}} online in $3 {{PLURAL:$3|corso|corsi}}.',
+	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] {{GENDER:$2|un volontario|una volontaria|un/una volontario/a}} del campus in $3 {{PLURAL:$3|corso|corsi}}.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|Lui è|Lei è|Loro sono}} anche $2.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|uno studente|una studentessa|un/una studente/essa}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|un|una|un/una}} insegnante',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|un volontario|una volontaria|un/una volontario/a}} online',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|un volontario|una volontaria|un/una volontario/a}} del campus',
 );
 
 /** Japanese (日本語)
@@ -13827,6 +13900,7 @@ $messages['ja'] = array(
 	'special-disenroll' => '退会',
 	'special-studentactivity' => '生徒の活動',
 	'special-articles' => '記事 (教育プログラム)',
+	'ep-course-status-passed' => '終了',
 	'ep-course-status-current' => '現在',
 	'ep-course-status-planned' => '計画',
 	'ep-course-status-current-planned' => '現在および計画',
@@ -14178,6 +14252,7 @@ $messages['ja'] = array(
 	'onlineambassadorprofile-text' => 'オンラインボランティアプロフィールは、生徒が利用できるボランティアを参照する際に表示されるものです。',
 	'epoa-profile-bio' => '短い自己紹介',
 	'epoa-profile-photo' => 'プロフィール写真',
+	'epoa-profile-photo-help' => '自己紹介の横に表示されるあなたの写真です。ウィキメディア・コモンズ上の画像名を入力すると画像が表示されます。画像名の先頭の数文字を入力して、表示される候補から画像を選択してください。自分の写真がコモンズにまだない場合は、[$1 アップロードしてください]!',
 	'epoa-profile-saved' => 'プロフィールを保存しました',
 	'epoa-profile-invalid-bio' => '自己紹介は $1 {{PLURAL:$1|文字}}以上にする必要があります。',
 	'campusambassadorprofile' => 'キャンパスボランティアのプロフィール',
@@ -14185,6 +14260,7 @@ $messages['ja'] = array(
 	'campusambassadorprofile-text' => 'キャンパスボランティアプロフィールは、生徒が利用できるボランティアを参照する際に表示されるものです。',
 	'epca-profile-bio' => '短い自己紹介',
 	'epca-profile-photo' => 'プロフィール写真',
+	'epca-profile-photo-help' => '自己紹介の横に表示されるあなたの写真です。ウィキメディア・コモンズ上の画像名を入力すると画像が表示されます。画像名の先頭の数文字を入力して、表示される候補から画像を選択してください。自分の写真がコモンズにまだない場合は、[$1 アップロードしてください]!',
 	'epca-profile-saved' => 'プロフィールを保存しました',
 	'epca-profile-invalid-bio' => '自己紹介は $1 {{PLURAL:$1|文字}}以上にする必要があります。',
 	'ep-diff-old' => '現在の値',
@@ -16561,6 +16637,8 @@ $messages['lb'] = array(
 	'ep-dashboard-login-first' => 'Dir musst Iech aloggen fir Är Coursen ze gesinn.',
 	'ep-dashboard-timeline-empty' => 'Et gëtt keng rezent Aktivitéit fir dëse Cours.',
 	'ep-dashboard-enroll-first' => "Dir huelt elo u kengem aktive Cours deel. Dir kënnt d'[[Special:Courses|Lëscht vun de Course]] kucken.",
+	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|studéiert}}  {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|e Student|eng Studentin}}',
 );
 
 /** Lezghian (лезги)
@@ -17475,6 +17553,20 @@ $messages['mk'] = array(
 	'ep-dashboard-login-first' => 'Треба да се најавите за да можете да ги прегледате вашите курсеви.',
 	'ep-dashboard-timeline-empty' => 'Нема скорешни активности за курсот.',
 	'ep-dashboard-enroll-first' => 'Моментално не сте запишани на ниеден активен курс. Можете да го погледате [[Special:Courses|списокот на курсеви]].',
+	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|е ученик|е ученичка}} во {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-instructor' => '[[$1|$2]] {{GENDER:$2|е наставник|е наставничка}} за {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-online' => '[[$1|$2]] {{GENDER:$2|е мрежен доброволец}} за {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-campus' => '[[$1|$2]] {{GENDER:$2|е факултетски доброволец}} за {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|разговор за курсот]])',
+	'ep-user-roles-message-main-many-student' => '[[$1|$2]] {{GENDER:$2|е ученик|е ученичка}} во [[$4|$3 {{PLURAL:$3|курс|курсеви}}]].',
+	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] {{GENDER:$2|е наставник|е наставничка}} за $3 {{PLURAL:$3|курс|курсеви}}.',
+	'ep-user-roles-message-main-many-online' => '[[$1|$2]] {{GENDER:$2|е мрежен доброволец}} за $3 {{PLURAL:$3|курс|курсеви}}.',
+	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] {{GENDER:$2|е факултетски доброволец}} за $3 {{PLURAL:$3|курс|курсеви}}.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|Воедно е|Воедно е|Воедно е}} и $2.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|ученик|ученичка}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|натавник|наставничка}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|мрежен доброволец}}',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|факултетски доброволец}}',
 );
 
 /** Malayalam (മലയാളം)
@@ -20887,33 +20979,67 @@ $messages['ps'] = array(
  * @author Helder.wiki
  * @author Lijealso
  * @author Luckas
+ * @author Vitorvicentevalente
  */
 $messages['pt'] = array(
+	'educationprogram-desc' => 'Facilita programas educacionais ao adicionar várias interfaces para gerência dos cursos, instituições e várias funções educacionais de utilizador.',
 	'ep-item-summary' => 'Sumário',
 	'ep-toplink' => 'Cursos',
 	'ep-org-course-delete-comment' => 'Eliminada a instituição $1 e todos os seus cursos, com o comentário $2',
+	'ep-org-course-delete' => 'Eliminada a instituição $1 e todos os seus cursos',
 	'ep-form-summary' => 'Sumário:',
+	'ep-form-minor' => 'Esta é uma edição menor',
+	'ep-move-error' => 'Não tem permissão para mover artigos dentro ou fora do domínio.',
 	'ep-student-view-profile' => 'perfil do estudante',
+	'ep-err-failed-to-save' => 'Alguma coisa correu mal - as suas alterações não foram gravadas.',
+	'ep-didyouknow-header' => 'Sabia que... ?',
 	'ep-tab-view' => 'Ler',
 	'ep-tab-edit' => 'Editar',
 	'ep-tab-create' => 'Criar',
 	'ep-tab-history' => 'Ver histórico',
 	'ep-tab-enroll' => 'Inscreva-se',
-	'ep-tab-disenroll' => 'Desinscreva-se',
+	'ep-tab-disenroll' => 'Anular inscrição',
 	'ep-tab-delete' => 'Eliminar',
+	'ep-tab-activity' => 'Ver actividade',
 	'tooltip-ep-form-save' => 'Gravar',
+	'tooltip-ep-edit-institution' => 'Editar esta instituição',
 	'tooltip-ep-edit-course' => 'Editar este curso',
+	'tooltip-ep-summary' => 'Insira um sumário breve',
+	'tooltip-ep-minor' => 'Marca esta edição como menor',
 	'ep-nav-orgs' => 'Lista de instituições',
 	'ep-nav-courses' => 'Lista de cursos',
-	'ep-nav-mycourses' => 'Os meus cursos', # Fuzzy
+	'ep-nav-mycourses' => 'Os seus cursos',
 	'ep-nav-students' => 'Lista de alunos',
+	'ep-nav-mentors' => 'Lista de voluntários',
+	'ep-nav-cas' => 'Voluntários de campus',
+	'ep-nav-oas' => "Voluntários ''on-line''",
+	'ep-nav-oaprofile' => "Perfil de voluntário ''on-line''",
+	'ep-nav-caprofile' => 'Perfil de voluntário de campus',
 	'log-name-institution' => 'Registo de instituição do programa educacional',
+	'log-name-course' => 'Registo de curso do programa educacional',
 	'log-name-student' => 'Registo de estudante do programa educacional',
-	'log-name-online' => 'Registo de voluntário online do programa educacional',
+	'log-name-online' => "Registo de voluntário ''on-line'' do programa educacional",
+	'log-name-campus' => 'Registo de voluntário de campus do programa educacional',
 	'log-name-instructor' => 'Registo de professor do programa educacional',
+	'log-name-eparticle' => 'Registo de artigo do programa educacional',
 	'log-description-institution' => 'Registo de todas as alterações de  [[Special:Institutions|instituições]].',
+	'log-description-course' => 'Registo de todas as alterações de [[Special:Courses|cursos]].',
+	'log-description-instructor' => 'Registo de todas as alterações de professores.',
+	'prefs-education' => 'Educação',
+	'ep-prefs-showtoplink' => 'Mostrar ligação para os [[Special:MyCourses|seus cursos]] no topo de cada página.',
+	'right-ep-org' => 'Gerir instituições do programa educacional',
+	'right-ep-course' => 'Gerir cursos do programa educacional',
 	'right-ep-remstudent' => 'Remover estudantes de cursos',
+	'right-ep-enroll' => 'Inscrever-se em cursos do programa educacional',
+	'right-ep-online' => "Adicionar o remover voluntários ''on-line'' a cursos",
+	'right-ep-campus' => 'Adicionar ou remover voluntários de campus a cursos',
+	'right-ep-instructor' => 'Adicionar ou remover professores a cursos',
+	'right-ep-remarticle' => 'Desassociar artigos de alunos',
+	'right-ep-addstudent' => 'Inscrever utilizadores como estudantes',
 	'action-ep-org' => 'administrar instituições',
+	'action-ep-course' => 'administrar cursos',
+	'action-ep-remstudent' => 'remover estudantes de cursos',
+	'action-ep-enroll' => 'inscrever em cursos',
 	'ep-pager-delete-selected' => 'Eliminar',
 	'eporgpager-header-city' => 'Cidade',
 	'eporgpager-filter-country' => 'País',
@@ -26371,6 +26497,20 @@ $messages['uk'] = array(
 	'ep-dashboard-login-first' => 'Потрібно увійти у систему, щоб могти переглянути свої курси.',
 	'ep-dashboard-timeline-empty' => 'Не було ніяких останніх дій стосовно цього курсу.',
 	'ep-dashboard-enroll-first' => 'Ви зараз не записані на жоден поточний курс. Ви можете переглянути [[Special:Courses|список курсів]].',
+	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|студент|студентка}} у {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-instructor' => '[[$1|$2]] {{GENDER:$2|інструктор|інструкторка}} для {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-online' => '[[$1|$2]] {{GENDER:$2|онлайн-волонтер|онлайн-волонтерка}} для {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-campus' => '[[$1|$2]] {{GENDER:$2|волонтер кампусу|волонтерка кампусу}} для {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|курсове обговорення]])',
+	'ep-user-roles-message-main-many-student' => '[[$1|$2]] {{GENDER:$2|студент|студентка}} на [[$4|$3 {{PLURAL:$3|курсі|курсах}}]].',
+	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] {{GENDER:$2|інструктор|інструкторка}} для $3 {{PLURAL:$3|курсу|курсів}}.',
+	'ep-user-roles-message-main-many-online' => '[[$1|$2]] {{GENDER:$2|онлайн-волонтер|онлайн-волонтерка}} для $3 {{PLURAL:$3|курсу|курсів}}.',
+	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] {{GENDER:$2|волонтер кампусу|волонтерка кампусу}} для $3 {{PLURAL:$3|курсу|курсів}}.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|Він|Вона|Вони}} також є $2.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|студент|студентка}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|інструктор|інструкторка}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|онлайн-волонтер|онлайн-волонтерка}}',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|волонтер кампусів|волонтерка кампусів}}',
 );
 
 /** Urdu (اردو)
