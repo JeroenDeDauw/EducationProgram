@@ -884,10 +884,26 @@ $messages['qqq'] = array(
 	'ep-move-error' => 'Error message you get when you try to move stuff in or out of an EP namespace',
 	'ep-student-view-profile' => 'Text of links to student profiles, typically used in tool link lists, next to stuff such as "talk" and "contributions"',
 	'ep-err-failed-to-save' => 'Error message indicating a save operation for the current page failed.',
-	'ep-err-course-exists-title' => 'Title of error page if a user re-submits form for course creation.',
-	'ep-err-course-exists-text' => 'Text of error page if a user re-submits form for course creation.',
-	'ep-err-org-exists-title' => 'Title of error page if a user re-submits form for creating an institution.',
-	'ep-err-org-exists-text' => 'Text of error page if a user re-submits form for creating an institution.',
+	'ep-err-course-exists-title' => 'Title of error page if a user re-submits form for course creation.
+
+See also:
+* {{msg-mw|Ep-err-course-exists-text}}
+* {{msg-mw|Ep-err-org-exists-title}}',
+	'ep-err-course-exists-text' => 'Text of error page if a user re-submits form for course creation. Parameters:
+* $1 - course name (page title)
+See also:
+* {{msg-mw|Ep-err-course-exists-title}}
+* {{msg-mw|Ep-err-org-exists-text}}',
+	'ep-err-org-exists-title' => 'Title of error page if a user re-submits form for creating an institution.
+
+See also:
+* {{msg-mw|Ep-err-org-exists-text}}
+* {{msg-mw|Ep-err-course-exists-title}}',
+	'ep-err-org-exists-text' => 'Text of error page if a user re-submits form for creating an institution. Parameters:
+* $1 - institution name (page title)
+See also:
+* {{msg-mw|Ep-err-org-exists-title}}
+* {{msg-mw|Ep-err-course-exists-text}}',
 	'ep-didyouknow-header' => 'Message displayed as a header in the did you know box.
 {{Identical|Did you know}}',
 	'ep-tab-view' => 'Label for a tab at the top of the page.
@@ -3899,6 +3915,7 @@ $messages['ckb'] = array(
  * @author Dominikmatus
  * @author Jkjk
  * @author Mormegil
+ * @author Utar
  * @author Vks
  */
 $messages['cs'] = array(
@@ -4412,7 +4429,7 @@ Záznam smazání tohoto kurzu:",
 	'ep-disenroll-course-passed' => 'Tento kurz byl ukončen. Již se z něj nelze odhlásit.',
 	'ep-disenroll-not-enrolled' => 'Nejste zapsán v tomto kurzu, proto se nelze z něj odhlásit.',
 	'ep-disenroll-title' => 'Odhlásit z kurzu "$1"',
-	'ep-disenroll-text' => 'Hodláte se odhlásit z kurzu "$1". Tímto smažete všechny články na kterých jste pracovali z kurzu a z vašeho studentského profilu.',
+	'ep-disenroll-text' => 'Hodláte se odhlásit z kurzu „$1“. Tímto odeberete všechny články, na kterých jste v rámci kurzu pracovali, z vašeho studentského profilu.',
 	'ep-disenroll-button' => 'Odhlásit se',
 	'ep-disenroll-summary' => 'Proč se odhlašujete?',
 	'ep-disenroll-cancel' => 'Zrušit',
@@ -4526,7 +4543,7 @@ Záznam smazání tohoto kurzu:",
 	'epoa-profile-photo-help' => 'Obrázek, který se obrazí vedle vaší biografie. Vložte název obrázku na Wikimedia Commons a náhled se objeví. Můžete napsat začátek názvu a vybrat obrázek ze seznamu. Pokud ještě nemáte svoji fotku na commons, můžete ji [$1 nahrát]!',
 	'epoa-profile-saved' => 'Váš profil byl uložen',
 	'epoa-profile-invalid-bio' => 'Vaše biografie musí obsahovat alespoň  $1 {{PLURAL:$1|znak|znaky|znaků}}.',
-	'epoa-visible' => 'Veřejně zobrazit jako Online dobrovolník',
+	'epoa-visible' => 'Veřejně zobrazit jako Online dobrovolník', # Fuzzy
 	'campusambassadorprofile' => 'Profil Dobrovolníka dostupného osobně',
 	'campusambassadorprofile-legend' => 'Váš profil Dobrovolníka dostupného osobně',
 	'campusambassadorprofile-text' => 'Váš profil Dobrovolníka dostupného osobně je to co si studenti mohou prohlédnou pokud procházejí dostupné dobrovolníky.',
@@ -4535,7 +4552,7 @@ Záznam smazání tohoto kurzu:",
 	'epca-profile-photo-help' => 'Obrázek, který se obrazí vedle vaší biografie. Vložte název obrázku na Wikimedia Commons a náhled se objeví. Můžete napsat začátek názvu a vybrat obrázek ze seznamu. Pokud ještě nemáte svoji fotku na commons, můžete ji [$1 nahrát]!',
 	'epca-profile-saved' => 'Váš profil byl uložen',
 	'epca-profile-invalid-bio' => 'Vaše biografie musí obsahovat alespoň  $1 {{PLURAL:$1|znak|znaky|znaků}}.',
-	'epca-visible' => 'Veřejně zobrazit jako Dobrovolník dostupný osobně',
+	'epca-visible' => 'Veřejně zobrazit jako Dobrovolník dostupný osobně', # Fuzzy
 	'ep-studentactivity-noresults' => 'Nejsou zde studenti, kteří byli aktivní v posledních $1.
 
 Všechny studenty můžete nalézt [[Special:Students|v seznamu studentů]].',
@@ -4776,6 +4793,10 @@ $messages['de'] = array(
 	'ep-move-error' => 'Du bist nicht berechtigt Seiten aus dem Namensraum Bildung heraus- bzw. in ihn hineinzuverschieben.',
 	'ep-student-view-profile' => 'Profil des Studenten',
 	'ep-err-failed-to-save' => 'Es ist etwas schiefgegangen. Deine Änderungen wurden daher nicht gespeichert.',
+	'ep-err-course-exists-title' => 'Fehler: Kurs vorhanden',
+	'ep-err-course-exists-text' => 'Du versuchst, den Kurs $1 zu erstellen, dieser ist jedoch bereits vorhanden.',
+	'ep-err-org-exists-title' => 'Fehler: Einrichtung vorhanden',
+	'ep-err-org-exists-text' => 'Du versuchst, die Einrichtung $1 zu erstellen, diese ist jedoch bereits vorhanden.',
 	'ep-didyouknow-header' => 'Wusstest du schon?',
 	'ep-tab-view' => 'Lesen',
 	'ep-tab-edit' => 'Bearbeiten',
@@ -6504,6 +6525,7 @@ $messages['eo'] = array(
  * @author Armando-Martin
  * @author Ayaita
  * @author Benfutbol10
+ * @author Ciencia Al Poder
  * @author Dalton2
  * @author Fitoschido
  * @author Ihojose
@@ -6525,6 +6547,7 @@ $messages['es'] = array(
 	'ep-move-error' => 'No puedes trasladar artículos dentro o fuera de los espacios de nombres de educación.',
 	'ep-student-view-profile' => 'perfil del alumno',
 	'ep-err-failed-to-save' => 'Fallo inesperado - sus cambios no fueron guardados.',
+	'ep-err-org-exists-text' => 'Estás intentando crear la institución $1 que ya existe.',
 	'ep-didyouknow-header' => '¿Sabías que…?',
 	'ep-tab-view' => 'Leer',
 	'ep-tab-edit' => 'Editar',
@@ -6728,7 +6751,7 @@ $messages['es'] = array(
 	'eporgpager-yes' => 'Sí',
 	'eporgpager-no' => 'No',
 	'ep-pager-cancel-button-org' => 'Cancelar',
-	'ep-pager-delete-button-org' => 'Quitar {{PLURAL:$1|institución|instituciones}}', # Fuzzy
+	'ep-pager-delete-button-org' => 'Eliminar {{PLURAL:$1|institución|instituciones}}',
 	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Confirmar eliminación de la institución|Confirmar eliminación de múltiples instituciones}}', # Fuzzy
 	'ep-pager-retry-button-org' => 'Reintentar',
 	'ep-pager-summary-message-org' => 'Resumen:',
@@ -6795,7 +6818,7 @@ $messages['es'] = array(
 	'ep-articletable-remarticle-button' => 'Eliminar artículo',
 	'ep-articletable-remarticle-cancel' => 'Cancelar',
 	'ep-articletable-remarticle-text-self' => 'Estás a punto de eliminar el artículo $1 de la lista de artículos en los que está trabajando como parte del curso $2.',
-	'ep-articletable-remarticle-text' => 'Estás a punto de eliminar el artículo $1 de la lista de artículos $3 en los que está trabajando como parte del curso $2.',
+	'ep-articletable-remarticle-text' => 'Estás a punto de eliminar el artículo $1 de la lista de artículos $3 en los que está trabajando como parte del curso $2.', # Fuzzy
 	'ep-articles-noresults' => 'No existen artículos para enumerar.',
 	'epcapager-header-photo' => 'Foto',
 	'epcapager-header-user-id' => 'Nombre de usuario',
@@ -7139,7 +7162,7 @@ El registro de borrado para este curso se indica a continuación por convenienci
 	'epoa-profile-photo-help' => 'Una imagen tuya se mostrará junto a tu biografía. Introduce el nombre de una imagen de Wikimedia Commons y aparecerá una vista previa. Puedes escribir las primeras letras del nombre de la imagen y, a continuación, selecciona tu imagen en la lista de sugerencias. Si aún no tienes una imagen tuya en Commons, ¡[$1 sube una]!',
 	'epoa-profile-saved' => 'Se ha guardado tu perfil',
 	'epoa-profile-invalid-bio' => 'Tu biografía debe contener al menos $1 {{PLURAL:$1|carácter|caracteres}}.',
-	'epoa-visible' => 'Incluirme en lista pública como Embajador en línea',
+	'epoa-visible' => 'Incluirme en lista pública como Embajador en línea', # Fuzzy
 	'campusambassadorprofile' => 'Perfil de Embajador de campus',
 	'campusambassadorprofile-legend' => 'Mi perfil de Embajador de campus',
 	'campusambassadorprofile-text' => 'Tu perfil de Embajador de campus es el que los alumnos van a ver cuando hojean los embajadores disponibles.',
@@ -7148,7 +7171,7 @@ El registro de borrado para este curso se indica a continuación por convenienci
 	'epca-profile-photo-help' => 'Una imagen tuya se mostrará junto a tu biografía. Introduce el nombre de una imagen de Wikimedia Commons y aparecerá una vista previa. Puedes escribir las primeras letras del nombre de la imagen y, a continuación, selecciona tu imagen en la lista de sugerencias. Si aún no tienes una imagen tuya en Commons, ¡[$1 sube una]!',
 	'epca-profile-saved' => 'Se ha guardado tu perfil',
 	'epca-profile-invalid-bio' => 'Tu biografía debe contener al menos $1 {{PLURAL:$1|carácter|caracteres}}.',
-	'epca-visible' => 'Incluirme en lista pública como Embajador de campus',
+	'epca-visible' => 'Incluirme en lista pública como Embajador de campus', # Fuzzy
 	'ep-studentactivity-noresults' => 'No hay ningún alumno que esté activo en los últimos $1
 
 Puedes encontrar una lista completa de alumnos en [[Special:Students|la lista de alumnos]].',
@@ -7170,7 +7193,7 @@ Puedes encontrar una lista completa de alumnos en [[Special:Students|la lista de
 	'ep-timeline-users-create-talk' => "$1 creó la '''[[$2|página de discusión]]''' de '''[[$3]]''' y dejó {{PLURAL:$4|un mensaje|varios mensajes}}.", # Fuzzy
 	'ep-timeline-users-create-user' => "$1 creó la página de usuari{{GENDER:$3|o|a}} de '''[[$2|$3]]'''.", # Fuzzy
 	'ep-timeline-users-create-usertalk' => "'''[[User:$3|$3]]''' ha recibido {{PLURAL:$4|un mensaje|mensajes}} en {{GENDER:$3|su|su}} recién creada '''[[$2|página de discusión]]'''.",
-	'ep-timeline-users-create-user-self' => "$1 ha creado su '''[[$2|página de usuari{{GENDER:$3|o|a}}]]'''.", # Fuzzy
+	'ep-timeline-users-create-user-self' => "$1 ha creado su '''[[$2|página de {{GENDER:$6|usuario|usuaria}}]]'''.",
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' ha creado su '''[[$2|página de usuari{{GENDER:$3|o|a}}]]''' y ha publicado {{PLURAL:$4|un mensaje|varios mensajes}}.",
 	'ep-dashboard-login-first' => 'Necesitas iniciar sesión antes de poder ver tus cursos.',
 	'ep-dashboard-timeline-empty' => 'No ha habido ninguna actividad reciente para este curso.',
@@ -13809,6 +13832,8 @@ $messages['ja'] = array(
 	'ep-form-summary' => '要約:',
 	'ep-form-minor' => 'これは細部の編集です',
 	'ep-student-view-profile' => '生徒のプロフィール',
+	'ep-err-course-exists-title' => 'エラー: コースが存在します',
+	'ep-err-course-exists-text' => 'コース $1 を作成しようとしていますが、既に存在します。',
 	'ep-didyouknow-header' => 'ご存じでしたか ... ?',
 	'ep-tab-view' => '閲覧',
 	'ep-tab-edit' => '編集',
@@ -16240,6 +16265,7 @@ $messages['lb'] = array(
 	'ep-move-error' => "Dir däerft Artikelen net an d''Formatioun'- Nummräim eran- oder eraus-réckelen.",
 	'ep-student-view-profile' => 'Studenteprofil',
 	'ep-err-failed-to-save' => 'Et ass eppes schif gaang - Äre Ännerunge goufen net gespäichert.',
+	'ep-err-course-exists-title' => 'Feeler:Cours gëtt et schonn',
 	'ep-didyouknow-header' => 'Wosst Dir schonn ...?',
 	'ep-tab-view' => 'Liesen',
 	'ep-tab-edit' => 'Änneren',
@@ -16662,6 +16688,8 @@ $messages['lb'] = array(
 	'ep-dashboard-enroll-first' => "Dir huelt elo u kengem aktive Cours deel. Dir kënnt d'[[Special:Courses|Lëscht vun de Course]] kucken.",
 	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|studéiert}}  {{PLURAL:$4|$3}}.',
 	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|e Student|eng Studentin}}',
+	'ep-course-talk-link-text-view-message' => 'Message weisen',
+	'ep-course-talk-link-text-view-changes' => 'Ännerunge weisen',
 );
 
 /** Lezghian (лезги)
@@ -16925,6 +16953,10 @@ $messages['mk'] = array(
 	'ep-move-error' => 'Не ви е дозволено да преместувате (внесувате и изнесувате) статии во/од образовните именски простори.',
 	'ep-student-view-profile' => 'ученички профил',
 	'ep-err-failed-to-save' => 'Нешто не е в ред - промените не се зачувани.',
+	'ep-err-course-exists-title' => 'Грешка: Курсот постои',
+	'ep-err-course-exists-text' => 'Се обидувате да го создадете курсот „$1“, но тој веќе постои.',
+	'ep-err-org-exists-title' => 'Грешка: Установата постои',
+	'ep-err-org-exists-text' => 'Се обидувате да ја создадете установата „$1“, но таа веќе постои.',
 	'ep-didyouknow-header' => 'Дали сте знаеле ... ?',
 	'ep-tab-view' => 'Читај',
 	'ep-tab-edit' => 'Уреди',
