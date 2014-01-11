@@ -30,9 +30,9 @@ $messages['en'] = array(
 	'ep-student-view-profile' => 'student profile',
 	'ep-err-failed-to-save' => 'Something went wrong - your changes have not been saved.',
 	'ep-err-course-exists-title' => 'Error: Course exists',
-	'ep-err-course-exists-text' => 'You’re attempting to create the course $1, but it already exists.',
+	'ep-err-course-exists-text' => 'You are attempting to create the course $1, but it already exists.',
 	'ep-err-org-exists-title' => 'Error: Institution exists',
-	'ep-err-org-exists-text' => 'You’re attempting to create the institution $1, but it already exists.',
+	'ep-err-org-exists-text' => 'You are attempting to create the institution $1, but it already exists.',
 	'ep-didyouknow-header' => 'Did you know ... ?',
 
 	// Tabs
