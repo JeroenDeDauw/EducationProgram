@@ -1117,7 +1117,8 @@ Additional parameters:
 	'special-students' => '{{doc-special|students}}
 {{Identical|Student}}',
 	'special-courses' => '{{doc-special|courses}}',
-	'special-educationprogram' => '{{doc-special|EducationProgram}}',
+	'special-educationprogram' => '{{doc-special|EducationProgram}}
+{{Identical|Education program}}',
 	'special-enroll' => '{{doc-special|enroll}}',
 	'special-onlineambassadors' => '{{doc-special|OnlineAmbassadors}}
 {{Identical|Online volunteer}}',
@@ -1449,26 +1450,26 @@ Parameters:
 	'ep-course-edit-lang' => 'Input label',
 	'ep-addcourse' => 'Message shown when viewing an non-existing course page',
 	'ep-editcourse' => 'Message shown when editing an institution page',
-	'ep-editcourse-exists-already' => 'Message shown when the user tries to create a new course with a name that already exists, and so ends up editing that one.
-
-See also:
-* {{msg-mw|Ep-addorg-exists-already}}',
 	'ep-editcourse-exists-already' => 'Message shown when the user tries to create a new course with a name that already exists, and so ends up editing that one',
-	'ep-addstudents-section' => "Title of the section of a course page with controls for adding students.",
-	'ep-addstudents-instructions' => "Instructions on how to use the controls for adding students.",
-	'ep-addstudents-url-instructions' => "Instructions on how students may add themselves to a course with the enroll token.",
+	'ep-addstudents-section' => 'Title of the section of a course page with controls for adding students.',
+	'ep-addstudents-instructions' => 'Instructions on how to use the controls for adding students.
+
+Refers to {{msg-mw|Ep-addstudents-btn}}.',
+	'ep-addstudents-url-instructions' => 'Instructions on how students may add themselves to a course with the enroll token.',
 	'ep-addstudents-invalid-users' => "Message explaining that one or more users typed into a form don't exist. Parameters:
 * $1 is the number of non-existent users
 * $2 is a list of non-existent users",
-	'ep-addstudents-btn' => "Text of button for actually adding users.",
-	'ep-addstudents-success' => "Message stating the number of students added to a course. Parameters:
+	'ep-addstudents-btn' => 'Text of button for actually adding users.
+{{Identical|Add}}',
+	'ep-addstudents-success' => 'Message stating the number of students added to a course. Parameters:
 * $1 is the number of students added
-* $2 is the gender of the student if only one was added",
+* $2 is the gender of the student if only one was added',
 	'ep-addstudents-alreadyenrolled' => "Message expalining that some students weren't added because they were already enrolled. Parameters:
 * $1 is the number of students not added
 * $2 is a list of students not added
 * $3 is the gender of the student if only one was not added",
-	'ep-addstudents-servercallerror' => 'Error message from server call to add students.',
+	'ep-addstudents-servercallerror' => 'Error message from server call to add students. Parameters:
+* $1 - error message',
 	'coursepage-edit-title-edit' => 'Page title. Parameters:
 * $1 is the course name.',
 	'coursepage-edit-title-add' => 'Page title. Parameters:
@@ -2171,20 +2172,34 @@ A message about other Education Program roles the user has. Parameters:
 * $1 the username (for grammatical gender)',
 	'ep-user-roles-message-rolename-campus' => 'The campus volunteer role, for use in a list of roles the user has. Parameters:
 * $1 the username (for grammatical gender)',
-	'echo-category-title-education-program' => 'Title of notifications category in preferences',
-	'ep-echo-pref-tooltip' => 'Tooltip for notifications category in preferences',
-	'ep-course-talk-link-text-view-message' => 'Text for primary link in course talk notification',
-	'ep-course-talk-link-text-view-changes' => 'Text for secondary link in course talk notification',
+	'echo-category-title-education-program' => 'Title of notifications category in preferences.
+{{Related|Echo-category-title}}
+{{Identical|Education program}}',
+	'ep-echo-pref-tooltip' => 'Tooltip for notifications category in preferences.
+{{Related|Echo-pref-tooltip}}',
+	'ep-course-talk-link-text-view-message' => 'Text for primary link in course talk notification.
+{{Identical|View message}}',
+	'ep-course-talk-link-text-view-changes' => 'Text for secondary link in course talk notification.
+{{Identical|View changes}}',
 	'ep-course-talk-notification-title' => 'Default title for course talk notification. Parameters:
 * $1 - the user who modified the course talk page
 * $2 - the full name of the course talk page
-* $3 - the name of the course with the term in parentheses',
-	'ep-course-talk-notification-title-email-subject' => 'E-mail subject line for course talk notification. Parameters:
+* $3 - the name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-course-talk-notification-title-email-subject}}
+* {{msg-mw|Ep-course-talk-notification-title-email-body}}',
+	'ep-course-talk-notification-title-email-subject' => 'Email subject line for course talk notification. Parameters:
 * $1 - the user who modified the course talk page
-* $2 - the name of the course with the term in parentheses',
-	'ep-course-talk-notification-title-email-body' => 'E-mail body content for course talk notification. Parameters:
+* $2 - the name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-course-talk-notification-title}}
+* {{msg-mw|Ep-course-talk-notification-title-email-body}}',
+	'ep-course-talk-notification-title-email-body' => 'Email body content for course talk notification. Parameters:
 * $1 - the user who modified the course talk page
-* $2 - the name of the course with the term in parentheses',
+* $2 - the name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-course-talk-notification-title}}
+* {{msg-mw|Ep-course-talk-notification-title-email-subject}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -4019,7 +4034,7 @@ $messages['cs'] = array(
 	'logentry-campus-selfadd' => '$1 se {{GENDER:$2|přidal|přidala|přidal/a}} jako {{GENDER:$2|Dobrovolník dostupný osobně}} do kurzu $3',
 	'logentry-campus-selfremove' => '$1 se {{GENDER:$2|smazal|smazala|smazal/a}} jako {{GENDER:$2|Dobrovolníka dostupného osobně}} z kurzu $3',
 	'logentry-campus-profilesave' => '$1 {{GENDER:$2|aktualizoval|aktualizovala|aktualizoval/a}} svůj profil Dobrovolníka dostupného osobně',
-	'logentry-student-add' => '$1 se {{GENDER:$2|zapsal|zapsala|zapsal/a}} do kurzu $3',
+	'logentry-student-add' => '$1 se {{GENDER:$2|zapsal|zapsala|zapsal/a}} do kurzu $3', # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|smazal|smazala|smazal/a}} $5 jako {{PLURAL:$4|{{GENDER:$5|studenta}}|studenty}} z kurzu $3',
 	'logentry-student-selfadd' => '$1 se {{GENDER:$2|zapsal|zapsala|zapsal/a}} do kurzu $3',
 	'logentry-student-selfremove' => '$1 se {{GENDER:$2|odhlásil|odhlásila|odhlásil/a}} z kurzu $3',
@@ -4887,7 +4902,7 @@ $messages['de'] = array(
 	'logentry-campus-selfadd' => '$1 fügte {{GENDER:$2|sich selbst}} als {{GENDER:$2|Campusvolontär|Campusvolontärin}} zum Kurs $3 hinzu',
 	'logentry-campus-selfremove' => '$1 entfernte {{GENDER:$2|sich selbst}} als {{GENDER:$2|Campusvolontär|Campusvolontärin}} von Kurs $3',
 	'logentry-campus-profilesave' => '$1 aktualisierte {{GENDER:$2|sein|ihr}} Campusvolontärprofil',
-	'logentry-student-add' => '$1 schrieb sich zu Kurs $3 ein',
+	'logentry-student-add' => '$1 {{GENDER:$2|schrieb}} $5 als {{PLURAL:$4|{{GENDER:$5|Student|Studentin}}|Studenten}} in den Kurs $3 ein',
 	'logentry-student-remove' => '$1 {{GENDER:$2|entfernte}} $5 als {{PLURAL:$4|Student|Studenten}} aus dem Kurs $3',
 	'logentry-student-selfadd' => '$1 schrieb sich zu Kurs $3 ein',
 	'logentry-student-selfremove' => '$1 meldete sich vom Kurs $3 ab',
@@ -5151,6 +5166,16 @@ Zur Information wird unten das Lösch-Logbuch zu dieser Einrichtung angezeigt:",
 	'ep-addcourse' => 'Es ist noch kein Kurs dieses Namens vorhanden. Du kannst ihn aber hinzufügen.',
 	'ep-editcourse' => 'Du bearbeitest einen vorhandenen Kurs.',
 	'ep-editcourse-exists-already' => 'Dieser Kurs ist bereits vorhanden. Du bearbeitest ihn.',
+	'ep-addstudents-section' => 'Studenten zu diesem Kurs hinzufügen',
+	'ep-addstudents-instructions' => 'Gib die Benutzernamen der Studenten ein, die du hinzufügen möchtest. Drücke nach jedem Studenten die Eingabetaste oder klicke auf das erscheinende Menü. Du kannst auch eine Liste mit Benutzernamen einfügen.
+
+Wenn du fertig bist, klicke auf „{{int:ep-addstudents-btn}}“.',
+	'ep-addstudents-url-instructions' => 'Studenten können sich selbst durch das Öffnen dieses Links in ihren Webbrowsern hinzufügen:',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Dieser Benutzer ist|Diese Benutzer sind}} nicht vorhanden: $2.',
+	'ep-addstudents-btn' => 'Hinzufügen',
+	'ep-addstudents-success' => 'Du hast {{PLURAL:$1|{{GENDER:$2|einen Studenten|eine Studentin}}|$1 Studenten}} zu diesem Kurs hinzugefügt.',
+	'ep-addstudents-alreadyenrolled' => '{{PLURAL:$1|{{GENDER:$3|Der folgende Student|Die folgende Studentin|Der folgende Student}} wurde nicht hinzugefügt, da {{GENDER:$3|er|sie|er}} bereits in dem Kurs war|Die folgenden Studenten wurden nicht hinzugefügt, da sie bereits in dem Kurs waren}}: $2.',
+	'ep-addstudents-servercallerror' => 'Beim Hinzufügen von Studenten ist der folgende Fehler aufgetreten: $1.',
 	'coursepage-edit-title-edit' => 'Kurs bearbeiten: $1',
 	'coursepage-edit-title-add' => 'Kurs hinzufügen: $1',
 	'coursepage-edit-deleted' => "'''Achtung: Du legst einen Kurs an, der in der Vergangenheit gelöscht wurde.'''
@@ -5488,6 +5513,13 @@ Du findest eine vollständige Liste der Studenten auf [[Special:Students|der Lis
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|ein Kursleiter|eine Kursleiterin}}',
 	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|ein Online-Volontär|eine Online-Volontärin}}',
 	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|ein Campus-Volontär|eine Campus-Volontärin}}',
+	'echo-category-title-education-program' => 'Bildungsprogramm',
+	'ep-echo-pref-tooltip' => 'Benachrichtige mich bei Ereignissen bezüglich Kursen des Bildungsprogramms, an denen ich beteiligt bin.',
+	'ep-course-talk-link-text-view-message' => 'Nachricht ansehen',
+	'ep-course-talk-link-text-view-changes' => 'Änderungen ansehen',
+	'ep-course-talk-notification-title' => 'Die [[$2|Kursdiskussionsseite von $3]] wurde von [[User:$1|$1]] {{GENDER:$1|bearbeitet}}.',
+	'ep-course-talk-notification-title-email-subject' => 'Die Kursdiskussionsseite von $2 wurde von $1 {{GENDER:$1|bearbeitet}}.',
+	'ep-course-talk-notification-title-email-body' => 'Die Kursdiskussionsseite von $2 wurde von $1 {{GENDER:$1|bearbeitet}}.',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -6638,7 +6670,7 @@ $messages['es'] = array(
 	'logentry-campus-selfadd' => '$1 se ha agregado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|voluntario de campus|voluntaria de campus}} del curso $3',
 	'logentry-campus-selfremove' => '$1 se ha eliminado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|voluntario de campus|voluntaria de campus}} del curso $3',
 	'logentry-campus-profilesave' => '$1 ha actualizado su perfil de {{GENDER:$2|Voluntario de campus|Voluntaria de campus}}',
-	'logentry-student-add' => '$1 se ha inscrito en el curso $3',
+	'logentry-student-add' => '$1 se ha inscrito en el curso $3', # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|ha eliminado}} a $5 como {{PLURAL:$4|{{GENDER:$5|alumno|alumna}}|alumnos}} del curso $3',
 	'logentry-student-selfadd' => '$1 se ha inscrito en el curso $3',
 	'logentry-student-selfremove' => '$1 se ha dado de baja del curso $3',
@@ -7905,7 +7937,7 @@ $messages['fa'] = array(
 	'logentry-campus-selfadd' => '$1 {{GENDER:$2|خودش}} به‌عنوان {{GENDER:$2|داوطلب کمپ}} به دورهٔ $3 اضافه کرد',
 	'logentry-campus-selfremove' => '$1 {{GENDER:$2|خودش}} را از {{GENDER:$2|داوطلب کمپ}} دورهٔ $3 حذف کرد',
 	'logentry-campus-profilesave' => '$1 نمایهٔ داوطلب کمپ {{GENDER:$2|خودش}} را به‌روزرسانی کرد',
-	'logentry-student-add' => '$1 در دورهٔ $3 {{GENDER:$2|ثبت نام کرد}}',
+	'logentry-student-add' => '$1 در دورهٔ $3 {{GENDER:$2|ثبت نام کرد}}', # Fuzzy
 	'logentry-student-remove' => '$1، $5 را از {{PLURAL:$4|دانشجویی}} دورهٔ $3 {{GENDER:$2|حذف کرد}}',
 	'logentry-student-selfadd' => '$1 در دورهٔ $3 {{GENDER:$2|ثبت نام کرد}}',
 	'logentry-student-selfremove' => '$1 از دورهٔ $3 {{GENDER:$2|بیرون آمد}}',
@@ -8169,6 +8201,12 @@ $messages['fa'] = array(
 	'ep-addcourse' => 'دوره‌ای با این نام وجود ندارد ولی شما می‌توانید آن را بیافزایید.',
 	'ep-editcourse' => 'شما در حال ویرایش یک دورۀ موجود هستید.',
 	'ep-editcourse-exists-already' => 'این دوره در حال حاضر وجود دارد. شما آن را ویرایش می‌کنید.',
+	'ep-addstudents-section' => 'اضافه کردن دانشجویان به این درس',
+	'ep-addstudents-url-instructions' => 'توجه داشته باشید که ممکن است همچنبن دانشجویان  با باز کردن این لینک در مرورگر شبکهٔ خود، خود را اضافه کنند:',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|این کاربر ندارد|این کاربران ندارند}} وجود: $2.',
+	'ep-addstudents-btn' => 'اضافه کردن',
+	'ep-addstudents-success' => 'شما $1 {{PLURAL:$1|{{GENDER:$2|دانشجو}}|دانشجویان}} را به این درس اضافه کردید.',
+	'ep-addstudents-servercallerror' => 'هنگام اضافه کردن دانشجویان، خطای زیر رخ داد: $1.',
 	'coursepage-edit-title-edit' => 'ویرایش دوره: $1',
 	'coursepage-edit-title-add' => 'افزودن دوره: $1',
 	'coursepage-edit-deleted' => "'''خطا: شما در حال ایجاد یک دوره که قبلاً شده بود هستید.'''
@@ -8506,6 +8544,13 @@ $messages['fa'] = array(
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|استاد}}',
 	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|داوطلب آنلاین}}',
 	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|داوطلب پردیس}}',
+	'echo-category-title-education-program' => 'برنامهٔ آموزشی',
+	'ep-echo-pref-tooltip' => 'من را از اتفاقات مرتبط با دروس برنامهٔ آموزشی که در آن درگیر هستم، مطلع کنید.',
+	'ep-course-talk-link-text-view-message' => 'نمایش پیام',
+	'ep-course-talk-link-text-view-changes' => 'نمایش تغییرات',
+	'ep-course-talk-notification-title' => '[[$2|صفحهٔ گفتگوی درس $3]] بود {{GENDER:$1|ویرایش شده}} توسط [[کاربر:$1|$1]].', # Fuzzy
+	'ep-course-talk-notification-title-email-subject' => 'صفحهٔ گفتگوی درس $2 بود {{GENDER:$1|ویرایش شده}} توسط $1.',
+	'ep-course-talk-notification-title-email-body' => 'صفحهٔ گفتگوی درس $2 بود {{GENDER:$1|ویرایش شده}} توسط $1.',
 );
 
 /** Finnish (suomi)
@@ -8917,7 +8962,7 @@ $messages['fr'] = array(
 	'logentry-campus-selfadd' => '$1 s’est {{GENDER:$2|ajouté lui|ajoutée elle}}-même en tant que {{GENDER:$2|bénévole}} de campus au cours $3',
 	'logentry-campus-selfremove' => '$1 s’est {{GENDER:$2|retiré lui|retirée elle}}-même en tant que {{GENDER:$2|bénévole}} de campus du cours $3',
 	'logentry-campus-profilesave' => '$1 a mis à jour son profil de {{GENDER:$2|bénévole}} de campus',
-	'logentry-student-add' => "$1 {{GENDER:$2|s'est inscrit|s'est inscrite}} au cours $3",
+	'logentry-student-add' => "$1 {{GENDER:$2|s'est inscrit|s'est inscrite}} au cours $3", # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|a retiré}} $5 comme étudiant{{GENDER:$5||e}}{{PLURAL:$4||s}} du cours $3',
 	'logentry-student-selfadd' => "$1 {{GENDER:$2|s'est inscrit|s'est inscrite}} au cours $3",
 	'logentry-student-selfremove' => "$1 {{GENDER:$2|s'est désinscrit|s'est désinscrite}} du cours $3",
@@ -11833,7 +11878,7 @@ $messages['ia'] = array(
 	'logentry-campus-selfadd' => '$1 se addeva como {{GENDER:$2|voluntario|voluntaria}} de campus al curso $3',
 	'logentry-campus-selfremove' => '$1 se removeva como {{GENDER:$2|voluntario|voluntaria}} de campus del curso $3',
 	'logentry-campus-profilesave' => '$1 actualisava su profilo de {{GENDER:$2|voluntario|voluntaria}} de campus',
-	'logentry-student-add' => '$1 se inscribeva in le curso $3',
+	'logentry-student-add' => '$1 se inscribeva in le curso $3', # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|removeva}} $5 como {{PLURAL:$4|{{GENDER:$5|studente}}|studentes}} del curso $3',
 	'logentry-student-selfadd' => '$1 se inscribeva in le curso $3',
 	'logentry-student-selfremove' => '$1 se disinscribeva del curso $3',
@@ -13246,7 +13291,7 @@ $messages['it'] = array(
 	'logentry-campus-selfadd' => '$1 ha aggiunto {{GENDER:$2|se stesso|se stessa}} come {{GENDER:$2|volontario|volontaria}} del campus al corso $3',
 	'logentry-campus-selfremove' => '$1 ha rimosso {{GENDER:$2|se stesso|se stessa}} come {{GENDER:$2|volontario|volontaria}} del campus dal corso $3',
 	'logentry-campus-profilesave' => '$1 ha aggiornato il suo profilo di {{GENDER:$2|volontario|volontaria}} del campus',
-	'logentry-student-add' => '$1 si è iscritto al corso $3',
+	'logentry-student-add' => '$1 si è iscritto al corso $3', # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|ha rimosso}} $5 come {{PLURAL:$4|{{GENDER:$5|studente|studentessa}}|{{GENDER:$5|studenti|studentesse}}}} dal corso $3',
 	'logentry-student-selfadd' => '$1 si è iscritto al corso $3',
 	'logentry-student-selfremove' => '$1 si è disiscritto dal corso $3',
@@ -13915,7 +13960,7 @@ $messages['ja'] = array(
 	'logentry-campus-selfadd' => '$1 が{{GENDER:$2|キャンパスボランティア}}として{{GENDER:$2|自身}}をコース $3 に追加しました',
 	'logentry-campus-selfremove' => '$1 が{{GENDER:$2|キャンパスボランティア}}としての{{GENDER:$2|自身}}をコース $3 から除去しました',
 	'logentry-campus-profilesave' => '$1 が{{GENDER:$2|自身の}}キャンパスボランティアのプロフィールを更新しました',
-	'logentry-student-add' => '$1 がコース $3 に{{GENDER:$2|入会しました}}',
+	'logentry-student-add' => '$1 がコース $3 に{{PLURAL:$4|{{GENDER:$5|生徒}}|生徒}}として{{GENDER:$2|入会しました}}',
 	'logentry-student-remove' => '$1 がコース $3 から{{PLURAL:$4|{{GENDER:$5|生徒}}}}としての $5 を{{GENDER:$2|除去しました}}',
 	'logentry-student-selfadd' => '$1 がコース $3 に{{GENDER:$2|入会しました}}',
 	'logentry-student-selfremove' => '$1 がコース $3 から{{GENDER:$2|退会しました}}',
@@ -14107,6 +14152,10 @@ $messages['ja'] = array(
 	'ep-addcourse' => 'この名前のコースはまだありませんが、追加することもできます。',
 	'ep-editcourse' => '既存のコースを編集しています。',
 	'ep-editcourse-exists-already' => 'コースは既に存在しており、それを編集しています。',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|この利用者|以下の利用者}}は存在しません: $2',
+	'ep-addstudents-btn' => '追加',
+	'ep-addstudents-success' => 'このコースに $1 {{PLURAL:$1|{{GENDER:$2|人の生徒}}|人の生徒}}を追加しました。',
+	'ep-addstudents-servercallerror' => '生徒を追加する際に以下のエラーが発生しました: $1',
 	'coursepage-edit-title-edit' => 'コースを編集中: $1',
 	'coursepage-edit-title-add' => 'コースを追加中: $1',
 	'ep-course-invalid-token' => 'トークンは $1 {{PLURAL:$1|文字}}以上にする必要があります。',
@@ -14359,6 +14408,9 @@ $messages['ja'] = array(
 	'ep-dashboard-login-first' => '自分のコースを閲覧するには、まずログインする必要があります。',
 	'ep-dashboard-timeline-empty' => 'このコースには最近の活動はありませんでした。',
 	'ep-dashboard-enroll-first' => '現在、アクティブなコースのいずれにも参加していません。[[Special:Courses|コース一覧]]を参照してください。',
+	'echo-category-title-education-program' => '教育プログラム',
+	'ep-course-talk-link-text-view-message' => 'メッセージを閲覧',
+	'ep-course-talk-link-text-view-changes' => '差分を閲覧',
 );
 
 /** Javanese (Basa Jawa)
@@ -15377,10 +15429,14 @@ $messages['ka'] = array(
 	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} დაარედაქტირა '''[[$2|$3]]-ის''' მომხმარებლის გვერდი.",
 	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}} შექმნა სტატია '''[[$2]]'''.",
 	'ep-dashboard-login-first' => 'თქვენი კურსების სანახავად გთხოვთ გაიარეთ ავტორიზაცია.',
+	'echo-category-title-education-program' => 'საგანმანათლებლო პროგრამა',
+	'ep-course-talk-link-text-view-message' => 'შეტყობინების ხილვა',
+	'ep-course-talk-link-text-view-changes' => 'ცვლილებების ხილვა',
 );
 
 /** Korean (한국어)
  * @author Hym411
+ * @author Priviet
  * @author 아라
  */
 $messages['ko'] = array(
@@ -15394,6 +15450,10 @@ $messages['ko'] = array(
 	'ep-move-error' => '교육 이름공간의 안이나 밖으로 문서를 옮길 수 없습니다.',
 	'ep-student-view-profile' => '학생 프로필',
 	'ep-err-failed-to-save' => '뭔가 잘못됐습니다 - 바뀜을 저장하지 않았습니다.',
+	'ep-err-course-exists-title' => '오류: 과정이 존재합니다',
+	'ep-err-course-exists-text' => '$1 과정을 만드려고 시도하였으나 과정이 이미 존재합니다.',
+	'ep-err-org-exists-title' => '오류: 강의가 존재합니다',
+	'ep-err-org-exists-text' => '$1 강좌를 만드려고 시도하였으나 강좌가 이미 존재합니다.',
 	'ep-didyouknow-header' => '알고 계십니까 ... ?',
 	'ep-tab-view' => '읽기',
 	'ep-tab-edit' => '편집',
@@ -15458,7 +15518,7 @@ $messages['ko'] = array(
 	'logentry-campus-selfadd' => '$1 사용자가 $3 과정에 {{GENDER:$2|캠퍼스 지원자}}로서 {{GENDER:$2|자신}}을 추가했습니다',
 	'logentry-campus-selfremove' => '$1 사용자가 $3 과정에서 {{GENDER:$2|캠퍼스 지원자}}로서 {{GENDER:$2|자신}}을 제거했습니다',
 	'logentry-campus-profilesave' => '$1 사용자가 {{GENDER:$2}}캠퍼스 지원자 프로필을 업데이트했습니다',
-	'logentry-student-add' => '$1 사용자가 $3 과정에 {{GENDER:$2|등록했습니다}}',
+	'logentry-student-add' => '$1 사용자가 $3 과정에 {{GENDER:$2|등록했습니다}}', # Fuzzy
 	'logentry-student-remove' => '$1 사용자가 $3 과정에서 $5 {{PLURAL:$4|{{GENDER:$5|학생}}|학생}}을 {{GENDER:$2|제거했습니다}}',
 	'logentry-student-selfadd' => '$1 사용자가 $3 과정에 {{GENDER:$2|등록했습니다}}',
 	'logentry-student-selfremove' => '$1 사용자가 $3 과정에서 {{GENDER:$2|등록을 취소했습니다}}',
@@ -15664,7 +15724,7 @@ $messages['ko'] = array(
 	'ep-articletable-remarticle-button' => '문서 제거',
 	'ep-articletable-remarticle-cancel' => '취소',
 	'ep-articletable-remarticle-text-self' => '$2 과정의 일부로 작업하는 문서의 목록에서 $1 문서를 제거하려고합니다.',
-	'ep-articletable-remarticle-text' => '$2 과정의 일부로 작업하는 $3 문서의 목록에서 $1 문서를 제거하려고합니다.',
+	'ep-articletable-remarticle-text' => '$2 과정의 일부로 작업하는 $3 문서의 목록에서 $1 문서를 제거하려고합니다.', # Fuzzy
 	'ep-articles-noresults' => '목록에 문서가 없습니다.',
 	'epcapager-header-photo' => '사진',
 	'epcapager-header-user-id' => '사용자 이름',
@@ -15721,6 +15781,8 @@ $messages['ko'] = array(
 	'ep-addcourse' => '아직 이 이름으로 된 과정이 없지만 이를 추가할 수 있습니다.',
 	'ep-editcourse' => '기존 과정을 편집하고 있습니다.',
 	'ep-editcourse-exists-already' => '이 과정이 이미 존재합니다. 이를 편집합니다.',
+	'ep-addstudents-section' => '이 과정에 학생을 추가',
+	'ep-addstudents-btn' => '추가',
 	'coursepage-edit-title-edit' => '과정 편집: $1',
 	'coursepage-edit-title-add' => '과정 추가: $1',
 	'coursepage-edit-deleted' => "'''경고: 삭제된 적이 있는 과정을 다시 만들고 있습니다.'''
@@ -16008,7 +16070,7 @@ $messages['ko'] = array(
 	'epoa-profile-photo-help' => '약력 옆에 보여지는 사진입니다. 위키미디어 공용에 그림 이름을 입력하면 미리 보기가 나타납니다. 그림 이름의 처음 몇 글자를 입력한 다음 제안 목록에서 그림을 선택할 수 있습니다. 아직 공용에 사진이 없다면 [$1 사진을 올리세요]!',
 	'epoa-profile-saved' => '프로필을 저장했습니다',
 	'epoa-profile-invalid-bio' => '약력은 적어도 {{PLURAL:$1|글자}} $1개를 포함해야 합니다.',
-	'epoa-visible' => '온라인 지원자로서 공개적으로 나타내기',
+	'epoa-visible' => '온라인 지원자로서 공개적으로 나타내기', # Fuzzy
 	'campusambassadorprofile' => '캠퍼스 지원자 프로필',
 	'campusambassadorprofile-legend' => '내 캠퍼스 지원자 프로필',
 	'campusambassadorprofile-text' => '캠퍼스 지원자 프로필은 학생이 사용할 수 있는 지원자를 탐색할 때 보는 것입니다.',
@@ -16017,7 +16079,7 @@ $messages['ko'] = array(
 	'epca-profile-photo-help' => '약력 옆에 보여지는 사진입니다. 위키미디어 공용에 그림 이름을 입력하면 미리 보기가 나타납니다. 그림 이름의 처음 몇 글자를 입력한 다음 제안 목록에서 그림을 선택할 수 있습니다. 아직 공용에 사진이 없다면 [$1 사진을 올리세요]!',
 	'epca-profile-saved' => '프로필을 저장했습니다',
 	'epca-profile-invalid-bio' => '약력은 적어도 {{PLURAL:$1|글자}} $1개를 포함해야 합니다.',
-	'epca-visible' => '캠퍼스 지원자로서 공개적으로 나타내기',
+	'epca-visible' => '캠퍼스 지원자로서 공개적으로 나타내기', # Fuzzy
 	'ep-studentactivity-noresults' => '마지막으로 $1에 활동 중인 학생이 없습니다.
 
 [[Special:Students|학생 목록]]에서 학생의 전체 목록을 찾을 수 있습니다.',
@@ -16044,6 +16106,7 @@ $messages['ko'] = array(
 	'ep-dashboard-login-first' => '내 과정을 보려면 로그인해야 합니다.',
 	'ep-dashboard-timeline-empty' => '이 과정에 대한 최근 활동이 없습니다.',
 	'ep-dashboard-enroll-first' => '현재 활동중인 과정에 참여하지 않았습니다. [[Special:Courses|과정 목록]]을 볼 수 있습니다.',
+	'ep-course-talk-link-text-view-message' => '메시지 보이기',
 );
 
 /** Colognian (Ripoarisch)
@@ -16324,7 +16387,7 @@ $messages['lb'] = array(
 	'logentry-course-remove' => '$1 huet de Cours $3 ewechgeholl',
 	'logentry-course-update' => '$1 huet de Cours $3 aktualiséiert',
 	'logentry-course-undelete' => '$1 huet de Cours $3 restauréiert',
-	'logentry-student-add' => '$1 huet sech an de Cours $3 ageschriwwen',
+	'logentry-student-add' => '$1 {{GENDER:$2|huet}} $5 als {{PLURAL:$4|{{GENDER:$5|Student|Studentin}}|Studenten}} an de Cours $3 ageschriwwen',
 	'logentry-student-selfadd' => '$1 huet sech an de Cours $3 ageschriwwen',
 	'logentry-student-selfremove' => '$1 huet sech vum Cours $3 ofgemellt',
 	'prefs-education' => 'Formatioun',
@@ -16506,6 +16569,15 @@ $messages['lb'] = array(
 	'ep-addcourse' => 'Et gëtt nach kee Cours mat deem Numm, Dir kënnt en derbäisetzen.',
 	'ep-editcourse' => 'Dir ännert e Cours deen et scho gëtt.',
 	'ep-editcourse-exists-already' => 'Dëse Cours gëtt et schonn. Dir ännert en.',
+	'ep-addstudents-section' => 'Studente bäi dëse Cours derbäisetzen',
+	'ep-addstudents-instructions' => 'Tippt d\'Benotzernimm vun de Studenten déi Dir derbäisetze wëllt. Dréckt Enter no jiddwerengem, oder klickt op de Menü dee gewise gëtt. Dir kënnt och eng Lëscht vu Benotzernimm dra kopéieren.
+
+Klickt "{{int:ep-addstudents-btn}}" wann dir fäerdeg sidd.',
+	'ep-addstudents-url-instructions' => 'Studente kënne sech och selwer derbäisetzen andeem si dëse Link an hirem Internetbrowser opmaachen:',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Dëse|Dës}} Benotzer gëtt et net: $2.',
+	'ep-addstudents-btn' => 'Derbäisetzen',
+	'ep-addstudents-success' => 'Dir hutt {{PLURAL:$1|{{GENDER:$2|ee Student|eng Studentin}}|$1 Studenten}} an dëse Cours derbäigesat.',
+	'ep-addstudents-servercallerror' => 'Beim Derbäisetze vu Studenten ass dëse Feeler geschitt: $1.',
 	'coursepage-edit-title-edit' => 'Cours $1 änneren',
 	'coursepage-edit-title-add' => 'Cours $1 derbäisetzen',
 	'ep-course-invalid-org' => 'Dës Institutioun gëtt et net.',
@@ -17047,7 +17119,7 @@ $messages['mk'] = array(
 	'logentry-campus-selfadd' => '$1 {{GENDER:$2|се додаде себеси|се додаде себеси}} како {{GENDER:$2|универзитетски доброволец}} на курсот $3',
 	'logentry-campus-selfremove' => '$1 {{GENDER:$2|се отстрани себеси|се отстрани себеси}} како {{GENDER:$2|универзитетски доброволец}} на курсот $3',
 	'logentry-campus-profilesave' => '$1 го измени {{GENDER:$2|неговиот|нејзиниот}} универзитетски доброволечки профил',
-	'logentry-student-add' => '$1 се запиша на курсот $3',
+	'logentry-student-add' => '$1 {{PLURAL:$4|го|ги}} {{GENDER:$2|запиша}} {{PLURAL:$4|{{GENDER:$5|ученикот}}|учениците}} $5 во курсот $3',
 	'logentry-student-remove' => '$1 {{PLURAL:$4|го|ги}} {{GENDER:$2|отстрани}} {{PLURAL:$4|{{GENDER:$5|ученикот}}|учениците}} $5 од курсот $3',
 	'logentry-student-selfadd' => '$1 се запиша на курсот $3',
 	'logentry-student-selfremove' => '$1 се отпиша од курсот $3',
@@ -17311,6 +17383,9 @@ $messages['mk'] = array(
 	'ep-addcourse' => 'Нема курс со тоа име, но можете да го додадете.',
 	'ep-editcourse' => 'Уредувате постоечки курс.',
 	'ep-editcourse-exists-already' => 'Курсот веќе постои. Го уредувате.',
+	'ep-addstudents-section' => 'Додај ученици во курсов',
+	'ep-addstudents-btn' => 'Додај',
+	'ep-addstudents-success' => 'Додадовте {{PLURAL:$1|{{GENDER:$2|еден ученик|една ученичка}}|$1 ученици}} во курсот.',
 	'coursepage-edit-title-edit' => 'Уредување на курсот: $1',
 	'coursepage-edit-title-add' => 'Додавање на курсот: $1',
 	'coursepage-edit-deleted' => "Внимание: Повторно создавате курс што претходно бил бришен.'''
@@ -17648,6 +17723,12 @@ $messages['mk'] = array(
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|натавник|наставничка}}',
 	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|мрежен доброволец}}',
 	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|факултетски доброволец}}',
+	'echo-category-title-education-program' => 'Образовен програм',
+	'ep-course-talk-link-text-view-message' => 'Погл. порака',
+	'ep-course-talk-link-text-view-changes' => 'Погл. промени',
+	'ep-course-talk-notification-title' => '[[User:$1|$1]] ја {{GENDER:$1|измени}} [[$2|страницата за разговор на курсот $3]].',
+	'ep-course-talk-notification-title-email-subject' => '$1 ја {{GENDER:$1|измени}} страницата за разговор на курсот $2.',
+	'ep-course-talk-notification-title-email-body' => '$1 ја {{GENDER:$1|измени}} страницата за разговор на курсот $2.',
 );
 
 /** Malayalam (മലയാളം)
@@ -17748,10 +17829,14 @@ $messages['ml'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Aniket1900
  * @author V.narsikar
  */
 $messages['mr'] = array(
 	'group-epinstructor' => 'अभ्यासक्रमाचे निदेशक',
+	'echo-category-title-education-program' => 'शिक्षण कार्यक्रम',
+	'ep-course-talk-link-text-view-message' => 'संदेश बघा',
+	'ep-course-talk-link-text-view-changes' => 'बदल बघा',
 );
 
 /** Malay (Bahasa Melayu)
@@ -23717,7 +23802,7 @@ $messages['sv'] = array(
 	'logentry-campus-selfadd' => '$1 lade till {{GENDER:$2|sig själv}} som {{GENDER:$2|{{SITENAME}}ambassadör}} till kurs $3',
 	'logentry-campus-selfremove' => '$1 tog bort {{GENDER:$2|sig själv}} som {{GENDER:$2|{{SITENAME}}ambassadör}} från kurs $3',
 	'logentry-campus-profilesave' => '$1 uppdaterade {{GENDER:$2|sin}} profil som {{SITENAME}}ambassadör',
-	'logentry-student-add' => '$1 {{GENDER:$2|registrerade sig}} för kurs $3',
+	'logentry-student-add' => '$1 {{GENDER:$2|registrerade sig}} för kurs $3', # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|tog bort}} $5 som {{PLURAL:$4|{{GENDER:$5|student}}|studenter}} från kurs $3',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|registrerade sig}} till kurs $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|avregistrerade sig}} från kurs $3',
@@ -24306,6 +24391,7 @@ Du finner en komplett lista över studenter på [[Special:Students|studentlistan
 /** Tamil (தமிழ்)
  * @author Karthi.dr
  * @author Shanmugamp7
+ * @author Shrikarsan
  * @author மதனாஹரன்
  */
 $messages['ta'] = array(
@@ -24526,7 +24612,7 @@ $messages['ta'] = array(
 	'ep-articletable-remarticle-button' => 'கட்டுரையை நீக்கு',
 	'ep-articletable-remarticle-cancel' => 'ரத்து செய்',
 	'ep-articletable-remarticle-text-self' => '$2 பாடத்திட்டத்தின் ஒரு பகுதியாக நீங்கள் வேலை செய்து கொண்டிருக்கும் கட்டுரைகளின் பட்டியலிருந்து $1 கட்டுரையை நீக்க இருக்கிறீர்கள்.',
-	'ep-articletable-remarticle-text' => '$2 பாடத்திட்டத்தின் ஒரு பகுதியாக  $3 வேலை செய்து கொண்டிருக்கும் கட்டுரைகளின் பட்டியலிருந்து $1 கட்டுரையை நீக்க இருக்கிறீர்கள்.',
+	'ep-articletable-remarticle-text' => '$2 பாடத்திட்டத்தின் ஒரு பகுதியாக  $3 வேலை செய்து கொண்டிருக்கும் கட்டுரைகளின் பட்டியலிருந்து $1 கட்டுரையை நீக்க இருக்கிறீர்கள்.', # Fuzzy
 	'ep-articles-noresults' => 'பட்டியலிடுவதற்கு கட்டுரை எதுவும் இல்லை.',
 	'epcapager-header-photo' => 'புகைப்படம்',
 	'epcapager-header-user-id' => 'பயனர் பெயர்',
@@ -24580,6 +24666,8 @@ $messages['ta'] = array(
 	'ep-addcourse' => 'இன்னும் இந்தப் பெயருடன் பாடத்திட்ட பெயர் ஏதுமில்லை, ஆனால் நீங்கள் இதைச் சேர்க்கலாம்.',
 	'ep-editcourse' => 'ஏற்கனவேயுள்ள போட்டியை நீங்கள் திருத்துகிறீர்கள்.',
 	'ep-editcourse-exists-already' => 'இந்த பாடத்திட்டம் ஏற்கனவே உள்ளது. நீங்கள் அதை தொகுக்கிறீர்கள்.',
+	'ep-addstudents-section' => 'இந்தப் பாடநெறிக்கு பள்ளி மாணவர்களைச் சேர்க்கவும்',
+	'ep-addstudents-btn' => 'சேர்',
 	'coursepage-edit-title-edit' => 'பாடத்திட்டம் சேர்க்கப்படுகிறது: $1',
 	'coursepage-edit-title-add' => 'பாடத்த்திட்டம் சேர்க்கப்படுகிறது: $1',
 	'ep-course-invalid-org' => 'இப்படி ஒரு நிறுவனம் இல்லை.',
@@ -24748,6 +24836,8 @@ $messages['ta'] = array(
 	'ep-timeline-users-create-article' => "$1 '''[[$2]]''' என்ற கட்டுரையை உருவாக்கினார்.", # Fuzzy
 	'ep-timeline-users-create-user' => "$1 '''[[$2|$3]]''' என்பவரின் பயனர் பக்கத்தை உருவாக்கினார்.", # Fuzzy
 	'ep-dashboard-timeline-empty' => 'இக்கற்கைநெறியில் அண்மைய மாற்றமெதுவும் இல்லை.',
+	'ep-course-talk-link-text-view-message' => 'செய்தியினைப் பார்',
+	'ep-course-talk-link-text-view-changes' => 'மாற்றங்களைப் பார்',
 );
 
 /** Telugu (తెలుగు)
@@ -25930,6 +26020,10 @@ $messages['uk'] = array(
 	'ep-move-error' => 'Ви не можете переміщати статті в або з освітнього простору імен.',
 	'ep-student-view-profile' => 'профіль студента',
 	'ep-err-failed-to-save' => 'Щось пішло не так — Ваші зміни не збережено.',
+	'ep-err-course-exists-title' => 'Помилка: курс існує',
+	'ep-err-course-exists-text' => 'Ви намагаєтеся створити курс $1, але він вже існує.',
+	'ep-err-org-exists-title' => 'Помилка: заклад існує',
+	'ep-err-org-exists-text' => 'Ви намагаєтеся створити установу $1, але вона вже існує.',
 	'ep-didyouknow-header' => 'Чи знаєте Ви…?',
 	'ep-tab-view' => 'Читати',
 	'ep-tab-edit' => 'Редагувати',
@@ -25994,7 +26088,7 @@ $messages['uk'] = array(
 	'logentry-campus-selfadd' => '$1 {{GENDER:$2|додав|додала}} себе як {{GENDER:$2|добровольця кампусу}} до курсу $3',
 	'logentry-campus-selfremove' => '$1 {{GENDER:$2|видалив|видалила}} себе як {{GENDER:$2|добровольця кампусу}} з курсу $3',
 	'logentry-campus-profilesave' => '$1 {{GENDER:$2|оновив|оновила}} свій профіль добровольця кампусу.',
-	'logentry-student-add' => '$1 {{GENDER:$2|записався|записалась}} до курсу $3',
+	'logentry-student-add' => '$1 {{GENDER:$2|записався|записалась}} до курсу $3', # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|видалив|видалила}} $5 як {{PLURAL:$4|1={{GENDER:$5|студента}}|студентів}} з курсу $3',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|записався|записалась}} до курсу $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|відписався|відписалась}} з курсу $3',
@@ -26592,6 +26686,13 @@ $messages['uk'] = array(
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|інструктор|інструкторка}}',
 	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|онлайн-волонтер|онлайн-волонтерка}}',
 	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|волонтер кампусів|волонтерка кампусів}}',
+	'echo-category-title-education-program' => 'Освітня програма',
+	'ep-echo-pref-tooltip' => "Повідомити мене про події, пов'язані з курсами освітньої програми, в яких я беру участь.",
+	'ep-course-talk-link-text-view-message' => 'Переглянути повідомлення',
+	'ep-course-talk-link-text-view-changes' => 'Переглянути зміни',
+	'ep-course-talk-notification-title' => '[[$2|Сторінка обговорення курсу $3]]  {{GENDER:$1|змінена користувачем|змінена користувачкою}} [[User:$1|$1]].',
+	'ep-course-talk-notification-title-email-subject' => 'Сторінка обговорення курсу $2 {{GENDER:$1|змінена користувачем|змінена користувачкою}} $1.',
+	'ep-course-talk-notification-title-email-body' => 'Сторінка обговорення курсу $2 {{GENDER:$1|змінена користувачем|змінена користувачкою}} $1.',
 );
 
 /** Urdu (اردو)
@@ -27151,7 +27252,7 @@ $messages['zh-hans'] = array(
 	'logentry-campus-selfadd' => '$1在$3课程中添加{{GENDER:$2|自己}}成为{{GENDER:$2|校园志愿者}}',
 	'logentry-campus-selfremove' => '$1从$3课程中删除{{GENDER:$2|自己}}身为{{GENDER:$2|校园志愿者}}',
 	'logentry-campus-profilesave' => '$1更新了{{GENDER:$2|他|她|他们}}的自己的校园大使个人资料',
-	'logentry-student-add' => '$1注册$3课程',
+	'logentry-student-add' => '$1注册$3课程', # Fuzzy
 	'logentry-student-remove' => '$1从$3课程中{{GENDER:$2|删除}}{{PLURAL:$4|{{GENDER:$5|这位学生}}|以下学生：}}$5',
 	'logentry-student-selfadd' => '$1注册$3课程',
 	'logentry-student-selfremove' => '$1退出$3课程',
