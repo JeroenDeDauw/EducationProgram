@@ -7873,6 +7873,7 @@ $messages['fa'] = array(
 	'ep-move-error' => 'شما اجازهٔ انتقال یا جابجایی مقالات از فضای نام آموزشی ندارید.',
 	'ep-student-view-profile' => 'نمایهٔ دانشجو',
 	'ep-err-failed-to-save' => 'خطایی رخ داد-تغییرات شما ذخیره نشد.',
+	'ep-err-course-exists-title' => 'خطا: وجود درس',
 	'ep-didyouknow-header' => 'آیا می‌دانستید که ...؟',
 	'ep-tab-view' => 'خواندن',
 	'ep-tab-edit' => 'ویرایش',
@@ -8898,6 +8899,10 @@ $messages['fr'] = array(
 	'ep-move-error' => "Vous n’avez pas l'autorisation de déplacer les articles dans ou hors des espaces de noms de l’éducation.",
 	'ep-student-view-profile' => 'profil de l’étudiant',
 	'ep-err-failed-to-save' => 'Quelque chose s’est mal passé, vos modifications n’ont pas été enregistrées.',
+	'ep-err-course-exists-title' => 'Erreur : Le cours existe',
+	'ep-err-course-exists-text' => 'Vous essayez de créer le cours $1, mais il existe déjà.',
+	'ep-err-org-exists-title' => 'Erreur: L’institution existe',
+	'ep-err-org-exists-text' => 'Vous essayez de créer l’institution $1, mais elle existe déjà.',
 	'ep-didyouknow-header' => 'Saviez-vous …?',
 	'ep-tab-view' => 'Lire',
 	'ep-tab-edit' => 'Modifier',
@@ -8962,7 +8967,7 @@ $messages['fr'] = array(
 	'logentry-campus-selfadd' => '$1 s’est {{GENDER:$2|ajouté lui|ajoutée elle}}-même en tant que {{GENDER:$2|bénévole}} de campus au cours $3',
 	'logentry-campus-selfremove' => '$1 s’est {{GENDER:$2|retiré lui|retirée elle}}-même en tant que {{GENDER:$2|bénévole}} de campus du cours $3',
 	'logentry-campus-profilesave' => '$1 a mis à jour son profil de {{GENDER:$2|bénévole}} de campus',
-	'logentry-student-add' => "$1 {{GENDER:$2|s'est inscrit|s'est inscrite}} au cours $3", # Fuzzy
+	'logentry-student-add' => '$1 {{GENDER:$2|a inscrit}} $5 en tant qu’{{PLURAL:$4|{{GENDER:$5|étudiant|étudiante}}|étudiants}} au cours $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|a retiré}} $5 comme étudiant{{GENDER:$5||e}}{{PLURAL:$4||s}} du cours $3',
 	'logentry-student-selfadd' => "$1 {{GENDER:$2|s'est inscrit|s'est inscrite}} au cours $3",
 	'logentry-student-selfremove' => "$1 {{GENDER:$2|s'est désinscrit|s'est désinscrite}} du cours $3",
@@ -9225,6 +9230,16 @@ Le journal des suppressions de cette institution est affiché ci-dessous :",
 	'ep-addcourse' => 'Il n’y a pas encore de cours portant ce nom mais vous pouvez l’ajouter.',
 	'ep-editcourse' => 'Vous modifiez un cours existant.',
 	'ep-editcourse-exists-already' => 'Ce cours existe déjà. Vous êtes en train de le modifier.',
+	'ep-addstudents-section' => 'Ajouter des étudiants à ce cours',
+	'ep-addstudents-instructions' => 'Tapez les noms d’utilisateur des étudiants que vous voulez ajouter. Appuyez sur Entrée après chacun d’eux, ou cliquez dans le menu qui apparaît alors. Vous pouvez aussi copier une liste de noms d’utilisateur.
+
+	Cliquez sur « {{int:ep-addstudents-btn}} » quand vous avez fini.',
+	'ep-addstudents-url-instructions' => 'Notez bien que les étudiants peuvent aussi s’ajouter eux-mêmes en ouvrant ce lien dans leurs navigateurs web :',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Cet utilisateur n’existe|Ces utilisateurs n’existent}} pas : $2.',
+	'ep-addstudents-btn' => 'Ajouter',
+	'ep-addstudents-success' => 'Vous avez ajouté $1 {{PLURAL:$1|{{GENDER:$2|étudiant|étudiante}}|étudiants}} à ce cours.',
+	'ep-addstudents-alreadyenrolled' => '{{PLURAL:$1|L’{{GENDER:$3|étudiant suivant n’a pas été ajouté|étudiante suivante n’a pas été ajoutée}} parce qu’{{GENDER:$3|il|elle}} étaient|Les étudiants suivants n’ont pas été ajoutés parce qu’ils étaient}} déjà dans le cours : $2.',
+	'ep-addstudents-servercallerror' => 'Lors de l’ajout des étudiants, l’erreur suivante s’est produite : $1',
 	'coursepage-edit-title-edit' => 'Modifier le cours : $1',
 	'coursepage-edit-title-add' => 'Ajouter le cours : $1',
 	'coursepage-edit-deleted' => "'''Attention : vous êtes en train de recréer un cours qui a été précédemment supprimé.'''
@@ -9562,6 +9577,13 @@ Vous pouvez trouver une liste complète des étudiants dans [[Special:Students|l
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|un instructeur|une instructrice}}',
 	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|un bénévole en ligne|une bénévole en ligne}}',
 	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|un bénévole de campus|une bénévole de campus}}',
+	'echo-category-title-education-program' => 'Programme éducatif',
+	'ep-echo-pref-tooltip' => 'Me prévenir des événements liés aux ours du Programme éducatif dans lesquels je suis impliqué.',
+	'ep-course-talk-link-text-view-message' => 'Afficher le message',
+	'ep-course-talk-link-text-view-changes' => 'Afficher les modifications',
+	'ep-course-talk-notification-title' => 'La [[$2|page de discussion du cours de $3]] a été {{GENDER:$1|modifiée}} par [[User:$1|$1]].',
+	'ep-course-talk-notification-title-email-subject' => 'La page de discussion du cours de $2 a été {{GENDER:$1|modifiée}} par $1.',
+	'ep-course-talk-notification-title-email-body' => 'La page de discussion du cours de $2 a été {{GENDER:$1|modifiée}} par $1.',
 );
 
 /** Franco-Provençal (arpetan)
@@ -13227,6 +13249,8 @@ $messages['it'] = array(
 	'ep-move-error' => 'Non ti è consentito spostare voci dentro o fuori il namespace Istruzione',
 	'ep-student-view-profile' => 'profilo studente',
 	'ep-err-failed-to-save' => 'Qualcosa è andato storto: le modifiche non sono state salvate.',
+	'ep-err-course-exists-title' => 'Errore: corso esistente',
+	'ep-err-course-exists-text' => 'Stai tentando di creare il corso $1, ma già esiste.',
 	'ep-didyouknow-header' => 'Lo sapevi che... ?',
 	'ep-tab-view' => 'Leggi',
 	'ep-tab-edit' => 'Modifica',
@@ -13554,6 +13578,9 @@ L'elenco delle relative cancellazioni e degli spostamenti viene riportato di seg
 	'ep-addcourse' => "Non c'è ancora nessun corso con questo nome, ma è possibile aggiungerlo.",
 	'ep-editcourse' => 'Stai modificando un corso già esistente.',
 	'ep-editcourse-exists-already' => 'Questo corso già esiste. Lo stai modificando.',
+	'ep-addstudents-section' => 'Aggiungi studenti a questo corso',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Questo utente non esiste|Questi utenti non esistono}}: $2',
+	'ep-addstudents-btn' => 'Aggiungi',
 	'coursepage-edit-title-edit' => 'Modifica corso: $1',
 	'coursepage-edit-title-add' => 'Aggiungi corso: $1',
 	'coursepage-edit-deleted' => "'''Attenzione: si sta per ricreare un corso già cancellato in passato.'''
@@ -13891,6 +13918,10 @@ Puoi trovare l'elenco completo degli studenti in [[Special:Students|questa lista
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|un|una|un/una}} insegnante',
 	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|un volontario|una volontaria|un/una volontario/a}} online',
 	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|un volontario|una volontaria|un/una volontario/a}} del campus',
+	'echo-category-title-education-program' => 'Programma di istruzione',
+	'ep-echo-pref-tooltip' => 'Notificami su eventi relativi ai corsi del programma di istruzione in cui sono coinvolto',
+	'ep-course-talk-link-text-view-message' => 'Vedi messaggio',
+	'ep-course-talk-link-text-view-changes' => 'Vedi modifiche',
 );
 
 /** Japanese (日本語)
@@ -15677,7 +15708,7 @@ $messages['ko'] = array(
 	'epcoursepager-filter-status' => '상태',
 	'epcoursepager-invalid-lang' => '잘못됨',
 	'ep-pager-cancel-button-course' => '취소',
-	'ep-pager-delete-button-course' => '{{PLURAL:$1|과정}} 제거', # Fuzzy
+	'ep-pager-delete-button-course' => '{{PLURAL:$1|과정}} 삭제',
 	'ep-pager-confirm-delete-course' => '{{PLURAL:$1|과정 제거 확인|여러 과정 제거 확인}}', # Fuzzy
 	'ep-pager-retry-button-course' => '다시 시도',
 	'ep-pager-summary-message-course' => '요약:',
@@ -16106,7 +16137,9 @@ $messages['ko'] = array(
 	'ep-dashboard-login-first' => '내 과정을 보려면 로그인해야 합니다.',
 	'ep-dashboard-timeline-empty' => '이 과정에 대한 최근 활동이 없습니다.',
 	'ep-dashboard-enroll-first' => '현재 활동중인 과정에 참여하지 않았습니다. [[Special:Courses|과정 목록]]을 볼 수 있습니다.',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|과정 토론]])',
 	'ep-course-talk-link-text-view-message' => '메시지 보이기',
+	'ep-course-talk-link-text-view-changes' => '차이 보기',
 );
 
 /** Colognian (Ripoarisch)
@@ -16355,6 +16388,9 @@ $messages['lb'] = array(
 	'ep-student-view-profile' => 'Studenteprofil',
 	'ep-err-failed-to-save' => 'Et ass eppes schif gaang - Äre Ännerunge goufen net gespäichert.',
 	'ep-err-course-exists-title' => 'Feeler:Cours gëtt et schonn',
+	'ep-err-course-exists-text' => 'Dir probéiert de Cours $1 unzeleeën, deen et scho gëtt.',
+	'ep-err-org-exists-title' => 'Feeler: Institutioun gëtt et',
+	'ep-err-org-exists-text' => "Dir probéiert d'Institutioun $1 unzeleeën, déi et scho gëtt.",
 	'ep-didyouknow-header' => 'Wosst Dir schonn ...?',
 	'ep-tab-view' => 'Liesen',
 	'ep-tab-edit' => 'Änneren',
@@ -16388,11 +16424,14 @@ $messages['lb'] = array(
 	'logentry-course-update' => '$1 huet de Cours $3 aktualiséiert',
 	'logentry-course-undelete' => '$1 huet de Cours $3 restauréiert',
 	'logentry-student-add' => '$1 {{GENDER:$2|huet}} $5 als {{PLURAL:$4|{{GENDER:$5|Student|Studentin}}|Studenten}} an de Cours $3 ageschriwwen',
+	'logentry-student-remove' => '$1 {{GENDER:$2|huet}} $5 als {{PLURAL:$4|{{GENDER:$5|Student|Studentin}}|Studenten}} aus dem Cours $3 ewechgeholl',
 	'logentry-student-selfadd' => '$1 huet sech an de Cours $3 ageschriwwen',
 	'logentry-student-selfremove' => '$1 huet sech vum Cours $3 ofgemellt',
 	'prefs-education' => 'Formatioun',
 	'ep-prefs-showtoplink' => 'E Link op [[Special:MyCourses|Är Coursen]] uewen op all Säit weisen.',
 	'ep-prefs-showdyk' => 'D\'Këscht "Wosst Dir" op der Säit [[Special:MyCourses|Är Course]] weisen.',
+	'right-ep-org' => 'Institutioune vum Formatiounsprogramm geréieren',
+	'right-ep-course' => 'Course vum Formatiounsprogramm geréieren',
 	'right-ep-remstudent' => 'Studente vu Coursen ewechhuelen',
 	'right-ep-enroll' => 'Sech a Course vum Formatiouns Programm aschreiwen',
 	'right-ep-instructor' => 'Instruktere bei Coursen derbäisetzen oder ewechhuelen',
@@ -16428,6 +16467,7 @@ $messages['lb'] = array(
 	'ep-course-status-current' => 'Aktuell',
 	'ep-course-status-planned' => 'Geplangt',
 	'ep-course-status-current-planned' => 'Aktuell a geplangt',
+	'ep-summary-table-header' => 'Totaler vum Formatiounsprogramm',
 	'ep-specialeducationprogram-summary-org-count' => 'Zuel vun den [[Special:Institutions|Institutiounen]]',
 	'ep-specialeducationprogram-summary-course-count' => 'Zuel vu [[Special:Courses|Coursen]]',
 	'ep-specialeducationprogram-summary-active-course-count' => 'Zuel vun den aktive Coursen',
@@ -16577,9 +16617,14 @@ Klickt "{{int:ep-addstudents-btn}}" wann dir fäerdeg sidd.',
 	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Dëse|Dës}} Benotzer gëtt et net: $2.',
 	'ep-addstudents-btn' => 'Derbäisetzen',
 	'ep-addstudents-success' => 'Dir hutt {{PLURAL:$1|{{GENDER:$2|ee Student|eng Studentin}}|$1 Studenten}} an dëse Cours derbäigesat.',
+	'ep-addstudents-alreadyenrolled' => '{{PLURAL:$1|{{GENDER:$3|Dëse Student|Dës Studentin|Dëse Student}} gouf net derbäigesat, well {{GENDER:$3|hie|hat|hie}} schonn am Cours war|Dës Studente goufen net derbäigsat well si schonn am Cours waren}}: $2.',
 	'ep-addstudents-servercallerror' => 'Beim Derbäisetze vu Studenten ass dëse Feeler geschitt: $1.',
 	'coursepage-edit-title-edit' => 'Cours $1 änneren',
 	'coursepage-edit-title-add' => 'Cours $1 derbäisetzen',
+	'coursepage-edit-deleted' => "'''Opgepasst: Dir sidd am Gaang e Cours unzeleeën dee schonn eng Kéier geläscht gouf.'''
+
+Frot Iech ob et wierklech sënnvoll ass dëse Cours nees nei unzeleeën.
+Fir Iech z'informéieren fannt Dir hei d'Logbuch vum Läschen hei drënner:",
 	'ep-course-invalid-org' => 'Dës Institutioun gëtt et net.',
 	'ep-course-invalid-lang' => 'Dës Sprooch ass net valabel.',
 	'ep-course-no-slashes' => 'Am Titel vum Cours däerfe keng schif Stricher dra sinn!',
@@ -16786,8 +16831,12 @@ Klickt "{{int:ep-addstudents-btn}}" wann dir fäerdeg sidd.',
 	'ep-dashboard-enroll-first' => "Dir huelt elo u kengem aktive Cours deel. Dir kënnt d'[[Special:Courses|Lëscht vun de Course]] kucken.",
 	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|studéiert}}  {{PLURAL:$4|$3}}.',
 	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|e Student|eng Studentin}}',
+	'echo-category-title-education-program' => 'Formatiounsprogramm',
+	'ep-echo-pref-tooltip' => 'Informéiert mech iwwer Evenementer vu Course vum Formatiounsprogramm an déi ech implizéiert sinn.',
 	'ep-course-talk-link-text-view-message' => 'Message weisen',
 	'ep-course-talk-link-text-view-changes' => 'Ännerunge weisen',
+	'ep-course-talk-notification-title-email-subject' => "D'Diskussiounssäit vum Cours $2 gouf vum $1 {{GENDER:$1|geännert}}.",
+	'ep-course-talk-notification-title-email-body' => "D'Diskussiounssäit vum Cours $2 gouf vum $1 {{GENDER:$1|geännert}}.",
 );
 
 /** Lezghian (лезги)
@@ -17027,6 +17076,14 @@ $messages['lt'] = array(
 	'ep-timeline-ago' => 'prieš $1',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} paliko {{PLURAL:$4|pranešimą|pranešimus|pranešimų}} '''[[$3]]''' '''[[$2|aptarimų puslapyje]]'''.",
+);
+
+/** Latvian (latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'ep-addstudents-section' => 'Pievienot studentus šim kursam',
+	'ep-addstudents-btn' => 'Pievienot',
 );
 
 /** Minangkabau (Baso Minangkabau)
@@ -17384,8 +17441,15 @@ $messages['mk'] = array(
 	'ep-editcourse' => 'Уредувате постоечки курс.',
 	'ep-editcourse-exists-already' => 'Курсот веќе постои. Го уредувате.',
 	'ep-addstudents-section' => 'Додај ученици во курсов',
+	'ep-addstudents-instructions' => 'Внесете ги корисничките имиња на учениците што сакате да ги додадете. Стиснете на „Enter“ по секој ученик, или пак на менито што ќе ви се појави. Можете да прекопирате и цел список на кориснички имиња.
+
+	Стиснете на „{{int:ep-addstudents-btn}}“ кога ќе бидете готови.',
+	'ep-addstudents-url-instructions' => 'Имајте на ум дека учениците можат да се додаваат и сами себеси преку оваа врска во прелистувачот:',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Овој корисник не постои|Овие корисници не постојат}}: $2.',
 	'ep-addstudents-btn' => 'Додај',
 	'ep-addstudents-success' => 'Додадовте {{PLURAL:$1|{{GENDER:$2|еден ученик|една ученичка}}|$1 ученици}} во курсот.',
+	'ep-addstudents-alreadyenrolled' => '{{PLURAL:$1|Следниот ученик не е додаден бидејќи {{GENDER:$3|веќе е}} запишан|Следните ученици не се додадени бидејќи веќе се запишани}} на курсот: $2.',
+	'ep-addstudents-servercallerror' => 'Додавајќи ги учениците, се појави следнава грешка: $1.',
 	'coursepage-edit-title-edit' => 'Уредување на курсот: $1',
 	'coursepage-edit-title-add' => 'Додавање на курсот: $1',
 	'coursepage-edit-deleted' => "Внимание: Повторно создавате курс што претходно бил бришен.'''
@@ -17724,6 +17788,7 @@ $messages['mk'] = array(
 	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|мрежен доброволец}}',
 	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|факултетски доброволец}}',
 	'echo-category-title-education-program' => 'Образовен програм',
+	'ep-echo-pref-tooltip' => 'Известувај ме за збиднувања во Образовниот програм кадешто учествувам.',
 	'ep-course-talk-link-text-view-message' => 'Погл. порака',
 	'ep-course-talk-link-text-view-changes' => 'Погл. промени',
 	'ep-course-talk-notification-title' => '[[User:$1|$1]] ја {{GENDER:$1|измени}} [[$2|страницата за разговор на курсот $3]].',
@@ -25862,6 +25927,15 @@ $messages['tr'] = array(
 	'ep-campus-removing' => 'Kaldırılıyor...',
 );
 
+/** Tuvinian (тыва дыл)
+ * @author SuKhDug
+ */
+$messages['tyv'] = array(
+	'ep-addstudents-btn' => 'Немээр',
+	'ep-course-talk-link-text-view-message' => 'Медеглелди көөр',
+	'ep-course-talk-link-text-view-changes' => 'Өскерлиишкиннерни көөр',
+);
+
 /** Uyghur (Arabic script) (ئۇيغۇرچە)
  * @author Sahran
  */
@@ -26088,7 +26162,7 @@ $messages['uk'] = array(
 	'logentry-campus-selfadd' => '$1 {{GENDER:$2|додав|додала}} себе як {{GENDER:$2|добровольця кампусу}} до курсу $3',
 	'logentry-campus-selfremove' => '$1 {{GENDER:$2|видалив|видалила}} себе як {{GENDER:$2|добровольця кампусу}} з курсу $3',
 	'logentry-campus-profilesave' => '$1 {{GENDER:$2|оновив|оновила}} свій профіль добровольця кампусу.',
-	'logentry-student-add' => '$1 {{GENDER:$2|записався|записалась}} до курсу $3', # Fuzzy
+	'logentry-student-add' => '$1 {{GENDER:$2|записав|записала}} $5 як {{PLURAL:$4|{{GENDER:$5|студента|як студентку}}|студентів}} до курсу $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|видалив|видалила}} $5 як {{PLURAL:$4|1={{GENDER:$5|студента}}|студентів}} з курсу $3',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|записався|записалась}} до курсу $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|відписався|відписалась}} з курсу $3',
@@ -26350,6 +26424,16 @@ $messages['uk'] = array(
 	'ep-addcourse' => 'Іще немає курсу з такою назвою, але Ви можете його додати',
 	'ep-editcourse' => 'Ви редагуєте існуючий курс.',
 	'ep-editcourse-exists-already' => 'Цей курс уже існує. Ви його редагуєте.',
+	'ep-addstudents-section' => 'Додати студентів на цей курс',
+	'ep-addstudents-instructions' => 'Введіть імена користувачів, студентів, які потрібно додати. Після кожного з них клавішу Enter, або натисніть на меню, яке з\'являється. Можна також Вставити список імен користувачів.
+
+Натисніть кнопку „{{int:ep-addstudents-btn}}" коли ви закінчите.',
+	'ep-addstudents-url-instructions' => 'Зверніть увагу, що студенти можуть додавати себе, відкривши це посилання в своїх веб-браузерах:',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Цей користувач не існує|Ці користувачі не існують}}: $2.',
+	'ep-addstudents-btn' => 'Додати',
+	'ep-addstudents-success' => 'Ви додали $1 {{PLURAL:$1|{{GENDER:$2|студента|студентку}} |студентів}} на цей курс.',
+	'ep-addstudents-alreadyenrolled' => '{{PLURAL:$1|Наступний студент не був доданий, бо {{GENDER:$3|він|вона|вони}}|Наступні студенти не були додані, бо вони}} вже є на курсі: $2.',
+	'ep-addstudents-servercallerror' => 'При додаванні студентів трапилася наступна помилка: $1.',
 	'coursepage-edit-title-edit' => 'Редагування курсу: $1',
 	'coursepage-edit-title-add' => 'Додавання курсу: $1',
 	'coursepage-edit-deleted' => "'''Попередження: Ви намагаєтеся створити курс, який раніше вже був вилучений.'''
