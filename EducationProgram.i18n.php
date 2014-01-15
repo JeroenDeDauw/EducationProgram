@@ -7312,7 +7312,7 @@ $messages['et'] = array(
 	'logentry-instructor-remove' => '$1 {{GENDER:$2|eemaldas}} kursuselt $3 {{PLURAL:$4|õppejõu|õppejõud}} $5',
 	'logentry-instructor-selfadd' => '$1 {{GENDER:$2|lisas}} ennast kursuse $3 õppejõuks',
 	'logentry-instructor-selfremove' => '$1 {{GENDER:$2|eemaldas}} ennast kursuse $3 õppejõudude hulgast',
-	'logentry-student-add' => '$1 {{GENDER:$2|registreerus}} kursusele $3',
+	'logentry-student-add' => '$1 {{GENDER:$2|registreeris}} {{PLURAL:$4|õpilase|õpilased}} $5 kursusele $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|eemaldas}} kursuselt $3 {{PLURAL:$4|õpilase|õpilased}} $5',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|registreerus}} kursusele $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|tühistas}} registreerumise kursusele $3',
@@ -8209,6 +8209,8 @@ $messages['fa'] = array(
 	'ep-editcourse' => 'شما در حال ویرایش یک دورۀ موجود هستید.',
 	'ep-editcourse-exists-already' => 'این دوره در حال حاضر وجود دارد. شما آن را ویرایش می‌کنید.',
 	'ep-addstudents-section' => 'اضافه کردن دانشجویان به این درس',
+	'ep-addstudents-instructions' => 'نام کاربری دانشجویانی را که می‌خواهید اضافه کنید را تایپ کنید. پی از هر یک دکمهٔ ورود را فشار دهید، یا روی منویی که ظاهر می‌شود کلیک کنید. همچنین می‌توانید فهرست کاربران را بچسبانید.
+"{{int:ep-addstudents-btn}}" را کلیک کنید وقتی کارتان انجام دادید.',
 	'ep-addstudents-url-instructions' => 'توجه داشته باشید که ممکن است همچنبن دانشجویان  با باز کردن این لینک در مرورگر شبکهٔ خود، خود را اضافه کنند:',
 	'ep-addstudents-invalid-users' => '{{PLURAL:$1|این کاربر ندارد|این کاربران ندارند}} وجود: $2.',
 	'ep-addstudents-btn' => 'اضافه کردن',
@@ -8555,7 +8557,7 @@ $messages['fa'] = array(
 	'ep-echo-pref-tooltip' => 'من را از اتفاقات مرتبط با دروس برنامهٔ آموزشی که در آن درگیر هستم، مطلع کنید.',
 	'ep-course-talk-link-text-view-message' => 'نمایش پیام',
 	'ep-course-talk-link-text-view-changes' => 'نمایش تغییرات',
-	'ep-course-talk-notification-title' => '[[$2|صفحهٔ گفتگوی دورهٔ $3]] بود {{GENDER:$1|ویرایش شده}} توسط [[کاربر:$1|$1]].', # Fuzzy
+	'ep-course-talk-notification-title' => '[[$2|صفحهٔ گفتگوی دورهٔ $3]] توسط [[کاربر:$1|$1]] {{GENDER:$1|ویرایش شده}} بود.', # Fuzzy
 	'ep-course-talk-notification-title-email-subject' => 'صفحهٔ گفتگوی درس $2 بود {{GENDER:$1|ویرایش شده}} توسط $1.',
 	'ep-course-talk-notification-title-email-body' => 'صفحهٔ گفتگوی درس $2 بود {{GENDER:$1|ویرایش شده}} توسط $1.',
 );
@@ -10105,7 +10107,7 @@ $messages['gl'] = array(
 	'logentry-campus-selfadd' => '$1 engadiuse como {{GENDER:$2|voluntario|voluntaria}} do campus ao curso "$3"',
 	'logentry-campus-selfremove' => '$1 eliminouse como {{GENDER:$2|voluntario|voluntaria}} do campus do curso "$3"',
 	'logentry-campus-profilesave' => '$1 actualizou o seu perfil de {{GENDER:$2|voluntario|voluntaria}} do campus',
-	'logentry-student-add' => '$1 {{GENDER:$2|inscribiuse}} no curso "$3"',
+	'logentry-student-add' => '$1 {{GENDER:$2|inscribiuse}} no curso "$3"', # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|eliminou}} a $5 como {{PLURAL:$4|{{GENDER:$5|estudante}}|estudantes}} do curso "$3"',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|inscribiuse}} no curso "$3"',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|deuse de baixa}} do curso "$3"',
@@ -10311,7 +10313,7 @@ Isto ha eliminar de xeito permanente {{GENDER:$1|os seus}} artigos e revisores a
 	'ep-articletable-remarticle-button' => 'Eliminar o artigo',
 	'ep-articletable-remarticle-cancel' => 'Cancelar',
 	'ep-articletable-remarticle-text-self' => 'Está a piques de eliminar o artigo "$1" da lista de artigos nos que vostede traballa como parte do curso "$2".',
-	'ep-articletable-remarticle-text' => 'Está a piques de eliminar o artigo "$1" da lista de artigos nos que{{GENDER:$4|$3}} traballa como parte do curso "$2".',
+	'ep-articletable-remarticle-text' => 'Está a piques de eliminar o artigo "$1" da lista de artigos nos que {{GENDER:$4|$3}} traballa como parte do curso "$2".',
 	'ep-articles-noresults' => 'Non hai ningún artigo que listar.',
 	'epcapager-header-photo' => 'Foto',
 	'epcapager-header-user-id' => 'Nome de usuario',
@@ -10719,6 +10721,10 @@ $messages['he'] = array(
 	'ep-move-error' => 'אין לך הרשאות להעביר ערכים לתוך או מחוץ למרחב השם "הוראה".',
 	'ep-student-view-profile' => 'נתוני התלמיד',
 	'ep-err-failed-to-save' => 'משהו השתבש - השינויים שלך לא נשמרו.',
+	'ep-err-course-exists-title' => 'שגיאה: הקורס קיים',
+	'ep-err-course-exists-text' => 'ניסית ליצור את הקורס $1, אבל הוא כבר קיים.',
+	'ep-err-org-exists-title' => 'שגיאה: המוסד קיים',
+	'ep-err-org-exists-text' => 'ניסית ליצור את המוסד $1, אבל הוא כבר קיים.',
 	'ep-didyouknow-header' => 'הידעת?',
 	'ep-tab-view' => 'קריאה',
 	'ep-tab-edit' => 'עריכה',
@@ -10783,7 +10789,7 @@ $messages['he'] = array(
 	'logentry-campus-selfadd' => '$1 {{GENDER:$2|הוסיף את עצמו|הוסיפה את עצמה}} כ{{GENDER:$2|מתנדב קמפוס|מתנדבת קמפוס}} לקורס $3',
 	'logentry-campus-selfremove' => '$1 {{GENDER:$2|הסיר את עצמו|הסירה את עצמה}} כ{{GENDER:$2|מתנדב קמפוס|מתנדבת קמפוס}} מקורס $3',
 	'logentry-campus-profilesave' => '$1 {{GENDER:$2|עדכן|עדכנה}} את פרופיל {{GENDER:$2|מתנדב הקמפוס שלו|מתנדבת הקמפוס שלה}}',
-	'logentry-student-add' => '$1 {{GENDER:$2|נרשם|נרשמה}} לקורס $3',
+	'logentry-student-add' => '$1 {{GENDER:$2|נרשם|נרשמה}} לקורס $3', # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{PLURAL:$4|{{GENDER:$5|התלמיד|התלמידה}}|התלמידים}} $5 מהקורס $3',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|נרשם|נרשמה}} לקורס $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|עזב|עזבה}} את הקורס $3',
@@ -13257,6 +13263,8 @@ $messages['it'] = array(
 	'ep-err-failed-to-save' => 'Qualcosa è andato storto: le modifiche non sono state salvate.',
 	'ep-err-course-exists-title' => 'Errore: corso esistente',
 	'ep-err-course-exists-text' => 'Stai tentando di creare il corso $1, ma già esiste.',
+	'ep-err-org-exists-title' => 'Errore: istituto esistente',
+	'ep-err-org-exists-text' => "Stai tentando di creare l'istituto $1, ma già esiste.",
 	'ep-didyouknow-header' => 'Lo sapevi che... ?',
 	'ep-tab-view' => 'Leggi',
 	'ep-tab-edit' => 'Modifica',
@@ -13321,7 +13329,7 @@ $messages['it'] = array(
 	'logentry-campus-selfadd' => '$1 ha aggiunto {{GENDER:$2|se stesso|se stessa}} come {{GENDER:$2|volontario|volontaria}} del campus al corso $3',
 	'logentry-campus-selfremove' => '$1 ha rimosso {{GENDER:$2|se stesso|se stessa}} come {{GENDER:$2|volontario|volontaria}} del campus dal corso $3',
 	'logentry-campus-profilesave' => '$1 ha aggiornato il suo profilo di {{GENDER:$2|volontario|volontaria}} del campus',
-	'logentry-student-add' => '$1 ha iscritto $5 come {{PLURAL:$4|{{GENDER:$5|studente|studentessa|studente/essa}}|studenti}} al corso $3', # Fuzzy
+	'logentry-student-add' => '$1 {{GENDER:$2|ha iscritto}} $5 come {{PLURAL:$4|{{GENDER:$5|studente|studentessa|studente/essa}}|studenti}} al corso $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|ha rimosso}} $5 come {{PLURAL:$4|{{GENDER:$5|studente|studentessa}}|{{GENDER:$5|studenti|studentesse}}}} dal corso $3',
 	'logentry-student-selfadd' => '$1 si è iscritto al corso $3',
 	'logentry-student-selfremove' => '$1 si è disiscritto dal corso $3',
@@ -13585,8 +13593,15 @@ L'elenco delle relative cancellazioni e degli spostamenti viene riportato di seg
 	'ep-editcourse' => 'Stai modificando un corso già esistente.',
 	'ep-editcourse-exists-already' => 'Questo corso già esiste. Lo stai modificando.',
 	'ep-addstudents-section' => 'Aggiungi studenti a questo corso',
+	'ep-addstudents-instructions' => 'Inserisci i nomi utente degli studenti che vuoi aggiungere. Premi invio dopo ognuno di loro, o clicca sul menù che appare. Puoi anche incollare un\'elenco di nomi.
+
+	Clicca su "{{int:ep-addstudents-btn}}" quando hai finito.',
+	'ep-addstudents-url-instructions' => 'Nota: gli studenti possono anche aggiungersi da soli aprendo questo collegamento nel browser web:',
 	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Questo utente non esiste|Questi utenti non esistono}}: $2',
 	'ep-addstudents-btn' => 'Aggiungi',
+	'ep-addstudents-success' => 'Hai aggiunto $1 {{PLURAL:$1|{{GENDER:$2|studente|studentessa|studente/essa}}|studenti}} a questo corso.',
+	'ep-addstudents-alreadyenrolled' => '{{PLURAL:$1|{{GENDER:$3|Lo studente non è stato aggiunto|La studentessa non è stata aggiunta}} perché fa|I seguenti studenti non sono stati aggiunti perché fanno}} già parte del corso: $2',
+	'ep-addstudents-servercallerror' => "Si è verificato il seguente errore durante l'aggiunta degli studenti: $1.",
 	'coursepage-edit-title-edit' => 'Modifica corso: $1',
 	'coursepage-edit-title-add' => 'Aggiungi corso: $1',
 	'coursepage-edit-deleted' => "'''Attenzione: si sta per ricreare un corso già cancellato in passato.'''
@@ -13928,6 +13943,9 @@ Puoi trovare l'elenco completo degli studenti in [[Special:Students|questa lista
 	'ep-echo-pref-tooltip' => 'Notificami su eventi relativi ai corsi del programma di istruzione in cui sono coinvolto',
 	'ep-course-talk-link-text-view-message' => 'Vedi messaggio',
 	'ep-course-talk-link-text-view-changes' => 'Vedi modifiche',
+	'ep-course-talk-notification-title' => 'La [[$2|pagina di discussione del corso di $3]] è stata {{GENDER:$1|modificata}} da [[User:$1|$1]].',
+	'ep-course-talk-notification-title-email-subject' => 'La pagina di discussione del corso di $2 è stata {{GENDER:$1|modificata}} da $1.',
+	'ep-course-talk-notification-title-email-body' => 'La pagina di discussione del corso di $2 è stata {{GENDER:$1|modificata}} da $1.',
 );
 
 /** Japanese (日本語)
@@ -16143,9 +16161,26 @@ $messages['ko'] = array(
 	'ep-dashboard-login-first' => '내 과정을 보려면 로그인해야 합니다.',
 	'ep-dashboard-timeline-empty' => '이 과정에 대한 최근 활동이 없습니다.',
 	'ep-dashboard-enroll-first' => '현재 활동중인 과정에 참여하지 않았습니다. [[Special:Courses|과정 목록]]을 볼 수 있습니다.',
+	'ep-user-roles-message-main-student' => '[[$1|$2]] 사용자는 {{PLURAL:$4|$3}} 과정의 {{GENDER:$2|학생입니다}}.',
+	'ep-user-roles-message-main-instructor' => '[[$1|$2]] 사용자는 {{PLURAL:$4|$3}} 과정의 {{GENDER:$2|강사입니다}}.',
+	'ep-user-roles-message-main-online' => '[[$1|$2]] 사용자는 {{PLURAL:$4|$3}} 과정의 {{GENDER:$2|온라인 자원봉사자입니다}}.',
+	'ep-user-roles-message-main-campus' => '[[$1|$2]] 사용자는 {{PLURAL:$4|$3}} 과정의 {{GENDER:$2|캠퍼스 자원봉사자입니다}}.',
 	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|과정 토론]])',
+	'ep-user-roles-message-main-many-student' => '[[$1|$2]] 사용자는 [[$4|$3 {{PLURAL:$3|이 과정}}]]의 {{GENDER:$2|학생입니다}}.',
+	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] 사용자는 $3 {{PLURAL:$3|과정}}의 {{GENDER:$2|강사입니다}}.',
+	'ep-user-roles-message-main-many-online' => '[[$1|$2]] 사용자는 $3 {{PLURAL:$3|과정}}의 {{GENDER:$2|온라인 자원봉사자입니다}}.',
+	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] 사용자는  $3 {{PLURAL:$3|과정}}의 {{GENDER:$2|캠퍼스 자원봉사자입니다}}.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|이 사용자는}} 또한 $2입니다.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|학생}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|강사}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|온라인 자원봉사자}}',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|캠퍼스 자원봉사자}}',
+	'echo-category-title-education-program' => '교육 프로그램',
+	'ep-echo-pref-tooltip' => '참가 중인 교육 프로그램 과정에 관한 이벤트 알림을 받겠습니다.',
 	'ep-course-talk-link-text-view-message' => '메시지 보이기',
 	'ep-course-talk-link-text-view-changes' => '차이 보기',
+	'ep-course-talk-notification-title' => '[[$2|$3 과정 토론 페이지]]는 [[User:$1|$1]] 사용자가 {{GENDER:$1|편집하였습니다}}.',
+	'ep-course-talk-notification-title-email-subject' => '$2 과정 토론 페이지는 $1 사용자가 {{GENDER:$1|편집하였습니다}}.',
 );
 
 /** Colognian (Ripoarisch)
@@ -17090,6 +17125,7 @@ $messages['lt'] = array(
 $messages['lv'] = array(
 	'ep-addstudents-section' => 'Pievienot studentus šim kursam',
 	'ep-addstudents-btn' => 'Pievienot',
+	'ep-course-talk-link-text-view-message' => 'Apskatīt ziņojumu',
 );
 
 /** Minangkabau (Baso Minangkabau)
@@ -17905,7 +17941,8 @@ $messages['ml'] = array(
  */
 $messages['mr'] = array(
 	'group-epinstructor' => 'अभ्यासक्रमाचे निदेशक',
-	'echo-category-title-education-program' => 'शिक्षण कार्यक्रम',
+	'ep-addstudents-btn' => 'जोडा',
+	'echo-category-title-education-program' => 'प्रशिक्षण कार्यक्रम',
 	'ep-course-talk-link-text-view-message' => 'संदेश बघा',
 	'ep-course-talk-link-text-view-changes' => 'बदल बघा',
 );
