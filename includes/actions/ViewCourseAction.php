@@ -420,9 +420,13 @@ class ViewCourseAction extends ViewAction {
 		);
 
 		// URL for enroll link (not a live link, but rather text for pasting)
+
+		$token = $course->getField( 'token' );
+		$tokenSuffix = $token === '' ? '' : '/' . $token;
+
 		$enrollLink = SpecialPage::getTitleFor(
-			'Enroll', $course->getField( 'title' ) . '/' .
-			$course->getField( 'token' ) )->getFullUrl();
+			'Enroll', $course->getField( 'title' ) . $tokenSuffix )
+			->getFullUrl( '', false, PROTO_CANONICAL );
 
 		$html .= Html::element(
 			'p',
