@@ -1018,7 +1018,9 @@ Additional parameters:
 {{logentry}}',
 	'logentry-campus-profilesave' => '{{doc-singularthey}}
 {{logentry}}',
-	'logentry-student-add' => '{{logentry}}',
+	'logentry-student-add' => '{{logentry}}
+* $4 is the number of students who were enrolled.
+* $5 is the gender of a the student, if only one student was enrolled.',
 	'logentry-student-remove' => '{{logentry}}
 Additional parameters:
 * $4 - the number of added/removed people
@@ -8577,7 +8579,7 @@ $messages['fa'] = array(
 	'ep-echo-pref-tooltip' => 'من را از اتفاقات مرتبط با دروس برنامهٔ آموزشی که در آن درگیر هستم، مطلع کنید.',
 	'ep-course-talk-link-text-view-message' => 'نمایش پیام',
 	'ep-course-talk-link-text-view-changes' => 'نمایش تغییرات',
-	'ep-course-talk-notification-title' => '[[$2|صفحهٔ گفتگوی دورهٔ $3]] توسط [[کاربر:$1|$1]] {{GENDER:$1|ویرایش شده}} بود.', # Fuzzy
+	'ep-course-talk-notification-title' => '[[$2|صفحهٔ گفتگوی دورهٔ $3]] توسط [[User:$1|$1]] {{GENDER:$1|ویرایش شده}} بود.',
 	'ep-course-talk-notification-title-email-subject' => 'صفحهٔ گفتگوی درس $2 بود {{GENDER:$1|ویرایش شده}} توسط $1.',
 	'ep-course-talk-notification-title-email-body' => 'صفحهٔ گفتگوی درس $2 بود {{GENDER:$1|ویرایش شده}} توسط $1.',
 );
@@ -10809,7 +10811,7 @@ $messages['he'] = array(
 	'logentry-campus-selfadd' => '$1 {{GENDER:$2|הוסיף את עצמו|הוסיפה את עצמה}} כ{{GENDER:$2|מתנדב קמפוס|מתנדבת קמפוס}} לקורס $3',
 	'logentry-campus-selfremove' => '$1 {{GENDER:$2|הסיר את עצמו|הסירה את עצמה}} כ{{GENDER:$2|מתנדב קמפוס|מתנדבת קמפוס}} מקורס $3',
 	'logentry-campus-profilesave' => '$1 {{GENDER:$2|עדכן|עדכנה}} את פרופיל {{GENDER:$2|מתנדב הקמפוס שלו|מתנדבת הקמפוס שלה}}',
-	'logentry-student-add' => '$1 {{GENDER:$2|נרשם|נרשמה}} לקורס $3', # Fuzzy
+	'logentry-student-add' => '$1 {{GENDER:$2|רשם|רשמה}} את $5 בתור {{PLURAL:$4|{{GENDER:$5|תלמיד|תלמידה}}|תלמידים}} בקורס $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|הסיר|הסירה}} את {{PLURAL:$4|{{GENDER:$5|התלמיד|התלמידה}}|התלמידים}} $5 מהקורס $3',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|נרשם|נרשמה}} לקורס $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|עזב|עזבה}} את הקורס $3',
@@ -11072,6 +11074,8 @@ $messages['he'] = array(
 	'ep-addcourse' => 'עדיין אין קורס בשם זה, אך אפשר להוסיף אותו.',
 	'ep-editcourse' => 'הנכם עורכים קורס קיים.',
 	'ep-editcourse-exists-already' => 'קורס זה כבר קיים. הנכם עורכים אותו.',
+	'ep-addstudents-section' => 'כל התלמידים בקורס הזה',
+	'ep-addstudents-btn' => 'הוספה',
 	'coursepage-edit-title-edit' => 'עריכת קורס: $1',
 	'coursepage-edit-title-add' => 'הוספת קורס: $1',
 	'coursepage-edit-deleted' => "'''אזהרה: הנכם יוצרים קורס חדש שנמחק בעבר.'''
@@ -22687,6 +22691,7 @@ $messages['ru'] = array(
 	'ep-move-error' => 'Вам не разрешено перемещать статьи в или из образовательного пространства имён.',
 	'ep-student-view-profile' => 'Профиль Студента',
 	'ep-err-failed-to-save' => 'Что-то пошло не так — ваши изменения не были сохранены.',
+	'ep-err-course-exists-title' => 'Ошибка: Курс существует',
 	'ep-didyouknow-header' => 'Знаете ли вы...?',
 	'ep-tab-view' => 'Читать',
 	'ep-tab-edit' => 'Редактировать',
@@ -22892,6 +22897,7 @@ $messages['ru'] = array(
 	'ep-course-edit-level' => 'Уровень курса',
 	'ep-course-edit-name' => 'Название курса',
 	'ep-course-edit-lang' => 'Язык курса',
+	'ep-addstudents-btn' => 'Добавить',
 	'coursepage-edit-title-edit' => 'Редактирование курса: $1',
 	'coursepage-edit-title-add' => 'Добавление курса: $1',
 	'ep-course-invalid-org' => 'Это учреждение не существует.',
@@ -22899,6 +22905,7 @@ $messages['ru'] = array(
 	'ep-course-no-slashes' => 'Название курса не должен содержать символы косой черты!',
 	'coursepage-edit-undelete-revisions' => 'Этот курс был удален. Вы можете $1.',
 	'coursepage-edit-undelete-link' => 'восстановить {{PLURAL:$1|$1 версию|$1 версий|$1 версии|1=версию}}',
+	'ep-pager-delete-fail' => 'Не удалось удалить этот элемент.',
 	'ep-institution-title' => 'Учреждение: $1',
 	'vieworgaction-summary-name' => 'Имя',
 	'vieworgaction-summary-city' => 'Город',
@@ -22939,6 +22946,7 @@ $messages['ru'] = array(
 	'orgpage-epundo-summary' => 'Причина:',
 	'orgpage-epundo-cancel-button' => 'Отмена',
 	'coursepage-epundo-summary' => 'Причина:',
+	'coursepage-epundo-undo-button' => 'Отменить правку',
 	'coursepage-epundo-cancel-button' => 'Отмена',
 	'coursepage-epundelete-summary' => 'Причина:',
 	'coursepage-epundelete-cancel-button' => 'Отмена',
@@ -23005,6 +23013,11 @@ $messages['ru'] = array(
 	'ep-timeline-users-edit-article' => "$1 отредактировал{{PLURAL:$5|1={{GENDER:$6||а}}|и}} статью '''[[$2]]'''.",
 	'ep-timeline-users-create-article' => "$1 создал{{GENDER:$6||а}} статью '''[[$2]]'''.",
 	'ep-timeline-users-create-user' => "$1 создал{{GENDER:$6||а}} страницу участника '''[[$2|$3]]'''.",
+	'ep-user-roles-message-rolename-student' => 'студент{{GENDER:$1||ка}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|инструктор}}',
+	'echo-category-title-education-program' => 'Образовательная программа',
+	'ep-course-talk-link-text-view-message' => 'Просмотр сообщения',
+	'ep-course-talk-link-text-view-changes' => 'Просмотр изменений',
 );
 
 /** Rusyn (русиньскый)
@@ -23572,7 +23585,7 @@ $messages['sr-ec'] = array(
 	'eporgpager-yes' => 'Да',
 	'eporgpager-no' => 'Не',
 	'ep-pager-cancel-button-org' => 'Откажи',
-	'ep-pager-delete-button-org' => 'Уклони {{PLURAL:$1|1=установу|установе}}', # Fuzzy
+	'ep-pager-delete-button-org' => 'Обриши {{PLURAL:$1|установу|установе}}',
 	'ep-pager-retry-button-org' => 'Пробај опет',
 	'ep-pager-summary-message-org' => 'Опис:',
 	'epcoursepager-header-name' => 'Име',
@@ -23589,7 +23602,7 @@ $messages['sr-ec'] = array(
 	'epcoursepager-filter-status' => 'Статус',
 	'epcoursepager-invalid-lang' => 'Неисправан језик',
 	'ep-pager-cancel-button-course' => 'Откажи',
-	'ep-pager-delete-button-course' => 'Уклони {{PLURAL:$1|1=курс|курсеве}}', # Fuzzy
+	'ep-pager-delete-button-course' => 'Обриши {{PLURAL:$1|курс|курсеве}}',
 	'ep-pager-retry-button-course' => 'Пробај опет',
 	'ep-pager-summary-message-course' => 'Опис:',
 	'epstudentpager-header-user-id' => 'Корисничко име',
@@ -23827,6 +23840,8 @@ $messages['sr-el'] = array(
 	'ep-nav-orgs' => 'Spisak ustanova',
 	'ep-nav-courses' => 'Spisak kurseva',
 	'ep-nav-mycourses' => 'Moji kursevi', # Fuzzy
+	'ep-pager-delete-button-org' => 'Obriši {{PLURAL:$1|ustanovu|ustanove}}',
+	'ep-pager-delete-button-course' => 'Obriši {{PLURAL:$1|kurs|kurseve}}',
 	'ep-online-add-cancel-button' => 'Otkaži',
 	'ep-online-summary-input' => 'Opis:',
 	'ep-online-name-input' => 'Korisničko ime:',
