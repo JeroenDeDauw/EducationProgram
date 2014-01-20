@@ -3421,6 +3421,7 @@ $messages['bg'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Tauhid16
  */
 $messages['bn'] = array(
 	'ep-item-summary' => 'সারাংশ',
@@ -3433,6 +3434,10 @@ $messages['bn'] = array(
 	'tooltip-ep-form-save' => 'সংরক্ষণ',
 	'specialpages-group-education' => 'শিক্ষা',
 	'special-institutions' => 'প্রতিষ্ঠান',
+	'ep-addstudents-btn' => 'যোগ করুন',
+	'echo-category-title-education-program' => 'শিক্ষামূলক কর্মসূচি',
+	'ep-course-talk-link-text-view-message' => 'বার্তা দেখাও',
+	'ep-course-talk-link-text-view-changes' => 'পরিবর্তনসমূহ দেখাও',
 );
 
 /** Breton (brezhoneg)
