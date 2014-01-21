@@ -3487,6 +3487,7 @@ $messages['br'] = array(
 	'logentry-student-add' => "$1 a zo en em enskrivet d'ar gentel $3", # Fuzzy
 	'prefs-education' => 'Deskadurezh',
 	'right-ep-course' => 'Merañ kentelioù ar programm deskadurezh',
+	'right-ep-remstudent' => 'tennañ studierien eus kentelioù',
 	'right-ep-bulkdelorgs' => 'Dilemel ensavadurioù a-vras',
 	'right-ep-bulkdelcourses' => 'Dilemel kentelioù a-vras',
 	'right-ep-remarticle' => 'Distagan ar pennadoù diouzh ar studierien',
@@ -3627,6 +3628,7 @@ $messages['br'] = array(
 	'ep-course-edit-name' => 'Anv ar gentel',
 	'ep-course-edit-lang' => 'Yezh ar gentel',
 	'ep-addstudents-section' => "Ouzhpennañ studierien d'ar c'hentelioù-mañ",
+	'ep-addstudents-btn' => 'Ouzhpennañ',
 	'coursepage-edit-title-add' => "Ouzhpennañ ar c'hentelioù : $1",
 	'ep-course-invalid-org' => "N'eus ket eus an ensavadur-mañ",
 	'ep-course-invalid-token' => 'Er jedouer e rank bezañ da nebeutañ $1 {{PLURAL:$1|arouezenn}}.',
@@ -7586,7 +7588,7 @@ Allpool on ära toodud seonduvad kustutuslogi sissekanded:",
 	'vieworgaction-summary-country' => 'Riik',
 	'vieworgaction-summary-status' => 'Olek',
 	'vieworgaction-summary-courses' => 'Kursuste arv',
-	'vieworgaction-summary-students' => 'Õppurite arv',
+	'vieworgaction-summary-students' => 'Õpilaste arv',
 	'ep-institution-add-course' => 'Kursuse lisamine',
 	'ep-institution-inactive' => 'Mitteaktiivne',
 	'ep-institution-active' => 'Aktiivne',
@@ -19339,6 +19341,7 @@ $messages['nds'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Arent
  * @author Konovalov
  * @author McDutchie
  * @author SPQRobin
@@ -19357,6 +19360,7 @@ $messages['nl'] = array(
 	'ep-move-error' => "U mag pagina's niet hernoemen in of uit de naamruimten voor het onderwijsprogramma.",
 	'ep-student-view-profile' => 'studentenprofiel',
 	'ep-err-failed-to-save' => 'Er is iets misgegaan. Uw wijzigingen zijn niet opgeslagen.',
+	'ep-err-org-exists-text' => 'U probeert de instelling $1 te maken, maar deze is al aanwezig.',
 	'ep-didyouknow-header' => 'Wist u dat...?',
 	'ep-tab-view' => 'Lezen',
 	'ep-tab-edit' => 'Bewerken',
@@ -19421,7 +19425,7 @@ $messages['nl'] = array(
 	'logentry-campus-selfadd' => '$1 heeft {{GENDER:$2|zichzelf|haarzelf}} als Campusvrijwilliger toegevoegd aan de cursus $3',
 	'logentry-campus-selfremove' => '$1 heeft {{GENDER:$2|zichzelf|haarzelf}} als Campusvrijwilliger verwijderd van de cursus $3',
 	'logentry-campus-profilesave' => '$1 heeft {{GENDER:$2|zijn|haar}} Campusvrijwilligersprofiel bijgewerkt',
-	'logentry-student-add' => '$1 heeft zich ingeschreven voor de cursus $3',
+	'logentry-student-add' => '$1 {{GENDER:$2|schreef}} $5 in als {{PLURAL:$4|   {{GENDER:$5|student}}|studenten}} in cursus $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|heeft}} $5 verwijderd als {{PLURAL:$4|{{GENDER:$5|student|studente}}|studenten}} uit de cursus $3',
 	'logentry-student-selfadd' => '$1 heeft zich ingeschreven voor de cursus $3',
 	'logentry-student-selfremove' => '$1 heeft zich uitgeschreven voor de cursus $3',
@@ -19684,6 +19688,16 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-addcourse' => 'Er is nog geen cursus met deze naam, maar die kunt u toevoegen.',
 	'ep-editcourse' => 'U bent een bestaande cursus aan het bewerken.',
 	'ep-editcourse-exists-already' => 'Deze cursus bestaat al. U bent deze aan het bewerken.',
+	'ep-addstudents-section' => 'Voeg studenten toe aan deze cursus',
+	'ep-addstudents-instructions' => 'Typ de gebruikersnamen van de studenten die u wilt toevoegen. Druk op Enter na ieder naam, of klik op het menu dat verschijnt. U kunt ook een lijst met gebruikersnamen plakken.
+
+Klik op "{{int:ep-addstudents-btn}}" wanneer u klaar bent.',
+	'ep-addstudents-url-instructions' => 'Merk op dat studenten zichzelf kunnen toevoegen door het openen van de volgende link in hun webbrowser:',
+	'ep-addstudents-invalid-users' => 'Deze {{PLURAL:$1|gebruiker bestaat|gebruikers bestaan}} niet: $2.',
+	'ep-addstudents-btn' => 'Toevoegen',
+	'ep-addstudents-success' => 'U hebt $1 {{PLURAL:$1|{{GENDER:$2|student}} |studenten}} toegevoegd voor deze cursus.',
+	'ep-addstudents-alreadyenrolled' => 'De volgende {{PLURAL:$1|student was|studenten waren}}  niet toegevoegd omdat {{GENDER:$3|hij|zij|zij}} al in de cursus aanwezig {{PLURAL:$1|was|waren}}:  $2 .',
+	'ep-addstudents-servercallerror' => 'Tijdens het toevoegen van studenten werden is de volgende fout opgetreden:  $1.',
 	'coursepage-edit-title-edit' => '$1: bezig met het bewerken van de cursus',
 	'coursepage-edit-title-add' => '$1: bezig met het toevoegen van de cursus',
 	'coursepage-edit-deleted' => "'''Waarschuwing: u bent bezig met het aanmaken van een cursus die in het verleden verwijderd is.'''
