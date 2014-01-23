@@ -3542,8 +3542,10 @@ $messages['br'] = array(
 	'ep-courses-neworg' => 'Ensavadur :',
 	'ep-courses-add' => 'Ouzhpennañ ar gentel',
 	'ep-students-noresults' => "N'eus studier ebet er roll.",
+	'ep-pager-showonly' => 'Diskouez hepken an elfennoù gant',
 	'ep-pager-clear' => 'Riñsañ ar siloù',
 	'ep-pager-go' => 'Mont',
+	'ep-pager-withselected' => 'Gant ar re diuzet',
 	'ep-pager-delete-selected' => 'Diverkañ',
 	'ep-revision-undo' => 'dizober',
 	'ep-revision-restore' => 'assevel',
@@ -3559,8 +3561,11 @@ $messages['br'] = array(
 	'eporgpager-no' => 'Ket',
 	'ep-pager-cancel-button-org' => 'Nullañ',
 	'ep-pager-delete-button-org' => 'Dilemel an {{PLURAL:$1|ensavadur|ensavadurioù}}',
+	'ep-pager-confirm-delete-org' => 'Kadarnaat dilamadur {{PLURAL:$1|an ensavadur|meur a ensavadur}}',
 	'ep-pager-retry-button-org' => 'Adklask',
 	'ep-pager-summary-message-org' => 'Diverrañ :',
+	'ep-pager-confirm-message-org' => "Emaoc'h war-nes dilemel an ensavadur $1. Lamet e vo an holl gentelioù hag an holl studierien stag outañ !",
+	'ep-pager-confirm-message-org-many' => "Emaoc'h war-nes dilemel an ensavadurioù-mañ : $1. Lamet e vo an holl gentelioù hag an holl studierien stag outo!",
 	'epcoursepager-header-name' => 'Anv',
 	'epcoursepager-header-term' => 'Trimiziad',
 	'epcoursepager-header-start' => 'Deroù',
@@ -3721,6 +3726,7 @@ $messages['br'] = array(
 	'ep-instructor-remove-title' => "Lemel ur c'helenner diouzh ar c'hentelioù",
 	'ep-instructor-remove-button' => "Lemel ar c'helenner",
 	'ep-instructor-removing' => 'O lemel...',
+	'ep-instructor-removal-success' => "Lamet eo bet ar c'helenner eus ar c'hentelioù.",
 	'ep-instructor-close-button' => 'Serriñ',
 	'ep-instructor-remove-retry' => 'Klask en-dro',
 	'ep-instructor-cancel-button' => 'Nullañ',
@@ -3766,6 +3772,7 @@ $messages['br'] = array(
 	'ep-diff-old' => 'Talvoud red',
 	'ep-diff-new' => 'Talvoud nevez',
 	'ep-timeline-remaining' => '$1 {{PLURAL:$1|all}}',
+	'ep-timeline-unknown' => "$1 en doa graet un dra bennak d'an $2, da $3",
 	'ep-timeline-ago' => '$1 zo',
 	'ep-timeline-cutoff' => '$1 ...',
 	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|ur studier|ur studierez}}',
@@ -4001,6 +4008,10 @@ $messages['cs'] = array(
 	'ep-move-error' => 'Nemůžete přesunovat články do nebo z jmenného prostoru vzdělání.',
 	'ep-student-view-profile' => 'profil studenta',
 	'ep-err-failed-to-save' => 'Někde se stala chyba - Vaše změny nebyly uloženy.',
+	'ep-err-course-exists-title' => 'Chyba: kurz existuje',
+	'ep-err-course-exists-text' => 'Pokoušíte se vytvořit kurz $1, který již existuje.',
+	'ep-err-org-exists-title' => 'Chyba: instituce existuje',
+	'ep-err-org-exists-text' => 'Pokoušíte se vytvořit instituci $1, která již existuje.',
 	'ep-didyouknow-header' => 'Věděli jste...?',
 	'ep-tab-view' => 'Číst',
 	'ep-tab-edit' => 'Upravit',
@@ -4065,7 +4076,7 @@ $messages['cs'] = array(
 	'logentry-campus-selfadd' => '$1 se {{GENDER:$2|přidal|přidala|přidal/a}} jako {{GENDER:$2|Dobrovolník dostupný osobně}} do kurzu $3',
 	'logentry-campus-selfremove' => '$1 se {{GENDER:$2|smazal|smazala|smazal/a}} jako {{GENDER:$2|Dobrovolníka dostupného osobně}} z kurzu $3',
 	'logentry-campus-profilesave' => '$1 {{GENDER:$2|aktualizoval|aktualizovala|aktualizoval/a}} svůj profil Dobrovolníka dostupného osobně',
-	'logentry-student-add' => '$1 se {{GENDER:$2|zapsal|zapsala|zapsal/a}} do kurzu $3', # Fuzzy
+	'logentry-student-add' => '$1 {{GENDER:$2|zapsal|zapsala|zapsal/a}} $5 jako {{PLURAL:$4|{{GENDER:$5|studenta}}|studenty}} do kurzu $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|smazal|smazala|smazal/a}} $5 jako {{PLURAL:$4|{{GENDER:$5|studenta}}|studenty}} z kurzu $3',
 	'logentry-student-selfadd' => '$1 se {{GENDER:$2|zapsal|zapsala|zapsal/a}} do kurzu $3',
 	'logentry-student-selfremove' => '$1 se {{GENDER:$2|odhlásil|odhlásila|odhlásil/a}} z kurzu $3',
@@ -4328,6 +4339,13 @@ Záznam smazání této instituce:",
 	'ep-addcourse' => 'Neexistuje žádný kurz s tímto názvem, ale můžete jej přidat.',
 	'ep-editcourse' => 'Editujete existující kurz.',
 	'ep-editcourse-exists-already' => 'Tento kurz již existuje. Právě jej editujete.',
+	'ep-addstudents-section' => 'Přidat studenty do tohoto kurzu',
+	'ep-addstudents-instructions' => 'Zadejte uživatelská jména studentů, které chcete přidat. Za každým z nich stiskněte klávesu Enter, nebo klepněte na nabídku, která se zobrazí. Můžete také vložit seznam jmen.
+
+	Klikněte na "{{int:ep-addstudents-btn}}" až budete hotovi.',
+	'ep-addstudents-url-instructions' => 'Berte na vědomí, že studenti se mohou také sami přidat po otevření tohoto odkazu ve svém webovém prohlížeči:',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Tento uživatel neexistuje|Tito uživatelé neexistují}}: $2.',
+	'ep-addstudents-btn' => 'Přidat',
 	'coursepage-edit-title-edit' => 'Úprava kurzu: $1',
 	'coursepage-edit-title-add' => 'Přidání kurzu: $1',
 	'coursepage-edit-deleted' => "'''Pozor: Znova přidáváte kurz, která byl v předešlé době smazán.'''
@@ -4615,7 +4633,7 @@ Záznam smazání tohoto kurzu:",
 	'epoa-profile-photo-help' => 'Obrázek, který se obrazí vedle vaší biografie. Vložte název obrázku na Wikimedia Commons a náhled se objeví. Můžete napsat začátek názvu a vybrat obrázek ze seznamu. Pokud ještě nemáte svoji fotku na commons, můžete ji [$1 nahrát]!',
 	'epoa-profile-saved' => 'Váš profil byl uložen',
 	'epoa-profile-invalid-bio' => 'Vaše biografie musí obsahovat alespoň  $1 {{PLURAL:$1|znak|znaky|znaků}}.',
-	'epoa-visible' => 'Veřejně zobrazit jako Online dobrovolník', # Fuzzy
+	'epoa-visible' => 'Veřejně zobrazit {{GENDER:$1|sebe}} jako Online dobrovolníka',
 	'campusambassadorprofile' => 'Profil Dobrovolníka dostupného osobně',
 	'campusambassadorprofile-legend' => 'Váš profil Dobrovolníka dostupného osobně',
 	'campusambassadorprofile-text' => 'Váš profil Dobrovolníka dostupného osobně je to co si studenti mohou prohlédnou pokud procházejí dostupné dobrovolníky.',
@@ -4624,7 +4642,7 @@ Záznam smazání tohoto kurzu:",
 	'epca-profile-photo-help' => 'Obrázek, který se obrazí vedle vaší biografie. Vložte název obrázku na Wikimedia Commons a náhled se objeví. Můžete napsat začátek názvu a vybrat obrázek ze seznamu. Pokud ještě nemáte svoji fotku na commons, můžete ji [$1 nahrát]!',
 	'epca-profile-saved' => 'Váš profil byl uložen',
 	'epca-profile-invalid-bio' => 'Vaše biografie musí obsahovat alespoň  $1 {{PLURAL:$1|znak|znaky|znaků}}.',
-	'epca-visible' => 'Veřejně zobrazit jako Dobrovolník dostupný osobně', # Fuzzy
+	'epca-visible' => 'Veřejně zobrazit {{GENDER:$1|sebe}} jako Dobrovolníka dostupného osobně',
 	'ep-studentactivity-noresults' => 'Nejsou zde studenti, kteří byli aktivní v posledních $1.
 
 Všechny studenty můžete nalézt [[Special:Students|v seznamu studentů]].',
@@ -11859,9 +11877,13 @@ $messages['hu'] = array(
 
 /** Armenian (Հայերեն)
  * @author M hamlet
+ * @author Vadgt
  */
 $messages['hy'] = array(
+	'ep-addstudents-btn' => 'Ավելացնել',
 	'ep-enroll-invalid-name' => 'Անունը պետք է պարունակի նվազագույնը $1 նշան։', # Fuzzy
+	'ep-course-talk-link-text-view-message' => 'Դիտել ուղերձը',
+	'ep-course-talk-link-text-view-changes' => 'Դիտել փոփոխությունները',
 );
 
 /** Interlingua (interlingua)
@@ -16161,7 +16183,7 @@ $messages['ko'] = array(
 	'onlineambassadorprofile-text' => '온라인 지원자 프로필은 학생이 사용할 수 있는 지원자를 탐색할 때 보는 것입니다.',
 	'epoa-profile-bio' => '짧은 약력',
 	'epoa-profile-photo' => '프로필 사진',
-	'epoa-profile-photo-help' => '약력 옆에 보여지는 사진입니다. 위키미디어 공용에 그림 이름을 입력하면 미리 보기가 나타납니다. 그림 이름의 처음 몇 글자를 입력한 다음 제안 목록에서 그림을 선택할 수 있습니다. 아직 공용에 사진이 없다면 [$1 사진을 올리세요]!',
+	'epoa-profile-photo-help' => '약력 옆에 보이는 사진입니다. 위키미디어 공용에 그림 이름을 입력하면 미리 보기가 나타납니다. 그림 이름의 처음 몇 글자를 입력한 다음 제안 목록에서 그림을 선택할 수 있습니다. 아직 공용에 사진이 없다면 [$1 사진을 올리세요]!',
 	'epoa-profile-saved' => '프로필을 저장했습니다',
 	'epoa-profile-invalid-bio' => '약력은 적어도 {{PLURAL:$1|글자}} $1개를 포함해야 합니다.',
 	'epoa-visible' => '온라인 지원자로서 {{GENDER:$1|당신}}을 공개적으로 목록에 포함시키기',
@@ -16170,7 +16192,7 @@ $messages['ko'] = array(
 	'campusambassadorprofile-text' => '캠퍼스 지원자 프로필은 학생이 사용할 수 있는 지원자를 탐색할 때 보는 것입니다.',
 	'epca-profile-bio' => '짧은 약력',
 	'epca-profile-photo' => '프로필 사진',
-	'epca-profile-photo-help' => '약력 옆에 보여지는 사진입니다. 위키미디어 공용에 그림 이름을 입력하면 미리 보기가 나타납니다. 그림 이름의 처음 몇 글자를 입력한 다음 제안 목록에서 그림을 선택할 수 있습니다. 아직 공용에 사진이 없다면 [$1 사진을 올리세요]!',
+	'epca-profile-photo-help' => '약력 옆에 보이는 사진입니다. 위키미디어 공용에 그림 이름을 입력하면 미리 보기가 나타납니다. 그림 이름의 처음 몇 글자를 입력한 다음 제안 목록에서 그림을 선택할 수 있습니다. 아직 공용에 사진이 없다면 [$1 사진을 올리세요]!',
 	'epca-profile-saved' => '프로필을 저장했습니다',
 	'epca-profile-invalid-bio' => '약력은 적어도 {{PLURAL:$1|글자}} $1개를 포함해야 합니다.',
 	'epca-visible' => '캠퍼스 지원자로서 {{GENDER:$1|당신}}을 공개적으로 목록에 포함시키기',
@@ -22690,6 +22712,7 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (русский)
+ * @author Alexandr Efremov
  * @author DCamer
  * @author David1010
  * @author Iluvatar
@@ -22702,8 +22725,10 @@ $messages['roa-tara'] = array(
  * @author Yurik
  */
 $messages['ru'] = array(
+	'educationprogram-desc' => 'Способствует образовательным программам путем добавления различных интерфейсов управления курсами, учреждениями и различных ролей пользователя.',
 	'ep-item-summary' => 'Резюме',
 	'ep-toplink' => 'Курсы',
+	'ep-org-course-delete-comment' => 'Удалено заведение $1 и все курсы с комментарием $2',
 	'ep-org-course-delete' => 'Удалено учреждение $1 и все его курсы',
 	'ep-form-summary' => 'Резюме:',
 	'ep-form-minor' => 'Это незначительные изменения',
@@ -22711,6 +22736,9 @@ $messages['ru'] = array(
 	'ep-student-view-profile' => 'Профиль Студента',
 	'ep-err-failed-to-save' => 'Что-то пошло не так — ваши изменения не были сохранены.',
 	'ep-err-course-exists-title' => 'Ошибка: Курс существует',
+	'ep-err-course-exists-text' => 'Вы пытаетесь создать курс $1, но он уже существует.',
+	'ep-err-org-exists-title' => 'Ошибка: заведение существует',
+	'ep-err-org-exists-text' => 'Вы пытаетесь создать учреждение $1, но оно уже существует.',
 	'ep-didyouknow-header' => 'Знаете ли вы...?',
 	'ep-tab-view' => 'Читать',
 	'ep-tab-edit' => 'Редактировать',
@@ -22730,6 +22758,21 @@ $messages['ru'] = array(
 	'ep-nav-mycourses' => 'Ваши курсы',
 	'ep-nav-students' => 'Список студентов',
 	'ep-nav-mentors' => 'Список добровольцев',
+	'ep-nav-cas' => 'Добровольцы кампуса',
+	'ep-nav-oas' => 'Онлайн-добровольцы',
+	'ep-nav-oaprofile' => 'Профиль онлайн-добровольца',
+	'ep-nav-caprofile' => 'Профиль добровольца кампуса',
+	'log-name-institution' => 'Журнал заведений Образовательной программы',
+	'log-name-course' => 'Журнал курсов Образовательной программы',
+	'log-name-student' => 'Журнал студентов Образовательной программы',
+	'log-name-online' => 'Журнал онлайн-добровольца Образовательной программы',
+	'log-name-campus' => 'Журнал добровольцев кампуса Образовательной программы',
+	'log-name-instructor' => 'Журнал инструкторов Образовательной программы',
+	'log-name-eparticle' => 'Журнал статей Образовательной программы',
+	'log-header-institution' => 'Эти события отслеживают изменения в учреждениях  Образовательной программы.',
+	'log-header-course' => 'Эти события отслеживают изменения в курсах Образовательной программы.',
+	'log-header-instructor' => 'Эти события отслеживают изменения инструкторов в Образовательной программы.',
+	'log-header-campus' => 'Эти события отслеживают изменения у добровольцев кампуса Образовательной программы.',
 	'log-description-institution' => 'Журнал всех изменений в [[Special:Institutions|институтах]].',
 	'log-description-course' => 'Журнал всех изменений в [[Special:Courses|курсах]].',
 	'log-description-student' => 'Журнал всех изменений по [[Special:Students|студентам]].',
@@ -22916,7 +22959,10 @@ $messages['ru'] = array(
 	'ep-course-edit-level' => 'Уровень курса',
 	'ep-course-edit-name' => 'Название курса',
 	'ep-course-edit-lang' => 'Язык курса',
+	'ep-addstudents-section' => 'Добавить студентов на этот курс',
 	'ep-addstudents-btn' => 'Добавить',
+	'ep-addstudents-success' => 'Вы добавили $1 {{PLURAL:$1|{{GENDER:$2|студента}}|студентку}} на этот курс.',
+	'ep-addstudents-alreadyenrolled' => '{{PLURAL:$1|Следующий студент не был добавлен, потому что {{GENDER:$3|он|она|они}}|Следующие студенты не были добавлены, потому что они}} уже есть на курсе: $2.',
 	'coursepage-edit-title-edit' => 'Редактирование курса: $1',
 	'coursepage-edit-title-add' => 'Добавление курса: $1',
 	'ep-course-invalid-org' => 'Это учреждение не существует.',
@@ -23840,7 +23886,7 @@ $messages['sr-ec'] = array(
 	'ep-timeline-ago' => 'пре $1',
 	'ep-timeline-cutoff' => '$1…',
 	'ep-timeline-users-edit-article' => "$1 {{GENDER:$1|је уредио|је уредила|је уредио}} чланак '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|је оставио|је оставила}} {{PLURAL:$4|1=поруку|поруке}} на '''[[$2|страници за разговор]]''' корисника '''[[$3]]'''.", # Fuzzy
+	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|је оставио|је оставила}} {{PLURAL:$4|поруку|поруке}} на '''[[$2|страници за разговор]]''' корисника '''[[$3]]'''.", # Fuzzy
 	'ep-timeline-users-edit-user' => "$1 {{GENDER:$1|је уредио|је уредила|је уредио}} страницу корисника '''[[$2|$3]]'''.", # Fuzzy
 );
 
@@ -23886,7 +23932,7 @@ $messages['sr-el'] = array(
 	'ep-timeline-ago' => 'pre $1',
 	'ep-timeline-cutoff' => '$1…',
 	'ep-timeline-users-edit-article' => "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} članak '''[[$2]]'''.", # Fuzzy
-	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|je ostavio|je ostavila}} {{PLURAL:$4|1=poruku|poruke}} na '''[[$2|stranici za razgovor]]''' korisnika '''[[$3]]'''.", # Fuzzy
+	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|je ostavio|je ostavila}} {{PLURAL:$4|poruku|poruke}} na '''[[$2|stranici za razgovor]]''' korisnika '''[[$3]]'''.", # Fuzzy
 	'ep-timeline-users-edit-user' => "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} stranicu korisnika '''[[$2|$3]]'''.", # Fuzzy
 );
 
@@ -23909,6 +23955,8 @@ $messages['sv'] = array(
 	'ep-move-error' => 'Du får inte flytta artiklar till eller från namnrymden utbildning.',
 	'ep-student-view-profile' => 'studentprofil',
 	'ep-err-failed-to-save' => 'Något gick fel - dina ändringar har inte sparats.',
+	'ep-err-course-exists-title' => 'Fel: Kursen finns',
+	'ep-err-course-exists-text' => 'Du försöker att skapa kursen $1, men den finns redan.',
 	'ep-didyouknow-header' => 'Visste du att ...?',
 	'ep-tab-view' => 'Läs',
 	'ep-tab-edit' => 'Redigera',
@@ -24235,6 +24283,13 @@ Du borde överväga om det är lämpligt att fortsätta skapa denna institution 
 	'ep-addcourse' => 'Det finns ingen kurs med detta namn ännu, men du kan lägga till den.',
 	'ep-editcourse' => 'Du redigerar en existerande kurs.',
 	'ep-editcourse-exists-already' => 'Denna kurs existerar redan. Du redigerar den.',
+	'ep-addstudents-section' => 'Lägg till studenter i denna kurs',
+	'ep-addstudents-instructions' => 'Skriv in användarnamn för de studenter du vill lägga till. Tryck på Enter efter varje användarnamn eller klicka på menyn som dyker upp. Du kan även klistra in en lista över användarnamn.
+
+	Klicka på "{{int:ep-addstudents-btn}}" när du är klar.',
+	'ep-addstudents-btn' => 'Lägg till',
+	'ep-addstudents-success' => 'Du lade till $1 {{PLURAL:$1|{{GENDER:$2|student}}|studenter}} till denna kurs.',
+	'ep-addstudents-alreadyenrolled' => 'Följande {{PLURAL:$1|student lades inte till eftersom {{GENDER:$3|han|hon|denne}}|studenterna lades inte till eftersom de}} redan var i kursen: $2.',
 	'coursepage-edit-title-edit' => 'Redigerar kurs: $1',
 	'coursepage-edit-title-add' => 'Lägger till kurs: $1',
 	'coursepage-edit-deleted' => "'''Varning: Du återskapar en kurs som tidigare raderats.'''
@@ -24557,6 +24612,17 @@ Du finner en komplett lista över studenter på [[Special:Students|studentlistan
 	'ep-dashboard-login-first' => 'Du måste logga in innan du kan visa dina kurser.',
 	'ep-dashboard-timeline-empty' => 'Det fanns ingen senaste aktivitet för denna kurs.',
 	'ep-dashboard-enroll-first' => 'Du deltar för tillfället inte några aktiva kurser. Du kan se [[Special:Courses|lista över kurser]].',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|kursdiskussion]])',
+	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] {{GENDER:$2|är en instruktör}} för $3 {{PLURAL:$3|kurs|kurser}}.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|Han|Hon|Denne}} är även $2.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|en student}}',
+	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|en instruktör}}',
+	'echo-category-title-education-program' => 'Utbildningsprogram',
+	'ep-echo-pref-tooltip' => 'Meddela mig om händelser som rör utbildningsprogrammets kurser jag deltar i.',
+	'ep-course-talk-link-text-view-message' => 'Visa meddelande',
+	'ep-course-talk-link-text-view-changes' => 'Visa ändringar',
+	'ep-course-talk-notification-title' => '[[$2|Kursens diskussionssida för $3]] {{GENDER:$1|redigerades}} av [[User:$1|$1]].',
+	'ep-course-talk-notification-title-email-subject' => 'Kursens diskussionssida för $2 {{GENDER:$1|redigerades}} av $1.',
 );
 
 /** Tamil (தமிழ்)
@@ -27104,6 +27170,7 @@ $messages['ur'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Withoutaname
  * @author පසිඳු කාවින්ද
  */
 $messages['vi'] = array(
@@ -27291,6 +27358,10 @@ $messages['vi'] = array(
 	'ep-timeline-cutoff' => '$1 …',
 	'ep-timeline-users-edit-article' => "{{PLURAL:$5}}{{GENDER:$6}}$1 đã sửa bài '''[[$2]]'''.",
 	'ep-timeline-users-create-article' => "{{GENDER:$6}}$1 đã tạo bài '''[[$2]]'''.",
+	'ep-user-roles-message-additional' => '{{GENDER:$1}}Chúng nó cũng là $2.',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1}}một sinh viên',
+	'ep-course-talk-link-text-view-message' => 'Xem thông điệp',
+	'ep-course-talk-link-text-view-changes' => 'Xem các thay đổi',
 );
 
 /** Yiddish (ייִדיש)
@@ -27702,6 +27773,7 @@ $messages['zh-hans'] = array(
 	'ep-editcourse' => '您正在编辑一个已经存在的课程。',
 	'ep-editcourse-exists-already' => '此课程已存在。您正在编辑它。',
 	'ep-addstudents-btn' => '添加',
+	'ep-addstudents-servercallerror' => '当加入学生时，出现了如下错误：$1。',
 	'coursepage-edit-title-edit' => '编辑课程：$1',
 	'coursepage-edit-title-add' => '添加课程：$1',
 	'coursepage-edit-deleted' => "'''警告：您正在重新创建之前删除过的课程。'''
@@ -27933,6 +28005,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author Justincheng12345
+ * @author Liuxinyu970226
  * @author Radish10cm
  * @author Shirayuki
  * @author Simon Shek
@@ -28013,7 +28086,7 @@ $messages['zh-hant'] = array(
 	'logentry-campus-selfadd' => '$1已增加{{GENDER:$2|自己}}為$3課程的校園義工',
 	'logentry-campus-selfremove' => '$1已取消{{GENDER:$2|自己}}為$3課程的網上義工',
 	'logentry-campus-profilesave' => '$1更新了{{GENDER:$2|自己}}的校園義工個人資料',
-	'logentry-student-add' => '$1{{GENDER:$2|已參加}}$3課程',
+	'logentry-student-add' => '$1{{GENDER:$2|已參加}}$3課程', # Fuzzy
 	'logentry-student-remove' => '$1從$3課程{{GENDER:$2|移除}}{{PLURAL:$4|此|以下}}學生：$5',
 	'logentry-student-selfadd' => '$1{{GENDER:$2|已參加}}$3課程',
 	'logentry-student-selfremove' => '$1{{GENDER:$2|已退出}}$3課程',
@@ -28200,6 +28273,7 @@ $messages['zh-hant'] = array(
 	'ep-course-edit-name' => '課程名稱',
 	'ep-course-edit-lang' => '課程語言',
 	'ep-editcourse' => '您正在編輯一個已經存在的課程。',
+	'ep-addstudents-servercallerror' => '當加入學生時，出現下述錯誤：$1。',
 	'ep-institution-title' => '學院：$1',
 	'vieworgaction-summary-name' => '名稱',
 	'vieworgaction-summary-city' => '城市',
