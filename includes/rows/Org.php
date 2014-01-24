@@ -35,6 +35,10 @@ class Org extends PageObject {
 
 		$fields = array();
 
+		// make sure we're getting up-to-date info about courses
+		$origCourseReadDB = Courses::singleton()->getReadDb();
+		Courses::singleton()->setReadDb( DB_MASTER );
+
 		if ( in_array( 'course_count', $summaryFields ) || in_array( 'courses', $summaryFields ) ) {
 			$fields['courses'] = Courses::singleton()->selectFields( 'id', array( 'org_id' => $this->getId() ) );
 			$fields['course_count'] = count( $fields['courses'] );
@@ -58,6 +62,9 @@ class Org extends PageObject {
 				) )
 			)->sum;
 		}
+
+		// switch the readDB for courses back to whatever it was before
+		Courses::singleton()->setReadDb( $origCourseReadDB );
 
 		$this->setFields( $fields );
 	}
