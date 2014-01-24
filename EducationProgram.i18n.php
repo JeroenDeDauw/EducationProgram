@@ -446,7 +446,7 @@ The deletion log for this institution is provided below for convenience:",
 	'ep-addstudents-btn' => "Add",
 	'ep-addstudents-success' => "You added $1 {{PLURAL:$1|{{GENDER:$2|student}}|students}} to this course.",
 	'ep-addstudents-alreadyenrolled' => "The following {{PLURAL:$1|student was not added because {{GENDER:$3|he was|she was|they were}}|students were not added because they were}} already in the course: $2.",
-	'ep-addstudents-servercallerror' => 'While addding students, the following error occured: $1.',
+	'ep-addstudents-servercallerror' => 'While adding students, the following error occurred: $1.',
 	'coursepage-edit-title-edit' => 'Editing course: $1',
 	'coursepage-edit-title-add' => 'Adding course: $1',
 	'coursepage-edit-deleted' => "'''Warning: You are recreating a course that was previously deleted.'''
@@ -836,7 +836,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	'ep-dashboard-timeline-empty' => 'There was no recent activity for this course.',
 	'ep-dashboard-enroll-first' => 'You are not currently participating in any active courses. You can view the [[Special:Courses|list of courses]].',
 
-	// User roles messsage
+	// User roles message
 	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|is a student}} in {{PLURAL:$4|$3}}.',
 	'ep-user-roles-message-main-instructor' => '[[$1|$2]] {{GENDER:$2|is an instructor}} for {{PLURAL:$4|$3}}.',
 	'ep-user-roles-message-main-online' => '[[$1|$2]] {{GENDER:$2|is an online volunteer}} for {{PLURAL:$4|$3}}.',
