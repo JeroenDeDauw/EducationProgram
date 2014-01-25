@@ -609,13 +609,18 @@ class Course extends PageObject {
 			}
 
 			if ( $success ) {
-				foreach ( $usersToAddIds as $userId ) {
-					/**
-					 * @var RoleObject $person
-					 */
-					$person = Student::newFromUserId( $userId, true, 'id' );
-					$person->onEnrolled( $this->getId(), $role );
-					$person->save();
+
+				// If we are enrolling students, then add them to the Students
+				// table. There are tables for other roles, but of them, only
+				// the tables for volunteers are used, and it's not necessary
+				// for those tables to be filled automatically.
+				if ( $role === 'student' ) {
+
+					foreach ( $usersToAddIds as $userId ) {
+						$student = Student::newFromUserId( $userId, true, 'id' );
+						$student->onEnrolled( $this->getId(), $role );
+						$student->save();
+					}
 				}
 
 				// If we have a value for $addedUserIds, pass in
