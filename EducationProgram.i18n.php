@@ -6639,6 +6639,7 @@ $messages['eo'] = array(
  * @author Armando-Martin
  * @author Ayaita
  * @author Benfutbol10
+ * @author Carlitosag
  * @author Ciencia Al Poder
  * @author Dalton2
  * @author Fitoschido
@@ -6989,6 +6990,7 @@ El registro de borrado para esta institución se indica a continuación por conv
 	'ep-addcourse' => 'Todavía no hay ningún curso con este nombre, pero puedes agregarlo.',
 	'ep-editcourse' => 'Estás editando un concurso existente.',
 	'ep-editcourse-exists-already' => 'Este curso ya existe. Estás editándolo.',
+	'ep-addstudents-servercallerror' => 'Mientras se agregaba estudiantes, ocurrió el siguiente error: $1.',
 	'coursepage-edit-title-edit' => 'Editando curso: $1',
 	'coursepage-edit-title-add' => 'Agregando curso: $1',
 	'coursepage-edit-deleted' => "'''Atención: estás volviendo a crear un curso que ha sido borrado anteriormente.'''
@@ -27779,6 +27781,8 @@ $messages['zh-hans'] = array(
 	'ep-addcourse' => '目前还没有该名称的课程，但您可以添加它。',
 	'ep-editcourse' => '您正在编辑一个已经存在的课程。',
 	'ep-editcourse-exists-already' => '此课程已存在。您正在编辑它。',
+	'ep-addstudents-instructions' => '键入您希望加入的学生的用户名。每个用户名后按回车键，或在出现的菜单上单击。您也可以粘贴用户名列表。
+当您完成时点击“{{int:ep-addstudents-btn}}”。',
 	'ep-addstudents-btn' => '添加',
 	'ep-addstudents-servercallerror' => '当加入学生时，出现了如下错误：$1。',
 	'coursepage-edit-title-edit' => '编辑课程：$1',
