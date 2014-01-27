@@ -332,7 +332,7 @@ $messages['en'] = array(
 	'epstudentpager-header-student' => 'Student',
 	'epstudentpager-header-articles' => 'Articles',
 	'epstudentpager-header-reviewers' => 'Reviewers',
-        'ep-articles-sandboxes' => 'sandboxes',
+	'ep-articles-sandboxes' => 'sandboxes',
 	'ep-articles-remstudent' => 'remove from course',
 	'ep-articles-remreviewer-self' => 'Remove you as {{GENDER:$1|reviewer}}',
 	'ep-articles-remreviewer' => 'remove as {{GENDER:$1|reviewer}}',
@@ -440,7 +440,7 @@ The deletion log for this institution is provided below for convenience:",
 	'ep-addstudents-section' => "Add students to this course",
 	'ep-addstudents-instructions' => "Type the usernames of the students you want to add. Press Enter after each one, or click on the menu that appears. You can also paste a list of usernames.
 
-	Click \"{{int:ep-addstudents-btn}}\" when you're done.",
+Click \"{{int:ep-addstudents-btn}}\" when you're done.",
 	'ep-addstudents-url-instructions' => "Note that students may also add themselves by opening this link in their web browsers:",
 	'ep-addstudents-invalid-users' => "{{PLURAL:$1|This user doesn't|These users don't}} exist: $2.",
 	'ep-addstudents-btn' => "Add",
