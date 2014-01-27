@@ -88,7 +88,10 @@ class ViewOrgAction extends ViewAction {
 		$countries = \CountryNames::getNames( $this->getLanguage()->getCode() );
 		$stats['country'] = $countries[$org->getField( 'country' )];
 
-		$stats['status'] = $this->msg( $org->getField( 'active' ) ? 'ep-institution-active' : 'ep-institution-inactive' )->escaped();
+		$status_msg = $org->isActive() ?
+			'ep-institution-active' : 'ep-institution-inactive';
+
+		$stats['status'] = $this->msg( $status_msg )->escaped();
 
 		$stats['courses'] = $this->getLanguage()->formatNum( $org->getField( 'course_count' ) );
 		$stats['students'] = $this->getLanguage()->formatNum( $org->getField( 'student_count' ) );

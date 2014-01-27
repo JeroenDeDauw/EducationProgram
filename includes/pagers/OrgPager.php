@@ -121,7 +121,20 @@ class OrgPager extends EPPager {
 				// @todo FIXME: Add full text of all used message keys here for grepping
 				//              and transparancy purposes.
 				// Give grep a chance to find the usages: eporgpager-yes, eporgpager-no
-				$value = $this->msg( 'eporgpager-' . ( $value == '1' ? 'yes' : 'no' ) )->escaped();
+
+				// NOTE: Here we're *not* formatting the value, we're calling a
+				// method on the current object to compute it. This is *not* how
+				// this method was designed to be used. However, it's a simple
+				// way to provide accurate information about an institution's
+				// activity, with little possibility of additional breakage and
+				// no inconvenience to translators or the language team.
+				// Given the status of this code, this seems reasonable.
+				// (The actual $value received by this method in this case is
+				// from a deprecated field that is not updated correctly.)
+				// See: https://www.mediawiki.org/wiki/Wikipedia_Education_Program/Database_Analysis_Notes
+				// and https://gerrit.wikimedia.org/r/#/c/109631/6
+				$value = $this->msg( $this->currentObject->isActive() ?
+						'eporgpager-yes' : 'eporgpager-no' )->escaped();
 				break;
 		}
 

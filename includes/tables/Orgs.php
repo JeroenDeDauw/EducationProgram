@@ -68,6 +68,7 @@ class Orgs extends PageTable {
 			'ca_count' => 'int',
 			'oa_count' => 'int',
 			'courses' => 'array',
+			'last_active_date' => 'str', // TS_MW
 
 			'touched' => 'str', // TS_MW
 		);
@@ -91,6 +92,7 @@ class Orgs extends PageTable {
 			'ca_count' => 0,
 			'oa_count' => 0,
 			'courses' => array(),
+			'last_active_date' => '19700101000000',
 		);
 	}
 
@@ -120,13 +122,13 @@ class Orgs extends PageTable {
 	 */
 	public function getSummaryFields() {
 		return array(
-			'active',
 			'course_count',
 			'student_count',
 			'instructor_count',
 			'oa_count',
 			'ca_count',
 			'courses',
+			'last_active_date',
 		);
 	}
 
