@@ -15,6 +15,13 @@ namespace EducationProgram;
 class Orgs extends PageTable {
 
 	/**
+	 * @since 0.4 alpha
+	 *
+	 * @var boolean
+	 */
+	protected $read_master_for_summaries = false;
+
+	/**
 	 * @see ORMTable::getName()
 	 * @since 0.1
 	 * @return string
@@ -142,5 +149,55 @@ class Orgs extends PageTable {
 	 */
 	public function getEditRight() {
 		return 'ep-org';
+	}
+
+	/**
+	 * If true, ensure that DB reads to fetch data for summary fields are done
+	 * on DB_MASTER. (This is sometimes necessary to avoid race conditions.)
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param boolean $read_master_for_summaries
+	 */
+	public function setReadMasterForSummaries( $read_master_for_summaries ) {
+		$this->read_master_for_summaries = $read_master_for_summaries;
+	}
+
+	/**
+	 * Returns true if we should use the DB_MASTER when for all DB reads when
+	 * creating summary fields.
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @return boolean
+	 */
+	public function getReadMasterForSummaries() {
+		return $this->read_master_for_summaries;
+	}
+
+	/**
+	 * @see ORMTable::updateSummaryFields()
+	 */
+	public function updateSummaryFields( $summaryFields = null, array $conditions = array() ) {
+
+		// We know that updating summary fields will involve reading data about
+		// courses. If $read_master_for_summraies is set, make sure that
+		// the Courses table is reading from master. (The superclass will
+		// always set this table to read from master when constructing
+		// summaries.)
+
+		if ( $this->read_master_for_summaries ) {
+
+			$courses = Courses::singleton();
+			$origReadDB = $courses->getReadDb();
+			$courses->setReadDb( DB_MASTER );
+
+			parent::updateSummaryFields( $summaryFields, $conditions );
+
+			$courses->setReadDb( $origReadDB );
+
+		} else {
+			parent::updateSummaryFields( $summaryFields, $conditions );
+		}
 	}
 }
