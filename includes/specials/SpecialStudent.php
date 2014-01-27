@@ -49,7 +49,17 @@ class SpecialStudent extends VerySpecialPage {
 			if ( $user !== false && $user->getId() !== 0 ) {
 				$student = $this->getCachedValue(
 					function( $userId ) {
-						return Students::singleton()->selectRow( null, array( 'user_id' => $userId ) );
+
+						$cachableStudent = Students::singleton()->
+							selectRow( null, array( 'user_id' => $userId ) );
+
+						// This page displays info about a student's enrollment
+						// status. The following will query the database to get
+						// that info, but we won't bother saving it to the
+						// corresponding DB field in the Students table.
+						$cachableStudent->loadSummaryFields( 'active_enroll' );
+
+						return $cachableStudent;
 					},
 					$user->getId()
 				);
