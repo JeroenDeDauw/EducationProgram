@@ -19373,6 +19373,7 @@ $messages['nds'] = array(
 
 /** Dutch (Nederlands)
  * @author Arent
+ * @author AvatarTeam
  * @author Konovalov
  * @author McDutchie
  * @author SPQRobin
@@ -20052,6 +20053,8 @@ Zie de [[Special:Students|lijst met alle studenten]].',
 	'ep-dashboard-login-first' => 'U moet aanmelden voordat u cursussen kunt bekijken.',
 	'ep-dashboard-timeline-empty' => 'Er is geen recente activiteit voor deze cursus.',
 	'ep-dashboard-enroll-first' => 'U neemt niet deel aan een actieve cursus. U kunt de [[Special:Courses|lijst met cursussen]] bekijken.',
+	'ep-course-talk-link-text-view-message' => 'Bericht bekijken',
+	'ep-course-talk-link-text-view-changes' => 'Wijzigingen bekijken',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -27461,6 +27464,7 @@ $messages['zh-hans'] = array(
 	'ep-err-course-exists-title' => '错误: 课程已存在',
 	'ep-err-course-exists-text' => '您正在尝试创建课程$1，但它已经存在。',
 	'ep-err-org-exists-title' => '错误：机构已存在',
+	'ep-err-org-exists-text' => '您正在尝试创建机构$1，但它已经存在。',
 	'ep-didyouknow-header' => '你知道吗？',
 	'ep-tab-view' => '阅读',
 	'ep-tab-edit' => '编辑',
@@ -27781,9 +27785,12 @@ $messages['zh-hans'] = array(
 	'ep-addcourse' => '目前还没有该名称的课程，但您可以添加它。',
 	'ep-editcourse' => '您正在编辑一个已经存在的课程。',
 	'ep-editcourse-exists-already' => '此课程已存在。您正在编辑它。',
+	'ep-addstudents-section' => '将学生添加至此课程',
 	'ep-addstudents-instructions' => '键入您希望加入的学生的用户名。每个用户名后按回车键，或在出现的菜单上单击。您也可以粘贴用户名列表。
 当您完成时点击“{{int:ep-addstudents-btn}}”。',
+	'ep-addstudents-invalid-users' => '此$1位用户不存在：$2。',
 	'ep-addstudents-btn' => '添加',
+	'ep-addstudents-success' => '您在此课程中加入了$1位{{GENDER:$2|学生}}。',
 	'ep-addstudents-servercallerror' => '当加入学生时，出现了如下错误：$1。',
 	'coursepage-edit-title-edit' => '编辑课程：$1',
 	'coursepage-edit-title-add' => '添加课程：$1',
@@ -27817,6 +27824,7 @@ $messages['zh-hans'] = array(
 	'ep-course-students' => '学生',
 	'ep-course-summary-students' => '摘要和学生',
 	'ep-course-articles' => '条目',
+	'ep-course-create' => '这里没有名叫“$1”的课程，但您可以新建一个。',
 	'ep-course-description' => '说明',
 	'viewcourseaction-summary-org' => '机构',
 	'viewcourseaction-summary-term' => '学期',
@@ -27840,6 +27848,7 @@ $messages['zh-hans'] = array(
 	'ep-instructor-summary' => '摘要：',
 	'ep-online-summary' => '摘要：',
 	'ep-campus-summary' => '摘要：',
+	'ep-viewcourse-deleted' => '此课程已被删除。课程的删除日志将下文。',
 	'orgpage-history-description' => '查看此机构的日志',
 	'orgpage-history-title' => '机构“$1”的修订历史记录',
 	'orgpage-history-norevs' => '没有这一机构的编辑历史记录。',
@@ -28010,6 +28019,10 @@ $messages['zh-hans'] = array(
 	'ep-timeline-users-create-usertalk-self' => "'''[[User:$3|$3]]''' 创建了{{GENDER:$3|他|她}}本人的 '''[[$2|对话页]]'''并在上面发布了{{PLURAL:$4|一条消息|数条消息}}。",
 	'ep-dashboard-login-first' => '您必须登录才可以查看您的课程。',
 	'ep-dashboard-timeline-empty' => '本课程没有最近活动。',
+	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]]（[[$3课程讨论]]）',
+	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|一名学生}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|一名在线志愿者}}',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|一名校园志愿者}}',
 	'echo-category-title-education-program' => '教育计划',
 	'ep-course-talk-link-text-view-message' => '查看信息',
 	'ep-course-talk-link-text-view-changes' => '查看更改',
@@ -28285,6 +28298,8 @@ $messages['zh-hant'] = array(
 	'ep-course-edit-name' => '課程名稱',
 	'ep-course-edit-lang' => '課程語言',
 	'ep-editcourse' => '您正在編輯一個已經存在的課程。',
+	'ep-addstudents-instructions' => '鍵入您希望添加的學生用戶名。每個用戶名後按Enter鍵，或點擊出現的菜單。您亦可拷貝用戶名列表。
+黨您完成時按下「{{int:ep-addstudents-btn}}」。',
 	'ep-addstudents-servercallerror' => '當加入學生時，出現下述錯誤：$1。',
 	'ep-institution-title' => '學院：$1',
 	'vieworgaction-summary-name' => '名稱',
