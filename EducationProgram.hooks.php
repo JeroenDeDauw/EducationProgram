@@ -59,6 +59,13 @@ final class Hooks {
 			'ep_upc_user_courseid_role',
 			__DIR__ . '/sql/rename_upc_index.sql'
 		);
+
+		$updater->addExtensionField(
+			'ep_orgs',
+			'org_last_active_date',
+			__DIR__ . '/sql/AddOrgLastActiveDate.sql'
+		);
+
 		return true;
 	}
 
