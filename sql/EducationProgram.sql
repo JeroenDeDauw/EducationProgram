@@ -11,13 +11,14 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_orgs (
   org_country                VARCHAR(255)        NOT NULL, -- Name of the country where the org is located
 
   -- Summary fields - cahing data or computations on data stored elswhere
-  org_active                 TINYINT unsigned    NOT NULL, -- If the org has any active courses
+  org_active                 TINYINT unsigned    NOT NULL, -- Deprecated - if the org has any active courses
   org_course_count           SMALLINT unsigned   NOT NULL, -- Amount of courses
   org_instructor_count       SMALLINT unsigned   NOT NULL, -- Amount of instructors
   org_oa_count               INT unsigned        NOT NULL, -- Amount of online ambassadors
   org_ca_count               INT unsigned        NOT NULL, -- Amount of campus ambassadors
   org_student_count          INT unsigned        NOT NULL, -- Amount of students
   org_courses                BLOB                NOT NULL, -- The ids of the courses (linking ep_courses.course_id)
+  org_last_active_date       varbinary(14)       NOT NULL DEFAULT '19700101000000', -- Projected end date of last course
 
   org_touched                varbinary(14)       NOT NULL -- Time of the last modification
 ) /*$wgDBTableOptions*/;
