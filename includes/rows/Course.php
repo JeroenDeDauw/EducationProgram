@@ -123,7 +123,12 @@ class Course extends PageObject {
 		$success = parent::insert( $functionName, $options );
 
 		if ( $success && $this->updateSummaries ) {
+
+			// make sure Orgs uses up-to-date info
+			$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
+			Orgs::singleton()->setReadMasterForSummaries( true );
 			Orgs::singleton()->updateSummaryFields( array( 'course_count', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
+			Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
 		}
 
 		return $success;
@@ -134,7 +139,12 @@ class Course extends PageObject {
 	 */
 	protected function onRemoved() {
 		if ( $this->updateSummaries ) {
+
+			// make sure Orgs uses up-to-date info
+			$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
+			Orgs::singleton()->setReadMasterForSummaries( true );
 			Orgs::singleton()->updateSummaryFields( null, array( 'id' => $this->getField( 'org_id' ) ) );
+			Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
 		}
 
 		wfGetDB( DB_MASTER )->delete( 'ep_users_per_course', array( 'upc_course_id' => $this->getId() ) );
@@ -199,6 +209,11 @@ class Course extends PageObject {
 		}
 
 		if ( $this->updateSummaries ) {
+
+			// make sure Orgs uses up-to-date info
+			$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
+			Orgs::singleton()->setReadMasterForSummaries( true );
+
 			if ( $this->hasField( 'org_id' ) && $originalCourse->getField( 'org_id' ) !== $this->getField( 'org_id' ) ) {
 				$conds = array( 'id' => array( $originalCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
 				Orgs::singleton()->updateSummaryFields( null, $conds );
@@ -206,6 +221,8 @@ class Course extends PageObject {
 			elseif ( !empty( $changedSummaries ) ) {
 				Orgs::singleton()->updateSummaryFields( $changedSummaries, array( 'id' => $originalCourse->getField( 'org_id' ) ) );
 			}
+
+			Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
 		}
 
 		parent::onUpdated( $originalCourse );
