@@ -118,7 +118,17 @@ abstract class EditAction extends Action {
 		}
 		else {
 			if ( $object === false ) {
-				$this->displayUndeletionLink();
+
+				// Note: this fragment of code is only executed by
+				// EditOrgAction, that is, when the user tries to edit an
+				// institution. The conditions for displaying an undeletion
+				// link for courses are checked in EditCourseAction::onView().
+				if ( $this->getUser()
+					->isAllowed( $this->page->getEditRight() ) ) {
+
+					$this->displayUndeletionLink();
+				}
+
 				$this->displayDeletionLog();
 
 				$this->isNew = true;

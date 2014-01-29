@@ -84,6 +84,7 @@ $wgAutoloadClasses['EducationProgram\ViewAction'] 					= $dir . '/includes/actio
 $wgAutoloadClasses['EducationProgram\ViewCourseAction'] 			= $dir . '/includes/actions/ViewCourseAction.php';
 $wgAutoloadClasses['EducationProgram\ViewCourseActivityAction'] 	= $dir . '/includes/actions/ViewCourseActivityAction.php';
 $wgAutoloadClasses['EducationProgram\ViewOrgAction'] 				= $dir . '/includes/actions/ViewOrgAction.php';
+$wgAutoloadClasses['EducationProgram\CourseUndeletionHelper'] 		= $dir . '/includes/CourseUndeletionHelper.php';
 
 // includes/api (deriving from ApiBase)
 // Many of the actions can also be performed through the API.

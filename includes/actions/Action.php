@@ -46,28 +46,29 @@ abstract class Action extends \CachedAction {
 	}
 
 	/**
-	 * Display an undeletion link if the user is alloed to undelete and
-	 * if there are any previous revions that can be used to undelete.
+	 * Display an undeletion link if the user is allowed to undelete and
+	 * if there are any previous revisions that can be used to undelete.
+	 *
+	 * Note: as of version 0.4 alpha, moving check for user rights out of here,
+	 * to the callers.
 	 *
 	 * @since 0.1
 	 */
 	public function displayUndeletionLink() {
-		if ( $this->getUser()->isAllowed( $this->page->getEditRight() ) ) {
-			$revisionCount = Revisions::singleton()->count( array(
-				'object_identifier' => $this->getTitle()->getText()
-			) );
+		$revisionCount = Revisions::singleton()->count( array(
+			'object_identifier' => $this->getTitle()->getText()
+		) );
 
-			if ( $revisionCount > 0 ) {
-				$this->getOutput()->addHTML( $this->msg(
-					$this->prefixMsg( 'undelete-revisions' ),
-					\Message::rawParam( \Linker::linkKnown(
-						$this->getTitle(),
-						$this->msg( $this->prefixMsg( 'undelete-link' ) )->numParams( $revisionCount )->escaped(),
-						array(),
-						array( 'action' => 'epundelete' )
-					) )
-				)->text() );
-			}
+		if ( $revisionCount > 0 ) {
+			$this->getOutput()->addHTML( $this->msg(
+				$this->prefixMsg( 'undelete-revisions' ),
+				\Message::rawParam( \Linker::linkKnown(
+					$this->getTitle(),
+					$this->msg( $this->prefixMsg( 'undelete-link' ) )->numParams( $revisionCount )->escaped(),
+					array(),
+					array( 'action' => 'epundelete' )
+				) )
+			)->text() );
 		}
 	}
 

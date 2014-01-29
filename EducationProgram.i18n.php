@@ -462,6 +462,10 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-edit-undelete-revisions' => 'This course has been deleted. You can $1.',
 	'coursepage-edit-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
 
+	// undeletion restrictions
+	'ep-undelete-course-no-rights' => 'This course has been deleted, but you don\'t have permission to restore it.',
+	'ep-undelete-course-org-deleted' => 'This course and its institution, [[$1|$2]], have been deleted. To restore this course, first [$3 restore $2].',
+
 	// ep.pager
 	'ep-pager-confirm-delete' => 'Are you sure you want to delete this item?',
 	'ep-pager-delete-fail' => 'Could not delete this item.',
@@ -1489,6 +1493,11 @@ Refers to {{msg-mw|Ep-addstudents-btn}}.',
 * $1 is a restore link',
 	'coursepage-edit-undelete-link' => 'Restore link text. Parameters:
 * $1 is the amount of number to be restored',
+	'ep-undelete-course-no-rights' => 'Error message shown instead of a course undeletion link, if the user is not authorized to undelete courses.',
+	'ep-undelete-course-org-deleted' => 'Message explaining that the course and institution were deleted. Parameters:
+* $1 the title of the deleted institution
+* $2 the name of the deleted institution
+* $3 the URL to restore the deleted institution',
 	'ep-pager-confirm-delete' => 'Asks for deletion confirmation',
 	'ep-pager-delete-fail' => 'Error message saying stuff could not be deleted',
 	'ep-pager-confirm-delete-selected' => 'Deletion confirmation. Parameters:

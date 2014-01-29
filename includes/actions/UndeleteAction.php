@@ -59,28 +59,37 @@ class UndeleteAction extends Action {
 				$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 			}
 			else {
-				$req = $this->getRequest();
 
-				if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undeleteToken' ), $this->getSalt() ) ) {
-					$success = $this->doUndelete( $revision );
+				// This will check that we can undelete, and will output an
+				// appropriate message if we can't.
+				$canUndelete = $this->checkAndHandleRestrictions( $revision );
 
-					if ( $success ) {
-						$this->getRequest()->setSessionData(
-							'epsuccess',
-							$this->msg( $this->prefixMsg( 'undeleted' ), $this->getTitle()->getText() )->text()
-						);
+				// If there are no problems, do the undelete or proceed to show
+				// the form.
+				if ( $canUndelete ) {
+					$req = $this->getRequest();
+
+					if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undeleteToken' ), $this->getSalt() ) ) {
+						$success = $this->doUndelete( $revision );
+
+						if ( $success ) {
+							$this->getRequest()->setSessionData(
+								'epsuccess',
+								$this->msg( $this->prefixMsg( 'undeleted' ), $this->getTitle()->getText() )->text()
+							);
+						}
+						else {
+							$this->getRequest()->setSessionData(
+								'epfail',
+								$this->msg( $this->prefixMsg( 'undelete-failed' ), $this->getTitle()->getText() )->text()
+							);
+						}
+
+						$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 					}
 					else {
-						$this->getRequest()->setSessionData(
-							'epfail',
-							$this->msg( $this->prefixMsg( 'undelete-failed' ), $this->getTitle()->getText() )->text()
-						);
+						$this->displayForm( $revision );
 					}
-
-					$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
-				}
-				else {
-					$this->displayForm( $revision );
 				}
 			}
 		}
@@ -93,6 +102,40 @@ class UndeleteAction extends Action {
 		}
 
 		return '';
+	}
+
+	/**
+	 * Check that we can perform the requested undeletion. If there are no
+	 * problems, do nothing and return true. If there are problems, output
+	 * any messages and return false.
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param EPRevision $revision The latest revision of the object to undelete
+	 *
+	 * @return boolean
+	 *
+	 */
+	protected function checkAndHandleRestrictions( $revision ) {
+
+		// only worrying about restrictions for courses, specifically
+		// checking that the associated institution is not also deleted
+		if ( get_class( $this->page ) === 'EducationProgram\CoursePage' ) {
+
+			$undeletionHelper = new CourseUndeletionHelper(
+					$revision, $this->context, $this->page );
+
+			if ( $undeletionHelper->checkRestrictions() ) {
+				return true;
+			} else {
+				$undeletionHelper->outputCantUndeleteMsg();
+				return false;
+			}
+
+		// institutions are always good
+		} else {
+			return true;
+		}
 	}
 
 	/**

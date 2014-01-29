@@ -63,8 +63,33 @@ class EditCourseAction extends EditAction {
 		$identifier = Courses::normalizeTitle( $this->getTitle()->getText() );
 
 		if ( !$this->isNewPost() && !$this->table->hasIdentifier( $identifier ) ) {
-			$this->displayUndeletionLink();
-			$this->displayDeletionLog();
+
+			// Get the most recent revision here, so we can check that the
+			// institution hasn't been deleted before displaying undelete
+			// info.
+			$latestRevision = Revisions::singleton()->getLatestRevision(
+				array(
+					'object_identifier' => $identifier,
+					'type' => Courses::singleton()->getRevisionedObjectTypeId(),
+				)
+			);
+
+			// Make sure there are indeed previous revisions to undelete
+			if ( $latestRevision !== false ) {
+
+				// use CourseUndeletionHelper to check restrictions on
+				// undeletion and display a message if we can't undelete.
+				$undeletionHelper = new CourseUndeletionHelper(
+					$latestRevision, $this->context, $this->page );
+
+				if ( $undeletionHelper->checkRestrictions() ) {
+					$this->displayUndeletionLink();
+				} else {
+					$undeletionHelper->outputCantUndeleteMsg();
+				}
+
+				$this->displayDeletionLog();
+			}
 
 			list( $name, $term ) = $this->titleToNameAndTerm( $this->getTitle()->getText() );
 
