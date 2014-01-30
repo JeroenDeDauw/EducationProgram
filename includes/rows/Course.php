@@ -127,7 +127,7 @@ class Course extends PageObject {
 			// make sure Orgs uses up-to-date info
 			$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
 			Orgs::singleton()->setReadMasterForSummaries( true );
-			Orgs::singleton()->updateSummaryFields( array( 'course_count', 'active' ), array( 'id' => $this->getField( 'org_id' ) ) );
+			Orgs::singleton()->updateSummaryFields( array( 'course_count', 'last_active_date' ), array( 'id' => $this->getField( 'org_id' ) ) );
 			Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
 		}
 
@@ -157,7 +157,6 @@ class Course extends PageObject {
 	 */
 	protected function onUpdated( RevisionedObject $originalCourse ) {
 		$newUsers = array();
-		$changedSummaries = array();
 
 		$roleMap = array(
 			'online_ambs' => EP_OA,
@@ -182,10 +181,6 @@ class Course extends PageObject {
 						'upc_role' => $roleMap[$usersField],
 						'upc_time' => wfTimestampNow(),
 					);
-				}
-
-				if ( !empty( $removedIds ) || !empty( $addedIds ) ) {
-					$changedSummaries[] = $countMap[$usersField];
 				}
 
 				if ( !empty( $removedIds ) ) {
@@ -219,7 +214,7 @@ class Course extends PageObject {
 				Orgs::singleton()->updateSummaryFields( null, $conds );
 			}
 			elseif ( !empty( $changedSummaries ) ) {
-				Orgs::singleton()->updateSummaryFields( $changedSummaries, array( 'id' => $originalCourse->getField( 'org_id' ) ) );
+				Orgs::singleton()->updateSummaryFields( null, array( 'id' => $originalCourse->getField( 'org_id' ) ) );
 			}
 
 			Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );

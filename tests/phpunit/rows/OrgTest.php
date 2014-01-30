@@ -62,6 +62,7 @@ class OrgTest extends PageObjectTest {
 				'ca_count' => 0,
 				'oa_count' => 0,
 				'courses' => array(),
+				'last_active_date' => '20140127070312',
 			),
 			false
 		) );

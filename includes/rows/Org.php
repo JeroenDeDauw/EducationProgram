@@ -27,7 +27,7 @@ class Org extends PageObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'course_count', 'active', 'student_count', 'instructor_count', 'oa_count', 'ca_count', 'courses' );
+			$summaryFields = array( 'course_count', 'student_count', 'instructor_count', 'oa_count', 'ca_count', 'courses', 'last_active_date' );
 		}
 		else {
 			$summaryFields = (array)$summaryFields;
@@ -35,19 +35,32 @@ class Org extends PageObject {
 
 		$fields = array();
 
-		if ( in_array( 'course_count', $summaryFields ) || in_array( 'courses', $summaryFields ) ) {
-			$fields['courses'] = Courses::singleton()->selectFields( 'id', array( 'org_id' => $this->getId() ) );
-			$fields['course_count'] = count( $fields['courses'] );
-		}
+		// load all these fields at once
+		if ( in_array( 'course_count', $summaryFields ) ||
+			in_array( 'courses', $summaryFields ) ||
+			in_array( 'last_active_date', $summaryFields ) ) {
 
-		if ( in_array( 'active', $summaryFields ) ) {
-			$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+			$courseInfo = Courses::singleton()->selectFields(
+				array( 'id', 'end'),
+				array( 'org_id' => $this->getId() ),
+				array(), false );
 
-			$fields['active'] = Courses::singleton()->has( array(
-				'org_id' => $this->getId(),
-				'end >= ' . $now,
-				'start <= ' . $now,
-			) );
+			// find last active date, create list of course ids
+			$courses = array();
+			$lastActiveDate = '19700101000000'; // typical MW timestamp default
+
+			foreach ( $courseInfo as $courseFields ) {
+
+				$courses[] = $courseFields['id'];
+
+				if ( $courseFields['end'] > $lastActiveDate ) {
+					$lastActiveDate = $courseFields['end'];
+				}
+			}
+
+			$fields['courses'] = $courses;
+			$fields['course_count'] = count( $courses );
+			$fields['last_active_date'] = $lastActiveDate;
 		}
 
 		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $field ) {
@@ -273,4 +286,15 @@ class Org extends PageObject {
 		return $this->table->getRevisionedObjectTypeId();
 	}
 
+	/**
+	 * Determine whether the institution is active based on the last date
+	 * any of its courses are active.
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @return boolean
+	 */
+	public function isActive() {
+		return $this->getField( 'last_active_date' ) > wfTimestampNow();
+	}
 }
