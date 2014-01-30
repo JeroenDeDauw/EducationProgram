@@ -94,19 +94,25 @@ class CourseTalkNotification implements INotificationType {
 	 */
 	public function trigger( $params ) {
 
-		$revision = $params['revision'];
-
-		\EchoEvent::create( array(
+		$eventParams = array(
 			'type' => CourseTalkNotification::KEY,
 			'title' => $params['course-talk-title'],
 			'agent' => $params['agent'],
-			'extra' => array (
+		);
 
-				// 'revid' is used by the EchoBasicFormatter (which
-				// CourseTalkFormatter inherits from) to generate the diff
-				// destination, which we use in the secondary link.
-				'revid' => $revision->getId(),
-			),
-		) );
+		$revision = $params['revision'];
+
+		if ( $revision ) {
+			// 'revid' is used by the EchoBasicFormatter (which
+			// CourseTalkFormatter inherits from) to generate the diff
+			// destination, which we use in the secondary link.
+			$eventParams = array_merge(
+				$eventParams, array (
+					'extra' => array( 'revid' => $revision->getId() )
+				)
+			);
+		}
+
+		\EchoEvent::create( $eventParams );
 	}
 }
