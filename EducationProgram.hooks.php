@@ -587,6 +587,9 @@ final class Hooks {
 		if ( ( $title->getNamespace() === EP_NS_TALK ) &&
 			( Utils::isCourse( $title ) ) ) {
 
+			// Send an event to the notifications manager. Note that there are
+			// additional checks that will be peformed further along before a
+			// notification is actually sent.
 			Extension::globalInstance()->getNotificationsManager()->trigger(
 				'ep-course-talk-notification',
 				array(

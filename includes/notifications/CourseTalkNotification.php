@@ -94,6 +94,15 @@ class CourseTalkNotification implements INotificationType {
 	 */
 	public function trigger( $params ) {
 
+		$title = $params['course-talk-title'];
+
+		// Don't send notifications for sub-talk-pages or if if the course
+		// doesn't exist. Note: the second check depends on the first one.
+		if ( Utils::isCourseSubPage( $title) ||
+			!Courses::singleton()->getFromTitle( $title ) ) {
+			return;
+		}
+
 		$eventParams = array(
 			'type' => CourseTalkNotification::KEY,
 			'title' => $params['course-talk-title'],

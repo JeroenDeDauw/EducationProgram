@@ -243,10 +243,36 @@ class Utils {
 	 * @return boolean
 	 */
 	public static function isCourse( $title ) {
-		if ( $title instanceof Title ) {
-			$title = $title->getFullText();
-		}
+		return strpos( Utils::getStrFromTitleOrStr( $title ), '/' )
+			!== false;
+	}
 
-		return strpos( $title, '/' ) !== false;
+	/**
+	 * Determine if the provided title is of a course subpage. $title must
+	 * be the Title of an EP course or the full text thereof.
+	 * TODO: encapsulation issue for EP title formats
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param string|Title $title
+	 * @return boolean
+	 */
+	public static function isCourseSubPage( $title ) {
+		return substr_count( Utils::getStrFromTitleOrStr ( $title ), '/' )
+			> 1;
+	}
+
+	/**
+	 * Turn a Title or a string into a string. If it's a title, we get its
+	 * full text.
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param string|Title $title
+	 * @return string
+	 */
+	private static function getStrFromTitleOrStr( $title ) {
+		return $title instanceof Title ?
+			$title = $title->getFullText() : $title;
 	}
 }
