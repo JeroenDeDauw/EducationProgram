@@ -55,6 +55,21 @@ class Course extends PageObject {
 	protected $cas = false;
 
 	/**
+	 * Maps role-related field names and numeric constants for the
+	 * ep_users_per_course table.
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @var array
+	 */
+	protected $fieldsAndUPCConstants = array(
+		'online_ambs' => EP_OA,
+		'campus_ambs' => EP_CA,
+		'students' => EP_STUDENT,
+		'instructors' => EP_INSTRUCTOR,
+	);
+
+	/**
 	 * Returns a list of statuses a term can have.
 	 * Keys are messages, values are identifiers.
 	 *
@@ -124,11 +139,9 @@ class Course extends PageObject {
 
 		if ( $success && $this->updateSummaries ) {
 
-			// make sure Orgs uses up-to-date info
-			$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
-			Orgs::singleton()->setReadMasterForSummaries( true );
-			Orgs::singleton()->updateSummaryFields( array( 'course_count', 'last_active_date' ), array( 'id' => $this->getField( 'org_id' ) ) );
-			Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
+			// these are the only org summary fields that could need updating
+			$this->updateOrgSummaryFields( null,
+					array( 'course_count', 'last_active_date' ) );
 		}
 
 		return $success;
@@ -139,15 +152,11 @@ class Course extends PageObject {
 	 */
 	protected function onRemoved() {
 		if ( $this->updateSummaries ) {
-
-			// make sure Orgs uses up-to-date info
-			$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
-			Orgs::singleton()->setReadMasterForSummaries( true );
-			Orgs::singleton()->updateSummaryFields( null, array( 'id' => $this->getField( 'org_id' ) ) );
-			Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
+			$this->updateOrgSummaryFields();
 		}
 
-		wfGetDB( DB_MASTER )->delete( 'ep_users_per_course', array( 'upc_course_id' => $this->getId() ) );
+		// get rid of all fields linked to this course in ep_users_per_course
+		$this->upcPurge();
 
 		parent::onRemoved();
 	}
@@ -156,68 +165,51 @@ class Course extends PageObject {
 	 * @see RevisionedObject::onUpdated()
 	 */
 	protected function onUpdated( RevisionedObject $originalCourse ) {
-		$newUsers = array();
 
-		$roleMap = array(
-			'online_ambs' => EP_OA,
-			'campus_ambs' => EP_CA,
-			'students' => EP_STUDENT,
-			'instructors' => EP_INSTRUCTOR,
-		);
-
-		$countMap = array_flip( self::$countMap );
-
-		$dbw = wfGetDB( DB_MASTER );
+		// add and remove rows from ep_users_per_course as needed
+		$newUserIdsAndRoles = array();
+		$dbm = wfGetDB( DB_MASTER );
 
 		foreach ( array( 'online_ambs', 'campus_ambs', 'students', 'instructors' ) as $usersField ) {
 			if ( $this->hasField( $usersField ) && $originalCourse->getField( $usersField ) !== $this->getField( $usersField ) ) {
 				$removedIds = array_diff( $originalCourse->getField( $usersField ), $this->getField( $usersField ) );
 				$addedIds = array_diff( $this->getField( $usersField ), $originalCourse->getField( $usersField ) );
 
+				// prepare data for rows to add
 				foreach ( $addedIds as $addedId ) {
-					$newUsers[] = array(
-						'upc_course_id' => $this->getId(),
-						'upc_user_id' => $addedId,
-						'upc_role' => $roleMap[$usersField],
-						'upc_time' => wfTimestampNow(),
+					$newUserIdsAndRoles[] = array(
+						'user_id' => $addedId,
+						'role' => $usersField,
 					);
 				}
 
+				// remove rows as required
 				if ( !empty( $removedIds ) ) {
-					$dbw->delete( 'ep_users_per_course', array(
+					$dbm->delete( 'ep_users_per_course', array(
 						'upc_course_id' => $this->getId(),
 						'upc_user_id' => $removedIds,
-						'upc_role' => $roleMap[$usersField],
+						'upc_role' => $this->fieldsAndUPCConstants[$usersField],
 					) );
 				}
 			}
 		}
 
-		if ( !empty( $newUsers ) ) {
-			$dbw->begin();
-
-			foreach ( $newUsers as $userLink ) {
-				$dbw->insert( 'ep_users_per_course', $userLink );
-			}
-
-			$dbw->commit();
+		// add the rows to ep_users_per_course
+		if ( !empty( $newUserIdsAndRoles ) ) {
+			$this->upcAdd( $newUserIdsAndRoles );
 		}
 
+		// update summary data for this course's institution
 		if ( $this->updateSummaries ) {
 
-			// make sure Orgs uses up-to-date info
-			$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
-			Orgs::singleton()->setReadMasterForSummaries( true );
+			$this->updateOrgSummaryFields( $originalCourse->getField( 'org_id' ) );
 
-			if ( $this->hasField( 'org_id' ) && $originalCourse->getField( 'org_id' ) !== $this->getField( 'org_id' ) ) {
-				$conds = array( 'id' => array( $originalCourse->getField( 'org_id' ), $this->getField( 'org_id' ) ) );
-				Orgs::singleton()->updateSummaryFields( null, $conds );
-			}
-			elseif ( !empty( $changedSummaries ) ) {
-				Orgs::singleton()->updateSummaryFields( null, array( 'id' => $originalCourse->getField( 'org_id' ) ) );
-			}
+			if ( $this->hasField( 'org_id' ) &&
+				$originalCourse->getField( 'org_id' ) !==
+				$this->getField( 'org_id' ) ) {
 
-			Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
+				$this->updateOrgSummaryFields();
+			}
 		}
 
 		parent::onUpdated( $originalCourse );
@@ -228,56 +220,114 @@ class Course extends PageObject {
 	 */
 	protected function onUndeleted() {
 
-		// Sadly, some copy-paste from Course::onUpdated(). Seems the most
-		// rational option for now; that's kind how things work here.
+		// re-create rows to ep_users_per_course table
+		$this->upcAdd();
 
-		// update ep_users_per_couse
-		$roleMap = array(
-			'online_ambs' => EP_OA,
-			'campus_ambs' => EP_CA,
-			'students' => EP_STUDENT,
-			'instructors' => EP_INSTRUCTOR,
-		);
+		// update summary fields for the related institution
+		$this->updateOrgSummaryFields();
 
-		$newUsers = array();
+		// Note: it seems that summary fields in Courses table will be restored via
+		// the revision.
 
-		foreach ( array( 'online_ambs', 'campus_ambs', 'students',
-			 'instructors' ) as $usersField ) {
+		parent::onUndeleted();
+	}
 
-			$addedIds = $this->getField( $usersField );
-
-			foreach ( $addedIds as $addedId ) {
-				$newUsers[] = array(
-					'upc_course_id' => $this->getId(),
-					'upc_user_id' => $addedId,
-					'upc_role' => $roleMap[$usersField],
-					'upc_time' => wfTimestampNow(),
-				);
-			}
-		}
-
-		$dbw = wfGetDB( DB_MASTER );
-
-		if ( !empty( $newUsers ) ) {
-			$dbw->begin();
-
-			foreach ( $newUsers as $userLink ) {
-				$dbw->insert( 'ep_users_per_course', $userLink );
-			}
-
-			$dbw->commit();
+	/**
+	 * Update the summary fields for this course's institution, or for the
+	 * institution with the provided $org_id.
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param array $fields
+	 * @param int $org_id
+	 */
+	protected function updateOrgSummaryFields( $org_id=null, $fields=null ) {
+		if ( is_null( $org_id ) ) {
+			$org_id = $this->getField( 'org_id' );
 		}
 
 		// make sure Orgs uses up-to-date info
 		$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
 		Orgs::singleton()->setReadMasterForSummaries( true );
-		Orgs::singleton()->updateSummaryFields( null, array( 'id' => $this->getField( 'org_id' ) ) );
+		Orgs::singleton()->updateSummaryFields( $fields, array( 'id' => $org_id ) );
 		Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
+	}
 
-		// it seems that summary fields in Courses table will be resotred via
-		// the revision
+	/**
+	 * Purge and re-create rows in ep_users_per_course related to this course
+	 */
+	public function rebuildUPCRows() {
+		$this->upcPurge();
+		$this->upcAdd();
+	}
 
-		parent::onUndeleted();
+	/**
+	 * Add rows for this course to ep_users_per_course, using data in
+	 * $userIdsAndRoles. If no parameter is provided, we add rows to
+	 * that table for all students, volunteers and instructors
+	 * associated with this course.
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param array $userIdsAndRoles An array of associative arrays with data on
+	 *   users and roles to add; each inner array has two keys: user_id and
+	 *   role.
+	 */
+	protected function upcAdd( $userIdsAndRoles=null ) {
+
+		// if no param, build the data from this course's user fields
+		if ( is_null( $userIdsAndRoles ) ) {
+
+			$userIdsAndRoles = array();
+	
+			foreach ( array( 'online_ambs', 'campus_ambs', 'students',
+				 'instructors' ) as $usersField ) {
+	
+				$addedIds = $this->getField( $usersField );
+	
+				foreach ( $addedIds as $addedId ) {
+					$userIdsAndRoles[] = array(
+						'user_id' => $addedId,
+						'role' => $usersField,
+					);
+				}
+			}
+		}
+
+		// add the rows as necessary
+		if ( !empty( $userIdsAndRoles ) ) {
+			$addData = array();
+
+			foreach ( $userIdsAndRoles as $userIdAndRole ) {
+				$addData[] = array(
+					'upc_course_id' => $this->getId(),
+					'upc_user_id' => $userIdAndRole['user_id'],
+					'upc_role' => $this->
+						fieldsAndUPCConstants[$userIdAndRole['role']],
+					'upc_time' => wfTimestampNow(),
+				);
+			}
+
+			$dbw = wfGetDB( DB_MASTER );
+			$dbw->begin();
+	
+			foreach ( $addData as $item ) {
+				$dbw->insert( 'ep_users_per_course', $item );
+			}
+
+			$dbw->commit();
+		}
+	}
+
+	/**
+	 * Purge rows in ep_users_per_course related to this course.
+	 *
+	 * @since 0.4 alpha
+	 */
+	protected function upcPurge() {
+		wfGetDB( DB_MASTER )
+			->delete( 'ep_users_per_course',
+			array( 'upc_course_id' => $this->getId() ) );
 	}
 
 	/**
