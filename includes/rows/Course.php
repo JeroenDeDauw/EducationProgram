@@ -229,6 +229,63 @@ class Course extends PageObject {
 	}
 
 	/**
+	 * @see EducationProgram\RevisionedObject::onUndeleted()
+	 */
+	protected function onUndeleted() {
+
+		// Sadly, some copy-paste from Course::onUpdated(). Seems the most
+		// rational option for now; that's kind how things work here.
+
+		// update ep_users_per_couse
+		$roleMap = array(
+			'online_ambs' => EP_OA,
+			'campus_ambs' => EP_CA,
+			'students' => EP_STUDENT,
+			'instructors' => EP_INSTRUCTOR,
+		);
+
+		$newUsers = array();
+
+		foreach ( array( 'online_ambs', 'campus_ambs', 'students',
+			 'instructors' ) as $usersField ) {
+
+			$addedIds = $this->getField( $usersField );
+
+			foreach ( $addedIds as $addedId ) {
+				$newUsers[] = array(
+					'upc_course_id' => $this->getId(),
+					'upc_user_id' => $addedId,
+					'upc_role' => $roleMap[$usersField],
+					'upc_time' => wfTimestampNow(),
+				);
+			}
+		}
+
+		$dbw = wfGetDB( DB_MASTER );
+
+		if ( !empty( $newUsers ) ) {
+			$dbw->begin();
+
+			foreach ( $newUsers as $userLink ) {
+				$dbw->insert( 'ep_users_per_course', $userLink );
+			}
+
+			$dbw->commit();
+		}
+
+		// make sure Orgs uses up-to-date info
+		$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
+		Orgs::singleton()->setReadMasterForSummaries( true );
+		Orgs::singleton()->updateSummaryFields( null, array( 'id' => $this->getField( 'org_id' ) ) );
+		Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
+
+		// it seems that summary fields in Courses table will be resotred via
+		// the revision
+
+		parent::onUndeleted();
+	}
+
+	/**
 	 * @see ORMRow::save()
 	 */
 	public function save( $functionName = null ) {

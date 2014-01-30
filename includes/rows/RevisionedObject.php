@@ -211,6 +211,14 @@ abstract class RevisionedObject extends \ORMRow {
 	}
 
 	/**
+	 * Gets called after an object was undeleted. Implementing empty here
+	 * so that subclasses can override or not as needed.
+	 *
+	 * @since 0.4 alpha
+	 */
+	protected function onUndeleted() { }
+
+	/**
 	 * @see ORMRow::insert()
 	 */
 	protected function insert( $functionName = null, array $options = null ) {
@@ -378,6 +386,8 @@ abstract class RevisionedObject extends \ORMRow {
 		}
 
 		$this->setRevisionAction( false );
+
+		$this->onUndeleted();
 
 		return $result;
 	}
