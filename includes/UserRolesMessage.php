@@ -246,13 +246,21 @@ class UserRolesMessage {
 		if ( count( $this->rolesAndCourses ) > 1 ) {
 
 			// Make an array of remaining rolenames.
-			$remainingRolenames = array_map( function( $roleAndCourse ) {
-				$msgKey = $this->
-					messageKeysForRoles[$roleAndCourse['role']]['rolename'];
 
-				return $this->out->msg( $msgKey )->plain();
+			// Set up some local vars to use in the following closure, since
+			// PHP > 5.4 doesn't suport $this in closures.
+			$messageKeysForRoles = $this->messageKeysForRoles;
+			$out = $this->out;
 
-			}, array_slice( $this->rolesAndCourses, 1 ) );
+			$remainingRolenames = array_map(
+				function( $roleAndCourse ) use ($messageKeysForRoles, $out) {
+
+					$msgKey =
+						$messageKeysForRoles[$roleAndCourse['role']]['rolename'];
+
+					return $out->msg( $msgKey )->plain();
+				},
+				array_slice( $this->rolesAndCourses, 1 ) );
 
 			$remainingRolenamesList =
 				$this->out->getLanguage()->listToText( $remainingRolenames );
