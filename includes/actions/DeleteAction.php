@@ -51,36 +51,62 @@ class DeleteAction extends Action {
 		else {
 			$req = $this->getRequest();
 
-			if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'deleteToken' ), $this->getSalt() ) ) {
-				$success = $this->doDelete( $object );
+			// This will check that we can delete, and will output an
+			// appropriate message if we can't.
+			$canDelete = $this->checkAndHandleRestrictions( $object );
 
-				if ( $success ) {
-					$title = \SpecialPage::getTitleFor( $this->page->getListPage() );
-					$this->getRequest()->setSessionData(
-						'epsuccess',
-						$this->msg( $this->prefixMsg( 'deleted' ), $this->getTitle()->getText() )->text()
-					);
+			// If there are no problems, proceed to delete or show the form
+			if ( $canDelete ) {
+
+				if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'deleteToken' ), $this->getSalt() ) ) {
+					$success = $this->doDelete( $object );
+
+					if ( $success ) {
+						$title = \SpecialPage::getTitleFor( $this->page->getListPage() );
+						$this->getRequest()->setSessionData(
+							'epsuccess',
+							$this->msg( $this->prefixMsg( 'deleted' ), $this->getTitle()->getText() )->text()
+						);
+					}
+					else {
+						$title = $this->getTitle();
+						$this->getRequest()->setSessionData(
+							'epfail',
+							$this->msg(
+								$this->prefixMsg( 'delete-failed' ),
+								$this->getTitle()->getText(),
+								$this->getTitle()->getText()
+							)->parse()
+						);
+					}
+
+					$this->getOutput()->redirect( $title->getLocalURL() );
 				}
 				else {
-					$title = $this->getTitle();
-					$this->getRequest()->setSessionData(
-						'epfail',
-						$this->msg(
-							$this->prefixMsg( 'delete-failed' ),
-							$this->getTitle()->getText(),
-							$this->getTitle()->getText()
-						)->parse()
-					);
+					$this->displayForm( $object );
 				}
-
-				$this->getOutput()->redirect( $title->getLocalURL() );
-			}
-			else {
-				$this->displayForm( $object );
 			}
 		}
 
 		return '';
+	}
+
+	/**
+	 * Check that we can perform the requested deletion. If there are no
+	 * problems, do nothing and return true. If there are problems, output
+	 * an appropriate message and return false.
+	 *
+	 * Implemented here as empty, subclasses may override.
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param PageObject $pageObj The object (so far, Org or Course) to be
+	 *   deleted.
+	 *
+	 * @return boolean
+	 *
+	 */
+	protected function checkAndHandleRestrictions( $pageObj ) {
 	}
 
 	/**

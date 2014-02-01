@@ -72,6 +72,7 @@ $wgAutoloadClasses['EducationProgram\Action'] 						= $dir . '/includes/actions/
 $wgAutoloadClasses['EducationProgram\AddArticleAction'] 			= $dir . '/includes/actions/AddArticleAction.php';
 $wgAutoloadClasses['EducationProgram\AddReviewerAction'] 			= $dir . '/includes/actions/AddReviewerAction.php';
 $wgAutoloadClasses['EducationProgram\DeleteAction'] 				= $dir . '/includes/actions/DeleteAction.php';
+$wgAutoloadClasses['EducationProgram\DeleteOrgAction'] 				= $dir . '/includes/actions/DeleteOrgAction.php';
 $wgAutoloadClasses['EducationProgram\EditAction'] 					= $dir . '/includes/actions/EditAction.php';
 $wgAutoloadClasses['EducationProgram\HistoryAction'] 				= $dir . '/includes/actions/HistoryAction.php';
 $wgAutoloadClasses['EducationProgram\RemoveArticleAction'] 			= $dir . '/includes/actions/RemoveArticleAction.php';
@@ -200,6 +201,7 @@ $wgAutoloadClasses['EducationProgram\Settings'] 					= $dir . '/includes/Setting
 $wgAutoloadClasses['EducationProgram\UPCUserCourseFinder'] 			= $dir . '/includes/UPCUserCourseFinder.php';
 $wgAutoloadClasses['EducationProgram\UserCourseFinder'] 			= $dir . '/includes/UserCourseFinder.php';
 $wgAutoloadClasses['EducationProgram\UserRolesMessage'] 			= $dir . '/includes/UserRolesMessage.php';
+$wgAutoloadClasses['EducationProgram\OrgDeletionHelper']			= $dir . '/includes/OrgDeletionHelper.php';
 $wgAutoloadClasses['EducationProgram\Utils']						= $dir . '/includes/Utils.php';
 
 $wgAutoloadClasses['EducationProgram\Tests\MockSuperUser'] 			= $dir . '/tests/phpunit/MockSuperUser.php';
@@ -466,6 +468,7 @@ $wgResourceModules['ep.pager'] = $moduleTemplate + array(
 		'ep-pager-delete-fail',
 		'ep-pager-confirm-delete-selected',
 		'ep-pager-delete-selected-fail',
+		'ep-delete-org-has-courses-close-dialog'
 	),
 );
 

@@ -88,7 +88,7 @@ abstract class EPPager extends \TablePager {
 	 */
 	function formatRow( $row ) {
 		$this->mCurrentRow = $row;
-		$this->currentObject = $this->table->newRowFromDBResult( $row );
+		$this->prepareCurrentRowObjs();
 
 		$cells = array();
 
@@ -124,6 +124,16 @@ abstract class EPPager extends \TablePager {
 		}
 
 		return Html::rawElement( 'tr', $this->getRowAttrs( $row ), implode( '', $cells ) ) . "\n";
+	}
+
+	/**
+	 * Prepares any objects needed to format the current row.
+	 *
+	 * @since 0.4 alpha
+	 */
+	protected function prepareCurrentRowObjs() {
+		$this->currentObject =
+			$this->table->newRowFromDBResult( $this->mCurrentRow );
 	}
 
 	/**

@@ -16,6 +16,15 @@ use IContextSource, Linker, SpecialPage, IORMRow;
 class OrgPager extends EPPager {
 
 	/**
+	 * @since 0.4 alpha
+	 *
+	 * An OrgDeletionHelper for row currently being processed
+	 *
+	 * @var OrgDeletionHelper
+	 */
+	protected $currentDelHelper;
+
+	/**
 	 * Returns the HTML for a pager with institutions.
 	 *
 	 * @since 0.1
@@ -197,11 +206,15 @@ class OrgPager extends EPPager {
 				array( 'wpreturnto' => $this->getTitle()->getFullText() )
 			);
 
-			$links[] = $this->getDeletionLink(
-				ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) ),
-				$item->getId(),
-				$item->getIdentifier()
-			);
+			// Check restrictions before adding deletion link
+			if ( $this->currentDelHelper->checkRestrictions() ) {
+
+				$links[] = $this->getDeletionLink(
+					ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) ),
+					$item->getId(),
+					$item->getIdentifier()
+				);
+			}
 		}
 
 		return $links;
@@ -224,5 +237,51 @@ class OrgPager extends EPPager {
 		}
 
 		return $actions;
+	}
+
+	/**
+	 * Calls parent, then sets up and performs checks with OrgDeletionHelper
+	 * for the current row. (This lets us access the OrgDeletionHelper at
+	 * various points during row formatting.)
+	 *
+	 * @see EPPager::prepareCurrentRowObjs()
+	 *
+	 * @since 0.4 alpha
+	 */
+	protected function prepareCurrentRowObjs() {
+		parent::prepareCurrentRowObjs();
+
+		$this->currentDelHelper =
+			new OrgDeletionHelper( $this->currentObject, $this->context );
+
+		$this->currentDelHelper->checkRestrictions();
+	}
+
+	/**
+	 * Calls parent and adds additional row attributes as necessary.
+	 *
+	 * @see \TablePager::geRowAttrs()
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param Object $row
+	 */
+	public function getRowAttrs( $row ) {
+		$attrs = parent::getRowAttrs( $row );
+
+		// If this institution can't be deleted, add a data attribute
+		// with a plain message explaining why. This will be detected in
+		// JS and will prevent mass deletion of any set of rows that includes
+		// this one.
+		if ( !$this->currentDelHelper->checkRestrictions() ) {
+			$attrs = array_merge( $attrs,
+				array(
+					'data-no-del-text' =>
+					$this->currentDelHelper->getCantDeleteMsgPlain()
+				)
+			);
+		}
+
+		return $attrs;
 	}
 }

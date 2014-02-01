@@ -29,7 +29,7 @@ class OrgPage extends EducationPage {
 			'view' => 'EducationProgram\ViewOrgAction',
 			'edit' => 'EducationProgram\EditOrgAction',
 			'history' => 'EducationProgram\HistoryAction',
-			'delete' => 'EducationProgram\DeleteAction',
+			'delete' => 'EducationProgram\DeleteOrgAction',
 			'purge' => 'EducationProgram\ViewOrgAction',
 		);
 	}

@@ -162,7 +162,22 @@
 			names = [],
 			pagerId;
 
-			$table.find( 'tbody' ).find( 'input[type=checkbox]:checked' ).each( function ( i, element ) {
+			$selectedCheckboxes = $table.find( 'tbody' ).find( 'input[type=checkbox]:checked' );
+
+			$cantDel = $selectedCheckboxes.closest( 'tr[data-no-del-text]' );
+			if ($cantDel.length > 0) {
+				$( '<div>' ).html( $cantDel.first().attr( 'data-no-del-text' ) )
+					.dialog( {
+						buttons: [ {
+							text: ep.msg( 'ep-delete-org-has-courses-close-dialog' ),
+							click: function() { $( this ).dialog( "close" ); }
+						} ]
+					} );
+
+				return;
+			}
+
+			$selectedCheckboxes.each( function ( i, element ) {
 				var $element = $( element );
 				ids.push( $element.val() );
 				names.push( $element.closest( 'tr' ).find( '.ep-pager-delete' ).attr( 'data-name' ) );

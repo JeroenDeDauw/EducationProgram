@@ -54,6 +54,24 @@ class ApiDeleteEducation extends ApiBase {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 
+		// If we're deleting institutions, we'll do some extra checks
+		if ( $params['type'] === 'org' ) {
+
+			foreach ( $params['ids'] as $id ) {
+
+				$org = Orgs::singleton()
+					->selectRow( null, array( 'id' => $id ) );
+
+				$deletionHelper = new OrgDeletionHelper( $org, $this );
+
+				if ( !$deletionHelper->checkRestrictions() ) {
+
+					$this->dieUsage( $deletionHelper->getCantDeleteMsgPlain(),
+						'org_deletion_restriction');
+				}
+			}
+		}
+
 		$everythingOk = true;
 
 		$class = self::$typeMap[$params['type']];

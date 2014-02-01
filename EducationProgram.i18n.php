@@ -291,8 +291,8 @@ $messages['en'] = array(
 	'ep-pager-retry-button-org' => 'Retry',
 	'ep-pager-summary-message-org' => 'Summary:',
 	// Yeah we need two of these - having a jQuery node in PLURAL breaks, at least at r110788.
-	'ep-pager-confirm-message-org' => 'You are about to delete institution $1. This will delete all associated courses and student data!',
-	'ep-pager-confirm-message-org-many' => 'You are about to delete these institutions: $1. This will delete all associated courses and student data!',
+	'ep-pager-confirm-message-org' => 'You are about to delete institution $1.',
+	'ep-pager-confirm-message-org-many' => 'You are about to delete these institutions: $1.',
 
 	// Course pager
 	'epcoursepager-header-name' => 'Name',
@@ -547,7 +547,7 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-delete-delete-failed' => 'Failed to delete course [[Education_Program:$2|$1]].',
 
 	// Institution deletion
-	'orgpage-delete-text' => "You are about to delete institution $1. This will remove all associated courses and students!",
+	'orgpage-delete-text' => 'You are about to delete the institution $1.',
 	'orgpage-delete-summary' => 'Reason:',
 	'orgpage-delete-title' => 'Delete institution "$1"',
 	'orgpage-delete-cancel-button' => 'Cancel',
@@ -555,6 +555,10 @@ The deletion log for this course is provided below for convenience:",
 	'orgpage-delete-none' => 'There is no institution titled "$1". See the [[Special:Institutions|list of institutions]].',
 	'orgpage-delete-deleted' => 'Successfully deleted institution $1 and its associated courses.',
 	'orgpage-delete-delete-failed' => 'Failed to delete institution [[Institution:$1|$1]].',
+	'ep-delete-org-no-rights' => 'You don\'t have permission to delete this institution.',
+	'ep-delete-org-has-courses' => 'You can\'t delete [[$1|$2]] because there are courses associated with it. Please delete the courses first.',
+	'ep-delete-org-has-courses-plain' => 'You can\'t delete $1 because there are courses associated with it. Please delete the courses first.',
+	'ep-delete-org-has-courses-close-dialog' => 'Close',
 
 	// Institution restoration
 	'orgpage-eprestore-title' => 'Restore institution "$1"',
@@ -1600,7 +1604,7 @@ Refers to {{msg-mw|Ep-addstudents-btn}}.',
 	'coursepage-delete-delete-failed' => 'Shown after failed deletion of a course at the top of the page in an error box. Parameters:
 * $1 is a course title.
 * $2 is the title of the page on which the course resides (without namespace)',
-	'orgpage-delete-text' => 'Warns that the user is about to delete and institution and all associated courses. Parameters:
+	'orgpage-delete-text' => 'Warns that the user is about to delete an institution. Parameters:
 * $1 is the name of an institution.',
 	'orgpage-delete-summary' => 'Summary text input label.
 {{Identical|Reason}}',
@@ -1617,6 +1621,13 @@ Refers to {{msg-mw|Ep-addstudents-btn}}.',
 * $1 is an institution name.',
 	'orgpage-delete-delete-failed' => 'Shown after failed deletion of an institution at the top of the page in an error box. Parameters:
 * $1 is an institution name.',
+	'ep-delete-org-no-rights' => 'Shown if a user tries to delete an institution but doesn\'t have permission to do so.',
+	'ep-delete-org-has-courses' => 'Message shown if the user tries to delete an institution that has courses. Parameters:
+* $1 the title of the institution page
+* $2 the name of the institution',
+	'ep-delete-org-has-courses-plain' => 'Message (in plain text) that is shown if the user tries to delete an institution that has courses. Parameters:
+* $1 the name of the institution',
+	'ep-delete-org-has-courses-close-dialog' => 'Text for the "Close" button on dialog explaining why an institution can\'t be deleted.',
 	'orgpage-eprestore-title' => 'Page title. Parameters:
 * $1 is an institution name.',
 	'orgpage-eprestore-text' => 'Indicates what the user is about to do if they continue. Parameters:
