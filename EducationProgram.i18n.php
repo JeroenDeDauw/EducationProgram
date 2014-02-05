@@ -22219,6 +22219,13 @@ Você pode obter uma lista completa de estudantes na [[Special:Students|lista de
 	'ep-dashboard-enroll-first' => 'Neste momento, você não está participando de nenhum curso ativo. Você pode ver a [[Special:Courses|lista de cursos]].',
 );
 
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'ep-timeline-ago' => '$1 ñaqha',
+);
+
 /** Romanian (română)
  * @author Firilacroco
  * @author Minisarm
