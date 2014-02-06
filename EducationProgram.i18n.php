@@ -4003,6 +4003,7 @@ $messages['ckb'] = array(
  * @author Chmee2
  * @author Dominikmatus
  * @author Jkjk
+ * @author Matěj Suchánek
  * @author Mormegil
  * @author Paxt
  * @author Utar
@@ -4066,15 +4067,15 @@ $messages['cs'] = array(
 	'log-description-campus' => 'Záznamy všech změn u [[Special:CampusVolunteers|dobrovolníků dostupných osobně]].',
 	'log-description-student' => 'Záznamy všech změn u [[Special:Students|studentů]].',
 	'logentry-institution-add' => '$1 {{GENDER:$2|vytvořil|vytvořila|vytvořil/a}} instituci $3',
-	'logentry-institution-remove' => '$1 {{GENDER:$2|smazal|smazala|smazal/a}} instituci $3',
+	'logentry-institution-remove' => '$1 {{GENDER:$2|smazal|smazala|smazal(a)}} instituci $3',
 	'logentry-institution-update' => '$1 {{GENDER:$2|aktualizoval|aktualizovala|aktualizoval/a}} instituci $3',
 	'logentry-institution-undelete' => '$1 {{GENDER:$2|obnovil|obnovila|obnovil/a}} instituce $3',
 	'logentry-course-add' => '$1 {{GENDER:$2|vytvořil|vytvořila|vytvořil/a}} kurz $3',
-	'logentry-course-remove' => '$1 {{GENDER:$2|smazal|smazala|smazal/a}} kurz $3',
+	'logentry-course-remove' => '$1 {{GENDER:$2|smazal|smazala|smazal(a)}} kurz $3',
 	'logentry-course-update' => '$1 {{GENDER:$2|aktualizoval|aktualizovala|aktualizoval/a}} kurz $3',
 	'logentry-course-undelete' => '$1 {{GENDER:$2|obnovil|obnovila|obnovil/a}} kurz $3',
 	'logentry-instructor-add' => '$1 {{GENDER:$2|přidal|přidala|přidal/a}} {{PLURAL:$4|instruktora|instruktory}} $5 do kurzu $3',
-	'logentry-instructor-remove' => '$1 {{GENDER:$2|smazal|smazala|smazal/a}} {{PLURAL:$4|instruktora|instruktory}} $5 z kurzu $3',
+	'logentry-instructor-remove' => '$1 {{GENDER:$2|smazal|smazala|smazal(a)}} {{PLURAL:$4|instruktora|instruktory}} $5 z kurzu $3',
 	'logentry-instructor-selfadd' => '$1 se {{GENDER:$2|přidal|přidala|přidal/a}} jako {{GENDER:$2|instruktor}} do kurzu $3',
 	'logentry-instructor-selfremove' => '$1 se {{GENDER:$2|smazal|smazala|smazal/a}} jako {{GENDER:$2|instruktor}} z kurzu $3',
 	'logentry-online-add' => '$1 {{GENDER:$2|přidal|přidala|přidal/a}} {{PLURAL:$4|Online dobrovolník|Online dobrovolníky}} $5 do kurzu $3',
@@ -18191,7 +18192,7 @@ $messages['ms'] = array(
 	'logentry-campus-selfadd' => '$1 menambahkan dirinya sebagai {{GENDER:$2|sukarelawan|sukarelawati}} kampus ke dalam kursus $3',
 	'logentry-campus-selfremove' => '$1 menggugurkan dirinya sebagai {{GENDER:$2|sukarelawan|sukarelawati}} online dari kursus $3',
 	'logentry-campus-profilesave' => '$1 mengemaskinikan profilnya sebagai {{GENDER:$2|sukarelawan|sukarelawati}} kampus',
-	'logentry-student-add' => '$1 didaftarkan untuk kursus $3',
+	'logentry-student-add' => '$1 didaftarkan untuk kursus $3', # Fuzzy
 	'logentry-student-remove' => '$1 {{GENDER:$2|menggugurkan}} $5 sebagai {{PLURAL:$4|{{GENDER:$5|pelajar}}|pelajar-pelajar}} daripada kursus $3',
 	'logentry-student-selfadd' => '$1 mendaftarkan diri untuk kursus $3',
 	'logentry-student-selfremove' => '$1 membatalkan pendaftarannya untuk kursus $3',
@@ -18454,6 +18455,9 @@ Untuk kemudahan anda, yang berikut ialah log penghapusan bagi laman ini:",
 	'ep-addcourse' => 'Belum ada kursus dengan nama ini, tetapi anda boleh menambahkannya.',
 	'ep-editcourse' => 'Anda sedang menyunting kursus yang sedia ada.',
 	'ep-editcourse-exists-already' => 'Kursus ini sudah wujud. Anda sedang menyuntingnya.',
+	'ep-addstudents-instructions' => 'Taipkan nama-nama pengguna pelajar yang ingin ditambahkan. Tekan Enter selepas setiap nama, atau klik pada menu yang terpapar. Anda juga boleh menampalkan senarai nama pengguna.
+
+Klik "{{int:ep-addstudents-btn}}" apabila selesai.',
 	'coursepage-edit-title-edit' => 'Menyunting kursus: $1',
 	'coursepage-edit-title-add' => 'Menambahkan kursus: $1',
 	'coursepage-edit-deleted' => "'''Amaran: Anda sedang mewujudkan semula kursus yang pernah dipadamkan.'''
@@ -18741,7 +18745,7 @@ Untuk kemudahan anda, yang berikut ialah log penghapusan bagi laman ini:",
 	'epoa-profile-photo-help' => 'Gambar anda yang akan dipaparkan bersebelahan dengan bio anda. Taipkan nama imej di Wikimedia Commons untuk memaparkan pralihat. Anda boleh menaipkan beberapa huruf terawal dalam nama imej itu, kemudian memilih gambar anda pada senarai cadangan. Jika anda belum memuat naik gambar diri anda di Commons, sila [$1 lakukannya] sekarang.',
 	'epoa-profile-saved' => 'Profil anda telah disimpan',
 	'epoa-profile-invalid-bio' => 'Bio anda mestilah terdiri daripada sekurang-kurangnya $1 aksara.',
-	'epoa-visible' => 'Senaraikan diri anda sebagai sukarelawan online secara umum',
+	'epoa-visible' => 'Senaraikan diri anda sebagai sukarelawan online secara umum', # Fuzzy
 	'campusambassadorprofile' => 'Profil sukarelawan kampus',
 	'campusambassadorprofile-legend' => 'Profil sukarelawan kampus anda',
 	'campusambassadorprofile-text' => 'Profil sukarelawan kampus anda dapat dilihat oleh para pelajar ketika menyemak imbas para sukarelawan yang sedia ada.',
@@ -18750,7 +18754,7 @@ Untuk kemudahan anda, yang berikut ialah log penghapusan bagi laman ini:",
 	'epca-profile-photo-help' => 'Gambar anda yang akan dipaparkan bersebelahan dengan bio anda. Taipkan nama imej di Wikimedia Commons untuk memaparkan pralihat. Anda boleh menaipkan beberapa huruf terawal dalam nama imej itu, kemudian memilih gambar anda pada senarai cadangan. Jika anda belum memuat naik gambar diri anda di Commons, sila [$1 lakukannya] sekarang.',
 	'epca-profile-saved' => 'Profil anda telah disimpan',
 	'epca-profile-invalid-bio' => 'Bio anda mestilah terdiri daripada sekurang-kurangnya $1 aksara.',
-	'epca-visible' => 'Senaraikan diri anda sebagai sukarelawan kampus secara umum',
+	'epca-visible' => 'Senaraikan diri anda sebagai sukarelawan kampus secara umum', # Fuzzy
 	'ep-studentactivity-noresults' => 'Tiada pelajar yang aktif pada $1 kebelakangan ini.
 
 Anda boleh membaca senarai penuh pelajar dalam [[Special:Students|senarai pelajar]].',
