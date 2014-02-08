@@ -203,7 +203,7 @@ class SpecialMyCourses extends VerySpecialPage {
 					$course->getTitle(),
 					\Html::element(
 						'h2',
-						array(),
+						array('class' => 'ep-course-title'),
 						$course->getField( 'name' )
 					)
 				);
