@@ -876,6 +876,7 @@ You can find a full list of students on [[Special:Students|the student list]].',
  * @author Raymond
  * @author Shirayuki
  * @author Siebrand
+ * @author Utar
  * @author 아라
  */
 $messages['qqq'] = array(
@@ -2010,7 +2011,7 @@ Parameters:
 ** {{msg-mw|Duration-hours}}
 ** {{msg-mw|Duration-minutes}}
 {{Identical|Ago}}',
-	'ep-timeline-cutoff' => 'Used when a to long text is cut off. Parameters:
+	'ep-timeline-cutoff' => 'Used when a too long text is cut off. Parameters:
 * $1 is the text fragment to display.',
 	'ep-timeline-no-summary' => 'Message shown in the events timeline for edits that do not have an associated summary',
 	'ep-timeline-users-edit-article' => 'Header for a group of events in a timeline. Parameters:
@@ -4017,7 +4018,7 @@ $messages['cs'] = array(
 	'ep-org-course-delete' => 'Smazána instituce $1 a všechny její kurzy',
 	'ep-form-summary' => 'Shrnutí:',
 	'ep-form-minor' => 'Tato změna je malá editace.',
-	'ep-move-error' => 'Nemůžete přesunovat články do nebo z jmenného prostoru vzdělání.',
+	'ep-move-error' => 'Nemůžete přesunovat články do ani z jmenného prostoru vzdělání.',
 	'ep-student-view-profile' => 'profil studenta',
 	'ep-err-failed-to-save' => 'Někde se stala chyba – Vaše změny nebyly uloženy.',
 	'ep-err-course-exists-title' => 'Chyba: kurz existuje',
@@ -4050,10 +4051,10 @@ $messages['cs'] = array(
 	'log-name-institution' => 'Vzdělávací program – záznamy institucí',
 	'log-name-course' => 'Vzdělávací program – záznamy kurzů',
 	'log-name-student' => 'Vzdělávací program – záznamy studentů',
-	'log-name-online' => 'Vzdělávací program - záznamy online dobrovolníků',
+	'log-name-online' => 'Vzdělávací program – záznamy online dobrovolníků',
 	'log-name-campus' => 'Vzdělávací program – záznamy dobrovolníků dostupných osobně',
 	'log-name-instructor' => 'Vzdělávací program – záznamy instruktorů',
-	'log-name-eparticle' => 'Vzdělávací program - záznamy článků',
+	'log-name-eparticle' => 'Vzdělávací program – záznamy článků',
 	'log-header-institution' => 'Tato stránka sleduje změny provedené v institucích.',
 	'log-header-course' => 'Tato stránka sleduje změny provedené v kurzech.',
 	'log-header-instructor' => 'Tato stránka sleduje změny provedené u instruktorů.',
@@ -4061,9 +4062,9 @@ $messages['cs'] = array(
 	'log-header-online' => 'Tato stránka sleduje změny provedené u online dobrovolníků.',
 	'log-header-student' => 'Tato stránka sleduje změny provedené u studentů.',
 	'log-description-institution' => 'Záznamy všech změn v [[Special:Institutions|institucích]].',
-	'log-description-course' => 'Záznam všech změn v [[Special:Courses|kurzech]].',
-	'log-description-instructor' => 'Záznam všech změn u instruktorů.',
-	'log-description-online' => 'Záznam všech změn u [[Special:OnlineVolunteers|online dobrovolníků]].',
+	'log-description-course' => 'Záznamy všech změn v [[Special:Courses|kurzech]].',
+	'log-description-instructor' => 'Záznamy všech změn u instruktorů.',
+	'log-description-online' => 'Záznamy všech změn u [[Special:OnlineVolunteers|online dobrovolníků]].',
 	'log-description-campus' => 'Záznamy všech změn u [[Special:CampusVolunteers|dobrovolníků dostupných osobně]].',
 	'log-description-student' => 'Záznamy všech změn u [[Special:Students|studentů]].',
 	'logentry-institution-add' => '$1 {{GENDER:$2|vytvořil|vytvořila|vytvořil/a}} instituci $3',
@@ -4284,12 +4285,12 @@ $messages['cs'] = array(
 	'ep-articletable-remreviwer-cancel' => 'Storno',
 	'ep-articletable-remreviwer-text-self' => 'Hodláte se zrušit jako {{GENDER:$1|dozor}} článku $2, na kterém pracuje $3.',
 	'ep-articletable-remreviwer-text' => 'Hodláte zrušit $4 jako {{GENDER:$1|dozor}} článku $2, na kterém pracuje $3.',
-	'ep-articletable-remstudent-title' => 'Smazat {{GENDER:$1|studenta}} z kurzu',
-	'ep-articletable-remstudent-button' => 'Smazat {{GENDER:$1|studenta}}',
+	'ep-articletable-remstudent-title' => 'Odebrat {{GENDER:$1|studenta|studentku}} z kurzu',
+	'ep-articletable-remstudent-button' => 'Odebrat {{GENDER:$1|studenta|studentku}}',
 	'ep-articletable-remstudent-cancel' => 'Zrušit',
-	'ep-articletable-remstudent-text' => 'Hodláte smazat $3 jako {{GENDER:$1|studenta}} z kurzu $2.
+	'ep-articletable-remstudent-text' => 'Hodláte odebrat $3 jako {{GENDER:$1|studenta|studentku}} z kurzu $2.
 
-Tento krok trvale smaže {{GENDER:$1|jeho|její|jeho}} přidružené články a dozor!',
+Tento krok trvale smaže {{GENDER:$1|jeho|její}} přidružené články a dozor!',
 	'ep-articletable-remarticle-title' => 'Odstranit článek $1',
 	'ep-articletable-remarticle-button' => 'Odstranit článek',
 	'ep-articletable-remarticle-cancel' => 'Zrušit',
@@ -4657,23 +4658,23 @@ Záznam smazání tohoto kurzu:",
 	'epca-profile-photo-help' => 'Obrázek, který se obrazí vedle vaší biografie. Vložte název obrázku na Wikimedia Commons a náhled se objeví. Můžete napsat začátek názvu a vybrat obrázek ze seznamu. Pokud ještě nemáte svoji fotku na commons, můžete ji [$1 nahrát]!',
 	'epca-profile-saved' => 'Váš profil byl uložen',
 	'epca-profile-invalid-bio' => 'Vaše biografie musí obsahovat alespoň  $1 {{PLURAL:$1|znak|znaky|znaků}}.',
-	'epca-visible' => 'Veřejně zobrazit {{GENDER:$1|sebe}} jako Dobrovolníka dostupného osobně',
+	'epca-visible' => 'Veřejně zobrazit {{GENDER:$1|sebe}} jako dobrovolníka dostupného osobně',
 	'ep-studentactivity-noresults' => 'Nejsou zde studenti, kteří byli aktivní v posledních $1.
 
 Všechny studenty můžete nalézt [[Special:Students|v seznamu studentů]].',
-	'ep-studentactivity-count' => '{{PLURAL:$1|Jeden student byl|$1 studentů bylo}} aktivních v posledních $2.',
+	'ep-studentactivity-count' => '{{PLURAL:$1|Jeden student byl|$1 studentů bylo}} aktivní{{PLURAL:$1||ch}} v posledních $2.',
 	'ep-diff-old' => 'Současná hodnota',
 	'ep-diff-new' => 'Nová hodnota',
 	'ep-timeline-remaining' => '$1 {{PLURAL:$1|ostatní|ostatních}}',
 	'ep-timeline-unknown' => '$1 {{GENDER:$1|udělal|udělala|udělal/a}} něco $2, $3',
 	'ep-timeline-ago' => 'před $1',
-	'ep-timeline-cutoff' => '$1 ...',
+	'ep-timeline-cutoff' => '$1 …',
 	'ep-timeline-no-summary' => '"Bez shrnutí"',
-	'ep-timeline-users-edit-article' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}  {{GENDER:$1|editoval|editovala|editoval/a}} článek '''[[$2]]'''.",
+	'ep-timeline-users-edit-article' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}  {{GENDER:$6|editoval|editovala|editoval/a}} článek '''[[$2]]'''.",
 	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} {{GENDER:$1|zanechal|zanechala|zanechal/a}} {{PLURAL:$4|zprávu|zprávy}} na '''[[$2|diskusní stránce]]''' článku '''[[$3]]'''.",
 	'ep-timeline-users-edit-user' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} {{GENDER:$1|editoval|editovala|editoval/a}} uživatelskou stránku '''[[$2|$3]]'''.",
 	'ep-timeline-users-edit-usertalk' => "'''[[User:$3|$3]]''' {{GENDER:$3|obdržel|obdržela|obdržel/a}} {{PLURAL:$4|zprávu|zprávy}} na svoji '''[[$2|diskusní stránce]]'''.",
-	'ep-timeline-users-edit-user-self' => "$1 {{GENDER:$1|editoval|editovala|editoval/a}}{{GENDER:$6|svoji}} '''[[$2|diskusní stránku]]'''.",
+	'ep-timeline-users-edit-user-self' => "$1 {{GENDER:$1|editoval|editovala|editoval/a}} {{GENDER:$6|svoji}} '''[[$2|diskusní stránku]]'''.",
 	'ep-timeline-users-edit-usertalk-self' => "'''[[User:$3|$3]]''' {{GENDER:$3|odeslal|odeslala|odeslal/a}} {{PLURAL:$4|zprávu|zprávy}} na {{GENDER:$3|svoji}} '''[[$2|diskusní stránku]]'''.",
 	'ep-timeline-users-create-article' => "{{GENDER:$6|$1}}    {{GENDER:$1|vytvořil|vytvořila|vytvořil/a}} článek '''[[$2]]'''.",
 	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}} {{GENDER:$1|vytvořil|vytvořila|vytvořil/a}} '''[[$2|diskusní stránku]]''' článku '''[[$3]]''' a {{GENDER:$1|zanechal|zanechala|zanechal/a}} v ní {{PLURAL:$4|zprávu|několik zpráv}}.",
@@ -4699,7 +4700,7 @@ Všechny studenty můžete nalézt [[Special:Students|v seznamu studentů]].',
 	'ep-user-roles-message-rolename-online' => 'Online {{GENDER:$1|dobrovolník|dobrovolnice}}',
 	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|dobrovolník dostupný osobně}}',
 	'echo-category-title-education-program' => 'Vzdělávací program',
-	'ep-echo-pref-tooltip' => 'Upozorni na události spojené s kurzy Vzdělávacího programu v kterých jsem zapojen.',
+	'ep-echo-pref-tooltip' => 'Upozorni na události spojené s kurzy Vzdělávacího programu, ve kterých jsem zapojen.',
 	'ep-course-talk-link-text-view-message' => 'Zobrazit zprávu',
 	'ep-course-talk-link-text-view-changes' => 'Zobrazit změny',
 	'ep-course-talk-notification-title' => '[[$2|Diskuse kurzu $3]] byla {{GENDER:$1|editována}} uživatelem [[User:$1|$1]].',
@@ -6691,6 +6692,8 @@ $messages['es'] = array(
 	'ep-move-error' => 'No puedes trasladar artículos dentro o fuera de los espacios de nombres de educación.',
 	'ep-student-view-profile' => 'perfil del alumno',
 	'ep-err-failed-to-save' => 'Fallo inesperado - sus cambios no fueron guardados.',
+	'ep-err-course-exists-title' => 'Error: el curso existe',
+	'ep-err-org-exists-title' => 'Error: la institución existe',
 	'ep-err-org-exists-text' => 'Estás intentando crear la institución $1 que ya existe.',
 	'ep-didyouknow-header' => '¿Sabías que…?',
 	'ep-tab-view' => 'Leer',
@@ -7019,6 +7022,7 @@ El registro de borrado para esta institución se indica a continuación por conv
 	'ep-addcourse' => 'Todavía no hay ningún curso con este nombre, pero puedes agregarlo.',
 	'ep-editcourse' => 'Estás editando un concurso existente.',
 	'ep-editcourse-exists-already' => 'Este curso ya existe. Estás editándolo.',
+	'ep-addstudents-btn' => 'Añadir',
 	'ep-addstudents-servercallerror' => 'Mientras se agregaba estudiantes, ocurrió el siguiente error: $1.',
 	'coursepage-edit-title-edit' => 'Editando curso: $1',
 	'coursepage-edit-title-add' => 'Agregando curso: $1',
@@ -7343,6 +7347,9 @@ Puedes encontrar una lista completa de alumnos en [[Special:Students|la lista de
 	'ep-dashboard-login-first' => 'Necesitas iniciar sesión antes de poder ver tus cursos.',
 	'ep-dashboard-timeline-empty' => 'No ha habido ninguna actividad reciente para este curso.',
 	'ep-dashboard-enroll-first' => 'No estás actualmente inscrito en ningún curso activo. Puedes ver la [[Special:Courses|lista de cursos]] e inscribirte en uno.',
+	'echo-category-title-education-program' => 'Programa educativo',
+	'ep-course-talk-link-text-view-message' => 'Ver mensaje',
+	'ep-course-talk-link-text-view-changes' => 'Ver cambios',
 );
 
 /** Estonian (eesti)
