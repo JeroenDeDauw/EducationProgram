@@ -1495,9 +1495,9 @@ Refers to {{msg-mw|Ep-addstudents-btn}}.',
 * $1 is the amount of number to be restored',
 	'ep-undelete-course-no-rights' => 'Error message shown instead of a course undeletion link, if the user is not authorized to undelete courses.',
 	'ep-undelete-course-org-deleted' => 'Message explaining that the course and institution were deleted. Parameters:
-* $1 the title of the deleted institution
-* $2 the name of the deleted institution
-* $3 the URL to restore the deleted institution',
+* $1 - the page title of the deleted institution
+* $2 - the name of the deleted institution
+* $3 - the URL to restore the deleted institution',
 	'ep-pager-confirm-delete' => 'Asks for deletion confirmation',
 	'ep-pager-delete-fail' => 'Error message saying stuff could not be deleted',
 	'ep-pager-confirm-delete-selected' => 'Deletion confirmation. Parameters:
@@ -5284,6 +5284,8 @@ Zur Information wird unten das Lösch-Logbuch zu diesem Kurs angezeigt:",
 	'ep-course-no-slashes' => 'Der Name des Kurses sollte keine Schrägstriche enthalten.',
 	'coursepage-edit-undelete-revisions' => 'Dieser Kurs wurde gelöscht. Du kannst $1.',
 	'coursepage-edit-undelete-link' => '$1 {{PLURAL:$1|Version|Versionen}} wiederherstellen',
+	'ep-undelete-course-no-rights' => 'Dieser Kurs wurde gelöscht, du hast aber keine Berechtigung, diesen wiederherzustellen.',
+	'ep-undelete-course-org-deleted' => 'Dieser Kurs und seine Einrichtung [[$1|$2]] wurden gelöscht. Um diesen Kurs wiederherzustellen, [$3 stelle zuerst $2 wieder her].',
 	'ep-pager-confirm-delete' => 'Soll dieses Element tatsächlich gelöscht werden?',
 	'ep-pager-delete-fail' => 'Dieses Element konnte nicht gelöscht werden.',
 	'ep-pager-confirm-delete-selected' => '{{PLURAL:$1|Soll das ausgewählte Element|Sollen die ausgewählten Elemente}} tatsächlich gelöscht werden?',
@@ -9374,6 +9376,8 @@ Le journal des suppressions de ce cours est affiché ci-dessous pour plus de com
 	'ep-course-no-slashes' => 'Le titre du cours ne doit pas contenir des barres obliques !',
 	'coursepage-edit-undelete-revisions' => 'Ce cours a été supprimé. Vous pouvez $1 .',
 	'coursepage-edit-undelete-link' => 'restaurer $1 {{PLURAL:$1|version|versions}}',
+	'ep-undelete-course-no-rights' => 'Ce cours a été supprimé, mais vous n’avez pas le droit de le restaurer.',
+	'ep-undelete-course-org-deleted' => 'Ce cours et son institution, [[$1|$2]], ont été supprimés. Pour restaurer le cours, [$3 restaurez d’abord $2].',
 	'ep-pager-confirm-delete' => 'Êtes-vous sûr de vouloir supprimer cet élément ?',
 	'ep-pager-delete-fail' => 'Impossible de supprimer cet élément.',
 	'ep-pager-confirm-delete-selected' => "Etes-vous sûr de vouloir supprimer {{PLURAL:$1|l'élément|les éléments}} sélectionné(s) ?",
@@ -17700,6 +17704,8 @@ $messages['mk'] = array(
 	'ep-course-no-slashes' => 'Насловот на курсот не треба да содржи коси црти!',
 	'coursepage-edit-undelete-revisions' => 'Овој курс е избришан. Можете да $1.',
 	'coursepage-edit-undelete-link' => 'вратите $1 {{PLURAL:$1|ревизија|ревизии}}',
+	'ep-undelete-course-no-rights' => 'Курсов е избришан, но немате дозвола да го повратите.',
+	'ep-undelete-course-org-deleted' => 'Курсов и неговата установа ([[$1|$2]]) се избришани. За да го повратите курсот, најпрвин [$3 повратете ја установата „$2“].',
 	'ep-pager-confirm-delete' => 'Дали сте сигурни дека сакате да ја избришете ставката?',
 	'ep-pager-delete-fail' => 'Не можев да ја избришам ставката.',
 	'ep-pager-confirm-delete-selected' => 'Дали сте сигурни дека сакате да {{PLURAL:$1|ја избришете избраната ставка|ги избришете избраните ставки}}?',
