@@ -105,7 +105,7 @@ class CourseTalkNotification implements INotificationType {
 
 		$eventParams = array(
 			'type' => CourseTalkNotification::KEY,
-			'title' => $params['course-talk-title'],
+			'title' => $title,
 			'agent' => $params['agent'],
 		);
 
