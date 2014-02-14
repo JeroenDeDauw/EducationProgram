@@ -13803,6 +13803,8 @@ L'elenco delle relative cancellazioni e degli spostamenti viene riportato di seg
 	'ep-course-no-slashes' => 'Il titolo del corso non deve contenere alcuno slash.',
 	'coursepage-edit-undelete-revisions' => 'Questo corso è stato cancellato. Puoi $1.',
 	'coursepage-edit-undelete-link' => 'ripristina $1 {{PLURAL:$1|versione|versioni}}',
+	'ep-undelete-course-no-rights' => 'Questo corso è stato cancellato, ma non hai i permessi per ripristinarlo.',
+	'ep-undelete-course-org-deleted' => 'Questo corso ed il suo istituto, [[$1|$2]], sono stati cancellati. Prima di ripristinare il corso, [$3 ripristina $2].',
 	'ep-pager-confirm-delete' => 'Sei sicuro di voler eliminare questo elemento?',
 	'ep-pager-delete-fail' => 'Impossibile eliminare questo elemento.',
 	'ep-pager-confirm-delete-selected' => "Sei sicuro di voler eliminare {{PLURAL:$1|l'elemento selezionato|gli elementi selezionati}}?",
@@ -18081,7 +18083,7 @@ $messages['ml'] = array(
 	'ep-pager-delete-selected' => 'മായ്ക്കുക',
 	'ep-revision-undo' => 'തിരസ്കരിക്കുക',
 	'ep-revision-restore' => 'പുനഃസ്ഥാപിക്കുക',
-	'eporgpager-header-name' => 'പേര്‌',
+	'eporgpager-header-name' => 'പേര്',
 	'eporgpager-header-city' => 'പട്ടണം',
 	'eporgpager-header-country' => 'രാജ്യം',
 	'eporgpager-filter-country' => 'രാജ്യം',
@@ -24144,6 +24146,7 @@ $messages['sr-el'] = array(
  * @author Ainali
  * @author Eihpossophie
  * @author Jopparn
+ * @author Lokal Profil
  * @author McDutchie
  * @author Tobulos1
  * @author WikiPhoenix
@@ -24225,7 +24228,7 @@ $messages['sv'] = array(
 	'logentry-campus-selfadd' => '$1 lade till {{GENDER:$2|sig själv}} som {{GENDER:$2|{{SITENAME}}ambassadör}} till kurs $3',
 	'logentry-campus-selfremove' => '$1 tog bort {{GENDER:$2|sig själv}} som {{GENDER:$2|{{SITENAME}}ambassadör}} från kurs $3',
 	'logentry-campus-profilesave' => '$1 uppdaterade {{GENDER:$2|sin}} profil som {{SITENAME}}ambassadör',
-	'logentry-student-add' => '$1 {{GENDER:$2|registrerade sig}} för kurs $3', # Fuzzy
+	'logentry-student-add' => '$1 {{GENDER:$2|registrerade}} $5 som {{PLURAL:$4|{{GENDER:$5|en student}}|studenter}} för kurs $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|tog bort}} $5 som {{PLURAL:$4|{{GENDER:$5|student}}|studenter}} från kurs $3',
 	'logentry-student-selfadd' => '$1 {{GENDER:$2|registrerade sig}} till kurs $3',
 	'logentry-student-selfremove' => '$1 {{GENDER:$2|avregistrerade sig}} från kurs $3',
@@ -26822,6 +26825,7 @@ $messages['uk'] = array(
 	'ep-course-no-slashes' => 'Назва курсу не повинна містити ніяких слешів!',
 	'coursepage-edit-undelete-revisions' => 'Цей курс був видалений. Ви можете $1.',
 	'coursepage-edit-undelete-link' => 'відновити $1 {{PLURAL:$1|версію|версії|версій}}',
+	'ep-undelete-course-no-rights' => 'Цей курс був видалений, але ви не маєте права відновити його.',
 	'ep-pager-confirm-delete' => 'Ви дійсно хочете вилучити цей елемент?',
 	'ep-pager-delete-fail' => 'Не вдалося видалити цей елемент.',
 	'ep-pager-confirm-delete-selected' => 'Ви дійсно хочете видалити {{PLURAL:$1|1=виділений елемент|виділені елементи}}?',
@@ -27996,6 +28000,7 @@ $messages['zh-hans'] = array(
 	'ep-course-no-slashes' => '课程名称不应包含任何斜杠！',
 	'coursepage-edit-undelete-revisions' => '此课程已被删除。你可以 $1 。',
 	'coursepage-edit-undelete-link' => '还原$1个{{PLURAL:$1|版本}}',
+	'ep-undelete-course-no-rights' => '此课程已被删除，但您没有权限还原它。',
 	'ep-pager-confirm-delete' => '确定要删除该项目吗？',
 	'ep-pager-delete-fail' => '无法删除该项目。',
 	'ep-pager-confirm-delete-selected' => '确定要删除已选择的{{PLURAL:$1|项}}吗？',
@@ -28493,6 +28498,7 @@ $messages['zh-hant'] = array(
 	'ep-addstudents-instructions' => '鍵入您希望添加的學生用戶名。每個用戶名後按Enter鍵，或點擊出現的菜單。您亦可拷貝用戶名列表。
 黨您完成時按下「{{int:ep-addstudents-btn}}」。',
 	'ep-addstudents-servercallerror' => '當加入學生時，出現下述錯誤：$1。',
+	'ep-undelete-course-no-rights' => '此課程已被刪除，但您並無權限還原它。',
 	'ep-institution-title' => '學院：$1',
 	'vieworgaction-summary-name' => '名稱',
 	'vieworgaction-summary-city' => '城市',
