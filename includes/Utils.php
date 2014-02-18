@@ -248,6 +248,29 @@ class Utils {
 	}
 
 	/**
+	 * Returns an associative array with keys that designate the parts
+	 * of a course title: org_name, course_name and term.
+	 * TODO: encapsulation issue for EP title formats
+	 *
+	 * @since 0.4 alpha
+	 *
+	 * @param string|Title $title
+	 *
+	 * @return array
+	 */
+	public static function parseCourseTitle( $title ) {
+		preg_match( '/^.*:(.*)\/(.*) \((.*)\)$/',
+			Utils::getStrFromTitleOrStr( $title ),
+			$matches );
+
+		return array(
+			'org_name' => $matches[1],
+			'course_name' => $matches[2],
+			'term' => $matches[3]
+		);
+	}
+
+	/**
 	 * Determine if the provided title is of a course subpage. $title must
 	 * be the Title of an EP course or the full text thereof.
 	 * TODO: encapsulation issue for EP title formats

@@ -170,6 +170,15 @@ abstract class EducationPage implements \Page, IContextSource {
 		return static::$info['edit-right'];
 	}
 
+	/**
+	 * Override if some degree if editing is available for some users.
+	 *
+	 * @since 0.4 alpha
+	 */
+	public function getLimitedEditRight() {
+		return static::$info['edit-right'];
+	}
+
 	public function getListPage() {
 		return static::$info['list'];
 	}

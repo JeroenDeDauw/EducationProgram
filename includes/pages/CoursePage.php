@@ -17,6 +17,7 @@ class CoursePage extends EducationPage {
 
 	protected static $info = array(
 		'edit-right' => 'ep-course',
+		'limited-edit-right' => 'edit',
 		'list' => 'Courses',
 		'log-type' => 'course',
 	);
@@ -42,5 +43,11 @@ class CoursePage extends EducationPage {
 		return Courses::singleton();
 	}
 
+	/**
+	 * @see EducationPage::getLimitedEditRight()
+	 */
+	public function getLimitedEditRight() {
+		return static::$info['limited-edit-right'];
+	}
 }
 
