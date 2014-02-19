@@ -35,6 +35,14 @@ $specialPageAliases['en'] = array(
 	'CourseActivity' => array( 'CourseActivity' ),
 );
 
+/** Afrikaans (Afrikaans) */
+$specialPageAliases['af'] = array(
+	'Student' => array( 'Student' ),
+	'Students' => array( 'Studente' ),
+	'Courses' => array( 'Kursusse' ),
+	'Articles' => array( 'Artikels' ),
+);
+
 /** Arabic (العربية) */
 $specialPageAliases['ar'] = array(
 	'MyCourses' => array( 'دروسي' ),
@@ -43,7 +51,7 @@ $specialPageAliases['ar'] = array(
 	'Student' => array( 'طالب' ),
 	'Students' => array( 'طلاب' ),
 	'Courses' => array( 'دروس' ),
-	'EducationProgram' => array( 'برنامج_تعليمي' ),
+	'EducationProgram' => array( 'برنامج_التعليم' ),
 	'Enroll' => array( 'تسجيل' ),
 	'Disenroll' => array( 'إلغاء_تسجيل' ),
 	'CampusAmbassadors' => array( 'سفراء_الجامعة' ),
@@ -53,6 +61,26 @@ $specialPageAliases['ar'] = array(
 	'StudentActivity' => array( 'نشاط_الطالب' ),
 	'Articles' => array( 'مقالات' ),
 	'CourseActivity' => array( 'نشاط_الدروس' ),
+);
+
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'MyCourses' => array( 'كورساتى' ),
+	'ManageCourses' => array( 'التحكم_بالدروس' ),
+	'Institutions' => array( 'معاهد' ),
+	'Student' => array( 'طالب' ),
+	'Students' => array( 'طلاب' ),
+	'Courses' => array( 'كورسات' ),
+	'EducationProgram' => array( 'بروجرام-التعليم' ),
+	'Enroll' => array( 'تسجيل' ),
+	'Disenroll' => array( 'الغاء_تسجيل' ),
+	'CampusAmbassadors' => array( 'سفرا_الجامعه' ),
+	'OnlineAmbassadors' => array( 'سفرا_الويب' ),
+	'OnlineAmbassadorProfile' => array( 'بروفايل_سفير_الويب' ),
+	'CampusAmbassadorProfile' => array( 'بروفايل_سفير_الجامعه' ),
+	'StudentActivity' => array( 'نشاط_الطالب' ),
+	'Articles' => array( 'مقالات' ),
+	'CourseActivity' => array( 'نشاط_الكورس' ),
 );
 
 /** Assamese (অসমীয়া) */
@@ -234,6 +262,7 @@ $specialPageAliases['ja'] = array(
 	'OnlineAmbassadors' => array( 'オンラインボランティア' ),
 	'OnlineAmbassadorProfile' => array( 'オンラインボランティアプロフィール' ),
 	'CampusAmbassadorProfile' => array( 'キャンパスボランティアプロフィール' ),
+	'StudentActivity' => array( '生徒の活動' ),
 	'Articles' => array( '記事' ),
 );
 
@@ -312,6 +341,21 @@ $specialPageAliases['ml'] = array(
 	'Student' => array( 'വിദ്യാർത്ഥി' ),
 	'Students' => array( 'വിദ്യാർത്ഥികൾ' ),
 	'EducationProgram' => array( 'വിദ്യാഭ്യാസപദ്ധതി' ),
+);
+
+/** Norwegian Bokmål (norsk bokmål) */
+$specialPageAliases['nb'] = array(
+	'MyCourses' => array( 'Mine_kurs' ),
+	'ManageCourses' => array( 'Behandle_kurs' ),
+	'Institutions' => array( 'Institusjoner' ),
+	'Students' => array( 'Studenter' ),
+	'Courses' => array( 'Kurs' ),
+	'EducationProgram' => array( 'Utdanningsprogram' ),
+	'Enroll' => array( 'Meld_på' ),
+	'Disenroll' => array( 'Meld_av' ),
+	'StudentActivity' => array( 'Studentaktivitet' ),
+	'Articles' => array( 'Artikler' ),
+	'CourseActivity' => array( 'Kursaktivitet' ),
 );
 
 /** Dutch (Nederlands) */
@@ -439,6 +483,7 @@ $specialPageAliases['vi'] = array(
 $specialPageAliases['zh-hans'] = array(
 	'MyCourses' => array( '我的课程' ),
 	'ManageCourses' => array( '管理课程' ),
+	'Institutions' => array( '体系' ),
 	'Student' => array( '学生' ),
 	'Students' => array( '学生们' ),
 	'Courses' => array( '课程' ),
