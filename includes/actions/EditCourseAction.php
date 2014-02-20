@@ -47,8 +47,22 @@ class EditCourseAction extends EditAction {
 
 	/**
 	 * @see Action::getRestriction()
+	 *
+	 * Note: this is repeated in CoursePage::$info (in a different way)
 	 */
 	public function getRestriction() {
+		return 'edit';
+	}
+
+	/**
+	 * Right required to fully manage courses (not just edit wikitext
+	 * description).
+	 *
+	 * Note: this is repeated in CoursePage::$info (in a different way)
+	 *
+	 * @return string
+	 */
+	public function getManagementRestriction() {
 		return 'ep-course';
 	}
 
@@ -161,38 +175,7 @@ class EditCourseAction extends EditAction {
 
 		$messageMethod = array( $this, 'msg' );
 
-		$fields['title'] = array(
-			'type' => 'text',
-			'label-message' => 'ep-course-edit-title',
-			'help-message' => 'ep-course-help-title',
-			'required' => true,
-			'validation-callback' => function( $value, array $allData = null ) use ( $messageMethod ) {
-				if ( strpos( $value, '/' ) === false ) {
-					return true;
-				}
-
-				return call_user_func( $messageMethod, 'ep-course-no-slashes' )->text();
-			},
-		);
-
-		$names = $this->table->selectFields( 'name', array(), array( 'DISTINCT' ) );
-
-		if ( $this->getRequest()->getCheck( 'newname' ) ) {
-			$newName = $this->getRequest()->getText( 'newname' );
-			$names = array_merge( array( $newName => $newName ), $names );
-		}
-		else {
-			$names = array_merge( array( '' => '' ), $names );
-		}
-
-		$fields['name'] = array(
-			'class' => 'EducationProgram\HTMLCombobox',
-			'label-message' => 'ep-course-edit-name',
-			'help-message' => 'ep-course-help-name',
-			'required' => true,
-			'options' => array_combine( $names, $names ),
-		);
-
+		// Show description ("page text") field to all users
 		$fields['description'] = array(
 			'type' => 'textarea',
 			'label-message' => 'ep-course-edit-description',
@@ -209,91 +192,73 @@ class EditCourseAction extends EditAction {
 			'id' => 'wpTextbox1',
 		);
 
-		$fields['org_id'] = array(
-			'type' => 'select',
-			'label-message' => 'ep-course-edit-org',
-			'required' => true,
-			'options' => $orgOptions,
-			'validation-callback' => function( $value, array $allData = null ) use ( $orgOptions, $messageMethod ) {
-				if ( in_array( (int)$value, array_values( $orgOptions ) ) ) {
+		// Only show remaining controls if the user has sufficient rights.
+		if ( $this->getUser()->isAllowed(
+			$this->getManagementRestriction() ) ) {
+
+			$fields['token'] = array(
+				'type' => 'text',
+				'label-message' => 'ep-course-edit-token',
+				'help-message' => 'ep-course-help-token',
+				'maxlength' => 255,
+				'size' => 20,
+				'validation-callback' => function( $value, array $alldata = null ) use ( $messageMethod ) {
+					$strLen = strlen( $value );
+
+					if ( $strLen !== 0 && $strLen < 2 ) {
+						return call_user_func( $messageMethod, 'ep-course-invalid-token', 2 )->text();
+					}
+
 					return true;
-				}
+				},
+			);
 
-				return call_user_func( $messageMethod, 'ep-course-invalid-org' )->text();
-			},
-		);
+			$fields['start'] = array(
+				'class' => 'EducationProgram\HTMLDateField',
+				'label-message' => 'ep-course-edit-start',
+				'required' => true,
+			);
 
-		$fields['token'] = array(
-			'type' => 'text',
-			'label-message' => 'ep-course-edit-token',
-			'help-message' => 'ep-course-help-token',
-			'maxlength' => 255,
-			'size' => 20,
-			'validation-callback' => function( $value, array $alldata = null ) use ( $messageMethod ) {
-				$strLen = strlen( $value );
+			$fields['end'] = array(
+				'class' => 'EducationProgram\HTMLDateField',
+				'label-message' => 'ep-course-edit-end',
+				'required' => true,
+			);
 
-				if ( $strLen !== 0 && $strLen < 2 ) {
-					return call_user_func( $messageMethod, 'ep-course-invalid-token', 2 )->text();
-				}
+			$fieldFields = $this->table->selectFields( 'field', array(), array( 'DISTINCT' ) );
+			$fieldFields = array_merge( array( '' => '' ), $fieldFields );
+			$fields['field'] = array(
+				'class' => 'EducationProgram\HTMLCombobox',
+				'label-message' => 'ep-course-edit-field',
+				'required' => true,
+				'options' => array_combine( $fieldFields, $fieldFields ),
+			);
 
-				return true;
-			},
-		);
+			$levels = $this->table->selectFields( 'level', array(), array( 'DISTINCT' ) );
+			$levels = array_merge( array( '' => '' ), $levels );
+			$fields['level'] = array(
+				'class' => 'EducationProgram\HTMLCombobox',
+				'label-message' => 'ep-course-edit-level',
+				'required' => true,
+				'options' => array_combine( $levels, $levels ),
+			);
 
-		$fieldFields = $this->table->selectFields( 'term', array(), array( 'DISTINCT' ) );
-		$fieldFields = array_merge( array( '' => '' ), $fieldFields );
-		$fields['term'] = array(
-			'class' => 'EducationProgram\HTMLCombobox',
-			'label-message' => 'ep-course-edit-term',
-			'required' => true,
-			'options' => array_combine( $fieldFields, $fieldFields ),
-		);
+			$langOptions = Utils::getLanguageOptions( $this->getLanguage()->getCode() );
+			$fields['lang'] = array(
+				'type' => 'select',
+				'label-message' => 'ep-course-edit-lang',
+				'maxlength' => 255,
+				'required' => true,
+				'options' => $langOptions,
+				'validation-callback' => function( $value, array $allData = null ) use ( $langOptions, $messageMethod ) {
+					if ( in_array( $value, $langOptions ) ) {
+						return true;
+					}
 
-		$fields['start'] = array(
-			'class' => 'EducationProgram\HTMLDateField',
-			'label-message' => 'ep-course-edit-start',
-			'required' => true,
-		);
-
-		$fields['end'] = array(
-			'class' => 'EducationProgram\HTMLDateField',
-			'label-message' => 'ep-course-edit-end',
-			'required' => true,
-		);
-
-		$fieldFields = $this->table->selectFields( 'field', array(), array( 'DISTINCT' ) );
-		$fieldFields = array_merge( array( '' => '' ), $fieldFields );
-		$fields['field'] = array(
-			'class' => 'EducationProgram\HTMLCombobox',
-			'label-message' => 'ep-course-edit-field',
-			'required' => true,
-			'options' => array_combine( $fieldFields, $fieldFields ),
-		);
-
-		$levels = $this->table->selectFields( 'level', array(), array( 'DISTINCT' ) );
-		$levels = array_merge( array( '' => '' ), $levels );
-		$fields['level'] = array(
-			'class' => 'EducationProgram\HTMLCombobox',
-			'label-message' => 'ep-course-edit-level',
-			'required' => true,
-			'options' => array_combine( $levels, $levels ),
-		);
-
-		$langOptions = Utils::getLanguageOptions( $this->getLanguage()->getCode() );
-		$fields['lang'] = array(
-			'type' => 'select',
-			'label-message' => 'ep-course-edit-lang',
-			'maxlength' => 255,
-			'required' => true,
-			'options' => $langOptions,
-			'validation-callback' => function( $value, array $allData = null ) use ( $langOptions, $messageMethod ) {
-				if ( in_array( $value, $langOptions ) ) {
-					return true;
-				}
-
-				return call_user_func( $messageMethod, 'ep-course-invalid-lang' )->text();
-			},
-		);
+					return call_user_func( $messageMethod, 'ep-course-invalid-lang' )->text();
+				},
+			);
+		}
 
 		return $this->processFormFields( $fields );
 	}
@@ -439,7 +404,23 @@ class EditCourseAction extends EditAction {
 	 * @param array $fields
 	 */
 	protected function handleKnownFields( array &$fields ) {
-		$fields['title'] = $this->getPrefixedTitle( $fields['title'], $fields['org_id'] );
+
+		// Set fields that are needed, but immutable
+		$title = $this->getTitle();
+		$fields['title'] = $title;
+		$info_from_title = Utils::parseCourseTitle( $this->getTitle() );
+		$fields['name'] = $info_from_title['course_name'];
+		$fields['term'] = $info_from_title['term'];
+		$fields['org_id'] = Orgs::singleton()->selectFieldsRow(
+			'id', array( 'name' => $info_from_title['org_name'] ));
+
+		// Prevent unauthorized users from changing certain fields
+		if ( !$this->getUser()->isAllowed(
+			$this->getManagementRestriction() ) ) {
+
+			unset( $fields['token'], $fields['start'], $fields['end'],
+				$fields['field'], $fields['level'], $fields['lang'] );
+		}
 	}
 
 	/**
