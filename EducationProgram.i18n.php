@@ -463,7 +463,7 @@ The deletion log for this course is provided below for convenience:",
 	'coursepage-edit-undelete-link' => 'restore $1 {{PLURAL:$1|revision|revisions}}',
 
 	// undeletion restrictions
-	'ep-undelete-course-no-rights' => 'This course has been deleted, but you don\'t have permission to restore it.',
+	'ep-undelete-course-no-rights' => 'This course has been deleted. You don\'t have permission to restore it.',
 	'ep-undelete-course-org-deleted' => 'This course and its institution, [[$1|$2]], have been deleted. To restore this course, first [$3 restore $2].',
 
 	// ep.pager
