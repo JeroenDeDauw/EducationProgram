@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_campus_ambs         BLOB                NOT NULL, -- List of associated campus ambassadors (linking user.user_id)
   course_instructors         BLOB                NOT NULL, -- List of associated instructors (linking user.user_id)
   course_token               VARCHAR(255)        NOT NULL, -- Token needed to enroll
-  course_field               VARCHAR(255)        NOT NULL, -- Field of study
-  course_level               VARCHAR(255)        NOT NULL, -- Study level
+  course_field               VARCHAR(255)        NOT NULL, -- Deprecated, unused - Field of study
+  course_level               VARCHAR(255)        NOT NULL, -- Deprecated, unused - Study level
   course_term                VARCHAR(255)        NOT NULL, -- Academic term
   course_lang                VARCHAR(10)         NOT NULL, -- Language (code)
 

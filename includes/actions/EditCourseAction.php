@@ -72,7 +72,7 @@ class EditCourseAction extends EditAction {
 	public function onView() {
 		$out = $this->getOutput();
 
-		$out->addModules( array( 'ep.datepicker', 'ep.combobox' ) );
+		$out->addModules( array( 'ep.datepicker') );
 
 		$identifier = Courses::normalizeTitle( $this->getTitle()->getText() );
 
@@ -223,24 +223,6 @@ class EditCourseAction extends EditAction {
 				'class' => 'EducationProgram\HTMLDateField',
 				'label-message' => 'ep-course-edit-end',
 				'required' => true,
-			);
-
-			$fieldFields = $this->table->selectFields( 'field', array(), array( 'DISTINCT' ) );
-			$fieldFields = array_merge( array( '' => '' ), $fieldFields );
-			$fields['field'] = array(
-				'class' => 'EducationProgram\HTMLCombobox',
-				'label-message' => 'ep-course-edit-field',
-				'required' => true,
-				'options' => array_combine( $fieldFields, $fieldFields ),
-			);
-
-			$levels = $this->table->selectFields( 'level', array(), array( 'DISTINCT' ) );
-			$levels = array_merge( array( '' => '' ), $levels );
-			$fields['level'] = array(
-				'class' => 'EducationProgram\HTMLCombobox',
-				'label-message' => 'ep-course-edit-level',
-				'required' => true,
-				'options' => array_combine( $levels, $levels ),
 			);
 
 			$langOptions = Utils::getLanguageOptions( $this->getLanguage()->getCode() );
@@ -414,12 +396,16 @@ class EditCourseAction extends EditAction {
 		$fields['org_id'] = Orgs::singleton()->selectFieldsRow(
 			'id', array( 'name' => $info_from_title['org_name'] ));
 
+		// These fields are deprecated, so make sure they can't be
+		// set. (Already removed from the UI.)
+		unset ( $fields['field'], $fields['level'] );
+
 		// Prevent unauthorized users from changing certain fields
 		if ( !$this->getUser()->isAllowed(
 			$this->getManagementRestriction() ) ) {
 
 			unset( $fields['token'], $fields['start'], $fields['end'],
-				$fields['field'], $fields['level'], $fields['lang'] );
+				$fields['lang'] );
 		}
 	}
 
