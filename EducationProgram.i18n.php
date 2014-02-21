@@ -1623,11 +1623,18 @@ Refers to {{msg-mw|Ep-addstudents-btn}}.',
 * $1 is an institution name.',
 	'ep-delete-org-no-rights' => "Shown if a user tries to delete an institution but doesn't have permission to do so.",
 	'ep-delete-org-has-courses' => 'Message shown if the user tries to delete an institution that has courses. Parameters:
-* $1 the title of the institution page
-* $2 the name of the institution',
-	'ep-delete-org-has-courses-plain' => 'Message (in plain text) that is shown if the user tries to delete an institution that has courses. Parameters:
-* $1 the name of the institution',
-	'ep-delete-org-has-courses-close-dialog' => 'Text for the "Close" button on dialog explaining why an institution can\'t be deleted.',
+* $1 - the title of the institution page
+* $2 - the name of the institution
+See also:
+* {{msg-mw|Ep-delete-org-has-courses-plain}}',
+	'ep-delete-org-has-courses-plain' => 'Message (in plain text) that is shown if the user tries to delete an institution that has courses.
+
+Parameters:
+* $1 - the name of the institution
+See also:
+* {{msg-mw|Ep-delete-org-has-courses}}',
+	'ep-delete-org-has-courses-close-dialog' => 'Text for the "Close" button on dialog explaining why an institution can\'t be deleted.
+{{Identical|Close}}',
 	'orgpage-eprestore-title' => 'Page title. Parameters:
 * $1 is an institution name.',
 	'orgpage-eprestore-text' => 'Indicates what the user is about to do if they continue. Parameters:
@@ -4018,6 +4025,7 @@ $messages['ce'] = array(
 	'ep-course-add-instructor' => 'ТӀетоха инструктор',
 	'coursepage-delete-cancel-button' => 'Цаоьшу',
 	'orgpage-delete-cancel-button' => 'Цаоьшу',
+	'ep-delete-org-has-courses-close-dialog' => 'ДӀачӀагӀа',
 	'orgpage-eprestore-cancel-button' => 'Цаоьшу',
 	'coursepage-eprestore-cancel-button' => 'Цаоьшу',
 	'orgpage-epundo-cancel-button' => 'Цаоьшу',
@@ -14548,6 +14556,9 @@ $messages['ja'] = array(
 	'coursepage-delete-delete-failed' => 'コース [[Education_Program:$2|$1]] の削除に失敗しました。',
 	'orgpage-delete-summary' => '理由:',
 	'orgpage-delete-cancel-button' => 'キャンセル',
+	'ep-delete-org-has-courses' => '関連付けられたコースがあるため、[[$1|$2]] を削除できません。先にコースを削除してください。',
+	'ep-delete-org-has-courses-plain' => '関連付けられたコースがあるため、$1 を削除できません。先にコースを削除してください。',
+	'ep-delete-org-has-courses-close-dialog' => '閉じる',
 	'orgpage-eprestore-summary' => '理由:',
 	'orgpage-eprestore-restore-button' => '版を復帰',
 	'orgpage-eprestore-cancel-button' => 'キャンセル',
@@ -15989,8 +16000,8 @@ $messages['ko'] = array(
 	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|기관 삭제 확인|여러 기관 삭제 확인}}',
 	'ep-pager-retry-button-org' => '다시 시도',
 	'ep-pager-summary-message-org' => '요약:',
-	'ep-pager-confirm-message-org' => '$1 기관을 삭제하려고 합니다. 모든 관련된 과정과 학생 데이터가 삭제될 것입니다!', # Fuzzy
-	'ep-pager-confirm-message-org-many' => '다음 기관을 삭제하려고 합니다: $1. 모든 관련된 과정과 학생 데이터가 삭제될 것입니다!', # Fuzzy
+	'ep-pager-confirm-message-org' => '$1 기관을 삭제하려고 합니다.',
+	'ep-pager-confirm-message-org-many' => '이 기관을 삭제하려고 합니다: $1',
 	'epcoursepager-header-name' => '이름',
 	'epcoursepager-header-term' => '학기',
 	'epcoursepager-header-start' => '시작',
@@ -16200,7 +16211,7 @@ $messages['ko'] = array(
 	'coursepage-delete-none' => '"$1" 이름으로 된 과정이 없습니다. [[Special:Courses|과정 목록]]을 참고하세요.',
 	'coursepage-delete-deleted' => '성공적으로 $1 과정을 삭제했습니다.',
 	'coursepage-delete-delete-failed' => '[[Education_Program:$2|$1]] 과정을 삭제하는 데 실패했습니다.',
-	'orgpage-delete-text' => '$1 기관의 삭제를 중단합니다. 모든 관련 과정과 학생을 제거합니다!', # Fuzzy
+	'orgpage-delete-text' => '$1 기관을 삭제하려고 합니다.',
 	'orgpage-delete-summary' => '이유:',
 	'orgpage-delete-title' => '"$1" 기관 삭제',
 	'orgpage-delete-cancel-button' => '취소',
@@ -16208,6 +16219,10 @@ $messages['ko'] = array(
 	'orgpage-delete-none' => '"$1" 이름으로 된 기관이 없습니다. [[Special:Institutions|기관 목록]]을 참고하세요.',
 	'orgpage-delete-deleted' => '성공적으로 $1 기관과 관련 과정을 삭제했습니다.',
 	'orgpage-delete-delete-failed' => '[[Institution:$1|$1]] 기관을 삭제하는 데 실패했습니다.',
+	'ep-delete-org-no-rights' => '이 과정을 삭제할 권한이 없습니다.',
+	'ep-delete-org-has-courses' => '연관된 과정이 있기 때문에 [[$1|$2]] 기관 문서를 삭제할 수 없습니다. 해당 과정을 먼저 삭제해주세요.',
+	'ep-delete-org-has-courses-plain' => '연관된 과정이 있기 때문에 $1 기관을 삭제할 수 없습니다. 해당 과정을 먼저 삭제해주세요.',
+	'ep-delete-org-has-courses-close-dialog' => '닫기',
 	'orgpage-eprestore-title' => '"$1" 기관 복구',
 	'orgpage-eprestore-text' => '이전 판으로 $1 기관의 복원을 중단합니다.',
 	'orgpage-eprestore-summary' => '이유:',
@@ -16845,7 +16860,8 @@ $messages['lb'] = array(
 	'ep-pager-delete-button-org' => '{{PLURAL:$1|Institutioun|Institutiounen}} läschen',
 	'ep-pager-retry-button-org' => 'Nach eng Kéier probéieren',
 	'ep-pager-summary-message-org' => 'Resumé:',
-	'ep-pager-confirm-message-org-many' => "Dir sidd derbäi d'Institutioun $1 ze läschen. Domat ginn all associéiert Coursen an d'Donnée vun de Studente geläscht!", # Fuzzy
+	'ep-pager-confirm-message-org' => "Dir sidd am Gaang d'Institutioun $1 ze läschen.",
+	'ep-pager-confirm-message-org-many' => 'Dir sidd derbäi dës Institutiounen ze läschen:$1',
 	'epcoursepager-header-name' => 'Numm',
 	'epcoursepager-header-term' => 'Periode',
 	'epcoursepager-header-start' => 'Ufank',
@@ -17012,7 +17028,7 @@ Fir Iech z'informéieren fannt Dir hei d'Logbuch vum Läschen hei drënner:",
 	'coursepage-delete-none' => 'Et gëtt kee Cours mam Numm "$1". Kuckt d\'[[Special:Courses|Lëscht vun de Coursen]].',
 	'coursepage-delete-deleted' => 'De Cours $1 gouf geläscht.',
 	'coursepage-delete-delete-failed' => 'De Cours [[Education_Program:$2|$1]] konnt net geläscht ginn.',
-	'orgpage-delete-text' => "Dir sidd derbäi d'Institutioun $1 ze läschen. Domat ginn all associéiert Coursen a Studenten ewechgeholl!", # Fuzzy
+	'orgpage-delete-text' => "Dir sidd derbäi d'Institutioun $1 ze läschen.",
 	'orgpage-delete-summary' => 'Grond:',
 	'orgpage-delete-title' => 'Institutioun "$1" läschen',
 	'orgpage-delete-cancel-button' => 'Ofbriechen',
@@ -17020,6 +17036,8 @@ Fir Iech z'informéieren fannt Dir hei d'Logbuch vum Läschen hei drënner:",
 	'orgpage-delete-none' => 'Et gëtt keng Insitutioun mam Numm "$1". Kuckt d\'[[Special:Institutions|Lëscht vun den Institutiounen]].',
 	'orgpage-delete-deleted' => "D'Institutioun $1 an déi associéiert Course goufe geläscht.",
 	'orgpage-delete-delete-failed' => "D'[[Institution:$1|Institutioun: $1]] konnt net geläscht ginn.",
+	'ep-delete-org-no-rights' => "Dir hutt net D'Recht fir dës Institutioun ze läschen.",
+	'ep-delete-org-has-courses-close-dialog' => 'Zoumaachen',
 	'orgpage-eprestore-title' => 'Institutioun "$1" restauréieren',
 	'orgpage-eprestore-summary' => 'Grond:',
 	'orgpage-eprestore-restore-button' => 'Versioun restauréieren',
@@ -17648,8 +17666,8 @@ $messages['mk'] = array(
 	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|Потврдете го бришењето на установата|Потврдете го бришењето на установите}}',
 	'ep-pager-retry-button-org' => 'Пробај пак',
 	'ep-pager-summary-message-org' => 'Опис:',
-	'ep-pager-confirm-message-org' => 'На пат сте да ја избришете установата: $1. Со ова ќе ги избришете и сите нејзини курсеви и ученички податоци!', # Fuzzy
-	'ep-pager-confirm-message-org-many' => 'На пат сте да ги избришете следниве установи: $1. Со ова ќе ги избришете и сите нивни курсеви и ученички податоци!', # Fuzzy
+	'ep-pager-confirm-message-org' => 'На пат сте да ја избришете установата $1.',
+	'ep-pager-confirm-message-org-many' => 'На пат сте да ги избришете следниве установи: $1.',
 	'epcoursepager-header-name' => 'Име',
 	'epcoursepager-header-term' => 'Тримесечје',
 	'epcoursepager-header-start' => 'Почеток',
@@ -17860,7 +17878,7 @@ $messages['mk'] = array(
 	'coursepage-delete-none' => 'Не постои курс со име „$1“. Погледајте го [[Special:Courses|списокот на курсеви]].',
 	'coursepage-delete-deleted' => 'Курсот $1 е успешно избришан.',
 	'coursepage-delete-delete-failed' => 'Не успеав да го избришам курсот [[Education_Program:$2|$1]].',
-	'orgpage-delete-text' => 'На пат сте да ја избришете установата $1. Со ова ќе ги избришете сите нејзини курсеви и учениците запишани на нив!', # Fuzzy
+	'orgpage-delete-text' => 'На пат сте да ја избришете установата $1.',
 	'orgpage-delete-summary' => 'Причина:',
 	'orgpage-delete-title' => 'Бришење на установата „$1“',
 	'orgpage-delete-cancel-button' => 'Откажи',
@@ -17868,6 +17886,10 @@ $messages['mk'] = array(
 	'orgpage-delete-none' => 'Не постои установа со име „$1“. Погледајте го [[Special:Institutions|списокот на установи]].',
 	'orgpage-delete-deleted' => 'Успешно ја избришав установата $1 и сите нејзини курсеви.',
 	'orgpage-delete-delete-failed' => 'Не успеав да ја избришам установата [[Institution:$1|$1]].',
+	'ep-delete-org-no-rights' => 'Немате дозвола да ја избришете оваа установа.',
+	'ep-delete-org-has-courses' => 'Не можете да ја избришете установата [[$1|$2]] бидејќи има поврзани курсеви. Избришете ги прво нив.',
+	'ep-delete-org-has-courses-plain' => 'Не можете да ја избришете установата $1 бидејќи има поврзани курсеви. Избришете ги прво нив.',
+	'ep-delete-org-has-courses-close-dialog' => 'Затвори',
 	'orgpage-eprestore-title' => 'Враќње на установата „$1“',
 	'orgpage-eprestore-text' => 'На пат сте да ја вратите установата $1 на претходна ревизија.',
 	'orgpage-eprestore-summary' => 'Причина:',
@@ -19596,28 +19618,31 @@ $messages['nds'] = array(
 /** Dutch (Nederlands)
  * @author Arent
  * @author AvatarTeam
+ * @author JurgenNL
  * @author Konovalov
  * @author McDutchie
  * @author SPQRobin
  * @author Siebrand
  * @author Sjoerddebruin
+ * @author Southparkfan
+ * @author TBloemink
  * @author Wiki13
  */
 $messages['nl'] = array(
-	'educationprogram-desc' => "Faciliteert onderwijsprogramma's door verschillende interfaces toe te voegen om cursussen, organisatie en verschillende onderwijsrollen te kunnen beheren",
+	'educationprogram-desc' => "Faciliteert onderwijsprogramma's door verschillende interfaces toe te voegen om cursussen, organisatie en verschillende onderwijsrollen te kunnen beheren.",
 	'ep-item-summary' => 'Samenvatting',
 	'ep-toplink' => 'Cursussen',
-	'ep-org-course-delete-comment' => 'De organisatie $1 en alle bijbehorende cursussen zijn verwijderd met de opmerking "$2".',
+	'ep-org-course-delete-comment' => 'De organisatie $1 en alle bijbehorende cursussen zijn verwijderd met de opmerking "$2"',
 	'ep-org-course-delete' => 'De organisatie $1 en alle bijbehorende cursussen zijn verwijderd.',
 	'ep-form-summary' => 'Samenvatting:',
 	'ep-form-minor' => 'Dit is een kleine bewerking',
 	'ep-move-error' => "U mag pagina's niet hernoemen in of uit de naamruimten voor het onderwijsprogramma.",
 	'ep-student-view-profile' => 'studentenprofiel',
 	'ep-err-failed-to-save' => 'Er is iets misgegaan. Uw wijzigingen zijn niet opgeslagen.',
-	'ep-err-course-exists-title' => 'Fout: Cursus bestaat',
+	'ep-err-course-exists-title' => 'Fout: cursus bestaat al',
 	'ep-err-course-exists-text' => 'U probeert de cursus $1 aan te maken, maar deze bestaat al.',
-	'ep-err-org-exists-title' => 'Fout: Instelling bestaat',
-	'ep-err-org-exists-text' => 'U probeert de instelling $1 te maken, maar deze is al aanwezig.',
+	'ep-err-org-exists-title' => 'Fout: organisatie bestaat al',
+	'ep-err-org-exists-text' => 'U probeert de organistatie $1 te maken, maar deze bestaat al.',
 	'ep-didyouknow-header' => 'Wist u dat...?',
 	'ep-tab-view' => 'Lezen',
 	'ep-tab-edit' => 'Bewerken',
@@ -19641,13 +19666,13 @@ $messages['nl'] = array(
 	'ep-nav-oas' => 'Online vrijwilligers',
 	'ep-nav-oaprofile' => 'Online vrijwilligersprofiel',
 	'ep-nav-caprofile' => 'Campusvrijwilligersprofiel',
-	'log-name-institution' => 'Logboek Onderwijsprogramma organisaties',
-	'log-name-course' => 'Logboek Onderwijsprogramma cursussen',
-	'log-name-student' => 'Logboek Onderwijsprogramma studenten',
-	'log-name-online' => 'Logboek Onderwijsprogramma Online vrijwilligers',
-	'log-name-campus' => 'Logboek Onderwijsprogramma Campusvrijwilligers',
-	'log-name-instructor' => 'Logboek Onderwijsprogramma instructeurs',
-	'log-name-eparticle' => "Logboek Onderwijsprogramma pagina's",
+	'log-name-institution' => 'Onderwijsprogramma: organisatielogboek',
+	'log-name-course' => 'Onderwijsprogramma: cursuslogboek',
+	'log-name-student' => 'Onderwijsprogramma: studentenlogboek',
+	'log-name-online' => 'Onderwijsprogramma: online vrijwilligers-logboek',
+	'log-name-campus' => 'Onderwijsprogramma: campusvrijwilligerslogboek',
+	'log-name-instructor' => 'Onderwijsprogramma: instructeurslogboek',
+	'log-name-eparticle' => 'Onderwijsprogramma: artikel-logboek',
 	'log-header-institution' => 'Via deze gebeurtenissen worden de wijzigingen bijgehouden die gemaakt worden met betrekking tot organisaties in het Onderwijsprogramma.',
 	'log-header-course' => 'Via deze gebeurtenissen worden de wijzigingen bijgehouden die gemaakt worden met betrekking tot cursussen in het Onderwijsprogramma.',
 	'log-header-instructor' => 'Via deze gebeurtenissen worden de wijzigingen bijgehouden die gemaakt worden met betrekking tot instructeurs in het Onderwijsprogramma.',
@@ -19697,11 +19722,11 @@ $messages['nl'] = array(
 	'ep-prefs-bulkdelorgs' => 'Mogelijkheid weergeven voor het massaal verwijderen van [[Special:Institutions|organisaties]].',
 	'ep-prefs-bulkdelcourses' => 'Mogelijkheid weergeven voor het massaal verwijderen van [[Special:Courses|cursussen]].',
 	'ep-prefs-showdyk' => '"Wist u dat"-venster weergeven op de pagina [[Special:MyCourses|mijn cursussen]].',
-	'right-ep-org' => 'Organisaties voor het Onderwijsprogramma beheren',
-	'right-ep-course' => 'Cursussen voor het Onderwijsprogramma beheren',
-	'right-ep-token' => 'Inschrijvingstokens voor het Onderwijsprogramma bekijken',
+	'right-ep-org' => 'Organisaties voor het onderwijsprogramma beheren',
+	'right-ep-course' => 'Cursussen voor het onderwijsprogramma beheren',
+	'right-ep-token' => 'Inschrijvingstokens voor het onderwijsprogramma bekijken',
 	'right-ep-remstudent' => 'Studenten uit cursussen verwijderen',
-	'right-ep-enroll' => 'Inschrijven voor cursussen in het Onderwijsprogramma',
+	'right-ep-enroll' => 'Inschrijven voor cursussen in het onderwijsprogramma',
 	'right-ep-online' => 'Online vrijwilligers toevoegen aan of verwijderen uit cursussen',
 	'right-ep-campus' => 'Campusvrijwilligers toevoegen aan of verwijderen uit cursussen',
 	'right-ep-instructor' => 'Instructeurs toevoegen aan of verwijderen uit cursussen',
@@ -19709,7 +19734,7 @@ $messages['nl'] = array(
 	'right-ep-becampus' => 'Uzelf toevoegen of verwijderen als campusvrijwilliger voor semesters',
 	'right-ep-beinstructor' => 'Uzelf als instructeur toevoegen aan of verwijderen van cursussen',
 	'right-ep-bereviewer' => "Uzelf als controleur toevoegen aan of verwijderen van pagina's",
-	'right-ep-remreviewer' => 'Controleurs van artikelen verwijderen',
+	'right-ep-remreviewer' => "Controleurs van pagina's verwijderen",
 	'right-ep-bulkdelorgs' => 'Organisaties massaal verwijderen',
 	'right-ep-bulkdelcourses' => 'Cursussen massaal verwijderen',
 	'right-ep-remarticle' => "Pagina's loskoppelen van studenten",
@@ -19732,14 +19757,15 @@ $messages['nl'] = array(
 	'action-ep-remarticle' => "pagina's los te koppelen van studenten",
 	'action-ep-addstudent' => 'gebruikers als student in te schrijven',
 	'group-epcoordinator' => 'Cursuscoördinatoren',
-	'group-epcoordinator-member' => 'Cursus{{GENDER:$1|coördinator|coördinatrice}}',
+	'group-epcoordinator-member' => '{{GENDER:$1|cursuscoördinator}}',
 	'grouppage-epcoordinator' => '{{ns:project}}:Cursuscoördinatoren',
-	'group-eponline' => 'Online cursusvrijwillgers',
-	'group-eponline-member' => '{{GENDER:$1|online cursusvrijwillger}}',
-	'grouppage-eponline' => '{{ns:project}}:Online_cursusvrijwillgers',
-	'group-epcampus' => 'Campus cursusvrijwillgers',
-	'group-epcampus-member' => '{{GENDER:$1|campus cursusvrijwillger}}',
-	'grouppage-epcampus' => '{{ns:project}}:Campus_cursusvrijwillgers',
+	'group-eponline' => 'Online cursusvrijwilligers',
+	'group-eponline-member' => '{{GENDER:$1|online cursusvrijwilliger}}',
+	'grouppage-eponline' => '{{ns:project}}:Online_cursusvrijwilligers',
+	'group-epcampus' => 'Campus-cursusvrijwilligers',
+	'group-epcampus-member' => 'campus-cursusvrijwillig{{GENDER:$1|er|
+ster}}',
+	'grouppage-epcampus' => '{{ns:project}}:Campus_cursusvrijwilligers',
 	'group-epinstructor' => 'Cursusinstructeurs',
 	'group-epinstructor-member' => 'cursus{{GENDER:$1|instructeur|instructrice}}',
 	'grouppage-epinstructor' => '{{ns:project}}:Cursusinstructeurs',
@@ -19763,21 +19789,21 @@ $messages['nl'] = array(
 	'ep-course-status-current' => 'Huidige',
 	'ep-course-status-planned' => 'Gepland',
 	'ep-course-status-current-planned' => 'Huidig en gepland',
-	'ep-summary-table-header' => 'Totalen Onderwijsprogramma',
+	'ep-summary-table-header' => 'Onderwijsprogramma-resultaten',
 	'ep-specialeducationprogram-summary-org-count' => 'Aantal [[Special:Institutions|organisaties]]',
 	'ep-specialeducationprogram-summary-course-count' => 'Aantal [[Special:Courses|cursussen]]',
 	'ep-specialeducationprogram-summary-active-course-count' => 'Aantal actieve cursussen',
 	'ep-specialeducationprogram-summary-student-count' => 'Aantal [[Special:Students|studenten]]',
 	'ep-specialeducationprogram-summary-current-student-count' => 'Ingeschreven studenten',
 	'ep-specialeducationprogram-summary-instructor-count' => 'Aantal instructeurs',
-	'ep-specialeducationprogram-summary-ca-count' => 'Aantal [[Special:CampusVolunteers|Campusvrijwilligers]]',
-	'ep-specialeducationprogram-summary-oa-count' => 'Aantal [[Special:OnlineVolunteers|Online vrijwilligers]]',
+	'ep-specialeducationprogram-summary-ca-count' => 'Aantal [[Special:CampusVolunteers|campusvrijwilligers]]',
+	'ep-specialeducationprogram-summary-oa-count' => 'Aantal [[Special:OnlineVolunteers|online vrijwilligers]]',
 	'ep-educationprogram-by-term' => 'Totalen per semester',
 	'ep-educationprogram-courses' => 'Aantal cursussen',
 	'ep-educationprogram-students' => 'Aantal studenten',
 	'ep-educationprogram-instructors' => 'Aantal instructeurs',
-	'ep-educationprogram-oas' => 'Aantal Online vrijwilligers',
-	'ep-educationprogram-cas' => 'Aantal Campusvrijwilligers',
+	'ep-educationprogram-oas' => 'Aantal online vrijwilligers',
+	'ep-educationprogram-cas' => 'Aantal campusvrijwilligers',
 	'ep-educationprogram-orgs' => 'Aantal organisaties',
 	'ep-educationprogram-articles' => "Aantal pagina's",
 	'ep-educationprogram-gender-students' => 'Studenten',
@@ -19805,7 +19831,7 @@ $messages['nl'] = array(
 	'ep-students-noresults' => 'Er zijn nog geen studenten.',
 	'ep-pager-showonly' => 'Alleen items weergeven met',
 	'ep-pager-clear' => 'Filters verwijderen',
-	'ep-pager-go' => 'OK',
+	'ep-pager-go' => 'Doorgaan',
 	'ep-pager-withselected' => 'Met geselecteerde',
 	'ep-pager-delete-selected' => 'Verwijderen',
 	'ep-revision-undo' => 'ongedaan maken',
@@ -19825,8 +19851,8 @@ $messages['nl'] = array(
 	'ep-pager-confirm-delete-org' => 'Verwijderen van {{PLURAL:$1|organisatie|meerdere organisaties}} bevestigen',
 	'ep-pager-retry-button-org' => 'Opnieuw proberen',
 	'ep-pager-summary-message-org' => 'Samenvatting:',
-	'ep-pager-confirm-message-org' => 'U staat op het punt de organisatie $1 te verwijderen. Hiermee worden ook alle gekoppelde cursussen en de gegevens van gekoppelde studenten verwijderd.',
-	'ep-pager-confirm-message-org-many' => 'U staat op het punt deze organisatie te verwijderen: $1. Hiermee worden ook alle gekoppelde cursussen en de gegevens van gekoppelde studenten verwijderd.',
+	'ep-pager-confirm-message-org' => 'U staat op het punt de organisatie $1 te verwijderen.',
+	'ep-pager-confirm-message-org-many' => 'U staat op het punt om deze organisaties te verwijderen: $1.',
 	'epcoursepager-header-name' => 'Naam',
 	'epcoursepager-header-term' => 'Semester',
 	'epcoursepager-header-start' => 'Begin',
@@ -19866,7 +19892,7 @@ $messages['nl'] = array(
 	'ep-articles-remarticle' => 'pagina verwijderen',
 	'ep-articles-addarticle-text' => 'Pagina toevoegen:',
 	'ep-articles-addarticle-button' => 'Pagina toevoegen',
-	'ep-articles-becomereviewer' => 'U als {{GENDER:$1|controleur}} toevoegen',
+	'ep-articles-becomereviewer' => 'Uzelf als {{GENDER:$1|controleur}} toevoegen',
 	'ep-articletable-addreviwer-title' => '{{GENDER:$1|Controleur}} worden',
 	'ep-articletable-addreviwer-button' => '{{GENDER:$1|Controleur}} worden',
 	'ep-articletable-addreviwer-cancel' => 'Annuleren',
@@ -19894,12 +19920,12 @@ Hiermee worden ook {{GENDER:$1|zijn|haar}} gekoppelde pagina's en controleurs ve
 	'epcapager-header-user-id' => 'Gebruikersnaam',
 	'epcapager-header-bio' => 'Profiel',
 	'epcapager-header-courses' => 'Huidige cursussen',
-	'ep-ca-noresults' => 'Er zijn nog geen Campusvrijwilligers',
+	'ep-ca-noresults' => 'Er zijn nog geen campusvrijwilligers.',
 	'epoapager-header-photo' => 'Foto',
 	'epoapager-header-user-id' => 'Gebruikersnaam',
 	'epoapager-header-bio' => 'Profiel',
 	'epoapager-header-courses' => 'Huidige cursussen',
-	'ep-oa-noresults' => 'Er zijn nog geen Online vrijwilligers',
+	'ep-oa-noresults' => 'Er zijn nog geen online vrijwilligers.',
 	'epstudentactivitypager-header-user-id' => 'Student',
 	'epstudentactivitypager-header-org-id' => 'Organisatie',
 	'epstudentactivitypager-header-last-course' => 'Cursus',
@@ -19968,6 +19994,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-course-no-slashes' => 'De naam van de cursus mag geen slashes bevatten.',
 	'coursepage-edit-undelete-revisions' => 'Deze cursus is verwijderd. U kunt $1.',
 	'coursepage-edit-undelete-link' => '$1 {{PLURAL:$1|versie|versies}} terugplaatsen',
+	'ep-undelete-course-no-rights' => 'Deze cursus is verwijderd, maar u heeft niet de benodigde rechten om deze terug te plaatsen.',
 	'ep-pager-confirm-delete' => 'Weet u zeker dat u dit item wilt verwijderen?',
 	'ep-pager-delete-fail' => 'Het was niet mogelijk dit item te verwijderen.',
 	'ep-pager-confirm-delete-selected' => 'Weet u zeker dat u {{PLURAL:$1|het geselecteerde item|de geselecteerde items}} wilt verwijderen?',
@@ -20006,10 +20033,10 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-course-no-instructor' => 'Er zijn nog geen instructeurs voor deze cursus.',
 	'ep-course-become-instructor' => 'Instructeur worden',
 	'ep-course-add-instructor' => 'Instructeur toevoegen',
-	'ep-course-no-online' => 'Er zijn nog geen Online vrijwilligers voor deze cursus.',
+	'ep-course-no-online' => 'Er zijn nog geen online vrijwilligers voor deze cursus.',
 	'ep-course-become-online' => 'Online vrijwilliger worden',
 	'ep-course-add-online' => 'Online vrijwilliger toevoegen',
-	'ep-course-no-campus' => 'Er zijn nog geen Campusvrijwilligers voor deze cursus.',
+	'ep-course-no-campus' => 'Er zijn nog geen campusvrijwilligers voor deze cursus.',
 	'ep-course-become-campus' => 'Campusvrijwilliger worden',
 	'ep-course-add-campus' => 'Campusvrijwilliger toevoegen',
 	'ep-instructor-summary' => 'Samenvatting:',
@@ -20034,7 +20061,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'coursepage-delete-none' => 'Er is geen cursus met de naam "$1". Zie de [[Special:Courses|lijst met cursussen]].',
 	'coursepage-delete-deleted' => 'De cursus $1 is verwijderd.',
 	'coursepage-delete-delete-failed' => 'Het verwijderen van de cursus [[Education_Program:$2|$1]] is mislukt.',
-	'orgpage-delete-text' => 'U staat op het punt de organisatie $1 te verwijderen. Hiermee worden alle gekoppelde cursussen en studenten verwijderd.',
+	'orgpage-delete-text' => 'U staat op het punt de organisatie $1 te verwijderen.',
 	'orgpage-delete-summary' => 'Reden:',
 	'orgpage-delete-title' => 'Organisatie "$1" verwijderen',
 	'orgpage-delete-cancel-button' => 'Annuleren',
@@ -20042,6 +20069,8 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'orgpage-delete-none' => 'Er is geen organisatie met de naam "$1". Zie de [[Special:Institutions|lijst met organisaties]].',
 	'orgpage-delete-deleted' => 'De organisatie $1 en de gekoppelde cursussen zijn verwijderd.',
 	'orgpage-delete-delete-failed' => 'Het was niet mogelijk de organisatie [[Institution:$1|$1]] te verwijderen.',
+	'ep-delete-org-no-rights' => 'U heeft geen niet de benodigde rechten om deze organisatie te verwijderen.',
+	'ep-delete-org-has-courses-close-dialog' => 'Sluiten',
 	'orgpage-eprestore-title' => 'Organisatie "$1" terugplaatsen',
 	'orgpage-eprestore-text' => 'U staat op het punt om een eerdere versie van de organisatie $1 terug te plaatsen.',
 	'orgpage-eprestore-summary' => 'Reden:',
@@ -20144,8 +20173,8 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-mycourses-courses-epca' => '{{PLURAL:$1|Cursus|Cursussen}} waarvoor u Campus{{GENDER:$2|vrijwilliger}} bent',
 	'ep-mycourses-courses-epinstructor' => '{{PLURAL:$1|Cursus|Cursussen}} waarvoor u {{GENDER:$2|instructeur|instructrice}} bent',
 	'ep-mycourses-courses-epstudent' => '{{PLURAL:$1|Cursus|Cursussen}} waarvoor u bent ingeschreven',
-	'ep-mycourses-nocourses-epca' => 'U bent nog geen Campus{{GENDER:$1|vrijwilliger}} voor een cursus.',
-	'ep-mycourses-nocourses-epoa' => 'U bent nog geen Online {{GENDER:$1|vrijwilliger}} voor een cursus.',
+	'ep-mycourses-nocourses-epca' => 'Er zijn geen cursussen waarvoor u campusvrijwillig{{GENDER:$1|er|ster}} bent.',
+	'ep-mycourses-nocourses-epoa' => 'Er zijn geen cursussen waarvoor u online-vrijwillig{{GENDER:$1|er|ster}} bent.',
 	'ep-mycourses-nocourses-epinstructor' => 'U bent nog geen {{GENDER:$1|instructeur|instructrice}} voor een cursus.',
 	'ep-mycourses-enrolledin' => 'U bent ingeschreven voor de cursus $1 bij de organisatie $2.',
 	'ep-mycourses-course-org-links' => 'Cursus $1 bij organisatie $2.',
@@ -20160,7 +20189,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-instructor-cancel-button' => 'Annuleren',
 	'ep-instructor-remove-text' => 'U staat op het punt $2 (gebruikersnaam $1) te verwijderen als {{GENDER:$1|instructeur|instructrice}} voor de cursus $3. Geef een korte reden op voor deze handeling.',
 	'ep-instructor-adding' => 'Bezig met toevoegen...',
-	'ep-instructor-addition-success' => '$1 is verwijderd als {{GENDER:$1|instructeur|instructrice}} voor de cursus $2.',
+	'ep-instructor-addition-success' => '$1 is succesvol toegevoegd als {{GENDER:$1|instructeur|instructrice}} voor cursus $2!',
 	'ep-instructor-addition-self-success' => 'U bent toegevoegd als {{GENDER:$1|instructeur|instructrice}} voor de cursus $2.',
 	'ep-instructor-addition-null' => '$1 is al {{GENDER:$1|instructeur|instructrice}} voor de cursus $2',
 	'ep-instructor-addition-invalid-user' => 'Er is geen gebruiker met de naam $1, dus er is niemand toegevoegd aan de cursus $2',
@@ -20243,8 +20272,8 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'epoa-profile-saved' => 'Uw profiel is opgeslagen',
 	'epoa-profile-invalid-bio' => 'De beschrijving moet tenminste {{PLURAL:$1|één teken|$1 tekens}} bevatten.',
 	'epoa-visible' => '{{GENDER:$1|U}} openbaar weergeven als online vrijwilliger',
-	'campusambassadorprofile' => 'Uw Campusvrijwilligersprofiel',
-	'campusambassadorprofile-legend' => 'Uw Campus vrijwilligersprofiel',
+	'campusambassadorprofile' => 'Uw campusvrijwilligersprofiel',
+	'campusambassadorprofile-legend' => 'Uw campusvrijwilligersprofiel',
 	'campusambassadorprofile-text' => 'Uw Campus vrijwilligersprofiel is wat studenten te zien krijgen als ze zoeken naar beschikbare vrijwilligers.',
 	'epca-profile-bio' => 'Korte beschrijving',
 	'epca-profile-photo' => 'Profielfoto',
@@ -20290,12 +20319,15 @@ Zie de [[Special:Students|lijst met alle studenten]].',
 	'ep-user-roles-message-additional' => '{{GENDER:$1|Hij is|Zij is|Ze zijn}} ook $2.',
 	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|een student}}',
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|een instructeur}}',
-	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|online cursusvrijwillger}}',
-	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|campus cursusvrijwillger}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|een online cursusvrijwilliger}}',
+	'ep-user-roles-message-rolename-campus' => 'een campus-cursusvrijwillig{{GENDER:$1|er|ster}}',
 	'echo-category-title-education-program' => 'Onderwijsprogramma',
 	'ep-echo-pref-tooltip' => 'Informeer mij over gebeurtenissen met betrekking tot cursussen waar ik bij betrokken ben.',
 	'ep-course-talk-link-text-view-message' => 'Bericht bekijken',
 	'ep-course-talk-link-text-view-changes' => 'Wijzigingen bekijken',
+	'ep-course-talk-notification-title' => 'De [[$2|cursus-overlegpagina van $3]] is {{GENDER:$1|bewerkt}} door [[User:$1|$1]].',
+	'ep-course-talk-notification-title-email-subject' => "De cursus' overlegpagina van $2 was {{GENDER:$1|bewerkt}} door $1.",
+	'ep-course-talk-notification-title-email-body' => "De cursus' overlegpagina van $2 was {{GENDER:$1|bewerkt}} door $1.",
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -20621,6 +20653,7 @@ $messages['or'] = array(
 /** Polish (polski)
  * @author BeginaFelicysym
  * @author Chrumps
+ * @author Dalis
  * @author Odie2
  * @author P0358
  * @author Przemub
@@ -20755,6 +20788,7 @@ $messages['pl'] = array(
 	'coursepage-delete-cancel-button' => 'Anuluj',
 	'orgpage-delete-summary' => 'Powód:',
 	'orgpage-delete-cancel-button' => 'Anuluj',
+	'ep-delete-org-has-courses-close-dialog' => 'Zamknij',
 	'orgpage-eprestore-summary' => 'Powód:',
 	'orgpage-eprestore-cancel-button' => 'Anuluj',
 	'coursepage-eprestore-summary' => 'Powód:',
@@ -21906,8 +21940,8 @@ $messages['pt-br'] = array(
 	'ep-pager-confirm-delete-org' => 'Confirme a eliminação {{PLURAL:$1|da instituição|de diversas instituições}}',
 	'ep-pager-retry-button-org' => 'Repetir',
 	'ep-pager-summary-message-org' => 'Sumário:',
-	'ep-pager-confirm-message-org' => 'Você está prestes a remover a instituição $1. Isto removerá todos os cursos associados e todos os dados de estudantes!', # Fuzzy
-	'ep-pager-confirm-message-org-many' => 'Você está prestes a remover as seguintes instituições: $1. Isto removerá todos os cursos associados e todos os dados de estudantes!', # Fuzzy
+	'ep-pager-confirm-message-org' => 'Você está prestes a remover a instituição $1.',
+	'ep-pager-confirm-message-org-many' => 'Você está prestes a remover as seguintes instituições: $1.',
 	'epcoursepager-header-name' => 'Nome',
 	'epcoursepager-header-term' => 'Período',
 	'epcoursepager-header-start' => 'Início',
@@ -22115,7 +22149,7 @@ O registro de exclusão para este curso é fornecido abaixo para sua conveniênc
 	'coursepage-delete-none' => 'Não há nenhum curso com o nome " $1 ". Veja a [[Special:Courses|lista de cursos]].',
 	'coursepage-delete-deleted' => 'Curso $1 eliminado com sucesso.',
 	'coursepage-delete-delete-failed' => 'Falha ao eliminar curso [[Education_Program:$2|$1]].',
-	'orgpage-delete-text' => 'Você está prestes a remover a instituição $1. Isto removerá todos os cursos e estudantes associados!', # Fuzzy
+	'orgpage-delete-text' => 'Você está prestes a remover a instituição $1.',
 	'orgpage-delete-summary' => 'Motivo:',
 	'orgpage-delete-title' => 'Eliminar instituição "$1"',
 	'orgpage-delete-cancel-button' => 'Cancelar',
@@ -22123,6 +22157,10 @@ O registro de exclusão para este curso é fornecido abaixo para sua conveniênc
 	'orgpage-delete-none' => 'Não há instituição com nome "$1". Veja a [[Special:Institutions|lista de instituições]].',
 	'orgpage-delete-deleted' => 'Instituição $1 e seus cursos associados foram eliminados com sucesso.',
 	'orgpage-delete-delete-failed' => 'Falha ao eliminar instituição [[Institution:$1|$1]].',
+	'ep-delete-org-no-rights' => 'Você não tem permissão para remover essa instituição.',
+	'ep-delete-org-has-courses' => 'Você não pode remover a instituição [[$1|$2]] pois existem cursos associados a ela. Por favor remova esses cursos primeiro.',
+	'ep-delete-org-has-courses-plain' => 'Você não pode remover a instituição $1 pois existem cursos associados a ela. Por favor remova esses cursos primeiro.',
+	'ep-delete-org-has-courses-close-dialog' => 'Fechar',
 	'orgpage-eprestore-title' => 'Restaurar instituição "$1"',
 	'orgpage-eprestore-text' => 'Você está prestes a retornar a instituição $1 para para uma revisão anterior.',
 	'orgpage-eprestore-summary' => 'Motivo:',
@@ -23444,11 +23482,18 @@ $messages['rue'] = array(
  * @author John Reid
  */
 $messages['sco'] = array(
+	'ep-pager-confirm-message-org' => "Ye'r aboot tae delete institution $1.",
+	'ep-pager-confirm-message-org-many' => "Ye'r aboot tae delete these institutions: $1.",
 	'ep-addstudents-instructions' => 'Type the uisernames o the students ye want tae add. Press Enter efter each yin, or clap on the menu that appears. Ye can paste a leet o uisernames ava.
 
 Clap on "{{int:ep-addstudents-btn}}" whan ye\'r done.',
 	'ep-undelete-course-no-rights' => 'This course haes been deletit, but ye dinna hae permission fer tae restore it.',
 	'ep-undelete-course-org-deleted' => 'This coorse an its institution, [[$1|$2]], hae been deletit. Tae restore this coorse, first [$3 restore $2].',
+	'orgpage-delete-text' => "Ye'r aboot tae delete the institution $1.",
+	'ep-delete-org-no-rights' => 'Ye dinna hae permission tae delete this institution.',
+	'ep-delete-org-has-courses' => 'Ye canna delete [[$1|$2]] cause thaur ar coorses associated wi it. Please delete the coorses first.',
+	'ep-delete-org-has-courses-plain' => 'Ye canna delete $1 cause thare ar coorses associated wi it. Please delete the coorses first.',
+	'ep-delete-org-has-courses-close-dialog' => 'Claise',
 );
 
 /** Samogitian (žemaitėška)
@@ -24228,6 +24273,7 @@ $messages['sr-ec'] = array(
 	'ep-timeline-users-edit-article' => "$1 {{GENDER:$1|је уредио|је уредила|је уредио}} чланак '''[[$2]]'''.", # Fuzzy
 	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|је оставио|је оставила}} {{PLURAL:$4|поруку|поруке}} на '''[[$2|страници за разговор]]''' корисника '''[[$3]]'''.", # Fuzzy
 	'ep-timeline-users-edit-user' => "$1 {{GENDER:$1|је уредио|је уредила|је уредио}} страницу корисника '''[[$2|$3]]'''.", # Fuzzy
+	'ep-course-talk-link-text-view-changes' => 'Погледај измене',
 );
 
 /** Serbian (Latin script) (srpski (latinica)‎)
@@ -24274,6 +24320,7 @@ $messages['sr-el'] = array(
 	'ep-timeline-users-edit-article' => "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} članak '''[[$2]]'''.", # Fuzzy
 	'ep-timeline-users-edit-talk' => "$1 {{GENDER:$1|je ostavio|je ostavila}} {{PLURAL:$4|poruku|poruke}} na '''[[$2|stranici za razgovor]]''' korisnika '''[[$3]]'''.", # Fuzzy
 	'ep-timeline-users-edit-user' => "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} stranicu korisnika '''[[$2|$3]]'''.", # Fuzzy
+	'ep-course-talk-link-text-view-changes' => 'Pogledaj izmene',
 );
 
 /** Swedish (svenska)
