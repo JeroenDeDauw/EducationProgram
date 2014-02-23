@@ -309,6 +309,7 @@ $specialPageAliases['lb'] = array(
 	'Institutions' => array( 'Institutiounen' ),
 	'Students' => array( 'Studenten' ),
 	'Courses' => array( 'Coursen' ),
+	'EducationProgram' => array( 'Formatiounsprogramm' ),
 	'Enroll' => array( 'Aschreiwen' ),
 	'Disenroll' => array( 'Ofmellen_aus_dem_Cours' ),
 	'StudentActivity' => array( 'Studentenaktivitéit' ),

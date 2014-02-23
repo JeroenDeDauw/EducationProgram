@@ -17433,6 +17433,13 @@ $messages['lv'] = array(
 	'ep-course-talk-link-text-view-message' => 'Apskatīt ziņojumu',
 );
 
+/** Malagasy (Malagasy)
+ * @author Jagwar
+ */
+$messages['mg'] = array(
+	'ep-delete-org-has-courses-close-dialog' => 'Hidio',
+);
+
 /** Minangkabau (Baso Minangkabau)
  * @author Iwan Novirion
  */
@@ -19757,7 +19764,7 @@ $messages['nl'] = array(
 	'action-ep-remarticle' => "pagina's los te koppelen van studenten",
 	'action-ep-addstudent' => 'gebruikers als student in te schrijven',
 	'group-epcoordinator' => 'Cursuscoördinatoren',
-	'group-epcoordinator-member' => '{{GENDER:$1|cursuscoördinator}}',
+	'group-epcoordinator-member' => 'cursuscoördinat{{GENDER:$1|or|rice|or}}',
 	'grouppage-epcoordinator' => '{{ns:project}}:Cursuscoördinatoren',
 	'group-eponline' => 'Online cursusvrijwilligers',
 	'group-eponline-member' => '{{GENDER:$1|online cursusvrijwilliger}}',
@@ -20069,7 +20076,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'orgpage-delete-none' => 'Er is geen organisatie met de naam "$1". Zie de [[Special:Institutions|lijst met organisaties]].',
 	'orgpage-delete-deleted' => 'De organisatie $1 en de gekoppelde cursussen zijn verwijderd.',
 	'orgpage-delete-delete-failed' => 'Het was niet mogelijk de organisatie [[Institution:$1|$1]] te verwijderen.',
-	'ep-delete-org-no-rights' => 'U heeft geen niet de benodigde rechten om deze organisatie te verwijderen.',
+	'ep-delete-org-no-rights' => 'U heeft niet de benodigde rechten om deze organisatie te verwijderen.',
 	'ep-delete-org-has-courses-close-dialog' => 'Sluiten',
 	'orgpage-eprestore-title' => 'Organisatie "$1" terugplaatsen',
 	'orgpage-eprestore-text' => 'U staat op het punt om een eerdere versie van de organisatie $1 terug te plaatsen.',
@@ -20326,8 +20333,8 @@ Zie de [[Special:Students|lijst met alle studenten]].',
 	'ep-course-talk-link-text-view-message' => 'Bericht bekijken',
 	'ep-course-talk-link-text-view-changes' => 'Wijzigingen bekijken',
 	'ep-course-talk-notification-title' => 'De [[$2|cursus-overlegpagina van $3]] is {{GENDER:$1|bewerkt}} door [[User:$1|$1]].',
-	'ep-course-talk-notification-title-email-subject' => "De cursus' overlegpagina van $2 was {{GENDER:$1|bewerkt}} door $1.",
-	'ep-course-talk-notification-title-email-body' => "De cursus' overlegpagina van $2 was {{GENDER:$1|bewerkt}} door $1.",
+	'ep-course-talk-notification-title-email-subject' => 'De cursusoverlegpagina van $2 was bewerkt door $1.',
+	'ep-course-talk-notification-title-email-body' => 'De cursusoverlegpagina van $2 was bewerkt door $1.',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -27564,6 +27571,7 @@ $messages['ur'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Skye Darcy
  * @author Withoutaname
  * @author පසිඳු කාවින්ද
  */
@@ -27635,6 +27643,8 @@ $messages['vi'] = array(
 	'ep-pager-cancel-button-org' => 'Hủy bỏ',
 	'ep-pager-retry-button-org' => 'Thử lại',
 	'ep-pager-summary-message-org' => 'Tóm lược:',
+	'ep-pager-confirm-message-org' => 'Bạn đang định xóa bỏ chương trình  $1 .',
+	'ep-pager-confirm-message-org-many' => 'Bạn đang định xóa bỏ các chương trình:  $1 .',
 	'epcoursepager-header-name' => 'Tên',
 	'epcoursepager-header-term' => 'Học kỳ',
 	'epcoursepager-header-start' => 'Bắt đầu',
@@ -27698,8 +27708,12 @@ $messages['vi'] = array(
 	'ep-campus-summary' => 'Tóm lược:',
 	'coursepage-delete-summary' => 'Lý do:',
 	'coursepage-delete-cancel-button' => 'Hủy bỏ',
+	'orgpage-delete-text' => 'Bạn chuẩn bị xóa chương trình $1',
 	'orgpage-delete-summary' => 'Lý do:',
 	'orgpage-delete-cancel-button' => 'Hủy bỏ',
+	'ep-delete-org-no-rights' => 'Bạn không được phép xóa hệ thống này.',
+	'ep-delete-org-has-courses' => 'Bạn không thể xóa [[ $1 | $2 ]] bởi vì có các chương trình nhỏ liên kết với nó. Hãy xóa các chương trình nhỏ đó trước.', # Fuzzy
+	'ep-delete-org-has-courses-close-dialog' => 'Đóng',
 	'orgpage-eprestore-summary' => 'Lý do:',
 	'orgpage-eprestore-cancel-button' => 'Hủy bỏ',
 	'coursepage-eprestore-summary' => 'Lý do:',
@@ -28054,8 +28068,8 @@ $messages['zh-hans'] = array(
 	'ep-pager-confirm-delete-org' => '确认删除$1所学院',
 	'ep-pager-retry-button-org' => '重试',
 	'ep-pager-summary-message-org' => '摘要：',
-	'ep-pager-confirm-message-org' => '您将要删除机构$1。这将删除所有关联的课程和学生数据！', # Fuzzy
-	'ep-pager-confirm-message-org-many' => '您将要删除这些机构：$1。这将删除所有关联的课程和学生数据！', # Fuzzy
+	'ep-pager-confirm-message-org' => '您将要删除机构$1。',
+	'ep-pager-confirm-message-org-many' => '您将要删除这些机构：$1。',
 	'epcoursepager-header-name' => '名称',
 	'epcoursepager-header-term' => '学期',
 	'epcoursepager-header-start' => '开始',
@@ -28253,6 +28267,10 @@ $messages['zh-hans'] = array(
 	'orgpage-delete-cancel-button' => '取消',
 	'orgpage-delete-delete-button' => '删除机构',
 	'orgpage-delete-delete-failed' => '删除机构[[Institution:$1|$1]]失败。',
+	'ep-delete-org-no-rights' => '您并无权限删除此机构。',
+	'ep-delete-org-has-courses' => '因为这里有与之相关的课程，您不能删除[[$1|$2]]。请先删除课程。',
+	'ep-delete-org-has-courses-plain' => '因为这里有与之相关的课程，您不能删除$1。请先删除课程。',
+	'ep-delete-org-has-courses-close-dialog' => '关闭',
 	'orgpage-eprestore-title' => '恢复机构“$1”。',
 	'orgpage-eprestore-summary' => '原因：',
 	'orgpage-eprestore-restore-button' => '恢复版本',
@@ -28279,6 +28297,7 @@ $messages['zh-hans'] = array(
 	'coursepage-epundo-undo-button' => '撤销修订',
 	'coursepage-epundo-cancel-button' => '取消',
 	'coursepage-epundo-summary-value' => '撤销$2于$1$3所作的修订',
+	'coursepage-epundo-undo-failed' => '撤销对课程$1的修订失败。',
 	'coursepage-epundelete-title' => '撤消删除课程“$1”',
 	'coursepage-epundelete-text' => '您将要撤消删除课程$1。',
 	'coursepage-epundelete-summary' => '恢复的原因：',
@@ -28302,6 +28321,7 @@ $messages['zh-hans'] = array(
 	'specialstudent-summary-user' => '用户名',
 	'ep-student-courses' => '这名学生已修读的课程',
 	'ep-enroll-title' => '于$2为$1报名',
+	'ep-enroll-login-and-enroll' => '通过现有账户登录并登记',
 	'ep-enroll-signup-and-enroll' => '创建新账户并注册',
 	'ep-enroll-not-allowed' => '您的帐户不允许加入',
 	'ep-enroll-invalid-token' => '您提供的标记无效。',
@@ -28355,6 +28375,8 @@ $messages['zh-hans'] = array(
 	'ep-online-adding' => '正在添加…',
 	'ep-online-add-close-button' => '关闭',
 	'ep-online-add-retry' => '重试',
+	'ep-online-add-title' => '添加在线志愿者到课程',
+	'ep-online-add-self-title' => '成为此课程的{{GENDER:$1|在线志愿者}}',
 	'ep-online-add-button' => '加入在线志愿者',
 	'ep-online-add-self-button' => '成为{{GENDER:$1|在线志愿者}}',
 	'ep-online-add-text' => '您正在为课程$1添加在线志愿者。请输入在线志愿者的用户名，并简述一下为什么要添加这个人。',
@@ -28371,11 +28393,15 @@ $messages['zh-hans'] = array(
 	'ep-campus-adding' => '正在添加…',
 	'ep-campus-add-close-button' => '关闭',
 	'ep-campus-add-retry' => '重试',
+	'ep-campus-add-title' => '添加校园志愿者到此课程',
+	'ep-campus-add-self-title' => '成为此课程的{{GENDER:$1|校园志愿者}}',
 	'ep-campus-add-button' => '添加校园志愿者',
 	'ep-campus-add-self-button' => '成为 {{GENDER:$1|校园志愿者}}',
 	'ep-campus-add-cancel-button' => '取消',
 	'ep-campus-summary-input' => '摘要：',
 	'ep-campus-name-input' => '用户名：',
+	'ep-instructor-remove' => '从讲师中移除',
+	'ep-campus-remove' => '从校园志愿者中移除',
 	'ep-online-remove' => '移除在线志愿者',
 	'onlineambassadorprofile' => '在线志愿者个人资料',
 	'onlineambassadorprofile-legend' => '您的在线志愿者个人档案',
@@ -28622,6 +28648,8 @@ $messages['zh-hant'] = array(
 	'ep-pager-confirm-delete-org' => '{{PLURAL:$1|確認刪除學院|確認刪除多間學院}}', # Fuzzy
 	'ep-pager-retry-button-org' => '重試',
 	'ep-pager-summary-message-org' => '摘要：',
+	'ep-pager-confirm-message-org' => '您將刪除機構$1。',
+	'ep-pager-confirm-message-org-many' => '您將刪除多於一個機構：$1。',
 	'epcoursepager-header-name' => '名稱',
 	'epcoursepager-header-term' => '學期',
 	'epcoursepager-header-start' => '開始',
