@@ -22432,6 +22432,7 @@ Você pode obter uma lista completa de estudantes na [[Special:Students|lista de
  */
 $messages['qu'] = array(
 	'ep-timeline-ago' => '$1 ñaqha',
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} sutiyuq ruraqqa {{PLURAL:$4|willaynintam|willayninkunatam}} saqirqan '''[[$3]]'''-pa '''[[$2|rimanakuy p'anqanpi]]'''.",
 );
 
 /** Romanian (română)
@@ -24352,6 +24353,8 @@ $messages['sv'] = array(
 	'ep-err-failed-to-save' => 'Något gick fel - dina ändringar har inte sparats.',
 	'ep-err-course-exists-title' => 'Fel: Kursen finns',
 	'ep-err-course-exists-text' => 'Du försöker att skapa kursen $1, men den finns redan.',
+	'ep-err-org-exists-title' => 'Fel: Institution finns',
+	'ep-err-org-exists-text' => 'Du försöker att skapa institutionen $1, men den finns redan.',
 	'ep-didyouknow-header' => 'Visste du att ...?',
 	'ep-tab-view' => 'Läs',
 	'ep-tab-edit' => 'Redigera',
@@ -24370,7 +24373,7 @@ $messages['sv'] = array(
 	'ep-nav-courses' => 'Kurslista',
 	'ep-nav-mycourses' => 'Dina kurser',
 	'ep-nav-students' => 'Studentlista',
-	'ep-nav-mentors' => 'Volontärlista',
+	'ep-nav-mentors' => 'Ambassadörslista',
 	'ep-nav-cas' => '{{SITENAME}}ambassadörer',
 	'ep-nav-oas' => 'Onlineambassadörer',
 	'ep-nav-oaprofile' => 'Onlineambassadörens profil',
@@ -24682,9 +24685,12 @@ Du borde överväga om det är lämpligt att fortsätta skapa denna institution 
 	'ep-addstudents-instructions' => 'Skriv in användarnamn för de studenter du vill lägga till. Tryck på Enter efter varje användarnamn eller klicka på menyn som dyker upp. Du kan även klistra in en lista över användarnamn.
 
 	Klicka på "{{int:ep-addstudents-btn}}" när du är klar.',
+	'ep-addstudents-url-instructions' => 'Observera att studenter kan också lägga till sig själva genom att öppna denna länk i deras webbläsare:',
+	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Denna|Dessa}} användare finns inte: $2.',
 	'ep-addstudents-btn' => 'Lägg till',
 	'ep-addstudents-success' => 'Du lade till $1 {{PLURAL:$1|{{GENDER:$2|student}}|studenter}} till denna kurs.',
 	'ep-addstudents-alreadyenrolled' => 'Följande {{PLURAL:$1|student lades inte till eftersom {{GENDER:$3|han|hon|denne}}|studenterna lades inte till eftersom de}} redan var i kursen: $2.',
+	'ep-addstudents-servercallerror' => 'Följande fel uppstod när studenterna lades till: $1.',
 	'coursepage-edit-title-edit' => 'Redigerar kurs: $1',
 	'coursepage-edit-title-add' => 'Lägger till kurs: $1',
 	'coursepage-edit-deleted' => "'''Varning: Du återskapar en kurs som tidigare raderats.'''
@@ -24697,6 +24703,8 @@ Du borde överväga om det är lämpligt att fortsätta skapa denna kurs igen. R
 	'ep-course-no-slashes' => 'Kurstiteln ska inte innehålla några snedstreck!',
 	'coursepage-edit-undelete-revisions' => 'Denna kurs har tagits bort. Du kan $1.',
 	'coursepage-edit-undelete-link' => 'återställ $1 {{PLURAL:$1|revision|revisioner}}',
+	'ep-undelete-course-no-rights' => 'Denna kurs har raderats, men du har inte behörighet att återställa den.',
+	'ep-undelete-course-org-deleted' => 'Denna kurs och dess institution, [[$1|$2]], har raderats. [$3 Återställ $2] först för att återställa denna kurs.',
 	'ep-pager-confirm-delete' => 'Är du säker på att du vill ta bort det här objektet?',
 	'ep-pager-delete-fail' => 'Kunde inte ta bort objektet.',
 	'ep-pager-confirm-delete-selected' => 'Är du säker på att du vill radera {{PLURAL:$1|det valda objektet|de valda objekten}}?',
@@ -24771,6 +24779,10 @@ Du borde överväga om det är lämpligt att fortsätta skapa denna kurs igen. R
 	'orgpage-delete-none' => 'Det finns ingen institution vid namn "$1". Se [[Special:Institutions|listan över institutioner]].',
 	'orgpage-delete-deleted' => 'Du har lyckats ta bort institution $1 och dess associerade kurser.',
 	'orgpage-delete-delete-failed' => 'Misslyckades med att radera institution [[Institution:$1|$1]].',
+	'ep-delete-org-no-rights' => 'Du saknar behörighet att radera denna institution.',
+	'ep-delete-org-has-courses' => 'Du kan inte radera [[$1|$2]] eftersom det finns kurser som är associerade med den. Var god radera kurserna först.',
+	'ep-delete-org-has-courses-plain' => 'Du kan inte radera $1 eftersom det finns kurser som är associerade med den. Var god radera kurserna först.',
+	'ep-delete-org-has-courses-close-dialog' => 'Stäng',
 	'orgpage-eprestore-title' => 'Återställ institutionen "$1"',
 	'orgpage-eprestore-text' => 'Du är på väg att återställa institution $1 till en tidigare revidering.',
 	'orgpage-eprestore-summary' => 'Orsak:',
@@ -25007,17 +25019,27 @@ Du finner en komplett lista över studenter på [[Special:Students|studentlistan
 	'ep-dashboard-login-first' => 'Du måste logga in innan du kan visa dina kurser.',
 	'ep-dashboard-timeline-empty' => 'Det fanns ingen senaste aktivitet för denna kurs.',
 	'ep-dashboard-enroll-first' => 'Du deltar för tillfället inte några aktiva kurser. Du kan se [[Special:Courses|lista över kurser]].',
+	'ep-user-roles-message-main-student' => '[[$1|$2]] {{GENDER:$2|är en student}} i {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-instructor' => '[[$1|$2]] {{GENDER:$2|är en instruktör}} för {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-online' => '[[$1|$2]] {{GENDER:$2|är en onlineambassadör}} för {{PLURAL:$4|$3}}.',
+	'ep-user-roles-message-main-campus' => '[[$1|$2]] {{GENDER:$2|är en {{SITENAME}}ambassadör}} för {{PLURAL:$4|$3}}.',
 	'ep-user-roles-message-course-link-for-list' => '[[$1|$2]] ([[$3|kursdiskussion]])',
+	'ep-user-roles-message-main-many-student' => '[[$1|$2]] {{GENDER:$2|är en student}} i [[$4|$3 {{PLURAL:$3|kurs|kurser}}]].',
 	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] {{GENDER:$2|är en instruktör}} för $3 {{PLURAL:$3|kurs|kurser}}.',
+	'ep-user-roles-message-main-many-online' => '[[$1|$2]] {{GENDER:$2|är en onlineambassadör}} för $3 {{PLURAL:$3|kurs|kurser}}.',
+	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] {{GENDER:$2|är en {{SITENAME}}ambassadör}} för $3 {{PLURAL:$3|kurs|kurser}}.',
 	'ep-user-roles-message-additional' => '{{GENDER:$1|Han|Hon|Denne}} är även $2.',
 	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|en student}}',
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|en instruktör}}',
+	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|en onlineambassadör}}',
+	'ep-user-roles-message-rolename-campus' => '{{GENDER:$1|en {{SITENAME}}ambassadör}}',
 	'echo-category-title-education-program' => 'Utbildningsprogram',
 	'ep-echo-pref-tooltip' => 'Meddela mig om händelser som rör utbildningsprogrammets kurser jag deltar i.',
 	'ep-course-talk-link-text-view-message' => 'Visa meddelande',
 	'ep-course-talk-link-text-view-changes' => 'Visa ändringar',
 	'ep-course-talk-notification-title' => '[[$2|Kursens diskussionssida för $3]] {{GENDER:$1|redigerades}} av [[User:$1|$1]].',
 	'ep-course-talk-notification-title-email-subject' => 'Kursens diskussionssida för $2 {{GENDER:$1|redigerades}} av $1.',
+	'ep-course-talk-notification-title-email-body' => 'Kursens diskussionssida för $2 {{GENDER:$1|redigerades}} av $1.',
 );
 
 /** Tamil (தமிழ்)
