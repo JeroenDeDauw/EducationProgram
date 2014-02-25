@@ -2338,6 +2338,7 @@ $messages['af'] = array(
  * @author Mido
  * @author OsamaK
  * @author Samir I. Sharbaty
+ * @author Tarawneh
  * @author Zanatos
  * @author زكريا
  * @author محمد أحمد عبد الفتاح
@@ -2418,7 +2419,7 @@ $messages['ar'] = array(
 	'logentry-campus-selfadd' => '{{GENDER:$2|أضاف|أضافت}} $1 {{GENDER:$2|نفسه كمتطوع جامعة|نفسها كمتطوعة جامعة}} لمنهج $3',
 	'logentry-campus-selfremove' => '{{GENDER:$2|أزال|أزالت}} $1 {{GENDER:$2|نفسه كمتطوع جامعة|نفسها كمتطوعة جامعة}} من منهج $3',
 	'logentry-campus-profilesave' => '{{GENDER:$2|حدث|حدثت}} $1 ملف تطوع الجامعة',
-	'logentry-student-add' => '{{GENDER:$2|التحق|التحقت}} $1 بمنهج $3',
+	'logentry-student-add' => '{{GENDER:$2|التحق|التحقت}} $1 بمنهج $3', # Fuzzy
 	'logentry-student-remove' => '{{GENDER:$2|أزال|أزالت}} $1 $5 من طلبة منهج $3', # Fuzzy
 	'logentry-student-selfadd' => '{{GENDER:$2|التحق|التحقت}} $1 بمنهج $3',
 	'logentry-student-selfremove' => '{{GENDER:$2|انسحب|انسحبت}} $1 من منهج $3',
@@ -2561,8 +2562,8 @@ $messages['ar'] = array(
 	'ep-pager-confirm-delete-org' => 'أكّد حذف {{PLURAL:$1||المؤسسة|المؤسستين|مؤسسات متعددة}}',
 	'ep-pager-retry-button-org' => 'أعد المحاولة',
 	'ep-pager-summary-message-org' => 'الملخص:',
-	'ep-pager-confirm-message-org' => 'أنت على وشك حذف مؤسسة $1 . سيؤدي ذلك إلى حذف كافة بيانات المقررات والطلبة المرتبطين بها!',
-	'ep-pager-confirm-message-org-many' => 'أنت على وشك حذف هذه المؤسسات: $1 . سيؤدي ذلك إلى حذف كافة بيانات المقررات والطلبة المرتبطين بها!',
+	'ep-pager-confirm-message-org' => 'أنت على وشك حذف مؤسسة $1 . سيؤدي ذلك إلى حذف كافة بيانات المقررات والطلبة المرتبطين بها!', # Fuzzy
+	'ep-pager-confirm-message-org-many' => 'أنت على وشك حذف هذه المؤسسات: $1 .',
 	'epcoursepager-header-name' => 'الاسم',
 	'epcoursepager-header-term' => 'فصل دراسي',
 	'epcoursepager-header-start' => 'البداية',
@@ -2760,7 +2761,7 @@ $messages['ar'] = array(
 	'coursepage-delete-none' => 'لا يوجد منهج اسمه "$1". راجع [[Special:Courses|قائمة المناهج]].',
 	'coursepage-delete-deleted' => 'حذف منهج $1 بنجاح.',
 	'coursepage-delete-delete-failed' => 'تعذر حذف منهج [[Education_Program:$2|$1]].',
-	'orgpage-delete-text' => 'أنت على وشك حذف مؤسسة $1. سيؤدي ذلك إلى إزالة كل المناهج والطلبة المرتبطين بها!',
+	'orgpage-delete-text' => 'أنت على وشك حذف مؤسسة $1.',
 	'orgpage-delete-summary' => 'السبب:',
 	'orgpage-delete-title' => 'أزل مؤسسة "$1"',
 	'orgpage-delete-cancel-button' => 'إلغاء',
@@ -2768,6 +2769,10 @@ $messages['ar'] = array(
 	'orgpage-delete-none' => 'لا توجد مؤسسة اسمها "$1". راجع [[Special:Institutions|قائمة المؤسسات]].',
 	'orgpage-delete-deleted' => 'حذفت مؤسسة $1 والمناهج المرتبطة بها بنجاح.',
 	'orgpage-delete-delete-failed' => 'تعذر حذف مؤسسة [[Institution:$1|$1]].',
+	'ep-delete-org-no-rights' => 'ليس لديك صلاحية حذف هذه المؤسسة.',
+	'ep-delete-org-has-courses' => 'لا يمكنك حذف [[$1|$2]] لارتباط دورات معه. الرجاء حذف الدورات أولاً.',
+	'ep-delete-org-has-courses-plain' => 'لا يمكنك حذف $1 لارتباط دورات معه. الرجاء حذف الدورات أولاً.',
+	'ep-delete-org-has-courses-close-dialog' => 'أغلق',
 	'orgpage-eprestore-title' => 'استرجع مؤسسة "$1"',
 	'orgpage-eprestore-text' => 'أنت على وشك استعادة مؤسسة $1 إلى مراجعة سابقة.',
 	'orgpage-eprestore-summary' => 'السبب:',
@@ -2968,7 +2973,7 @@ $messages['ar'] = array(
 	'epoa-profile-photo-help' => 'صورة لك تعرض بجانب السيرة. أدخل اسم الصورة على ويكيميديا كومنز وستظهر معاينة. يمكن أن تكتب الأحرف الأولى من اسم الصورة وتختار الصورة من قائمة المقترحات. إذا لم تكن لديك صورة على كومنز حتى الآن، [$1 ارفعها]!',
 	'epoa-profile-saved' => 'حُفظ ملفك',
 	'epoa-profile-invalid-bio' => 'يجب أن تحتوي سيرتك {{PLURAL:$1||حرفا واحدا|حرفين|$1 حروف|$1 حرفًا|$1 حرف}} على الأقل.',
-	'epoa-visible' => 'سردك علنا كمتطوع وِب',
+	'epoa-visible' => 'سردك علنا كمتطوع وِب', # Fuzzy
 	'campusambassadorprofile' => 'صفحة متطوع جامعة',
 	'campusambassadorprofile-legend' => 'ملفك كمتطوع جامعة',
 	'campusambassadorprofile-text' => 'ملفك هو ما يراه الطلاب عندما يتصفحون المتطوعين المتوفرين.',
@@ -2977,7 +2982,7 @@ $messages['ar'] = array(
 	'epca-profile-photo-help' => 'صورة لك تعرض بجانب السيرة. أدخل اسم الصورة على ويكيميديا كومنز وستظهر معاينة. يمكن أن تكتب الأحرف الأولى من اسم الصورة وتختار الصورة من قائمة المقترحات. إذا لم تكن لديك صورة على كومنز حتى الآن، [$1 ارفعها]!',
 	'epca-profile-saved' => 'حُفظ ملفك',
 	'epca-profile-invalid-bio' => 'يجب أن تحتوي سيرتك {{PLURAL:$1||حرفا واحدا|حرفين|$1 حروف|$1 حرفًا|$1 حرف}} على الأقل.',
-	'epca-visible' => 'سردك علنا كمتطوع جامعة',
+	'epca-visible' => 'سردك علنا كمتطوع جامعة', # Fuzzy
 	'ep-studentactivity-noresults' => 'لا يوجد طلبة نشيطون في آخر $1.
 
 يمكن أن تعثر على قائمة بكل الطلبة في [[Special:Students|قائمة الطلبة]].',
@@ -10942,8 +10947,8 @@ $messages['he'] = array(
 	'educationprogram-desc' => 'תמיכה בתוכניות הוראה בעזרת ממשקים לניהול קורסים, מוסדות חינוכיים וסגל ההוראה.',
 	'ep-item-summary' => 'תקציר',
 	'ep-toplink' => 'קורסים',
-	'ep-org-course-delete-comment' => 'המוסד $1 הוסר וכך גם כל הקורסים שלו, בתוספת ההערה $2',
-	'ep-org-course-delete' => 'המוסד $1 הוסר וכך גם כל הקורסים שלו',
+	'ep-org-course-delete-comment' => 'המוסד $1 וכל הקורסים שלו הוסרו, בתוספת ההערה $2',
+	'ep-org-course-delete' => 'המוסד $1 וכל הקורסים שלו הוסרו',
 	'ep-form-summary' => 'תקציר:',
 	'ep-form-minor' => 'זוהי עריכה משנית',
 	'ep-move-error' => 'אין לך הרשאות להעביר ערכים לתוך או מחוץ למרחב השם "הוראה".',
@@ -10972,7 +10977,7 @@ $messages['he'] = array(
 	'ep-nav-mycourses' => 'הקורסים שלך',
 	'ep-nav-students' => 'רשימת תלמידים',
 	'ep-nav-mentors' => 'רשימת מתנדבים',
-	'ep-nav-cas' => 'מתנדבים בקמפוס',
+	'ep-nav-cas' => 'מתנדבי קמפוס',
 	'ep-nav-oas' => 'מתנדבים מקוונים',
 	'ep-nav-oaprofile' => 'פרופיל מתנדב מקוון',
 	'ep-nav-caprofile' => 'פרופיל מתנדב קמפוס',
@@ -11303,6 +11308,7 @@ $messages['he'] = array(
 	'ep-course-no-slashes' => 'לוכסנים אינם מותרים בכותרת הקורס!',
 	'coursepage-edit-undelete-revisions' => 'קורס זה נמחק. באפשרותך $1.',
 	'coursepage-edit-undelete-link' => 'לשחזר {{PLURAL:$1|גרסה אחת|$1 גרסאות}}',
+	'ep-undelete-course-no-rights' => 'קורס זה נמחק, אך אין לך הרשאה לשחזר אותו.',
 	'ep-undelete-course-org-deleted' => 'הקורס הזה והמוסד שלו, [[$1|$2]], נמחקו. כדי לשחזר את הקורס הזה, תחילה יש [$3 לשחזר את $2].',
 	'ep-pager-confirm-delete' => 'האם אתם בטוחים שברצונכם למחוק פריט זה?',
 	'ep-pager-delete-fail' => 'לא הייתה אפשרות למחוק פריט זה.',
