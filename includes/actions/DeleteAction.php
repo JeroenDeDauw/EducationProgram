@@ -33,7 +33,7 @@ class DeleteAction extends Action {
 	 * @see Action::getRestriction()
 	 */
 	public function getRestriction() {
-		$this->page->getEditRight();
+		return $this->page->getEditRight();
 	}
 
 	/**
@@ -96,7 +96,7 @@ class DeleteAction extends Action {
 	 * problems, do nothing and return true. If there are problems, output
 	 * an appropriate message and return false.
 	 *
-	 * Implemented here as empty, subclasses may override.
+	 * This default implementation just returns true; subclasses may override.
 	 *
 	 * @since 0.4 alpha
 	 *
@@ -107,6 +107,7 @@ class DeleteAction extends Action {
 	 *
 	 */
 	protected function checkAndHandleRestrictions( $pageObj ) {
+		return true;
 	}
 
 	/**

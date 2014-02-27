@@ -300,22 +300,23 @@ final class Hooks {
 				);
 			}
 
-			if ( $user->isAllowed( EducationPage::factory( $title )
-					->getLimitedEditRight() ) ) {
+			$page = EducationPage::factory( $title );
+
+			if ( $user->isAllowed( $page->getLimitedEditRight() ) ) {
 
 				$links['views']['edit'] = array(
 					'class' => $type === 'edit' ? 'selected' : false,
 					'text' => $sktemplate->msg( $exists ? 'ep-tab-edit' : 'ep-tab-create' )->text(),
 					'href' => $title->getLocalUrl( array( 'action' => 'edit' ) )
 				);
+			}
 
-				if ( $exists ) {
-					$links['actions']['delete'] = array(
-						'class' => $type === 'delete' ? 'selected' : false,
-						'text' => $sktemplate->msg( 'ep-tab-delete' )->text(),
-						'href' => $title->getLocalUrl( array( 'action' => 'delete' ) )
-					);
-				}
+			if ( $user->isAllowed( $page->getEditRight() ) && $exists ) {
+				$links['actions']['delete'] = array(
+					'class' => $type === 'delete' ? 'selected' : false,
+					'text' => $sktemplate->msg( 'ep-tab-delete' )->text(),
+					'href' => $title->getLocalUrl( array( 'action' => 'delete' ) )
+				);
 			}
 
 			if ( $exists ) {
