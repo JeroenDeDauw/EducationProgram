@@ -449,6 +449,18 @@ $specialPageAliases['scn'] = array(
 	'Articles' => array( 'Voci' ),
 );
 
+/** Swedish (svenska) */
+$specialPageAliases['sv'] = array(
+	'MyCourses' => array( 'Mina_kurser' ),
+	'ManageCourses' => array( 'Hantera_kurser' ),
+	'Institutions' => array( 'Institutioner' ),
+	'Students' => array( 'Studenter' ),
+	'Courses' => array( 'Kurser' ),
+	'CampusAmbassadors' => array( 'Campusvolontärer', 'Campusambassadörer' ),
+	'OnlineAmbassadors' => array( 'Onlinevolontärer', 'Onlineambassadörer' ),
+	'StudentActivity' => array( 'Studentaktivitet' ),
+);
+
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = array(
 	'MyCourses' => array( 'Derslerim' ),
