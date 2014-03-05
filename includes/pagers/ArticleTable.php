@@ -416,7 +416,7 @@ class ArticleTable extends EPPager {
 		$user = $this->getUser();
 
 		if ( $user->getId() !== $article->getUserId() ) {
-			$attr['data-student-name'] = $user->getName();
+			$attr['data-student-name'] = $article->getUser()->getName();
 		}
 
 		if ( $this->isForOneCourse() ) {
