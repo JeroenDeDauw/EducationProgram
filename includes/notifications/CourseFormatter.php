@@ -3,7 +3,7 @@
 namespace EducationProgram;
 
 /**
- * Notification formatter for edits to a course talk page. Extends
+ * Notification formatter for course-related events. Extends
  * EchoEditFormatter to support the custom 'short-title-text' message parameter.
  *
  * @since 0.4 alpha
@@ -13,7 +13,7 @@ namespace EducationProgram;
  * @license GNU GPL v2+
  * @author Andrew Green < agreen at wikimedia dot org >
  */
-class CourseTalkFormatter extends \EchoEditFormatter {
+class CourseFormatter extends \EchoEditFormatter {
 
 	/**
 	 * @param $event EchoEvent

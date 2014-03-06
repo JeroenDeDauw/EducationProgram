@@ -863,11 +863,37 @@ You can find a full list of students on [[Special:Students|the student list]].',
 	// Notifications
 	'echo-category-title-education-program' => 'Education Program', // key must take this form
 	'ep-echo-pref-tooltip' => 'Notify me of events related to Education Program courses I\'m involved in.',
+
+	// Course talk notification
 	'ep-course-talk-link-text-view-message' => 'View message',
 	'ep-course-talk-link-text-view-changes' => 'View changes',
 	'ep-course-talk-notification-title' => 'The [[$2|course talk page of $3]] was {{GENDER:$1|edited}} by [[User:$1|$1]].',
 	'ep-course-talk-notification-title-email-subject' => 'The course talk page of $2 was {{GENDER:$1|edited}} by $1.',
 	'ep-course-talk-notification-title-email-body' => 'The course talk page of $2 was {{GENDER:$1|edited}} by $1.',
+
+	// Role added to course notification
+	'ep-role-add-link-text-view-course' => 'View course',
+
+	// Student added to course notification
+	'ep-student-add-notification-title' => 'You have been {{GENDER:$1|added}} to [[$2|$3]] by [[User:$1|$1]].',
+	'ep-student-add-notification-title-email-subject' => 'You have been {{GENDER:$1|added}} to $2 by $1.',
+	'ep-student-add-notification-title-email-body' => 'You have been {{GENDER:$1|added}} to $2 by $1.',
+
+	// Instructor added to course notification
+	'ep-instructor-add-notification-title' => 'You have been {{GENDER:$1|added}} as an instructor to [[$2|$3]] by [[User:$1|$1]].',
+	'ep-instructor-add-notification-title-email-subject' => 'You have been {{GENDER:$1|added}} as an instructor to $2 by $1.',
+	'ep-instructor-add-notification-title-email-body' => 'You have been {{GENDER:$1|added}} as an instructor to $2 by $1.',
+
+	// Campus volunteer added to course notification
+	'ep-campus-add-notification-title' => 'You have been {{GENDER:$1|added}} as a campus volunteer to [[$2|$3]] by [[User:$1|$1]].',
+	'ep-campus-add-notification-title-email-subject' => 'You have been {{GENDER:$1|added}} as a campus volunteer to $2 by $1.',
+	'ep-campus-add-notification-title-email-body' => 'You have been {{GENDER:$1|added}} as a campus volunteer to $2 by $1.',
+
+	// Online volunteer added to course notification
+	'ep-online-add-notification-title' => 'You have been {{GENDER:$1|added}} as an online volunteer to [[$2|$3]] by [[User:$1|$1]].',
+	'ep-online-add-notification-title-email-subject' => 'You have been {{GENDER:$1|added}} as an online volunteer to $2 by $1.',
+	'ep-online-add-notification-title-email-body' => 'You have been {{GENDER:$1|added}} as an online volunteer to $2 by $1.',
+
 );
 
 /** Message documentation (Message documentation)
@@ -2230,6 +2256,91 @@ See also:
 See also:
 * {{msg-mw|Ep-course-talk-notification-title}}
 * {{msg-mw|Ep-course-talk-notification-title-email-subject}}',
+
+	'ep-role-add-link-text-view-message' => 'Text for primary link in added to course notification.
+{{Identical|View message}}',
+
+	'ep-student-add-notification-title' => 'Default title for student added to course notification. Parameters:
+* $1 - the user who added another user to a course
+* $2 - the full name of the course for the url
+* $3 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-student-add-notification-title-email-subject}}
+* {{msg-mw|Ep-student-add-notification-title-email-body}}',
+	'ep-student-add-notification-title-email-subject' => 'Email subject line for added to course notification. Parameters:
+* $1 - the user who added another user to a course
+* $2 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-student-add-notification-title}}
+* {{msg-mw|Ep-student-add-notification-title-email-body}}',
+	'ep-student-add-notification-title-email-body' => 'Email body content for added to course notification. Parameters:
+* $1 - the user who added another user to a course
+* $2 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-student-add-notification-title}}
+* {{msg-mw|Ep-student-add-notification-title-email-subject}}',
+
+	'ep-instructor-add-notification-title' => 'Default title for instructor added to course notification. Parameters:
+* $1 - the user who added another user as an instructor to a course
+* $2 - the full name of the course for the url
+* $3 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-instructor-add-notification-title-email-subject}}
+* {{msg-mw|Ep-instructor-add-notification-title-email-body}}',
+	'ep-instructor-add-notification-title-email-subject' => 'Email subject line for instructor added to course notification. Parameters:
+* $1 - the user who added another user as an instructor to a course
+* $2 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-instructor-add-notification-title}}
+* {{msg-mw|Ep-instructor-add-notification-title-email-body}}',
+	'ep-instructor-add-notification-title-email-body' => 'Email body content for instructor added to course notification. Parameters:
+* $1 - the user who added another user as an instructor to a course
+* $2 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-instructor-add-notification-title}}
+* {{msg-mw|Ep-instructor-add-notification-title-email-subject}}',
+
+	'ep-campus-add-notification-title' => 'Default title for campus volunteer added to course notification. Parameters:
+* $1 - the user who added another user as a campus volunteer to a course
+* $2 - the full name of the course for the url
+* $3 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-campus-add-notification-title-email-subject}}
+* {{msg-mw|Ep-campus-add-notification-title-email-body}}',
+	'ep-campus-add-notification-title-email-subject' => 'Email subject line for campus volunteer added to course notification. Parameters:
+* $1 - the user who added another user as a campus volunteer to a course
+* $2 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-campus-add-notification-title}}
+* {{msg-mw|Ep-campus-add-notification-title-email-body}}',
+	'ep-campus-add-notification-title-email-body' => 'Email body content for campus volunteer added to course notification. Parameters:
+* $1 - the user who added another user as a campus volunteer to a course
+* $2 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-campus-add-notification-title}}
+* {{msg-mw|Ep-campus-add-notification-title-email-subject}}',
+
+	'ep-online-add-notification-title' => 'Default title for online volunteer added to course notification. Parameters:
+* $1 - the user who added another user as an online volunteer to a course
+* $2 - the full name of the course for the url
+* $3 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-online-add-notification-title-email-subject}}
+* {{msg-mw|Ep-online-add-notification-title-email-body}}',
+	'ep-online-add-notification-title-email-subject' => 'Email subject line for online volunteer added to course notification. Parameters:
+* $1 - the user who added another user as an online volunteer to a course
+* $2 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-online-add-notification-title}}
+* {{msg-mw|Ep-online-add-notification-title-email-body}}',
+	'ep-online-add-notification-title-email-body' => 'Email body content for online volunteer added to course notification. Parameters:
+* $1 - the user who added another user as an online volunteer to a course
+* $2 - the human-readable name of the course with the term in parentheses
+See also:
+* {{msg-mw|Ep-online-add-notification-title}}
+* {{msg-mw|Ep-online-add-notification-title-email-subject}}',
+
+
 );
 
 /** Afrikaans (Afrikaans)
@@ -2392,7 +2503,7 @@ $messages['ar'] = array(
 	'log-description-institution' => 'سجل بجميع التغييرات التي جرت على [[Special:Institutions|المؤسسات]].',
 	'log-description-course' => 'سجل بجميع التغييرات التي جرت على [[Special:Courses|المقررات]].',
 	'log-description-instructor' => 'سجل بجميع التغييرات التي جرت على المعلمين.',
-	'log-description-online' => 'سجل بجميع التغييرات التي جرت على 
+	'log-description-online' => 'سجل بجميع التغييرات التي جرت على
 [[Special:OnlineVolunteers|سفراء الوب]] لبرنامج التعليم.',
 	'log-description-campus' => 'سجل بجميع التغيرات التي جرت على [[Special:CampusVolunteers|سفراء الجامعة]] لبرنامج التعليم.',
 	'log-description-student' => 'سجل بجميع التغييرات التي جرت على [[Special:Students|الطلبة]].',

@@ -120,7 +120,23 @@ class Extension {
 
 			$this->notificationsMgr->registerTypeAndFormatter(
 				'EducationProgram\CourseTalkNotification',
-				'EducationProgram\CourseTalkFormatter' );
+				'EducationProgram\CourseFormatter' );
+
+			$this->notificationsMgr->registerTypeAndFormatter(
+				'EducationProgram\StudentAddNotification',
+				'EducationProgram\CourseFormatter' );
+
+			$this->notificationsMgr->registerTypeAndFormatter(
+				'EducationProgram\InstructorAddNotification',
+				'EducationProgram\CourseFormatter' );
+
+			$this->notificationsMgr->registerTypeAndFormatter(
+				'EducationProgram\CampusAddNotification',
+				'EducationProgram\CourseFormatter' );
+
+			$this->notificationsMgr->registerTypeAndFormatter(
+				'EducationProgram\OnlineAddNotification',
+				'EducationProgram\CourseFormatter' );
 		}
 
 		return $this->notificationsMgr;

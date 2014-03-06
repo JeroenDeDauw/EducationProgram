@@ -41,7 +41,7 @@ class CourseTalkNotification implements INotificationType {
 			'group' => 'interactive',
 
 			// The custom message param 'short-title-text' requires a custom
-			// notification formatter. See CourseTalkFormatter.
+			// notification formatter. See CourseFormatter.
 			'title-message' => 'ep-course-talk-notification-title',
 			'title-params' => array( 'agent', 'title', 'short-title-text' ),
 			'email-subject-message' => 'ep-course-talk-notification-title-email-subject',
@@ -113,7 +113,7 @@ class CourseTalkNotification implements INotificationType {
 
 		if ( $revision ) {
 			// 'revid' is used by the EchoBasicFormatter (which
-			// CourseTalkFormatter inherits from) to generate the diff
+			// CourseFormatter inherits from) to generate the diff
 			// destination, which we use in the secondary link.
 			$eventParams = array_merge(
 				$eventParams, array (
