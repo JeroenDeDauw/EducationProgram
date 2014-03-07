@@ -459,6 +459,7 @@ $specialPageAliases['sv'] = array(
 	'CampusAmbassadors' => array( 'Campusvolontärer', 'Campusambassadörer' ),
 	'OnlineAmbassadors' => array( 'Onlinevolontärer', 'Onlineambassadörer' ),
 	'StudentActivity' => array( 'Studentaktivitet' ),
+	'CourseActivity' => array( 'Kursaktivitet' ),
 );
 
 /** Turkish (Türkçe) */
