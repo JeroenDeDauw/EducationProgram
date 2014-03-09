@@ -521,4 +521,7 @@ $specialPageAliases['zh-hant'] = array(
 	'Student' => array( '學生' ),
 	'Students' => array( '學生們' ),
 	'Courses' => array( '課程' ),
+	'EducationProgram' => array( '教育計劃' ),
+	'Enroll' => array( '報名' ),
+	'Disenroll' => array( '開除' ),
 );
