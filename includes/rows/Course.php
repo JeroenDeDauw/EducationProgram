@@ -279,12 +279,12 @@ class Course extends PageObject {
 		if ( is_null( $userIdsAndRoles ) ) {
 
 			$userIdsAndRoles = array();
-	
+
 			foreach ( array( 'online_ambs', 'campus_ambs', 'students',
 				 'instructors' ) as $usersField ) {
-	
+
 				$addedIds = $this->getField( $usersField );
-	
+
 				foreach ( $addedIds as $addedId ) {
 					$userIdsAndRoles[] = array(
 						'user_id' => $addedId,
@@ -310,7 +310,7 @@ class Course extends PageObject {
 
 			$dbw = wfGetDB( DB_MASTER );
 			$dbw->begin();
-	
+
 			foreach ( $addData as $item ) {
 				$dbw->insert( 'ep_users_per_course', $item );
 			}
@@ -684,6 +684,31 @@ class Course extends PageObject {
 	}
 
 	/**
+	 * Returns the key of the notification for adding a specific role
+	 * to a course
+	 *
+	 * @param string $role
+	 *
+	 * @return string
+	 */
+	public function getAddNotificationKey( $role ) {
+		switch ( $role ) {
+			case 'instructor':
+				return 'ep-instructor-add-notification';
+				break;
+			case 'online':
+				return 'ep-online-add-notification';
+				break;
+			case 'campus':
+				return 'ep-campus-add-notification';
+				break;
+			case 'student':
+				return 'ep-student-add-notification';
+				break;
+		}
+	}
+
+	/**
 	 * Adds a role for a number of users to this course,
 	 * by default also saving the course and only
 	 * logging the addition of the users/roles.
@@ -744,13 +769,27 @@ class Course extends PageObject {
 
 				// If we have a value for $addedUserIds, pass in
 				// the ids of users that were enlisted.
-				if ($addedUserIds !== null) {
+				if ( $addedUserIds !== null ) {
 					$addedUserIds = $usersToAddIds;
 				}
 			}
 
 			if ( $success && !is_null( $revAction ) ) {
 				$action = count( $usersToAddIds ) == 1 && $revAction->getUser()->getId() === $usersToAddIds[0] ? 'selfadd' : 'add';
+
+				// trigger notification(s) if a user added someone
+				// other than him/herself to a course
+				if ( $action === 'add' ) {
+					Extension::globalInstance()->getNotificationsManager()->trigger(
+						$this->getAddNotificationKey( $role ),
+						array(
+							'role-add-title' => $this->getTitle(),
+							'agent' => $revAction->getUser(),
+							'users' => $usersToAddIds,
+						)
+					);
+				}
+
 				$this->logRoleChange( $action, $role, $usersToAddIds, $revAction->getComment() );
 			}
 
