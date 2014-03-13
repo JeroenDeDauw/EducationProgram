@@ -2256,10 +2256,6 @@ See also:
 See also:
 * {{msg-mw|Ep-course-talk-notification-title}}
 * {{msg-mw|Ep-course-talk-notification-title-email-subject}}',
-
-	'ep-role-add-link-text-view-message' => 'Text for primary link in added to course notification.
-{{Identical|View message}}',
-
 	'ep-student-add-notification-title' => 'Default title for student added to course notification. Parameters:
 * $1 - the user who added another user to a course
 * $2 - the full name of the course for the url
@@ -2279,7 +2275,6 @@ See also:
 See also:
 * {{msg-mw|Ep-student-add-notification-title}}
 * {{msg-mw|Ep-student-add-notification-title-email-subject}}',
-
 	'ep-instructor-add-notification-title' => 'Default title for instructor added to course notification. Parameters:
 * $1 - the user who added another user as an instructor to a course
 * $2 - the full name of the course for the url
@@ -2299,7 +2294,6 @@ See also:
 See also:
 * {{msg-mw|Ep-instructor-add-notification-title}}
 * {{msg-mw|Ep-instructor-add-notification-title-email-subject}}',
-
 	'ep-campus-add-notification-title' => 'Default title for campus volunteer added to course notification. Parameters:
 * $1 - the user who added another user as a campus volunteer to a course
 * $2 - the full name of the course for the url
@@ -2319,7 +2313,6 @@ See also:
 See also:
 * {{msg-mw|Ep-campus-add-notification-title}}
 * {{msg-mw|Ep-campus-add-notification-title-email-subject}}',
-
 	'ep-online-add-notification-title' => 'Default title for online volunteer added to course notification. Parameters:
 * $1 - the user who added another user as an online volunteer to a course
 * $2 - the full name of the course for the url
@@ -2339,8 +2332,6 @@ See also:
 See also:
 * {{msg-mw|Ep-online-add-notification-title}}
 * {{msg-mw|Ep-online-add-notification-title-email-subject}}',
-
-
 );
 
 /** Afrikaans (Afrikaans)
@@ -5822,6 +5813,19 @@ Du findest eine vollständige Liste der Studenten auf [[Special:Students|der Lis
 	'ep-course-talk-notification-title' => 'Die [[$2|Kursdiskussionsseite von $3]] wurde von [[User:$1|$1]] {{GENDER:$1|bearbeitet}}.',
 	'ep-course-talk-notification-title-email-subject' => 'Die Kursdiskussionsseite von $2 wurde von $1 {{GENDER:$1|bearbeitet}}.',
 	'ep-course-talk-notification-title-email-body' => 'Die Kursdiskussionsseite von $2 wurde von $1 {{GENDER:$1|bearbeitet}}.',
+	'ep-role-add-link-text-view-course' => 'Kurs ansehen',
+	'ep-student-add-notification-title' => 'Du wurdest von [[User:$1|$1]] zum Kurs [[$2|$3]] {{GENDER:$1|hinzugefügt}}.',
+	'ep-student-add-notification-title-email-subject' => 'Du wurdest von $1 zum Kurs $2 {{GENDER:$1|hinzugefügt}}.',
+	'ep-student-add-notification-title-email-body' => 'Du wurdest von $1 zum Kurs $2 {{GENDER:$1|hinzugefügt}}.',
+	'ep-instructor-add-notification-title' => 'Du wurdest von [[User:$1|$1]] als Kursleiter zum Kurs [[$2|$3]] {{GENDER:$1|hinzugefügt}}.',
+	'ep-instructor-add-notification-title-email-subject' => 'Du wurdest von $1 als Kursleiter zum Kurs $2 {{GENDER:$1|hinzugefügt}}.',
+	'ep-instructor-add-notification-title-email-body' => 'Du wurdest von $1 als Kursleiter zum Kurs $2 {{GENDER:$1|hinzugefügt}}.',
+	'ep-campus-add-notification-title' => 'Du wurdest von [[User:$1|$1]] als Campusvolontär zum Kurs [[$2|$3]] {{GENDER:$1|hinzugefügt}}.',
+	'ep-campus-add-notification-title-email-subject' => 'Du wurdest von $1 als Campusvolontär zum Kurs $2 {{GENDER:$1|hinzugefügt}}.',
+	'ep-campus-add-notification-title-email-body' => 'Du wurdest von $1 als Campusvolontär zum Kurs $2 {{GENDER:$1|hinzugefügt}}.',
+	'ep-online-add-notification-title' => 'Du wurdest von [[User:$1|$1]] als Onlinevolontär zum Kurs [[$2|$3]] {{GENDER:$1|hinzugefügt}}.',
+	'ep-online-add-notification-title-email-subject' => 'Du wurdest von $1 als Onlinevolontär zum Kurs $2 {{GENDER:$1|hinzugefügt}}.',
+	'ep-online-add-notification-title-email-body' => 'Du wurdest von $1 als Onlinevolontär zum Kurs $2 {{GENDER:$1|hinzugefügt}}.',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -8556,7 +8560,7 @@ $messages['fa'] = array(
 	'ep-course-no-slashes' => 'عنوان دوره نباید شامل هیچ اسلشی باشد!',
 	'coursepage-edit-undelete-revisions' => 'این دوره حذف حذف شد. شما می‌توانید $1.',
 	'coursepage-edit-undelete-link' => 'بازیابی $1 {{PLURAL:$1|نسخه}}',
-	'ep-undelete-course-no-rights' => 'این دوره حذف شده‌است، اما شما اجازهٔ بازگرداندن آن را ندارید.',
+	'ep-undelete-course-no-rights' => 'این دوره حذف شده‌است. شما اجازهٔ بازگرداندن آن را ندارید.',
 	'ep-undelete-course-org-deleted' => 'این دوره و موسسهٔ آن، [[$1|$2]]، حذف شده‌است. برای بازگرداندن این دوره، ابتدا [$3 بازگرداندن $2].',
 	'ep-pager-confirm-delete' => 'آیا مطمئنید می‌خواهید این دوره را حذف کنید؟',
 	'ep-pager-delete-fail' => 'نمی‌توان این مورد را حذف کرد.',
@@ -8893,6 +8897,19 @@ $messages['fa'] = array(
 	'ep-course-talk-notification-title' => '[[$2|صفحهٔ گفتگوی دورهٔ $3]] توسط [[User:$1|$1]] {{GENDER:$1|ویرایش شده}} بود.',
 	'ep-course-talk-notification-title-email-subject' => 'صفحهٔ گفتگوی درس $2 بود {{GENDER:$1|ویرایش شده}} توسط $1.',
 	'ep-course-talk-notification-title-email-body' => 'صفحهٔ گفتگوی درس $2 بود {{GENDER:$1|ویرایش شده}} توسط $1.',
+	'ep-role-add-link-text-view-course' => 'نمایش درس',
+	'ep-student-add-notification-title' => 'شما برای  [[$2|$3]] توسط [[User:$1|$1]] {{GENDER:$1|افزوده شدید.}}',
+	'ep-student-add-notification-title-email-subject' => 'شما برای $2 توسط $1 {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-student-add-notification-title-email-body' => 'شما برای $2 توسط $1 {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-instructor-add-notification-title' => 'شما برای [[$2|$3]] توسط [[User:$1|$1]] به عنوان مدرس {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-instructor-add-notification-title-email-subject' => 'شما برای $2 توسط $1 به عنوان مدرس {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-instructor-add-notification-title-email-body' => 'شما برای $2 توسط $1 به عنوان مدرس {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-campus-add-notification-title' => 'شما برای [[$2|$3]] توسط [[User:$1|$1]] به عنوان داوطلب پردیس {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-campus-add-notification-title-email-subject' => 'شما برای $2 توسط $1 به عنوان داوطلب پردیس {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-campus-add-notification-title-email-body' => 'شما برای $2 توسط $1 به عنوان داوطلب پردیس {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-online-add-notification-title' => 'شما برای [[$2|$3]] توسط [[User:$1|$1]] به عنوان داوطلب برخط {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-online-add-notification-title-email-subject' => 'شما برای $2 توسط $1 به عنوان داوطلب برخط {{GENDER:$1|افزوده‌شدید.}}',
+	'ep-online-add-notification-title-email-body' => 'شما برای $2 توسط $1 به عنوان داوطلب برخط {{GENDER:$1|افزوده‌شدید.}}',
 );
 
 /** Finnish (suomi)
@@ -9931,6 +9948,19 @@ Vous pouvez trouver une liste complète des étudiants dans [[Special:Students|l
 	'ep-course-talk-notification-title' => 'La [[$2|page de discussion du cours de $3]] a été {{GENDER:$1|modifiée}} par [[User:$1|$1]].',
 	'ep-course-talk-notification-title-email-subject' => 'La page de discussion du cours de $2 a été {{GENDER:$1|modifiée}} par $1.',
 	'ep-course-talk-notification-title-email-body' => 'La page de discussion du cours de $2 a été {{GENDER:$1|modifiée}} par $1.',
+	'ep-role-add-link-text-view-course' => 'Afficher le cours',
+	'ep-student-add-notification-title' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} à [[$2|$3]] par [[User:$1|$1]].',
+	'ep-student-add-notification-title-email-subject' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} à $2 par $1.',
+	'ep-student-add-notification-title-email-body' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} à $2 par $1.',
+	'ep-instructor-add-notification-title' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant qu’{{GENDER:$1|instructeur|instructrice}} à [[$2|$3]] par [[User:$1|$1]].',
+	'ep-instructor-add-notification-title-email-subject' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant qu’{{GENDER:$1|instructeur|instructrice}} à $2 par $1.',
+	'ep-instructor-add-notification-title-email-body' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant qu’{{GENDER:$1|instructeur|instructrice}} à $2 par $1.',
+	'ep-campus-add-notification-title' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole de campus à [[$2|$3]] par [[User:$1|$1]].',
+	'ep-campus-add-notification-title-email-subject' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole de campus à $2 par $1.',
+	'ep-campus-add-notification-title-email-body' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole de campus à $2 par $1.',
+	'ep-online-add-notification-title' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole en ligne à [[$2|$3]] par [[User:$1|$1]].',
+	'ep-online-add-notification-title-email-subject' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole en ligne à $2 par $1.',
+	'ep-online-add-notification-title-email-body' => 'Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole en ligne à $2 par $1.',
 );
 
 /** Franco-Provençal (arpetan)
@@ -11465,7 +11495,7 @@ $messages['he'] = array(
 	'ep-course-no-slashes' => 'לוכסנים אינם מותרים בכותרת הקורס!',
 	'coursepage-edit-undelete-revisions' => 'קורס זה נמחק. באפשרותך $1.',
 	'coursepage-edit-undelete-link' => 'לשחזר {{PLURAL:$1|גרסה אחת|$1 גרסאות}}',
-	'ep-undelete-course-no-rights' => 'קורס זה נמחק, אך אין לך הרשאה לשחזר אותו.', # Fuzzy
+	'ep-undelete-course-no-rights' => 'קורס זה נמחק. אין לך הרשאה לשחזר אותו.',
 	'ep-undelete-course-org-deleted' => 'הקורס הזה והמוסד שלו, [[$1|$2]], נמחקו. כדי לשחזר את הקורס הזה, תחילה יש [$3 לשחזר את $2].',
 	'ep-pager-confirm-delete' => 'האם אתם בטוחים שברצונכם למחוק פריט זה?',
 	'ep-pager-delete-fail' => 'לא הייתה אפשרות למחוק פריט זה.',
@@ -11802,6 +11832,7 @@ $messages['he'] = array(
 	'ep-course-talk-notification-title' => '[[$2|דף השיחה של הקורס $3]] {{GENDER:$1|נערך}} על ידי [[User:$1|$1]].',
 	'ep-course-talk-notification-title-email-subject' => 'דף השיחה של הקורס $2 נערך על ידי $1',
 	'ep-course-talk-notification-title-email-body' => 'דף השיחה של הקורס $2 נערך על ידי $1',
+	'ep-role-add-link-text-view-course' => 'הצגת קורס',
 );
 
 /** Hindi (हिन्दी)
@@ -14062,7 +14093,7 @@ L'elenco delle relative cancellazioni e degli spostamenti viene riportato di seg
 	'ep-course-no-slashes' => 'Il titolo del corso non deve contenere alcuno slash.',
 	'coursepage-edit-undelete-revisions' => 'Questo corso è stato cancellato. Puoi $1.',
 	'coursepage-edit-undelete-link' => 'ripristina $1 {{PLURAL:$1|versione|versioni}}',
-	'ep-undelete-course-no-rights' => 'Questo corso è stato cancellato, ma non hai i permessi per ripristinarlo.',
+	'ep-undelete-course-no-rights' => 'Questo corso è stato cancellato. Non hai i permessi per ripristinarlo.',
 	'ep-undelete-course-org-deleted' => 'Questo corso ed il suo istituto, [[$1|$2]], sono stati cancellati. Prima di ripristinare il corso, [$3 ripristina $2].',
 	'ep-pager-confirm-delete' => 'Sei sicuro di voler eliminare questo elemento?',
 	'ep-pager-delete-fail' => 'Impossibile eliminare questo elemento.',
@@ -14399,6 +14430,19 @@ Puoi trovare l'elenco completo degli studenti in [[Special:Students|questa lista
 	'ep-course-talk-notification-title' => 'La [[$2|pagina di discussione del corso di $3]] è stata {{GENDER:$1|modificata}} da [[User:$1|$1]].',
 	'ep-course-talk-notification-title-email-subject' => 'La pagina di discussione del corso di $2 è stata {{GENDER:$1|modificata}} da $1.',
 	'ep-course-talk-notification-title-email-body' => 'La pagina di discussione del corso di $2 è stata {{GENDER:$1|modificata}} da $1.',
+	'ep-role-add-link-text-view-course' => 'Vedi corso',
+	'ep-student-add-notification-title' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} a [[$2|$3]] da [[User:$1|$1]].',
+	'ep-student-add-notification-title-email-subject' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} a $2 da $1.',
+	'ep-student-add-notification-title-email-body' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} a $2 da $1.',
+	'ep-instructor-add-notification-title' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come insegnante a [[$2|$3]] da [[User:$1|$1]].',
+	'ep-instructor-add-notification-title-email-subject' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come insegnante a $2 da $1.',
+	'ep-instructor-add-notification-title-email-body' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come insegnante a $2 da $1.',
+	'ep-campus-add-notification-title' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario del campus a [[$2|$3]] da [[User:$1|$1]].',
+	'ep-campus-add-notification-title-email-subject' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario del campus a $2 da $1.',
+	'ep-campus-add-notification-title-email-body' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario del campus a $2 da $1.',
+	'ep-online-add-notification-title' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario online a [[$2|$3]] da [[User:$1|$1]].',
+	'ep-online-add-notification-title-email-subject' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario online a $2 da $1.',
+	'ep-online-add-notification-title-email-body' => 'Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario online a $2 da $1.',
 );
 
 /** Japanese (日本語)
@@ -14672,6 +14716,7 @@ $messages['ja'] = array(
 	'ep-course-no-slashes' => 'コース名に / を含めないでください!',
 	'coursepage-edit-undelete-revisions' => 'コースを削除しました。$1 できます。',
 	'coursepage-edit-undelete-link' => '$1{{PLURAL:$1|版}}を復帰',
+	'ep-undelete-course-no-rights' => 'このコースは削除されました。あなたには復元する権限がありません。',
 	'ep-pager-confirm-delete' => 'この項目を本当に削除しますか?',
 	'ep-pager-delete-fail' => 'この項目を削除できませんでした。',
 	'ep-pager-confirm-delete-selected' => '選択している{{PLURAL:$1|項目}}を本当に削除しますか?',
@@ -17370,6 +17415,7 @@ Fir Iech z'informéieren fannt Dir hei d'Logbuch vum Läschen hei drënner:",
 	'ep-course-talk-link-text-view-changes' => 'Ännerunge weisen',
 	'ep-course-talk-notification-title-email-subject' => "D'Diskussiounssäit vum Cours $2 gouf vum $1 {{GENDER:$1|geännert}}.",
 	'ep-course-talk-notification-title-email-body' => "D'Diskussiounssäit vum Cours $2 gouf vum $1 {{GENDER:$1|geännert}}.",
+	'ep-role-add-link-text-view-course' => 'Cours weisen',
 );
 
 /** Lezghian (лезги)
@@ -18342,6 +18388,19 @@ $messages['mk'] = array(
 	'ep-course-talk-notification-title' => '[[User:$1|$1]] ја {{GENDER:$1|измени}} [[$2|страницата за разговор на курсот $3]].',
 	'ep-course-talk-notification-title-email-subject' => '$1 ја {{GENDER:$1|измени}} страницата за разговор на курсот $2.',
 	'ep-course-talk-notification-title-email-body' => '$1 ја {{GENDER:$1|измени}} страницата за разговор на курсот $2.',
+	'ep-role-add-link-text-view-course' => 'Погл. курс',
+	'ep-student-add-notification-title' => '[[User:$1|$1]] ве {{GENDER:$1|додаде}} во [[$2|$3]].',
+	'ep-student-add-notification-title-email-subject' => '$1 ве {{GENDER:$1|додаде}} во $2.',
+	'ep-student-add-notification-title-email-body' => '$1 ве {{GENDER:$1|додаде}} во $2.',
+	'ep-instructor-add-notification-title' => '[[User:$1|$1]] ве {{GENDER:$1|додаде}} како наставник на [[$2|$3]].',
+	'ep-instructor-add-notification-title-email-subject' => '$1 ве {{GENDER:$1|додаде}} како наставник на $2.',
+	'ep-instructor-add-notification-title-email-body' => '$1 ве {{GENDER:$1|додаде}} како наставник на $2.',
+	'ep-campus-add-notification-title' => '[[User:$1|$1]] ве {{GENDER:$1|додаде}} како универзитетски доброволец на [[$2|$3]].',
+	'ep-campus-add-notification-title-email-subject' => '$1 ве {{GENDER:$1|додаде}} како универзитетски доброволец на $2.',
+	'ep-campus-add-notification-title-email-body' => '$1 ве {{GENDER:$1|додаде}} како универзитетски доброволец на $2.',
+	'ep-online-add-notification-title' => '[[User:$1|$1]] ве {{GENDER:$1|додаде}} мрежен доброволец на [[$2|$3]].',
+	'ep-online-add-notification-title-email-subject' => '$1 ве {{GENDER:$1|додаде}} како мрежен доброволец на $2.',
+	'ep-online-add-notification-title-email-body' => '$1 ве {{GENDER:$1|додаде}} како мрежен доброволец на $2.',
 );
 
 /** Malayalam (മലയാളം)
@@ -19825,7 +19884,7 @@ $messages['nds'] = array(
  * @author Wiki13
  */
 $messages['nl'] = array(
-	'educationprogram-desc' => "Faciliteert onderwijsprogramma's door verschillende interfaces toe te voegen om cursussen, organisaties en verschillende onderwijsrollen te kunnen beheren.",
+	'educationprogram-desc' => "Faciliteert onderwijsprogramma's door verschillende interfaces toe te voegen om cursussen, organisaties en verschillende onderwijsrollen te kunnen beheren",
 	'ep-item-summary' => 'Samenvatting',
 	'ep-toplink' => 'Cursussen',
 	'ep-org-course-delete-comment' => 'De organisatie $1 en alle bijbehorende cursussen zijn verwijderd met de opmerking "$2"',
@@ -19868,7 +19927,7 @@ $messages['nl'] = array(
 	'log-name-online' => 'Educatieprogramma: online vrijwilligers-logboek',
 	'log-name-campus' => 'Educatieprogramma: campusvrijwilligerslogboek',
 	'log-name-instructor' => 'Educatieprogramma: instructeurslogboek',
-	'log-name-eparticle' => 'Educatieprogramma: artikellogboek',
+	'log-name-eparticle' => 'Educatieprogramma: paginalogboek',
 	'log-header-institution' => 'Via deze gebeurtenissen worden de wijzigingen bijgehouden die gemaakt worden met betrekking tot organisaties in het educatieprogramma.',
 	'log-header-course' => 'Via deze gebeurtenissen worden de wijzigingen bijgehouden die gemaakt worden met betrekking tot cursussen in het educatieprogramma.',
 	'log-header-instructor' => 'Via deze gebeurtenissen worden de wijzigingen bijgehouden die gemaakt worden met betrekking tot instructeurs in het educatieprogramma.',
@@ -19898,10 +19957,10 @@ $messages['nl'] = array(
 	'logentry-online-selfadd' => '$1 heeft {{GENDER:$2|zichzelf|haarzelf}} als Online vrijwilliger toegevoegd aan de cursus $3',
 	'logentry-online-selfremove' => '$1 heeft {{GENDER:$2|zichzelf|haarzelf}} als Online vrijwilliger verwijderd  van de cursus $3',
 	'logentry-online-profilesave' => '$1 heeft {{GENDER:$2|zijn|haar}} Online vrijwilligersprofiel bijgewerkt',
-	'logentry-campus-add' => '$1 {{GENDER:$2|heeft}} de Campusvrijwilliger{{PLURAL:$4||s}} $5 toegevoegd aan de cursus $3',
-	'logentry-campus-remove' => '$1 {{GENDER:$2|heeft}} de Campusvrijwilliger{{PLURAL:$4||s}} $5 verwijderd van de cursus $3',
-	'logentry-campus-selfadd' => '$1 heeft {{GENDER:$2|zichzelf|haarzelf}} als Campusvrijwilliger toegevoegd aan de cursus $3',
-	'logentry-campus-selfremove' => '$1 heeft {{GENDER:$2|zichzelf|haarzelf}} als Campusvrijwilliger verwijderd van de cursus $3',
+	'logentry-campus-add' => '$1 {{GENDER:$2|heeft}} de campusvrijwilliger{{PLURAL:$4||s}} $5 toegevoegd aan de cursus $3',
+	'logentry-campus-remove' => '$1 {{GENDER:$2|heeft}} de campusvrijwilliger{{PLURAL:$4||s}} $5 verwijderd van de cursus $3',
+	'logentry-campus-selfadd' => '$1 heeft {{GENDER:$2|zichzelf|haarzelf|de gebruiker}} als campusvrijwilliger toegevoegd aan de cursus $3',
+	'logentry-campus-selfremove' => '$1 heeft {{GENDER:$2|zichzelf|haarzelf}} verwijderd als campusvrijwilliger van de cursus $3',
 	'logentry-campus-profilesave' => '$1 heeft {{GENDER:$2|zijn|haar}} Campusvrijwilligersprofiel bijgewerkt',
 	'logentry-student-add' => '$1 {{GENDER:$2|schreef}} $5 in als {{PLURAL:$4|   {{GENDER:$5|student}}|studenten}} in cursus $3',
 	'logentry-student-remove' => '$1 {{GENDER:$2|heeft}} $5 verwijderd als {{PLURAL:$4|{{GENDER:$5|student|studente}}|studenten}} uit de cursus $3',
@@ -19985,7 +20044,7 @@ ster}}',
 	'ep-course-status-current' => 'Huidige',
 	'ep-course-status-planned' => 'Gepland',
 	'ep-course-status-current-planned' => 'Huidig en gepland',
-	'ep-summary-table-header' => 'Educatieprogramma-resultaten',
+	'ep-summary-table-header' => 'Educatieprogrammaresultaten',
 	'ep-specialeducationprogram-summary-org-count' => 'Aantal [[Special:Institutions|organisaties]]',
 	'ep-specialeducationprogram-summary-course-count' => 'Aantal [[Special:Courses|cursussen]]',
 	'ep-specialeducationprogram-summary-active-course-count' => 'Aantal actieve cursussen',
@@ -20191,7 +20250,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'coursepage-edit-undelete-revisions' => 'Deze cursus is verwijderd. U kunt $1.',
 	'coursepage-edit-undelete-link' => '$1 {{PLURAL:$1|versie|versies}} terugplaatsen',
 	'ep-undelete-course-no-rights' => 'Deze cursus is verwijderd, maar u heeft niet de benodigde rechten om deze terug te plaatsen.', # Fuzzy
-	'ep-undelete-course-org-deleted' => 'Deze cursus en bijbehorende instelling [[$1|$2 ]], zijn verwijderd. Om de cursus terug te zetten moet eerst [$3 de instelling $2 teruggezet worden].',
+	'ep-undelete-course-org-deleted' => 'Deze cursus en bijbehorende instelling [[$1|$2 ]], zijn verwijderd. Om de cursus terug te zetten moet eerst [$3 de instelling $2 teruggeplaatst worden].',
 	'ep-pager-confirm-delete' => 'Weet u zeker dat u dit item wilt verwijderen?',
 	'ep-pager-delete-fail' => 'Het was niet mogelijk dit item te verwijderen.',
 	'ep-pager-confirm-delete-selected' => 'Weet u zeker dat u {{PLURAL:$1|het geselecteerde item|de geselecteerde items}} wilt verwijderen?',
@@ -20267,8 +20326,8 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'orgpage-delete-deleted' => 'De organisatie $1 en de gekoppelde cursussen zijn verwijderd.',
 	'orgpage-delete-delete-failed' => 'Het was niet mogelijk de organisatie [[Institution:$1|$1]] te verwijderen.',
 	'ep-delete-org-no-rights' => 'U heeft niet de benodigde rechten om deze organisatie te verwijderen.',
-	'ep-delete-org-has-courses' => 'U kunt [[$1|$2]] niet verwijderen omdat er cursussen mee verbonden zijn. Verwijder eerst de cursussen.',
-	'ep-delete-org-has-courses-plain' => 'U kunt $1 niet verwijderen omdat er cursussenmee verbonden zijn. Verwijder eerst de cursussen.',
+	'ep-delete-org-has-courses' => 'U kunt [[$1|$2]] niet verwijderen omdat er cursussen aan gekoppeld zijn. Verwijder eerst de cursussen.',
+	'ep-delete-org-has-courses-plain' => 'U kunt $1 niet verwijderen omdat er cursussen aan gekoppeld zijn. Verwijder eerst de cursussen.',
 	'ep-delete-org-has-courses-close-dialog' => 'Sluiten',
 	'orgpage-eprestore-title' => 'Organisatie "$1" terugplaatsen',
 	'orgpage-eprestore-text' => 'U staat op het punt om een eerdere versie van de organisatie $1 terug te plaatsen.',
@@ -20433,10 +20492,10 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-campus-remove-title' => 'Campusvrijwilliger verwijderen van cursus',
 	'ep-campus-remove-button' => 'Campusvrijwilliger verwijderen',
 	'ep-campus-removing' => 'Bezig met verwijderen...',
-	'ep-campus-removal-success' => 'Deze Campusvrijwilliger is verwijderd uit deze cursus.',
+	'ep-campus-removal-success' => 'Deze campusvrijwilliger is verwijderd uit deze cursus.',
 	'ep-campus-close-button' => 'Sluiten',
 	'ep-campus-remove-retry' => 'Opnieuw proberen',
-	'ep-campus-remove-failed' => 'Het was niet mogelijk de Campusvrijwilliger te verwijderen uit de cursus.',
+	'ep-campus-remove-failed' => 'Het was niet mogelijk de campusvrijwilliger te verwijderen uit de cursus.',
 	'ep-campus-cancel-button' => 'Annuleren',
 	'ep-campus-remove-text' => 'U staat op het punt $2 (gebruikersnaam $1) te verwijderen als Campus{{GENDER:$1|vrijwilliger}} voor de cursus $3. Geef een korte reden op voor deze handeling.',
 	'ep-campus-adding' => 'Bezig met toevoegen...',
@@ -20446,7 +20505,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-campus-addition-invalid-user' => 'Er is geen gebruiker met de naam $1, dus er is niemand toegevoegd aan de cursus $2',
 	'ep-campus-add-close-button' => 'Sluiten',
 	'ep-campus-add-retry' => 'Opnieuw proberen',
-	'ep-campus-addition-failed' => 'Het was niet mogelijk de Campusvrijwilliger toe te voegen aan de cursus.',
+	'ep-campus-addition-failed' => 'Het was niet mogelijk de campusvrijwilliger toe te voegen aan de cursus.',
 	'ep-campus-add-title' => 'Campusvrijwilliger toevoegen aan cursus',
 	'ep-campus-add-self-title' => 'Campus{{GENDER:$1|vrijwilliger}} worden voor deze cursus',
 	'ep-campus-add-button' => 'Campusvrijwilliger toevoegen',
@@ -20457,7 +20516,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-campus-summary-input' => 'Samenvatting:',
 	'ep-campus-name-input' => 'Gebruikersnaam:',
 	'ep-instructor-remove' => 'als instructeur verwijderen',
-	'ep-campus-remove' => 'als Campusvrijwilliger verwijderen',
+	'ep-campus-remove' => 'als campusvrijwilliger verwijderen',
 	'ep-online-remove' => 'als Online vrijwilliger verwijderen',
 	'ep-enlist-invalid-user-args' => 'U moet de parameter "username" of "userid" opgeven',
 	'ep-enlist-invalid-user' => 'Het opgegeven gebruikersnummer of de gebruikersnaam is ongeldig en kan niet gekoppeld worden als instructeur of vrijwilliger voor de opgegeven cursus',
@@ -20479,7 +20538,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'epca-profile-photo-help' => 'Een foto van u die wordt weergegeven naast uw beschrijving. Voer de naam in van een afbeelding op Wikimedia Commons om een voorvertoning weer te geven. U kunt de eerste paar letters van een afbeeldingsnaam invoeren en dan uw afbeelding uit de lijst selecteren. [$1 Upload een afbeelding] als u nog geen afbeelding op Commons heeft.',
 	'epca-profile-saved' => 'Uw profiel is opgeslagen',
 	'epca-profile-invalid-bio' => 'De beschrijving moet tenminste {{PLURAL:$1|één teken|$1 tekens}} bevatten.',
-	'epca-visible' => '{{GENDER:$1|U}} openbaar weergeven als Campusvrijwilliger',
+	'epca-visible' => '{{GENDER:$1|U}} openbaar weergeven als campusvrijwilliger',
 	'ep-studentactivity-noresults' => 'Er zijn geen studenten actief geweest in de afgelopen $1.
 
 Zie de [[Special:Students|lijst met alle studenten]].',
@@ -20515,7 +20574,7 @@ Zie de [[Special:Students|lijst met alle studenten]].',
 	'ep-user-roles-message-main-many-instructor' => '[[$1|$2]] {{GENDER:$2|is instructeur}} voor $3   {{PLURAL:$3|cursus|cursussen}}.',
 	'ep-user-roles-message-main-many-online' => '[[$1|$2]] {{GENDER:$2|is online vrijwilliger}} voor {{PLURAL:$3|cursus|cursussen}}.',
 	'ep-user-roles-message-main-many-campus' => '[[$1|$2]] {{GENDER:$2|is campusvrijwilliger}} voor $3  {{PLURAL:$3|cursus|cursussen}}.',
-	'ep-user-roles-message-additional' => '{{GENDER:$1|Hij is|Zij is|De gebruiker is}} ook $2.',
+	'ep-user-roles-message-additional' => '{{GENDER:$1|Hij|Zij|De gebruiker}} is ook $2.',
 	'ep-user-roles-message-rolename-student' => '{{GENDER:$1|een student}}',
 	'ep-user-roles-message-rolename-instructor' => '{{GENDER:$1|een instructeur}}',
 	'ep-user-roles-message-rolename-online' => '{{GENDER:$1|een online cursusvrijwilliger}}',
@@ -23789,6 +23848,19 @@ Clap oan "{{int:ep-addstudents-btn}}" whan ye\'r dun.',
 	'ep-delete-org-has-courses' => 'Ye canna delete [[$1|$2]] cause thaur ar coorses associated wi it. Please delete the coorses first.',
 	'ep-delete-org-has-courses-plain' => 'Ye canna delete $1 cause thare ar coorses associated wi it. Please delete the coorses first.',
 	'ep-delete-org-has-courses-close-dialog' => 'Claise',
+	'ep-role-add-link-text-view-course' => 'See coorse',
+	'ep-student-add-notification-title' => "Ye'v been {{GENDER:$1|added}} til [[$2|$3]] bi [[User:$1|$1]].",
+	'ep-student-add-notification-title-email-subject' => "Ye'v been {{GENDER:$1|added}} til $2 bi $1.",
+	'ep-student-add-notification-title-email-body' => "Ye'v been {{GENDER:$1|added}} til $2 bi $1.",
+	'ep-instructor-add-notification-title' => "Ye'v been {{GENDER:$1|added}} aes aen instructer til [[$2|$3]] bi [[User:$1|$1]].",
+	'ep-instructor-add-notification-title-email-subject' => "Ye'v been {{GENDER:$1|added}} aes aen instructer til $2 bi $1.",
+	'ep-instructor-add-notification-title-email-body' => "Ye'v been {{GENDER:$1|added}} aes aen instructer til $2 bi $1.",
+	'ep-campus-add-notification-title' => "Ye'v been {{GENDER:$1|added}} aes ae campus volunteer til [[$2|$3]] bi [[User:$1|$1]].",
+	'ep-campus-add-notification-title-email-subject' => "Ye'v been {{GENDER:$1|added}} aes ae campus volunteer til $2 bi $1.",
+	'ep-campus-add-notification-title-email-body' => "Ye'v been {{GENDER:$1|added}} aes ae campus volunteer til $2 bi $1.",
+	'ep-online-add-notification-title' => "Ye'v been {{GENDER:$1|added}} aes aen online volunteer til [[$2|$3]] bi [[User:$1|$1]].",
+	'ep-online-add-notification-title-email-subject' => "Ye'v been {{GENDER:$1|added}} aes aen online volunteer til $2 bi $1.",
+	'ep-online-add-notification-title-email-body' => "Ye'v been {{GENDER:$1|added}} aes aen online volunteer til $2 bi $1.",
 );
 
 /** Samogitian (žemaitėška)
@@ -27436,6 +27508,16 @@ $messages['tr'] = array(
 	'ep-instructor-removing' => 'Kaldırılıyor...',
 	'ep-online-removing' => 'Kaldırılıyor...',
 	'ep-campus-removing' => 'Kaldırılıyor...',
+);
+
+/** Tatar (Cyrillic script) (татарча)
+ * @author Ilnur efende
+ */
+$messages['tt-cyrl'] = array(
+	'ep-tab-disenroll' => 'Чыгу',
+	'special-disenroll' => 'Чыгу',
+	'ep-disenroll-button' => 'Чыгу',
+	'ep-course-talk-link-text-view-changes' => 'Үзгәртүләрне карау',
 );
 
 /** Tuvinian (тыва дыл)
