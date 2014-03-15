@@ -11833,6 +11833,16 @@ $messages['he'] = array(
 	'ep-course-talk-notification-title-email-subject' => 'דף השיחה של הקורס $2 נערך על ידי $1',
 	'ep-course-talk-notification-title-email-body' => 'דף השיחה של הקורס $2 נערך על ידי $1',
 	'ep-role-add-link-text-view-course' => 'הצגת קורס',
+	'ep-student-add-notification-title' => '{{GENDER:$1|נוספת}} לקורס [[$2|$3]] על־ידי [[User:$1|$1]].',
+	'ep-student-add-notification-title-email-subject' => '{{GENDER:$1|נוספת}} לקורס $2 על־ידי $1.',
+	'ep-student-add-notification-title-email-body' => '{{GENDER:$1|נוספת}} לקורס $2 על־ידי $1.',
+	'ep-instructor-add-notification-title' => '{{GENDER:$1|נוספת}} בתור מדריך לקורס [[$2|$3]] על־ידי [[User:$1|$1]].',
+	'ep-instructor-add-notification-title-email-subject' => '{{GENDER:$1|נוספת}} בתור מדריך לקורס $2 על־ידי $1.',
+	'ep-instructor-add-notification-title-email-body' => '{{GENDER:$1|נוספת}} בתור מדריך לקורס $2 על־ידי $1.',
+	'ep-campus-add-notification-title-email-subject' => '{{GENDER:$1|נוספת}} בתור מתנדב קמפוס $2 על־ידי $1.',
+	'ep-campus-add-notification-title-email-body' => '{{GENDER:$1|נוספת}} בתור מתנדב קמפוס $2 על־ידי $1.',
+	'ep-online-add-notification-title-email-subject' => '{{GENDER:$1|נוספת}} בתור מתנדב מקוון $2 על־ידי $1.',
+	'ep-online-add-notification-title-email-body' => '{{GENDER:$1|נוספת}} בתור מתנדב מקוון $2 על־ידי $1.',
 );
 
 /** Hindi (हिन्दी)
@@ -16367,7 +16377,7 @@ $messages['ko'] = array(
 	'ep-course-no-slashes' => '과정 제목에 슬래시를 포함하면 안됩니다!',
 	'coursepage-edit-undelete-revisions' => '이 과정을 삭제했습니다. $1할 수 있습니다.',
 	'coursepage-edit-undelete-link' => '{{PLURAL:$1|판}} $1개 복구',
-	'ep-undelete-course-no-rights' => '이 과정은 삭제되었으며, 당신은 복원할 수 있는 권한이 없습니다.',
+	'ep-undelete-course-no-rights' => '이 과정은 삭제되었습니다. 당신은 과정을 복원할 수 있는 권한이 없습니다.',
 	'ep-undelete-course-org-deleted' => '이 과정과 강의([[$1|$2]])가 삭제되었습니다. 이것을 복원하려면 [$3 $2를 복원하세요].',
 	'ep-pager-confirm-delete' => '이 항목을 삭제하겠습니까?',
 	'ep-pager-delete-fail' => '이 항목을 삭제할 수 없습니다.',
@@ -16704,6 +16714,19 @@ $messages['ko'] = array(
 	'ep-course-talk-notification-title' => '[[$2|$3 과정 토론 페이지]]는 [[User:$1|$1]] 사용자가 {{GENDER:$1|편집하였습니다}}.',
 	'ep-course-talk-notification-title-email-subject' => '$2 과정 토론 페이지는 $1 사용자가 {{GENDER:$1|편집하였습니다}}.',
 	'ep-course-talk-notification-title-email-body' => '$2의 과정 토론 문서를 $1 사용자가 {{GENDER:$1|편집했습니다}}.',
+	'ep-role-add-link-text-view-course' => '과정 보기',
+	'ep-student-add-notification-title' => '당신은 [[User:$1|$1]]에 의해 [[$2|$3]] 에 {{GENDER:$1|추가}}되었습니다.',
+	'ep-student-add-notification-title-email-subject' => '당신은 $1에 의해 $2에 {{GENDER:$1|추가}}되었습니다.',
+	'ep-student-add-notification-title-email-body' => '당신은 $1에 의해 $2에 {{GENDER:$1|추가}}되었습니다.',
+	'ep-instructor-add-notification-title' => '당신은 [[User:$1|$1]]에 의해 [[$2|$3]] 과정에 강사로써 {{GENDER:$1|추가}}되었습니다.',
+	'ep-instructor-add-notification-title-email-subject' => '당신은 $1에 의해 $2 의 강사로 {{GENDER:$1|추가}}되었습니다.',
+	'ep-instructor-add-notification-title-email-body' => '당신은 $1에 의해 $2의 강사로 {{GENDER:$1|추가}}되었습니다.',
+	'ep-campus-add-notification-title' => '당신은 [[User:$1|$1]]에 의해 [[$2|$3]]의 캠퍼스 지원자로 {{GENDER:$1|추가}}되었습니다.',
+	'ep-campus-add-notification-title-email-subject' => '당신은 $1에 의해 $2의 캠퍼스 지원자로 {{GENDER:$1|추가}}되었습니다.',
+	'ep-campus-add-notification-title-email-body' => '당신은 $1에 의해 $2의 캠퍼스 지원자로 {{GENDER:$1|추가}}되었습니다.',
+	'ep-online-add-notification-title' => '당신은 [[User:$1|$1]]에 의해 [[$2|$3]]의 온라인 지원자로 {{GENDER:$1|추가}}되었습니다.',
+	'ep-online-add-notification-title-email-subject' => '당신은 $1에 의해 $2의 온라인 지원자로 {{GENDER:$1|추가}}되었습니다.',
+	'ep-online-add-notification-title-email-body' => '당신은 $1에 의해 $2의 온라인 지원자로 {{GENDER:$1|추가}}되었습니다.',
 );
 
 /** Karachay-Balkar (къарачай-малкъар)
@@ -20249,7 +20272,7 @@ Voor uw gemak staan hieronder het verwijderingslogboek en het hernoemingslogboek
 	'ep-course-no-slashes' => 'De naam van de cursus mag geen slashes bevatten.',
 	'coursepage-edit-undelete-revisions' => 'Deze cursus is verwijderd. U kunt $1.',
 	'coursepage-edit-undelete-link' => '$1 {{PLURAL:$1|versie|versies}} terugplaatsen',
-	'ep-undelete-course-no-rights' => 'Deze cursus is verwijderd, maar u heeft niet de benodigde rechten om deze terug te plaatsen.', # Fuzzy
+	'ep-undelete-course-no-rights' => 'Deze cursus is verwijderd. U heeft niet de benodigde rechten om deze terug te plaatsen.',
 	'ep-undelete-course-org-deleted' => 'Deze cursus en bijbehorende instelling [[$1|$2 ]], zijn verwijderd. Om de cursus terug te zetten moet eerst [$3 de instelling $2 teruggeplaatst worden].',
 	'ep-pager-confirm-delete' => 'Weet u zeker dat u dit item wilt verwijderen?',
 	'ep-pager-delete-fail' => 'Het was niet mogelijk dit item te verwijderen.',
@@ -20586,6 +20609,19 @@ Zie de [[Special:Students|lijst met alle studenten]].',
 	'ep-course-talk-notification-title' => 'De [[$2|cursus-overlegpagina van $3]] is {{GENDER:$1|bewerkt}} door [[User:$1|$1]].',
 	'ep-course-talk-notification-title-email-subject' => 'De cursusoverlegpagina van $2 was bewerkt door $1.',
 	'ep-course-talk-notification-title-email-body' => 'De cursusoverlegpagina van $2 was bewerkt door $1.',
+	'ep-role-add-link-text-view-course' => 'Cursus weergeven',
+	'ep-student-add-notification-title' => 'U bent {{GENDER:$1|toegevoegd}} aan [[$2|$3]] door [[gebruiker:$1|$1]].', # Fuzzy
+	'ep-student-add-notification-title-email-subject' => 'U bent {{GENDER:$1|toegevoegd}} aan $2 door $1.',
+	'ep-student-add-notification-title-email-body' => 'U bent {{GENDER:$1|toegevoegd}} aan $2 door $1.',
+	'ep-instructor-add-notification-title' => 'U bent {{GENDER:$1|toegevoegd}} als instructeur aan [[$2|$3]] door [[gebruiker:$1|$1]].', # Fuzzy
+	'ep-instructor-add-notification-title-email-subject' => 'U bent {{GENDER:$1|toegevoegd}} als instructeur aan $2 door $1.',
+	'ep-instructor-add-notification-title-email-body' => 'U bent {{GENDER:$1|toegevoegd}} als instructeur aan  $2 door $1.',
+	'ep-campus-add-notification-title' => 'U bent {{GENDER:$1|toegevoegd}} als campusvrijwilliger aan [[$2|$3]] door [[gebruiker:$1|$1]].', # Fuzzy
+	'ep-campus-add-notification-title-email-subject' => 'U bent {{GENDER:$1|toegevoegd}} als campusvrijwilliger aan $2 door $1.',
+	'ep-campus-add-notification-title-email-body' => 'U bent {{GENDER:$1|toegevoegd}} als campusvrijwilliger aan $2 door $1.',
+	'ep-online-add-notification-title' => 'U bent {{GENDER:$1|toegevoegd}} als online-vrijwilliger aan [[$2|$3]] door [[gebruiker:$1|$1]].', # Fuzzy
+	'ep-online-add-notification-title-email-subject' => 'U bent {{GENDER:$1|toegevoegd}} als online-vrijwilliger aan $2 door $1.',
+	'ep-online-add-notification-title-email-body' => 'U bent {{GENDER:$1|toegevoegd}} als online-vrijwilliger aan $2 door $1.',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -23662,6 +23698,7 @@ $messages['ru'] = array(
 	'ep-course-no-slashes' => 'Название курса не должен содержать символы косой черты!',
 	'coursepage-edit-undelete-revisions' => 'Этот курс был удален. Вы можете $1.',
 	'coursepage-edit-undelete-link' => 'восстановить {{PLURAL:$1|$1 версию|$1 версий|$1 версии|1=версию}}',
+	'ep-undelete-course-no-rights' => 'Этот курс был удалён. У вас нет прав для его восстановления.',
 	'ep-pager-confirm-delete' => 'Вы уверены, что хотите удалить этот элемент?',
 	'ep-pager-delete-fail' => 'Не удалось удалить этот элемент.',
 	'ep-institution-title' => 'Учреждение: $1',
@@ -23836,13 +23873,13 @@ $messages['rue'] = array(
  * @author John Reid
  */
 $messages['sco'] = array(
-	'ep-pager-confirm-message-org' => "Ye'r aboot tae delete institution $1.",
-	'ep-pager-confirm-message-org-many' => "Ye'r aboot tae delete these institutions: $1.",
+	'ep-pager-confirm-message-org' => "Ye'r aboot tae delyte institution $1.",
+	'ep-pager-confirm-message-org-many' => "Ye'r aboot tae delyte thir institutions: $1.",
 	'ep-addstudents-instructions' => 'Type the uisernames o the students ye want tae add. Press Enter efter ilcka yin, or clap oan the menu that kiths. Ye can paste ae leet o uisernames ava.
 
 Clap oan "{{int:ep-addstudents-btn}}" whan ye\'r dun.',
 	'ep-undelete-course-no-rights' => 'This coorse haes been delytit. Ye dinna hae permission fer tae restore it.',
-	'ep-undelete-course-org-deleted' => 'This coorse an its institution, [[$1|$2]], hae been deletit. Tae restore this coorse, first [$3 restore $2].',
+	'ep-undelete-course-org-deleted' => 'This coorse n its institution, [[$1|$2]], hae been delytit. Tae restore this coorse, first [$3 restore $2].',
 	'orgpage-delete-text' => "Ye'r aboot tae delete the institution $1.",
 	'ep-delete-org-no-rights' => 'Ye dinna hae permission tae delete this institution.',
 	'ep-delete-org-has-courses' => 'Ye canna delete [[$1|$2]] cause thaur ar coorses associated wi it. Please delete the coorses first.',
@@ -26242,7 +26279,7 @@ $messages['te'] = array(
 	'ep-course-no-slashes' => 'కోర్సు శీర్షికలో స్లాష్‍లు ఉండకూడదు!',
 	'coursepage-edit-undelete-revisions' => 'ఈ కోర్సు తొలగించబడింది. $1',
 	'coursepage-edit-undelete-link' => '$1 {{PLURAL:$1|కూర్పును|కూర్పులను}} పునస్థాపించండి',
-	'ep-undelete-course-no-rights' => 'ఈ కోర్సును తొలగించాం. అయితే తిరిగి స్థాపించడానికి మీకు అనుమతి లేదు.', # Fuzzy
+	'ep-undelete-course-no-rights' => 'ఈ కోర్సును తొలగించాం. తిరిగి స్థాపించడానికి మీకు అనుమతి లేదు.',
 	'ep-undelete-course-org-deleted' => 'ఈ కోర్సు, దాన్ని సంస్థా [[$1|$2]], తొలగించబడ్డాయి. కోర్సును పునస్థాపించేందుకు, ముందు [$3 $2 ను పునస్థాపించండి].',
 	'ep-pager-confirm-delete' => 'ఈ అంశాన్ని తొలగించాలనే మీరు నిశ్చయించుకున్నారా?',
 	'ep-pager-delete-fail' => 'ఈ అంశాన్ని తొలగించలకపోయాం.',
@@ -26579,6 +26616,19 @@ $messages['te'] = array(
 	'ep-course-talk-notification-title' => '[[User:$1|$1]], [[$2|కోర్సు $3 యొక్క చర్చాపేజీని]] {{GENDER:$1|మార్చారు}}.',
 	'ep-course-talk-notification-title-email-subject' => 'కోర్సు $2 యొక్క చర్చాపేజీని $1 {{GENDER:$1|సవరించారు}}.',
 	'ep-course-talk-notification-title-email-body' => 'కోర్సు $2 యొక్క చర్చాపేజీని $1 {{GENDER:$1|సవరించారు}}.',
+	'ep-role-add-link-text-view-course' => 'కోర్సును చూపించు',
+	'ep-student-add-notification-title' => '[[User:$1|$1]] మిమ్మల్ని [[$2|$3]] కు {{GENDER:$1|చేర్చారు}}.',
+	'ep-student-add-notification-title-email-subject' => '$1 మిమ్మల్ని $2 కు {{GENDER:$1|చేర్చారు}}.',
+	'ep-student-add-notification-title-email-body' => '$1 మిమ్మల్ని $2 కు {{GENDER:$1|చేర్చారు}}.',
+	'ep-instructor-add-notification-title' => '[[User:$1|$1]] మిమ్మల్ని [[$2|$3]]లో బోధకులుగా {{GENDER:$1|చేర్చారు}}.',
+	'ep-instructor-add-notification-title-email-subject' => '$1 మిమ్మల్ని $2లో బోధకులుగా {{GENDER:$1|చేర్చారు}}.',
+	'ep-instructor-add-notification-title-email-body' => '$1 మిమ్మల్ని $2లో బోధకులుగా {{GENDER:$1|చేర్చారు}}.',
+	'ep-campus-add-notification-title' => '[[User:$1|$1]] మిమ్మల్ని [[$2|$3]]లో క్యాంపస్ ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.',
+	'ep-campus-add-notification-title-email-subject' => '$1 మిమ్మల్ని $2లో క్యాంపస్ ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.',
+	'ep-campus-add-notification-title-email-body' => '$1 మిమ్మల్ని $2లో క్యాంపస్ ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.',
+	'ep-online-add-notification-title' => '[[User:$1|$1]] మిమ్మల్ని [[$2|$3]]లో ఆన్‍లైను ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.',
+	'ep-online-add-notification-title-email-subject' => '$1 మిమ్మల్ని $2లో ఆన్‍లైను ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.',
+	'ep-online-add-notification-title-email-body' => '$1 మిమ్మల్ని $2లో ఆన్‍లైను ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.',
 );
 
 /** Tagalog (Tagalog)
@@ -28039,7 +28089,7 @@ $messages['uk'] = array(
 	'ep-course-no-slashes' => 'Назва курсу не повинна містити ніяких слешів!',
 	'coursepage-edit-undelete-revisions' => 'Цей курс був видалений. Ви можете $1.',
 	'coursepage-edit-undelete-link' => 'відновити $1 {{PLURAL:$1|версію|версії|версій}}',
-	'ep-undelete-course-no-rights' => 'Цей курс був видалений, але ви не маєте права відновити його.',
+	'ep-undelete-course-no-rights' => 'Цей курс був видалений. Ви не маєте права відновити його.',
 	'ep-undelete-course-org-deleted' => 'Цей курс і його заклад [[$1|$2]] були видалені. Щоб відновити цей курс, насамперед [$3 відновіть $2].',
 	'ep-pager-confirm-delete' => 'Ви дійсно хочете вилучити цей елемент?',
 	'ep-pager-delete-fail' => 'Не вдалося видалити цей елемент.',
@@ -28376,6 +28426,19 @@ $messages['uk'] = array(
 	'ep-course-talk-notification-title' => '[[$2|Сторінка обговорення курсу $3]]  {{GENDER:$1|змінена користувачем|змінена користувачкою}} [[User:$1|$1]].',
 	'ep-course-talk-notification-title-email-subject' => 'Сторінка обговорення курсу $2 {{GENDER:$1|змінена користувачем|змінена користувачкою}} $1.',
 	'ep-course-talk-notification-title-email-body' => 'Сторінка обговорення курсу $2 {{GENDER:$1|змінена користувачем|змінена користувачкою}} $1.',
+	'ep-role-add-link-text-view-course' => 'Перегляд курсу',
+	'ep-student-add-notification-title' => 'Ви вже {{GENDER:$1|додані}} до [[$2|$3]] користувачем [[User:$1|$1]].',
+	'ep-student-add-notification-title-email-subject' => 'Ви вже {{GENDER:$1|додані}} до $2 користувачем $1.',
+	'ep-student-add-notification-title-email-body' => 'Ви вже {{GENDER:$1|додані}} до $2 користувачем $1.',
+	'ep-instructor-add-notification-title' => 'Ви вже {{GENDER:$1|додані}} як інструктор до [[$2|$3]] користувачем [[User:$1|$1]].',
+	'ep-instructor-add-notification-title-email-subject' => 'Ви вже {{GENDER:$1|додані}} як інструктор до $2 користувачем $1.',
+	'ep-instructor-add-notification-title-email-body' => 'Ви вже {{GENDER:$1|додані}} як інструктор до $2 користувачем $1.',
+	'ep-campus-add-notification-title' => 'Ви вже {{GENDER:$1|додані}} як доброволець кампусу до [[$2|$3]] користувачем [[User:$1|$1]].',
+	'ep-campus-add-notification-title-email-subject' => 'Ви вже {{GENDER:$1|додані}} як доброволець кампусу до $2 користувачем $1.',
+	'ep-campus-add-notification-title-email-body' => 'Ви вже {{GENDER:$1|додані}} як доброволець кампусу до $2 користувачем $1.',
+	'ep-online-add-notification-title' => 'Ви вже {{GENDER:$1|додані}} як доброволець у мережі до [[$2|$3]] користувачем [[User:$1|$1]].',
+	'ep-online-add-notification-title-email-subject' => 'Ви вже {{GENDER:$1|додані}} як доброволець у мережі до $2 користувачем $1.',
+	'ep-online-add-notification-title-email-body' => 'Ви вже {{GENDER:$1|додані}} як доброволець у мережі до $2 користувачем $1.',
 );
 
 /** Urdu (اردو)
