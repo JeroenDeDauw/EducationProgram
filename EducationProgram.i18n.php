@@ -4844,19 +4844,19 @@ Záznam smazání tohoto kurzu:",
 	'ep-enlist-invalid-course' => 'Neexistuje žádný kurz s tímto ID',
 	'onlineambassadorprofile' => 'Profil online dobrovolníka',
 	'onlineambassadorprofile-legend' => 'Váš profil Online dobrovolníka',
-	'onlineambassadorprofile-text' => 'Váš profil Online dobrovolníka je to co si studenti mohou prohlédnou pokud procházejí dostupné dobrovolníky.',
+	'onlineambassadorprofile-text' => 'Váš profil Online dobrovolníka je to, co si studenti mohou prohlédnout, pokud procházejí dostupné dobrovolníky.',
 	'epoa-profile-bio' => 'Krátká biografie',
 	'epoa-profile-photo' => 'Profilová fotografie',
-	'epoa-profile-photo-help' => 'Obrázek, který se obrazí vedle vaší biografie. Vložte název obrázku na Wikimedia Commons a náhled se objeví. Můžete napsat začátek názvu a vybrat obrázek ze seznamu. Pokud ještě nemáte svoji fotku na commons, můžete ji [$1 nahrát]!',
+	'epoa-profile-photo-help' => 'Obrázek, který se obrazí vedle vaší biografie. Vložte název obrázku na Wikimedia Commons a náhled se objeví. Můžete napsat začátek názvu a vybrat obrázek ze seznamu. Pokud ještě nemáte svoji fotku na Commons, můžete ji [$1 nahrát]!',
 	'epoa-profile-saved' => 'Váš profil byl uložen',
 	'epoa-profile-invalid-bio' => 'Vaše biografie musí obsahovat alespoň  $1 {{PLURAL:$1|znak|znaky|znaků}}.',
 	'epoa-visible' => 'Veřejně zobrazit {{GENDER:$1|sebe}} jako Online dobrovolníka',
 	'campusambassadorprofile' => 'Profil Dobrovolníka dostupného osobně',
 	'campusambassadorprofile-legend' => 'Váš profil Dobrovolníka dostupného osobně',
-	'campusambassadorprofile-text' => 'Váš profil Dobrovolníka dostupného osobně je to co si studenti mohou prohlédnou pokud procházejí dostupné dobrovolníky.',
+	'campusambassadorprofile-text' => 'Váš profil Dobrovolníka dostupného osobně je to, co si studenti mohou prohlédnout, pokud procházejí dostupné dobrovolníky.',
 	'epca-profile-bio' => 'Krátká biografie',
 	'epca-profile-photo' => 'Profilová fotografie',
-	'epca-profile-photo-help' => 'Obrázek, který se obrazí vedle vaší biografie. Vložte název obrázku na Wikimedia Commons a náhled se objeví. Můžete napsat začátek názvu a vybrat obrázek ze seznamu. Pokud ještě nemáte svoji fotku na commons, můžete ji [$1 nahrát]!',
+	'epca-profile-photo-help' => 'Obrázek, který se obrazí vedle vaší biografie. Vložte název obrázku na Wikimedia Commons a náhled se objeví. Můžete napsat začátek názvu a vybrat obrázek ze seznamu. Pokud ještě nemáte svoji fotku na Commons, můžete ji [$1 nahrát]!',
 	'epca-profile-saved' => 'Váš profil byl uložen',
 	'epca-profile-invalid-bio' => 'Vaše biografie musí obsahovat alespoň  $1 {{PLURAL:$1|znak|znaky|znaků}}.',
 	'epca-visible' => 'Veřejně zobrazit {{GENDER:$1|sebe}} jako dobrovolníka dostupného osobně',
@@ -24355,6 +24355,14 @@ $messages['si'] = array(
 	'ep-timeline-users-create-article' => "$1 විසින් '''[[$2]]''' ලිපිය තනන ලදී.", # Fuzzy
 );
 
+/** Somali (Soomaaliga)
+ * @author Abshirdheere
+ */
+$messages['so'] = array(
+	'ep-timeline-users-edit-talk' => "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}  {{PLURAL:$4|farriin|farriimo}} baa luguugu dhaafay  '''[[$2|bogga wadahadalka]]''' ee '''[[$3]]'''.",
+	'ep-timeline-users-create-talk' => "{{GENDER:$6|$1}} wuxuu sameeyey '''[[$2|bogga wadahadalka]]''' ee '''[[$3]]''' wuxuuna kuu reebay {{PLURAL:$4|farriin|farriimo}}.",
+);
+
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Milicevic01
  * @author Rancher
@@ -25466,6 +25474,12 @@ Du finner en komplett lista över studenter på [[Special:Students|studentlistan
 	'ep-instructor-add-notification-title' => 'Du har {{GENDER:$1|lagts till}} som en instruktör i [[$2|$3]] av [[User:$1|$1]].',
 	'ep-instructor-add-notification-title-email-subject' => 'Du har {{GENDER:$1|lagts till}} som en instruktör i $2 av $1.',
 	'ep-instructor-add-notification-title-email-body' => 'Du har {{GENDER:$1|lagts till}} som en instruktör i $2 av $1.',
+	'ep-campus-add-notification-title' => 'Du har {{GENDER:$1|lagts till}} som en {{SITENAME}}ambassadör i [[$2|$3]] av [[User:$1|$1]].',
+	'ep-campus-add-notification-title-email-subject' => 'Du har {{GENDER:$1|lagts till}} som en {{SITENAME}}ambassadör i $2 av $1.',
+	'ep-campus-add-notification-title-email-body' => 'Du har {{GENDER:$1|lagts till}} som en {{SITENAME}}ambassadör i $2 av $1.',
+	'ep-online-add-notification-title' => 'Du har {{GENDER:$1|lagts till}} som en onlineambassadör i [[$2|$3]] av [[User:$1|$1]].',
+	'ep-online-add-notification-title-email-subject' => 'Du har {{GENDER:$1|lagts till}} som en onlineambassadör i $2 av $1.',
+	'ep-online-add-notification-title-email-body' => 'Du har {{GENDER:$1|lagts till}} som en onlineambassadör i $2 av $1.',
 );
 
 /** Tamil (தமிழ்)
