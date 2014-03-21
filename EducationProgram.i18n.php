@@ -3140,6 +3140,7 @@ $messages['as'] = array(
 	'ep-campus-summary' => 'সাৰাংশ:',
 	'orgpage-delete-cancel-button' => 'বাতিল কৰক',
 	'orgpage-eprestore-cancel-button' => 'বাতিল কৰক',
+	'ep-role-add-link-text-view-course' => 'উৎস চাওক',
 );
 
 /** Asturian (asturianu)
@@ -7247,9 +7248,9 @@ El registro de borrado para esta institución se indica a continuación por conv
 	'ep-editcourse' => 'Estás editando un concurso existente.',
 	'ep-editcourse-exists-already' => 'Este curso ya existe. Estás editándolo.',
 	'ep-addstudents-section' => 'Añadir estudiantes a este curso',
-	'ep-addstudents-instructions' => 'Escriba los nombre de usuario de los estudiantes que quieres añadir. Presiona Enter después de escribir cada uno, o has clic en el menú que aparece. También puedes pegar una lista de los nombres de usuario.
+	'ep-addstudents-instructions' => 'Escribe los nombres de los usuarios que quieras añadir como estudiantes. Pulsa Intro después de cada uno, o haz clic en el menú que aparece. También puedes pegar una lista de nombres de usuario.
 
-Has clic en "{{int:ep-addstudents-btn}}" cuando termines.',
+Haz clic en «{{int:ep-addstudents-btn}}» cuando termines.',
 	'ep-addstudents-url-instructions' => 'Tenga en cuenta que los estudiantes pueden agregarse a sí mismos abriendo este enlace en sus navegadores:',
 	'ep-addstudents-invalid-users' => '{{PLURAL:$1|Este usuario no existe|Estos usuarios no existen}}: $2.',
 	'ep-addstudents-btn' => 'Añadir',
@@ -7320,11 +7321,11 @@ El registro de borrado para este curso se indica a continuación por convenienci
 	'ep-campus-summary' => 'Resumen:',
 	'ep-viewcourse-deleted' => 'Este curso ha sido eliminado. A continuación figura el registro de borrado del curso para referencia.',
 	'orgpage-history-description' => 'Ver registros de esta institución',
-	'orgpage-history-title' => 'Historial de revisiones de la institución "$1"',
+	'orgpage-history-title' => 'Historial de revisiones de la institución «$1»',
 	'orgpage-history-norevs' => 'No hay historial de ediciones para esta institución.',
 	'orgpage-history-deleted' => 'Esta institución ha sido eliminada. A continuación figura el registro de borrado de la institución para referencia.',
 	'coursepage-history-description' => 'Ver registros para este curso',
-	'coursepage-history-title' => 'Historial de revisiones del curso "$1"',
+	'coursepage-history-title' => 'Historial de revisiones del curso «$1»',
 	'coursepage-history-norevs' => 'No hay historial de ediciones para este curso.',
 	'coursepage-history-deleted' => 'Este curso ha sido eliminado. A continuación figura el registro de borrado del curso para referencia.',
 	'ep-viewcourseactivityaction-title' => 'Actividad para el curso "$1"',
