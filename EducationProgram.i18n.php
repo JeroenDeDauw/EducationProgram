@@ -29357,7 +29357,7 @@ $messages['zh-hans'] = array(
 您应该审慎考虑一下继续创建此课程是否合理。删除日志列在下面以方便参考：",
 	'ep-course-invalid-org' => '本机构不存在。',
 	'ep-course-invalid-token' => '密钥需要至少包含$1个{{PLURAL:$1|字符}}。',
-	'ep-course-invalid-description' => '描述至少包含$1个字符。',
+	'ep-course-invalid-description' => '说明需要含有至少$1个{{PLURAL:$1|字符}}。',
 	'ep-course-invalid-lang' => '该语言无效。',
 	'ep-course-no-slashes' => '课程名称不应包含任何斜杠！',
 	'coursepage-edit-undelete-revisions' => '此课程已被删除。你可以 $1 。',
@@ -29631,6 +29631,7 @@ $messages['zh-hans'] = array(
  * @author Shirayuki
  * @author Simon Shek
  * @author Toliño
+ * @author Xiaomingyan
  */
 $messages['zh-hant'] = array(
 	'educationprogram-desc' => '通過添加各種介面來管理課程、制度及各種不同教育用戶角色，藉此促進教育計劃。',
@@ -29900,7 +29901,7 @@ $messages['zh-hant'] = array(
 	'ep-addstudents-instructions' => '鍵入您希望添加的學生用戶名。每個用戶名後按Enter鍵，或點擊出現的菜單。您亦可拷貝用戶名列表。
 黨您完成時按下「{{int:ep-addstudents-btn}}」。',
 	'ep-addstudents-servercallerror' => '當加入學生時，出現下述錯誤：$1。',
-	'ep-undelete-course-no-rights' => '此課程已被刪除，但您並無權限還原它。',
+	'ep-undelete-course-no-rights' => '此課程已被刪除，但您並無權限還原它。', # Fuzzy
 	'ep-institution-title' => '學院：$1',
 	'vieworgaction-summary-name' => '名稱',
 	'vieworgaction-summary-city' => '城市',
@@ -29915,7 +29916,7 @@ $messages['zh-hant'] = array(
 	'ep-course-title' => '課程：$1',
 	'ep-course-students' => '學生',
 	'ep-course-articles' => '條目',
-	'ep-course-description' => '描述',
+	'ep-course-description' => '說明',
 	'viewcourseaction-summary-org' => '機構',
 	'viewcourseaction-summary-start' => '開始',
 	'viewcourseaction-summary-end' => '結束',
