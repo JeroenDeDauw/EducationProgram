@@ -29622,6 +29622,8 @@ $messages['zh-hans'] = array(
 	'ep-course-talk-link-text-view-message' => '查看信息',
 	'ep-course-talk-link-text-view-changes' => '查看更改',
 	'ep-role-add-link-text-view-course' => '查看源代码',
+	'ep-student-add-notification-title-email-subject' => '您已由$1加入至$2。',
+	'ep-student-add-notification-title-email-body' => '您已由$1加入至$2。',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
