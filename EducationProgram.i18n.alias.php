@@ -524,5 +524,11 @@ $specialPageAliases['zh-hant'] = array(
 	'EducationProgram' => array( '教育計劃' ),
 	'Enroll' => array( '報名' ),
 	'Disenroll' => array( '開除' ),
+	'CampusAmbassadors' => array( '校園大使' ),
+	'OnlineAmbassadors' => array( '線上大使' ),
+	'OnlineAmbassadorProfile' => array( '線上大使個人資訊' ),
+	'CampusAmbassadorProfile' => array( '校園大使個人資訊' ),
 	'StudentActivity' => array( '學生活動' ),
+	'Articles' => array( '條目' ),
+	'CourseActivity' => array( '課程活躍度' ),
 );

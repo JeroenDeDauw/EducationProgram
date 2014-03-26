@@ -22535,7 +22535,7 @@ O registro de exclusão para este curso é fornecido abaixo para sua conveniênc
 	'ep-course-no-slashes' => 'O título do curso não pode conter conter barras oblíquas!',
 	'coursepage-edit-undelete-revisions' => 'Este curso foi eliminado. Você pode $1.',
 	'coursepage-edit-undelete-link' => 'restaurar $1 {{PLURAL:$1|revisão|revisões}}',
-	'ep-undelete-course-no-rights' => 'Esse curso foi removido, mas você não tem permissão para restaurá-lo.',
+	'ep-undelete-course-no-rights' => 'Esse curso foi removido. Você não tem permissão para restaurá-lo.',
 	'ep-undelete-course-org-deleted' => 'Este curso e está instituição, [[$1|$2]], foram removidos. Para restaurar este curso, primeiro [$3 restore $2].',
 	'ep-pager-confirm-delete' => 'Tem certeza que deseja excluir este item?',
 	'ep-pager-delete-fail' => 'Não foi possível eliminar este item.',
@@ -22872,6 +22872,19 @@ Você pode obter uma lista completa de estudantes na [[Special:Students|lista de
 	'ep-course-talk-notification-title' => 'A [[$2|página de discussão do curso $3]] foi editada por  [[User:$1|$1]].',
 	'ep-course-talk-notification-title-email-subject' => 'A página de discussão do curso $2 foi editada por $1.',
 	'ep-course-talk-notification-title-email-body' => 'A página de discussão do curso $2 foi editada por $1.',
+	'ep-role-add-link-text-view-course' => 'Ver curso',
+	'ep-student-add-notification-title' => 'Você foi {{GENDER:$1|adicionado}} a [[$2|$3]] por [[User:$1|$1]].',
+	'ep-student-add-notification-title-email-subject' => 'Você foi {{GENDER:$1|adicionado}} a $2 por $1.',
+	'ep-student-add-notification-title-email-body' => 'Você foi {{GENDER:$1|adicionado}} a $2 por $1.',
+	'ep-instructor-add-notification-title' => 'Você foi {{GENDER:$1|adicionado}} como instrutor a [[$2|$3]] por [[User:$1|$1]].',
+	'ep-instructor-add-notification-title-email-subject' => 'Você foi {{GENDER:$1|adicionado}} como instrutor a $2 por $1.',
+	'ep-instructor-add-notification-title-email-body' => 'Você foi {{GENDER:$1|adicionado}} como instrutor a $2 por $1.',
+	'ep-campus-add-notification-title' => 'Você foi {{GENDER:$1|adicionado}} como voluntário de campus a [[$2|$3]] por [[User:$1|$1]].',
+	'ep-campus-add-notification-title-email-subject' => 'Você foi {{GENDER:$1|adicionado}} como voluntário de campus a $2 por $1.',
+	'ep-campus-add-notification-title-email-body' => 'Você foi {{GENDER:$1|adicionado}} como voluntário de campus a $2 por $1.',
+	'ep-online-add-notification-title' => 'Você foi {{GENDER:$1|adicionado}} como voluntário online a [[$2|$3]] por [[User:$1|$1]].',
+	'ep-online-add-notification-title-email-subject' => 'Você foi {{GENDER:$1|adicionado}} como voluntário online a $2 por $1.',
+	'ep-online-add-notification-title-email-body' => 'Você foi {{GENDER:$1|adicionado}} como voluntário online a $2 por $1.',
 );
 
 /** Quechua (Runa Simi)
@@ -23941,7 +23954,7 @@ $messages['rue'] = array(
 $messages['sco'] = array(
 	'ep-pager-confirm-message-org' => "Ye'r aboot tae delyte institution $1.",
 	'ep-pager-confirm-message-org-many' => "Ye'r aboot tae delyte thir institutions: $1.",
-	'ep-addstudents-instructions' => 'Type the uisernames o the students ye want tae add. Press Enter efter ilcka yin, or clap oan the menu that kiths. Ye can paste ae leet o uisernames ava.
+	'ep-addstudents-instructions' => 'Type the uisernames o the students that ye want tae eik. Press Enter efter ilcka yin, or clap oan the menu that kiths. Ye can paste ae leet o uisernames ava.
 
 Clap oan "{{int:ep-addstudents-btn}}" whan ye\'r dun.',
 	'ep-undelete-course-no-rights' => 'This coorse haes been delytit. Ye dinna hae permission fer tae restore it.',
@@ -23953,7 +23966,7 @@ Clap oan "{{int:ep-addstudents-btn}}" whan ye\'r dun.',
 	'ep-delete-org-has-courses-close-dialog' => 'Claise',
 	'ep-role-add-link-text-view-course' => 'See coorse',
 	'ep-student-add-notification-title' => "Ye'v been {{GENDER:$1|added}} til [[$2|$3]] bi [[User:$1|$1]].",
-	'ep-student-add-notification-title-email-subject' => "Ye'v been {{GENDER:$1|added}} til $2 bi $1.",
+	'ep-student-add-notification-title-email-subject' => "Ye'v been {{GENDER:$1|eikit}} til $2 bi $1.",
 	'ep-student-add-notification-title-email-body' => "Ye'v been {{GENDER:$1|added}} til $2 bi $1.",
 	'ep-instructor-add-notification-title' => "Ye'v been {{GENDER:$1|added}} aes aen instructer til [[$2|$3]] bi [[User:$1|$1]].",
 	'ep-instructor-add-notification-title-email-subject' => "Ye'v been {{GENDER:$1|added}} aes aen instructer til $2 bi $1.",
