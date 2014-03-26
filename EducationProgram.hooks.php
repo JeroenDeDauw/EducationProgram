@@ -490,39 +490,6 @@ final class Hooks {
 	}
 
 	/**
-	 * Show link to Special:Student/user on Special:Contributions/user
-	 *
-	 * @param int $id id of the user whose contributions are displayed
-	 * @param Title $title
-	 * @param array &$tools
-	 */
-	public static function onContributionsToolLinks( $id, $title, &$tools ) {
-
-		$studentRoleObj = Students::singleton()
-			->selectRow( null, array( 'user_id' => $id ) );
-
-		if ( !$studentRoleObj ) {
-			return;
-		}
-
-		// temporary check due to DB corruption; TODO remove when this is
-		// no longer needed
-		if ( count( $studentRoleObj->getCourses( array( 'id') ) ) === 0 ) {
-			return;
-		}
-
-		if ( $studentRoleObj ) {
-
-			$userName = \User::newFromId( $id )->getName();
-
-			$tools[] = \Linker::link(
-					\SpecialPage::getTitleFor( 'Student', $userName ),
-					wfMessage( 'ep-student-view-profile' )->escaped()
-			);
-		}
-	}
-
-	/**
 	 * Register Echo notification types and categories. (Just hands off to the
 	 * NotificationsManager for the actual work.)
 	 *

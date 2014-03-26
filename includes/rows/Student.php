@@ -104,11 +104,7 @@ class Student extends RoleObject {
 		return Utils::getToolLinks(
 			$userId,
 			$userName,
-			$context,
-			array( \Linker::link(
-				\SpecialPage::getTitleFor( 'Student', $userName ),
-				$context->msg( 'ep-student-view-profile' )->escaped()
-			) )
+			$context
 		);
 	}
 
