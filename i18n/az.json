@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cekli829"
+        ]
+    },
+    "ep-tab-delete": "Sil",
+    "tooltip-ep-form-save": "Qeyd et",
+    "ep-educationprogram-male": "Kişi",
+    "ep-educationprogram-female": "Qadın",
+    "ep-educationprogram-unknown": "Naməlum",
+    "ep-pager-delete-selected": "Sil",
+    "eporgpager-header-name": "Ad",
+    "eporgpager-header-city": "Şəhər",
+    "eporgpager-header-country": "Ölkə",
+    "eporgpager-filter-country": "Ölkə",
+    "eporgpager-yes": "Bəli",
+    "eporgpager-no": "Xeyr",
+    "epcoursepager-header-name": "Ad",
+    "epcoursepager-filter-lang": "Dil",
+    "epstudentpager-header-user-id": "İstifadəçi adı",
+    "epcapager-header-photo": "Foto",
+    "epcapager-header-user-id": "İstifadəçi adı",
+    "epoapager-header-photo": "Foto",
+    "epoapager-header-user-id": "İstifadəçi adı",
+    "ep-addstudents-btn": "Əlavə et",
+    "ep-course-talk-link-text-view-message": "Məktuba bax",
+    "ep-course-talk-link-text-view-changes": "Dəyişiklərə bax"
+}

@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aniket1900",
+            "V.narsikar"
+        ]
+    },
+    "group-epinstructor": "अभ्यासक्रमाचे निदेशक",
+    "ep-addstudents-btn": "जोडा",
+    "ep-delete-org-has-courses-close-dialog": "बंद करा",
+    "echo-category-title-education-program": "प्रशिक्षण कार्यक्रम",
+    "ep-course-talk-link-text-view-message": "संदेश बघा",
+    "ep-course-talk-link-text-view-changes": "बदल बघा"
+}

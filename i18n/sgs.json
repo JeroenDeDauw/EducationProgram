@@ -1,0 +1,8 @@
+{
+    "@metadata": {
+        "authors": [
+            "Hugo.arg"
+        ]
+    },
+    "ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} palėka {{PLURAL:$4|pranešėma|pranešėmo|pranešėmus|pranešėmu}} '''[[$3]]''' '''[[$2|aptarėmu poslapi]]'''."
+}

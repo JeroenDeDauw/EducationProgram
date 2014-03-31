@@ -41,7 +41,7 @@ if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version c
 }
 
 // This is the version number for the Education Program extension. Bump it up after significant software changes.
-define( 'EP_VERSION', '0.4 alpha' );
+define( 'EP_VERSION', '0.5.0 alpha' );
 
 // This adds an entry to the extension credits that get displayed at Special:Version
 $wgExtensionCredits['other'][] = array(
@@ -57,6 +57,7 @@ $wgExtensionCredits['other'][] = array(
 
 // i18n: This tells MediaWiki where to look for all the message strings for the extension, which are kept in the standard i18n files.
 $dir = __DIR__;
+$wgMessagesDirs['EducationProgram'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['EducationProgram'] 		= $dir . '/EducationProgram.i18n.php';
 $wgExtensionMessagesFiles['EducationProgramAlias']	= $dir . '/EducationProgram.i18n.alias.php';
 $wgExtensionMessagesFiles['EPNamespaces'] 			= $dir . '/EducationProgram.i18n.ns.php';

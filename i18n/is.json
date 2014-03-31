@@ -1,0 +1,31 @@
+{
+    "@metadata": {
+        "authors": [
+            "පසිඳු කාවින්ද"
+        ]
+    },
+    "ep-tab-view": "Lesa",
+    "ep-tab-edit": "Breyta",
+    "ep-tab-create": "Skapa",
+    "ep-tab-delete": "Eyða",
+    "tooltip-ep-form-save": "Vista",
+    "specialpages-group-education": "Menntun",
+    "ep-course-status-current": "Núverandi",
+    "ep-educationprogram-male": "Karl",
+    "ep-educationprogram-female": "Kona",
+    "ep-educationprogram-unknown": "Óþekkt",
+    "ep-pager-go": "Áfram",
+    "ep-pager-delete-selected": "Eyða",
+    "eporgpager-header-name": "Nafn",
+    "eporgpager-header-city": "Borg",
+    "eporgpager-header-country": "Land",
+    "eporgpager-filter-country": "Land",
+    "eporgpager-header-active": "Virkur",
+    "eporgpager-yes": "Já",
+    "eporgpager-no": "Nei",
+    "ep-pager-cancel-button-org": "Hætta við",
+    "ep-pager-summary-message-org": "Breytingarágrip:",
+    "epcoursepager-header-name": "Nafn",
+    "epcoursepager-header-start": "Byrja",
+    "epcoursepager-header-lang": "Tungumál"
+}

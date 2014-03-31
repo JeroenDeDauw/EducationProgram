@@ -1,0 +1,30 @@
+{
+    "@metadata": {
+        "authors": [
+            "John Reid"
+        ]
+    },
+    "ep-pager-confirm-message-org": "Ye'r aboot tae delyte institution $1.",
+    "ep-pager-confirm-message-org-many": "Ye'r aboot tae delyte thir institutions: $1.",
+    "ep-addstudents-instructions": "Type the uisernames o the students that ye want tae eik. Press Enter efter ilcka yin, or clap oan the menu that kiths. Ye can paste ae leet o uisernames ava.\n\nClap oan \"{{int:ep-addstudents-btn}}\" whan ye'r dun.",
+    "ep-undelete-course-no-rights": "This coorse haes been delytit. Ye dinna hae permission fer tae restore it.",
+    "ep-undelete-course-org-deleted": "This coorse n its institution, [[$1|$2]], hae been delytit. Tae restore this coorse, first [$3 restore $2].",
+    "orgpage-delete-text": "Ye'r aboot tae delete the institution $1.",
+    "ep-delete-org-no-rights": "Ye dinna hae permission tae delete this institution.",
+    "ep-delete-org-has-courses": "Ye canna delete [[$1|$2]] cause thaur ar coorses associated wi it. Please delete the coorses first.",
+    "ep-delete-org-has-courses-plain": "Ye canna delete $1 cause thare ar coorses associated wi it. Please delete the coorses first.",
+    "ep-delete-org-has-courses-close-dialog": "Claise",
+    "ep-role-add-link-text-view-course": "See coorse",
+    "ep-student-add-notification-title": "Ye'v been {{GENDER:$1|added}} til [[$2|$3]] bi [[User:$1|$1]].",
+    "ep-student-add-notification-title-email-subject": "Ye'v been {{GENDER:$1|eikit}} til $2 bi $1.",
+    "ep-student-add-notification-title-email-body": "Ye'v been {{GENDER:$1|added}} til $2 bi $1.",
+    "ep-instructor-add-notification-title": "Ye'v been {{GENDER:$1|added}} aes aen instructer til [[$2|$3]] bi [[User:$1|$1]].",
+    "ep-instructor-add-notification-title-email-subject": "Ye'v been {{GENDER:$1|added}} aes aen instructer til $2 bi $1.",
+    "ep-instructor-add-notification-title-email-body": "Ye'v been {{GENDER:$1|added}} aes aen instructer til $2 bi $1.",
+    "ep-campus-add-notification-title": "Ye'v been {{GENDER:$1|added}} aes ae campus volunteer til [[$2|$3]] bi [[User:$1|$1]].",
+    "ep-campus-add-notification-title-email-subject": "Ye'v been {{GENDER:$1|added}} aes ae campus volunteer til $2 bi $1.",
+    "ep-campus-add-notification-title-email-body": "Ye'v been {{GENDER:$1|added}} aes ae campus volunteer til $2 bi $1.",
+    "ep-online-add-notification-title": "Ye'v been {{GENDER:$1|added}} aes aen online volunteer til [[$2|$3]] bi [[User:$1|$1]].",
+    "ep-online-add-notification-title-email-subject": "Ye'v been {{GENDER:$1|added}} aes aen online volunteer til $2 bi $1.",
+    "ep-online-add-notification-title-email-body": "Ye'v been {{GENDER:$1|added}} aes aen online volunteer til $2 bi $1."
+}

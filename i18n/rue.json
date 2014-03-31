@@ -1,0 +1,27 @@
+{
+    "@metadata": {
+        "authors": [
+            "Gazeb"
+        ]
+    },
+    "ep-tab-view": "Чітати",
+    "ep-tab-edit": "Едітовати",
+    "ep-tab-create": "Створити",
+    "ep-tab-history": "Видїти історію",
+    "ep-tab-enroll": "Приголосити ся",
+    "ep-tab-disenroll": "Одголосити ся",
+    "ep-tab-delete": "Вымазати",
+    "tooltip-ep-form-save": "Уложыти",
+    "prefs-education": "Ошколованя",
+    "specialpages-group-education": "Ошколованя",
+    "eporgpager-header-name": "Імя",
+    "eporgpager-header-city": "Місто",
+    "eporgpager-header-country": "Країна",
+    "eporgpager-filter-country": "Країна",
+    "eporgpager-yes": "Гей",
+    "eporgpager-no": "Нїт",
+    "epstudentpager-header-user-id": "Імя хоснователя",
+    "epstudentpager-header-id": "Id",
+    "educationprogram-org-edit-city": "Місто",
+    "educationprogram-org-edit-country": "Країна"
+}

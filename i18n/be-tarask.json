@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Renessaince"
+        ]
+    },
+    "ep-item-summary": "Падсумаваньне",
+    "ep-toplink": "Курсы",
+    "ep-org-course-delete-comment": "Выдаленая ўстанова $1 і ўсе ейныя курсы з камэнтаром $2",
+    "ep-org-course-delete": "Выдаленая ўстанова $1 і ўсе ейныя курсы",
+    "ep-form-summary": "Апісаньне:",
+    "ep-form-minor": "Гэта дробнае рэдагаваньне",
+    "ep-revision-undo": "скасаваць"
+}

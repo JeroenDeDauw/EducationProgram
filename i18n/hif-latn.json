@@ -1,0 +1,36 @@
+{
+    "@metadata": {
+        "authors": [
+            "Karthi.dr"
+        ]
+    },
+    "ep-tab-view": "Parrho",
+    "ep-tab-edit": "Badlo",
+    "ep-tab-create": "Banao",
+    "ep-tab-history": "Itihaas dekho",
+    "ep-tab-delete": "Mitao",
+    "tooltip-ep-form-save": "Save karo",
+    "educationprogram-org-edit-country": "Desh",
+    "vieworgaction-summary-name": "Naam",
+    "vieworgaction-summary-country": "Desh",
+    "coursepage-delete-cancel-button": "Nai karo",
+    "orgpage-delete-cancel-button": "Nai karo",
+    "orgpage-eprestore-cancel-button": "Nai karo",
+    "coursepage-eprestore-cancel-button": "Nai karo",
+    "orgpage-epundo-cancel-button": "Nai karo",
+    "coursepage-epundo-cancel-button": "Nai karo",
+    "coursepage-epundelete-cancel-button": "Nai karo",
+    "orgpage-epundelete-cancel-button": "Nai karo",
+    "ep-disenroll-cancel": "Nai karo",
+    "ep-instructor-close-button": "Band karo",
+    "ep-instructor-add-close-button": "Band karo",
+    "ep-instructor-add-cancel-button": "Nai karo",
+    "ep-online-close-button": "Band karo",
+    "ep-online-cancel-button": "Nai karo",
+    "ep-online-add-close-button": "Band karo",
+    "ep-online-add-cancel-button": "Nai karo",
+    "ep-campus-close-button": "Band karo",
+    "ep-campus-cancel-button": "Nai karo",
+    "ep-campus-add-close-button": "Band karo",
+    "ep-campus-add-cancel-button": "Nai karo"
+}
