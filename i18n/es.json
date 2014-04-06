@@ -16,7 +16,8 @@
             "Ralgis",
             "Rodrigo Molinero",
             "Sporeunai",
-            "Vivaelcelta"
+            "Vivaelcelta",
+            "Frammm"
         ]
     },
     "educationprogram-desc": "Facilita programas educativos mediante la adición de varias interfaces para administrar los cursos, las instituciones y los diversos roles de los usuario educativos.",
@@ -301,7 +302,7 @@
     "ep-articletable-remarticle-button": "Eliminar artículo",
     "ep-articletable-remarticle-cancel": "Cancelar",
     "ep-articletable-remarticle-text-self": "Estás a punto de eliminar el artículo $1 de la lista de artículos en los que está trabajando como parte del curso $2.",
-    "ep-articletable-remarticle-text": "Estás a punto de eliminar el artículo $1 de la lista de artículos $3 en los que se está trabajando como parte del curso $2.",
+    "ep-articletable-remarticle-text": "Estás a punto de eliminar el artículo $1 de la lista de artículos {{GENDER:$4|$3}} en los que se está trabajando como parte del curso $2.",
     "ep-articles-noresults": "No existen artículos para enumerar.",
     "epcapager-header-photo": "Foto",
     "epcapager-header-user-id": "Nombre de usuario",
