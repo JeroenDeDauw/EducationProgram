@@ -630,6 +630,9 @@
     "echo-category-title-education-program": "教育计划",
     "ep-course-talk-link-text-view-message": "查看信息",
     "ep-course-talk-link-text-view-changes": "查看更改",
+    "ep-course-talk-notification-title": "[[$2|$3的课程讨论页]]被[[User:$1|$1]]编辑了。",
+    "ep-course-talk-notification-title-email-subject": "$2的课程讨论页被$1编辑了。",
+    "ep-course-talk-notification-title-email-body": "$2的课程讨论页被$1编辑了。",
     "ep-role-add-link-text-view-course": "查看源代码",
     "ep-student-add-notification-title-email-subject": "您已由$1加入至$2。",
     "ep-student-add-notification-title-email-body": "您已由$1加入至$2。"
