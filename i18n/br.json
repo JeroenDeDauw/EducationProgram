@@ -63,6 +63,7 @@
     "action-ep-enroll": "en em enskrivañ e kentelioù",
     "action-ep-bulkdelorgs": "Dilemel ensavadurioù a-vras",
     "action-ep-bulkdelcourses": "dilemel kentelioù a-vras",
+    "action-ep-remarticle": "Distagañ pennadoù diouzh studierien",
     "action-ep-addstudent": "enrollañ implijerien evel studierien",
     "group-epcoordinator": "Kenurzhierien kentelioù",
     "group-epcoordinator-member": "{{GENDER:$1|kenurzhier kentelioù|kenurzhierez kentelioù}}",
