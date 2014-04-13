@@ -349,7 +349,7 @@
     "ep-addstudents-btn": "추가",
     "ep-addstudents-success": "{{PLURAL:$1|{{GENDER:$2|학생}}}}을 이 과정에 추가하였습니다.",
     "ep-addstudents-alreadyenrolled": "다음 {{PLURAL:$1|학생은}} {{GENDER:$3|그 학생이}} 이미 해당 과정에 소속되어 있으므로 추가되지 않았습니다: $2",
-    "ep-addstudents-servercallerror": "학생을 추가하는 도중, 다음 에러가 발생하였습니다:$1.",
+    "ep-addstudents-servercallerror": "학생을 추가하는 동안 다음 오류가 발생했습니다: $1.",
     "coursepage-edit-title-edit": "과정 편집: $1",
     "coursepage-edit-title-add": "과정 추가: $1",
     "coursepage-edit-deleted": "'''경고: 삭제된 적이 있는 과정을 다시 만들고 있습니다.'''\n\n다시 이 과정을 계속 만드는 것이 적합한 것인지 확인해주세요.\n편의를 위해 삭제 기록을 다음과 같이 제공합니다:",
