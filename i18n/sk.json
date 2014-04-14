@@ -1,0 +1,28 @@
+{
+    "@metadata": {
+        "authors": [
+            "Sudo77(new)"
+        ]
+    },
+    "epstudentpager-yes": "Áno",
+    "epstudentpager-no": "Nie",
+    "epstudentpager-header-student": "Študent",
+    "epstudentpager-header-articles": "Články",
+    "ep-articles-sandboxes": "pieskoviská",
+    "epoapager-header-photo": "Fotografia",
+    "epoapager-header-user-id": "Používateľské meno",
+    "epoapager-header-bio": "Profil",
+    "epoapager-header-courses": "Aktuálne kurzy",
+    "ep-oa-noresults": "Nie sú tu žiadni online dobrovoľníci.",
+    "epstudentactivitypager-header-user-id": "Študent",
+    "epstudentactivitypager-header-org-id": "Inštitúcia",
+    "epstudentactivitypager-header-last-course": "Kurz",
+    "epstudentactivitypager-header-last-active": "Posledná aktivita",
+    "educationprogram-org-edit-name": "Názov inštitúcie",
+    "orgpage-edit-legend-add": "Pridaj inštitúciu",
+    "orgpage-edit-legend-edit": "Uprav inštitúciu",
+    "educationprogram-org-edit-city": "Mesto",
+    "educationprogram-org-edit-country": "Štát",
+    "educationprogram-org-submit": "Odoslať",
+    "ep-addorg": "Neexistuje žiadna inštitúcia s týmto názvom, ale môžete ju pridať."
+}
