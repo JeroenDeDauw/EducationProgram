@@ -101,7 +101,6 @@
     "ep-prefs-showtoplink": "Show a link to [[Special:MyCourses|your courses]] at the top of every page.",
     "ep-prefs-bulkdelorgs": "Show a bulk deletion control for the [[Special:Institutions|institutions]].",
     "ep-prefs-bulkdelcourses": "Show a bulk deletion control for the [[Special:Courses|courses]].",
-    "ep-prefs-showdyk": "Show the \"Did you know box\" on [[Special:MyCourses|your courses]] page.",
     "right-ep-org": "Manage Education Program institutions",
     "right-ep-course": "Manage Education Program courses",
     "right-ep-token": "See Education Program enrollment tokens",

@@ -46,7 +46,6 @@ $egEPSettings = array(
 	'timelineUserLimit' => 3,
 	'dykCategory' => 'MyCourses Did You Know',
 	'dykOrgCategory' => '$2/$1', // $1 = org name, $2 = dykCategory setting
-	'enableDykSetting' => true,
 	'timelineMessageLengthLimit' => 250,
 	'requireRealName' => false,
 	'collectRealName' => false,

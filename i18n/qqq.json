@@ -115,7 +115,6 @@
     "ep-prefs-showtoplink": "Preference checkbox label",
     "ep-prefs-bulkdelorgs": "Preference checkbox label",
     "ep-prefs-bulkdelcourses": "Preference checkbox label",
-    "ep-prefs-showdyk": "Message shown next to the user preference checkbox that allows controlling if the \"Did you know box\" should show up on Special:MyCourses.",
     "right-ep-org": "{{doc-right|ep-org}}",
     "right-ep-course": "{{doc-right|ep-course}}",
     "right-ep-token": "{{doc-right|ep-token}}",

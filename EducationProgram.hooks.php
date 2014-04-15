@@ -146,15 +146,7 @@ final class Hooks {
 			$preferences['ep_showtoplink'] = array(
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-showtoplink',
-				'section' => 'misc/education',
-			);
-		}
-
-		if ( Settings::get( 'enableDykSetting' ) ) {
-			$preferences['ep_showdyk'] = array(
-				'type' => 'toggle',
-				'label-message' => 'ep-prefs-showdyk',
-				'section' => 'misc/education',
+				'section' => 'rendering/education',
 			);
 		}
 
@@ -162,7 +154,7 @@ final class Hooks {
 			$preferences['ep_bulkdelorgs'] = array(
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-bulkdelorgs',
-				'section' => 'misc/education',
+				'section' => 'rendering/education',
 			);
 		}
 
@@ -170,7 +162,7 @@ final class Hooks {
 			$preferences['ep_bulkdelcourses'] = array(
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-bulkdelcourses',
-				'section' => 'misc/education',
+				'section' => 'rendering/education',
 			);
 		}
 
