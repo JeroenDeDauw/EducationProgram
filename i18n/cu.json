@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "ОйЛ"
-        ]
-    },
-    "ep-form-minor": "малаꙗ мѣна",
-    "ep-tab-view": "чьтѥниѥ",
-    "ep-tab-edit": "исправлѥниѥ",
-    "ep-tab-create": "сътворѥниѥ",
-    "ep-tab-delete": "поничьжєниѥ",
-    "tooltip-ep-form-save": "съхранѥниѥ",
-    "eporgpager-header-name": "имѧ",
-    "eporgpager-yes": "да",
-    "eporgpager-no": "нѣтъ",
-    "epcoursepager-header-name": "имѧ",
-    "epcoursepager-header-start": "начѧло",
-    "epcoursepager-header-end": "коньць",
-    "epcoursepager-header-lang": "ѩꙁꙑкъ",
-    "epcoursepager-filter-lang": "ѩꙁꙑкъ",
-    "epstudentpager-header-user-id": "польꙃєватєлꙗ имѧ",
-    "epstudentpager-yes": "да",
-    "epstudentpager-no": "нѣтъ",
-    "epcapager-header-user-id": "польꙃєватєлꙗ имѧ",
-    "epoapager-header-user-id": "польꙃєватєлꙗ имѧ",
-    "vieworgaction-summary-name": "имѧ",
-    "ep-instructor-close-button": "ꙁакрꙑи",
-    "ep-instructor-add-close-button": "ꙁакрꙑи",
-    "ep-online-close-button": "ꙁакрꙑи",
-    "ep-online-add-close-button": "ꙁакрꙑи",
-    "ep-campus-close-button": "ꙁакрꙑи",
-    "ep-campus-add-close-button": "ꙁакрꙑи"
+	"@metadata": {
+		"authors": [
+			"ОйЛ"
+		]
+	},
+	"ep-form-minor": "малаꙗ мѣна",
+	"ep-tab-view": "чьтѥниѥ",
+	"ep-tab-edit": "исправлѥниѥ",
+	"ep-tab-create": "сътворѥниѥ",
+	"ep-tab-delete": "поничьжєниѥ",
+	"tooltip-ep-form-save": "съхранѥниѥ",
+	"eporgpager-header-name": "имѧ",
+	"eporgpager-yes": "да",
+	"eporgpager-no": "нѣтъ",
+	"epcoursepager-header-name": "имѧ",
+	"epcoursepager-header-start": "начѧло",
+	"epcoursepager-header-end": "коньць",
+	"epcoursepager-header-lang": "ѩꙁꙑкъ",
+	"epcoursepager-filter-lang": "ѩꙁꙑкъ",
+	"epstudentpager-header-user-id": "польꙃєватєлꙗ имѧ",
+	"epstudentpager-yes": "да",
+	"epstudentpager-no": "нѣтъ",
+	"epcapager-header-user-id": "польꙃєватєлꙗ имѧ",
+	"epoapager-header-user-id": "польꙃєватєлꙗ имѧ",
+	"vieworgaction-summary-name": "имѧ",
+	"ep-instructor-close-button": "ꙁакрꙑи",
+	"ep-instructor-add-close-button": "ꙁакрꙑи",
+	"ep-online-close-button": "ꙁакрꙑи",
+	"ep-online-add-close-button": "ꙁакрꙑи",
+	"ep-campus-close-button": "ꙁакрꙑи",
+	"ep-campus-add-close-button": "ꙁакрꙑи"
 }

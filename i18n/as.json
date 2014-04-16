@@ -1,32 +1,32 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bishnu Saikia"
-        ]
-    },
-    "ep-educationprogram-male": "পুৰুষ",
-    "ep-educationprogram-female": "মহিলা",
-    "ep-educationprogram-unknown": "অজ্ঞাত",
-    "ep-courses-newterm": "চৰ্ত",
-    "eporgpager-header-city": "চহৰ",
-    "eporgpager-header-country": "দেশ",
-    "ep-pager-cancel-button-org": "বাতিল",
-    "ep-pager-summary-message-course": "সাৰাংশ:",
-    "epstudentpager-yes": "হয়",
-    "epstudentpager-no": "নহয়",
-    "ep-articletable-addreviwer-cancel": "বাতিল",
-    "ep-articletable-remreviwer-cancel": "বাতিল",
-    "epcapager-header-photo": "চিত্ৰ",
-    "epcapager-header-user-id": "সদস্য",
-    "epoapager-header-photo": "চিত্ৰ",
-    "educationprogram-org-edit-country": "দেশ",
-    "educationprogram-org-submit": "দাখিল কৰক",
-    "vieworgaction-summary-city": "চহৰ",
-    "viewcourseaction-summary-term": "চৰ্ত",
-    "ep-instructor-summary": "সাৰাংশ:",
-    "ep-online-summary": "সাৰাংশ:",
-    "ep-campus-summary": "সাৰাংশ:",
-    "orgpage-delete-cancel-button": "বাতিল কৰক",
-    "orgpage-eprestore-cancel-button": "বাতিল কৰক",
-    "ep-role-add-link-text-view-course": "উৎস চাওক"
+	"@metadata": {
+		"authors": [
+			"Bishnu Saikia"
+		]
+	},
+	"ep-educationprogram-male": "পুৰুষ",
+	"ep-educationprogram-female": "মহিলা",
+	"ep-educationprogram-unknown": "অজ্ঞাত",
+	"ep-courses-newterm": "চৰ্ত",
+	"eporgpager-header-city": "চহৰ",
+	"eporgpager-header-country": "দেশ",
+	"ep-pager-cancel-button-org": "বাতিল",
+	"ep-pager-summary-message-course": "সাৰাংশ:",
+	"epstudentpager-yes": "হয়",
+	"epstudentpager-no": "নহয়",
+	"ep-articletable-addreviwer-cancel": "বাতিল",
+	"ep-articletable-remreviwer-cancel": "বাতিল",
+	"epcapager-header-photo": "চিত্ৰ",
+	"epcapager-header-user-id": "সদস্য",
+	"epoapager-header-photo": "চিত্ৰ",
+	"educationprogram-org-edit-country": "দেশ",
+	"educationprogram-org-submit": "দাখিল কৰক",
+	"vieworgaction-summary-city": "চহৰ",
+	"viewcourseaction-summary-term": "চৰ্ত",
+	"ep-instructor-summary": "সাৰাংশ:",
+	"ep-online-summary": "সাৰাংশ:",
+	"ep-campus-summary": "সাৰাংশ:",
+	"orgpage-delete-cancel-button": "বাতিল কৰক",
+	"orgpage-eprestore-cancel-button": "বাতিল কৰক",
+	"ep-role-add-link-text-view-course": "উৎস চাওক"
 }

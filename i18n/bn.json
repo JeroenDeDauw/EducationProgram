@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bellayet",
-            "Tauhid16"
-        ]
-    },
-    "ep-item-summary": "সারাংশ",
-    "ep-form-summary": "সারাংশ:",
-    "ep-tab-view": "পড়ুন",
-    "ep-tab-edit": "সম্পাদনা",
-    "ep-tab-create": "তৈরি",
-    "ep-tab-history": "ইতিহাস",
-    "ep-tab-delete": "অপসারণ",
-    "tooltip-ep-form-save": "সংরক্ষণ",
-    "specialpages-group-education": "শিক্ষা",
-    "special-institutions": "প্রতিষ্ঠান",
-    "ep-addstudents-btn": "যোগ করুন",
-    "ep-user-roles-message-main-many-online": "{{PLURAL:$3|কোর্সের}} জন্য [[$1|$2]] হচ্ছেন একজন {{GENDER:$2|অনলাইন স্বেচ্ছাসেবী}}।",
-    "echo-category-title-education-program": "শিক্ষামূলক কর্মসূচি",
-    "ep-course-talk-link-text-view-message": "বার্তা দেখাও",
-    "ep-course-talk-link-text-view-changes": "পরিবর্তনসমূহ দেখাও"
+	"@metadata": {
+		"authors": [
+			"Bellayet",
+			"Tauhid16"
+		]
+	},
+	"ep-item-summary": "সারাংশ",
+	"ep-form-summary": "সারাংশ:",
+	"ep-tab-view": "পড়ুন",
+	"ep-tab-edit": "সম্পাদনা",
+	"ep-tab-create": "তৈরি",
+	"ep-tab-history": "ইতিহাস",
+	"ep-tab-delete": "অপসারণ",
+	"tooltip-ep-form-save": "সংরক্ষণ",
+	"specialpages-group-education": "শিক্ষা",
+	"special-institutions": "প্রতিষ্ঠান",
+	"ep-addstudents-btn": "যোগ করুন",
+	"ep-user-roles-message-main-many-online": "{{PLURAL:$3|কোর্সের}} জন্য [[$1|$2]] হচ্ছেন একজন {{GENDER:$2|অনলাইন স্বেচ্ছাসেবী}}।",
+	"echo-category-title-education-program": "শিক্ষামূলক কর্মসূচি",
+	"ep-course-talk-link-text-view-message": "বার্তা দেখাও",
+	"ep-course-talk-link-text-view-changes": "পরিবর্তনসমূহ দেখাও"
 }

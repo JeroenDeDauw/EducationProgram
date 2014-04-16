@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Als-Holder"
-        ]
-    },
-    "special-enroll": "Yyschryybe",
-    "special-disenroll": "Abmälde"
+	"@metadata": {
+		"authors": [
+			"Als-Holder"
+		]
+	},
+	"special-enroll": "Yyschryybe",
+	"special-disenroll": "Abmälde"
 }

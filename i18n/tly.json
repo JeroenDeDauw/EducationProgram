@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Erdemaslancan"
-        ]
-    },
-    "ep-pager-go": "Давардеј",
-    "eporgpager-header-country": "Мәмләкәт",
-    "eporgpager-filter-country": "Мәмләкәт",
-    "vieworgaction-summary-country": "Мәмләкәт"
+	"@metadata": {
+		"authors": [
+			"Erdemaslancan"
+		]
+	},
+	"ep-pager-go": "Давардеј",
+	"eporgpager-header-country": "Мәмләкәт",
+	"eporgpager-filter-country": "Мәмләкәт",
+	"vieworgaction-summary-country": "Мәмләкәт"
 }

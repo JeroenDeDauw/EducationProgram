@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Geopoet"
-        ]
-    },
-    "orgpage-delete-text": "Ika tabi magpupura kan institusyon na $1.",
-    "ep-delete-org-has-courses-plain": "Ika tabi dae makakapagpura kan $1 nin huli ta igwa nin mga kurso na asosyado kaini. Tabi man puraang enot an mga kurso."
+	"@metadata": {
+		"authors": [
+			"Geopoet"
+		]
+	},
+	"orgpage-delete-text": "Ika tabi magpupura kan institusyon na $1.",
+	"ep-delete-org-has-courses-plain": "Ika tabi dae makakapagpura kan $1 nin huli ta igwa nin mga kurso na asosyado kaini. Tabi man puraang enot an mga kurso."
 }

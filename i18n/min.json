@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Iwan Novirion"
-        ]
-    },
-    "group-eponline-member": "{{GENDER:$1|Relawan kursus online}}",
-    "group-epinstructor-member": "{{GENDER:$1|Instruktur kursus online}}"
+	"@metadata": {
+		"authors": [
+			"Iwan Novirion"
+		]
+	},
+	"group-eponline-member": "{{GENDER:$1|Relawan kursus online}}",
+	"group-epinstructor-member": "{{GENDER:$1|Instruktur kursus online}}"
 }

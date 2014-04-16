@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "ep-item-summary": "قیساسی",
-    "ep-form-summary": "قیساسی:",
-    "ep-tab-view": "اوخو",
-    "ep-tab-edit": "دَییشدیر",
-    "ep-tab-create": "یارات",
-    "ep-tab-delete": "سیل",
-    "eporgpager-header-name": "آد",
-    "eporgpager-yes": "بلی",
-    "eporgpager-no": "یوخ",
-    "ep-pager-cancel-button-org": "لغو ائت",
-    "ep-pager-summary-message-org": "قیساسی:",
-    "epcoursepager-header-name": "آد",
-    "epcoursepager-header-lang": "دیل",
-    "epcoursepager-filter-lang": "دیل",
-    "ep-pager-cancel-button-course": "لغو ائت",
-    "epstudentpager-yes": "بلی",
-    "epstudentpager-no": "یوخ",
-    "ep-articletable-addreviwer-cancel": "لغو ائت",
-    "ep-articletable-remreviwer-cancel": "لغو ائت",
-    "ep-articletable-remstudent-cancel": "لغو ائت",
-    "ep-articletable-remarticle-cancel": "لغو ائت",
-    "orgpage-eprestore-cancel-button": "لغو ائت",
-    "orgpage-epundo-cancel-button": "لغو ائت",
-    "coursepage-epundo-cancel-button": "لغو ائت",
-    "coursepage-epundelete-cancel-button": "لغو ائت",
-    "orgpage-epundelete-cancel-button": "لغو ائت"
+	"@metadata": {
+		"authors": [
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"ep-item-summary": "قیساسی",
+	"ep-form-summary": "قیساسی:",
+	"ep-tab-view": "اوخو",
+	"ep-tab-edit": "دَییشدیر",
+	"ep-tab-create": "یارات",
+	"ep-tab-delete": "سیل",
+	"eporgpager-header-name": "آد",
+	"eporgpager-yes": "بلی",
+	"eporgpager-no": "یوخ",
+	"ep-pager-cancel-button-org": "لغو ائت",
+	"ep-pager-summary-message-org": "قیساسی:",
+	"epcoursepager-header-name": "آد",
+	"epcoursepager-header-lang": "دیل",
+	"epcoursepager-filter-lang": "دیل",
+	"ep-pager-cancel-button-course": "لغو ائت",
+	"epstudentpager-yes": "بلی",
+	"epstudentpager-no": "یوخ",
+	"ep-articletable-addreviwer-cancel": "لغو ائت",
+	"ep-articletable-remreviwer-cancel": "لغو ائت",
+	"ep-articletable-remstudent-cancel": "لغو ائت",
+	"ep-articletable-remarticle-cancel": "لغو ائت",
+	"orgpage-eprestore-cancel-button": "لغو ائت",
+	"orgpage-epundo-cancel-button": "لغو ائت",
+	"coursepage-epundo-cancel-button": "لغو ائت",
+	"coursepage-epundelete-cancel-button": "لغو ائت",
+	"orgpage-epundelete-cancel-button": "لغو ائت"
 }

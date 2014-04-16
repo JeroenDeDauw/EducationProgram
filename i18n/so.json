@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Abshirdheere"
-        ]
-    },
-    "ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}  {{PLURAL:$4|farriin|farriimo}} baa luguugu dhaafay  '''[[$2|bogga wadahadalka]]''' ee '''[[$3]]'''.",
-    "ep-timeline-users-create-talk": "{{GENDER:$6|$1}} wuxuu sameeyey '''[[$2|bogga wadahadalka]]''' ee '''[[$3]]''' wuxuuna kuu reebay {{PLURAL:$4|farriin|farriimo}}."
+	"@metadata": {
+		"authors": [
+			"Abshirdheere"
+		]
+	},
+	"ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}  {{PLURAL:$4|farriin|farriimo}} baa luguugu dhaafay  '''[[$2|bogga wadahadalka]]''' ee '''[[$3]]'''.",
+	"ep-timeline-users-create-talk": "{{GENDER:$6|$1}} wuxuu sameeyey '''[[$2|bogga wadahadalka]]''' ee '''[[$3]]''' wuxuuna kuu reebay {{PLURAL:$4|farriin|farriimo}}."
 }

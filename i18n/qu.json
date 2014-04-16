@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "AlimanRuna"
-        ]
-    },
-    "ep-timeline-ago": "$1 ñaqha",
-    "ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} sutiyuq ruraqqa {{PLURAL:$4|willaynintam|willayninkunatam}} saqirqan '''[[$3]]'''-pa '''[[$2|rimanakuy p'anqanpi]]'''."
+	"@metadata": {
+		"authors": [
+			"AlimanRuna"
+		]
+	},
+	"ep-timeline-ago": "$1 ñaqha",
+	"ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} sutiyuq ruraqqa {{PLURAL:$4|willaynintam|willayninkunatam}} saqirqan '''[[$3]]'''-pa '''[[$2|rimanakuy p'anqanpi]]'''."
 }

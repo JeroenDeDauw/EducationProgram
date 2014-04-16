@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "M hamlet",
-            "Vadgt"
-        ]
-    },
-    "ep-addstudents-btn": "Ավելացնել",
-    "ep-enroll-invalid-name": "Անունը պետք է պարունակի նվազագույնը $1 նշան։",
-    "ep-course-talk-link-text-view-message": "Դիտել ուղերձը",
-    "ep-course-talk-link-text-view-changes": "Դիտել փոփոխությունները"
+	"@metadata": {
+		"authors": [
+			"M hamlet",
+			"Vadgt"
+		]
+	},
+	"ep-addstudents-btn": "Ավելացնել",
+	"ep-enroll-invalid-name": "Անունը պետք է պարունակի նվազագույնը $1 նշան։",
+	"ep-course-talk-link-text-view-message": "Դիտել ուղերձը",
+	"ep-course-talk-link-text-view-changes": "Դիտել փոփոխությունները"
 }
