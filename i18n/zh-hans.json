@@ -520,6 +520,7 @@
 	"ep-disenroll-returntolink": "回到[[Education_Program:$2|课程$1]]。",
 	"ep-mycourses-enrolled": "您成功于$2报名$1。",
 	"ep-mycourses-not-enrolled": "您还没有报名人和课程。请参见[[Special:Courses|课程列表]]。",
+	"ep-mycourses-nocourses-epstudent": "您未在任何[[Special:Courses|课程]]登记。",
 	"ep-mycourses-login-first": "您需要登录才能查看您的课程。",
 	"ep-mycourses-courses-epoa": "您作为{{GENDER:$2|在线志愿者}}效力的$1个课程",
 	"ep-mycourses-courses-epca": "您已作为此$1个课程的{{GENDER:$2|校园志愿者}}",
