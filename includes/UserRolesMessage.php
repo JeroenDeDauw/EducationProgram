@@ -226,13 +226,6 @@ class UserRolesMessage {
 				$mainRoleCoursesCount
 			);
 
-			// If we're talking about a student role, include a link to the
-			// student's profile.
-			if ( $mainRole === 'student' ) {
-				$mainMessageParams[] =
-					\SpecialPage::getTitleFor( 'Student', $userName );
-			}
-
 			$mainMessageHTML = $this->out->msg(
 				$this->messageKeysForRoles[$mainRole]['main-many'],
 				$mainMessageParams
