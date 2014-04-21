@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"AnakngAraw",
-			"아라"
+			"아라",
+			"Jojit fb"
 		]
 	},
 	"educationprogram-desc": "Nagpapaginhawa sa mga programang pang-edukasyon sa pamamagitan ng pagdaragdag ng sari-saring mga ugnayang-mukha upang mapamahalaan ang mga kurso, mga institusyon at ang samu't saring mga gampaning pangtagagamit ng edukasyon.",
@@ -467,9 +468,9 @@
 	"ep-student-articles": "Mga artikulong inaasikaso ng mag-aaral na ito",
 	"ep-enroll-title": "Magpatala para sa $1 doon sa $2",
 	"ep-enroll-login-first": "Bago ka makapagpatala sa kursong ito, kailangan mong lumagdang papasok.",
-	"ep-enroll-login-and-enroll": "Lumagda sa pamamagitan ng isang umiiral na akawnt at magpatala",
-	"ep-enroll-signup-and-enroll": "Lumikha ng isang bagong akawnt at magpatala",
-	"ep-enroll-not-allowed": "Hindi pinapayagang magpatala ang iyong akawnt",
+	"ep-enroll-login-and-enroll": "Lumagda sa pamamagitan ng isang umiiral na account at magpatala",
+	"ep-enroll-signup-and-enroll": "Lumikha ng isang bagong account at magpatala",
+	"ep-enroll-not-allowed": "Hindi pinapayagang magpatala ang iyong account",
 	"ep-enroll-invalid-id": "Hindi umiiral ang kursong tinangka mong pagpatalaan. Tingnan ang [[Special:Courses|tala ng mga kurso]].",
 	"ep-enroll-no-id": "Kailangan mong tumukoy ng isang kursong pagpapatalaan. Tingnan ang [[Special:Courses|lista ng mga kurso]].",
 	"ep-enroll-invalid-token": "Hindi katanggap-tanggap ang kahalip na ibinigay mo.",

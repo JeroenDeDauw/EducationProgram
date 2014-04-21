@@ -461,7 +461,6 @@
 	"ep-dashboard-timeline-empty": "Et gëtt keng rezent Aktivitéit fir dëse Cours.",
 	"ep-dashboard-enroll-first": "Dir huelt elo u kengem aktive Cours deel. Dir kënnt d'[[Special:Courses|Lëscht vun de Course]] kucken.",
 	"ep-user-roles-message-main-student": "[[$1|$2]] {{GENDER:$2|studéiert}}  {{PLURAL:$4|$3}}.",
-	"ep-user-roles-message-main-many-student": "[[$1|$2]] ass {{GENDER:$2|ee Student|eng Studentin}} a(n) [[$4|{{PLURAL:$3|an engem Cours|a(n) $3 Coursen}}]].",
 	"ep-user-roles-message-rolename-student": "{{GENDER:$1|e Student|eng Studentin}}",
 	"echo-category-title-education-program": "Formatiounsprogramm",
 	"ep-echo-pref-tooltip": "Informéiert mech iwwer Evenementer vu Course vum Formatiounsprogramm an déi ech implizéiert sinn.",

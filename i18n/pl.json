@@ -191,6 +191,5 @@
 	"epca-profile-saved": "Twój profil został zapisany",
 	"ep-timeline-ago": "$1 temu",
 	"ep-timeline-cutoff": "$1 ...",
-	"ep-user-roles-message-main-student": "[[$1|$2]] jest {{GENDER:$2|studentem|studentką}} w {{PLURAL:$4|$3}}.",
-	"ep-user-roles-message-main-many-student": "[[$1|$2]] jest {{GENDER:$2|studentem|studentką}} w [[$4|$3 {{PLURAL:$3|kursie|kursach}}]]."
+	"ep-user-roles-message-main-student": "[[$1|$2]] jest {{GENDER:$2|studentem|studentką}} w {{PLURAL:$4|$3}}."
 }

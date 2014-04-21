@@ -690,7 +690,6 @@
 	"ep-user-roles-message-main-online": "[[$1|$2]] {{GENDER:$2|הוא מתנדב מקוון|היא מתנדבת מקוונת}} ב{{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-main-campus": "[[$1|$2]] {{GENDER:$2|הוא מתנדב קמפוס|היא מתנדבת קמפוס}} ב{{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|שיחת קורס]])",
-	"ep-user-roles-message-main-many-student": "[[$1|$2]] {{GENDER:$2|הוא תלמיד|היא תלמידה}} ב[[$4|{{PLURAL:$3|קורס אחד|-$3 קורסים}}]].",
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]] {{GENDER:$2|הוא|היא}} מורה {{PLURAL:$3|בקורס אחד|ב-$3 קורסים}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]] {{GENDER:$2|הוא מתנדב מקוון|היא מתנדבת מקוונת}} {{PLURAL:$3|בקורס אחד|ב-$3 קורסים}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]] {{GENDER:$2|הוא מתנדב|היא מתנדבת}} קמפוס {{PLURAL:$3|בקורס אחד|ב-$3 קורסים}}.",

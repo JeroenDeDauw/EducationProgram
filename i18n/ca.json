@@ -4,7 +4,8 @@
 			"Arnaugir",
 			"Grondin",
 			"Pginer",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Fitoschido"
 		]
 	},
 	"educationprogram-desc": "Facilita els programes educatius afegint diferents interfícies per gestionar cursos, institucions i els diversos rols d'usuari.",
@@ -125,5 +126,6 @@
 	"ep-campus-add-close-button": "Tanca",
 	"ep-campus-add-cancel-button": "Cancel·la",
 	"ep-campus-summary-input": "Resum:",
-	"ep-timeline-cutoff": "$1 ..."
+	"ep-timeline-cutoff": "$1 ...",
+	"ep-student-add-notification-title": "{{GENDER:$1|En |Na |}}[[User:$1|$1]] t’ha afegit a [[$2|$3]]."
 }
