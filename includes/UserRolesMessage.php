@@ -39,7 +39,7 @@ class UserRolesMessage {
 	protected $messageKeysForRoles = array(
 		'student' => array(
 			'main' => 'ep-user-roles-message-main-student',
-			'main-many' => 'ep-user-roles-message-main-many-student',
+			'main-many' => 'ep-user-roles-message-main-many-student-alt',
 			'rolename' => 'ep-user-roles-message-rolename-student',
 		),
 		'instructor' => array(
