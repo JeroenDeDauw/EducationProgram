@@ -653,5 +653,6 @@
 	"ep-timeline-users-create-usertalk-self": "'''[[User:$3|$3]]''' creava su '''[[$2|pagina de discussion]]''' e scribeva {{PLURAL:$4|un message|plure messages}} in illo.",
 	"ep-dashboard-login-first": "Tu debe aperir session ante de poter vider tu cursos.",
 	"ep-dashboard-timeline-empty": "Il non ha activitate recente pro iste curso.",
-	"ep-dashboard-enroll-first": "Tu non participa actualmente a alcun curso active. Tu pote vider le [[Special:Courses|lista de cursos]]."
+	"ep-dashboard-enroll-first": "Tu non participa actualmente a alcun curso active. Tu pote vider le [[Special:Courses|lista de cursos]].",
+	"ep-user-roles-message-main-many-student-alt": "[[$1|$2]] {{GENDER:$2|seque}} $3 {{PLURAL:$3|curso|cursos}}."
 }

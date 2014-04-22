@@ -677,7 +677,7 @@
 	"ep-user-roles-message-main-online": "[[$1|$2]] {{GENDER:$2|е мрежен доброволец}} за {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-main-campus": "[[$1|$2]] {{GENDER:$2|е факултетски доброволец}} за {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|разговор за курсот]])",
-	"ep-user-roles-message-main-many-student": "[[$1|$2]] {{GENDER:$2|е ученик|е ученичка}} во [[$4|$3 {{PLURAL:$3|курс|курсеви}}]].",
+	"ep-user-roles-message-main-many-student-alt": "[[$1|$2]] {{GENDER:$2|е ученик|е ученичка}} во {{PLURAL:$3|еден курс|$3 курсеви}}.",
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]] {{GENDER:$2|е наставник|е наставничка}} за $3 {{PLURAL:$3|курс|курсеви}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]] {{GENDER:$2|е мрежен доброволец}} за $3 {{PLURAL:$3|курс|курсеви}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]] {{GENDER:$2|е факултетски доброволец}} за $3 {{PLURAL:$3|курс|курсеви}}.",

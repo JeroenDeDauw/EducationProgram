@@ -284,6 +284,7 @@
 	"ep-articletable-addreviwer-title": "成为{{GENDER:$1|评论员}}",
 	"ep-articletable-addreviwer-button": "成为{{GENDER:$1|复审员}}",
 	"ep-articletable-addreviwer-cancel": "取消",
+	"ep-articletable-addreviwer-text": "您即将把自己列入由$3编辑的$2条目的{{GENDER:$1|复审员}}。",
 	"ep-articletable-remreviwer-title": "将$1的{{GENDER:$1|审阅者}}权限移除",
 	"ep-articletable-remreviwer-title-self": "将您的{{GENDER:$1|审阅者}}权限移除",
 	"ep-articletable-remreviwer-button": "移除{{GENDER:$1|复审员}}",

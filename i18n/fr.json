@@ -698,7 +698,7 @@
 	"ep-user-roles-message-main-online": "[[$1|$2]] {{GENDER:$2|est un bénévole en ligne|est une bénévole en ligne}} pour {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-main-campus": "[[$1|$2]] {{GENDER:$2|est un bénévole de campus|est une bénévole de campus}} pour {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|discussion du cours]])",
-	"ep-user-roles-message-main-many-student": "[[$1|$2]] {{GENDER:$2|est un étudiant|est une étudiante}} dans [[$4|$3 {{PLURAL:$3|cours}}]].",
+	"ep-user-roles-message-main-many-student-alt": "[[$1|$2]] {{GENDER:$2|est un étudiant|est une étudiante}} dans $3 {{PLURAL:$3|cours}}.",
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]] {{GENDER:$2|est un instructeur|est une instructrice}} pour $3 {{PLURAL:$3|cours}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]] {{GENDER:$2|est un bénévole en ligne|est une bénévole en ligne}} pour $3 {{PLURAL:$3|cours}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]] {{GENDER:$2|est un bénévole de campus|est une bénévole de campus}} pour $3 {{PLURAL:$3|cours}}.",
