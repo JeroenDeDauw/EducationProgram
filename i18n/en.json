@@ -4,7 +4,7 @@
             "Jeroen De Dauw"
         ]
     },
-    "educationprogram-desc": "Facilitates educational programs by adding various interfaces to manage courses, institutions and the various education user roles.",
+    "educationprogram-desc": "Facilitates educational programs by adding various interfaces to manage courses, institutions and the various education user roles",
     "ep-item-summary": "Summary",
     "ep-toplink": "Courses",
     "ep-org-course-delete-comment": "Deleted institution $1 and all its courses with comment $2",
