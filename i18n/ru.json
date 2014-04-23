@@ -14,7 +14,8 @@
 			"Rubin16",
 			"Yurik",
 			"Александр Сигачёв",
-			"Meshkov.a"
+			"Meshkov.a",
+			"Amire80"
 		]
 	},
 	"educationprogram-desc": "Способствует образовательным программам путем добавления различных интерфейсов управления курсами, учреждениями и различных ролей пользователя.",
@@ -71,6 +72,7 @@
 	"log-description-course": "Журнал всех изменений в [[Special:Courses|курсах]].",
 	"log-description-instructor": "Журнал всех изменений для инструкторов.",
 	"log-description-online": "Журнал всех изменений образовательной программы [[Special:OnlineVolunteers|Онлайн добровольцы]].",
+	"log-description-campus": "Журнал всех изменений образовательной программы [[Special:CampusVolunteers|Кампус добровольцы]].",
 	"log-description-student": "Журнал всех изменений по [[Special:Students|студентам]].",
 	"logentry-institution-add": "$1 {{GENDER:$2|создал|создала}} учреждение $3",
 	"logentry-institution-remove": "$1 {{GENDER:$2|удалил|удалила}} учреждение $3",
