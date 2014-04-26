@@ -7,7 +7,8 @@
 			"Shirayuki",
 			"Simon Shek",
 			"Toliño",
-			"Xiaomingyan"
+			"Xiaomingyan",
+			"Cwlin0416"
 		]
 	},
 	"educationprogram-desc": "通過添加各種介面來管理課程、制度及各種不同教育用戶角色，藉此促進教育計劃。",
@@ -84,7 +85,7 @@
 	"logentry-campus-selfadd": "$1已增加{{GENDER:$2|自己}}為$3課程的校園義工",
 	"logentry-campus-selfremove": "$1已取消{{GENDER:$2|自己}}為$3課程的網上義工",
 	"logentry-campus-profilesave": "$1更新了{{GENDER:$2|自己}}的校園義工個人資料",
-	"logentry-student-add": "$1{{GENDER:$2|已參加}}$3課程",
+	"logentry-student-add": "$1 位學生已參加了 $3 課程",
 	"logentry-student-remove": "$1從$3課程{{GENDER:$2|移除}}{{PLURAL:$4|此|以下}}學生：$5",
 	"logentry-student-selfadd": "$1{{GENDER:$2|已參加}}$3課程",
 	"logentry-student-selfremove": "$1{{GENDER:$2|已退出}}$3課程",
