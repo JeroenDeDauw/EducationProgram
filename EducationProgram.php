@@ -94,6 +94,7 @@ $wgAutoloadClasses['EducationProgram\ApiDeleteEducation'] 			= $dir . '/includes
 $wgAutoloadClasses['EducationProgram\ApiEnlist'] 					= $dir . '/includes/api/ApiEnlist.php';
 $wgAutoloadClasses['EducationProgram\ApiRefreshEducation'] 			= $dir . '/includes/api/ApiRefreshEducation.php';
 $wgAutoloadClasses['EducationProgram\ApiAddStudents'] 				= $dir . '/includes/api/ApiAddStudents.php';
+$wgAutoloadClasses['EducationProgram\ApiListStudents'] 				= $dir . '/includes/api/ApiListStudents.php';
 
 $wgAutoloadClasses['EducationProgram\Events\EditEventCreator'] 		= $dir . '/includes/Events/EditEventCreator.php';
 $wgAutoloadClasses['EducationProgram\Events\Event'] 				= $dir . '/includes/Events/Event.php';
@@ -254,6 +255,7 @@ $wgAPIModules['deleteeducation'] 					= 'EducationProgram\ApiDeleteEducation';
 $wgAPIModules['enlist'] 							= 'EducationProgram\ApiEnlist';
 $wgAPIModules['refresheducation'] 					= 'EducationProgram\ApiRefreshEducation';
 $wgAPIModules['addstudents'] 						= 'EducationProgram\ApiAddStudents';
+$wgAPIModules['liststudents'] 						= 'EducationProgram\ApiListStudents';
 
 // Hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] 			= 'EducationProgram\Hooks::onSchemaUpdate';
