@@ -6,7 +6,8 @@
 			"Lijealso",
 			"Luckas",
 			"SandroHc",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Imperadeiro98"
 		]
 	},
 	"educationprogram-desc": "Viabiliza programas educativos disponibilizando várias interfaces para administrar cursos, instituições e os vários tipos de utilizador relacionados.",
@@ -181,5 +182,6 @@
 	"ep-online-cancel-button": "Cancelar",
 	"ep-online-add-cancel-button": "Cancelar",
 	"ep-campus-cancel-button": "Cancelar",
-	"ep-campus-add-cancel-button": "Cancelar"
+	"ep-campus-add-cancel-button": "Cancelar",
+	"ep-user-roles-message-main-many-student-alt": "[[$1|$2]] {{GENDER:$2|é um estudante}} em $3 {{PLURAL:$3|curso|cursos}}."
 }
