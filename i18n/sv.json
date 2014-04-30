@@ -682,7 +682,7 @@
 	"ep-user-roles-message-main-online": "[[$1|$2]] {{GENDER:$2|är en onlineambassadör}} för {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-main-campus": "[[$1|$2]] {{GENDER:$2|är en {{SITENAME}}ambassadör}} för {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|kursdiskussion]])",
-	"ep-user-roles-message-main-many-student": "[[$1|$2]] {{GENDER:$2|är en student}} i [[$4|$3 {{PLURAL:$3|kurs|kurser}}]].",
+	"ep-user-roles-message-main-many-student-alt": "[[$1|$2]] {{GENDER:$2|är en student}} i {{PLURAL:$3|en kurs|$3 kurser}}.",
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]] {{GENDER:$2|är en instruktör}} för $3 {{PLURAL:$3|kurs|kurser}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]] {{GENDER:$2|är en onlineambassadör}} för $3 {{PLURAL:$3|kurs|kurser}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]] {{GENDER:$2|är en {{SITENAME}}ambassadör}} för $3 {{PLURAL:$3|kurs|kurser}}.",
