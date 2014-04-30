@@ -99,6 +99,7 @@ class CoursePager extends EPPager {
 			'name',
 			'org_id',
 			'term',
+			'id',
 			'lang',
 			'student_count',
 		);
