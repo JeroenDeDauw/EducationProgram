@@ -233,7 +233,7 @@
     "ep-pager-confirm-message-org-many": "You are about to delete these institutions: $1.",
     "epcoursepager-header-name": "Name",
     "epcoursepager-header-term": "Term",
-    "epcoursepager-header-id": "Course ID",
+    "epcoursepager-header-id": "Course Id",
     "epcoursepager-header-start": "Start",
     "epcoursepager-header-org-id": "Institution",
     "epcoursepager-header-end": "End",
