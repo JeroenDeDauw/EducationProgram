@@ -247,6 +247,7 @@
 	"ep-pager-confirm-message-org-many": "Notifies the user they are about to delete institutions. Parameters:\n* $1 is a list of institutions.",
 	"epcoursepager-header-name": "Table column header.\n{{Identical|Name}}",
 	"epcoursepager-header-term": "Table column header.\n{{Identical|Term}}",
+	"epcoursepager-header-id": "Table column header.",
 	"epcoursepager-header-start": "Table column header.\n{{Identical|Start}}",
 	"epcoursepager-header-org-id": "Table column header",
 	"epcoursepager-header-end": "Table column header",
