@@ -229,6 +229,7 @@
 	"ep-pager-confirm-message-org-many": "Du bist gerade dabei, die folgenden Einrichtungen zu löschen: $1.",
 	"epcoursepager-header-name": "Name",
 	"epcoursepager-header-term": "Semester",
+	"epcoursepager-header-id": "Kurskennung",
 	"epcoursepager-header-start": "Anfang",
 	"epcoursepager-header-org-id": "Einrichtung",
 	"epcoursepager-header-end": "Ende",

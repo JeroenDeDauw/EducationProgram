@@ -190,7 +190,7 @@
 	"epstudentpager-header-student": "Õpilane",
 	"epstudentpager-header-articles": "Artiklid",
 	"epstudentpager-header-reviewers": "Retsensendid",
-	"ep-articles-remstudent": "kustuta kursuselt",
+	"ep-articles-remstudent": "eemalda kursuselt",
 	"ep-articles-remreviewer-self": "Eemalda ennast {{GENDER:$1|retsensendi}} kohalt",
 	"ep-articles-remreviewer": "eemalda {{GENDER:$1|retsensendi}} kohalt",
 	"ep-articles-remarticle": "eemalda artikkel",
@@ -341,6 +341,7 @@
 	"orgpage-delete-none": "Asutust nimega \"$1\" pole. Vaata [[Special:Institutions|asutuste nimekirja]].",
 	"orgpage-delete-deleted": "Asutus $1 ja sellega seotud kursused edukalt kustutatud.",
 	"orgpage-delete-delete-failed": "Asutuse [[Institution:$1|$1]] kustutamine ebaõnnestus.",
+	"ep-delete-org-has-courses-close-dialog": "Sule",
 	"orgpage-eprestore-title": "Asutuse \"$1\" taastamine",
 	"orgpage-eprestore-text": "Oled taastamas asutust $1 varasema redaktsiooni järgi.",
 	"orgpage-eprestore-summary": "Põhjus:",
@@ -482,5 +483,7 @@
 	"ep-timeline-users-edit-article": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} muutis artiklit '''[[$2]]'''.",
 	"ep-timeline-users-edit-user": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} muutis kasutaja '''[[$2|$3]]''' lehekülge.",
 	"ep-timeline-users-create-user": "{{GENDER:$6|$1}} lõi kasutaja '''[[$2|$3]]''' lehekülje.",
-	"ep-dashboard-login-first": "Enda kursuste vaatamiseks peab olema sisse logitud."
+	"ep-dashboard-login-first": "Enda kursuste vaatamiseks peab olema sisse logitud.",
+	"ep-course-talk-link-text-view-message": "Vaata sõnumit",
+	"ep-course-talk-link-text-view-changes": "Vaata muudatusi"
 }
