@@ -244,6 +244,7 @@
 	"ep-pager-confirm-message-org-many": "Estás a punto de eliminar estas instituciones: $1. ¡Esto eliminará todos los cursos asociados y los datos de sus alumnos!",
 	"epcoursepager-header-name": "Nombre",
 	"epcoursepager-header-term": "Trimestre",
+	"epcoursepager-header-id": "Id. del curso",
 	"epcoursepager-header-start": "Inicio",
 	"epcoursepager-header-org-id": "Institución",
 	"epcoursepager-header-end": "Fin",

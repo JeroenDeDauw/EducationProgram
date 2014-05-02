@@ -243,6 +243,7 @@
 	"ep-pager-confirm-message-org-many": "הנכם עומדים למחוק את המוסדות הללו: $1.",
 	"epcoursepager-header-name": "שם",
 	"epcoursepager-header-term": "סמסטר",
+	"epcoursepager-header-id": "מזהה קורס",
 	"epcoursepager-header-start": "התחלה",
 	"epcoursepager-header-org-id": "מוסד",
 	"epcoursepager-header-end": "סוף",

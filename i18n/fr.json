@@ -23,7 +23,8 @@
 			"VIGNERON",
 			"Verdy p",
 			"Wyz",
-			"아라"
+			"아라",
+			"Scoopfinder"
 		]
 	},
 	"educationprogram-desc": "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles des acteurs d'un programme éducatif.",
@@ -250,6 +251,7 @@
 	"ep-pager-confirm-message-org-many": "Vous êtes sur le point de supprimer ces institutions : $1.",
 	"epcoursepager-header-name": "Nom",
 	"epcoursepager-header-term": "Période",
+	"epcoursepager-header-id": "Identifiant du cours",
 	"epcoursepager-header-start": "Début",
 	"epcoursepager-header-org-id": "Institution",
 	"epcoursepager-header-end": "Fin",

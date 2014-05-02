@@ -228,6 +228,7 @@
 	"ep-pager-confirm-message-org-many": "На пат сте да ги избришете следниве установи: $1.",
 	"epcoursepager-header-name": "Име",
 	"epcoursepager-header-term": "Тримесечје",
+	"epcoursepager-header-id": "Назнака на курсот",
 	"epcoursepager-header-start": "Почеток",
 	"epcoursepager-header-org-id": "Установа",
 	"epcoursepager-header-end": "Крај",

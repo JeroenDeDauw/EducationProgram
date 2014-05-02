@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kghbln",
-			"Metalhead64"
+			"Metalhead64",
+			"Sebastian Wallroth"
 		]
 	},
 	"educationprogram-desc": "Ermöglicht die Durchführung und Verwaltung von Bildungsprogrammen",
@@ -229,7 +230,7 @@
 	"ep-pager-confirm-message-org-many": "Du bist gerade dabei, die folgenden Einrichtungen zu löschen: $1.",
 	"epcoursepager-header-name": "Name",
 	"epcoursepager-header-term": "Semester",
-	"epcoursepager-header-id": "Kurskennung",
+	"epcoursepager-header-id": "Kurs-ID",
 	"epcoursepager-header-start": "Anfang",
 	"epcoursepager-header-org-id": "Einrichtung",
 	"epcoursepager-header-end": "Ende",

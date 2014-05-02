@@ -231,6 +231,7 @@
 	"ep-pager-confirm-message-org-many": "Si stanno per cancellare gli istituti: $1.",
 	"epcoursepager-header-name": "Nome",
 	"epcoursepager-header-term": "Sessione",
+	"epcoursepager-header-id": "ID corso",
 	"epcoursepager-header-start": "Inizio",
 	"epcoursepager-header-org-id": "Istituto",
 	"epcoursepager-header-end": "Fine",

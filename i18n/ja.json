@@ -176,6 +176,7 @@
 	"ep-pager-retry-button-org": "再試行",
 	"ep-pager-summary-message-org": "要約:",
 	"epcoursepager-header-name": "名前",
+	"epcoursepager-header-id": "コース ID",
 	"epcoursepager-header-start": "開始",
 	"epcoursepager-header-end": "終了",
 	"epcoursepager-header-status": "状態",
