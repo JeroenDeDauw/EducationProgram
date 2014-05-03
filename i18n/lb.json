@@ -150,6 +150,7 @@
 	"ep-pager-confirm-message-org-many": "Dir sidd derbäi dës Institutiounen ze läschen:$1",
 	"epcoursepager-header-name": "Numm",
 	"epcoursepager-header-term": "Periode",
+	"epcoursepager-header-id": "Nummer (Id) vum Cours",
 	"epcoursepager-header-start": "Ufank",
 	"epcoursepager-header-org-id": "Institutioun",
 	"epcoursepager-header-end": "Schluss",
