@@ -16,7 +16,8 @@
 			"Александр Сигачёв",
 			"Meshkov.a",
 			"Amire80",
-			"Lockal"
+			"Lockal",
+			"Homocomputeris"
 		]
 	},
 	"educationprogram-desc": "Способствует образовательным программам путем добавления различных интерфейсов управления курсами, учреждениями и различных ролей пользователя.",
@@ -413,7 +414,7 @@
 	"ep-disenroll-button": "Выйти",
 	"ep-disenroll-cancel": "Отмена",
 	"ep-disenroll-fail": "Что-то пошло не так - не могли бы вы выйти из этого курса.",
-	"ep-instructor-remove-title": "Удаление инструктора из курса",
+	"ep-instructor-remove-title": "Удалить инструктора из курса",
 	"ep-instructor-remove-button": "Удалить инструктора",
 	"ep-instructor-removing": "Удаление...",
 	"ep-instructor-removal-success": "Этот инструктор был успешно удален из этого курса.",
