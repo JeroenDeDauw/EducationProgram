@@ -234,6 +234,7 @@
 	"ep-pager-confirm-message-org-many": "Du är på väg att ta bort dessa institutioner $1.",
 	"epcoursepager-header-name": "Namn",
 	"epcoursepager-header-term": "Termin",
+	"epcoursepager-header-id": "Kurs-id",
 	"epcoursepager-header-start": "Start",
 	"epcoursepager-header-org-id": "Institution",
 	"epcoursepager-header-end": "Slut",

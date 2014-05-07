@@ -519,6 +519,11 @@ $specialPageAliases['vi'] = array(
 	'Articles' => array( 'Bài_viết' ),
 );
 
+/** Yiddish (ייִדיש) */
+$specialPageAliases['yi'] = array(
+	'Courses' => array( 'קורסן' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'MyCourses' => array( '我的课程' ),
