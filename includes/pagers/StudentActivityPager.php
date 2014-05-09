@@ -25,13 +25,13 @@ class StudentActivityPager extends EPPager {
 	protected $userNames = array();
 
 	/**
-	 * List of course ids mapped to their title names.
-	 * course id => course name
+	 * List of course ids mapped to their titles.
+	 * course id => course title
 	 *
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $courseNames = array();
+	protected $courseTitles = array();
 
 	/**
 	 * List of course ids pointing to the id of their org.
@@ -110,16 +110,12 @@ class StudentActivityPager extends EPPager {
 				$value = htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
 				break;
 			case 'last_course':
-				if ( array_key_exists( $value, $this->courseNames ) ) {
-					$orgId = $this->courseOrgs[$value];
-
-					if ( array_key_exists( $orgId, $this->orgData ) ) {
-						$value = Courses::singleton()->getLinkFor( $this->orgData[$orgId]['name'] . '/' . $this->courseNames[$value] );
-					}
+				if ( array_key_exists( $value, $this->courseTitles ) ) {
+					$value = Courses::singleton()->getLinkFor( $this->courseTitles[$value] );
 				}
 				else {
 					$value = '';
-					wfWarn( 'Course id not in $this->courseNames in ' . __METHOD__ );
+					wfWarn( 'Course id not in $this->courseTitles in ' . __METHOD__ );
 				}
 				break;
 			case 'org_id':
@@ -213,14 +209,14 @@ class StudentActivityPager extends EPPager {
 
 		if ( !empty( $courseIds ) ) {
 			$courses = Courses::singleton()->selectFields(
-				array( 'id', 'name', 'org_id' ),
+				array( 'id', 'org_id' , 'title'),
 				array( 'id' => array_unique( $courseIds ) )
 			);
 
 			$orgIds = array();
 
 			foreach ( $courses as $courseData ) {
-				$this->courseNames[$courseData['id']] = $courseData['name'];
+				$this->courseTitles[$courseData['id']] = $courseData['title'];
 				$orgIds[] = $courseData['org_id'];
 				$this->courseOrgs[$courseData['id']] = $courseData['org_id'];
 			}
