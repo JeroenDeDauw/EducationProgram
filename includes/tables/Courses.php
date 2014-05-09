@@ -15,7 +15,10 @@ use ORMResult, Title;
  */
 class Courses extends PageTable {
 
-	const DEFAULT_COURSE_DURATION_IN_SECONDS = 15552000; // six months
+	// This value is processed by strtotime()
+	// to determine the default end date of
+	// a new course.
+	const DEFAULT_COURSE_DURATION = '+6 months';
 
 	/**
 	 * @see ORMTable::getName()
@@ -88,7 +91,7 @@ class Courses extends PageTable {
 			'name' => '',
 			'title' => '',
 			'start' => wfTimestamp( TS_MW ),
-			'end' => wfTimestamp( TS_MW, time() + self::DEFAULT_COURSE_DURATION_IN_SECONDS ),
+			'end' => wfTimestamp( TS_MW, strtotime( self::DEFAULT_COURSE_DURATION ) ),
 			'description' => '',
 			'token' => '',
 			'students' => array(),
