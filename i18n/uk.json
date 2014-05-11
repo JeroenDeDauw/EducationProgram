@@ -3,7 +3,8 @@
 		"authors": [
 			"Andriykopanytsia",
 			"Base",
-			"Ата"
+			"Ата",
+			"Aced"
 		]
 	},
 	"educationprogram-desc": "Сприяє освітнім програмам шляхом додавання різних інтерфейсів керування курсами, закладами та різних ролей користувача.",
@@ -133,16 +134,16 @@
 	"action-ep-remarticle": "від'єднання статей від студентів",
 	"action-ep-addstudent": "запис користувачів як студентів",
 	"group-epcoordinator": "Координатори курсів",
-	"group-epcoordinator-member": "{{GENDER:$1|Координатор курсу}}",
+	"group-epcoordinator-member": "{{GENDER:$1|координатор курсу}}",
 	"grouppage-epcoordinator": "{{ns:project}}:Координатори_курсів",
 	"group-eponline": "Онлайн-волонтери курсів",
-	"group-eponline-member": "{{GENDER:$1|Онлайн-волонтер курсу}}",
+	"group-eponline-member": "{{GENDER:$1|онлайн-волонтер курсу}}",
 	"grouppage-eponline": "{{ns:project}}:Онлайн-волонтери_курсів",
 	"group-epcampus": "Курсові волонтери кампусів",
 	"group-epcampus-member": "{{GENDER:$1|курсовий волонтер кампусів|курсова волонтерка кампусів}}",
 	"grouppage-epcampus": "{{ns:project}}:Курсові волонтери кампусів",
 	"group-epinstructor": "Інструктори курсу",
-	"group-epinstructor-member": "{{GENDER:$1|Інструктор курсу}}",
+	"group-epinstructor-member": "{{GENDER:$1|інструктор курсу}}",
 	"grouppage-epinstructor": "{{ns:project}}:Інструктори_курсу",
 	"specialpages-group-education": "Освіта",
 	"special-mycourses": "Ваші курси",
@@ -678,7 +679,6 @@
 	"ep-user-roles-message-main-online": "[[$1|$2]] {{GENDER:$2|онлайн-волонтер|онлайн-волонтерка}} для {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-main-campus": "[[$1|$2]] {{GENDER:$2|волонтер кампусу|волонтерка кампусу}} для {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|курсове обговорення]])",
-	"ep-user-roles-message-main-many-student": "[[$1|$2]] {{GENDER:$2|студент|студентка}} на [[$4|$3 {{PLURAL:$3|курсі|курсах}}]].",
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]] {{GENDER:$2|інструктор|інструкторка}} для $3 {{PLURAL:$3|курсу|курсів}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]] {{GENDER:$2|онлайн-волонтер|онлайн-волонтерка}} для $3 {{PLURAL:$3|курсу|курсів}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]] {{GENDER:$2|волонтер кампусу|волонтерка кампусу}} для $3 {{PLURAL:$3|курсу|курсів}}.",
