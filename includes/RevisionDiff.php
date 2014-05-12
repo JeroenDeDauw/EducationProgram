@@ -18,35 +18,55 @@ class RevisionDiff {
 
 	protected $isValid = true;
 
-	public static function newFromRestoreRevision( RevisionedObject $sourceObject, EPRevision $revision, array $fields = null ) {
-		$changedFields = array();
+	/**
+	 * Creates a diff between an old revision and the current one, for use
+	 * with the epcompare action.
+	 *
+	 * @since 0.5
+	 *
+	 * @param RevisionedObject $targetObject
+	 * @param EPRevision $revision
+	 * @param array|null $fields
+	 *
+	 * @return array
+	 */
+	public static function newFromCompareRevision(
+		RevisionedObject $targetObject,
+		EPRevision $revision,
+		array $fields = null ) {
 
-		$targetObject = $revision->getObject();
-		$fields = is_null( $fields ) ? $targetObject->getFieldNames() : $fields;
+		$sourceObject = $revision->getObject();
+		$fields = is_null( $fields ) ? $sourceObject->getFieldNames() : $fields;
 
-		foreach ( $fields as $fieldName ) {
-			$sourceHasField = $sourceObject->hasField( $fieldName );
-			$targetHasField = $targetObject->hasField( $fieldName );
-
-			if ( ( $sourceHasField XOR $targetHasField )
-				|| $sourceObject->getField( $fieldName, null ) !== $targetObject->getField( $fieldName, null ) ) {
-
-				$changedFields[$fieldName] = array();
-
-				if ( $sourceHasField ) {
-					$changedFields[$fieldName]['source'] = $sourceObject->getField( $fieldName );
-				}
-
-				if ( $targetHasField ) {
-					$changedFields[$fieldName]['target'] = $targetObject->getField( $fieldName );
-				}
-			}
-		}
+		$changedFields = RevisionDiff::compareFields(
+			$sourceObject,
+			$targetObject,
+			$fields );
 
 		return new self( $changedFields );
 	}
 
-	public static function newFromUndoRevision( RevisionedObject $currentObject, EPRevision $revision, array $fields = null ) {
+	public static function newFromRestoreRevision(
+		RevisionedObject $sourceObject,
+		EPRevision $revision,
+		array $fields = null ) {
+
+		$targetObject = $revision->getObject();
+		$fields = is_null( $fields ) ? $targetObject->getFieldNames() : $fields;
+
+		$changedFields = RevisionDiff::compareFields(
+			$sourceObject,
+			$targetObject,
+			$fields );
+
+		return new self( $changedFields );
+	}
+
+	public static function newFromUndoRevision(
+		RevisionedObject $currentObject,
+		EPRevision $revision,
+		array $fields = null ) {
+
 		$changedFields = array();
 
 		$targetObject = $revision->getPreviousRevision()->getObject();
@@ -60,21 +80,25 @@ class RevisionDiff {
 				$sourceHasField = $sourceObject->hasField( $fieldName );
 				$targetHasField = $targetObject->hasField( $fieldName );
 
-				if ( $currentObject->getField( $fieldName, null ) === $sourceObject->getField( $fieldName, null )
+				if ( $currentObject->getField( $fieldName, null ) ===
+					$sourceObject->getField( $fieldName, null )
 					&&
 					( 	( $sourceHasField XOR $targetHasField )
 						||
-						$sourceObject->getField( $fieldName, null ) !== $targetObject->getField( $fieldName, null )
+						$sourceObject->getField( $fieldName, null ) !==
+						$targetObject->getField( $fieldName, null )
 					) ) {
 
 					$changedFields[$fieldName] = array();
 
 					if ( $sourceHasField ) {
-						$changedFields[$fieldName]['source'] = $sourceObject->getField( $fieldName );
+						$changedFields[$fieldName]['source'] =
+							$sourceObject->getField( $fieldName );
 					}
 
 					if ( $targetHasField ) {
-						$changedFields[$fieldName]['target'] = $targetObject->getField( $fieldName );
+						$changedFields[$fieldName]['target'] =
+							$targetObject->getField( $fieldName );
 					}
 				}
 			}
@@ -108,6 +132,48 @@ class RevisionDiff {
 
 	public function hasChanges() {
 		return !empty( $this->changedFields );
+	}
+
+	/**
+	 * For two revisioned objects, return an associative array with the names
+	 * of the changed fields as keys, and as values, an associative array
+	 * with the source and target values.
+	 *
+	 * @param RevisionedObject $sourceObject
+	 * @param RevisionedObject $targetObject
+	 * @param array $fields
+	 * @return array
+	 */
+	protected static function compareFields(
+		RevisionedObject $sourceObject,
+		RevisionedObject $targetObject,
+		$fields ) {
+
+		$changedFields = array();
+
+		foreach ( $fields as $fieldName ) {
+			$sourceHasField = $sourceObject->hasField( $fieldName );
+			$targetHasField = $targetObject->hasField( $fieldName );
+
+			if ( ( $sourceHasField XOR $targetHasField )
+				|| $sourceObject->getField( $fieldName, null ) !==
+				$targetObject->getField( $fieldName, null ) ) {
+
+				$changedFields[$fieldName] = array();
+
+				if ( $sourceHasField ) {
+					$changedFields[$fieldName]['source'] =
+						$sourceObject->getField( $fieldName );
+				}
+
+				if ( $targetHasField ) {
+					$changedFields[$fieldName]['target'] =
+						$targetObject->getField( $fieldName );
+				}
+			}
+		}
+
+		return $changedFields;
 	}
 
 }

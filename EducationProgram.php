@@ -49,7 +49,7 @@ $wgExtensionCredits['other'][] = array(
 	'name' => 'Education Program',
 	'version' => EP_VERSION,
 	'author' => array(
-		'[http://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
+		'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
 	),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Education_Program',
 	'descriptionmsg' => 'educationprogram-desc'
@@ -80,6 +80,7 @@ $wgAutoloadClasses['EducationProgram\RemoveArticleAction'] 			= $dir . '/include
 $wgAutoloadClasses['EducationProgram\RemoveReviewerAction'] 		= $dir . '/includes/actions/RemoveReviewerAction.php';
 $wgAutoloadClasses['EducationProgram\RemoveStudentAction'] 			= $dir . '/includes/actions/RemoveStudentAction.php';
 $wgAutoloadClasses['EducationProgram\RestoreAction'] 				= $dir . '/includes/actions/RestoreAction.php';
+$wgAutoloadClasses['EducationProgram\CompareAction'] 				= $dir . '/includes/actions/CompareAction.php';
 $wgAutoloadClasses['EducationProgram\UndeleteAction'] 				= $dir . '/includes/actions/UndeleteAction.php';
 $wgAutoloadClasses['EducationProgram\UndoAction'] 					= $dir . '/includes/actions/UndoAction.php';
 $wgAutoloadClasses['EducationProgram\ViewAction'] 					= $dir . '/includes/actions/ViewAction.php';
@@ -283,6 +284,7 @@ $wgActions['epaddarticle'] = 'EducationProgram\AddArticleAction';
 $wgActions['epaddreviewer'] = 'EducationProgram\AddReviewerAction';
 $wgActions['epundo'] = 'EducationProgram\UndoAction';
 $wgActions['eprestore'] = 'EducationProgram\RestoreAction';
+$wgActions['epcompare'] = 'EducationProgram\CompareAction';
 $wgActions['epundelete'] = 'EducationProgram\UndeleteAction';
 $wgActions['epcourseactivity'] = 'EducationProgram\ViewCourseActivityAction';
 

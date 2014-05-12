@@ -21,6 +21,23 @@ class DiffTable extends \ContextSource {
 	 */
 	protected $diff;
 
+
+	/**
+	 * First revision type, used to construct the message key for the column
+	 * header. Default message is 'ep-diff-old'.
+	 *
+	 * @since 0.5
+	 */
+	protected $firstRevisionType = 'old';
+
+	/**
+	 * Second revision type, used to construct the message key for the column
+	 * header. Default message is 'ep-diff-new'.
+	 *
+	 * @since 0.5
+	 */
+	protected $secondRevisionType = 'new';
+
 	/**
 	 * Constructor.
 	 *
@@ -51,8 +68,8 @@ class DiffTable extends \ContextSource {
 		$out->addHTML( '<table class="wikitable sortable"><tr>' );
 
 		$out->addElement( 'th', array(), '' );
-		$out->addElement( 'th', array(), $this->msg( 'ep-diff-old' )->plain() );
-		$out->addElement( 'th', array(), $this->msg( 'ep-diff-new' )->plain() );
+		$out->addElement( 'th', array(), $this->msg( 'ep-diff-' . $this->firstRevisionType )->plain() );
+		$out->addElement( 'th', array(), $this->msg( 'ep-diff-' . $this->secondRevisionType )->plain() );
 
 		$out->addHTML( '</tr>' );
 
@@ -89,6 +106,23 @@ class DiffTable extends \ContextSource {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Set the revision types, which are used in message keys for the columns of
+	 * the DiffTable. The defaults are 'old' and 'new'. The string 'ep-diff-'
+	 * will be prepended to the strings set here to construct the keys.
+	 *
+	 * @since 0.5
+	 *
+	 * @param string $firstRevisionType
+	 * @param string $secondRevisionType
+	 */
+	public function setRevisionTypes( $firstRevisionType, $secondRevisionType ) {
+
+		$this->firstRevisionType = $firstRevisionType;
+		$this->secondRevisionType = $secondRevisionType;
+
 	}
 
 }
