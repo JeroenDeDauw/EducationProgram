@@ -89,8 +89,13 @@ abstract class EPPager extends \TablePager {
 	function formatRow( $row ) {
 		$this->mCurrentRow = $row;
 		$this->prepareCurrentRowObjs();
-
 		$cells = array();
+
+		// Check the specific pager type for whether
+		// to hide this particular row.
+		if ( $this->hideRowCheck() ) {
+			return;
+		}
 
 		foreach ( $this->getFieldNames() as $field => $name ) {
 			if ( $field === '_select' ) {
@@ -109,6 +114,7 @@ abstract class EPPager extends \TablePager {
 			elseif ( $field === '_controls' ) {
 				$value = $this->getLanguage()->pipeList( $this->getControlLinks( $this->currentObject ) );
 			}
+
 			else {
 				$prefixedField = $this->table->getPrefixedField( $field );
 				$value = isset( $row->$prefixedField ) ? $row->$prefixedField : null;
@@ -620,5 +626,14 @@ abstract class EPPager extends \TablePager {
 		}
 
 		return $this->instanceNumber;
+	}
+
+	/**
+	 * For the general case, hideRowCheck returns false. Individual pager
+	 * types such as OAPager and CAPager override this with specific
+	 * circumstances when pager rows should be removed from the results.
+	 */
+	protected function hideRowCheck() {
+		return false;
 	}
 }

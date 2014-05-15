@@ -39,4 +39,12 @@ class CAPager extends OAPager {
 		return 'TablePager ep-cas';
 	}
 
+	/**
+	 * Make sure that a user has the ep-becampus permission before
+	 * listing them among the CA profiles.
+	 */
+	protected function hideRowCheck() {
+		$result = !$this->currentObject->getUser()->isAllowed( 'ep-becampus' );
+		return $result;
+	}
 }
