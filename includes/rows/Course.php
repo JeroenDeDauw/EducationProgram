@@ -489,7 +489,9 @@ class Course extends PageObject {
 	 */
 	public function getDaysLeft() {
 		$timeLeft = (int)wfTimestamp( TS_UNIX, $this->getField( 'end' ) ) - time();
-		return (int)ceil( $timeLeft / ( 60 * 60 * 24 ) );
+		// Add 1, so that there remains 1 day left until
+		// the end of the last day of the course.
+		return (int)ceil( $timeLeft / ( 60 * 60 * 24 ) + 1 );
 	}
 
 	/**

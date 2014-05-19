@@ -150,10 +150,14 @@ class Courses extends PageTable {
 
 	public function hasActiveTitle( $courseTitle ) {
 		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+		// Course start and end dates are stored as the begin of the day in UTC.
+		// To make sure courses end at the end of that day, compare the end time
+		// with the current timestamp minus one day.
+		$oneDayAgo = wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, strtotime( "-1 day" ) ) );
 
 		return $this->has( array(
 			'title' => $courseTitle,
-			'end >= ' . $now,
+			'end >= ' . $oneDayAgo,
 			'start <= ' . $now,
 		) );
 	}
@@ -207,6 +211,8 @@ class Courses extends PageTable {
 
 	/**
 	 * Get the conditions that will select courses with the provided state.
+	 * Courses begin at the 00:00:00 UTC of their start date, and end at
+	 * 24:00:00 UTC of their end date.
 	 *
 	 * @since 0.1
 	 *
@@ -217,16 +223,20 @@ class Courses extends PageTable {
 	 */
 	public static function getStatusConds( $state, $prefix = false ) {
 		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+		// Course start and end dates are stored as the begin of the day in UTC.
+		// To make sure courses end at the end of that day, compare the end time
+		// with the current timestamp minus one day.
+		$oneDayAgo = wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, strtotime( "-1 day" ) ) );
 
 		$conditions = array();
 
 		switch ( $state ) {
 			case 'current':
-				$conditions[] = 'end >= ' . $now;
+				$conditions[] = 'end >= ' . $oneDayAgo;
 				$conditions[] = 'start <= ' . $now;
 				break;
 			case 'passed':
-				$conditions[] = 'end < ' . $now;
+				$conditions[] = 'end < ' . $oneDayAgo;
 				break;
 			case 'planned':
 				$conditions[] = 'start > ' . $now;
