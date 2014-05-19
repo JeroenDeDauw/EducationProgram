@@ -467,6 +467,7 @@
 	"orgpage-epundo-undid": "撤销对机构的修订$1成功。",
 	"orgpage-epundo-undo-failed": "撤销对机构的修订$1失败。",
 	"coursepage-epundo-title": "撤销对课程“$1”的修改",
+	"coursepage-epundo-text": "您将撤销课程$1的单次修订。",
 	"coursepage-epundo-summary": "回退的理由：",
 	"coursepage-epundo-undo-button": "撤销修订",
 	"coursepage-epundo-cancel-button": "取消",
