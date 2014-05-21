@@ -165,7 +165,7 @@ class Utils {
 
                 // Add a link showing all the user subpages for the user.
 		$links[] = Linker::link(
-                        \SpecialPage::getTitleFor( 'PrefixIndex', 'User:' . $userName, '' ),
+                        \SpecialPage::getTitleFor( 'Prefixindex', 'User:' . $userName, '' ),
 			$context->msg( 'ep-articles-sandboxes' )->escaped()
 		);
 
