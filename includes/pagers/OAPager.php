@@ -152,4 +152,13 @@ class OAPager extends EPPager {
 		return $fields;
 	}
 
+	/**
+	 * Make sure that a user has the ep-beonline permission before
+	 * listing them among the OA profiles.
+	 */
+	protected function hideRowCheck() {
+		$result = !$this->currentObject->getUser()->isAllowed( 'ep-beonline' );
+		return $result;
+	}
+
 }
