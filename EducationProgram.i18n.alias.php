@@ -243,10 +243,20 @@ $specialPageAliases['gl'] = array(
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
 	'MyCourses' => array( 'הקורסים_שלי' ),
+	'ManageCourses' => array( 'ניהול_קורסים' ),
 	'Institutions' => array( 'מוסדות', 'רשימת_המוסדות' ),
 	'Student' => array( 'תלמיד' ),
 	'Students' => array( 'תלמידים' ),
 	'Courses' => array( 'קורסים', 'רשימת_הקורסים', 'כל_הקורסים' ),
+	'Enroll' => array( 'רישום_לקורס' ),
+	'Disenroll' => array( 'ביטול_רישם_לקורס' ),
+	'CampusAmbassadors' => array( 'מתנדבי_קמפוס' ),
+	'OnlineAmbassadors' => array( 'מתנדבים_מקוונים' ),
+	'OnlineAmbassadorProfile' => array( 'פרופיל_מתנדב_מקוון' ),
+	'CampusAmbassadorProfile' => array( 'פרופיל_מתנדב_קמפוס' ),
+	'StudentActivity' => array( 'פעילות_תלמיד' ),
+	'Articles' => array( 'ערכים' ),
+	'CourseActivity' => array( 'פעילות_קורס' ),
 );
 
 /** Italian (italiano) */
