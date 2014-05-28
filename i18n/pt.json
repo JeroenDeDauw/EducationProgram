@@ -8,7 +8,8 @@
 			"SandroHc",
 			"Vitorvicentevalente",
 			"Imperadeiro98",
-			"Fúlvio"
+			"Fúlvio",
+			"Waldir"
 		]
 	},
 	"educationprogram-desc": "Viabiliza programas educativos disponibilizando várias interfaces para administrar cursos, instituições e os vários tipos de utilizador relacionados.",
@@ -95,8 +96,8 @@
 	"logentry-student-selfremove": "$1 {{GENDER:$2|desinscreveu-se}} do curso $3",
 	"logentry-eparticle-selfadd": "$1 adicionou o artigo $3 à {{GENDER:$2|sua}} lista de artigos do curso $4",
 	"logentry-eparticle-selfremove": "$1 removeu o artigo $3 à {{GENDER:$2|sua}} lista de artigos do curso $4",
-	"logentry-eparticle-add": "$1 adicionou o artigo $3 à lista de artigos {{GENDER:$6|do $5|da $5}} no curso $4",
-	"logentry-eparticle-remove": "$1 removeu o artigo $3 da lista de artigos {{GENDER:$6|do $5|da $5}} no curso $4",
+	"logentry-eparticle-add": "$1 {{GENDER:$2|adicionou}} o artigo $3 à lista de artigos {{GENDER:$6|do $5|da $5}} no curso $4",
+	"logentry-eparticle-remove": "$1 {{GENDER:$2|removeu}} o artigo $3 da lista de artigos {{GENDER:$6|do $5|da $5}} no curso $4",
 	"logentry-eparticle-review": "$1 adicionou {{GENDER:$2|a si mesmo como revisor|a si mesma como revisora}} do artigo $3, desenvolvido {{GENDER:$6|pelo|pela}} $5 como parte do curso $4",
 	"logentry-eparticle-unreview": "$1 removeu {{GENDER:$2|a si mesmo como revisor|a si mesma como revisora}} do artigo $3, desenvolvido {{GENDER:$6|pelo|pela}} $5 como parte do curso $4",
 	"prefs-education": "Educação",
