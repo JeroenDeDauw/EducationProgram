@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use ApiBase, ApiQueryBase, User;
+use ApiBase, User;
 
 /**
  * API module for gathering the usernames of students in one or more courses.
@@ -14,7 +14,7 @@ use ApiBase, ApiQueryBase, User;
  * @licence GNU GPL v2+
  * @author Sage Ross <sage@ragesoss.com>
  */
-class ApiListStudents extends ApiQueryBase {
+class ApiListStudents extends ApiBase {
 
 	public function execute() {
 
