@@ -519,6 +519,15 @@ $specialPageAliases['tr'] = array(
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
+	'MyCourses' => array( 'Мої_курси' ),
+	'ManageCourses' => array( 'Керувати_курсами' ),
+	'Institutions' => array( 'Інституції', 'Орг-ції' ),
+	'Student' => array( 'Студент' ),
+	'Students' => array( 'Студенти' ),
+	'Courses' => array( 'Курси' ),
+	'EducationProgram' => array( 'Освітня_Програма' ),
+	'Enroll' => array( 'Записатись' ),
+	'Disenroll' => array( 'Відписатись' ),
 	'Articles' => array( 'Статті' ),
 );
 
