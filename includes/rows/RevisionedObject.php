@@ -409,7 +409,7 @@ abstract class RevisionedObject extends \ORMRow {
 	}
 
 	/**
-	 * Get a diff for the changes that will happen when retoring to the provided revision.
+	 * Get a diff for the changes that will happen when restoring to the provided revision.
 	 *
 	 * @since 0.1
 	 *
@@ -421,6 +421,28 @@ abstract class RevisionedObject extends \ORMRow {
 	public function getRestoreDiff( EPRevision $revision, array $fields = null ) {
 		$fields = is_null( $fields ) ? $this->table->getRevertibleFields() : $fields;
 		return RevisionDiff::newFromRestoreRevision( $this, $revision, $fields );
+	}
+
+	/**
+	 * Get a diff comparing the most recent revision
+	 * with the provided old revision.
+	 *
+	 * @since 0.5
+	 *
+	 * @param EPRevision $revision
+	 * @param array|null $fields
+	 * @param boolean|null $hidePriviledgedFields If true, hide fields that
+	 *   only users with education program rights should see. (This is used in
+	 *   Course::getCompareDiff().)
+	 *
+	 * @return RevisionDiff
+	 */
+	public function getCompareDiff( EPRevision $revision, array $fields = null,
+		$hidePriviledgedFields = false ) {
+
+		$fields = is_null( $fields ) ? $this->table->getRevertibleFields() : $fields;
+
+		return RevisionDiff::newFromCompareRevision( $this, $revision, $fields );
 	}
 
 	/**

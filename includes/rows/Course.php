@@ -864,6 +864,26 @@ class Course extends PageObject {
 	}
 
 	/**
+	 * @see RevisionedObject::getCompareDiff()
+	 */
+	public function getCompareDiff( EPRevision $revision, array $fields = null,
+		$hidePriviledgedFields = false ) {
+
+		$fields = is_null( $fields ) ? $this->table->getRevertibleFields() : $fields;
+
+		// Check whether to hide 'token' field, which is the only info in
+		// course or org diffs that should be hidden from unprivileged users.
+		if ( $hidePriviledgedFields ) {
+			if ( ( $key = array_search('token', $fields) ) !== false) {
+				unset( $fields[$key] );
+			}
+		}
+
+		return parent::getCompareDiff( $revision, $fields,
+			$hidePriviledgedFields );
+	}
+
+	/**
 	 * Log a change of the instructors of the course.
 	 *
 	 * @since 0.1

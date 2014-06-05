@@ -111,6 +111,8 @@ class RevisionPager extends \ReverseChronologicalPager {
 			);
 		}
 
+		// If users have full edit rights to course pages, they can undo revisions
+		// and restore revisions.
 		if ( $this->getUser()->isAllowed( $this->table->getEditRight() ) ) {
 			$actionLinks = array();
 
@@ -132,10 +134,23 @@ class RevisionPager extends \ReverseChronologicalPager {
 				);
 			}
 
-			if ( !empty( $actionLinks ) ) {
-				$html .= '&#160;.&#160;.&#160;';
-				$html .= '(' .  $this->getLanguage()->pipeList( $actionLinks ) . ')';
-			}
+
+		}
+
+		// Any user can do the compare action.
+		if ( $this->mOffset !== '' || $this->rowNr != 0 ) {
+			$actionLinks[] = $object->getLink(
+				'epcompare',
+				$this->msg( 'ep-revision-compare' )->escaped(),
+				array(),
+				array( 'revid' => $revision->getId() )
+			);
+		}
+
+		// Display the links for available actions for the revision.
+		if ( !empty( $actionLinks ) ) {
+			$html .= '&#160;.&#160;.&#160;';
+			$html .= '(' .  $this->getLanguage()->pipeList( $actionLinks ) . ')';
 		}
 
 		$this->rowNr++;
