@@ -154,6 +154,7 @@
 	"ep-pager-delete-selected": "Eliminar",
 	"ep-revision-undo": "desfazer",
 	"ep-revision-restore": "restaurar",
+	"ep-revision-compare": "comparar com a revisão atual",
 	"eporgpager-header-name": "Nome",
 	"eporgpager-header-city": "Cidade",
 	"eporgpager-header-country": "País",
@@ -186,7 +187,12 @@
 	"ep-delete-org-has-courses-close-dialog": "Fechar",
 	"orgpage-eprestore-cancel-button": "Cancelar",
 	"coursepage-eprestore-cancel-button": "Cancelar",
+	"coursepage-eprestore-none": "Esta revisão não pode ser restaurada.",
+	"coursepage-epcompare-title": "Comparar as revisões do curso \"$1\"",
+	"coursepage-epcompare-none": "Esta revisão não pode ser comparada com a atual.",
 	"orgpage-epundo-cancel-button": "Cancelar",
+	"orgpage-epcompare-title": "Comparar revisões da instituição \"$1\"",
+	"orgpage-epcompare-none": "Esta revisão não pode ser comparada com a atual.",
 	"coursepage-epundo-cancel-button": "Cancelar",
 	"coursepage-epundelete-cancel-button": "Cancelar",
 	"orgpage-epundelete-cancel-button": "Cancelar",
@@ -197,5 +203,7 @@
 	"ep-online-add-cancel-button": "Cancelar",
 	"ep-campus-cancel-button": "Cancelar",
 	"ep-campus-add-cancel-button": "Cancelar",
+	"ep-diff-previous": "Revisão mais antiga",
+	"ep-diff-current": "Última revisão",
 	"ep-user-roles-message-main-many-student-alt": "[[$1|$2]] {{GENDER:$2|é um estudante}} em $3 {{PLURAL:$3|curso|cursos}}."
 }

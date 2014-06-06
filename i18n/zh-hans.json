@@ -224,6 +224,7 @@
 	"ep-pager-delete-selected": "删除",
 	"ep-revision-undo": "撤销",
 	"ep-revision-restore": "还原",
+	"ep-revision-compare": "与当前修订比较",
 	"eporgpager-header-name": "名称",
 	"eporgpager-header-city": "城市",
 	"eporgpager-header-country": "国家",

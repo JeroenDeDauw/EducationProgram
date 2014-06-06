@@ -8,7 +8,8 @@
 			"Olli",
 			"Pxos",
 			"Silvonen",
-			"VezonThunder"
+			"VezonThunder",
+			"Stryn"
 		]
 	},
 	"educationprogram-desc": "Helpottaa koulutusohjelmia lisäämällä eri käyttöliittymiä kurssien, laitosten ja eri koulutuksellisten käyttäjäroolien hallintaan.",
@@ -199,7 +200,7 @@
 	"ep-course-edit-org": "Laitos",
 	"ep-course-edit-start": "Alkamispäivä",
 	"ep-course-edit-end": "Päättymispäivä",
-	"ep-course-edit-description": "Kuvaus",
+	"ep-course-edit-description": "Sivun teksti",
 	"ep-course-edit-title": "Sivun otsikko",
 	"ep-course-edit-field": "Koulutusala",
 	"ep-course-edit-name": "Kurssin nimi",

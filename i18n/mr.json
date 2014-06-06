@@ -6,8 +6,14 @@
 		]
 	},
 	"group-epinstructor": "अभ्यासक्रमाचे निदेशक",
+	"ep-revision-compare": "सध्याच्या आवृत्तीशी पडताळा",
 	"ep-addstudents-btn": "जोडा",
 	"ep-delete-org-has-courses-close-dialog": "बंद करा",
+	"coursepage-eprestore-none": "हे आवर्तन पुनर्स्थापित करता येत नाही.",
+	"coursepage-epcompare-none": "हे आवर्तन सध्याच्या आवृत्तीशी पडताळून बघता येत नाही.",
+	"orgpage-epcompare-none": "हे आवर्तन सध्याच्या आवृत्तीशी पडताळून बघता येत नाही.",
+	"ep-diff-previous": "मागील आवृत्ती",
+	"ep-diff-current": "सध्याची आवृत्ती",
 	"echo-category-title-education-program": "प्रशिक्षण कार्यक्रम",
 	"ep-course-talk-link-text-view-message": "संदेश बघा",
 	"ep-course-talk-link-text-view-changes": "बदल बघा"
