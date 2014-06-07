@@ -3,7 +3,8 @@
 		"authors": [
 			"Farras",
 			"Iwan Novirion",
-			"Kenrick95"
+			"Kenrick95",
+			"Pizza1016"
 		]
 	},
 	"educationprogram-desc": "Memfasilitasi program pendidikan dengan menambahkan berbagai antarmuka untuk mengelola kursus, insitusi, dan berbagai peran pengguna pendidikan.",
@@ -18,7 +19,7 @@
 	"ep-err-failed-to-save": "Sesuatu tidak beres - perubahan Anda belum tersimpan.",
 	"ep-tab-view": "Baca",
 	"ep-tab-edit": "Sunting",
-	"ep-tab-create": "Buat",
+	"ep-tab-create": "Cipta",
 	"ep-tab-history": "Lihat riwayat",
 	"ep-tab-enroll": "Ikut",
 	"ep-tab-disenroll": "Keluar",
