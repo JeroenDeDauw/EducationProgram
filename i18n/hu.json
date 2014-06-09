@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dj",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Csega"
 		]
 	},
 	"ep-item-summary": "Összefoglaló",
@@ -91,6 +92,7 @@
 	"ep-students-noresults": "Nincsen listázható diák",
 	"ep-pager-clear": "Szűrők törlése",
 	"ep-pager-delete-selected": "Törlés",
+	"ep-revision-compare": "összehasonlítás az aktuális változattal",
 	"eporgpager-header-name": "Név",
 	"eporgpager-header-city": "Város",
 	"eporgpager-header-country": "Ország",
@@ -139,6 +141,9 @@
 	"vieworgaction-summary-city": "Város",
 	"vieworgaction-summary-country": "Ország",
 	"vieworgaction-summary-status": "Állapot",
+	"coursepage-eprestore-none": "Ez a változat nem állítható vissza.",
+	"coursepage-epcompare-none": "Ez a változat nem hasonlítható össze a jelenlegivel.",
+	"orgpage-epcompare-none": "Ez a változat nem hasonlítható össze a jelenlegivel.",
 	"ep-student-title": "Diák:$1",
 	"ep-instructor-add-cancel-button": "Mégse",
 	"ep-instructor-summary-input": "Összefoglaló:",
@@ -148,5 +153,7 @@
 	"ep-online-cancel-button": "Mégse",
 	"ep-online-add-cancel-button": "Mégse",
 	"ep-online-summary-input": "Összefoglaló:",
-	"ep-online-name-input": "Felhasználónév:"
+	"ep-online-name-input": "Felhasználónév:",
+	"ep-diff-previous": "Régebbi változat",
+	"ep-diff-current": "Aktuális változat"
 }

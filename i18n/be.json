@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Artificial123"
+		]
+	},
+	"ep-revision-compare": "параўнаць з цяперашняй версіяй",
+	"coursepage-eprestore-none": "Гэты перагляд не можа быць адноўлены.",
+	"coursepage-epcompare-none": "Такі перагляд не можа быць параўнаны з цяперашнім.",
+	"orgpage-epcompare-title": "Параўнаць з \"$1\"",
+	"orgpage-epcompare-none": "Такі перагляд не можа быць параўнаны з цяперашнім.",
+	"ep-diff-previous": "← Папярэдн. версія",
+	"ep-diff-current": "Актуальная версія"
+}
