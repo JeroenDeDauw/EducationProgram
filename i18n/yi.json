@@ -22,6 +22,7 @@
 	"ep-educationprogram-female": "נקבה",
 	"ep-pager-go": "גיין",
 	"ep-pager-delete-selected": "אויסמעקן",
+	"ep-revision-compare": "פארגלײַכן מיט לויפיקער ווערסיע",
 	"eporgpager-header-name": "נאָמען",
 	"eporgpager-header-city": "שטאָט",
 	"eporgpager-header-country": "לאנד",
@@ -53,6 +54,8 @@
 	"ep-online-name-input": "באַניצער נאָמען:",
 	"ep-campus-add-close-button": "שליסן",
 	"ep-campus-name-input": "באַניצער נאָמען:",
+	"ep-diff-previous": "אלטע ווערסיע",
+	"ep-diff-current": "איצטיגע ווערסיע",
 	"ep-timeline-ago": "זייט $1",
 	"ep-timeline-cutoff": "$1 ..."
 }
