@@ -1,10 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"SuKhDug"
+			"SuKhDug",
+			"Agilight",
+			"Kaganer"
 		]
 	},
+	"ep-articletable-remreviwer-text-self": "$3 {{GENDER:$3|киржикчиниң}} ажылдап турар $2 деп чүүлүнүң {{GENDER:$1|эдикчилер}} санындан бодуңарны ап кааптар дей бердиңер.",
 	"ep-addstudents-btn": "Немээр",
+	"ep-disenroll-button": "Үнер",
+	"ep-disenroll-fail": "Бир чүве меге болу берди - өскээр углап көрүңер.",
 	"ep-course-talk-link-text-view-message": "Медеглелди көөр",
 	"ep-course-talk-link-text-view-changes": "Өскерлиишкиннерни көөр"
 }

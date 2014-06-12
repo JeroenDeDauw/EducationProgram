@@ -16,7 +16,8 @@
 			"StephDC",
 			"TianyinLee",
 			"Xiaomingyan",
-			"Yfdyh000"
+			"Yfdyh000",
+			"Mywood"
 		]
 	},
 	"educationprogram-desc": "通过添加不同的接口来管理课程、制度和各种不同的教育用户角色，以此促进教育计划。",
@@ -224,7 +225,7 @@
 	"ep-pager-delete-selected": "删除",
 	"ep-revision-undo": "撤销",
 	"ep-revision-restore": "还原",
-	"ep-revision-compare": "与当前修订比较",
+	"ep-revision-compare": "与当前版本对比",
 	"eporgpager-header-name": "名称",
 	"eporgpager-header-city": "城市",
 	"eporgpager-header-country": "国家",
