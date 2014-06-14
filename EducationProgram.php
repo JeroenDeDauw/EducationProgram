@@ -334,7 +334,7 @@ $wgAvailableRights[] = 'ep-addstudent';		// Enroll users as student
 
 // User group rights
 // These set the defaults for which users can perform which actions, beginning with the '*' defaults that apply to all users unless specifically set in a subsequent block of permissions. These can be overridden locally if a wiki wishes to use a different permissions setup.
-$wgGroupPermissions['*']['ep-enroll'] = true;
+$wgGroupPermissions['*']['ep-enroll'] = false;
 $wgGroupPermissions['*']['ep-org'] = false;
 $wgGroupPermissions['*']['ep-course'] = false;
 $wgGroupPermissions['*']['ep-token'] = false;
@@ -351,6 +351,8 @@ $wgGroupPermissions['*']['ep-bulkdelorgs'] = false;
 $wgGroupPermissions['*']['ep-bulkdelcourses'] = false;
 $wgGroupPermissions['*']['ep-remarticle'] = false;
 $wgGroupPermissions['*']['ep-addstudent'] = false;
+
+$wgGroupPermissions['users']['ep-enroll'] = true;
 
 $wgGroupPermissions['sysop']['ep-org'] = true;
 $wgGroupPermissions['sysop']['ep-course'] = true;
