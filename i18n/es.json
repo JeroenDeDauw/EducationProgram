@@ -675,7 +675,7 @@
 	"ep-studentactivity-count": "{{PLURAL:$1|Un estudiante estuvo activo|$1 estudiantes estuvieron activos}} en el último $2 .",
 	"ep-diff-old": "Valor actual",
 	"ep-diff-new": "Nuevo valor",
-	"ep-diff-previous": "Revisión vieja",
+	"ep-diff-previous": "Revisión anterior",
 	"ep-diff-current": "Revisión actual",
 	"ep-timeline-remaining": "$1 {{PLURAL:$1|otro|más}}",
 	"ep-timeline-unknown": "$1 hizo algo el $2, $3",

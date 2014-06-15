@@ -17,7 +17,8 @@
 			"TianyinLee",
 			"Xiaomingyan",
 			"Yfdyh000",
-			"Mywood"
+			"Mywood",
+			"Bluedeck"
 		]
 	},
 	"educationprogram-desc": "通过添加不同的接口来管理课程、制度和各种不同的教育用户角色，以此促进教育计划。",
@@ -302,6 +303,7 @@
 	"ep-articletable-remarticle-title": "删除文章$1",
 	"ep-articletable-remarticle-button": "移除条目",
 	"ep-articletable-remarticle-cancel": "取消",
+	"ep-articletable-remarticle-text-self": "您将从您的队列$2中删除页面$1。",
 	"ep-articletable-remarticle-text": "您将在文章列表{{GENDER:$4|$3}}中正在作为课程的$2移除文章$1。",
 	"ep-articles-noresults": "没有条目可列出。",
 	"epcapager-header-photo": "照片",
