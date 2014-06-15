@@ -477,11 +477,16 @@ final class Hooks {
 	 * participation.
 	 *
 	 * @param int $id the id of the user whose contributions are displayed
+	 * @param User $user
+	 * @param \SpecialPage $sp
 	 */
-	public static function onSpecialContributionsBeforeMainOutput( $id ) {
-		global $wgOut;
+	public static function onSpecialContributionsBeforeMainOutput( $id, User $user, \SpecialPage $sp ) {
+		if ( $user->isAnon() ) {
+			// bug 66624, db schema can't handle anon users
+			return;
+		}
 
-		$userRolesMessage = new UserRolesMessage( $id, $wgOut );
+		$userRolesMessage = new UserRolesMessage( $user->getId(), $sp->getOutput() );
 		$userRolesMessage->prepare();
 
 		if ( $userRolesMessage->userHasRoles() ) {
