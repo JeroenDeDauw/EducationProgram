@@ -259,6 +259,15 @@ $specialPageAliases['he'] = array(
 	'CourseActivity' => array( 'פעילות_קורס' ),
 );
 
+/** Upper Sorbian (hornjoserbsce) */
+$specialPageAliases['hsb'] = array(
+	'MyCourses' => array( 'Moje_kursy' ),
+	'ManageCourses' => array( 'Kursy_zrjadować' ),
+	'Institutions' => array( 'Zarjadnišća' ),
+	'Students' => array( 'Studenća' ),
+	'Courses' => array( 'Kursy' ),
+);
+
 /** Italian (italiano) */
 $specialPageAliases['it'] = array(
 	'MyCourses' => array( 'MieCorsi' ),
