@@ -51,15 +51,15 @@ class ApiAddStudents extends ApiBase {
 		$api->execute();
 		$usersData = & $api->getResultData();
 
-		// make lists: valid and invalid users
+		// make lists: valid and invalid (invalid name or non-existent) users
 		$validUsersMap = array(); // associative array, id => name
 		$invalidUserNames = array(); // just names, indexed numerically
 
 		foreach ( $usersData['query']['users'] as $userData ) {
-			if ( isset ( $userData['missing'] ) ) {
-				$invalidUserNames[] = $userData['name'];
-			} else {
+			if ( isset ( $userData['userid'] ) ) {
 				$validUsersMap[$userData['userid']] = $userData['name'];
+			} else {
+				$invalidUserNames[] = $userData['name'];
 			}
 		}
 
