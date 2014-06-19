@@ -113,7 +113,7 @@
 	"ep-campus-add-cancel-button": "Цаоьшу",
 	"ep-diff-old": "Карара маьӀна",
 	"ep-timeline-remaining": "кхин $1 {{PLURAL:$1|1=декъашхо|декъашхой}}",
-	"ep-timeline-ago": "$1 юха",
+	"ep-timeline-ago": "$1 хьалха",
 	"ep-user-roles-message-main-many-student-alt": "[[$1|$2]] {{GENDER:$2|студент}} $3 чохь {{PLURAL:$3|course|курсехь}}.",
 	"ep-course-talk-link-text-view-changes": "Хийцаме хьажар"
 }

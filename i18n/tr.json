@@ -6,7 +6,8 @@
 			"Joseph",
 			"Rapsar",
 			"Marmase",
-			"Mirzali"
+			"Mirzali",
+			"Sayginer"
 		]
 	},
 	"educationprogram-desc": "Çeşitli eğitim rolü bulunan kullanıcılar ve kurumlar için, kurslar yönetim arayüzünü ekleyerek eğitim programlarının uygulanmasını kolaylaştırır.",
@@ -265,9 +266,27 @@
 	"ep-articletable-remreviwer-button": "{{GENDER:$1|İnceleyiciyi}} çıkar",
 	"ep-articletable-remreviwer-button-self": "Kendinizi çıkarın",
 	"ep-articletable-remreviwer-cancel": "İptal",
+	"ep-articletable-remstudent-cancel": "İptal",
+	"ep-articletable-remarticle-cancel": "İptal",
+	"epcapager-header-user-id": "Kullanıcı adı",
 	"epcapager-header-bio": "Profil",
+	"epoapager-header-user-id": "Kullanıcı adı",
+	"epoapager-header-bio": "Profil",
+	"epstudentactivitypager-header-user-id": "Öğrenci",
+	"epstudentactivitypager-header-org-id": "Kurum",
+	"epstudentactivitypager-header-last-course": "Ders",
+	"epstudentactivitypager-header-last-active": "Son etkinlik",
+	"educationprogram-org-edit-city": "Şehir",
+	"educationprogram-org-edit-country": "Ülke",
+	"educationprogram-org-submit": "Gönder",
+	"vieworgaction-summary-city": "Şehir",
+	"vieworgaction-summary-country": "Ülke",
+	"vieworgaction-summary-status": "Durum",
+	"ep-course-students": "Öğrenciler",
 	"orgpage-delete-cancel-button": "İptal",
 	"ep-instructor-removing": "Kaldırılıyor...",
 	"ep-online-removing": "Kaldırılıyor...",
-	"ep-campus-removing": "Kaldırılıyor..."
+	"ep-online-remove-retry": "Tekrar dene",
+	"ep-campus-removing": "Kaldırılıyor...",
+	"echo-category-title-education-program": "Eğitim Programı"
 }
