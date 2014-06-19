@@ -34,9 +34,11 @@ class ApiListStudents extends ApiBase {
 		// This course index keeps track of which course element to add results to.
 		$courseIndex = 0;
 
+		$courseIds = $params['courseids'];
+
 		// Now go through each of the submitted course IDs,
 		// and add all the student users from that course.
-		foreach ( $params['courseids'] as $courseId ) {
+		foreach ( $courseIds as $courseId ) {
 
 			// Get the course, or die if the course id is invalid.
 			$course = Courses::singleton()->selectRow(
@@ -61,7 +63,12 @@ class ApiListStudents extends ApiBase {
 			// students from this course to the list and display them.
 			if ( $params['group'] ) {
 
-				$this->outputCourseName( $courseId, $course, $courseIndex, $results );
+				$this->outputCourseProperties(
+					$courseId,
+					$course,
+					$courseIndex,
+					$results
+				);
 
 				// If 'csv' parameter is given,
 				// format and display the results as CSV for each course.
@@ -106,7 +113,8 @@ class ApiListStudents extends ApiBase {
 				$this->outputCSVofStudentProperties(
 					$allStudents,
 					$propName,
-					$results
+					$results,
+					$courseIds // The set of all course IDs from for the query
 				);
 
 			} else {
@@ -116,6 +124,7 @@ class ApiListStudents extends ApiBase {
 					$results
 				);
 			}
+
 		} else {
 			// Replace all the instances of $courseIndex in the results.
 			$results->setIndexedTagName_internal(
@@ -168,28 +177,44 @@ class ApiListStudents extends ApiBase {
 	 * @param array $studentsList
 	 * @param string $propName
 	 * @param ApiResult @results
-	 * @param int $courseID
+	 * @param int[]|int $courseIds A list of one or more course IDs
 	 * @param int $courseIndex
 	 */
 	protected function outputCSVofStudentProperties(
 		$studentsList,
 		$propName,
 		$results,
-		$courseId = null,
+		$courseIds,
 		$courseIndex = null
 	) {
 
 		$studentProps = array();
+
 		foreach ( $studentsList as $student ) {
 			$studentProps[] = $this->getUserProperty( $student, $propName );
 		}
-		$csv = PHP_EOL . implode( PHP_EOL, $studentProps ) . PHP_EOL ;
+
+		if ( $studentProps ) {
+			$csv = PHP_EOL . implode( PHP_EOL, $studentProps ) . PHP_EOL ;
+		} else {
+			$csv = '';
+		}
 
 		$results->addValue(
 			$this->studentPath( $courseIndex ),
 			$propName . 's',
 			array( '*'  => $csv )
 		);
+
+		if ( $studentsList ) {
+			$this->outputCSVListofArticles(
+				$courseIds,
+				$studentsList,
+				$results,
+				$courseIndex
+			);
+		}
+
 	}
 
 	/**
@@ -199,7 +224,7 @@ class ApiListStudents extends ApiBase {
 	 * @param array $studentsList
 	 * @param string $propName
 	 * @param ApiResult $results
-	 * @param int $courseID
+	 * @param int $courseId
 	 * @param int $courseIndex
 	 */
 	protected function outputListOfStudentProperties(
@@ -227,14 +252,49 @@ class ApiListStudents extends ApiBase {
 	}
 
 	/**
-	 * For a course objects, output the institution, course name and term
-	 * as a query result.
+	 * For an array of user objects, output
+	 * their usernames or user IDs as query results.
+	 *
+	 * @param int[]|int $courseIds A list of one or more course IDs
+	 * @param array $studentsList A set of student users
+	 * @param ApiResult $results
+	 * @param int $courseIndex
+	 */
+	protected function outputCSVListofArticles (
+		$courseIds,
+		$studentsList,
+		$results,
+		$courseIndex = null
+	) {
+
+		$articleNames = $this->getArticleNames( $courseIds, $studentsList );
+
+		if ( $articleNames ) {
+			$articleNames = PHP_EOL . implode( PHP_EOL, $articleNames ) . PHP_EOL;
+		}
+
+		$results->addValue(
+			$this->articlePath( $courseIndex ),
+			null,
+			$articleNames
+		);
+
+		$results->setIndexedTagName_internal(
+			$this->articlePath( $courseIndex ),
+			'articles'
+		);
+
+	}
+
+	/**
+	 * For a course objects, output the institution, course name and term,
+	 * and the start and end dates as a query result.
 	 *
 	 * @param int $courseId
 	 * @param Course $course
 	 * @param ApiResult $results
 	 */
-	protected function outputCourseName(
+	protected function outputCourseProperties(
 		$courseId, $course, $courseIndex, $results ) {
 
 		// Use an unambiguous name for the course that
@@ -251,6 +311,67 @@ class ApiListStudents extends ApiBase {
 			'name',
 			array( '*' => $course->getField('title') )
 		);
+
+		// Add course start date.
+		$startdate = $this->formatTimestamp( $course->getField( 'start' ) );
+
+		$results->addValue(
+			$courseIndex,
+			'start',
+			$startdate
+		);
+
+		// Add course end date.
+		$enddate = $this->formatTimestamp( $course->getField( 'end' ) );
+
+		$results->addValue(
+			$courseIndex,
+			'end',
+			$enddate
+		);
+
+	}
+
+	/**
+	 * List the names of articles being worked on by a set of students
+	 * in a set of courses.
+	 *
+	 * @param int[]|int $courseIds
+	 * @param array $students Student objects
+	 * @return array
+	 */
+	protected function getArticleNames( $courseIds, $students ) {
+
+		// ArticleStore used to query which articles students are working on.
+		$articleStore = new ArticleStore( 'ep_articles' );
+
+		// Turn array of student objects into array of corresponding user IDs.
+		foreach ( $students as $student ) {
+			$studentIds[] = $student->getId();
+		}
+
+		// These are EPArticle objects, not conventional articles.
+		$epArticles = $articleStore->getArticlesByCourseAndUsers( $courseIds, $studentIds );
+
+		$articleNames = '';
+		foreach ( $epArticles as $article ) {
+			$articleNames[] = $article->getPageTitle();
+		}
+
+		return $articleNames;
+	}
+
+	/**
+	 * Turn a MediaWiki timestamp representing a date into
+	 * a human-readable date format.
+	 *
+	 * @param int $timestamp in MediaWiki timestamp format
+	 * @return string
+	 */
+	protected function formatTimestamp ( $timestamp ) {
+		$timestamp = wfTimestamp( TS_UNIX, $timestamp );
+		$timestamp = date( 'Y-m-d', $timestamp );
+		return $timestamp;
 	}
 
 	/**
@@ -265,6 +386,21 @@ class ApiListStudents extends ApiBase {
 			return array ( $courseIndex, 'students');
 		} else {
 			return 'students';
+		}
+	}
+
+	/**
+	 * Construct the results path for the <articles> element,
+	 * either as part of an numerically indexed parent tag,
+	 * or as a top-level element.
+	 *
+	 * @param int $courseIndex
+	 */
+	protected function articlePath( $courseIndex ) {
+		if ( !is_null ( $courseIndex ) ) {
+			return array ( $courseIndex );
+		} else {
+			return null;
 		}
 	}
 
@@ -299,13 +435,13 @@ class ApiListStudents extends ApiBase {
 				' id             - The user ID of the student',
 			),
 			'group' => 'If group parameter is given, the query will group students by course.',
-			'csv' => 'If csv parameter is given, the query will return usernames in CSV format.',
+			'csv' => 'If csv parameter is given, the query will return usernames in CSV format, and it will return the articles assigned to those students.',
 		);
 	}
 
 	public function getDescription() {
 		return array(
-				'Get the usernames of students enrolled in one or more courses.'
+				'Get the usernames and other information for students enrolled in one or more courses.'
 		);
 	}
 
