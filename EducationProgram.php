@@ -352,7 +352,7 @@ $wgGroupPermissions['*']['ep-bulkdelcourses'] = false;
 $wgGroupPermissions['*']['ep-remarticle'] = false;
 $wgGroupPermissions['*']['ep-addstudent'] = false;
 
-$wgGroupPermissions['users']['ep-enroll'] = true;
+$wgGroupPermissions['user']['ep-enroll'] = true;
 
 $wgGroupPermissions['sysop']['ep-org'] = true;
 $wgGroupPermissions['sysop']['ep-course'] = true;
