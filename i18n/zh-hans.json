@@ -520,6 +520,7 @@
 	"ep-enroll-signup-and-enroll": "创建新账户并注册",
 	"ep-enroll-not-allowed": "您的帐户不允许加入",
 	"ep-enroll-invalid-id": "您尝试参加的课程不存在。参见[[Special:Courses|课程列表]]。",
+	"ep-enroll-no-id": "您需要指明科目以参加。参见[[Special:Courses|课程列表]]。",
 	"ep-enroll-invalid-token": "您提供的标记无效。",
 	"ep-enroll-legend": "注册",
 	"ep-enroll-gender": "性别（可选）",
