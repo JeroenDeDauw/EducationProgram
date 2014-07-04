@@ -19,7 +19,8 @@
 			"Yfdyh000",
 			"Mywood",
 			"Bluedeck",
-			"Impersonator 1"
+			"Impersonator 1",
+			"Cwek"
 		]
 	},
 	"educationprogram-desc": "通过添加不同的接口来管理课程、机构和各种不同的教育用户角色，以此促进教育计划。",
@@ -321,6 +322,7 @@
 	"epstudentactivitypager-header-org-id": "学院",
 	"epstudentactivitypager-header-last-course": "课程",
 	"epstudentactivitypager-header-last-active": "最近活动",
+	"editinstitution-text": "输入下面的机构详细信息并单击提交以保存您的更改。",
 	"educationprogram-org-edit-name": "学院名称",
 	"orgpage-edit-legend-add": "添加学院",
 	"orgpage-edit-legend-edit": "编辑学院",
