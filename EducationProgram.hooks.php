@@ -569,4 +569,21 @@ final class Hooks {
 
 		return true;
 	}
+
+	/**
+	 * Make sure cldr extension is loaded.
+	 *
+	 * Will die() if CountryNames PHP class is not found.
+	 *
+	 * @since 0.5 alpha
+	 */
+	public static function onSetupAfterCache() {
+
+		global $wgAutoloadClasses;
+		if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version constant to check against :/
+			   die( '<strong>Error:</strong> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
+		}
+
+		return true;
+	}
 }

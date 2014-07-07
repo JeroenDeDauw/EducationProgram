@@ -36,10 +36,6 @@ if ( version_compare( $wgVersion, '1.21c', '<' ) ) { // Needs to be 1.21c becaus
 	die( '<strong>Error:</strong> Education Program requires MediaWiki 1.21 or above.' );
 }
 
-if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version constant to check against :/
-	die( '<strong>Error:</strong> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
-}
-
 // This is the version number for the Education Program extension. Bump it up after significant software changes.
 define( 'EP_VERSION', '0.5.0 alpha' );
 
@@ -275,6 +271,7 @@ $wgHooks['SpecialContributionsBeforeMainOutput'][]	= 'EducationProgram\Hooks::on
 $wgHooks['BeforeCreateEchoEvent'][] 				= 'EducationProgram\Hooks::onBeforeCreateEchoEvent';
 $wgHooks['EchoGetDefaultNotifiedUsers'][] 			= 'EducationProgram\Hooks::onEchoGetDefaultNotifiedUsers';
 $wgHooks['PageContentSaveComplete'][] 				= 'EducationProgram\Hooks::onPageContentSaveComplete';
+$wgHooks['SetupAfterCache'][]                       = 'EducationProgram\Hooks::onSetupAfterCache';
 
 // Actions
 $wgActions['epremarticle'] = 'EducationProgram\RemoveArticleAction';
