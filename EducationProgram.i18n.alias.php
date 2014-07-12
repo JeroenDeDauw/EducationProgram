@@ -248,6 +248,7 @@ $specialPageAliases['he'] = array(
 	'Student' => array( 'תלמיד' ),
 	'Students' => array( 'תלמידים' ),
 	'Courses' => array( 'קורסים', 'רשימת_הקורסים', 'כל_הקורסים' ),
+	'EducationProgram' => array( 'תכנית_השכלה' ),
 	'Enroll' => array( 'רישום_לקורס' ),
 	'Disenroll' => array( 'ביטול_רישם_לקורס' ),
 	'CampusAmbassadors' => array( 'מתנדבי_קמפוס' ),
