@@ -16,7 +16,7 @@
 	"educationprogram-desc": "Facilita programas educacionais ao adicionar várias interfaces para gestão de cursos, instituições e os diferentes papeis que assumem os participantes de um projeto educacional.",
 	"ep-item-summary": "Sumário",
 	"ep-toplink": "Cursos",
-	"ep-org-course-delete-comment": "A instituição $1 e todos os seus cursos com o comentário $2 foi excluída",
+	"ep-org-course-delete-comment": "A instituição $1 e todos os seus cursos com o comentário $2 foram excluídos",
 	"ep-org-course-delete": "A instituição $1 e todos seus cursos foi exclúida",
 	"ep-form-summary": "Sumário:",
 	"ep-form-minor": "Esta é uma edição menor",
