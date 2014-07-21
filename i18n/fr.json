@@ -272,7 +272,7 @@
 	"ep-pager-confirm-message-course": "Vous êtes sur le point de supprimer le cours $1. Cela supprimera toutes les données associées des étudiants !",
 	"ep-pager-confirm-message-course-many": "Vous êtes sur le point de supprimer ces cours : $1. Cela supprimera toutes les données associées des étudiants !",
 	"epstudentpager-header-user-id": "Nom d’utilisateur",
-	"epstudentpager-header-id": "Id",
+	"epstudentpager-header-id": "Identifiant",
 	"epstudentpager-header-current-courses": "Cours actuels",
 	"epstudentpager-header-passed-courses": "Cours terminés",
 	"epstudentpager-header-first-enroll": "Première inscription",
