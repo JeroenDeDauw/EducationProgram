@@ -691,6 +691,7 @@
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|一名在线志愿者}}",
 	"ep-user-roles-message-rolename-campus": "{{GENDER:$1|一名校园志愿者}}",
 	"echo-category-title-education-program": "教育计划",
+	"ep-echo-pref-tooltip": "当活动与我有关的教育计划课程相关时通知我。",
 	"ep-course-talk-link-text-view-message": "查看信息",
 	"ep-course-talk-link-text-view-changes": "查看更改",
 	"ep-course-talk-notification-title": "[[$2|$3的课程讨论页]]被[[User:$1|$1]]编辑了。",

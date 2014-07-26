@@ -533,7 +533,7 @@
 	"ep-enroll-invalid-token": "La clave (token) que has proporcionado no es válida.",
 	"ep-enroll-legend": "Inscribirse",
 	"ep-enroll-header": "Para inscribirse en este curso, todo lo que necesita hacer es llenar este formulario y pulse el botón \"{{int:educationprogram-org-submit}}\". Luego quedará inscrito.",
-	"ep-enroll-gender": "Género (opcional)",
+	"ep-enroll-gender": "Sexo (opcional)",
 	"ep-enroll-realname": "Nombre real (requerido)",
 	"ep-enroll-realname-optional": "Nombre real (opcional)",
 	"ep-enroll-invalid-name": "El nombre debe contener al menos $1 {{PLURAL:$1|carácter|caracteres}}.",
