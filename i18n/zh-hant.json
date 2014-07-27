@@ -8,7 +8,8 @@
 			"Simon Shek",
 			"Toliño",
 			"Xiaomingyan",
-			"Cwlin0416"
+			"Cwlin0416",
+			"LNDDYL"
 		]
 	},
 	"educationprogram-desc": "透過提供各種介面來管理課程、制度及各種不同教育使用者角色，藉此促進教育計劃。",
@@ -436,7 +437,7 @@
 	"ep-timeline-cutoff": "$1 ...",
 	"ep-timeline-users-create-article": "{{GENDER:$6|$1}}創建條目'''[[$2]]'''。",
 	"ep-timeline-users-create-user": "{{GENDER:$6|$1}}創建'''[[$2|$3]]'''的用戶頁面。",
-	"ep-dashboard-login-first": "您必須登入才可查看您的課程。",
+	"ep-dashboard-login-first": "您必須登入才可檢視您的課程。",
 	"ep-dashboard-timeline-empty": "本課程沒有最近活動。",
 	"ep-echo-pref-tooltip": "黨活動與我參與的教育計劃課程相關時，請通知我。"
 }
