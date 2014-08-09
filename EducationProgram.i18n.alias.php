@@ -429,21 +429,22 @@ $specialPageAliases['pa'] = array(
 
 /** Portuguese (português) */
 $specialPageAliases['pt'] = array(
-	'MyCourses' => array( 'MeusCursos' ),
-	'ManageCourses' => array( 'AdministrarCursos' ),
+	'MyCourses' => array( 'Meus_cursos', 'MeusCursos' ),
+	'ManageCourses' => array( 'Administrar_cursos', 'AdministrarCursos' ),
 	'Institutions' => array( 'Instituições' ),
 	'Student' => array( 'Estudante' ),
 	'Students' => array( 'Estudantes' ),
 	'Courses' => array( 'Cursos' ),
 	'EducationProgram' => array( 'Ensino' ),
 	'Enroll' => array( 'Inscrever-se' ),
-	'Disenroll' => array( 'CancelarInscrição' ),
-	'CampusAmbassadors' => array( 'EmbaixadoresDeCampus' ),
-	'OnlineAmbassadors' => array( 'EmbaixadoresOnline' ),
-	'OnlineAmbassadorProfile' => array( 'PerfilDoEmbaixadorOnline' ),
-	'CampusAmbassadorProfile' => array( 'PerfilDoEmbaixadorDeCampus' ),
-	'StudentActivity' => array( 'AtividadeDoEstudante' ),
-	'Articles' => array( 'Artigos' ),
+	'Disenroll' => array( 'Cancelar_inscrição', 'CancelarInscrição' ),
+	'CampusAmbassadors' => array( 'Embaixadores_de_campus', 'EmbaixadoresDeCampus' ),
+	'OnlineAmbassadors' => array( 'Embaixadores_online', 'EmbaixadoresOnline' ),
+	'OnlineAmbassadorProfile' => array( 'Perfil_do_embaixador_online', 'PerfilDoEmbaixadorOnline' ),
+	'CampusAmbassadorProfile' => array( 'Perfil_do_embaixador_de_campus', 'PerfilDoEmbaixadorDeCampus' ),
+	'StudentActivity' => array( 'Atividade_do_estudante', 'AtividadeDoEstudante' ),
+	'Articles' => array( 'Pàginas', 'Artigos' ),
+	'CourseActivity' => array( 'Atividade_do_curso' ),
 );
 
 /** Brazilian Portuguese (português do Brasil) */
