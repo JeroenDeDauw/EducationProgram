@@ -439,5 +439,6 @@
 	"ep-timeline-users-create-user": "{{GENDER:$6|$1}}創建'''[[$2|$3]]'''的用戶頁面。",
 	"ep-dashboard-login-first": "您必須登入才可檢視您的課程。",
 	"ep-dashboard-timeline-empty": "本課程沒有最近活動。",
-	"ep-echo-pref-tooltip": "黨活動與我參與的教育計劃課程相關時，請通知我。"
+	"ep-echo-pref-tooltip": "黨活動與我參與的教育計劃課程相關時，請通知我。",
+	"ep-course-talk-link-text-view-message": "檢視訊息"
 }
