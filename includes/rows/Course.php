@@ -966,7 +966,7 @@ class Course extends PageObject {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @returns string
+	 * @return string
 	 */
 	// TODO: Logic related to formatting the course title in the
 	// "institution/name (term)" format is peppered all around the codebase
