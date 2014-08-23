@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jason924tw"
+		]
+	},
+	"epstudentpager-header-user-id": "簿名",
+	"epcapager-header-user-id": "簿名",
+	"epoapager-header-user-id": "簿名"
+}

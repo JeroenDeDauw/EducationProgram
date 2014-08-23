@@ -43,6 +43,7 @@
 	"epoapager-header-user-id": "באַניצער נאָמען",
 	"educationprogram-org-edit-city": "שטאָט",
 	"educationprogram-org-edit-country": "לאנד",
+	"ep-course-edit-start": "אָנהייב דאַטע",
 	"ep-course-edit-description": "בלאט טעקסט",
 	"ep-course-edit-title": "בלאַטנאָמען",
 	"vieworgaction-summary-name": "נאָמען",
@@ -58,5 +59,6 @@
 	"ep-diff-previous": "אלטע ווערסיע",
 	"ep-diff-current": "איצטיגע ווערסיע",
 	"ep-timeline-ago": "זייט $1",
-	"ep-timeline-cutoff": "$1 ..."
+	"ep-timeline-cutoff": "$1 ...",
+	"ep-course-talk-notification-title": "דער [[$2|רעדן־בלאט פונעם קורס $3]] איז געווארן {{GENDER:$1|רעדאקטירט}} דורך  [[User:$1|$1]]."
 }
