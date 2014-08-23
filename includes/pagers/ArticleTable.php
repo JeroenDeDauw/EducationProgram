@@ -117,10 +117,6 @@ class ArticleTable extends EPPager {
 		return $modules;
 	}
 
-	public function getBody() {
-		return parent::getBody();
-	}
-
 	/**
 	 * @see Pager::getFields()
 	 */
