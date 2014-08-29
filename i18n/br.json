@@ -140,8 +140,8 @@
 	"ep-pager-confirm-delete-org": "Kadarnaat dilamadur {{PLURAL:$1|an ensavadur|meur a ensavadur}}",
 	"ep-pager-retry-button-org": "Adklask",
 	"ep-pager-summary-message-org": "Diverrañ :",
-	"ep-pager-confirm-message-org": "Emaoc'h war-nes dilemel an ensavadur $1. Lamet e vo an holl gentelioù hag an holl studierien stag outañ !",
-	"ep-pager-confirm-message-org-many": "Emaoc'h war-nes dilemel an ensavadurioù-mañ : $1. Lamet e vo an holl gentelioù hag an holl studierien stag outo!",
+	"ep-pager-confirm-message-org": "Emaoc'h war-nes dilemel an ensavadur $1.",
+	"ep-pager-confirm-message-org-many": "Emaoc'h war-nes dilemel an ensavadurioù-mañ : $1.",
 	"epcoursepager-header-name": "Anv",
 	"epcoursepager-header-term": "Trimiziad",
 	"epcoursepager-header-start": "Deroù",
@@ -288,7 +288,7 @@
 	"coursepage-delete-delete-button": "Diverkañ ar gentel",
 	"coursepage-delete-none": "N'eus ket kentelioù anvet \"$1\". Sellit ouzh [[Special:Courses|roll ar c'hentelioù]].",
 	"coursepage-delete-deleted": "Dilamet eo bet ar c'hentelioù $1.",
-	"orgpage-delete-text": "Emaoc'h war-nes dilemel an ensavadur $1. Lamet e vo an holl gentelioù hag an holl studierien stag outañ !",
+	"orgpage-delete-text": "Emaoc'h war-nes dilemel an ensavadur $1.",
 	"orgpage-delete-summary": "Abeg :",
 	"orgpage-delete-title": "Dilemel an ensavadur \"$1\"",
 	"orgpage-delete-cancel-button": "Nullañ",
@@ -414,5 +414,6 @@
 	"ep-course-talk-link-text-view-message": "Gwelet ar gemennadenn",
 	"ep-course-talk-link-text-view-changes": "Gwelet ar c'hemmoù",
 	"ep-role-add-link-text-view-course": "Gwelet ar gentel",
+	"ep-student-add-notification-title-email-subject": "{{GENDER:$1|ouzhpennet}} oc'h bet da $2 gant $1.",
 	"ep-student-add-notification-title-email-body": "Ouzhpennet oc'h {{GENDER:$1|bet}} da $2 gant $1."
 }
