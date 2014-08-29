@@ -183,14 +183,6 @@ class ApiEnlist extends ApiBase {
 		);
 	}
 
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'code' => 'username-xor-userid', 'info' => 'You need to either provide the username or the userid parameter' ),
-			array( 'code' => 'invalid-user', 'info' => 'An invalid user name or id was provided' ),
-			array( 'code' => 'invalid-course', 'info' => 'There is no course with the provided ID' ),
-		) );
-	}
-
 	protected function getExamples() {
 		return array(
 			'api.php?action=instructor&subaction=add&courseid=42&userid=9001',
