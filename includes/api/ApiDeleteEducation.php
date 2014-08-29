@@ -150,12 +150,6 @@ class ApiDeleteEducation extends ApiBase {
 		);
 	}
 
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'badaccess-groups' ),
-		) );
-	}
-
 	protected function getExamples() {
 		return array(
 			'api.php?action=deleteeducation&ids=42&type=course',

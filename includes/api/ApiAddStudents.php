@@ -177,13 +177,6 @@ class ApiAddStudents extends ApiBase {
 		);
 	}
 
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'code' => 'invalid-course', 'info' => 'There is no course with the provided ID.' ),
-			array( 'code' => 'internal-error', 'info' => 'There was a problem enrolling students in this course.' ),
-			array( 'code' => 'no-rights', 'info' => 'The user is not authorized to perform this action.' ),
-		) );
-	}
 
 	protected function getExamples() {
 		return array(

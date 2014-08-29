@@ -445,15 +445,6 @@ class ApiListStudents extends ApiBase {
 		);
 	}
 
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'code' => 'invalid-course',
-				'info' => 'There is no course with the provided ID.' ),
-			array( 'code' => 'over-query-limit',
-				'info' => 'This query would return more usernames than allowed.' ),
-		));
-	}
-
 	protected function getExamples() {
 		return array(
 			'api.php?action=liststudents&courseids=3',
