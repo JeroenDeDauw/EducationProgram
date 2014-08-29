@@ -177,34 +177,6 @@ class ApiAddStudents extends ApiBase {
 		);
 	}
 
-	protected function getResultProperties() {
-		return array (
-			'result'=> 	array(
-				ApiBase::PROP_TYPE => array(
-					'success',
-					'invalidUsers'
-				),
-				ApiBase::PROP_NULLABLE => false,
-		),
-
-			'studentsAddedIds' => array(
-				'' => 'integer',
-			),
-
-			'oneStudentAddedGender' => 'string',
-
-			'invalidUserNames' => array(
-				'' => 'string',
-			),
-
-			'alreadyEnrolledUserNames' => array(
-				'' => 'string',
-			),
-
-			'oneAlreadyEnrolledGender' => 'string',
-		);
-	}
-
 	public function getPossibleErrors() {
 		return array_merge( parent::getPossibleErrors(), array(
 			array( 'code' => 'invalid-course', 'info' => 'There is no course with the provided ID.' ),
