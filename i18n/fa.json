@@ -12,7 +12,8 @@
 			"Reza1615",
 			"Taha",
 			"ZxxZxxZ",
-			"جواد"
+			"جواد",
+			"Alirezaaa"
 		]
 	},
 	"educationprogram-desc": "امکانات برنامه‌های آموزشی برای افزودن رابط‌های کاربری متنوع برای مدیریت دوره‌ها و عملکردهای آموزشی دیگر",
@@ -200,7 +201,7 @@
 	"ep-educationprogram-genders": "تفکیک جنسیتی",
 	"ep-educationprogram-nodata": "هیچ داده‌ای برای نمایش هنوز وجود دارد!",
 	"ep-institutions-noresults": "هیچ نهادی در فهرست وجود ندارد.",
-	"ep-institutions-addnew": "افزودن یک نهاد جدید",
+	"ep-institutions-addnew": "افزودن یک نهاد تازه",
 	"ep-institutions-namedoc": "نام نهاد جدید را (که باید منحصر به فرد باشد) وارد کنید و دکمه را فشار دهید.",
 	"ep-institutions-newname": "نام نهاد:",
 	"ep-institutions-add": "افزودن نهاد",
@@ -663,6 +664,7 @@
 	"ep-studentactivity-count": "$1 دانشجو فعال در $2 اخیر {{PLURAL:$1|بوده‌است|بوده‌اند}}.",
 	"ep-diff-old": "مقدار کنونی",
 	"ep-diff-new": "مقدار جدید",
+	"ep-diff-current": "نسخهٔ فعلی",
 	"ep-timeline-remaining": "$1 {{PLURAL:$1|دیگر}}",
 	"ep-timeline-unknown": "$1 کاری در $2، $3 انجام داد",
 	"ep-timeline-ago": "$1 پیش",
