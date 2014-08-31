@@ -513,7 +513,7 @@
 	"ep-enroll-title": "ثبت‌نام برای $1 در $2",
 	"ep-enroll-login-first": "قبل از اینکه بتوانید در این دوره ثبت نام کنید، شما باید ثبت نام کنید.",
 	"ep-enroll-login-and-enroll": "ورود با حساب موجود و ثبت نام",
-	"ep-enroll-signup-and-enroll": "ساخت یک کاربر جدید و ثبت نام",
+	"ep-enroll-signup-and-enroll": "ساخت یک کاربر تازه و ثبت‌نام",
 	"ep-enroll-not-allowed": "حساب شما مجاز به ثبت نام نیستید",
 	"ep-enroll-invalid-id": "دوره‌ای که شما در حال تلاش برای ثبت نام هستید وجود ندارد. [[Special:Courses|فهرست دوره‌ها]] را ببینید.",
 	"ep-enroll-no-id": "شما نیازمند مشخص‌کردن دوره‌ای برای ثبت نام هستید. [[Special:Courses|فهرست دوره‌ها]] را ببینید.",
