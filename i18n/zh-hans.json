@@ -619,6 +619,7 @@
 	"ep-campus-remove-title": "从课程中移除校园志愿者",
 	"ep-campus-remove-button": "移除校园志愿者",
 	"ep-campus-removing": "正在删除…",
+	"ep-campus-removal-success": "已成功从此课程移除此校园志愿者。",
 	"ep-campus-close-button": "关闭",
 	"ep-campus-remove-retry": "重试",
 	"ep-campus-remove-failed": "出现错误——无法将校园志愿者从课程移除。",
