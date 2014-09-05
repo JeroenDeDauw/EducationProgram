@@ -541,6 +541,7 @@
 	"ep-enroll-submit-token": "使用此标记报名",
 	"ep-enroll-course-passed": "课程已结束，您不能再报名。请查看[[Special:Courses|课程列表]]。",
 	"ep-enroll-course-planned": "此课程还未开始，请保持耐心。参见[[Special:Courses|课程列表]]。",
+	"ep-disenroll-no-name": "您需要提供您要除名的课程名称。",
 	"ep-disenroll-invalid-name": "没有名为“$1”的课程。",
 	"ep-disenroll-course-passed": "此课程已结束。您不在可以被它开除。",
 	"ep-disenroll-not-enrolled": "您未在此课程登记，所以不能被它开除。",
