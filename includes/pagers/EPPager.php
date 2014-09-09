@@ -549,7 +549,7 @@ abstract class EPPager extends \TablePager {
 	 * Would obviously be better if parent class supported doing this nicer.
 	 */
 	function getStartBody() {
-		global $wgStylePath;
+		global $wgExtensionAssetsPath;
 		$tableClass = htmlspecialchars( $this->getTableClass() );
 		$sortClass = htmlspecialchars( $this->getSortHeaderClass() );
 
@@ -592,7 +592,7 @@ abstract class EPPager extends \TablePager {
 						$alt = $this->msg( 'ascending_abbrev' )->escaped();
 					}
 
-					$image = htmlspecialchars( "$wgStylePath/common/images/$image" );
+					$image = htmlspecialchars( "$wgExtensionAssetsPath/EducationProgram/images/$image" );
 					$link = $this->makeLink(
 								"<img width=\"12\" height=\"12\" alt=\"$alt\" src=\"$image\" />" .
 					htmlspecialchars( $name ), $query );
