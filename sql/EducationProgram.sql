@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_start               varbinary(14)       NOT NULL, -- Start time of the course
   course_end                 varbinary(14)       NOT NULL, -- End time of the course
   course_description         TEXT                NOT NULL, -- Description of the course
-  course_students            BLOB                NOT NULL, --  List of associated students (linking user.user_id)
-  course_online_ambs         BLOB                NOT NULL, -- List of associated online ambassadors (linking user.user_id)
-  course_campus_ambs         BLOB                NOT NULL, -- List of associated campus ambassadors (linking user.user_id)
-  course_instructors         BLOB                NOT NULL, -- List of associated instructors (linking user.user_id)
+  course_students            BLOB                NOT NULL, -- List (serialized PHP array) of associated students (linking user.user_id)
+  course_online_ambs         BLOB                NOT NULL, -- List (serialized PHP array) of associated online ambassadors (linking user.user_id)
+  course_campus_ambs         BLOB                NOT NULL, -- List (serialized PHP array) of associated campus ambassadors (linking user.user_id)
+  course_instructors         BLOB                NOT NULL, -- List (serialized PHP array) of associated instructors (linking user.user_id)
   course_token               VARCHAR(255)        NOT NULL, -- Token needed to enroll
   course_field               VARCHAR(255)        NOT NULL, -- Deprecated, unused - Field of study
   course_level               VARCHAR(255)        NOT NULL, -- Deprecated, unused - Study level
