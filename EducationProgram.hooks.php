@@ -11,6 +11,7 @@ use User;
 use SkinTemplate;
 use Revision;
 use Page;
+use JobQueueGroup;
 
 /**
  * Static class for hooks handled by the Education Program extension.
@@ -583,6 +584,139 @@ final class Hooks {
 		if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version constant to check against :/
 			   die( '<strong>Error:</strong> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
 		}
+
+		return true;
+	}
+
+	/**
+	 * Let UserMerge know which of our tables need updating
+	 *
+	 * @param array $fields
+	 * @return bool
+	 *
+	 * @since 0.5.0 alpha
+	 */
+	public static function onUserMergeAccountFields( array &$fields ) {
+
+		// Omitting the ep_users_per_course table, since that will be updated
+		// automatically by Course::save(), called from onMergeAccountFromTo().
+
+		// array( tableName, idField, textField, 'options' => array() )
+		$fields[] = array( 'ep_articles', 'article_user_id', 'options' => array( 'IGNORE' ) );
+		$fields[] = array( 'ep_students', 'student_user_id', 'options' => array( 'IGNORE' ) );
+		$fields[] = array( 'ep_instructors', 'instructor_user_id',  'options' => array( 'IGNORE' ) );
+		$fields[] = array( 'ep_cas', 'ca_user_id', 'options' => array( 'IGNORE' ) );
+		$fields[] = array( 'ep_oas', 'oa_user_id', 'options' => array( 'IGNORE' ) );
+		$fields[] = array( 'ep_events', 'event_user_id' );
+		$fields[] = array( 'ep_revisions', 'rev_user_id', 'rev_user_text' );
+
+		return true;
+	}
+
+	/**
+	 * If the above tables had unique key conflicts, just delete the conflicting
+	 * rows.
+	 *
+	 * @param array $tables
+	 * @return bool
+	 *
+	 * @since 0.5.0 alpha
+	 */
+	public static function onUserMergeAccountDeleteTables( array &$tables ) {
+		$tables += array(
+			'ep_articles' => 'article_user_id',
+			'ep_users_per_course' => 'upc_user_id',
+			'ep_students' => 'student_user_id',
+			'ep_instructors' => 'instructor_user_id',
+			'ep_cas' => 'ca_user_id',
+			'ep_oas' => 'oa_user_id',
+		);
+
+		return true;
+	}
+
+	/**
+	 * @param User $oldUser
+	 * @param User $newUser
+	 * @return bool
+	 *
+	 * @since 0.5.0 alpha
+	 */
+	public static function onMergeAccountFromTo( &$oldUser, $newUser ) {
+
+		$oldId = $oldUser->getId();
+		$newId = $newUser->getId();
+
+		$dbw = wfGetDB( DB_MASTER );
+
+		// Get all the courses (including inactive) that the old user had roles in.
+		// This will return only unique values.
+		$userCourseFinder = new UPCUserCourseFinder( $dbw );
+
+		$courseIds =
+			$userCourseFinder->getCoursesForUsers( $oldId, array(), false );
+
+		// Fields with arrays of the ids of users that have a role in a course
+		$roleFields = array(
+				'students',
+				'online_ambs',
+				'campus_ambs',
+				'instructors'
+		);
+
+		// A function to usermerge in an array of ids. Returns true if there
+		// were changes.
+		$mergeUserIds = function( &$ids ) use ( $oldId, $newId ) {
+
+			$i = array_search( $oldId, $ids );
+
+			if ( $i !== false ) {
+				$ids[$i] = $newId;
+				$ids = array_unique( $ids );
+				return true;
+			}
+
+			return false;
+		};
+
+		foreach( $courseIds as $courseId ) {
+
+			// Fetch the course
+			$course = Courses::singleton()->selectRow(
+					null, array( 'id' => $courseId ) );
+
+			// Sanity check
+			if ( !$course ) {
+				continue;
+			}
+
+			// Go through the role fields, update the user id, de-dupe and save
+			foreach ( $roleFields as $roleField ) {
+
+				$ids = $course->getField( $roleField );
+
+				if ( $mergeUserIds( $ids ) ) {
+					$course->setField( $roleField, $ids );
+				}
+			}
+
+			// At least one of the fields should have changed, so save.
+			// This will the update ep_users_per_course table and
+			// summary fields in ep_orgs
+			$course->save();
+		}
+
+		// We'll merge reviewers in a batch job just in case there are a lot
+		// of rows to change (unlikely but not impossible).
+		$job = new UserMergeArticleReviewersJob(
+			Title::newFromText( 'EducationProgram UserMerge reviewers/' . uniqid() ),
+			array(
+				'oldUserId' => $oldId,
+				'newUserId' => $newId
+				)
+			);
+
+		JobQueueGroup::singleton()->push( $job );
 
 		return true;
 	}

@@ -206,6 +206,7 @@ $wgAutoloadClasses['EducationProgram\UserCourseFinder'] 			= $dir . '/includes/U
 $wgAutoloadClasses['EducationProgram\UserRolesMessage'] 			= $dir . '/includes/UserRolesMessage.php';
 $wgAutoloadClasses['EducationProgram\OrgDeletionHelper']			= $dir . '/includes/OrgDeletionHelper.php';
 $wgAutoloadClasses['EducationProgram\Utils']						= $dir . '/includes/Utils.php';
+$wgAutoloadClasses['EducationProgram\UserMergeArticleReviewersJob']		= $dir . '/includes/UserMergeArticleReviewersJob.php';
 
 $wgAutoloadClasses['EducationProgram\Tests\MockSuperUser'] 			= $dir . '/tests/phpunit/MockSuperUser.php';
 $wgAutoloadClasses['EducationProgram\Tests\UserCourseFinderTest'] 	= $dir . '/tests/phpunit/UserCourseFinderTest.php';
@@ -254,6 +255,9 @@ $wgAPIModules['refresheducation'] 					= 'EducationProgram\ApiRefreshEducation';
 $wgAPIModules['addstudents'] 						= 'EducationProgram\ApiAddStudents';
 $wgAPIModules['liststudents'] 						= 'EducationProgram\ApiListStudents';
 
+// Jobs
+$wgJobClasses['educationProgramUserMergeArticleReviewers'] = 'EducationProgram\UserMergeArticleReviewersJob';
+
 // Hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] 			= 'EducationProgram\Hooks::onSchemaUpdate';
 $wgHooks['UnitTestsList'][] 						= 'EducationProgram\Hooks::registerUnitTests';
@@ -272,6 +276,11 @@ $wgHooks['BeforeCreateEchoEvent'][] 				= 'EducationProgram\Hooks::onBeforeCreat
 $wgHooks['EchoGetDefaultNotifiedUsers'][] 			= 'EducationProgram\Hooks::onEchoGetDefaultNotifiedUsers';
 $wgHooks['PageContentSaveComplete'][] 				= 'EducationProgram\Hooks::onPageContentSaveComplete';
 $wgHooks['SetupAfterCache'][]                       = 'EducationProgram\Hooks::onSetupAfterCache';
+
+// UserMerge hooks
+$wgHooks['UserMergeAccountFields'][]                = 'EducationProgram\Hooks::onUserMergeAccountFields';
+$wgHooks['UserMergeAccountDeleteTables'][]          = 'EducationProgram\Hooks::onUserMergeAccountDeleteTables';
+$wgHooks['MergeAccountFromTo'][]                    = 'EducationProgram\Hooks::onMergeAccountFromTo';
 
 // Actions
 $wgActions['epremarticle'] = 'EducationProgram\RemoveArticleAction';
