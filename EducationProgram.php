@@ -377,6 +377,7 @@ $wgGroupPermissions['epcoordinator']['ep-remstudent'] = true;
 $wgGroupPermissions['epcoordinator']['ep-campus'] = true;
 $wgGroupPermissions['epcoordinator']['ep-online'] = true;
 $wgGroupPermissions['epcoordinator']['ep-instructor'] = true;
+$wgGroupPermissions['epcoordinator']['ep-beonline'] = true;
 $wgGroupPermissions['epcoordinator']['ep-becampus'] = true;
 $wgGroupPermissions['epcoordinator']['ep-beinstructor'] = true;
 $wgGroupPermissions['epcoordinator']['ep-bereviewer'] = true;
