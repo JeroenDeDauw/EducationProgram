@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_courses (
   course_term                VARCHAR(255)        NOT NULL, -- Academic term
   course_lang                VARCHAR(10)         NOT NULL, -- Language (code)
 
-  -- Summary fields - caching data or computations on data stored elswhere
+  -- Summary fields - caching data or computations on data stored elsewhere
   course_instructor_count    TINYINT unsigned    NOT NULL, -- Amount of instructors
   course_oa_count            SMALLINT unsigned   NOT NULL, -- Amount of online ambassadors
   course_ca_count            SMALLINT unsigned   NOT NULL, -- Amount of campus ambassadors
@@ -103,7 +103,7 @@ CREATE UNIQUE INDEX /*i*/ep_articles_course_page ON /*_*/ep_articles (article_co
 
 -- Links the students with their courses.
 CREATE TABLE IF NOT EXISTS /*_*/ep_users_per_course (
-  upc_user_id                INT unsigned        NOT NULL, -- Foreign key on ep_user.user_id
+  upc_user_id                INT unsigned        NOT NULL, -- Foreign key on user.user_id
   upc_course_id              INT unsigned        NOT NULL, -- Foreign key on ep_courses.course_id
   upc_role                   TINYINT unsigned    NOT NULL, -- The role the user has for the course
   upc_time                   varbinary(14)       NOT NULL -- Time at which the link was made
