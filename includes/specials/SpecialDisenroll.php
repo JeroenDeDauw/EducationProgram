@@ -191,7 +191,7 @@ class SpecialDisenroll extends VerySpecialPage {
 		) !== false;
 
 		if ( $success ) {
-			$this->showSuccess( $this->msg( 'ep-disenroll-success' ) );
+			$this->showSuccess( $this->msg( 'ep-disenroll-success', $this->getUser() )->text() );
 		}
 		else {
 			$this->showError( $this->msg( 'ep-disenroll-fail' ) );
