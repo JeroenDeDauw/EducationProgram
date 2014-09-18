@@ -26,15 +26,22 @@ class RemoveStudentAction extends \FormlessAction {
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
-		$api = new \ApiMain( new \FauxRequest( array(
-			'action' => 'enlist',
-			'subaction' => 'remove',
-			'format' => 'json',
-			'courseid' => $this->getRequest()->getInt( 'course-id' ),
-			'userid' => $this->getRequest()->getInt( 'user-id' ),
-			'reason' => '', // TODO high
-			'role' => 'student'
-		), true ), true );
+
+		$req = $this->getRequest();
+
+		$api = new \ApiMain( new \DerivativeRequest(
+			$req,
+			array(
+				'action' => 'enlist',
+				'subaction' => 'remove',
+				'format' => 'json',
+				'courseid' => $req->getInt( 'course-id' ),
+				'userid' => $req->getInt( 'user-id' ),
+				'token' => $this->getUser()->getEditToken(),
+				'reason' => '', // TODO high
+				'role' => 'student'
+			),
+			true ), true);
 
 		try { $api->execute(); } catch ( \Exception $exception ) {}
 
