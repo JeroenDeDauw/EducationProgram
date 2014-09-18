@@ -546,6 +546,7 @@
 	"ep-disenroll-course-passed": "此课程已结束。您不在可以被它开除。",
 	"ep-disenroll-not-enrolled": "您未在此课程登记，所以不能被它开除。",
 	"ep-disenroll-title": "从课程“$1”退学",
+	"ep-disenroll-text": "您将要从课程“$1”开除。这将移除任何您在此课程作为学生撰写的条目。",
 	"ep-disenroll-button": "取消注册",
 	"ep-disenroll-summary": "您为什么要取消注册？",
 	"ep-disenroll-cancel": "取消",
