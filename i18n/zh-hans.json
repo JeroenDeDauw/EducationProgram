@@ -102,7 +102,7 @@
 	"logentry-campus-selfremove": "$1从$3课程中删除{{GENDER:$2|自己}}身为{{GENDER:$2|校园志愿者}}",
 	"logentry-campus-profilesave": "$1更新了{{GENDER:$2|他|她|他们}}的自己的校园大使个人资料",
 	"logentry-student-add": "$1在课程中$3作为{{PLURAL:$4|{{GENDER:$5|学生}}}}{{GENDER:$2|登记了}}$5",
-	"logentry-student-remove": "$1从$3课程中{{GENDER:$2|删除}}{{PLURAL:$4|{{GENDER:$5|这位学生}}|以下学生：}}$5",
+	"logentry-student-remove": "$1从课程$3中{{GENDER:$2|移除}}{{PLURAL:$4|{{GENDER:$5|学生}}|以下学生}}：$5",
 	"logentry-student-selfadd": "$1注册$3课程",
 	"logentry-student-selfremove": "$1退出$3课程",
 	"logentry-eparticle-selfadd": "$1在$4课程中{{GENDER:$2|自己}}的文章篇目添加$3文章",
