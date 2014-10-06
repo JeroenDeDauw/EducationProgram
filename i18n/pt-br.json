@@ -10,7 +10,8 @@
 			"Oona",
 			"Rodrigo Padula",
 			"Teles",
-			"Dianakc"
+			"Dianakc",
+			"McDutchie"
 		]
 	},
 	"educationprogram-desc": "Facilita programas educacionais ao adicionar várias interfaces para gestão de cursos, instituições e os diferentes papeis que assumem os participantes de um projeto educacional.",
@@ -678,13 +679,13 @@
 	"ep-timeline-users-edit-talk": "{{GENDER:$6|$1}} {{PLURAL:$5|deixou|deixaram}} {{PLURAL:$4|uma mensagem|mensagens}} na '''[[$2|página de discussão]]''' de '''[[$3]]'''.",
 	"ep-timeline-users-edit-user": "{{GENDER:$6|$1}} {{PLURAL:$5|editou|editaram}} a página de usuário de '''[[$2|$3]]'''.",
 	"ep-timeline-users-edit-usertalk": "'''[[User:$3|$3]]''' recebeu {{PLURAL:$4|uma mensagem|mensagens}} em sua '''[[$2|página de discussão]]'''.",
-	"ep-timeline-users-edit-user-self": "$1 '''[[$2|{{GENDER:$6|editou sua página de usuário|editou sua página de usuária|editaram suas páginas de usuário}}]]'''.",
+	"ep-timeline-users-edit-user-self": "$1 editou sua '''[[$2|página de usuári{{GENDER:$6|o|a}}]]'''.",
 	"ep-timeline-users-edit-usertalk-self": "'''[[User:$3|$3]]''' postou {{PLURAL:$4|uma mensagem|mensagens}} em sua '''[[$2|página de discussão]]'''.",
 	"ep-timeline-users-create-article": "{{GENDER:$6|$1}} criou o artigo '''[[$2]]'''.",
 	"ep-timeline-users-create-talk": "{{GENDER:$6|$1}} criou a '''[[$2|página de discussão]]''' de '''[[$3]]''' e deixou {{PLURAL:$4|uma mensagem|várias mensagens}}.",
 	"ep-timeline-users-create-user": "{{GENDER:$6|$1}} criou a página de usuário de '''[[$2|$3]]'''.",
 	"ep-timeline-users-create-usertalk": "'''[[User:$3|$3]]''' recebeu {{PLURAL:$4|uma mensagem|mensagens}} em sua '''[[$2|página de discussão]]''' recém criada.",
-	"ep-timeline-users-create-user-self": "$1 '''[[$2|{{GENDER:$6|criou sua página de usuário|criou sua página de usuária|criaram suas páginas de usuário}}]]'''.",
+	"ep-timeline-users-create-user-self": "$1 criou sua '''[[$2|página de usuári{{GENDER:$6|o|a}}]]'''.",
 	"ep-timeline-users-create-usertalk-self": "'''[[User:$3|$3]]''' criou sua '''[[$2|página de usuári{{GENDER:$3|o|a}}]]''' e postou {{PLURAL:$4|uma mensagem|várias mensagens}}.",
 	"ep-dashboard-login-first": "Você deve se conectar com sua conta de usuário para poder ver seus cursos.",
 	"ep-dashboard-timeline-empty": "Não houve nenhuma atividade recente para este curso.",
