@@ -28,6 +28,11 @@ $namespaceNames['ar'] = array(
 	EP_NS_TALK => 'نقاش_برنامج_التعليم',
 );
 
+$namespaceNames['cs'] = array(
+	EP_NS      => 'Kurz',
+	EP_NS_TALK => 'Diskuse_ke_kurzu',
+);
+
 $namespaceNames['fa'] = array(
 	EP_NS      => 'برنامه_آموزشی',
 	EP_NS_TALK => 'بحث_برنامه_آموزشی',
