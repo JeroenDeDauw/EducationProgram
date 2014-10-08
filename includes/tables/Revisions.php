@@ -14,6 +14,10 @@ namespace EducationProgram;
  */
 class Revisions extends \ORMTable {
 
+	public function __construct() {
+		$this->fieldPrefix = 'rev_';
+	}
+
 	/**
 	 * @see ORMTable::getName()
 	 * @since 0.1
@@ -21,15 +25,6 @@ class Revisions extends \ORMTable {
 	 */
 	public function getName() {
 		return 'ep_revisions';
-	}
-
-	/**
-	 * @see ORMTable::getFieldPrefix()
-	 * @since 0.1
-	 * @return string
-	 */
-	public function getFieldPrefix() {
-		return 'rev_';
 	}
 
 	/**

@@ -4,7 +4,6 @@ namespace EducationProgram;
 
 use EducationProgram\Events\EventStore;
 use EducationProgram\Store\CourseStore;
-use ORMTable;
 
 /**
  * Main extension class, acts as dependency injection container look-alike.

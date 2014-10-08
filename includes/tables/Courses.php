@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use ORMResult, Title;
+
+use ORMResult;
+use Title;
 
 /**
  * Class representing the ep_courses table.
@@ -20,6 +22,10 @@ class Courses extends PageTable {
 	// a new course.
 	const DEFAULT_COURSE_DURATION = '+6 months';
 
+	public function __construct() {
+		$this->fieldPrefix = 'course_';
+	}
+
 	/**
 	 * @see ORMTable::getName()
 	 * @since 0.1
@@ -27,15 +33,6 @@ class Courses extends PageTable {
 	 */
 	public function getName() {
 		return 'ep_courses';
-	}
-
-	/**
-	 * @see ORMTable::getFieldPrefix()
-	 * @since 0.1
-	 * @return string
-	 */
-	public function getFieldPrefix() {
-		return 'course_';
 	}
 
 	/**

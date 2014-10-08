@@ -14,6 +14,10 @@ namespace EducationProgram;
  */
 class Instructors extends \ORMTable {
 
+	public function __construct() {
+		$this->fieldPrefix = 'instructor_';
+	}
+
 	/**
 	 * @see ORMTable::getName()
 	 * @since 0.1
@@ -21,15 +25,6 @@ class Instructors extends \ORMTable {
 	 */
 	public function getName() {
 		return 'ep_instructors';
-	}
-
-	/**
-	 * @see ORMTable::getFieldPrefix()
-	 * @since 0.1
-	 * @return string
-	 */
-	public function getFieldPrefix() {
-		return 'instructor_';
 	}
 
 	/**

@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use Linker, Title;
+
+use Linker;
+use Title;
 
 /**
  * Abstract base class ORMRows that have associated page views.

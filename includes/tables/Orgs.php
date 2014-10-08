@@ -21,6 +21,10 @@ class Orgs extends PageTable {
 	 */
 	protected $read_master_for_summaries = false;
 
+	public function __construct() {
+		$this->fieldPrefix = 'org_';
+	}
+
 	/**
 	 * @see ORMTable::getName()
 	 * @since 0.1
@@ -28,15 +32,6 @@ class Orgs extends PageTable {
 	 */
 	public function getName() {
 		return 'ep_orgs';
-	}
-
-	/**
-	 * @see ORMTable::getFieldPrefix()
-	 * @since 0.1
-	 * @return string
-	 */
-	public function getFieldPrefix() {
-		return 'org_';
 	}
 
 	/**
