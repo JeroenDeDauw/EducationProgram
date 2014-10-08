@@ -111,7 +111,7 @@ $specialPageAliases['cdo'] = array(
 	'Articles' => array( '文章' ),
 );
 
-/** Czech (Český ) */
+/** Czech (čeština) */
 $specialPageAliases['cs'] = array(
 	'MyCourses' => array( 'Moje_kurzy' ),
 	'ManageCourses' => array( 'Spravovat_kurzy' ),
