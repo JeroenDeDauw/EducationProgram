@@ -111,6 +111,20 @@ $specialPageAliases['cdo'] = array(
 	'Articles' => array( '文章' ),
 );
 
+/** Czech (Český ) */
+$specialPageAliases['cs'] = array(
+	'MyCourses' => array( 'Moje_kurzy' ),
+	'ManageCourses' => array( 'Spravovat_kurzy' ),
+	'Institutions' => array( 'Instituce' ),
+	'Students' => array( 'Studenti' ),
+	'Courses' => array( 'Kurzy' ),
+	'CampusAmbassadors' => array( 'Dobrovolníci_dostupní_osobně' ),
+	'OnlineAmbassadors' => array( 'Online_dobrovolníci' ),
+	'OnlineAmbassadorProfile' => array( 'Profil_online_dobrovolníka' ),
+	'CampusAmbassadorProfile' => array( 'Profil_dobrovolníka_dostupného_osobně' ),
+	'StudentActivity' => array( 'Studentská_aktivita' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'MyCourses' => array( 'Meine_Kurse' ),
