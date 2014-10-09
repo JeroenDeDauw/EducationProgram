@@ -3,7 +3,8 @@
 		"authors": [
 			"Hym411",
 			"Priviet",
-			"아라"
+			"아라",
+			"Revi"
 		]
 	},
 	"educationprogram-desc": "과정, 기관 및 다양한 교육 사용자 역할을 관리하는 다양한 인터페이스를 추가하여 교육 프로그램을 사용하기 쉽게 합니다.",
@@ -12,7 +13,7 @@
 	"ep-org-course-delete-comment": "$1 기관과 모든 과정이 삭제됨 ($2)",
 	"ep-org-course-delete": "$1 기관과 모든 과정이 삭제됨",
 	"ep-form-summary": "요약:",
-	"ep-form-minor": "사소한 편집",
+	"ep-form-minor": "사소한 편집입니다",
 	"ep-move-error": "교육 이름공간의 안이나 밖으로 문서를 옮길 수 없습니다.",
 	"ep-student-view-profile": "학생 프로필",
 	"ep-err-failed-to-save": "뭔가 잘못됐습니다 - 바뀜을 저장하지 않았습니다.",
