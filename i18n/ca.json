@@ -607,7 +607,7 @@
 	"ep-diff-current": "Darrera revisió",
 	"ep-timeline-ago": "fa $1",
 	"ep-timeline-cutoff": "$1 ...",
-	"ep-timeline-no-summary": "\"No s'ha proporcionat cap resum\"",
+	"ep-timeline-no-summary": "''No s’ha proporcionat cap resum''",
 	"ep-dashboard-timeline-empty": "No hi ha hagut activitat recent en aquest curs.",
 	"ep-role-add-link-text-view-course": "Vegeu el curs",
 	"ep-student-add-notification-title": "{{GENDER:$1|En |Na |}}[[User:$1|$1]] t’ha afegit a [[$2|$3]]."
