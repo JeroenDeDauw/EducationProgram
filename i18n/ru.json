@@ -552,7 +552,7 @@
 	"ep-disenroll-summary": "Почему Вы подписываете?",
 	"ep-disenroll-cancel": "Отмена",
 	"ep-disenroll-fail": "Что-то пошло не так - не могли бы вы выйти из этого курса.",
-	"ep-disenroll-success": "Вы успешно отписаны от этого курса!",
+	"ep-disenroll-success": "{{GENDER:$1|Вы}} успешно {{GENDER:$1|отписаны}} от этого курса!",
 	"ep-disenroll-returntolink": "Вернуться к [[Education_Program:$2|курсу $1]].",
 	"ep-mycourses-enrolled": "Вы успешно записались на $1 в $2.",
 	"ep-mycourses-not-enrolled": "Вы не записаны ни на один курс. См. [[Special:Courses|список курсов]].",

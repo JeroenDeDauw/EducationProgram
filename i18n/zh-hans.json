@@ -20,7 +20,8 @@
 			"Mywood",
 			"Bluedeck",
 			"Impersonator 1",
-			"Cwek"
+			"Cwek",
+			"Papapasan"
 		]
 	},
 	"educationprogram-desc": "通过添加不同的接口来管理课程、机构和各种不同的教育用户角色，以此促进教育计划。",
@@ -552,7 +553,7 @@
 	"ep-disenroll-summary": "您为什么要取消注册？",
 	"ep-disenroll-cancel": "取消",
 	"ep-disenroll-fail": "出现问题 - 无法从此课程中注销。",
-	"ep-disenroll-success": "您已成功从此课程中注销。",
+	"ep-disenroll-success": "{{GENDER:$1|您}}已成功从此课程中{{GENDER:$1|注销}}。",
 	"ep-disenroll-returntolink": "回到[[Education_Program:$2|课程$1]]。",
 	"ep-mycourses-enrolled": "您成功于$2报名$1。",
 	"ep-mycourses-not-enrolled": "您还没有报名人和课程。请参见[[Special:Courses|课程列表]]。",

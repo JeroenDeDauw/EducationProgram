@@ -425,7 +425,7 @@
 	"ep-disenroll-summary": "Miks tühistad registreerumise?",
 	"ep-disenroll-cancel": "Loobu",
 	"ep-disenroll-fail": "Mida läks valesti. Sinu sellele kursusele registreerumist ei õnnestunud tühistada.",
-	"ep-disenroll-success": "Sinu registreerumine sellele kursusele on edukalt tühistatud!",
+	"ep-disenroll-success": "{{GENDER:$1|Sinu}} registreerumine sellele kursusele on edukalt tühistatud!",
 	"ep-disenroll-returntolink": "Naase [[Education_Program:$2|kursuse $1]] juurde.",
 	"ep-mycourses-enrolled": "Oled edukalt registreerunud asutuse $2 kursusele $1.",
 	"ep-mycourses-not-enrolled": "Sa pole ühelegi kursusele registreerunud. Vaata [[Special:Courses|kursuste nimekirja]].",

@@ -541,7 +541,7 @@
 	"ep-disenroll-summary": "Varför avregistrerar du dig?",
 	"ep-disenroll-cancel": "Avbryt",
 	"ep-disenroll-fail": "Någonting gick fel - kunde inte avregistrera dig från denna kurs.",
-	"ep-disenroll-success": "Du har lyckats avregistrera dig från denna kurs!",
+	"ep-disenroll-success": "{{GENDER:$1|Du}} har lyckats {{GENDER:$1|avregistrera dig}} från denna kurs!",
 	"ep-disenroll-returntolink": "Gå tillbaka till [[Education_Program:$2|kursen $1]].",
 	"ep-mycourses-enrolled": "Du har lyckats registrera dig för $1 på $2.",
 	"ep-mycourses-not-enrolled": "Du är inte registrerad på någon kurs. Se [[Special:Courses|lista över kurser]].",

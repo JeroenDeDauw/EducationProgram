@@ -538,7 +538,7 @@
 	"ep-disenroll-summary": "Warum meldest du dich ab?",
 	"ep-disenroll-cancel": "Abbrechen",
 	"ep-disenroll-fail": "Etwas ist schief gelaufen – du konntest nicht von diesem Kurs abgemeldet werden.",
-	"ep-disenroll-success": "Du hast dich erfolgreich von diesem Kurs abgemeldet!",
+	"ep-disenroll-success": "{{GENDER:$1|Du}} hast dich erfolgreich von diesem Kurs abgemeldet!",
 	"ep-disenroll-returntolink": "Zurück zu [[Education_Program:$2|Kurs $1]].",
 	"ep-mycourses-enrolled": "Du hast dich erfolgreich für $1 bei $2 eingeschrieben.",
 	"ep-mycourses-not-enrolled": "Du bist für keinen Kurs eingeschrieben. Siehe die [[Special:Courses|Liste der Kurse]].",

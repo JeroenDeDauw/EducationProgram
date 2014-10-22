@@ -550,7 +550,7 @@
 	"ep-disenroll-summary": "מהי הסיבה שלך לעזיבה?",
 	"ep-disenroll-cancel": "ביטול",
 	"ep-disenroll-fail": "אירעה שגיאה - ביטול הרשמתך לקורס נכשל.",
-	"ep-disenroll-success": "ביטול הרשמתך לקורס בוצע בהצלחה.",
+	"ep-disenroll-success": "{{GENDER:$1|הרשמתך}} לקורס הזה בוטלה בהצלחה!",
 	"ep-disenroll-returntolink": "חזרה [[Education_Program:$2|לקורס $1]].",
 	"ep-mycourses-enrolled": "הרשמתך לקורס $1 של $2 הושלמה בהצלחה.",
 	"ep-mycourses-not-enrolled": "שמך אינו רשום בשום קורס. ר' [[Special:Courses|רשימת קורסים]].",
