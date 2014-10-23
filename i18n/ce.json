@@ -191,6 +191,7 @@
 	"specialstudent-summary-user": "Декъашхочун цӀе",
 	"ep-enroll-legend": "ДӀабазбалар",
 	"ep-disenroll-cancel": "Цаоьшу",
+	"ep-disenroll-success": "{{GENDER:$1|Хьо}} кхиамца хӀокху курсан юкъара {{{{GENDER:$1|дӀаваьккхина|дӀаяьккхина}}!",
 	"ep-instructor-removing": "ДӀаяккхар...",
 	"ep-instructor-close-button": "ДӀачӀагӀа",
 	"ep-instructor-remove-retry": "ЮхагӀорта",

@@ -554,7 +554,7 @@
 	"ep-disenroll-summary": "¿Por qué te das de baja?",
 	"ep-disenroll-cancel": "Cancelar",
 	"ep-disenroll-fail": "Algo salió mal - no pudimos darte de baja en este curso.",
-	"ep-disenroll-success": "¡Has sido dado de baja correctamente en este curso!",
+	"ep-disenroll-success": "¡{{GENDER:$1|Te}} has dado de baja correctamente en este curso!",
 	"ep-disenroll-returntolink": "Volver al [[Education_Program:$2|curso $1]].",
 	"ep-mycourses-enrolled": "Has sido inscrito con éxito de $1 en $2.",
 	"ep-mycourses-not-enrolled": "No estás inscrito en ningún curso. Consulta la [[Special:Courses|lista de cursos]].",
