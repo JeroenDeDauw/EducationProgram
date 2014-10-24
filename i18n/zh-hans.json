@@ -534,6 +534,7 @@
 	"ep-enroll-no-id": "您需要指明科目以参加。参见[[Special:Courses|课程列表]]。",
 	"ep-enroll-invalid-token": "您提供的标记无效。",
 	"ep-enroll-legend": "注册",
+	"ep-enroll-header": "为了参加这门课程，您需要做的所有事情是填写这张表格并点击“{{int:educationprogram-org-submit}}”按钮。之后您将会被录取。",
 	"ep-enroll-gender": "性别（可选）",
 	"ep-enroll-realname": "真实姓名（必填）",
 	"ep-enroll-realname-optional": "真实姓名（可选）",
