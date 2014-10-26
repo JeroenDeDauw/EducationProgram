@@ -536,7 +536,7 @@
 	"ep-disenroll-summary": "Зошто се отпишувате?",
 	"ep-disenroll-cancel": "Откажи",
 	"ep-disenroll-fail": "Нешто не е во ред - не можев да ве отпишам од курсот.",
-	"ep-disenroll-success": "Успешно сте отпишани од курсот!",
+	"ep-disenroll-success": "Успешно {{GENDER:$1|сте}} {{GENDER:$1|отпишани}} од курсот!",
 	"ep-disenroll-returntolink": "Назад на [[Education_Program:$2|курсот $1]].",
 	"ep-mycourses-enrolled": "Успешно се запишавте на $1 во $2.",
 	"ep-mycourses-not-enrolled": "Не сте запишани на неден курс. Погледајте го [[Special:Courses|списокот на курсеви]].",

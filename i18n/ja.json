@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
-			"Shirayuki"
+			"Shirayuki",
+			"SkyDaisy9"
 		]
 	},
 	"ep-item-summary": "要約",
@@ -400,7 +401,7 @@
 	"ep-disenroll-button": "退会",
 	"ep-disenroll-cancel": "キャンセル",
 	"ep-disenroll-fail": "エラー - このコースから退会できませんでした。",
-	"ep-disenroll-success": "このコースから退会しました!",
+	"ep-disenroll-success": "{{GENDER:$1|あなたは}}このコースから正常に{{GENDER:$1|退会}}しました!",
 	"ep-disenroll-returntolink": "[[Education_Program:$2|コース $1]] に戻る。",
 	"ep-mycourses-enrolled": "$2 の $1 に入会しました。",
 	"ep-mycourses-not-enrolled": "どのコースにも在籍していません。[[Special:Courses|コース一覧]]を参照してください。",
