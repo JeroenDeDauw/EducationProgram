@@ -268,6 +268,7 @@ $wgHooks['SkinTemplateNavigation::SpecialPage'][] 	= 'EducationProgram\Hooks::on
 $wgHooks['ArticleFromTitle'][] 						= 'EducationProgram\Hooks::onArticleFromTitle';
 $wgHooks['CanonicalNamespaces'][] 					= 'EducationProgram\Hooks::onCanonicalNamespaces';
 $wgHooks['TitleIsAlwaysKnown'][] 					= 'EducationProgram\Hooks::onTitleIsAlwaysKnown';
+$wgHooks['MovePageIsValidMove'][] 					= 'EducationProgram\Hooks::onMovePageIsValidMove';
 $wgHooks['AbortMove'][] 							= 'EducationProgram\Hooks::onAbortMove';
 $wgHooks['NewRevisionFromEditComplete'][] 			= 'EducationProgram\Hooks::onNewRevisionFromEditComplete';
 $wgHooks['NamespaceIsMovable'][] 					= 'EducationProgram\Hooks::onNamespaceIsMovable';
