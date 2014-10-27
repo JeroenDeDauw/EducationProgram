@@ -458,6 +458,7 @@
 	"ep-disenroll-button": "Αποχώρηση",
 	"ep-disenroll-summary": "Γιατί είστε αποχωρείτε;",
 	"ep-disenroll-cancel": "Ακύρωση",
+	"ep-disenroll-success": "{{GENDER:$1|Έχετε}} επιτυχώς {{GENDER:$1|αποχωρήσει}} από αυτό το μάθημα!",
 	"ep-mycourses-enrolled": "Έχετε εγγραφεί επιτυχώς στο $1 στο $2.",
 	"ep-mycourses-not-enrolled": "Δεν είστε εγγεγραμμένος σε κάθε μάθημα. Δείτε τον [[Special:Courses|κατάλογο μαθημάτων]].",
 	"ep-mycourses-no-such-course": "Δεν είστε εγγεγραμμένος σε κανένα μάθημα με το όνομα \"$1\". Τα μαθήματα που θα είστε εγγεγραμμένοι παρατίθενται παρακάτω.",

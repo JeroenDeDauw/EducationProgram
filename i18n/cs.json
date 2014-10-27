@@ -232,7 +232,7 @@
 	"ep-pager-confirm-delete-org": "{{PLURAL:$1|Potvrďte odstranění instituce|Potvrďte odstranění několika institucí}}",
 	"ep-pager-retry-button-org": "Zkusit znovu",
 	"ep-pager-summary-message-org": "Shrnutí:",
-	"ep-pager-confirm-message-org": "Hodláte se smazat instituci $1.",
+	"ep-pager-confirm-message-org": "Hodláte smazat instituci $1.",
 	"ep-pager-confirm-message-org-many": "Hodláte smazat tyto instituce: $1.",
 	"epcoursepager-header-name": "Jméno",
 	"epcoursepager-header-term": "Semestr",

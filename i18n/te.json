@@ -678,7 +678,6 @@
 	"ep-user-roles-message-main-online": "[[$1|$2]], {{PLURAL:$4|$3}}లో {{GENDER:$2|ఆన్‍లైను ఔత్సాహికులు}}.",
 	"ep-user-roles-message-main-campus": "[[$1|$2]], {{PLURAL:$4|$3}}లో {{GENDER:$2|క్యాంపస్ ఔత్సాహికులు}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|కోర్సు చర్చ]])",
-	"ep-user-roles-message-main-many-student": "[[$1|$2]], [[$4|$3 {{PLURAL:$3|కోర్సులో|కోర్సులలో}}]] {{GENDER:$2|విద్యార్థి}}.",
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]], $3 {{PLURAL:$3|కోర్సు|కోర్సుల}}లో {{GENDER:$2|బోధకులు}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]], $3 {{PLURAL:$3|కోర్సు|కోర్సుల}}లో {{GENDER:$2|ఆన్‍లైను ఔత్సాహికులు}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]], $3 {{PLURAL:$3|కోర్సు|కోర్సుల}}లో {{GENDER:$2|క్యాంపస్ ఔత్సాహికులు}}.",
