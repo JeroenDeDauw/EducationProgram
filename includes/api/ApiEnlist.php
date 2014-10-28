@@ -165,6 +165,9 @@ class ApiEnlist extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'subaction' => 'Specifies what you want to do with the instructor or ambassador',
@@ -177,12 +180,18 @@ class ApiEnlist extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return array(
 			'API module for associating/disassociating a user as instructor or ambassador with/from a course.'
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	protected function getExamples() {
 		return array(
 			'api.php?action=instructor&subaction=add&courseid=42&userid=9001',
@@ -193,7 +202,21 @@ class ApiEnlist extends ApiBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=enlist&role=instructor&subaction=add&courseid=42&userid=9001'
+				=> 'apihelp-enlist-example-1',
+			'action=enlist&role=instructor&subaction=add&courseid=42&username=Example'
+				=> 'apihelp-enlist-example-2',
+			'action=enlist&role=instructor&subaction=remove&courseid=42&userid=9001'
+				=> 'apihelp-enlist-example-3',
+			'action=enlist&role=instructor&subaction=remove&courseid=42&username=Example'
+				=> 'apihelp-enlist-example-4',
+			'action=enlist&role=instructor&subaction=remove&courseid=42&username=Example&reason=Removed%20from%20program%20because%20of%20evil%20plans%20to%20take%20over%20the%20world'
+				=> 'apihelp-enlist-example-5',
+		);
 	}
 }

@@ -70,6 +70,9 @@ class ApiRefreshEducation extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'ids' => 'The IDs of the reviews to refresh',
@@ -78,12 +81,18 @@ class ApiRefreshEducation extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return array(
 			'API module for refreshing (rebuilding) summary data of objects parts of the Education Program extension.'
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	protected function getExamples() {
 		return array(
 			'api.php?action=refresheducation&ids=42&type=course',
@@ -91,8 +100,15 @@ class ApiRefreshEducation extends ApiBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=refresheducation&ids=42&type=course'
+				=> 'apihelp-refresheducation-example-1',
+			'action=refresheducation&ids=4|2&type=student'
+				=> 'apihelp-refresheducation-example-2',
+		);
 	}
-
 }
