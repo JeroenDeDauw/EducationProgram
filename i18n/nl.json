@@ -546,7 +546,7 @@
 	"ep-disenroll-summary": "Waarom schrijft u zich uit?",
 	"ep-disenroll-cancel": "Annuleren",
 	"ep-disenroll-fail": "Het was niet mogelijk u uit te schrijven voor deze cursus.",
-	"ep-disenroll-success": "U bent nu uitgeschreven voor deze cursus.",
+	"ep-disenroll-success": "{{GENDER:$1|U}} bent nu uitgeschreven voor deze cursus.",
 	"ep-disenroll-returntolink": "Terug naar [[Education_Program:$2|cursus $1]].",
 	"ep-mycourses-enrolled": "U bent ingeschreven voor $1 bij $2.",
 	"ep-mycourses-not-enrolled": "U bent nog niet ingeschreven voor een cursus. Zie de [[Special:Courses|lijst met cursussen]].",
