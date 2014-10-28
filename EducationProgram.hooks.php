@@ -383,6 +383,17 @@ final class Hooks {
 		return true;
 	}
 
+	public static function onMovePageIsValidMove( Title $oldTitle, Title $newTitle, \Status $status ) {
+		$nss = array( EP_NS, EP_NS_TALK );
+		$allowed = !in_array( $oldTitle->getNamespace(), $nss ) && !in_array( $newTitle->getNamespace(), $nss );
+
+		if ( !$allowed ) {
+			$status->fatal( 'ep-move-error' );
+		}
+
+		return $allowed;
+	}
+
 	/**
 	 * Allows canceling the move of one title to another.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AbortMove
@@ -398,14 +409,13 @@ final class Hooks {
 	 * @return boolean
 	 */
 	public static function onAbortMove( Title $oldTitle, Title $newTitle, User $user, &$error, $reason ) {
-		$nss = array( EP_NS, EP_NS_TALK );
-		$allowed = !in_array( $oldTitle->getNamespace(), $nss ) && !in_array( $newTitle->getNamespace(), $nss );
-
-		if ( !$allowed ) {
-			$error = wfMessage( 'ep-move-error' )->text();
+		$status = new \Status();
+		self::onMovePageIsValidMove( $oldTitle, $newTitle, $status );
+		if ( !$status->isOK() ) {
+			$error = $status->getHTML();
 		}
 
-		return $allowed;
+		return $status->isOK();
 	}
 
 	/**
