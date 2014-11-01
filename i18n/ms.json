@@ -511,7 +511,7 @@
 	"ep-disenroll-summary": "Mengapakah anda membatalkan pendaftaran?",
 	"ep-disenroll-cancel": "Batalkan",
 	"ep-disenroll-fail": "Maaf, ada yang tak kena - anda tidak dapat digugurkan dari kursus ini.",
-	"ep-disenroll-success": "Anda berjaya membatalkan pendaftaran anda dalam kursus ini!",
+	"ep-disenroll-success": "{{GENDER:$1|Anda}} telah berjaya {{GENDER:$1|membatalkan}} pendaftaran anda dalam kursus ini!",
 	"ep-disenroll-returntolink": "Kembali ke [[Education_Program:$2|kursus $1]].",
 	"ep-mycourses-enrolled": "Anda berjaya mendaftarkan diri ke dalam $1 di $2.",
 	"ep-mycourses-not-enrolled": "Anda tidak berdaftar dalam sebarang kursus. Sila rujuk [[Special:Courses|senarai kursus]].",
