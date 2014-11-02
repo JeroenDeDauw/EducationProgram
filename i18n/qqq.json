@@ -344,7 +344,7 @@
 	"educationprogram-org-invalid-country": "Error message indicating that the entered value is not a valid country.",
 	"ep-org-no-slashes": "Error message indicating a slash was put in the institution title.",
 	"coursepage-edit-legend-add": "Form header",
-	"coursepage-edit-legend-edit": "Form header",
+	"coursepage-edit-legend-edit": "Form header\n{{Identical|Edit cource}}",
 	"ep-course-edit-org": "Input label\n{{Identical|Institution}}",
 	"ep-course-edit-start": "Input label.\n{{Identical|Start date}}",
 	"ep-course-edit-end": "Input label.\n{{Identical|End date}}",

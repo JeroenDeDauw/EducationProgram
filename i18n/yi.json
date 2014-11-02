@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"פוילישער",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Har-wradim"
 		]
 	},
 	"ep-item-summary": "רעזומע",
@@ -12,7 +13,7 @@
 	"ep-tab-view": "לייענען",
 	"ep-tab-edit": "רעדאַקטירן",
 	"ep-tab-create": "שאַפֿן",
-	"ep-tab-history": "ווײַזן היסטאָריע",
+	"ep-tab-history": "ווייזן היסטאָריע",
 	"ep-tab-enroll": "איינשרייבן",
 	"ep-tab-disenroll": "ארויסציען",
 	"ep-tab-delete": "אויסמעקן",

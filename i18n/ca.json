@@ -8,7 +8,8 @@
 			"Fitoschido",
 			"Dvdgmz",
 			"Paucabot",
-			"Jey"
+			"Jey",
+			"Vriullop"
 		]
 	},
 	"educationprogram-desc": "Facilita els programes educatius afegint diferents interfícies per gestionar cursos, institucions i els diversos rols d'usuari.",
@@ -353,7 +354,7 @@
 	"coursepage-edit-undelete-link": "recupera $1 {{PLURAL:$1|revisió|revisions}}",
 	"ep-undelete-course-no-rights": "Aquest curs s'ha suprimit. No teniu permís per restaurar-lo.",
 	"ep-undelete-course-org-deleted": "Aquest curs i la seva institució, [[$1|$2]], s'han eliminat. Per restaurar aquest curs, primer [$3  restaureu  $2].",
-	"ep-pager-confirm-delete": "Estàs segur de voler eliminar aquest ítem?",
+	"ep-pager-confirm-delete": "Esteu segur de voler eliminar aquest ítem?",
 	"ep-pager-delete-fail": "No s'ha pogut suprimir aquest element.",
 	"ep-pager-confirm-delete-selected": "Estau segur de voler suprimir {{PLURAL:$1|l'element seleccionat|els elements seleccionats}}?",
 	"ep-pager-delete-selected-fail": "{{PLURAL:$1|No s'ha pogut esborrar l'element seleccionat|No s'han pogut esborrar els elements seleccionats}}.",
