@@ -135,6 +135,9 @@ class ApiDeleteEducation extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'ids' => 'The IDs of the reviews to delete',
@@ -144,12 +147,18 @@ class ApiDeleteEducation extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return array(
 			'API module for deleting objects parts of the Education Program extension.'
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	protected function getExamples() {
 		return array(
 			'api.php?action=deleteeducation&ids=42&type=course',
@@ -157,8 +166,16 @@ class ApiDeleteEducation extends ApiBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=deleteeducation&ids=42&type=course'
+				=> 'apihelp-deleteeducation-example-1',
+			'action=deleteeducation&ids=4|2&type=org'
+				=> 'apihelp-deleteeducation-example-2',
+		);
 	}
 
 }

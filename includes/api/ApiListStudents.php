@@ -426,6 +426,9 @@ class ApiListStudents extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'courseids' => 'The IDs of courses, each separated by a |',
@@ -439,17 +442,37 @@ class ApiListStudents extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return array(
 				'Get the usernames and other information for students enrolled in one or more courses.'
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	protected function getExamples() {
 		return array(
 			'api.php?action=liststudents&courseids=3',
 			'api.php?action=liststudents&courseids=3|4|5|6&group=&csv=',
 			'api.php?action=liststudents&courseids=3|4|5|6&group=&csv=&prop=id'
+		);
+	}
+
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=liststudents&courseids=3'
+				=> 'apihelp-liststudents-example-1',
+			'action=liststudents&courseids=3|4|5|6&group=&csv='
+				=> 'apihelp-liststudents-example-2',
+			'action=liststudents&courseids=3|4|5|6&group=&csv=&prop=id'
+				=> 'apihelp-liststudents-example-3',
 		);
 	}
 }

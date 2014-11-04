@@ -151,6 +151,7 @@ class ApiAddStudents extends ApiBase {
 			'studentusernames' => array(
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
+				/** @todo Why is this not ApiBase::PARAM_ISMULTI? */
 			),
 			'courseid' => array(
 				ApiBase::PARAM_TYPE => 'integer',
@@ -163,6 +164,9 @@ class ApiAddStudents extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'studentusernames' => 'The usernames of the students to add to the course, separated by a |',
@@ -171,6 +175,9 @@ class ApiAddStudents extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return array(
 				'Add multiple students to a course.'
@@ -178,9 +185,22 @@ class ApiAddStudents extends ApiBase {
 	}
 
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	protected function getExamples() {
 		return array(
 			'api.php?action=addstudents&courseid=42&token=123456789&students=User1|User3|AnotherUser',
+		);
+	}
+
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=addstudents&courseid=42&token=123456789&students=User1|User3|AnotherUser'
+				=> 'apihelp-addstudents-example-1',
 		);
 	}
 }
