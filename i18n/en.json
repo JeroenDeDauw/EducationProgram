@@ -721,7 +721,7 @@
 	"ep-online-add-notification-title-email-subject": "You have been {{GENDER:$1|added}} as an online volunteer to $2 by $1.",
 	"ep-online-add-notification-title-email-body": "You have been {{GENDER:$1|added}} as an online volunteer to $2 by $1.",
 	"apihelp-addstudents-description": "Add multiple students to a course.",
-	"apihelp-addstudents-param-studentusernames": "The usernames of the students to add to the course, separated by a \"|\".",
+	"apihelp-addstudents-param-studentusernames": "The usernames of the students to add to the course.",
 	"apihelp-addstudents-param-courseid": "The ID of the course to which the students should be added/removed.",
 	"apihelp-addstudents-example-1": "Add three students to a course",
 	"apihelp-deleteeducation-description": "Delete Education Program objects.",

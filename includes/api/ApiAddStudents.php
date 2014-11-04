@@ -44,7 +44,7 @@ class ApiAddStudents extends ApiBase {
 			array(
 				'action' => 'query',
 				'list' => 'users',
-				'ususers' => $params['studentusernames'] )
+				'ususers' => implode( '|', $params['studentusernames'] ) )
 		);
 
 		$api = new \ApiMain( $apiParams );
@@ -155,7 +155,7 @@ class ApiAddStudents extends ApiBase {
 			'studentusernames' => array(
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
-				/** @todo Why is this not ApiBase::PARAM_ISMULTI? */
+				ApiBase::PARAM_ISMULTI => true,
 			),
 			'courseid' => array(
 				ApiBase::PARAM_TYPE => 'integer',
