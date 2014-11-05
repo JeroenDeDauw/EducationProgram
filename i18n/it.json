@@ -538,7 +538,7 @@
 	"ep-disenroll-summary": "Perché stai per disiscriverti?",
 	"ep-disenroll-cancel": "Annulla",
 	"ep-disenroll-fail": "Qualcosa è andato storto - non è stato possibile disiscriverti da questo corso.",
-	"ep-disenroll-success": "Se stato disiscritto correttamente da questo corso!",
+	"ep-disenroll-success": "Se {{GENDER:$1|stato disiscritto|stata disiscritta}} correttamente da questo corso!",
 	"ep-disenroll-returntolink": "Ritorna al [[Education_Program:$2|corso $1]].",
 	"ep-mycourses-enrolled": "Sei stato iscritto con successo a $1 in $2.",
 	"ep-mycourses-not-enrolled": "Non sei iscritto ad alcun corso. Vedi la [[Special:Courses|lista dei corsi]].",

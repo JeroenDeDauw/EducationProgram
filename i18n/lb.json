@@ -478,5 +478,10 @@
 	"ep-course-talk-notification-title-email-subject": "D'Diskussiounssäit vum Cours $2 gouf vum $1 {{GENDER:$1|geännert}}.",
 	"ep-course-talk-notification-title-email-body": "D'Diskussiounssäit vum Cours $2 gouf vum $1 {{GENDER:$1|geännert}}.",
 	"ep-role-add-link-text-view-course": "Cours weisen",
-	"ep-student-add-notification-title-email-subject": "Dir gouft bäi $2 vum $1 {{GENDER:$1|derbäigesat}}."
+	"ep-student-add-notification-title-email-subject": "Dir gouft bäi $2 vum $1 {{GENDER:$1|derbäigesat}}.",
+	"apihelp-addstudents-description": "Méi Studenten an e Cours dobäisetzen.",
+	"apihelp-deleteeducation-param-comment": "Grond fir ze Läschen, fir d'Logbuch.",
+	"apihelp-deleteeducation-example-1": "Cours 42 läschen",
+	"apihelp-enlist-param-reason": "Grond fir ze Läschen, fir d'Logbuch.",
+	"apihelp-refresheducation-example-1": "Cours 42 aktualiséieren"
 }
