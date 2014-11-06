@@ -483,5 +483,6 @@
 	"apihelp-deleteeducation-param-comment": "Grond fir ze Läschen, fir d'Logbuch.",
 	"apihelp-deleteeducation-example-1": "Cours 42 läschen",
 	"apihelp-enlist-param-reason": "Grond fir ze Läschen, fir d'Logbuch.",
+	"apihelp-refresheducation-param-type": "Typ vun Objet fir ze läschen.",
 	"apihelp-refresheducation-example-1": "Cours 42 aktualiséieren"
 }

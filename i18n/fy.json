@@ -6,6 +6,7 @@
 		]
 	},
 	"ep-tab-edit": "Bewurkje",
+	"ep-tab-create": "Oanmeitsje",
 	"eporgpager-header-name": "Namme",
 	"eporgpager-yes": "Ja",
 	"eporgpager-no": "Nee",
@@ -64,5 +65,6 @@
 	"ep-campus-add-retry": "Nochris besykje",
 	"ep-campus-add-cancel-button": "Annulearje",
 	"ep-campus-summary-input": "Gearfetting:",
-	"ep-campus-name-input": "Brûkersnamme:"
+	"ep-campus-name-input": "Brûkersnamme:",
+	"ep-timeline-ago": "$1 lyn"
 }
