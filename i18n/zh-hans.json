@@ -729,5 +729,7 @@
 	"ep-campus-add-notification-title-email-body": "您已由$1作为校园志愿者加入至$2。",
 	"ep-online-add-notification-title": "您已由[[User:$1|$1]]作为在线志愿者加入至[[$2|$3]]。",
 	"ep-online-add-notification-title-email-subject": "您已由$1作为在线志愿者加入至$2。",
-	"ep-online-add-notification-title-email-body": "您已由$1作为在线志愿者加入至$2。"
+	"ep-online-add-notification-title-email-body": "您已由$1作为在线志愿者加入至$2。",
+	"apihelp-liststudents-example-1": "课程3的学生列表",
+	"apihelp-liststudents-example-2": "课程3、4、5、6的学生列表，按课程分组，CSV格式"
 }
