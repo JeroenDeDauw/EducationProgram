@@ -521,7 +521,7 @@
 	"ep-disenroll-summary": "您為什麼要取消註冊？",
 	"ep-disenroll-cancel": "取消",
 	"ep-disenroll-fail": "發生錯誤 - 無法撤銷您於此課程的報名。",
-	"ep-disenroll-success": "您已經成功從此課程銷戶！",
+	"ep-disenroll-success": "{{GENDER:$1|您}}已經成功從此課程{{GENDER:$1|銷戶}}！",
 	"ep-disenroll-returntolink": "返回 [[Education_Program:$2|課程 $1]]。",
 	"ep-mycourses-enrolled": "您已成功報名 $2 的 $1。",
 	"ep-mycourses-not-enrolled": "您尚未報名任何課程。 請參考 [[Special:Courses|課程清單]]。",
