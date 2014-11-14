@@ -719,5 +719,12 @@
 	"ep-campus-add-notification-title-email-body": "Du har {{GENDER:$1|lagts till}} som en {{SITENAME}}ambassadör i $2 av $1.",
 	"ep-online-add-notification-title": "Du har {{GENDER:$1|lagts till}} som en onlineambassadör i [[$2|$3]] av [[User:$1|$1]].",
 	"ep-online-add-notification-title-email-subject": "Du har {{GENDER:$1|lagts till}} som en onlineambassadör i $2 av $1.",
-	"ep-online-add-notification-title-email-body": "Du har {{GENDER:$1|lagts till}} som en onlineambassadör i $2 av $1."
+	"ep-online-add-notification-title-email-body": "Du har {{GENDER:$1|lagts till}} som en onlineambassadör i $2 av $1.",
+	"apihelp-addstudents-description": "Lägg till flera studenter i en kurs.",
+	"apihelp-addstudents-example-1": "Lägg till tre studenter i en kurs",
+	"apihelp-deleteeducation-param-comment": "Orsak till radering, för loggen.",
+	"apihelp-deleteeducation-example-1": "Radera kurs 42",
+	"apihelp-enlist-param-courseid": "Kursens ID.",
+	"apihelp-refresheducation-example-1": "Uppdatera kurs 42",
+	"apihelp-refresheducation-example-2": "Uppdatera studenter 2 och 4"
 }

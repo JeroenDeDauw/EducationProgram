@@ -343,7 +343,7 @@
 	"ep-editcourse": "您正在編輯一個已經存在的課程。",
 	"ep-editcourse-exists-already": "此課程已經存在。 您正在編輯該課程。",
 	"ep-addstudents-section": "新增學生至此課程。",
-	"ep-addstudents-instructions": "鍵入您希望添加的學生用戶名。每個用戶名後按Enter鍵，或點擊出現的菜單。您亦可拷貝用戶名列表。\n黨您完成時按下「{{int:ep-addstudents-btn}}」。",
+	"ep-addstudents-instructions": "輸入您希望添加的學生使用者名稱。每個名稱後按Enter鍵，或點選出現的選單。您亦可貼上使用者名稱清單。\n\n當您完成時按下「{{int:ep-addstudents-btn}}」。",
 	"ep-addstudents-invalid-users": "{{PLURAL:$1|此使用者|這些使用者}}不存在：$2。",
 	"ep-addstudents-btn": "新增",
 	"ep-addstudents-success": "您已新增 $1 位{{PLURAL:$1|{{GENDER:$2|學生}}|學生}}至此課程。",
