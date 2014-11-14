@@ -31,6 +31,9 @@ class ApiListStudents extends ApiBase {
 		// Determine which property to return: usernames or user IDs.
 		$propName = $params['prop'];
 
+		// ArticleStore used to query which articles students are working on.
+		$articleStore = new ArticleStore( 'ep_articles' );
+
 		// This course index keeps track of which course element to add results to.
 		$courseIndex = 0;
 
@@ -49,7 +52,7 @@ class ApiListStudents extends ApiBase {
 
 			// Get the user objects for students in this course,
 			// and add them to the list of all students.
-			$courseStudents = $this->getStudentsAsUsers( $course );
+			$courseStudents = $this->getParticipantsAsUsers( $course , 'student' );
 			$allStudents = array_merge( $allStudents, $courseStudents );
 
 			// Check that we're not building too large of a query.
@@ -79,19 +82,46 @@ class ApiListStudents extends ApiBase {
 						$propName,
 						$results,
 						$courseId,
-						$courseIndex
+						$courseIndex,
+						$articleStore
 					);
 
 				// If 'csv' parameter is not given,
 				// format and display the results as structured data.
 				} else {
 
+					// List the instructors
+					$this->outputListOfNonStudentParticipantsProperties(
+						$course,
+						$results,
+						$courseIndex,
+						'instructor'
+					);
+
+					// List the online volunteers
+					$this->outputListOfNonStudentParticipantsProperties(
+						$course,
+						$results,
+						$courseIndex,
+						'online volunteer'
+					);
+
+					// List the campus volunteers
+					$this->outputListOfNonStudentParticipantsProperties(
+						$course,
+						$results,
+						$courseIndex,
+						'campus volunteer'
+					);
+
+					// List the students
 					$this->outputListOfStudentProperties(
 						$courseStudents,
 						$propName,
 						$results,
 						$courseId,
-						$courseIndex
+						$courseIndex,
+						$articleStore
 					);
 
 				}
@@ -114,14 +144,19 @@ class ApiListStudents extends ApiBase {
 					$allStudents,
 					$propName,
 					$results,
-					$courseIds // The set of all course IDs from for the query
+					$courseIds, // The set of all course IDs from for the query
+					null,
+					$articleStore
 				);
 
 			} else {
 				$this->outputListOfStudentProperties(
 					$allStudents,
 					$propName,
-					$results
+					$results,
+					null,
+					null,
+					$articleStore
 				);
 			}
 
@@ -135,22 +170,31 @@ class ApiListStudents extends ApiBase {
 	}
 
 	/**
-	 * Given a course object, return the user objects
-	 * of the students in that course.
+	 * Given a course object, return the user objects of the
+	 * students, instructors or volunteers in that course.
 	 *
 	 * @param Course $course
+	 * @param str $courseRole
 	 * @return array of user objects
 	 */
-	protected function getStudentsAsUsers( Course $course ) {
+	protected function getParticipantsAsUsers( Course $course, $courseRole ) {
 
-		$students = $course->getStudents();
-
-		$studentsInCourse = array();
-		foreach ( $students as $student) {
-			$studentsInCourse[] = $student->getUser();
+		if ( $courseRole == 'instructor' ) {
+			$participants = $course->getInstructors();
+		} else if ( $courseRole == 'online volunteer' ) {
+			$participants = $course->getOnlineAmbassadors();
+		} else if ( $courseRole == 'campus volunteer' ) {
+			$participants = $course->getCampusAmbassadors();
+		} else if ( $courseRole == 'student' ) {
+			$participants = $course->getStudents();
 		}
 
-		return $studentsInCourse;
+		$participantsInCourse = array();
+		foreach ( $participants as $participant) {
+			$participantsInCourse[] = $participant->getUser();
+		}
+
+		return $participantsInCourse;
 	}
 
 	/**
@@ -179,13 +223,15 @@ class ApiListStudents extends ApiBase {
 	 * @param ApiResult @results
 	 * @param int[]|int $courseIds A list of one or more course IDs
 	 * @param int $courseIndex
+	 * @param $articleStore articleStore object
 	 */
 	protected function outputCSVofStudentProperties(
 		$studentsList,
 		$propName,
 		$results,
 		$courseIds,
-		$courseIndex = null
+		$courseIndex = null,
+		$articleStore
 	) {
 
 		$studentProps = array();
@@ -201,7 +247,7 @@ class ApiListStudents extends ApiBase {
 		}
 
 		$results->addValue(
-			$this->studentPath( $courseIndex ),
+			$this->usersPath( $courseIndex ),
 			$propName . 's',
 			array( '*'  => $csv )
 		);
@@ -211,43 +257,174 @@ class ApiListStudents extends ApiBase {
 				$courseIds,
 				$studentsList,
 				$results,
-				$courseIndex
+				$courseIndex,
+				$articleStore
 			);
 		}
 
 	}
 
 	/**
-	 * For an array of user objects, output
+	 * For an array of user objects of instructors or course
+	 * volunteers, output their usernames or user IDs as query results.
+	 *
+	 * @param array $participantsList
+	 * @param string $propName
+	 * @param ApiResult $results
+	 * @param int $courseId
+	 * @param int $courseIndex
+	 */
+	protected function outputListOfNonStudentParticipantsProperties(
+		$course,
+		$results,
+		$courseIndex,
+		$courseRole
+	) {
+
+		// Determine the plural of the role name.
+		$courseRolePlural = $courseRole . 's';
+
+		// Get the user objects for instructors or course volunteers for this course.
+		$participantList = $this->getParticipantsAsUsers( $course, $courseRole );
+
+		// Add the properties for each participant to the result.
+		$participantIndex = 0;
+
+		foreach ( $participantsList as $participant ) {
+
+			// Add username to the result.
+			$results->addValue(
+				$this->userPath( $courseIndex, $courseRolePlural, $participantIndex ),
+				'username',
+				$participant->getName()
+			);
+
+			// Add user id to the result.
+			$results->addValue(
+				$this->userPath( $courseIndex, $courseRolePlural, $participantIndex ),
+				'id',
+				$participant->getId()
+			);
+
+			$participantIndex++;
+		}
+
+		// Index the participants.
+		$results->setIndexedTagName_internal(
+			$this->usersPath( $courseIndex, $courseRolePlural ),
+			$courseRole
+		);
+	}
+
+	/**
+	 * For an array of user objects of students, output
 	 * their usernames or user IDs as query results.
+	 * Also output the articles assigned to each user,
+	 * if possible.
 	 *
 	 * @param array $studentsList
 	 * @param string $propName
 	 * @param ApiResult $results
 	 * @param int $courseId
 	 * @param int $courseIndex
+	 * @param $articleStore articleStore object
 	 */
 	protected function outputListOfStudentProperties(
 		$studentsList,
 		$propName,
 		$results,
 		$courseId = null,
-		$courseIndex = null
+		$courseIndex = null,
+		$articleStore
 	) {
 
 		// Add the properties for each student to the result.
+		$studentIndex = 0;
 		foreach ( $studentsList as $student ) {
-			$studentProp = $this->getUserProperty( $student, $propName );
+
+			// Add username to the result.
 			$results->addValue(
-				$this->studentPath( $courseIndex ),
-				null,
-				$studentProp
+				$this->userPath( $courseIndex, 'students', $studentIndex ),
+				'username',
+				$student->getName()
 			);
+
+			// Add user id to the result.
+			$results->addValue(
+				$this->userPath( $courseIndex, 'students', $studentIndex ),
+				'id',
+				$student->getId()
+			);
+
+			// If output is grouped by course, get the assigned articles for each student.
+			if ($courseId ) {
+				$studentEPArticles =  $this->getEPArticles( $courseId, $student, $articleStore );
+
+				$articleIndex = 0;
+				foreach ( $studentEPArticles as $studentEPArticle ) {
+					$studentArticle = $studentEPArticle->getPageTitle();
+					$articlePath = array (
+						$courseIndex,
+						'students',
+						$studentIndex,
+						$articleIndex
+					);
+					$results->addValue(
+						$articlePath,
+						'title',
+						$studentArticle
+					);
+
+					// Get the reviewers for the article.
+					$articleReviewers = $this->getArticleReviewerIds( $studentEPArticle );
+					$reviewerIndex = 0;
+					foreach ( $articleReviewers as $articleReviewer ) {
+						$reviewerPath = array (
+							$courseIndex,
+							'students',
+							$studentIndex,
+							$articleIndex,
+							$reviewerIndex
+						);
+
+						$results->addValue(
+							$reviewerPath,
+							'username',
+							User::newfromId( $articleReviewer )->getName()
+						);
+						$results->addValue(
+							$reviewerPath,
+							'id',
+							$articleReviewer
+						);
+						$reviewerIndex++;
+
+					}
+
+					//Index the reviewers for the article.
+					$results->setIndexedTagName_internal(
+						$articlePath,
+						'reviewer'
+					);
+					$articleIndex++;
+
+				}
+
+				// Index the articles for the student.
+				$results->setIndexedTagName_internal(
+					$this->userPath( $courseIndex, 'students', $studentIndex ),
+					'article'
+				);
+			}
+
+			$studentIndex++;
+
 		}
 
+		// Index the students.
 		$results->setIndexedTagName_internal(
-			$this->studentPath( $courseIndex ),
-			$propName
+			$this->usersPath( $courseIndex, 'students' ),
+			'student'
 		);
 	}
 
@@ -259,28 +436,30 @@ class ApiListStudents extends ApiBase {
 	 * @param array $studentsList A set of student users
 	 * @param ApiResult $results
 	 * @param int $courseIndex
+	 * @param $articleStore articleStore object
 	 */
 	protected function outputCSVListofArticles (
 		$courseIds,
 		$studentsList,
 		$results,
-		$courseIndex = null
+		$courseIndex = null,
+		$articleStore
 	) {
 
-		$articleNames = $this->getArticleNames( $courseIds, $studentsList );
+		$articleNames = $this->getArticleNames( $courseIds, $studentsList, $articleStore );
 
 		if ( $articleNames ) {
 			$articleNames = PHP_EOL . implode( PHP_EOL, $articleNames ) . PHP_EOL;
 		}
 
 		$results->addValue(
-			$this->articlePath( $courseIndex ),
+			$this->articlesPath( $courseIndex ),
 			null,
 			$articleNames
 		);
 
 		$results->setIndexedTagName_internal(
-			$this->articlePath( $courseIndex ),
+			$this->articlesPath( $courseIndex ),
 			'articles'
 		);
 
@@ -309,7 +488,7 @@ class ApiListStudents extends ApiBase {
 		$results->addValue(
 			$courseIndex,
 			'name',
-			array( '*' => $course->getField('title') )
+			$course->getField('title')
 		);
 
 		// Add course start date.
@@ -338,12 +517,10 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param int[]|int $courseIds
 	 * @param array $students Student objects
+	 * @param $articleStore articleStore object
 	 * @return array
 	 */
-	protected function getArticleNames( $courseIds, $students ) {
-
-		// ArticleStore used to query which articles students are working on.
-		$articleStore = new ArticleStore( 'ep_articles' );
+	protected function getArticleNames( $courseIds, $students, $articleStore ) {
 
 		// Turn array of student objects into array of corresponding user IDs.
 		foreach ( $students as $student ) {
@@ -362,6 +539,38 @@ class ApiListStudents extends ApiBase {
 	}
 
 	/**
+	 * Get the EPArticle objects for articles being worked on
+	 * by a student in a course.
+	 *
+	 * @param int $courseId
+	 * @param $student Student object
+	 * @param $articleStore articleStore object
+	 * @return array
+	 */
+	protected function getEPArticles( $courseId, $student, $articleStore ) {
+
+		$studentId = $student->getId();
+
+		// These are EPArticle objects, not conventional articles.
+		$epArticles = $articleStore->getArticlesByCourseAndUsers( $courseId, $studentId );
+
+		return $epArticles;
+	}
+
+	/**
+	 * Given an EPArticle, list the reviewers for that article.
+	 *
+	 * @param $epArticle EPArticle object
+	 * @return array
+	 */
+	protected function getArticleReviewerIds( EPArticle $epArticle ) {
+
+		$reviewerIds = $epArticle->getReviewers();
+
+		return $reviewerIds;
+	}
+
+	/**
 	 * Turn a MediaWiki timestamp representing a date into
 	 * a human-readable date format.
 	 *
@@ -375,19 +584,38 @@ class ApiListStudents extends ApiBase {
 	}
 
 	/**
-	 * Construct the results path for the <students> element,
-	 * either as part of an numerically indexed parent tag,
-	 * or as a top-level element.
+	 * Construct the results path for the element for a group
+	 * (<students>, <instructors>, <online volunteers> or
+	 * <campus volunters>), either as part of a numerically
+	 * indexed parent tag, or as a top-level element.
 	 *
 	 * @param int $courseIndex
+	 * @param str $userLabel
 	 */
-	protected function studentPath( $courseIndex ) {
+	protected function usersPath( $courseIndex, $userLabel = 'students' ) {
 		if ( !is_null ( $courseIndex ) ) {
-			return array ( $courseIndex, 'students');
+			return array ( $courseIndex, $userLabel );
 		} else {
-			return 'students';
+			return $userLabel;
 		}
 	}
+
+	/**
+	 * Construct the results path for individual users in a course:
+	 * <student>, <instructor>, <online volunteer> or <campus volunteer>.
+	 *
+	 * @param int $courseIndex
+	 * @param str $userLabel
+	 * @param int $userIndex
+	 */
+	protected function userPath( $courseIndex, $userLabel, $userIndex = null ) {
+		if ( !is_null ( $courseIndex ) ) {
+			return array ( $courseIndex , $userLabel, $userIndex);
+		} else {
+			return array ( $userLabel, $userIndex );
+		}
+	}
+
 
 	/**
 	 * Construct the results path for the <articles> element,
@@ -396,7 +624,7 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param int $courseIndex
 	 */
-	protected function articlePath( $courseIndex ) {
+	protected function articlesPath( $courseIndex ) {
 		if ( !is_null ( $courseIndex ) ) {
 			return array ( $courseIndex );
 		} else {
@@ -433,7 +661,7 @@ class ApiListStudents extends ApiBase {
 		return array(
 			'courseids' => 'The IDs of courses, each separated by a |',
 			'prop' => array(
-				'Which property to get for each student:',
+				'Which property to get for each student if using csv format:',
 				' username       - The username of the student',
 				' id             - The user ID of the student',
 			),
@@ -457,7 +685,7 @@ class ApiListStudents extends ApiBase {
 	protected function getExamples() {
 		return array(
 			'api.php?action=liststudents&courseids=3',
-			'api.php?action=liststudents&courseids=3|4|5|6&group=&csv=',
+			'api.php?action=liststudents&courseids=3|4|5|6&group=',
 			'api.php?action=liststudents&courseids=3|4|5|6&group=&csv=&prop=id'
 		);
 	}
@@ -469,7 +697,7 @@ class ApiListStudents extends ApiBase {
 		return array(
 			'action=liststudents&courseids=3'
 				=> 'apihelp-liststudents-example-1',
-			'action=liststudents&courseids=3|4|5|6&group=&csv='
+			'action=liststudents&courseids=3|4|5|6&group='
 				=> 'apihelp-liststudents-example-2',
 			'action=liststudents&courseids=3|4|5|6&group=&csv=&prop=id'
 				=> 'apihelp-liststudents-example-3',

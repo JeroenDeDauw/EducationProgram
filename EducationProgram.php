@@ -84,6 +84,7 @@ $wgAutoloadClasses['EducationProgram\ViewCourseAction'] 			= $dir . '/includes/a
 $wgAutoloadClasses['EducationProgram\ViewCourseActivityAction'] 	= $dir . '/includes/actions/ViewCourseActivityAction.php';
 $wgAutoloadClasses['EducationProgram\ViewOrgAction'] 				= $dir . '/includes/actions/ViewOrgAction.php';
 $wgAutoloadClasses['EducationProgram\CourseUndeletionHelper'] 		= $dir . '/includes/CourseUndeletionHelper.php';
+$wgAutoloadClasses['EducationProgram\CourseUndelCheck'] 		= $dir . '/includes/CourseUndeletionHelper.php';
 
 // includes/api (deriving from ApiBase)
 // Many of the actions can also be performed through the API.
@@ -101,7 +102,10 @@ $wgAutoloadClasses['EducationProgram\Events\EventQuery'] 			= $dir . '/includes/
 $wgAutoloadClasses['EducationProgram\Events\EventStore'] 			= $dir . '/includes/Events/EventStore.php';
 $wgAutoloadClasses['EducationProgram\Events\RecentPageEventGrouper'] = $dir . '/includes/Events/RecentPageEventGrouper.php';
 $wgAutoloadClasses['EducationProgram\Events\Timeline'] 				= $dir . '/includes/Events/Timeline.php';
-$wgAutoloadClasses['EducationProgram\Events\TimelineGroup'] 		= $dir . '/includes/Events/TimelineGroup.php';
+$wgAutoloadClasses['EducationProgram\Events\TimelineGroup'] 			= $dir . '/includes/Events/TimelineGroup.php';
+$wgAutoloadClasses['EducationProgram\Events\UnknownGroup'] 			= $dir . '/includes/Events/TimelineGroup.php';
+$wgAutoloadClasses['EducationProgram\Events\EditGroup'] 			= $dir . '/includes/Events/TimelineGroup.php';
+$wgAutoloadClasses['EducationProgram\Events\EnlistGroup'] 			= $dir . '/includes/Events/TimelineGroup.php';
 
 $wgAutoloadClasses['EducationProgram\Store\CourseStore'] 			= $dir . '/includes/Store/CourseStore.php';
 
@@ -169,6 +173,7 @@ $wgAutoloadClasses['EducationProgram\Students'] 					= $dir . '/includes/tables/
 // includes/notifications
 // Classes for Echo notifications
 $wgAutoloadClasses['EducationProgram\NotificationsManager']			= $dir . '/includes/notifications/NotificationsManager.php';
+$wgAutoloadClasses['EducationProgram\NotificationTypeAndFormatter']	= $dir . '/includes/notifications/NotificationsManager.php';
 $wgAutoloadClasses['EducationProgram\INotificationType']			= $dir . '/includes/notifications/INotificationType.php';
 $wgAutoloadClasses['EducationProgram\CourseTalkNotification']		= $dir . '/includes/notifications/CourseTalkNotification.php';
 $wgAutoloadClasses['EducationProgram\CourseFormatter']			    = $dir . '/includes/notifications/CourseFormatter.php';
@@ -205,6 +210,7 @@ $wgAutoloadClasses['EducationProgram\UPCUserCourseFinder'] 			= $dir . '/include
 $wgAutoloadClasses['EducationProgram\UserCourseFinder'] 			= $dir . '/includes/UserCourseFinder.php';
 $wgAutoloadClasses['EducationProgram\UserRolesMessage'] 			= $dir . '/includes/UserRolesMessage.php';
 $wgAutoloadClasses['EducationProgram\OrgDeletionHelper']			= $dir . '/includes/OrgDeletionHelper.php';
+$wgAutoloadClasses['EducationProgram\OrgDelCheck']					= $dir . '/includes/OrgDeletionHelper.php';
 $wgAutoloadClasses['EducationProgram\Utils']						= $dir . '/includes/Utils.php';
 $wgAutoloadClasses['EducationProgram\UserMergeArticleReviewersJob']		= $dir . '/includes/UserMergeArticleReviewersJob.php';
 
