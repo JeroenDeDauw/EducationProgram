@@ -730,5 +730,11 @@
 	"ep-campus-add-notification-title-email-body": "Вы уже {{GENDER:$1|добавлены}} как доброволец кампуса в $2, пользователем $1.",
 	"ep-online-add-notification-title": "Вы уже {{GENDER:$1|добавлены}} как онлайн-доброволец в [[$2|$3]], пользователем [[User:$1|$1]].",
 	"ep-online-add-notification-title-email-subject": "Вы уже {{GENDER:$1|добавлены}} как онлайн-доброволец в $2 пользователем $1.",
-	"ep-online-add-notification-title-email-body": "Вы уже {{GENDER:$1|добавлены}} как онлайн-доброволец в $2, пользователем $1."
+	"ep-online-add-notification-title-email-body": "Вы уже {{GENDER:$1|добавлены}} как онлайн-доброволец в $2, пользователем $1.",
+	"apihelp-addstudents-example-1": "Добавить трёх студентов в курс",
+	"apihelp-deleteeducation-description": "Удалить объекты образовательной программы.",
+	"apihelp-deleteeducation-param-ids": "Идентификаторы объектов для удаления.",
+	"apihelp-deleteeducation-param-type": "Тип объекта для удаления.",
+	"apihelp-deleteeducation-param-comment": "Причина этого удаления (для журнала).",
+	"apihelp-deleteeducation-example-1": "Удалить курс 42"
 }
