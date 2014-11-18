@@ -728,5 +728,7 @@
 	"ep-campus-add-notification-title-email-body": "{{GENDER:$1|נוספת}} בתור מתנדב קמפוס $2 על־ידי $1.",
 	"ep-online-add-notification-title": "{{GENDER:$1|נוספת}} בתור מתנדב מקוון לקורס [[$2|$3]] על־ידי [[User:$1|$1]].",
 	"ep-online-add-notification-title-email-subject": "{{GENDER:$1|נוספת}} בתור מתנדב מקוון $2 על־ידי $1.",
-	"ep-online-add-notification-title-email-body": "{{GENDER:$1|נוספת}} בתור מתנדב מקוון $2 על־ידי $1."
+	"ep-online-add-notification-title-email-body": "{{GENDER:$1|נוספת}} בתור מתנדב מקוון $2 על־ידי $1.",
+	"apihelp-liststudents-param-courseids": "מזהי הקורסים.",
+	"apihelp-liststudents-example-1": "רשימת סטודנטים בקורס 3"
 }
