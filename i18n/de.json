@@ -3,7 +3,8 @@
 		"authors": [
 			"Kghbln",
 			"Metalhead64",
-			"Sebastian Wallroth"
+			"Sebastian Wallroth",
+			"Inkowik"
 		]
 	},
 	"educationprogram-desc": "Ermöglicht die Durchführung und Verwaltung von Bildungsprogrammen",
@@ -717,7 +718,12 @@
 	"ep-online-add-notification-title": "Du wurdest von [[User:$1|$1]] als Onlinevolontär zum Kurs [[$2|$3]] {{GENDER:$1|hinzugefügt}}.",
 	"ep-online-add-notification-title-email-subject": "Du wurdest von $1 als Onlinevolontär zum Kurs $2 {{GENDER:$1|hinzugefügt}}.",
 	"ep-online-add-notification-title-email-body": "Du wurdest von $1 als Onlinevolontär zum Kurs $2 {{GENDER:$1|hinzugefügt}}.",
+	"apihelp-addstudents-example-1": "Drei Studenten zu einem Kurs hinzufügen",
+	"apihelp-deleteeducation-description": "Bildungsprogrammobjekte löschen.",
+	"apihelp-deleteeducation-param-ids": "Die Kennungen der zu löschender Objekte.",
+	"apihelp-deleteeducation-param-type": "Zu löschender Objekttyp.",
 	"apihelp-deleteeducation-example-1": "Kurs 42 löschen",
 	"apihelp-enlist-param-courseid": "Die Kennung des Kurses.",
+	"apihelp-enlist-param-reason": "Grund dieser Löschung, für das Logbuch.",
 	"apihelp-liststudents-param-courseids": "Kennungen der Kurse."
 }
