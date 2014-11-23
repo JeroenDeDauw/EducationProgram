@@ -721,10 +721,17 @@
 	"ep-online-add-notification-title-email-subject": "Du har {{GENDER:$1|lagts till}} som en onlineambassadör i $2 av $1.",
 	"ep-online-add-notification-title-email-body": "Du har {{GENDER:$1|lagts till}} som en onlineambassadör i $2 av $1.",
 	"apihelp-addstudents-description": "Lägg till flera studenter i en kurs.",
+	"apihelp-addstudents-param-studentusernames": "Studenternas användarnamn att lägga till i kursen, separerade med ett \"|\".",
+	"apihelp-addstudents-param-courseid": "ID för kursen dit studenterna ska läggas till/tas bort.",
 	"apihelp-addstudents-example-1": "Lägg till tre studenter i en kurs",
 	"apihelp-deleteeducation-param-comment": "Orsak till radering, för loggen.",
 	"apihelp-deleteeducation-example-1": "Radera kurs 42",
 	"apihelp-enlist-param-courseid": "Kursens ID.",
+	"apihelp-liststudents-param-courseids": "Kursernas ID:n.",
+	"apihelp-liststudents-example-1": "Lista studenter i kurs 3",
+	"apihelp-liststudents-example-2": "Lista studenter i kurserna 3, 4, 5 och 6, grupperade efter kurs i CSV-format",
+	"apihelp-liststudents-example-3": "Lista studenter efter användar-ID i kurserna 3, 4, 5 och 6, grupperade efter kurs i CSV-format",
+	"apihelp-refresheducation-param-type": "Objekttyp att radera.",
 	"apihelp-refresheducation-example-1": "Uppdatera kurs 42",
 	"apihelp-refresheducation-example-2": "Uppdatera studenter 2 och 4"
 }
