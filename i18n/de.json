@@ -730,5 +730,6 @@
 	"apihelp-liststudents-param-courseids": "Kennungen der Kurse.",
 	"apihelp-liststudents-example-1": "Studenten in Kurs 3 auflisten",
 	"apihelp-refresheducation-param-type": "Zu löschender Objekttyp.",
-	"apihelp-refresheducation-example-1": "Kurs 42 aktualisieren"
+	"apihelp-refresheducation-example-1": "Kurs 42 aktualisieren",
+	"apihelp-refresheducation-example-2": "Studenten 2 und 4 aktualisieren"
 }
