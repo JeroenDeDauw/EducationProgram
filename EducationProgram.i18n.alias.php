@@ -604,6 +604,6 @@ $specialPageAliases['zh-hant'] = array(
 	'OnlineAmbassadorProfile' => array( '線上志工基本資料' ),
 	'CampusAmbassadorProfile' => array( '校園志工基本資料' ),
 	'StudentActivity' => array( '學生活動' ),
-	'Articles' => array( '文章' ),
+	'Articles' => array( '條目' ),
 	'CourseActivity' => array( '課程活躍度' ),
 );
