@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"DCLXVI",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Borislav"
 		]
 	},
 	"ep-item-summary": "Резюме",
@@ -139,5 +140,6 @@
 	"ep-timeline-ago": "преди $1",
 	"ep-timeline-cutoff": "$1 ...",
 	"ep-timeline-users-create-article": "$1 създаде статията '''[[$2]]'''.",
-	"ep-dashboard-timeline-empty": "Няма скорошна активност за този курс."
+	"ep-dashboard-timeline-empty": "Няма скорошна активност за този курс.",
+	"ep-echo-pref-tooltip": "Известяване за събития, свързани с мои курсове от обучителната програма."
 }
