@@ -49,13 +49,19 @@ class ApiAddStudents extends ApiBase {
 
 		$api = new \ApiMain( $apiParams );
 		$api->execute();
-		$usersData = & $api->getResultData();
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$usersData = ApiResult::removeMetadataNonRecursive(
+				$api->getResult()->getResultData()
+			);
+		} else {
+			$usersData = & $api->getResultData();
+		}
 
 		// make lists: valid and invalid (invalid name or non-existent) users
 		$validUsersMap = array(); // associative array, id => name
 		$invalidUserNames = array(); // just names, indexed numerically
 
-		foreach ( $usersData['query']['users'] as $userData ) {
+		foreach ( $usersData['query']['users'] as $key => $userData ) {
 			if ( isset ( $userData['userid'] ) ) {
 				$validUsersMap[$userData['userid']] = $userData['name'];
 			} else {
