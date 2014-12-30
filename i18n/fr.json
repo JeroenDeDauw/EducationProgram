@@ -24,7 +24,8 @@
 			"Verdy p",
 			"Wyz",
 			"아라",
-			"Scoopfinder"
+			"Scoopfinder",
+			"Arthur Crbz"
 		]
 	},
 	"educationprogram-desc": "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles des acteurs d'un programme éducatif.",
@@ -558,7 +559,7 @@
 	"ep-disenroll-summary": "Pourquoi vous désinscrivez-vous ?",
 	"ep-disenroll-cancel": "Annuler",
 	"ep-disenroll-fail": "Quelque chose s’est mal passé - impossible de vous désinscrire de ce cours.",
-	"ep-disenroll-success": "Vous avez bien été désinscrit de ce cours!",
+	"ep-disenroll-success": "{{GENDER:$1|Vous}} avez bien été {{GENDER:$1|désinscrit|désinscrite}} de ce cours  !",
 	"ep-disenroll-returntolink": "Retour au [[Education_Program:$2|cours $1]].",
 	"ep-mycourses-enrolled": "Vous vous êtes bien inscrit pour $1 à $2.",
 	"ep-mycourses-not-enrolled": "Vous n'êtes inscrit dans aucun cours. Voyez la [[Special:Courses|liste des cours]].",
@@ -736,5 +737,14 @@
 	"ep-campus-add-notification-title-email-body": "Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole de campus à $2 par $1.",
 	"ep-online-add-notification-title": "Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole en ligne à [[$2|$3]] par [[User:$1|$1]].",
 	"ep-online-add-notification-title-email-subject": "Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole en ligne à $2 par $1.",
-	"ep-online-add-notification-title-email-body": "Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole en ligne à $2 par $1."
+	"ep-online-add-notification-title-email-body": "Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole en ligne à $2 par $1.",
+	"apihelp-addstudents-description": "Ajouter plusieurs étudiants à un cours.",
+	"apihelp-addstudents-param-studentusernames": "Les noms des étudiants à ajouter au cours, séparés par un « | ».",
+	"apihelp-addstudents-param-courseid": "L’ID du cours auquel les étudiants doivent être ajoutés/enlevés.",
+	"apihelp-addstudents-example-1": "Ajouter trois étudiants à un cours",
+	"apihelp-deleteeducation-description": "Supprimer les objets du Programme Éducatif.",
+	"apihelp-deleteeducation-param-ids": "Les IDs des objets à supprimer.",
+	"apihelp-deleteeducation-param-type": "Type d’objet à supprimer.",
+	"apihelp-deleteeducation-param-comment": "Motif de cette suppression, pour le journal.",
+	"apihelp-deleteeducation-example-1": "Supprimer le cours 42"
 }
