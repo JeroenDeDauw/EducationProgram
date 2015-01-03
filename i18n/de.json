@@ -725,6 +725,7 @@
 	"apihelp-deleteeducation-param-type": "Zu löschender Objekttyp.",
 	"apihelp-deleteeducation-param-comment": "Grund für diese Löschung, für das Logbuch.",
 	"apihelp-deleteeducation-example-1": "Kurs 42 löschen",
+	"apihelp-deleteeducation-example-2": "Löscht die Einrichtungen 2 und 4",
 	"apihelp-enlist-param-courseid": "Die Kennung des Kurses.",
 	"apihelp-enlist-param-reason": "Grund dieser Löschung, für das Logbuch.",
 	"apihelp-liststudents-param-courseids": "Kennungen der Kurse.",
