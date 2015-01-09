@@ -290,7 +290,7 @@ class ApiListStudents extends ApiBase {
 		// Add the properties for each participant to the result.
 		$participantIndex = 0;
 
-		foreach ( $participantsList as $participant ) {
+		foreach ( $participantList as $participant ) {
 
 			// Add username to the result.
 			$results->addValue(
