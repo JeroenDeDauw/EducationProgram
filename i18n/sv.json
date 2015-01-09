@@ -724,6 +724,8 @@
 	"apihelp-addstudents-param-studentusernames": "Studenternas användarnamn att lägga till i kursen, separerade med ett \"|\".",
 	"apihelp-addstudents-param-courseid": "ID för kursen dit studenterna ska läggas till/tas bort.",
 	"apihelp-addstudents-example-1": "Lägg till tre studenter i en kurs",
+	"apihelp-deleteeducation-param-ids": "Id:n för objekten att radera.",
+	"apihelp-deleteeducation-param-type": "Typ av objekt att radera.",
 	"apihelp-deleteeducation-param-comment": "Orsak till radering, för loggen.",
 	"apihelp-deleteeducation-example-1": "Radera kurs 42",
 	"apihelp-enlist-param-courseid": "Kursens ID.",
