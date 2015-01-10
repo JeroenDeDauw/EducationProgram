@@ -53,7 +53,7 @@
 	"eporgpager-yes": "Jā",
 	"eporgpager-no": "Nē",
 	"ep-pager-cancel-button-org": "Atcelt",
-	"ep-pager-delete-button-org": "Dzēst {{PLURAL:$1|iestādi|iestādes}}",
+	"ep-pager-delete-button-org": "Dzēst {{PLURAL:$1|iestādes|iestādi|iestādes}}",
 	"ep-pager-retry-button-org": "Mēģināt vēlreiz",
 	"ep-pager-summary-message-org": "Kopsavilkums:",
 	"epcoursepager-header-name": "Nosaukums",
