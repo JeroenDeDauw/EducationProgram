@@ -4,7 +4,7 @@ namespace EducationProgram;
 
 use User;
 use Title;
-use MWException;
+use Exception;
 
 /**
  * Class representing an article being worked on by a single user as part of a course

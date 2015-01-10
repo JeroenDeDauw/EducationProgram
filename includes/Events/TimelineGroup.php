@@ -4,7 +4,7 @@ namespace EducationProgram\Events;
 
 use EducationProgram\Settings;
 use Language;
-use MWException;
+use Exception;
 use Html;
 use Linker;
 use Message;
@@ -76,7 +76,7 @@ abstract class TimelineGroup {
 	 * @param Language $language
 	 *
 	 * @return mixed
-	 * @throws MWException
+	 * @throws Exception
 	 */
 	public static function newFromEventGroup( EventGroup $group, OutputPage $outputPage, Language $language ) {
 		$type = null;
@@ -89,7 +89,7 @@ abstract class TimelineGroup {
 				$type = $event->getType();
 			}
 			elseif ( $type !== $event->getType() ) {
-				throw new MWException( 'Got events of different types when trying to build a ' . __CLASS__ );
+				throw new Exception( 'Got events of different types when trying to build a ' . __CLASS__ );
 			}
 		}
 

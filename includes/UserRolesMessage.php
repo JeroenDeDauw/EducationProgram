@@ -153,12 +153,12 @@ class UserRolesMessage {
 	 * Before calling this method, call prepare() and check that there is some
 	 * output via userHasRoles();
 	 *
-	 * @throws MWException exception if there's no message to output
+	 * @throws Exception exception if there's no message to output
 	 */
 	public function output() {
 		// sanity check
 		if ( !$this->userHasRoles() ) {
-			throw new \MWException( 'Can\'t produce user role message output if ' .
+			throw new \Exception( 'Can\'t produce user role message output if ' .
 				'user doesn\'t have any roles' );
 		}
 

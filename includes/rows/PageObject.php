@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use Title, MWException;
+use Title, Exception;
 
 /**
  * Abstract base class for RevisionedObject that have associated view, edit and history pages.
@@ -65,7 +65,7 @@ abstract class PageObject extends RevisionedObject {
 	 */
 	public function save( $functionName = null ) {
 		if ( $this->hasField( $this->table->getIdentifierField() ) && is_null( $this->getTitle() ) ) {
-			throw new MWException( 'The title for a PageObject needs to be valid when saving.' );
+			throw new Exception( 'The title for a PageObject needs to be valid when saving.' );
 		}
 
 		$this->setField( 'touched', wfTimestampNow() );

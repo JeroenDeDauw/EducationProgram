@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, MWException;
+use IContextSource, Exception;
 
 /**
  * Utility for visualizing diffs between two revisions.
@@ -45,11 +45,11 @@ class DiffTable extends \ContextSource {
 	 *
 	 * @param IContextSource $context
 	 * @param RevisionDiff $diff
-	 * @throws MWException
+	 * @throws Exception
 	 */
 	public function __construct( IContextSource $context, RevisionDiff $diff ) {
 		if ( !$diff->isValid() ) {
-			throw new MWException( 'Ivalid RevisionDiff passed to DiffTable.' );
+			throw new Exception( 'Ivalid RevisionDiff passed to DiffTable.' );
 		}
 
 		$this->diff = $diff;

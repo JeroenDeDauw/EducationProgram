@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Xml, Html, IORMTable, MWException;
+use IContextSource, Xml, Html, IORMTable, Exception;
 
 /**
  * Class representing a single course.
@@ -639,7 +639,7 @@ class Course extends PageObject {
 	 * @param string $roleName
 	 *
 	 * @return IRole[]
-	 * @throws MWException
+	 * @throws Exception
 	 */
 	public function getUserWithRole( $roleName ) {
 		switch ( $roleName ) {
@@ -657,7 +657,7 @@ class Course extends PageObject {
 				break;
 		}
 
-		throw new MWException( 'Invalid role name: ' . $roleName );
+		throw new Exception( 'Invalid role name: ' . $roleName );
 	}
 
 	/**

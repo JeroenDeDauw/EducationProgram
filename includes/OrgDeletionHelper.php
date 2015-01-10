@@ -109,12 +109,12 @@ class OrgDeletionHelper {
 	 *
 	 * @return array
 	 *
-	 * @throws \MWException
+	 * @throws \Exception
 	 */
 	private function getCantDeleteMsgKeyAndParams( $plain=false ) {
 		switch ( $this->deletionCheck ) {
 			case OrgDelCheck::NOT_CHECKED:
-				throw new \MWException( 'Must check deletion restrictions ' .
+				throw new \Exception( 'Must check deletion restrictions ' .
 					'before getting message.' );
 				break;
 
