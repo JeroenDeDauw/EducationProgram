@@ -728,8 +728,10 @@
 	"apihelp-deleteeducation-example-2": "Löscht die Einrichtungen 2 und 4",
 	"apihelp-enlist-param-courseid": "Die Kennung des Kurses.",
 	"apihelp-enlist-param-reason": "Grund dieser Löschung, für das Logbuch.",
+	"apihelp-enlist-example-3": "Entfernt die Benutzerkennung 9001 als Leiter für den Kurs 42",
 	"apihelp-liststudents-param-courseids": "Kennungen der Kurse.",
 	"apihelp-liststudents-example-1": "Studenten in Kurs 3 auflisten",
+	"apihelp-refresheducation-param-ids": "Die Kennungen der zu aktualisierenden Objekte.",
 	"apihelp-refresheducation-param-type": "Zu löschender Objekttyp.",
 	"apihelp-refresheducation-example-1": "Kurs 42 aktualisieren",
 	"apihelp-refresheducation-example-2": "Studenten 2 und 4 aktualisieren"
