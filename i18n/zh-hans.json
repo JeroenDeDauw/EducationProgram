@@ -745,6 +745,7 @@
 	"apihelp-enlist-example-3": "在课程42加入用户ID 9001作为导师",
 	"apihelp-enlist-example-4": "在课程42移除用户Example作为导师",
 	"apihelp-enlist-example-5": "在课程42移除用户Example作为导师，包含原因",
+	"apihelp-liststudents-description": "获取用于一个或更多课程中登记的学生用户名和其他信息。",
 	"apihelp-liststudents-param-courseids": "课程ID。",
 	"apihelp-liststudents-param-prop": "要从每名学生获取的属性：\n;username:学生的用户名。\n;id:学生的用户ID。",
 	"apihelp-liststudents-example-1": "课程3的学生列表",
