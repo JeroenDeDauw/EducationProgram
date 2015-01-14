@@ -730,6 +730,7 @@
 	"apihelp-enlist-param-reason": "Grund dieser Löschung, für das Logbuch.",
 	"apihelp-enlist-example-3": "Entfernt die Benutzerkennung 9001 als Leiter für den Kurs 42",
 	"apihelp-liststudents-param-courseids": "Kennungen der Kurse.",
+	"apihelp-liststudents-param-group": "Falls angegeben, wird die Anfrage Studenten nach Kurs gruppieren.",
 	"apihelp-liststudents-example-1": "Studenten in Kurs 3 auflisten",
 	"apihelp-refresheducation-param-ids": "Die Kennungen der zu aktualisierenden Objekte.",
 	"apihelp-refresheducation-param-type": "Zu löschender Objekttyp.",
