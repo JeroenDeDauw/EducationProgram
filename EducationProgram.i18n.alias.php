@@ -556,6 +556,16 @@ $specialPageAliases['uk'] = array(
 	'Articles' => array( 'Статті' ),
 );
 
+/** Urdu (اردو) */
+$specialPageAliases['ur'] = array(
+	'MyCourses' => array( 'میرا_نصاب' ),
+	'Student' => array( 'طالب_علم' ),
+	'Students' => array( 'طلباء' ),
+	'Courses' => array( 'نصاب' ),
+	'Articles' => array( 'مضامین' ),
+	'CourseActivity' => array( 'نصابی_سرگرمیاں' ),
+);
+
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'Institutions' => array( 'Học_viện' ),
