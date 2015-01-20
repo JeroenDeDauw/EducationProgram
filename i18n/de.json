@@ -726,6 +726,7 @@
 	"apihelp-deleteeducation-param-comment": "Grund für diese Löschung, für das Logbuch.",
 	"apihelp-deleteeducation-example-1": "Kurs 42 löschen",
 	"apihelp-deleteeducation-example-2": "Löscht die Einrichtungen 2 und 4",
+	"apihelp-enlist-param-username": "Name des zu verknüpfenden oder trennenden Benutzers.",
 	"apihelp-enlist-param-courseid": "Die Kennung des Kurses.",
 	"apihelp-enlist-param-reason": "Grund dieser Löschung, für das Logbuch.",
 	"apihelp-enlist-example-3": "Entfernt die Benutzerkennung 9001 als Leiter für den Kurs 42",
