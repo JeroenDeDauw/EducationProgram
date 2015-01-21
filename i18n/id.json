@@ -5,7 +5,8 @@
 			"Iwan Novirion",
 			"Kenrick95",
 			"Pizza1016",
-			"Bennylin"
+			"Bennylin",
+			"William Surya Permana"
 		]
 	},
 	"educationprogram-desc": "Memfasilitasi program pendidikan dengan menambahkan berbagai antarmuka untuk mengelola kursus, insitusi, dan berbagai peran pengguna pendidikan.",
@@ -648,5 +649,6 @@
 	"ep-timeline-users-create-usertalk-self": "'''[[User:$3|$3]]''' membuat '''[[$2|{{GENDER:$3|halaman pembicaraannya|halaman pembicaraannya}}]]''' dan mengirimkan {{PLURAL:$4|pesan|beberapa pesan}} di sana.",
 	"ep-dashboard-login-first": "Anda harus masuk log sebelum melihat kursus Anda.",
 	"ep-dashboard-timeline-empty": "Tidak ada aktivitas terbaru untuk kursus ini.",
-	"ep-dashboard-enroll-first": "Saat ini Anda tidak ikut dalam kursus aktif apapun. Anda bisa melihat [[Special:Courses|daftar kursus]] dan mengikuti salah satunya."
+	"ep-dashboard-enroll-first": "Saat ini Anda tidak ikut dalam kursus aktif apapun. Anda bisa melihat [[Special:Courses|daftar kursus]] dan mengikuti salah satunya.",
+	"ep-echo-pref-tooltip": "Beritahu saya mengenai peristiwa yang terkait dengan kursus Program Edukasi yang saya ikuti."
 }
