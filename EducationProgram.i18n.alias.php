@@ -90,6 +90,11 @@ $specialPageAliases['as'] = array(
 	'Articles' => array( 'প্ৰবন্ধসমূহ' ),
 );
 
+/** Avaric (авар) */
+$specialPageAliases['av'] = array(
+	'Articles' => array( 'Статьи' ),
+);
+
 /** буряад (буряад) */
 $specialPageAliases['bxr'] = array(
 	'Student' => array( 'Оюутан' ),
