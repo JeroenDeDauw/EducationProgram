@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use Title, MWException, Linker, Message;
+use Title, Exception, Linker, Message;
 
 /**
  * Class for logging changes to objects managed by the Education Program extension.
@@ -26,12 +26,12 @@ class LogFormatter extends \LogFormatter {
 	 * @param Title $title
 	 * @param array $parameters
 	 *
-	 * @throws MWException
+	 * @throws Exception
 	 * @return String
 	 */
 	protected function makePageLink( Title $title = null, $parameters = array() ) {
 		if ( !$title instanceof Title ) {
-			throw new MWException( 'Expected title, got null' );
+			throw new Exception( 'Expected title, got null' );
 		}
 
 		$text = explode( '/', $title->getText(), 2 );

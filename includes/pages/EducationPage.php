@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Title, WikiPage, MWException, Language;
+use IContextSource, Title, WikiPage, Exception, Language;
 
 /**
  * Abstract Page for interacting with a PageObject.
@@ -64,7 +64,7 @@ abstract class EducationPage implements \Page, IContextSource {
 	 * @param Title $title
 	 *
 	 * @return EducationPage
-	 * @throws MWException
+	 * @throws Exception
 	 */
 	public static function factory( Title $title ) {
 		if ( $title->getNamespace() == EP_NS ) {
@@ -72,7 +72,7 @@ abstract class EducationPage implements \Page, IContextSource {
 			return new $class( $title );
 		}
 		else {
-			throw new MWException( 'Namespace not handled by Page' );
+			throw new Exception( 'Namespace not handled by Page' );
 		}
 	}
 

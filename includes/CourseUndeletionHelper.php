@@ -109,7 +109,7 @@ namespace EducationProgram;
 	public function outputCantUndeleteMsg() {
 		switch ( $this->undeletionCheck ) {
 			case CourseUndelCheck::NOT_CHECKED:
-				throw new \MWException( 'Must check undeletion restrictions ' .
+				throw new \Exception( 'Must check undeletion restrictions ' .
 					'before outputting message.' );
 				break;
 
@@ -166,7 +166,7 @@ namespace EducationProgram;
 
 				// If we didn't get a revision, something is quite wrong.
 				} else {
-					throw new \MWException( 'Couldn\'t find a revision for ' .
+					throw new \Exception( 'Couldn\'t find a revision for ' .
 						'deleted institution id ' .
 						$this->deletedOrgId );
 				}
