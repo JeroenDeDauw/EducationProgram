@@ -48,7 +48,8 @@ $wgExtensionCredits['other'][] = array(
 		'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
 	),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Education_Program',
-	'descriptionmsg' => 'educationprogram-desc'
+	'descriptionmsg' => 'educationprogram-desc',
+	'license-name' => 'GPL-2.0+'
 );
 
 // i18n: This tells MediaWiki where to look for all the message strings for the extension, which are kept in the standard i18n files.
