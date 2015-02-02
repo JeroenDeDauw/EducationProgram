@@ -537,7 +537,7 @@
 	"ep-disenroll-summary": "Por que se dá de baixa?",
 	"ep-disenroll-cancel": "Cancelar",
 	"ep-disenroll-fail": "Houbo un erro. Non puidemos dar de baixa a súa inscrición neste curso.",
-	"ep-disenroll-success": "A súa inscrición neste curso deuse de baixa correctamente!",
+	"ep-disenroll-success": "{{GENDER:$1|A súa}} inscrición neste curso deuse de baixa correctamente!",
 	"ep-disenroll-returntolink": "Volver ao [[Education_Program:$2|curso \"$1\"]].",
 	"ep-mycourses-enrolled": "Inscribiuse correctamente en \"$1\" de $2.",
 	"ep-mycourses-not-enrolled": "Non está inscrito en ningún curso. Olle a [[Special:Courses|lista de cursos]].",
