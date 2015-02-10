@@ -65,8 +65,6 @@ class UPCUserCourseFinder implements UserCourseFinder {
 	 * @return int[]
 	 */
 	public function getCoursesForUsers( $userIds, $roles = array() ) {
-		wfProfileIn( __METHOD__ );
-
 		$userIds = (array)$userIds;
 		$roles = (array)$roles;
 
@@ -99,8 +97,6 @@ class UPCUserCourseFinder implements UserCourseFinder {
 		foreach ( $upcRows as $upcRow ) {
 			$courseIds[] = (int)$upcRow->upc_course_id;
 		}
-
-		wfProfileOut( __METHOD__ );
 
 		return $courseIds;
 	}

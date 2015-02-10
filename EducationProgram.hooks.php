@@ -142,7 +142,6 @@ final class Hooks {
 	 * @return bool
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		wfProfileIn( __METHOD__ );
 		if ( Settings::get( 'enableTopLink' ) ) {
 			$preferences['ep_showtoplink'] = array(
 				'type' => 'toggle',
@@ -167,7 +166,6 @@ final class Hooks {
 			);
 		}
 
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -235,7 +233,6 @@ final class Hooks {
 	 * @return bool
 	 */
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
-		wfProfileIn( __METHOD__ );
 		$textParts = \SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
 
 		if ( in_array( $textParts[0], array( 'Enroll', 'Disenroll' ) )
@@ -259,7 +256,6 @@ final class Hooks {
 			}
 		}
 
-		wfProfileOut( __METHOD__ );
 		return false;
 	}
 
@@ -273,8 +269,6 @@ final class Hooks {
 	 * @param Title $title
 	 */
 	protected static function displayTabs( SkinTemplate &$sktemplate, array &$links, Title $title ) {
-		wfProfileIn( __METHOD__ );
-
 		if ( $title->getNamespace() == EP_NS ) {
 			$links['views'] = array();
 			$links['actions'] = array();
@@ -349,7 +343,6 @@ final class Hooks {
 				}
 			}
 		}
-		wfProfileOut( __METHOD__ );
 	}
 
 	/**
@@ -364,8 +357,6 @@ final class Hooks {
 	 * @return bool
 	 */
 	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
-		wfProfileIn( __METHOD__ );
-
 		if ( $title->getNamespace() == EP_NS ) {
 			if ( Utils::isCourse( $title ) ) {
 				$class = 'EducationProgram\Courses';
@@ -379,7 +370,6 @@ final class Hooks {
 			$isKnown = $class::singleton()->hasIdentifier( $identifier );
 		}
 
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -451,8 +441,6 @@ final class Hooks {
 	 * @return bool
 	 */
 	public static function onNewRevisionFromEditComplete( Page $article, Revision $rev, $baseID, User $user ) {
-		wfProfileIn( __METHOD__ );
-
 		$dbw = wfGetDB( DB_MASTER );
 
 		// TODO: properly inject dependencies
@@ -475,8 +463,6 @@ final class Hooks {
 		if ( $startOwnStransaction ) {
 			$dbw->commit();
 		}
-
-		wfProfileOut( __METHOD__ );
 
 		return true;
 	}

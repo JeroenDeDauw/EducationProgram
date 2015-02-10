@@ -85,17 +85,13 @@ class EditEventCreator {
 	 * @return Event[]
 	 */
 	public function getEventsForEdit( Page $article, Revision $rev, User $user ) {
-		wfProfileIn( __METHOD__ );
-
 		if ( !$user->isLoggedIn() ) {
-			wfProfileOut( __METHOD__ );
 			return array();
 		}
 
 		$namespace = $article->getTitle()->getNamespace();
 
 		if ( !in_array( $namespace, array( NS_MAIN, NS_TALK, NS_USER, NS_USER_TALK ) ) ) {
-			wfProfileOut( __METHOD__ );
 			return array();
 		}
 
@@ -109,8 +105,6 @@ class EditEventCreator {
 
 			$this->updateLastActive( $namespace, $user );
 		}
-
-		wfProfileOut( __METHOD__ );
 
 		return $events;
 	}
@@ -194,8 +188,6 @@ class EditEventCreator {
 	 * @param User $user
 	 */
 	protected function updateLastActive( $namespace, User $user ) {
-		wfProfileIn( __METHOD__ );
-
 		if ( in_array( $namespace, array( NS_MAIN, NS_TALK ) ) ) {
 			$student = Student::newFromUserId( $user->getId(), true );
 
@@ -207,8 +199,5 @@ class EditEventCreator {
 				$student->save();
 			}
 		}
-
-		wfProfileOut( __METHOD__ );
 	}
-
 }
