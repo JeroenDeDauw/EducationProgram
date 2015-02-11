@@ -4,5 +4,8 @@
 			"Servien"
 		]
 	},
+	"ep-tab-disenroll": "Aofmelden",
+	"special-disenroll": "Aofmelden",
+	"ep-disenroll-button": "Aofmelden",
 	"ep-timeline-ago": "$1 elejen"
 }

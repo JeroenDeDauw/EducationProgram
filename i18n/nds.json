@@ -1,15 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joachim Mos"
+			"Joachim Mos",
+			"Servien"
 		]
 	},
 	"ep-tab-view": "Lesen",
 	"ep-tab-edit": "Ännern",
 	"ep-tab-create": "Opstellen",
 	"ep-tab-history": "Historie bekieken",
+	"ep-tab-disenroll": "Afmellen",
 	"ep-tab-delete": "Wegdoon",
 	"tooltip-ep-form-save": "Spiekern",
+	"special-disenroll": "Afmellen",
 	"ep-educationprogram-male": "Mann",
 	"ep-educationprogram-female": "Fro",
 	"ep-educationprogram-unknown": "Unbekannt",
@@ -38,6 +41,7 @@
 	"vieworgaction-summary-country": "Land",
 	"orgpage-epundelete-cancel-button": "Afbreken",
 	"specialstudent-summary-user": "Brukernaam",
+	"ep-disenroll-button": "Afmellen",
 	"ep-instructor-close-button": "Sluten",
 	"ep-instructor-cancel-button": "Afbreken",
 	"ep-instructor-add-close-button": "Sluten",

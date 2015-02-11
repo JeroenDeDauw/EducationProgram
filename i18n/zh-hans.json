@@ -733,6 +733,7 @@
 	"ep-online-add-notification-title-email-body": "您已由$1作为在线志愿者加入至$2。",
 	"apihelp-addstudents-description": "将多名同学加入课程。",
 	"apihelp-addstudents-param-studentusernames": "要加入至课程的学生的用户名，以“|”分隔。",
+	"apihelp-addstudents-param-courseid": "应该加入/移除学生的课程的ID。",
 	"apihelp-addstudents-example-1": "将三名学生加入课程",
 	"apihelp-deleteeducation-description": "删除教育项目对象。",
 	"apihelp-deleteeducation-param-ids": "要删除的对象ID。",
