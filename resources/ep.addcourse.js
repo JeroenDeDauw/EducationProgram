@@ -10,8 +10,10 @@
 
 	$( document ).ready( function() {
 
-		$( '.ep-course-add' ).closest( 'form' ).submit( function() {
+		$( '.ep-course-add' ).closest( 'form' ).submit( function(event) {
 			var courseName = $( '#newname' ).val();
+			// replace slash with hyphen in the course name, to keep it from causing database errors
+			courseName = courseName.replace(/\//g, "-");
 			courseName = courseName.charAt( 0 ).toUpperCase() + courseName.slice( 1 );
 
 			$( this ).attr(
