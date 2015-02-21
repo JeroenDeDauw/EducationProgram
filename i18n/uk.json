@@ -539,7 +539,7 @@
 	"ep-disenroll-summary": "Чому Ви відписуєтесь?",
 	"ep-disenroll-cancel": "Скасувати",
 	"ep-disenroll-fail": "Щось пішло не так, не вдалося відписати Вас від цього курсу.",
-	"ep-disenroll-success": "Ви успішно відписані від цього курсу!",
+	"ep-disenroll-success": "{{GENDER:$1|Ви}} успішно {{GENDER:$1|відписані}} від цього курсу!",
 	"ep-disenroll-returntolink": "Повернутися до [[Education_Program:$2|курсу $1]].",
 	"ep-mycourses-enrolled": "Ви успішно записались на $1 у $2.",
 	"ep-mycourses-not-enrolled": "Ви не записані на жоден курс. Див. [[Special:Courses|список курсів]].",
@@ -717,5 +717,15 @@
 	"ep-campus-add-notification-title-email-body": "Ви вже {{GENDER:$1|додані}} як доброволець кампусу до $2 користувачем $1.",
 	"ep-online-add-notification-title": "Ви вже {{GENDER:$1|додані}} як доброволець у мережі до [[$2|$3]] користувачем [[User:$1|$1]].",
 	"ep-online-add-notification-title-email-subject": "Ви вже {{GENDER:$1|додані}} як доброволець у мережі до $2 користувачем $1.",
-	"ep-online-add-notification-title-email-body": "Ви вже {{GENDER:$1|додані}} як доброволець у мережі до $2 користувачем $1."
+	"ep-online-add-notification-title-email-body": "Ви вже {{GENDER:$1|додані}} як доброволець у мережі до $2 користувачем $1.",
+	"apihelp-addstudents-description": "Додати кількох студентів до курсу.",
+	"apihelp-addstudents-param-studentusernames": "Імена студентів для додавання до курсу, розділені \"|\".",
+	"apihelp-addstudents-param-courseid": "Ідентифікатор курсу для додавання/вилучення студентів.",
+	"apihelp-addstudents-example-1": "Додати трьох студентів до курсу",
+	"apihelp-deleteeducation-description": "Вилучити об'єкти Освітньої програми.",
+	"apihelp-deleteeducation-param-ids": "Ідентифікатори об'єктів для вилучення.",
+	"apihelp-deleteeducation-param-type": "Тип об'єкта для вилучення.",
+	"apihelp-deleteeducation-param-comment": "Причина цього вилучення, для журналу.",
+	"apihelp-deleteeducation-example-1": "Вилучити курс 42",
+	"apihelp-deleteeducation-example-2": "Вилучити орг-ції 2 і 4"
 }
