@@ -162,10 +162,14 @@ class ApiListStudents extends ApiBase {
 
 		} else {
 			// Replace all the instances of $courseIndex in the results.
-			$results->setIndexedTagName_internal(
-				null,
-				'course'
-			);
+			if ( defined( 'ApiResult::META_CONTENT' ) ) {
+				$results->defineIndexedTagName( null, 'course' );
+			} else {
+				$results->setIndexedTagName_internal(
+					null,
+					'course'
+				);
+			}
 		}
 	}
 
@@ -310,10 +314,17 @@ class ApiListStudents extends ApiBase {
 		}
 
 		// Index the participants.
-		$results->setIndexedTagName_internal(
-			$this->usersPath( $courseIndex, $courseRolePlural ),
-			$courseRole
-		);
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$results->defineIndexedTagName(
+				$this->usersPath( $courseIndex, $courseRolePlural ),
+				$courseRole
+			);
+		} else {
+			$results->setIndexedTagName_internal(
+				$this->usersPath( $courseIndex, $courseRolePlural ),
+				$courseRole
+			);
+		}
 	}
 
 	/**
@@ -402,19 +413,30 @@ class ApiListStudents extends ApiBase {
 					}
 
 					//Index the reviewers for the article.
-					$results->setIndexedTagName_internal(
-						$articlePath,
-						'reviewer'
-					);
+					if ( defined( 'ApiResult::META_CONTENT' ) ) {
+						$results->defineIndexedTagName( $articlePath, 'reviewer' );
+					} else {
+						$results->setIndexedTagName_internal(
+							$articlePath,
+							'reviewer'
+						);
+					}
 					$articleIndex++;
 
 				}
 
 				// Index the articles for the student.
-				$results->setIndexedTagName_internal(
-					$this->userPath( $courseIndex, 'students', $studentIndex ),
-					'article'
-				);
+				if ( defined( 'ApiResult::META_CONTENT' ) ) {
+					$results->defineIndexedTagName(
+						$this->userPath( $courseIndex, 'students', $studentIndex ),
+						'article'
+					);
+				} else {
+					$results->setIndexedTagName_internal(
+						$this->userPath( $courseIndex, 'students', $studentIndex ),
+						'article'
+					);
+				}
 			}
 
 			$studentIndex++;
@@ -422,10 +444,17 @@ class ApiListStudents extends ApiBase {
 		}
 
 		// Index the students.
-		$results->setIndexedTagName_internal(
-			$this->usersPath( $courseIndex, 'students' ),
-			'student'
-		);
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$results->defineIndexedTagName(
+				$this->usersPath( $courseIndex, 'students' ),
+				'student'
+			);
+		} else {
+			$results->setIndexedTagName_internal(
+				$this->usersPath( $courseIndex, 'students' ),
+				'student'
+			);
+		}
 	}
 
 	/**
@@ -458,10 +487,17 @@ class ApiListStudents extends ApiBase {
 			$articleNames
 		);
 
-		$results->setIndexedTagName_internal(
-			$this->articlesPath( $courseIndex ),
-			'articles'
-		);
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$results->defineIndexedTagName(
+				$this->articlesPath( $courseIndex ),
+				'articles'
+			);
+		} else {
+			$results->setIndexedTagName_internal(
+				$this->articlesPath( $courseIndex ),
+				'articles'
+			);
+		}
 
 	}
 
