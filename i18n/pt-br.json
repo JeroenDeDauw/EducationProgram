@@ -12,7 +12,8 @@
 			"Teles",
 			"Dianakc",
 			"McDutchie",
-			"He7d3r"
+			"He7d3r",
+			"Opraco"
 		]
 	},
 	"educationprogram-desc": "Facilita programas educacionais ao adicionar várias interfaces para gestão de cursos, instituições e os diferentes papeis que assumem os participantes de um projeto educacional.",
@@ -142,7 +143,7 @@
 	"action-ep-remarticle": "dissociar artigos de estudantes",
 	"action-ep-addstudent": "inscrever usuários como estudantes",
 	"group-epcoordinator": "Coordenadores de curso",
-	"group-epcoordinator-member": "{{GENDER:$1|coordenador de curso|coordenadora de cursos}}",
+	"group-epcoordinator-member": "{{GENDER:$1|coordenador|coordenadora|coordenador(a)}} de curso",
 	"grouppage-epcoordinator": "{{ns:project}}:Coordenadores_de_curso",
 	"group-eponline": "Voluntários online do curso",
 	"group-eponline-member": "{{GENDER:$1|voluntário online de curso|voluntária online de curso}}",
