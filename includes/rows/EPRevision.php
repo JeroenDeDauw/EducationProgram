@@ -96,7 +96,12 @@ class EPRevision extends \ORMRow {
 	 */
 	public function getUser() {
 		if ( $this->user === false ) {
-			$this->user = User::newFromId( $this->loadAndGetField( 'user_id' ) );
+			$id = $this->loadAndGetField( 'user_id' );
+			if ( $id ) {
+				$this->user = User::newFromId( $id );
+			} else {
+				$this->user = User::newFromName( $this->loadAndGetField( 'user_text' ), false );
+			}
 		}
 
 		return $this->user;
