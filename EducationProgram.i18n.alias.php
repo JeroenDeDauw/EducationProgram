@@ -509,6 +509,11 @@ $specialPageAliases['scn'] = array(
 	'Articles' => array( 'Voci' ),
 );
 
+/** Serbian (Cyrillic script) (српски (ћирилица)‎) */
+$specialPageAliases['sr-ec'] = array(
+	'MyCourses' => array( 'МојиКурсеви' ),
+);
+
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = array(
 	'MyCourses' => array( 'Mina_kurser' ),

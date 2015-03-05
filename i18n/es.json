@@ -286,8 +286,8 @@
 	"ep-articles-addarticle-text": "Añadir un artículo:",
 	"ep-articles-addarticle-button": "Agregar artículo",
 	"ep-articles-becomereviewer": "Agregarme como {{GENDER:$1|revisor|revisora}}",
-	"ep-articletable-addreviwer-title": "Convertido en {{GENDER:$1| revisor|revisora}}",
-	"ep-articletable-addreviwer-button": "Convertido en {{GENDER:$1|revisor|revisora}}",
+	"ep-articletable-addreviwer-title": "Convertirse en {{GENDER:$1| revisor|revisora}}",
+	"ep-articletable-addreviwer-button": "Convertirse en {{GENDER:$1|revisor|revisora}}",
 	"ep-articletable-addreviwer-cancel": "Cancelar",
 	"ep-articletable-addreviwer-text": "Estás a punto de inscribirte {{GENDER:$1|a tí mismo|a tí misma}} como {{GENDER:$1|revisor|revisora}} del artículo $2 realizado por $3.",
 	"ep-articletable-remreviwer-title": "Quitar a $1 como {{GENDER:$1|revisor|revisora}}",
@@ -591,7 +591,7 @@
 	"ep-instructor-add-title": "Agregar un instructor del curso",
 	"ep-instructor-add-self-title": "Convertirse en {{GENDER:$1|un instructor|una instructora}} de este curso",
 	"ep-instructor-add-button": "Agregar un instructor",
-	"ep-instructor-add-self-button": "Convertido en {{GENDER:$1|instructor|instructora}}",
+	"ep-instructor-add-self-button": "Convertirse en {{GENDER:$1|instructor|instructora}}",
 	"ep-instructor-add-text": "Estás agregando un instructor para el curso $1. Introduce el nombre de usuario del instructor y una breve descripción de por qué esta persona está siendo agregada.",
 	"ep-instructor-add-self-text": "Estás agregando {{GENDER:$2|un instructor|una instructora}} para el curso $1. Agrega una breve descripción de los motivos.",
 	"ep-instructor-add-cancel-button": "Cancelar",
@@ -734,5 +734,7 @@
 	"ep-online-add-notification-title-email-subject": "Has sido {{GENDER:$1|agregado|agregada|agregado}} como {{GENDER:$1|un voluntario|una voluntaria|voluntario}} en línea para $2 por $1.",
 	"ep-online-add-notification-title-email-body": "Has sido {{GENDER:$1|agregado|agregada|agregado}} como {{GENDER:$1|un voluntario|una voluntaria|voluntario}} en línea para $2 por $1.",
 	"apihelp-addstudents-description": "Añadir varios estudiantes a un curso.",
+	"apihelp-deleteeducation-example-1": "Eliminar curso 42",
+	"apihelp-enlist-param-courseid": "El identificador del curso.",
 	"apihelp-liststudents-param-courseids": "Identificadores de los cursos."
 }
