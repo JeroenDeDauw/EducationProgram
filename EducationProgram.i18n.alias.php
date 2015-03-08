@@ -488,6 +488,18 @@ $specialPageAliases['pt-br'] = array(
 /** Russian (русский) */
 $specialPageAliases['ru'] = array(
 	'Articles' => array( 'Статьи' ),
+	'MyCourses' => array( 'Мои_курсы' ),
+	'ManageCourses' => array( 'Управление_курсами' ),
+	'Institutions' => array( 'Учебные_заведения' ),
+	'Student' => array( 'Студент' ),
+	'Students' => array( 'Студенты' ),
+	'Courses' => array( 'Курсы' ),
+	'EducationProgram' => array( 'Образовательная_программа' ),
+	'Enroll' => array( 'Зарегистрировать' ),
+	'Disenroll' => array( 'Исключить' ),
+	'StudentActivity' => array( 'Активность_студента' ),
+	'Articles' => array( 'Статьи' ),
+	'CourseActivity' => array( 'Активность_на_курсе' ),
 );
 
 /** Sicilian (sicilianu) */

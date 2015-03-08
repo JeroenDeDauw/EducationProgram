@@ -63,6 +63,11 @@ $namespaceNames['pt-br'] = array(
 	EP_NS_TALK => 'Ensino_Discussão',
 );
 
+$namespaceNames['ru'] = array(
+	EP_NS      => 'Образовательная_программа',
+	EP_NS_TALK => 'Обсуждение_образовательной_программы',
+);
+
 $namespaceNames['sv'] = array(
 	EP_NS => 'Utbildningsprogram',
 	EP_NS_TALK => 'Utbildningsprogramsdiskussion',
