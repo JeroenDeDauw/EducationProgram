@@ -286,7 +286,7 @@
 	"ep-articles-addarticle-text": "Añadir un artículo:",
 	"ep-articles-addarticle-button": "Agregar artículo",
 	"ep-articles-becomereviewer": "Agregarme como {{GENDER:$1|revisor|revisora}}",
-	"ep-articletable-addreviwer-title": "Convertirse en {{GENDER:$1| revisor|revisora}}",
+	"ep-articletable-addreviwer-title": "Convertirse en {{GENDER:$1|revisor|revisora}}",
 	"ep-articletable-addreviwer-button": "Convertirse en {{GENDER:$1|revisor|revisora}}",
 	"ep-articletable-addreviwer-cancel": "Cancelar",
 	"ep-articletable-addreviwer-text": "Estás a punto de inscribirte {{GENDER:$1|a tí mismo|a tí misma}} como {{GENDER:$1|revisor|revisora}} del artículo $2 realizado por $3.",
