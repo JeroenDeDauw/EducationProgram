@@ -164,7 +164,8 @@ abstract class ViewAction extends Action {
 					$rev->getId(),
 					$tdtime,
 					$tddate,
-					$rev->getUser()
+					$rev->getUser(),
+					Linker::commentBlock( $rev->loadAndGetField( 'comment' ) )
 				)->parse() .
 				"</div>"
 		);
