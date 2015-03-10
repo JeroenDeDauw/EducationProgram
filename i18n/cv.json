@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chuvash2014"
+		]
+	},
+	"ep-educationprogram-male": "Арçын",
+	"ep-educationprogram-female": "Хĕрарăм",
+	"epcoursepager-header-name": "Ят",
+	"epstudentpager-header-user-id": "Усăкуракан ят",
+	"epstudentpager-header-id": "Id",
+	"epstudentpager-header-student": "Студент",
+	"ep-instructor-name-input": "Усăкуракан ят:",
+	"ep-campus-name-input": "Усăкуракан ят:"
+}

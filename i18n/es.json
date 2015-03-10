@@ -149,7 +149,7 @@
 	"action-ep-remarticle": "disociar los artículos de los alumnos",
 	"action-ep-addstudent": "inscribir a usuarios como alumnos",
 	"group-epcoordinator": "Coordinadores de cursos",
-	"group-epcoordinator-member": "{{GENDER:$1|Coordinador del curso|Coordinadora del curso}}",
+	"group-epcoordinator-member": "{{GENDER:$1|coordinador de cursos|coordinadora de cursos}}",
 	"grouppage-epcoordinator": "{{ns:project}}:Coordinadores del curso",
 	"group-eponline": "Voluntarios del curso en línea",
 	"group-eponline-member": "{{GENDER:$1|Voluntario del curso en línea|Voluntaria del curso en línea}}",
