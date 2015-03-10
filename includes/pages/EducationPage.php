@@ -141,6 +141,10 @@ abstract class EducationPage implements \Page, IContextSource {
 		return call_user_func_array( array( $this->getContext(), 'msg' ), $args );
 	}
 
+	public function getStats() {
+		return $this->getContext()->getStats();
+	}
+
 	public function getActionOverrides() {
 		$actions = $this->getActions();
 
