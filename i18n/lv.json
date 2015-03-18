@@ -331,6 +331,7 @@
 	"ep-course-help-token": "Neobligāts. Ja tiek aizpildīts, studentiem tas būs jāievada, lai reģistrētos. Tas ļauj ierobežot svešu personu pierakstīšanos.",
 	"ep-course-edit-description": "Lapas teksts",
 	"ep-course-edit-title": "Lapas nosaukums",
+	"ep-course-help-title": "Kursa lapas nosaukums. Saskaņā ar vienošanos, tam būt jābūt kursa nosaukuma, kam iekavās seko semestris.",
 	"ep-course-edit-field": "Studiju joma",
 	"ep-course-edit-level": "Kursa līmenis",
 	"ep-course-edit-term": "Akadēmiskais semestris",

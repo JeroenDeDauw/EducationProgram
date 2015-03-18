@@ -736,6 +736,7 @@
 	"apihelp-enlist-example-3": "Entfernt die Benutzerkennung 9001 als Leiter für den Kurs 42",
 	"apihelp-enlist-example-4": "Entfernt den Benutzer Example als Leiter des Kurses 42",
 	"apihelp-enlist-example-5": "Entfernt den Benutzer Example als Leiter des Kurses 42 mit einer Begründung",
+	"apihelp-liststudents-description": "Ruft die Benutzernamen und andere Informationen für Studenten ab, die in einem oder mehreren Kursen eingeschrieben sind.",
 	"apihelp-liststudents-param-courseids": "Kennungen der Kurse.",
 	"apihelp-liststudents-param-group": "Falls angegeben, wird die Anfrage Studenten nach Kurs gruppieren.",
 	"apihelp-liststudents-example-1": "Studenten in Kurs 3 auflisten",
