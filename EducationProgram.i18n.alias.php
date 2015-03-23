@@ -487,7 +487,6 @@ $specialPageAliases['pt-br'] = array(
 
 /** Russian (русский) */
 $specialPageAliases['ru'] = array(
-	'Articles' => array( 'Статьи' ),
 	'MyCourses' => array( 'Мои_курсы' ),
 	'ManageCourses' => array( 'Управление_курсами' ),
 	'Institutions' => array( 'Учебные_заведения' ),

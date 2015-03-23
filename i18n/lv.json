@@ -347,6 +347,7 @@
 	"ep-addstudents-invalid-users": "{{PLURAL:$1|Šie lietotāji|Šis lietotājs|Šie lietotāji}} nepastāv: $2.",
 	"ep-addstudents-btn": "Pievienot",
 	"ep-addstudents-success": "Jūs šim kursam pievienojāt $1 {{PLURAL:$1|studentus|{{GENDER:$2|studentu}}|studentus}}.",
+	"ep-addstudents-alreadyenrolled": "{{PLURAL:$1|Šis students netika pievienots, jo {{GENDER:$3|viņš|viņa|viņi}}|Šie studenti netika pievienoti, jo viņi}} jau ir kursā: $2.",
 	"ep-addstudents-servercallerror": "Pievienojot studentus, notika kļūda: $1.",
 	"coursepage-edit-title-edit": "Labo kursu: $1",
 	"coursepage-edit-title-add": "Pievieno kursu: $1",

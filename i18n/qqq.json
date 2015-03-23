@@ -17,10 +17,11 @@
 			"Utar",
 			"아라",
 			"Ragesoss",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Umherirrender"
 		]
 	},
-	"educationprogram-desc": "{{desc|name=Education Program|url=http://www.mediawiki.org/wiki/Extension:Education_Program}}",
+	"educationprogram-desc": "{{desc|name=Education Program|url=https://www.mediawiki.org/wiki/Extension:Education_Program}}",
 	"ep-item-summary": "Table column header.\n{{Identical|Summary}}",
 	"ep-toplink": "Text of a link the the top menu (next to \"Preferences\")",
 	"ep-org-course-delete-comment": "Success message. Parameters:\n* $1 - an institution name\n* $2 - a user provided comment",
