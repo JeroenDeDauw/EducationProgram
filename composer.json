@@ -2,7 +2,7 @@
 	"name": "mediawiki/education-program",
 		"type": "mediawiki-extension",
 		"description": "Facilitates educational programs by adding various interfaces to manage courses, students, institutions, mentors",
-		"homepage": "http://www.mediawiki.org/wiki/Extension:EducationProgram",
+		"homepage": "https://www.mediawiki.org/wiki/Extension:EducationProgram",
 		"license" : "GPL-2.0+",
 
 		"require": {
