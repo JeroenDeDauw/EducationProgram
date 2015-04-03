@@ -375,6 +375,17 @@ $specialPageAliases['lb'] = array(
 	'Articles' => array( 'Artikelen' ),
 );
 
+/** لوری (لوری) */
+$specialPageAliases['lrc'] = array(
+	'MyCourses' => array( 'دوره_یا_مه' ),
+	'ManageCourses' => array( 'دیوونداری_دوره_یا' ),
+	'Institutions' => array( 'سامونگه_یا،_سامونجایا' ),
+	'Student' => array( 'دونسمنیجور' ),
+	'Students' => array( 'دونسمنیجوریا' ),
+	'Courses' => array( 'دوره_یا' ),
+	'Articles' => array( 'گوتاریا' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'MyCourses' => array( 'МоиКурсеви' ),
@@ -574,7 +585,13 @@ $specialPageAliases['uk'] = array(
 	'EducationProgram' => array( 'Освітня_Програма' ),
 	'Enroll' => array( 'Записатись' ),
 	'Disenroll' => array( 'Відписатись' ),
+	'CampusAmbassadors' => array( 'Добровольці_кампусу' ),
+	'OnlineAmbassadors' => array( 'Онлайн-добровольці' ),
+	'OnlineAmbassadorProfile' => array( 'Профіль_добровольця_кампусу' ),
+	'CampusAmbassadorProfile' => array( 'Профіль_онлайн-добровольця' ),
+	'StudentActivity' => array( 'Активність_студента' ),
 	'Articles' => array( 'Статті' ),
+	'CourseActivity' => array( 'Активність_на_курсі' ),
 );
 
 /** Urdu (اردو) */
