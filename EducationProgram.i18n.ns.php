@@ -72,3 +72,8 @@ $namespaceNames['sv'] = array(
 	EP_NS => 'Utbildningsprogram',
 	EP_NS_TALK => 'Utbildningsprogramsdiskussion',
 );
+
+$namespaceNames['uk'] = array(
+	EP_NS => 'Освітня_програма',
+	EP_NS_TALK => 'Обговорення_освітньої_програми',
+);
