@@ -386,6 +386,26 @@ $specialPageAliases['lrc'] = array(
 	'Articles' => array( 'گوتاریا' ),
 );
 
+/** Latvian (latviešu) */
+$specialPageAliases['lv'] = array(
+	'MyCourses' => array( 'Mani_kursi' ),
+	'ManageCourses' => array( 'Kursu_pārvaldība' ),
+	'Institutions' => array( 'Iestādes' ),
+	'Student' => array( 'Students' ),
+	'Students' => array( 'Studenti' ),
+	'Courses' => array( 'Kursi' ),
+	'EducationProgram' => array( 'Izglītības_programma' ),
+	'Enroll' => array( 'Reģistrācija' ),
+	'Disenroll' => array( 'Reģistrācijas_atcelšana' ),
+	'CampusAmbassadors' => array( 'Iestādes_brīvprātīgie' ),
+	'OnlineAmbassadors' => array( 'Tiešsaistes_brīvprātīgie' ),
+	'OnlineAmbassadorProfile' => array( 'Iestādes_brīvprātīgā_profils' ),
+	'CampusAmbassadorProfile' => array( 'Tiešsaistes_brīvprātīgā_profils' ),
+	'StudentActivity' => array( 'Studentu_aktivitāte' ),
+	'Articles' => array( 'Raksti' ),
+	'CourseActivity' => array( 'Kursa_aktivitāte' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'MyCourses' => array( 'МоиКурсеви' ),
