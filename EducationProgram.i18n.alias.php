@@ -95,6 +95,26 @@ $specialPageAliases['av'] = array(
 	'Articles' => array( 'Статьи' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'MyCourses' => array( 'نی_دوره_ئان' ),
+	'ManageCourses' => array( 'دوره_ئانی_مدیریت' ),
+	'Institutions' => array( 'اورگان،_نهاد' ),
+	'Student' => array( 'وانوک' ),
+	'Students' => array( 'وانوک_ئان' ),
+	'Courses' => array( 'سبق_ئان' ),
+	'EducationProgram' => array( 'درسین_پروگرام' ),
+	'Enroll' => array( 'اوزویت' ),
+	'Disenroll' => array( 'ئدم_اوزویت' ),
+	'CampusAmbassadors' => array( 'کمپی_وت_لوٹوکان' ),
+	'OnlineAmbassadors' => array( 'آنلاینین_وت_لوٹوکان' ),
+	'OnlineAmbassadorProfile' => array( 'آنلانین_وت_لوٹوکانی_نشانگ' ),
+	'CampusAmbassadorProfile' => array( 'کمپی_وت_لوٹوکانی_نشانگ' ),
+	'StudentActivity' => array( 'وانوک_ئی_پئالیت' ),
+	'Articles' => array( 'مقاله_ئان' ),
+	'CourseActivity' => array( 'سبق_ئی_پئالیت' ),
+);
+
 /** буряад (буряад) */
 $specialPageAliases['bxr'] = array(
 	'Student' => array( 'Оюутан' ),
@@ -238,6 +258,14 @@ $specialPageAliases['fa'] = array(
 	'StudentActivity' => array( 'فعالیت_دانشجو' ),
 	'Articles' => array( 'مقاله‌ها' ),
 	'CourseActivity' => array( 'فعالیت_درس' ),
+);
+
+/** Western Frisian (Frysk) */
+$specialPageAliases['fy'] = array(
+	'Institutions' => array( 'Organisaasjes' ),
+	'Student' => array( 'Studint' ),
+	'Students' => array( 'Studinten' ),
+	'Articles' => array( 'Artikels' ),
 );
 
 /** Galician (galego) */
