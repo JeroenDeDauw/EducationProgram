@@ -715,5 +715,17 @@
 	"ep-campus-add-notification-title-email-body": "{{GENDER:$1|$1}} engadiuno como voluntario do campus de \"$2\".",
 	"ep-online-add-notification-title": "[[User:$1|{{GENDER:$1|$1}}]] engadiuno como voluntario en liña de \"[[$2|$3]]\".",
 	"ep-online-add-notification-title-email-subject": "{{GENDER:$1|$1}} engadiuno como voluntario en liña de \"$2\".",
-	"ep-online-add-notification-title-email-body": "{{GENDER:$1|$1}} engadiuno como voluntario en liña de \"$2\"."
+	"ep-online-add-notification-title-email-body": "{{GENDER:$1|$1}} engadiuno como voluntario en liña de \"$2\".",
+	"apihelp-addstudents-description": "Engadir varios estudantes a un curso.",
+	"apihelp-addstudents-param-studentusernames": "Nomes de usuario dos estudantes a engadir ó curso, separados por \"|\".",
+	"apihelp-addstudents-param-courseid": "Identificador do curso ó que deben engadirse/borrarse os estudantes.",
+	"apihelp-addstudents-example-1": "Engadir tres estudantes ó curso",
+	"apihelp-deleteeducation-description": "Borrar os obxectos do Programa Educativo.",
+	"apihelp-deleteeducation-param-ids": "Identificadores dos obxectos a borrar.",
+	"apihelp-deleteeducation-param-type": "Tipo do obxecto a borrar.",
+	"apihelp-deleteeducation-param-comment": "Razón para o borrado, para o rexistro.",
+	"apihelp-deleteeducation-example-1": "Borrar o curso 42",
+	"apihelp-deleteeducation-example-2": "Borrar as orgs 2 e 4",
+	"apihelp-enlist-description": "Asociar ou desasociar un usuario como instructor ou embaixador dun curso.",
+	"apihelp-enlist-param-subaction": "Especifica o que quere facer co instructor ou embaixador."
 }
