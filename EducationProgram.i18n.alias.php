@@ -411,6 +411,7 @@ $specialPageAliases['lrc'] = array(
 	'Student' => array( 'دونسمنیجور' ),
 	'Students' => array( 'دونسمنیجوریا' ),
 	'Courses' => array( 'دوره_یا' ),
+	'EducationProgram' => array( 'برنامه_آموزشتی،_برنامه_آموزشتی' ),
 	'Articles' => array( 'گوتاریا' ),
 );
 
