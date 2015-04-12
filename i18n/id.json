@@ -6,7 +6,8 @@
 			"Kenrick95",
 			"Pizza1016",
 			"Bennylin",
-			"William Surya Permana"
+			"William Surya Permana",
+			"Bonaditya"
 		]
 	},
 	"educationprogram-desc": "Memfasilitasi program pendidikan dengan menambahkan berbagai antarmuka untuk mengelola kursus, insitusi, dan berbagai peran pengguna pendidikan.",
@@ -19,6 +20,7 @@
 	"ep-move-error": "Anda tidak diizinkan memindahkan artikel ke dalam atau luar ruang nama pendidikan.",
 	"ep-student-view-profile": "profil peserta",
 	"ep-err-failed-to-save": "Sesuatu tidak beres - perubahan Anda belum tersimpan.",
+	"ep-didyouknow-header": "Tahukah Anda?",
 	"ep-tab-view": "Baca",
 	"ep-tab-edit": "Sunting",
 	"ep-tab-create": "Buat",
@@ -26,6 +28,7 @@
 	"ep-tab-enroll": "Ikut",
 	"ep-tab-disenroll": "Keluar",
 	"ep-tab-delete": "Hapus",
+	"ep-tab-activity": "Lihat aktivitas",
 	"tooltip-ep-form-save": "Simpan",
 	"tooltip-ep-edit-institution": "Sunting institusi ini",
 	"tooltip-ep-edit-course": "Sunting kursus ini",
@@ -33,9 +36,9 @@
 	"tooltip-ep-minor": "Tandai ini sebagai suntingan kecil",
 	"ep-nav-orgs": "Daftar institusi",
 	"ep-nav-courses": "Daftar kursus",
-	"ep-nav-mycourses": "Kursus saya",
+	"ep-nav-mycourses": "Kursus Anda",
 	"ep-nav-students": "Daftar peserta",
-	"ep-nav-mentors": "Daftar duta",
+	"ep-nav-mentors": "Daftar sukarelawan",
 	"ep-nav-cas": "Duta Kampus",
 	"ep-nav-oas": "Duta Daring",
 	"ep-nav-oaprofile": "Profil Duta Daring",

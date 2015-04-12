@@ -243,7 +243,7 @@
 	"ep-editcourse": "Dir ännert e Cours deen et scho gëtt.",
 	"ep-editcourse-exists-already": "Dëse Cours gëtt et schonn. Dir ännert en.",
 	"ep-addstudents-section": "Studente bäi dëse Cours derbäisetzen",
-	"ep-addstudents-instructions": "Tippt d'Benotzernimm vun de Studenten déi Dir derbäisetze wëllt. Dréckt Enter no jiddwerengem, oder klickt op de Menü dee gewise gëtt. Dir kënnt och eng Lëscht vu Benotzernimm dra kopéieren.\n\nKlickt \"{{int:ep-addstudents-btn}}\" wann dir fäerdeg sidd.",
+	"ep-addstudents-instructions": "Tippt d'Benotzernimm vun de Studenten déi Dir derbäisetze wëllt. Dréckt Enter no jiddwerengem, oder klickt op de Menü dee gewise gëtt. Dir kënnt och eng Lëscht vu Benotzernimm dra kopéieren.\n\nKlickt \"{{int:ep-addstudents-btn}}\" wann Dir fäerdeg sidd.",
 	"ep-addstudents-url-instructions": "Studente kënne sech och selwer derbäisetzen andeem si dëse Link an hirem Internetbrowser opmaachen:",
 	"ep-addstudents-invalid-users": "{{PLURAL:$1|Dëse|Dës}} Benotzer gëtt et net: $2.",
 	"ep-addstudents-btn": "Derbäisetzen",

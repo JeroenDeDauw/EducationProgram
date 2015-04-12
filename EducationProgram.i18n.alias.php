@@ -143,11 +143,15 @@ $specialPageAliases['cs'] = array(
 	'Institutions' => array( 'Instituce' ),
 	'Students' => array( 'Studenti' ),
 	'Courses' => array( 'Kurzy' ),
+	'EducationProgram' => array( 'Vzdělávací_program', 'Vzdelavaci_program' ),
+	'Enroll' => array( 'Zapsat_se' ),
+	'Disenroll' => array( 'Odhlásit_se', 'Odhlasit_se' ),
 	'CampusAmbassadors' => array( 'Dobrovolníci_dostupní_osobně' ),
 	'OnlineAmbassadors' => array( 'Online_dobrovolníci' ),
 	'OnlineAmbassadorProfile' => array( 'Profil_online_dobrovolníka' ),
 	'CampusAmbassadorProfile' => array( 'Profil_dobrovolníka_dostupného_osobně' ),
 	'StudentActivity' => array( 'Studentská_aktivita' ),
+	'Articles' => array( 'Články', 'Clanky' ),
 );
 
 /** German (Deutsch) */
