@@ -136,6 +136,21 @@ $specialPageAliases['cdo'] = array(
 	'Articles' => array( '文章' ),
 );
 
+/** Chechen (нохчийн) */
+$specialPageAliases['ce'] = array(
+	'MyCourses' => array( 'Сайн_курсаш' ),
+	'ManageCourses' => array( 'Курсашна_урхалладар' ),
+	'Institutions' => array( 'Дешаран_гӀишло' ),
+	'Student' => array( 'Студент' ),
+	'Students' => array( 'Студенташ' ),
+	'Courses' => array( 'Курсаш' ),
+	'EducationProgram' => array( 'Дешаран_программа' ),
+	'Enroll' => array( 'ДӀабазбар' ),
+	'Disenroll' => array( 'Юкъарабахар' ),
+	'Articles' => array( 'Яззамаш' ),
+	'CourseActivity' => array( 'Курсехь_жигаралла' ),
+);
+
 /** Czech (čeština) */
 $specialPageAliases['cs'] = array(
 	'MyCourses' => array( 'Moje_kurzy' ),
