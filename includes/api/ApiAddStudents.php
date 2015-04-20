@@ -50,9 +50,7 @@ class ApiAddStudents extends ApiBase {
 		$api = new \ApiMain( $apiParams );
 		$api->execute();
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$usersData = ApiResult::removeMetadataNonRecursive(
-				$api->getResult()->getResultData()
-			);
+			$usersData = $api->getResult()->getResultData( null, array( 'Strip' => 'base' ) );
 		} else {
 			$usersData = & $api->getResultData();
 		}

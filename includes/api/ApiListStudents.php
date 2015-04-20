@@ -163,7 +163,7 @@ class ApiListStudents extends ApiBase {
 		} else {
 			// Replace all the instances of $courseIndex in the results.
 			if ( defined( 'ApiResult::META_CONTENT' ) ) {
-				$results->defineIndexedTagName( null, 'course' );
+				$results->addIndexedTagName( null, 'course' );
 			} else {
 				$results->setIndexedTagName_internal(
 					null,
@@ -315,7 +315,7 @@ class ApiListStudents extends ApiBase {
 
 		// Index the participants.
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$results->defineIndexedTagName(
+			$results->addIndexedTagName(
 				$this->usersPath( $courseIndex, $courseRolePlural ),
 				$courseRole
 			);
@@ -414,7 +414,7 @@ class ApiListStudents extends ApiBase {
 
 					//Index the reviewers for the article.
 					if ( defined( 'ApiResult::META_CONTENT' ) ) {
-						$results->defineIndexedTagName( $articlePath, 'reviewer' );
+						$results->addIndexedTagName( $articlePath, 'reviewer' );
 					} else {
 						$results->setIndexedTagName_internal(
 							$articlePath,
@@ -427,7 +427,7 @@ class ApiListStudents extends ApiBase {
 
 				// Index the articles for the student.
 				if ( defined( 'ApiResult::META_CONTENT' ) ) {
-					$results->defineIndexedTagName(
+					$results->addIndexedTagName(
 						$this->userPath( $courseIndex, 'students', $studentIndex ),
 						'article'
 					);
@@ -445,7 +445,7 @@ class ApiListStudents extends ApiBase {
 
 		// Index the students.
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$results->defineIndexedTagName(
+			$results->addIndexedTagName(
 				$this->usersPath( $courseIndex, 'students' ),
 				'student'
 			);
@@ -488,7 +488,7 @@ class ApiListStudents extends ApiBase {
 		);
 
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$results->defineIndexedTagName(
+			$results->addIndexedTagName(
 				$this->articlesPath( $courseIndex ),
 				'articles'
 			);
