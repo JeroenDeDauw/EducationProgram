@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"George Animal",
-			"Ghybu"
+			"Ghybu",
+			"Bikarhêner"
 		]
 	},
 	"ep-item-summary": "Kurte",
@@ -35,7 +36,7 @@
 	"epcapager-header-user-id": "Navê bikarhêner",
 	"epoapager-header-user-id": "Navê bikarhêner",
 	"educationprogram-org-edit-city": "Bajar",
-	"ep-course-edit-description": "Danasîn",
+	"ep-course-edit-description": "Nivîsa rûpelê",
 	"ep-course-edit-title": "Sernavê rûpelê",
 	"vieworgaction-summary-name": "Nav",
 	"vieworgaction-summary-city": "Bajar",
