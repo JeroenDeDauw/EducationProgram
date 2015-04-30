@@ -103,7 +103,7 @@ class ApiListStudents extends ApiBase {
 						$course,
 						$results,
 						$courseIndex,
-						'online volunteer'
+						'online_volunteer'
 					);
 
 					// List the campus volunteers
@@ -111,7 +111,7 @@ class ApiListStudents extends ApiBase {
 						$course,
 						$results,
 						$courseIndex,
-						'campus volunteer'
+						'campus_volunteer'
 					);
 
 					// List the students
@@ -185,9 +185,9 @@ class ApiListStudents extends ApiBase {
 
 		if ( $courseRole == 'instructor' ) {
 			$participants = $course->getInstructors();
-		} else if ( $courseRole == 'online volunteer' ) {
+		} else if ( $courseRole == 'online_volunteer' ) {
 			$participants = $course->getOnlineAmbassadors();
-		} else if ( $courseRole == 'campus volunteer' ) {
+		} else if ( $courseRole == 'campus_volunteer' ) {
 			$participants = $course->getCampusAmbassadors();
 		} else if ( $courseRole == 'student' ) {
 			$participants = $course->getStudents();
@@ -621,8 +621,8 @@ class ApiListStudents extends ApiBase {
 
 	/**
 	 * Construct the results path for the element for a group
-	 * (<students>, <instructors>, <online volunteers> or
-	 * <campus volunters>), either as part of a numerically
+	 * (<students>, <instructors>, <online_volunteers> or
+	 * <campus_volunteers>), either as part of a numerically
 	 * indexed parent tag, or as a top-level element.
 	 *
 	 * @param int $courseIndex
@@ -638,7 +638,7 @@ class ApiListStudents extends ApiBase {
 
 	/**
 	 * Construct the results path for individual users in a course:
-	 * <student>, <instructor>, <online volunteer> or <campus volunteer>.
+	 * <student>, <instructor>, <online_volunteer> or <campus_volunteer>.
 	 *
 	 * @param int $courseIndex
 	 * @param str $userLabel
