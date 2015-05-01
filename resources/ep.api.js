@@ -16,7 +16,8 @@
 			requestArgs = $.extend( {
 				'action': 'enlist',
 				'format': 'json',
-				'token': window.mw.user.tokens.get( 'editToken' )
+				'token': window.mw.user.tokens.get( 'editToken' ),
+				'formatversion': 2
 			}, args );
 
 			deferred = $.Deferred();

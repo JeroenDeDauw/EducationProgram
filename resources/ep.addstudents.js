@@ -799,7 +799,8 @@
 				action: 'addstudents',
 				courseid: courseId,
 				token: mw.user.tokens.get( 'editToken' ),
-				studentusernames: view.$tagsinputEl.val().replace( /,/g ,'|' )
+				studentusernames: view.$tagsinputEl.val().replace( /,/g ,'|' ),
+				formatversion: 2
 
 			} ).done( function ( data ) {
 				var newUri;

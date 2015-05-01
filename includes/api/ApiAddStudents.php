@@ -50,7 +50,7 @@ class ApiAddStudents extends ApiBase {
 		$api = new \ApiMain( $apiParams );
 		$api->execute();
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$usersData = $api->getResult()->getResultData( null, array( 'Strip' => 'base' ) );
+			$usersData = $api->getResult()->getResultData( null, array( 'Strip' => 'all' ) );
 		} else {
 			$usersData = & $api->getResultData();
 		}
