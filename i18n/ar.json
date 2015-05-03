@@ -345,6 +345,7 @@
 	"ep-addcourse": "لا يوجد مقرر بهذا الإسم إلى الآن ولكن يمكنك إضافته.",
 	"ep-editcourse": "أنت تعدل منهجا موجودا.",
 	"ep-editcourse-exists-already": "هذا المنهج موجود أصلا. أنت تعدله.",
+	"ep-addstudents-btn": "أضف",
 	"coursepage-edit-title-edit": "تحرير مقرر: $1",
 	"coursepage-edit-title-add": "إضافة مقرر: $1",
 	"coursepage-edit-deleted": "'''تحذير: أنت تعيد إنشاء منهج سبق حذفه.'''\n\nيجب عليك التيقن من أن الاستمرار بإنشاء هذا المنهج ملائم.\nسجل حذف هذا المنهج معروض هنا للتيسير:",
