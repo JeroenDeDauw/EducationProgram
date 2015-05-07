@@ -4,7 +4,8 @@
 			"Geraki",
 			"Glavkos",
 			"Sfyrakis",
-			"ZaDiak"
+			"ZaDiak",
+			"Protnet"
 		]
 	},
 	"educationprogram-desc": "Διευκολύνει εκπαιδευτικά προγράμματα με την προσθήκη διάφορων διεπαφών για την διαχείριση μαθημάτων, σχολών και τους διάφορους εκπαιδευτικούς ρόλους χρήστη.",
@@ -139,7 +140,7 @@
 	"group-epcampus-member": "{{GENDER:$1|πανεπιστημιακός εθελοντής μαθημάτων|πανεπιστημιακή εθελόντρια μαθημάτων}}",
 	"grouppage-epcampus": "{{ns:project}}:Πανεπιστημιακοί_εθελοντές_μαθημάτων",
 	"group-epinstructor": "Εκπαιδευτικός μαθήματος",
-	"group-epinstructor-member": "{{GENDER:$1|Εκπαιδευτικός μαθήματος}}",
+	"group-epinstructor-member": "{{GENDER:$1|εκπαιδευτής|εκπαιδεύτρια}} μαθήματος",
 	"grouppage-epinstructor": "{{ns:project}}:Εκπαιδευτικοί_μαθημάτων",
 	"specialpages-group-education": "Εκπαίδευση",
 	"special-mycourses": "Τα μαθήματά σας",
