@@ -728,6 +728,7 @@
 	"apihelp-deleteeducation-example-2": "Borrar as orgs 2 e 4",
 	"apihelp-enlist-description": "Asociar ou desasociar un usuario como instructor ou embaixador dun curso.",
 	"apihelp-enlist-param-subaction": "Especifica o que quere facer co instructor ou embaixador.",
+	"apihelp-enlist-param-role": "O rol a modificar. \"instructo\" para instructor, \"online\" para os embaixadores en liña e \"campus\" para os embaixadores de campus.",
 	"apihelp-enlist-param-username": "Nome do usuario a asociar ou desasociar.",
 	"apihelp-enlist-param-userid": "Identificador do usuario a asociar ou desasociar.",
 	"apihelp-enlist-param-courseid": "Identificador do curso.",

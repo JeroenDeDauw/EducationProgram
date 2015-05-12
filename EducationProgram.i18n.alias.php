@@ -63,7 +63,7 @@ $specialPageAliases['ar'] = array(
 	'CourseActivity' => array( 'نشاط_الدروس' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'MyCourses' => array( 'كورساتى' ),
 	'ManageCourses' => array( 'التحكم_بالدروس' ),
@@ -422,7 +422,7 @@ $specialPageAliases['lb'] = array(
 	'Articles' => array( 'Artikelen' ),
 );
 
-/** لوری (لوری) */
+/** لوری مینجایی (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
 	'MyCourses' => array( 'دوره_یا_مه' ),
 	'ManageCourses' => array( 'دیوونداری_دوره_یا' ),
