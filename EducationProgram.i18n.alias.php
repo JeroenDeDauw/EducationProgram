@@ -422,7 +422,7 @@ $specialPageAliases['lb'] = array(
 	'Articles' => array( 'Artikelen' ),
 );
 
-/** لوری مینجایی (لوری مینجایی) */
+/** Northern Luri (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
 	'MyCourses' => array( 'دوره_یا_مه' ),
 	'ManageCourses' => array( 'دیوونداری_دوره_یا' ),
