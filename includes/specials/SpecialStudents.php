@@ -52,4 +52,7 @@ class SpecialStudents extends VerySpecialPage {
 		return array_merge( $this->getRequest()->getValues(), parent::getCacheKey() );
 	}
 
+	protected function getGroupName() {
+		return 'education';
+	}
 }

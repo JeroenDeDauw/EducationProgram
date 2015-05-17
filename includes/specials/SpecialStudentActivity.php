@@ -127,4 +127,8 @@ class SpecialStudentActivity extends VerySpecialPage {
 			'class' => 'studentometer'
 		) );
 	}
+
+	protected function getGroupName() {
+		return 'education';
+	}
 }

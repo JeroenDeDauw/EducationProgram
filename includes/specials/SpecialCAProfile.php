@@ -58,4 +58,7 @@ class SpecialCAProfile extends SpecialAmbassadorProfile {
 		return 'epca-';
 	}
 
+	protected function getGroupName() {
+		return 'education';
+	}
 }

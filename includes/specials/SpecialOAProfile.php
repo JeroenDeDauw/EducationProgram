@@ -58,4 +58,7 @@ class SpecialOAProfile extends SpecialAmbassadorProfile {
 		return 'epoa-';
 	}
 
-}
+
+	protected function getGroupName() {
+		return 'education';
+	}}

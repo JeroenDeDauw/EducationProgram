@@ -406,4 +406,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 		return  'ep-' . strtolower( $this->mName ) . '-' . $key;
 	}
 
+	protected function getGroupName() {
+		return 'education';
+	}
 }

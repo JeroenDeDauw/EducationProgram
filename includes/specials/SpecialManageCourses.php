@@ -310,4 +310,7 @@ class SpecialManageCourses extends VerySpecialPage {
 		}
 	}
 
+	protected function getGroupName() {
+		return 'education';
+	}
 }

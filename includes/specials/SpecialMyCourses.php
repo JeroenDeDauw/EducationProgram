@@ -263,4 +263,8 @@ class SpecialMyCourses extends VerySpecialPage {
 		} );
 		$menu->display();
 	}
+
+	protected function getGroupName() {
+		return 'education';
+	}
 }

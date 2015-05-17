@@ -204,4 +204,7 @@ class SpecialDisenroll extends VerySpecialPage {
 		);
 	}
 
+	protected function getGroupName() {
+		return 'education';
+	}
 }
