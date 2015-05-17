@@ -13,7 +13,8 @@
 			"Dianakc",
 			"McDutchie",
 			"He7d3r",
-			"Opraco"
+			"Opraco",
+			"Araceletorres"
 		]
 	},
 	"educationprogram-desc": "Facilita programas educacionais ao adicionar várias interfaces para gestão de cursos, instituições e os diferentes papeis que assumem os participantes de um projeto educacional.",
@@ -547,7 +548,7 @@
 	"ep-disenroll-summary": "Por que você está se desinscrevendo?",
 	"ep-disenroll-cancel": "Cancelar",
 	"ep-disenroll-fail": "Algo deu errado - não foi possível desinscrevê-lo deste curso.",
-	"ep-disenroll-success": "Você foi desinscrito com sucesso deste curso!",
+	"ep-disenroll-success": "{{GENDER:$1|Você}} foi {{GENDER:$1|desmatriculado}} com sucesso deste curso!",
 	"ep-disenroll-returntolink": "Retorna ao [[Education_Program:$2|curso $1]].",
 	"ep-mycourses-enrolled": "Você se inscreveu com sucesso em $1, $2.",
 	"ep-mycourses-not-enrolled": "Você não está inscrito em nenhum curso. Veja a  [[Special:Courses|lista de cursos]].",
@@ -725,5 +726,12 @@
 	"ep-campus-add-notification-title-email-body": "Você foi {{GENDER:$1|adicionado}} como voluntário de campus a $2 por $1.",
 	"ep-online-add-notification-title": "Você foi {{GENDER:$1|adicionado}} como voluntário online a [[$2|$3]] por [[User:$1|$1]].",
 	"ep-online-add-notification-title-email-subject": "Você foi {{GENDER:$1|adicionado}} como voluntário online a $2 por $1.",
-	"ep-online-add-notification-title-email-body": "Você foi {{GENDER:$1|adicionado}} como voluntário online a $2 por $1."
+	"ep-online-add-notification-title-email-body": "Você foi {{GENDER:$1|adicionado}} como voluntário online a $2 por $1.",
+	"apihelp-addstudents-description": "Adicionar vários alunos para um curso.",
+	"apihelp-addstudents-param-studentusernames": "Os nomes de usuários dos alunos para adicionar ao curso, separados por um \"|\".",
+	"apihelp-addstudents-param-courseid": "O ID do curso para o qual os estudantes devem ser adicionados/removidos.",
+	"apihelp-addstudents-example-1": "Adicione três alunos para um curso",
+	"apihelp-deleteeducation-description": "Excluir objetos do Programa de Educação.",
+	"apihelp-deleteeducation-param-ids": "Os IDs dos objetos para apagar.",
+	"apihelp-deleteeducation-param-type": "Tipo de objeto a ser excluído."
 }

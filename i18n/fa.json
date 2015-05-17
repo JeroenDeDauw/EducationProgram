@@ -664,6 +664,7 @@
 	"ep-studentactivity-count": "$1 دانشجو فعال در $2 اخیر {{PLURAL:$1|بوده‌است|بوده‌اند}}.",
 	"ep-diff-old": "مقدار کنونی",
 	"ep-diff-new": "مقدار جدید",
+	"ep-diff-previous": "نسخهٔ قدیمی",
 	"ep-diff-current": "نسخهٔ فعلی",
 	"ep-timeline-remaining": "$1 {{PLURAL:$1|دیگر}}",
 	"ep-timeline-unknown": "$1 کاری در $2، $3 انجام داد",
