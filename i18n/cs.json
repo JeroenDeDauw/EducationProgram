@@ -720,5 +720,6 @@
 	"ep-campus-add-notification-title-email-body": "Byli jste {{GENDER:$1|přidáni}} jako dobrovolník dostupný osobně do $2 uživatelem $1.",
 	"ep-online-add-notification-title": "Byli jste {{GENDER:$1|přidáni}} jako online dobrovolník do [[$2|$3]] uživatelem [[User:$1|$1]].",
 	"ep-online-add-notification-title-email-subject": "Byli jste {{GENDER:$1|přidáni}} jako online dobrovolník do $2 uživatelem $1.",
-	"ep-online-add-notification-title-email-body": "Byli jste {{GENDER:$1|přidáni}} jako online dobrovolník do $2 uživatelem $1."
+	"ep-online-add-notification-title-email-body": "Byli jste {{GENDER:$1|přidáni}} jako online dobrovolník do $2 uživatelem $1.",
+	"apihelp-addstudents-description": "Přidat více studentů do kurzu."
 }
