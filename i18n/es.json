@@ -758,6 +758,7 @@
 	"apihelp-enlist-example-5": "Eliminar usuario Ejemplo como instructor del curso 42 con un motivo",
 	"apihelp-liststudents-description": "Obtener nombres de usuario y demás información de los estudiantes inscritos en uno o más cursos.",
 	"apihelp-liststudents-param-courseids": "Identificadores de los cursos.",
+	"apihelp-liststudents-param-prop": "Qué propiedad obtener de cada estudiante:\n;username: El nombre de usuario del estudiante.\n;id: La ID de usuario del estudiante.",
 	"apihelp-liststudents-param-group": "Si se da, la consulta agrupará a los estudiantes por cursos.",
 	"apihelp-liststudents-param-csv": "Si se da, la consulta devolverá los nombres de usuario en formato .CSV y los artículos asignados a los estudiantes.",
 	"apihelp-liststudents-example-1": "Lista de estudiantes en el curso 3",
