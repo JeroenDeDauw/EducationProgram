@@ -64,4 +64,7 @@ class SpecialCourses extends VerySpecialPage {
 		return array_merge( $values, parent::getCacheKey() );
 	}
 
+	protected function getGroupName() {
+		return 'education';
+	}
 }

@@ -234,21 +234,6 @@ $wgSpecialPages['StudentActivity'] 					= 'EducationProgram\SpecialStudentActivi
 $wgSpecialPages['Students'] 						= 'EducationProgram\SpecialStudents';
 $wgSpecialPages['ManageCourses'] 					= 'EducationProgram\SpecialManageCourses';
 
-$wgSpecialPageGroups['MyCourses'] 					= 'education';
-$wgSpecialPageGroups['Institutions'] 				= 'education';
-$wgSpecialPageGroups['Students'] 					= 'education';
-$wgSpecialPageGroups['Courses'] 					= 'education';
-//$wgSpecialPageGroups['EducationProgram'] 			= 'education';
-$wgSpecialPageGroups['CampusAmbassadors'] 			= 'education';
-$wgSpecialPageGroups['OnlineAmbassadors'] 			= 'education';
-$wgSpecialPageGroups['CampusAmbassadorProfile'] 	= 'education';
-$wgSpecialPageGroups['OnlineAmbassadorProfile'] 	= 'education';
-$wgSpecialPageGroups['Enroll'] 						= 'education';
-$wgSpecialPageGroups['Disenroll'] 					= 'education';
-$wgSpecialPageGroups['StudentActivity'] 			= 'education';
-$wgSpecialPageGroups['Articles'] 					= 'education';
-$wgSpecialPageGroups['ManageCourses'] 				= 'education';
-
 // Define named constants corresponding to the user roles introduced by the extension.
 define( 'EP_STUDENT', 0 );      // Students
 define( 'EP_INSTRUCTOR', 1 );   // Instructors

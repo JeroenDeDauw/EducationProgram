@@ -44,4 +44,7 @@ class SpecialOAs extends VerySpecialPage {
 		}
 	}
 
+	protected function getGroupName() {
+		return 'education';
+	}
 }
