@@ -764,6 +764,7 @@
 	"apihelp-liststudents-example-1": "Lista de estudiantes en el curso 3",
 	"apihelp-liststudents-example-2": "Lista de estudiantes en los cursos 3, 4, 5 y 6, agrupados por curso, en formato .CSV",
 	"apihelp-liststudents-example-3": "Lista de estudiantes por ID en los cursos 3, 4, 5 y 6, agrupados por curso, en formato .CSV",
+	"apihelp-refresheducation-param-ids": "Los identificadores de los objetos que se actualizarán.",
 	"apihelp-refresheducation-param-type": "Tipo de objeto que se eliminará.",
 	"apihelp-refresheducation-example-1": "Actualizar curso 42",
 	"apihelp-refresheducation-example-2": "Actualizar estudiantes 2 y 4"
