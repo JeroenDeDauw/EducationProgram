@@ -14,7 +14,7 @@
 	"tooltip-ep-edit-course": "Uređivanje kursa",
 	"ep-nav-orgs": "Spisak ustanova",
 	"ep-nav-courses": "Spisak kurseva",
-	"ep-nav-mycourses": "Moji kursevi",
+	"ep-nav-mycourses": "Vaši kursevi",
 	"logentry-institution-add": "$1 je {{GENDER:$2|napravio|napravila}} ustanovu $3",
 	"logentry-institution-remove": "$1 je {{GENDER:$2|uklonio|uklonila}} ustanovu $3",
 	"logentry-institution-update": "$1 je {{GENDER:$2|dopunio|dopunila}} ustanovu $3",
