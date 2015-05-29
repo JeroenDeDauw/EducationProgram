@@ -63,7 +63,7 @@
 	"log-description-course": "Дневник свих промена везаних за [[Special:Courses|courses]].",
 	"log-description-instructor": "Дневник свих промена везаних за инструкторе",
 	"log-description-online": "Дневник свих промена на образовном програму  [[Special:OnlineVolunteers|Online volunteers]].",
-	"log-description-campus": "Дневник свих промена везаних за образовни програм; [[Special:CampusVolunteers|Campus volunteers]].",
+	"log-description-campus": "Дневник свих промена везаних за образовни програм [[Special:CampusVolunteers|Campus volunteers]].",
 	"log-description-student": "Дневник свих промена везаних за [[Special:Students|students]].",
 	"logentry-institution-add": "$1 је {{GENDER:$2|направио|направила}} установу $3",
 	"logentry-institution-remove": "$1 је {{GENDER:$2|уклонио|уклонила}} установу $3",
