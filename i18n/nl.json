@@ -12,7 +12,8 @@
 			"Sjoerddebruin",
 			"Southparkfan",
 			"TBloemink",
-			"Wiki13"
+			"Wiki13",
+			"Esketti"
 		]
 	},
 	"educationprogram-desc": "Faciliteert onderwijsprogramma's door verschillende interfaces toe te voegen om cursussen, organisaties en verschillende onderwijsrollen te kunnen beheren",
@@ -726,11 +727,20 @@
 	"ep-online-add-notification-title-email-subject": "U bent door $1 {{GENDER:$1|toegevoegd}} als onlinevrijwilliger aan $2.",
 	"ep-online-add-notification-title-email-body": "U bent door $1 {{GENDER:$1|toegevoegd}} als onlinevrijwilliger aan $2.",
 	"apihelp-addstudents-description": "Meerdere studenten toevoegen aan een cursus.",
+	"apihelp-addstudents-param-studentusernames": "De gebruikersnamen van de studenten om toe te voegen aan de cursus, gescheiden door een \"|\".",
+	"apihelp-addstudents-param-courseid": "De ID van de cursus die de leerlingen moeten worden toegevoegd/verwijderd.",
+	"apihelp-addstudents-example-1": "Voeg drie studenten aan een cursus",
+	"apihelp-deleteeducation-description": "Verwijderen Onderwijs Programma-objecten.",
+	"apihelp-deleteeducation-param-ids": "De Id ' s van de objecten te verwijderen.",
 	"apihelp-deleteeducation-param-type": "Het type te verwijderen object.",
 	"apihelp-deleteeducation-param-comment": "Reden voor deze verwijdering, voor het logboek.",
 	"apihelp-deleteeducation-example-1": "Cursus 42 verwijderen",
 	"apihelp-deleteeducation-example-2": "Organisaties 2 en 4 verwijderen",
 	"apihelp-enlist-description": "Een gebruiker als instructeur of ambassadeur aan een cursus koppelen of er van verwijderen.",
+	"apihelp-enlist-param-subaction": "Hiermee geeft u op wat u wilt doen met de instructeur of ambassadeur.",
+	"apihelp-enlist-param-role": "De rol beïnvloeden. \"instructeur\" instructeur \"online\" voor online ambassadeurs en \"campus\" voor campus ambassadors.",
+	"apihelp-enlist-param-username": "Naam van de gebruiker te koppelen of loskoppelen.",
+	"apihelp-enlist-param-userid": "ID van de gebruiker te koppelen of loskoppelen.",
 	"apihelp-enlist-param-courseid": "Het ID van de cursus.",
 	"apihelp-enlist-param-reason": "Reden voor deze verwijdering, voor het logboek.",
 	"apihelp-enlist-example-1": "Gebruikers-ID 9001 als instructeur toevoegen aan cursus 42",
@@ -739,5 +749,16 @@
 	"apihelp-enlist-example-4": "Gebruiker Example als instructeur verwijderen uit cursus 42",
 	"apihelp-enlist-example-5": "Gebruiker Example als instructeur verwijderen uit cursus 42 met een reden",
 	"apihelp-liststudents-description": "De gebruikersnamen en andere gegevens opvragen voor studenten die zijn ingeschreven voor één of meerdere cursussen.",
-	"apihelp-liststudents-param-courseids": "ID's van de cursussen."
+	"apihelp-liststudents-param-courseids": "ID's van de cursussen.",
+	"apihelp-liststudents-param-prop": "Welke eigenschap om voor elke leerling:\n;gebruikersnaam:De gebruikersnaam van de student.\n;id:de ID van De gebruiker van de student.",
+	"apihelp-liststudents-param-group": "Als gegeven, wordt de query aan de groep studenten per cursus.",
+	"apihelp-liststudents-param-csv": "Indien opgegeven, retourneert de query gebruikersnamen in CSV-formaat, en het zal de terugkeer van de artikelen die zijn toegewezen aan de studenten.",
+	"apihelp-liststudents-example-1": "Lijst van studenten in de cursus 3",
+	"apihelp-liststudents-example-2": "Lijst van studenten in de vakken 3, 4, 5, en 6, gegroepeerd per cursus, in CSV-formaat",
+	"apihelp-liststudents-example-3": "Lijst leerlingen met een user ID in de vakken 3, 4, 5, en 6, gegroepeerd per cursus, in CSV-formaat",
+	"apihelp-refresheducation-description": "Rebuild overzicht gegevens van de Opleiding objecten.",
+	"apihelp-refresheducation-param-ids": "De Id ' s van de objecten die moeten worden vernieuwd.",
+	"apihelp-refresheducation-param-type": "Type van het object te verwijderen.",
+	"apihelp-refresheducation-example-1": "Refresh course 42",
+	"apihelp-refresheducation-example-2": "Het vernieuwen van de leerlingen 2 en 4"
 }

@@ -319,7 +319,7 @@
 	"ep-undelete-course-org-deleted": "Kurs i powiązana z nim instytucja [[$1|$2]] zostały usunięte. By je przywrócić, wpierw [$3 przywróć $2].",
 	"ep-pager-confirm-delete": "Czy na pewno chcesz usunąć ten element?",
 	"ep-pager-delete-fail": "Nie można usunąć tego elementu.",
-	"ep-pager-confirm-delete-selected": "Czy na pewno chcesz usunąć {{PLURAL:wybrany|wybrane}} {{PLURAL:$1|element|elementy}}?",
+	"ep-pager-confirm-delete-selected": "Czy na pewno chcesz usunąć {{PLURAL:$1|wybrany element|wybrane elementy}}?",
 	"ep-pager-delete-selected-fail": "Nie można usunąć {{PLURAL:$1|zaznaczonego elementu|zaznaczonych elementów}}.",
 	"vieworgaction-none": "Nie istnieje instytucja o nazwie „$1”. Zobacz [[Special:Institutions|listę instytucji]].",
 	"ep-institution-create": "Nie ma jeszcze instytucja o nazwie „$1”, ale możesz ją utworzyć.",
