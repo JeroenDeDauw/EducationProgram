@@ -424,13 +424,13 @@ $specialPageAliases['lb'] = array(
 
 /** Northern Luri (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
-	'MyCourses' => array( 'دوره_یا_مه' ),
-	'ManageCourses' => array( 'دیوونداری_دوره_یا' ),
-	'Institutions' => array( 'سامونگه_یا', 'سامونجایا' ),
-	'Student' => array( 'دونسمنیجور' ),
-	'Students' => array( 'دونسمنیجوریا' ),
-	'Courses' => array( 'دوره_یا' ),
-	'EducationProgram' => array( 'برنامه_آموزشتی،_برنامه_آموزشتی' ),
+	'MyCourses' => array( 'دورە_یا_مئ' ),
+	'ManageCourses' => array( 'دیڤوٙنداری_دورە_یا' ),
+	'Institutions' => array( 'سامونگە_یا', 'سامونجایا' ),
+	'Student' => array( 'دونسمأنیجوٙر' ),
+	'Students' => array( 'دونسمأنیجوٙریا' ),
+	'Courses' => array( 'دورە_یا' ),
+	'EducationProgram' => array( 'بأرنامە_آموٙزشئتی' ),
 	'Articles' => array( 'گوتاریا' ),
 );
 
