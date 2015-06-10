@@ -533,7 +533,7 @@
 	"ep-enroll-no-id": "Es necesario especificar un curso para inscribirte. Consulta la [[Special:Courses|lista de cursos]].",
 	"ep-enroll-invalid-token": "La clave (token) que has proporcionado no es válida.",
 	"ep-enroll-legend": "Inscribirse",
-	"ep-enroll-header": "Para inscribirse en este curso, todo lo que necesita hacer es llenar este formulario y pulse el botón \"{{int:educationprogram-org-submit}}\". Luego quedará inscrito.",
+	"ep-enroll-header": "Para inscribirte en este curso, solo debes llenar este formulario y pulsar el botón \"{{int:educationprogram-org-submit}}\". Luego quedarás inscrito.",
 	"ep-enroll-gender": "Sexo (opcional)",
 	"ep-enroll-realname": "Nombre real (requerido)",
 	"ep-enroll-realname-optional": "Nombre real (opcional)",
