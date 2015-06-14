@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"NehalDaveND"
+			"NehalDaveND",
+			"राम प्रसाद जोशी"
 		]
 	},
 	"ep-item-summary": "सारांश",
@@ -86,7 +87,7 @@
 	"ep-instructor-summary": "सारांश:",
 	"ep-online-summary": "सारांश:",
 	"ep-campus-summary": "सारांश:",
-	"ep-viewcourse-deleted": "पृष्ठ मेटिएको छ।\nमेटिएका तथा सारिएका पृष्ठहरुको सूची तल सन्दर्भको लागि दिइएको छ।",
+	"ep-viewcourse-deleted": "पृष्ठ मेटिएको छ ।\nमेटिएका तथा सारिएका पृष्ठहरूको सूची तल सन्दर्भको लागि दिइएको छ ।",
 	"coursepage-delete-summary": "कारण :",
 	"coursepage-delete-cancel-button": "रद्द गर्ने",
 	"orgpage-delete-summary": "कारण:",
