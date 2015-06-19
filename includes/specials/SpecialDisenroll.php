@@ -36,7 +36,7 @@ class SpecialDisenroll extends VerySpecialPage {
 		$courseName = str_replace( '_', ' ', $this->subPage );
 
 		if ( $courseName === ''  ) {
-			$this->showWarning( $this->msg(  'ep-disenroll-no-name' ) );
+			$this->showWarning( $this->msg( 'ep-disenroll-no-name' ) );
 		}
 		else {
 			$course = Courses::singleton()->getFromTitle( $courseName );
