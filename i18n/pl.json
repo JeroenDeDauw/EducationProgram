@@ -13,7 +13,8 @@
 			"Matik7",
 			"Matma Rex",
 			"Halibutt",
-			"Tar Lócesilion"
+			"Tar Lócesilion",
+			"Purodha"
 		]
 	},
 	"educationprogram-desc": "Ułatwia prowadzenie programów edukacyjnych dzięki rozmaitym narzędziom do zarządzania kursami, organizującymi je instytucjami i rolami użytkowników",
@@ -488,6 +489,7 @@
 	"ep-disenroll-success": "{{GENDER:$1|Zostałeś|Zostałaś}} pomyślnie {{GENDER:$1|wypisany|wypisana}} z kursu.",
 	"ep-disenroll-returntolink": "Powrót do [[Education_Program:$2|kurs $1]].",
 	"ep-mycourses-enrolled": "Udało się zapisać Cię na kurs $1 organizowany przez $2.",
+	"ep-mycourses-not-enrolled": "Do bes för jaa nix enjedrahre. Loor ens noh de [[Special:Courses|Leß met de Korse]].",
 	"ep-mycourses-login-first": "Musisz się zalogować, aby zobaczyć swoje kursy.",
 	"ep-mycourses-courses-epoa": "{{PLURAL:$1|Kurs|Kursy}}, na które jesteś {{GENDER:$2|zapisany jako wolontariusz online|zapisana jako wolontariuszka online}}",
 	"ep-mycourses-courses-epca": "{{PLURAL:$1|Kurs|Kursy}}, na które jesteś {{GENDER:$2|zapisany jako wolontariusz uczelniany|zapisana jako wolontariuszka uczelniana}}",

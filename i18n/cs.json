@@ -542,7 +542,7 @@
 	"ep-disenroll-summary": "Proč se odhlašujete?",
 	"ep-disenroll-cancel": "Zrušit",
 	"ep-disenroll-fail": "Něco se pokazilo - nepodařilo se Vás ohlásit z kurzu.",
-	"ep-disenroll-success": "Byl jste úspěšně odhlášen z kurzu!",
+	"ep-disenroll-success": "{{GENDER:$1|Byl|Byla|Byli}} jste úspěšně {{GENDER:$1|odhlášen|odhlášena|odhlášeni}} z tohoto kurzu!",
 	"ep-disenroll-returntolink": "Vrátit se do [[Education_Program:$2|kurzu $1]].",
 	"ep-mycourses-enrolled": "Úspěšně jste se zapsali do $1 na $2.",
 	"ep-mycourses-not-enrolled": "Nemáte zápis v žádném kurzu. Nahlédněte do [[Special:Courses|seznamu kurzů]].",
