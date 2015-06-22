@@ -101,6 +101,7 @@
 	"action-ep-org": "zarządzanie instytucjami",
 	"action-ep-course": "zarządzanie kursami",
 	"action-ep-remstudent": "usuwanie studentów z kursów",
+	"action-ep-enroll": "zapisania się na kursy",
 	"action-ep-bulkdelorgs": "masowe usuwanie instytucji",
 	"action-ep-bulkdelcourses": "masowe usuwanie kursów",
 	"action-ep-remarticle": "oddzielanie artykułów od studentów",
