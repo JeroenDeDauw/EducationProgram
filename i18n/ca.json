@@ -416,7 +416,7 @@
 	"coursepage-delete-none": "No hi ha cap assignatura anomenada \"$1\". Vegeu la [[Special:Courses|llista d'assignatures]]",
 	"coursepage-delete-deleted": "S'ha suprimit correctament l'assignatura $1.",
 	"orgpage-delete-summary": "Motiu:",
-	"orgpage-delete-title": "Suprimir la institució \"$1\"",
+	"orgpage-delete-title": "Supressió de la institució «$1»",
 	"orgpage-delete-cancel-button": "Cancel·la",
 	"orgpage-delete-delete-button": "Suprimir la institució",
 	"orgpage-delete-none": "No hi ha cap institució amb el nom \"$1\". Vegeu la [[Especial:Institucions|llista d'institucions]].",
