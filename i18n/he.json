@@ -730,7 +730,7 @@
 	"ep-online-add-notification-title-email-subject": "{{GENDER:$1|נוספת}} בתור מתנדב מקוון $2 על־ידי $1.",
 	"ep-online-add-notification-title-email-body": "{{GENDER:$1|נוספת}} בתור מתנדב מקוון $2 על־ידי $1.",
 	"apihelp-addstudents-description": "הוספת סטודנטים מרובים לקורס.",
-	"apihelp-addstudents-param-studentusernames": "משות המשתמש של הסטודנטים להוסיף לקורס, מופרדים ב־\"|\".",
+	"apihelp-addstudents-param-studentusernames": "משות המשתמש של הסטודנטים להוסיף לקורס.",
 	"apihelp-addstudents-param-courseid": "מזהה הקורס שהסטודנטים יתווספו אליו או יוסרו ממנו.",
 	"apihelp-addstudents-example-1": "הוספת שלושה סטודנטים לקורס",
 	"apihelp-deleteeducation-description": "מחיקת עצמים של תכנית ההשכלה.",

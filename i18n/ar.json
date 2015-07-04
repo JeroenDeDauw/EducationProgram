@@ -666,5 +666,6 @@
 	"echo-category-title-education-program": "برنامج التعليم",
 	"ep-echo-pref-tooltip": "أعلمني بشأن الأحداث المتعلقة بدروس برنامج التعليم التي أشارك بها.",
 	"ep-course-talk-link-text-view-message": "اعرض الرسالة",
-	"ep-course-talk-link-text-view-changes": "اعرض التعديلات"
+	"ep-course-talk-link-text-view-changes": "اعرض التعديلات",
+	"ep-role-add-link-text-view-course": "عرض الكورس"
 }
