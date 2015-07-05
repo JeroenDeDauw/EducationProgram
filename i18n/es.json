@@ -735,7 +735,7 @@
 	"ep-online-add-notification-title-email-subject": "Has sido {{GENDER:$1|agregado|agregada|agregado}} como {{GENDER:$1|un voluntario|una voluntaria|voluntario}} en línea para $2 por $1.",
 	"ep-online-add-notification-title-email-body": "Has sido {{GENDER:$1|agregado|agregada|agregado}} como {{GENDER:$1|un voluntario|una voluntaria|voluntario}} en línea para $2 por $1.",
 	"apihelp-addstudents-description": "Añadir varios estudiantes a un curso.",
-	"apihelp-addstudents-param-studentusernames": "Los nombres de usuario de los estudiantes para añadirlos al curso, separados por una \"|\".",
+	"apihelp-addstudents-param-studentusernames": "Los nombres de usuario de los estudiantes para añadirlos al curso.",
 	"apihelp-addstudents-param-courseid": "La ID del curso al que se deben añadir/eliminar los estudiantes.",
 	"apihelp-addstudents-example-1": "Añadir tres estudiantes a un curso",
 	"apihelp-deleteeducation-description": "Eliminar objetos del Programa educativo.",

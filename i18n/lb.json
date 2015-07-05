@@ -488,6 +488,7 @@
 	"ep-role-add-link-text-view-course": "Cours weisen",
 	"ep-student-add-notification-title-email-subject": "Dir gouft bäi $2 vum $1 {{GENDER:$1|derbäigesat}}.",
 	"apihelp-addstudents-description": "Méi Studenten an e Cours dobäisetzen.",
+	"apihelp-addstudents-param-studentusernames": "D'Benotzernimm vun de Studente fir bei de Cours derbäizesetzen.",
 	"apihelp-addstudents-example-1": "Dräi Studenten an e Cours dobäisetzen",
 	"apihelp-deleteeducation-param-type": "Typ vun Objet fir ze läschen.",
 	"apihelp-deleteeducation-param-comment": "Grond fir ze Läschen, fir d'Logbuch.",
