@@ -717,7 +717,7 @@
 	"ep-online-add-notification-title-email-subject": "{{GENDER:$1|$1}} engadiuno como voluntario en liña de \"$2\".",
 	"ep-online-add-notification-title-email-body": "{{GENDER:$1|$1}} engadiuno como voluntario en liña de \"$2\".",
 	"apihelp-addstudents-description": "Engadir varios estudantes a un curso.",
-	"apihelp-addstudents-param-studentusernames": "Nomes de usuario dos estudantes a engadir ó curso, separados por \"|\".",
+	"apihelp-addstudents-param-studentusernames": "Nomes de usuario dos estudantes a engadir ó curso.",
 	"apihelp-addstudents-param-courseid": "Identificador do curso ó que deben engadirse/borrarse os estudantes.",
 	"apihelp-addstudents-example-1": "Engadir tres estudantes ó curso",
 	"apihelp-deleteeducation-description": "Borrar os obxectos do Programa Educativo.",

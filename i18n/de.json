@@ -719,7 +719,7 @@
 	"ep-online-add-notification-title-email-subject": "Du wurdest von $1 als Onlinevolontär zum Kurs $2 {{GENDER:$1|hinzugefügt}}.",
 	"ep-online-add-notification-title-email-body": "Du wurdest von $1 als Onlinevolontär zum Kurs $2 {{GENDER:$1|hinzugefügt}}.",
 	"apihelp-addstudents-description": "Mehrere Studenten zu einem Kurs hinzufügen.",
-	"apihelp-addstudents-param-studentusernames": "Die Benutzernamen der Studenten, die zum Kurs hinzugefügt werden sollen, getrennt durch ein „|“.",
+	"apihelp-addstudents-param-studentusernames": "Die Benutzernamen der Studenten, die zum Kurs hinzugefügt werden sollen.",
 	"apihelp-addstudents-param-courseid": "Die Kennung des Kurses, zu dem die Studenten hinzugefügt/entfernt werden sollen.",
 	"apihelp-addstudents-example-1": "Drei Studenten zu einem Kurs hinzufügen",
 	"apihelp-deleteeducation-description": "Bildungsprogrammobjekte löschen.",

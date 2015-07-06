@@ -199,6 +199,7 @@
 	"ep-student-add-notification-title": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} [[User:$1|$1]] hät Desch beij [[$2|$3]] derbeijedonn.",
 	"ep-student-add-notification-title-email-subject": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} $1 hät Desch beij $2 derbeijedonn.",
 	"ep-student-add-notification-title-email-body": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} $1 hät Desch beij $2 jedonn.",
+	"apihelp-addstudents-param-studentusernames": "De Metmaacher_Nahme vun dä Schtodännte, di en dä Korß sulle.",
 	"apihelp-deleteeducation-param-type": "De Kännong vun wat fottjeschmeße wähde sull.",
 	"apihelp-refresheducation-param-type": "De Zoot vun wat fott sull."
 }

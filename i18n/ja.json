@@ -3,7 +3,8 @@
 		"authors": [
 			"Anakmalaysia",
 			"Shirayuki",
-			"SkyDaisy9"
+			"SkyDaisy9",
+			"Sujiniku"
 		]
 	},
 	"ep-item-summary": "要約",
@@ -529,7 +530,7 @@
 	"ep-course-talk-link-text-view-message": "メッセージを閲覧",
 	"ep-course-talk-link-text-view-changes": "差分を閲覧",
 	"apihelp-addstudents-description": "複数の生徒をコースに追加します。",
-	"apihelp-addstudents-param-studentusernames": "コースに追加する生徒の利用者名を、「|」で区切って指定します。",
+	"apihelp-addstudents-param-studentusernames": "コースに追加する生徒の利用者名。",
 	"apihelp-addstudents-param-courseid": "生徒を追加/除去するコースの ID です。",
 	"apihelp-addstudents-example-1": "3 人の生徒をコースに追加",
 	"apihelp-deleteeducation-description": "教育プログラムのオブジェクトを削除します。",
