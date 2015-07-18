@@ -26,7 +26,8 @@
 			"아라",
 			"Scoopfinder",
 			"Arthur Crbz",
-			"TomT0m"
+			"TomT0m",
+			"Wladek92"
 		]
 	},
 	"educationprogram-desc": "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles des acteurs d'un programme éducatif.",
@@ -740,7 +741,7 @@
 	"ep-online-add-notification-title-email-subject": "Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole en ligne à $2 par $1.",
 	"ep-online-add-notification-title-email-body": "Vous avez été {{GENDER:$1|ajouté|ajoutée}} en tant que bénévole en ligne à $2 par $1.",
 	"apihelp-addstudents-description": "Ajouter plusieurs étudiants à un cours.",
-	"apihelp-addstudents-param-studentusernames": "Les noms des élèves à ajouter au cours.",
+	"apihelp-addstudents-param-studentusernames": "Les noms d'utilisateur des élèves à ajouter au cours.",
 	"apihelp-addstudents-param-courseid": "L’ID du cours auquel les étudiants doivent être ajoutés/enlevés.",
 	"apihelp-addstudents-example-1": "Ajouter trois étudiants à un cours",
 	"apihelp-deleteeducation-description": "Supprimer les objets du Programme Éducatif.",
