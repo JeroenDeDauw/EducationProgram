@@ -6,7 +6,8 @@
 			"Nemo bis",
 			"Rgarziera",
 			"F. Cosoleto",
-			"Ricordisamoa"
+			"Ricordisamoa",
+			"The Polish"
 		]
 	},
 	"educationprogram-desc": "Facilita i programmi di istruzione con l'aggiunta di varie interfacce per la gestione di corsi, istituti e i vari ruoli utente per la formazione.",
@@ -719,7 +720,7 @@
 	"ep-online-add-notification-title": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario online a [[$2|$3]] da [[User:$1|$1]].",
 	"ep-online-add-notification-title-email-subject": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario online a $2 da $1.",
 	"ep-online-add-notification-title-email-body": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario online a $2 da $1.",
-	"apihelp-addstudents-param-studentusernames": "I nomi utente degli studenti d'aggiungere al corso, separati da \"|\".",
+	"apihelp-addstudents-param-studentusernames": "I nomi utente degli studenti da aggiungere al corso.",
 	"apihelp-addstudents-param-courseid": "L'ID del corso al quale gli studenti dovrebbero essere aggiunti o rimossi.",
 	"apihelp-addstudents-example-1": "Aggiunge tre studenti a un corso",
 	"apihelp-deleteeducation-param-ids": "Gli ID degli oggetti da eliminare.",
