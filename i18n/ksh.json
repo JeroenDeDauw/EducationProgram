@@ -85,7 +85,7 @@
 	"educationprogram-org-edit-country": "Schtaat",
 	"educationprogram-org-submit": "Lohß Jonn!",
 	"ep-addorg": "Mer han noch kein Enschtetuzjuhn met däm Nahme, ävver, De kannß se derbei donn.",
-	"orgpage-edit-undelete-link": "{{PLURAL:$1|ein Version|$1 Versione|kein Version}} zerök holle",
+	"orgpage-edit-undelete-link": "{{PLURAL:$1|ein Väsjohn|$1 Väsjohne|kein Väsjohn}} zerök holle",
 	"educationprogram-org-invalid-name": "En däm Nahme moß winneschßdens {{PLURAL:$1|ei|$1|kei}} Zeijsche dren sin.",
 	"educationprogram-org-invalid-country": "Dat es kei jöltesch Land",
 	"ep-course-edit-org": "Enreeschdong",
