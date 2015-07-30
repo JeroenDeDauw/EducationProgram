@@ -716,7 +716,7 @@
 	"ep-online-add-notification-title-email-subject": "$1 ве {{GENDER:$1|додаде}} како семрежен доброволец на $2.",
 	"ep-online-add-notification-title-email-body": "$1 ве {{GENDER:$1|додаде}} како семрежен доброволец на $2.",
 	"apihelp-addstudents-description": "Додај повеќе ученици во курсот.",
-	"apihelp-addstudents-param-studentusernames": "Корисничките имиња на учениците што треба да се додадат во курсот, одделени со „|“.",
+	"apihelp-addstudents-param-studentusernames": "Корисничките имиња на учениците што треба да се додадат во курсот.",
 	"apihelp-addstudents-param-courseid": "Назнака на курсот во/од кој учениците треба да се додадат/отстранат.",
 	"apihelp-addstudents-example-1": "Додај три ученици во курс.",
 	"apihelp-deleteeducation-description": "Избриши објекти од Образовниот програм.",
