@@ -441,28 +441,24 @@ final class Hooks {
 	 * @return bool
 	 */
 	public static function onNewRevisionFromEditComplete( Page $article, Revision $rev, $baseID, User $user ) {
-		$dbw = wfGetDB( DB_MASTER );
+		\DeferredUpdates::addCallableUpdate( function() use ( $article, $rev, $user ) {
+			$dbw = wfGetDB( DB_MASTER );
 
-		// TODO: properly inject dependencies
-		$userCourseFinder = new UPCUserCourseFinder( $dbw );
-		$eventCreator = new \EducationProgram\Events\EditEventCreator( $dbw, $userCourseFinder );
-		$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
+			// TODO: properly inject dependencies
+			$courseFinder = new UPCUserCourseFinder( $dbw );
+			$eventCreator = new \EducationProgram\Events\EditEventCreator( $dbw, $courseFinder );
 
-		$startOwnStransaction = $dbw->trxLevel() === 0;
+			$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
+			if ( $events ) {
+				$eventStore = new \EducationProgram\Events\EventStore( 'ep_events' );
 
-		$eventStore = new \EducationProgram\Events\EventStore( 'ep_events' );
-
-		if ( $startOwnStransaction ) {
-			$dbw->begin();
-		}
-
-		foreach ( $events as $event ) {
-			$eventStore->insertEvent( $event );
-		}
-
-		if ( $startOwnStransaction ) {
-			$dbw->commit();
-		}
+				$dbw->startAtomic( __METHOD__ );
+				foreach ( $events as $event ) {
+					$eventStore->insertEvent( $event );
+				}
+				$dbw->endAtomic( __METHOD__ );
+			}
+		} );
 
 		return true;
 	}
