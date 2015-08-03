@@ -720,7 +720,7 @@
 	"ep-online-add-notification-title-email-subject": "Ви вже {{GENDER:$1|додані}} як доброволець у мережі до $2 користувачем $1.",
 	"ep-online-add-notification-title-email-body": "Ви вже {{GENDER:$1|додані}} як доброволець у мережі до $2 користувачем $1.",
 	"apihelp-addstudents-description": "Додати кількох студентів до курсу.",
-	"apihelp-addstudents-param-studentusernames": "Імена студентів для додавання до курсу, розділені \"|\".",
+	"apihelp-addstudents-param-studentusernames": "Імена студентів для додавання до курсу.",
 	"apihelp-addstudents-param-courseid": "Ідентифікатор курсу для додавання/вилучення студентів.",
 	"apihelp-addstudents-example-1": "Додати трьох студентів до курсу",
 	"apihelp-deleteeducation-description": "Вилучити об'єкти Освітньої програми.",
