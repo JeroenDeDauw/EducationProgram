@@ -218,7 +218,7 @@ final class Hooks {
 	public static function onPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		self::displayTabs( $sktemplate, $links, $sktemplate->getTitle() );
 
-		return false;
+		return true;
 	}
 
 	/**
@@ -256,7 +256,7 @@ final class Hooks {
 			}
 		}
 
-		return false;
+		return true;
 	}
 
 	/**
