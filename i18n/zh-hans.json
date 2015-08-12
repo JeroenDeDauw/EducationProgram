@@ -745,6 +745,7 @@
 	"apihelp-deleteeducation-example-2": "删除机构2和4",
 	"apihelp-enlist-description": "为一个课程指派或取消指派一位用户作为导师或大使。",
 	"apihelp-enlist-param-subaction": "指定您作为导师或大使希望做些什么。",
+	"apihelp-enlist-param-role": "要影响的角色。“instructor”用于导师、“online”用于在线大使以及“campus”用于校园大使。",
 	"apihelp-enlist-param-username": "要交往或分离的用户名称。",
 	"apihelp-enlist-param-userid": "要交往或分离的用户ID。",
 	"apihelp-enlist-param-courseid": "课程ID。",
