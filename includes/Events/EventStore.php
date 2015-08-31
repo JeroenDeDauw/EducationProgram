@@ -137,13 +137,17 @@ class EventStore {
 	 * @return Event
 	 */
 	private function eventFromDbResult( $resultRow ) {
+		$info = unserialize( $resultRow->event_info );
+		if ( !is_array( $info ) ) {
+			$info = array();
+		}
 		return new Event(
 			(int)$resultRow->event_id,
 			(int)$resultRow->event_course_id,
 			(int)$resultRow->event_user_id,
 			$resultRow->event_time,
 			$resultRow->event_type,
-			unserialize( $resultRow->event_info )
+			$info
 		);
 	}
 
