@@ -18,7 +18,8 @@
 			"아라",
 			"Ragesoss",
 			"Liuxinyu970226",
-			"Umherirrender"
+			"Umherirrender",
+			"J. 'mach' wust"
 		]
 	},
 	"educationprogram-desc": "{{desc|name=Education Program|url=https://www.mediawiki.org/wiki/Extension:Education_Program}}",
@@ -370,7 +371,7 @@
 	"ep-addstudents-invalid-users": "Message explaining that one or more users typed into a form don't exist. Parameters:\n* $1 - the number of non-existent users\n* $2 - a list of non-existent users",
 	"ep-addstudents-btn": "Text of button for actually adding users.\n{{Identical|Add}}",
 	"ep-addstudents-success": "Message stating the number of students added to a course. Parameters:\n* $1 - the number of students added\n* $2 - the gender of the student if only one was added",
-	"ep-addstudents-alreadyenrolled": "Message explaining that some students weren't added because they were already enrolled. Parameters:\n* $1 - the number of students not added\n* $2 - a list of students not added\n* $3 - the gender of the student if only one was not added",
+	"ep-addstudents-alreadyenrolled": "{{doc-singularthey}}\nMessage explaining that some students weren't added because they were already enrolled. Parameters:\n* $1 - the number of students not added\n* $2 - a list of students not added\n* $3 - the gender of the student if only one was not added",
 	"ep-addstudents-servercallerror": "Error message from server call to add students. Parameters:\n* $1 - error message",
 	"coursepage-edit-title-edit": "Page title. Parameters:\n* $1 - the course name",
 	"coursepage-edit-title-add": "Page title. Parameters:\n* $1 - the course name",
