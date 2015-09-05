@@ -201,5 +201,6 @@
 	"ep-student-add-notification-title-email-body": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} $1 hät Desch beij $2 jedonn.",
 	"apihelp-addstudents-param-studentusernames": "De Metmaacher_Nahme vun dä Schtodännte, di en dä Korß sulle.",
 	"apihelp-deleteeducation-param-type": "De Kännong vun wat fottjeschmeße wähde sull.",
+	"apihelp-deleteeducation-example-2": "Maach de Enschtetozjuhne 2 un 4 fott.",
 	"apihelp-refresheducation-param-type": "De Zoot vun wat fott sull."
 }

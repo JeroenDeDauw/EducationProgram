@@ -7,7 +7,8 @@
 			"Rapsar",
 			"Marmase",
 			"Mirzali",
-			"Sayginer"
+			"Sayginer",
+			"KorkmazO"
 		]
 	},
 	"educationprogram-desc": "Çeşitli eğitim rolü bulunan kullanıcılar ve kurumlar için, kurslar yönetim arayüzünü ekleyerek eğitim programlarının uygulanmasını kolaylaştırır.",
@@ -284,6 +285,8 @@
 	"vieworgaction-summary-status": "Durum",
 	"ep-course-students": "Öğrenciler",
 	"orgpage-delete-cancel-button": "İptal",
+	"ep-disenroll-course-passed": "Bu ders sona ermiştir. {{CİNSİYET:|artik kayıt sildiremezsiniz}}",
+	"ep-mycourses-not-enrolled": "{{CİNSİYET:|}} Herhangi bir kursa kayıtlı değilsiniz. Bakınız [[Special:Courses|list of courses]]",
 	"ep-instructor-removing": "Kaldırılıyor...",
 	"ep-online-removing": "Kaldırılıyor...",
 	"ep-online-remove-retry": "Tekrar dene",
