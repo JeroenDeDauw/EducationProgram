@@ -729,7 +729,7 @@
 	"apihelp-deleteeducation-param-type": "Type of object to delete.",
 	"apihelp-deleteeducation-param-comment": "Reason for this deletion, for the log.",
 	"apihelp-deleteeducation-example-1": "Delete course 42",
-	"apihelp-deleteeducation-example-2": "Delete orgs 2 and 4",
+	"apihelp-deleteeducation-example-2": "Delete institutions 2 and 4",
 	"apihelp-enlist-description": "Associate or disassociate a user as instructor or ambassador for a course.",
 	"apihelp-enlist-param-subaction": "Specifies what you want to do with the instructor or ambassador.",
 	"apihelp-enlist-param-role": "The role to affect. \"instructor\" for instructor, \"online\" for online ambassadors and \"campus\" for campus ambassadors.",
