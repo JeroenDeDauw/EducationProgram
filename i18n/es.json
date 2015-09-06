@@ -743,7 +743,7 @@
 	"apihelp-deleteeducation-param-type": "Tipo de objeto que se eliminará.",
 	"apihelp-deleteeducation-param-comment": "Motivo de eliminación, para el registro.",
 	"apihelp-deleteeducation-example-1": "Eliminar curso 42",
-	"apihelp-deleteeducation-example-2": "Eliminar organizaciones 2 y 4",
+	"apihelp-deleteeducation-example-2": "Eliminar instituciones de 2 y 4",
 	"apihelp-enlist-description": "Asociar o disociar un usuario como instructor o embajador de un curso.",
 	"apihelp-enlist-param-subaction": "Especifica las acciones que se llevarán a cabo con el instructor o embajador.",
 	"apihelp-enlist-param-role": "El papel a desempeñar. \"instructor\" para instructor, \"online\" para embajador en línea y \"campus\" para embajador del campus.",

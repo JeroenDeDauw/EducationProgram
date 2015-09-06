@@ -62,7 +62,7 @@
 	"logentry-eparticle-review": "$1 lisas {{GENDER:$2|ennast}} artikli $3 retsensendiks (artikli kallal {{GENDER:$6|teeb}} kursuse $4 raames tööd kasutaja $5)",
 	"logentry-eparticle-unreview": "$1 eemaldas {{GENDER:$2|ennast}} artikli $3 retsensendi kohalt (artikli kallal {{GENDER:$6|teeb}} kursuse $4 raames tööd kasutaja $5)",
 	"prefs-education": "Haridus",
-	"ep-prefs-showtoplink": "Näita linki [[Special:MyCourses|oma kursustele]] iga lehekülje ülaosas.",
+	"ep-prefs-showtoplink": "Näita linki [[Special:MyCourses|oma kursustele]] iga lehekülje ülaosas",
 	"right-ep-org": "Hallata haridusprogrammi asutusi",
 	"right-ep-course": "Hallata haridusprogrammi kursuseid",
 	"right-ep-token": "Vaadata haridusprogrammi registreerumistunnuseid",
