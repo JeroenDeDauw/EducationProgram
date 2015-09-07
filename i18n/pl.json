@@ -598,6 +598,7 @@
 	"ep-dashboard-enroll-first": "Nie bierzesz udziału w żadnym aktywnym kursie. Możesz przejrzeć [[Special:Courses|listę kursów]].",
 	"ep-user-roles-message-main-student": "[[$1|$2]] jest {{GENDER:$2|studentem|studentką}} w {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|dyskusja kursu]])",
+	"ep-user-roles-message-additional": "{{GENDER:$1|Dodatkowe role:}} $2.",
 	"ep-user-roles-message-rolename-student": "{{GENDER:$1|student|studentka}}",
 	"ep-user-roles-message-rolename-instructor": "{{GENDER:$1|instruktor|instruktorka}}",
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|wolontariusz online|wolontariuszka online}}",

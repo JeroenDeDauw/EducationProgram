@@ -8,7 +8,8 @@
 			"F. Cosoleto",
 			"Ricordisamoa",
 			"The Polish",
-			"Alexmar983"
+			"Alexmar983",
+			"J. 'mach' wust"
 		]
 	},
 	"educationprogram-desc": "Facilita i programmi di istruzione con l'aggiunta di varie interfacce per la gestione di corsi, istituti e i vari ruoli utente per la formazione.",
@@ -696,7 +697,7 @@
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]] è {{GENDER:$2|un|una|un/una}} insegnante in $3 {{PLURAL:$3|corso|corsi}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]] è {{GENDER:$2|un volontario|una volontaria|un/una volontario/a}} online in $3 {{PLURAL:$3|corso|corsi}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]] è {{GENDER:$2|un volontario|una volontaria|un/una volontario/a}} del campus in $3 {{PLURAL:$3|corso|corsi}}.",
-	"ep-user-roles-message-additional": "{{GENDER:$1|Lui è|Lei è|Loro sono}} anche $2.",
+	"ep-user-roles-message-additional": "{{GENDER:$1|Lui|Lei|Lui/Lei}} è anche $2.",
 	"ep-user-roles-message-rolename-student": "{{GENDER:$1|uno studente|una studentessa|un/una studente/essa}}",
 	"ep-user-roles-message-rolename-instructor": "{{GENDER:$1|un|una|un/una}} insegnante",
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|un volontario|una volontaria|un/una volontario/a}} online",

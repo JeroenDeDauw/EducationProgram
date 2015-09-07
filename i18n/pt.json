@@ -13,7 +13,8 @@
 			"Diego Queiroz",
 			"Polyethylen",
 			"!Silent",
-			"OTAVIO1981"
+			"OTAVIO1981",
+			"J. 'mach' wust"
 		]
 	},
 	"educationprogram-desc": "Viabiliza programas educativos disponibilizando várias interfaces para administrar cursos, instituições e os vários tipos de utilizador relacionados.",
@@ -359,7 +360,7 @@
 	"ep-addstudents-invalid-users": "{{PLURAL:$1|Este utilizador não existe|Estes utilizadores não existem}}: $2.",
 	"ep-addstudents-btn": "Acrescentar",
 	"ep-addstudents-success": "Acrescentou $1 {{PLURAL:$1|{{GENDER:$2|estudante}}|estudantes}} a este curso.",
-	"ep-addstudents-alreadyenrolled": "{{PLURAL:$1|{{GENDER:$3|O seguinte estudante não foi acrescentado porque já estava inscrito|A seguinte estudante não foi acrescentada porque já estava inscrita|Os seguintes estudantes não foram acrescentados porque já estavam inscritos}}}} no curso: $2.",
+	"ep-addstudents-alreadyenrolled": "{{PLURAL:$1|{{GENDER:$3|O seguinte estudante não foi acrescentado porque já estava inscrito|A seguinte estudante não foi acrescentada porque já estava inscrita|O(A) seguinte estudante não foi acrescentado(a) porque já estava inscrito(a)}}|Os seguintes estudantes não foram acrescentados porque já estavam inscritos}} no curso: $2.",
 	"ep-addstudents-servercallerror": "Ocorreu o seguinte erro ao acrescentar estudantes: $1",
 	"coursepage-edit-title-edit": "A editar o curso: $1",
 	"coursepage-edit-title-add": "A acrescentar o curso: $1",

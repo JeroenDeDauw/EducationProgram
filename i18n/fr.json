@@ -27,7 +27,8 @@
 			"Scoopfinder",
 			"Arthur Crbz",
 			"TomT0m",
-			"Wladek92"
+			"Wladek92",
+			"J. 'mach' wust"
 		]
 	},
 	"educationprogram-desc": "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles des acteurs d'un programme éducatif.",
@@ -715,7 +716,7 @@
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]] {{GENDER:$2|est un instructeur|est une instructrice}} pour $3 {{PLURAL:$3|cours}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]] {{GENDER:$2|est un bénévole en ligne|est une bénévole en ligne}} pour $3 {{PLURAL:$3|cours}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]] {{GENDER:$2|est un bénévole de campus|est une bénévole de campus}} pour $3 {{PLURAL:$3|cours}}.",
-	"ep-user-roles-message-additional": "{{GENDER:$1|Il est|Elle est|Ils sont}} aussi $2.",
+	"ep-user-roles-message-additional": "{{GENDER:$1|Il est|Elle est}} aussi $2.",
 	"ep-user-roles-message-rolename-student": "{{GENDER:$1|un étudiant|une étudiante}}",
 	"ep-user-roles-message-rolename-instructor": "{{GENDER:$1|un instructeur|une instructrice}}",
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|un bénévole en ligne|une bénévole en ligne}}",

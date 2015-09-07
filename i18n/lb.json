@@ -493,6 +493,7 @@
 	"apihelp-deleteeducation-param-type": "Typ vun Objet fir ze läschen.",
 	"apihelp-deleteeducation-param-comment": "Grond fir ze Läschen, fir d'Logbuch.",
 	"apihelp-deleteeducation-example-1": "Cours 42 läschen",
+	"apihelp-deleteeducation-example-2": "Institutiounen 2 a 4 läschen",
 	"apihelp-enlist-param-courseid": "D'Nummer (ID) vum Cours.",
 	"apihelp-enlist-param-reason": "Grond fir ze Läschen, fir d'Logbuch.",
 	"apihelp-liststudents-param-courseids": "Nummere (ID) vun de Coursen.",
