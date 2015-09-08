@@ -147,7 +147,7 @@ class CoursePager extends EPPager {
 				$value = htmlspecialchars( $value );
 				break;
 			case 'lang':
-				$langs = \LanguageNames::getNames( $this->getLanguage()->getCode() );
+				$langs = \Language::fetchLanguageNames( $this->getLanguage()->getCode() );
 				if ( array_key_exists( $value, $langs ) ) {
 					$value = htmlspecialchars( $langs[$value] );
 				}
