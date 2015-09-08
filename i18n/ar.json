@@ -11,7 +11,8 @@
 			"Tarawneh",
 			"Zanatos",
 			"زكريا",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Hiba Alshawi"
 		]
 	},
 	"educationprogram-desc": "وتساعد البرامج التعليمية عن طريق إضافات واجهات عديدة لإدارة المناهج والمؤسسات وأدوار المستفيدين من العملية التعليمية.",
@@ -667,5 +668,6 @@
 	"ep-echo-pref-tooltip": "أعلمني بشأن الأحداث المتعلقة بدروس برنامج التعليم التي أشارك بها.",
 	"ep-course-talk-link-text-view-message": "اعرض الرسالة",
 	"ep-course-talk-link-text-view-changes": "اعرض التعديلات",
-	"ep-role-add-link-text-view-course": "عرض المساق"
+	"ep-role-add-link-text-view-course": "عرض المساق",
+	"apihelp-deleteeducation-example-2": "حذف المؤسسات 2 و 4"
 }

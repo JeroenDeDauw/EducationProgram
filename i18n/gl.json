@@ -725,7 +725,7 @@
 	"apihelp-deleteeducation-param-type": "Tipo do obxecto a borrar.",
 	"apihelp-deleteeducation-param-comment": "Razón para o borrado, para o rexistro.",
 	"apihelp-deleteeducation-example-1": "Borrar o curso 42",
-	"apihelp-deleteeducation-example-2": "Borrar as orgs 2 e 4",
+	"apihelp-deleteeducation-example-2": "Borrar as institucións 2 e 4",
 	"apihelp-enlist-description": "Asociar ou desasociar un usuario como instructor ou embaixador dun curso.",
 	"apihelp-enlist-param-subaction": "Especifica o que quere facer co instructor ou embaixador.",
 	"apihelp-enlist-param-role": "O rol a modificar. \"instructo\" para instructor, \"online\" para os embaixadores en liña e \"campus\" para os embaixadores de campus.",
