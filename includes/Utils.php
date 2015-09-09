@@ -73,7 +73,7 @@ class Utils {
 	public static function getLanguageOptions( $langCode ) {
 		return array_merge(
 			array( '' => '' ),
-			self::getValuesAppendedKeys( \LanguageNames::getNames( $langCode ) )
+			self::getValuesAppendedKeys( \Language::fetchLanguageNames( $langCode ) )
 		);
 	}
 
