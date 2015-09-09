@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Alp Er Tunqa"
 		]
 	},
 	"ep-item-summary": "قیساسی",
@@ -26,6 +27,7 @@
 	"ep-articletable-remstudent-cancel": "لغو ائت",
 	"ep-articletable-remarticle-cancel": "لغو ائت",
 	"orgpage-eprestore-cancel-button": "لغو ائت",
+	"orgpage-epundo-undo-button": "دییشدیرمه قایتاریشی",
 	"orgpage-epundo-cancel-button": "لغو ائت",
 	"coursepage-epundo-cancel-button": "لغو ائت",
 	"coursepage-epundelete-cancel-button": "لغو ائت",
