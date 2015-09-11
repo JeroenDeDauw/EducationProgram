@@ -90,7 +90,7 @@
 	"logentry-online-selfadd": "$1 adicionou-se como {{GENDER:$2|voluntário online|voluntária online}} ao curso $3",
 	"logentry-online-selfremove": "$1 removeu-se como {{GENDER:$2|voluntário online|voluntária online}} do curso $3",
 	"logentry-online-profilesave": "$1 atualizou {{GENDER:$2|seu perfil de voluntário online|seu perfil de voluntária online|seus perfis de voluntários online}}",
-	"logentry-campus-add": "$1 {{GENDER:$2|adicionou}} {{PLURAL:$4|voluntário online|voluntários online}} $5 do curso $3",
+	"logentry-campus-add": "$1 {{GENDER:$2|adicionou}} {{PLURAL:$4|voluntário de campus|voluntários de campus}} $5 do curso $3",
 	"logentry-campus-remove": "$1 {{GENDER:$2|removeu}} {{PLURAL:$4|voluntário de campus|voluntários de campus}} $5 do curso $3",
 	"logentry-campus-selfadd": "$1 adicionou-se como {{GENDER:$2|voluntário de campus|voluntária de campus}} ao curso $3",
 	"logentry-campus-selfremove": "$1 removeu-se como {{GENDER:$2|voluntário de campus|voluntária de campus}} do curso $3",
