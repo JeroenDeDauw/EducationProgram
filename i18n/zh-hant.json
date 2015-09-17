@@ -365,6 +365,7 @@
 	"ep-course-invalid-org": "此學院不存在。",
 	"ep-course-invalid-token": "密鑰至少需含 $1 個{{PLURAL:$1|字元|字元}}。",
 	"ep-course-invalid-description": "描述至少需含 $1 個{{PLURAL:$1|字元|字元}}。",
+	"ep-course-invalid-lang": "此語言尚未支援。",
 	"ep-course-no-slashes": "課程標題不應包含任何斜線符號！",
 	"coursepage-edit-undelete-revisions": "已刪除此課程。你可以 $1。",
 	"coursepage-edit-undelete-link": "還原 $1 次{{PLURAL:$1|修訂}}",
