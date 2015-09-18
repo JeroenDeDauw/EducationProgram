@@ -724,7 +724,7 @@
 	"apihelp-deleteeducation-param-type": "Тип на објекти за бришење.",
 	"apihelp-deleteeducation-param-comment": "Причина за бришење, за дневникот.",
 	"apihelp-deleteeducation-example-1": "Избриши го курсот 42",
-	"apihelp-deleteeducation-example-2": "Избриши орг. 2 и 4",
+	"apihelp-deleteeducation-example-2": "Избриши ги установите 2 и 4",
 	"apihelp-enlist-description": "Назначи или разреши корисник како наставник или претставник на курс.",
 	"apihelp-enlist-param-subaction": "Укажува што сакате да правите со наставникот или претставникот.",
 	"apihelp-enlist-param-role": "Која улога да ја има: „наставник“ за наставник, „семрежен“ за семрежни претставници и „универзитетски“ за универзитетски претставници.",
