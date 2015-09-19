@@ -101,7 +101,7 @@
 	"logentry-campus-selfadd": "$1 se ha agregado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|voluntario de campus|voluntaria de campus}} del curso $3",
 	"logentry-campus-selfremove": "$1 se ha eliminado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|voluntario de campus|voluntaria de campus}} del curso $3",
 	"logentry-campus-profilesave": "$1 ha actualizado su perfil de {{GENDER:$2|Voluntario de campus|Voluntaria de campus}}",
-	"logentry-student-add": "$1 está {{GENDER:$2|inscrito|inscrita|inscrito}} en $5 como {{PLURAL:$4|{{GENDER:$2|un estudiante|una estudiante|estudiante}}|estudiantes}} en el curso $3",
+	"logentry-student-add": "$1 {{GENDER:$2|inscribió}} a $5 como {{PLURAL:$4|{{GENDER:$2|un|una}} estudiante|estudiantes}} en el curso $3",
 	"logentry-student-remove": "$1 {{GENDER:$2|ha eliminado}} a $5 como {{PLURAL:$4|{{GENDER:$5|alumno|alumna}}|alumnos}} del curso $3",
 	"logentry-student-selfadd": "$1 se ha inscrito en el curso $3",
 	"logentry-student-selfremove": "$1 se ha dado de baja del curso $3",
