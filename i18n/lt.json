@@ -3,7 +3,8 @@
 		"authors": [
 			"Eitvys200",
 			"Hugo.arg",
-			"Mantak111"
+			"Mantak111",
+			"Zygimantus"
 		]
 	},
 	"ep-item-summary": "Santrauka",
@@ -131,7 +132,7 @@
 	"ep-course-edit-org": "Institucija",
 	"ep-course-edit-start": "Pradžios data",
 	"ep-course-edit-end": "Pabaigos data",
-	"ep-course-edit-description": "Aprašymas",
+	"ep-course-edit-description": "Puslapio tekstas",
 	"ep-course-edit-title": "Puslapio pavadinimas",
 	"ep-course-edit-term": "Semestras",
 	"ep-course-edit-name": "Kurso pavadinimas",

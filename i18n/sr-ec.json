@@ -137,7 +137,7 @@
 	"action-ep-remarticle": "одвајање чланака од студената",
 	"action-ep-addstudent": "додавање корисника као студената",
 	"group-epcoordinator": "Координатори курсева",
-	"group-epcoordinator-member": "{{GENDER:$1|Координатор|Координаторка}} курса",
+	"group-epcoordinator-member": "{{GENDER:$1|координатор|координаторка}} курса",
 	"grouppage-epcoordinator": "{{ns:project}}:Координатор_курса",
 	"group-eponline": "Онлајн волонтери на курсевима",
 	"group-eponline-member": "онлајн {{GENDER:$1|волонтер|волонтерка}} на курсу",

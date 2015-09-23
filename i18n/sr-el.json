@@ -123,7 +123,7 @@
 	"action-ep-bulkdelcourses": "brisanje kurseva na veliko",
 	"action-ep-addstudent": "dodavanje korisnika kao studenata",
 	"group-epcoordinator": "Koordinatori kurseva",
-	"group-epcoordinator-member": "{{GENDER:$1|Nastavnik|Nastavnica}} na kursevima",
+	"group-epcoordinator-member": "{{GENDER:$1|koordinator|koordinatorka}} kursa",
 	"group-eponline": "Onlajn volonteri na kursevima",
 	"group-epcampus": "Univerzitetski volonteri na kursu",
 	"group-epcampus-member": "{{GENDER:$1|univerzitetski volonteri na kursu}}",
