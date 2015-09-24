@@ -703,7 +703,7 @@
 	"ep-user-roles-message-main-online": "[[$1|$2]] {{GENDER:$2|онлайн-волонтер}} для {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-main-campus": "[[$1|$2]] {{GENDER:$2|волонтер кампуса}} для {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|обсуждение курса]])",
-	"ep-user-roles-message-main-many-student-alt": "[[$1|$2]] {{GENDER:$2|является студентом}} на $3 {{PLURAL:$3|курсе}}.",
+	"ep-user-roles-message-main-many-student-alt": "[[$1|$2]] — {{GENDER:$2|студент|студентка}} $3 {{PLURAL:$3|курса}}.",
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]] {{GENDER:$2|инструктор}} для $3 {{PLURAL:$3|курса|курсов}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]] {{GENDER:$2|онлайн-волонтер}} для $3 {{PLURAL:$3|курса|курсов}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]] {{GENDER:$2|волонтер кампуса}} для $3 {{PLURAL:$3|курса|курсов}}.",
