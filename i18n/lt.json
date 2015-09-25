@@ -229,5 +229,6 @@
 	"ep-diff-new": "Nauja vertė",
 	"ep-timeline-ago": "prieš $1",
 	"ep-timeline-cutoff": "$1 ...",
-	"ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} paliko {{PLURAL:$4|pranešimą|pranešimus|pranešimų}} '''[[$3]]''' '''[[$2|aptarimų puslapyje]]'''."
+	"ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} paliko {{PLURAL:$4|pranešimą|pranešimus|pranešimų}} '''[[$3]]''' '''[[$2|aptarimų puslapyje]]'''.",
+	"apihelp-enlist-param-subaction": "Nurodoma, ką jūs norite daryti su instruktoriumi ar savanoriu."
 }
