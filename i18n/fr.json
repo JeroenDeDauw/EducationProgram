@@ -28,7 +28,8 @@
 			"Arthur Crbz",
 			"TomT0m",
 			"Wladek92",
-			"J. 'mach' wust"
+			"J. 'mach' wust",
+			"Orlodrim"
 		]
 	},
 	"educationprogram-desc": "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles des acteurs d'un programme éducatif.",
@@ -773,7 +774,7 @@
 	"apihelp-liststudents-example-3": "Lister les étudiants des cours 3, 4, 5 et 6 par ID utilisateur, groupés par cours, au format CSV",
 	"apihelp-refresheducation-description": "Reconstruire les données du résumé des objets du Programme Éducatif.",
 	"apihelp-refresheducation-param-ids": "Les IDs des objets à rafraîchir.",
-	"apihelp-refresheducation-param-type": "Type d’objet à supprimer.",
+	"apihelp-refresheducation-param-type": "Type d’objet à actualiser.",
 	"apihelp-refresheducation-example-1": "Rafraîchir le cours 42",
 	"apihelp-refresheducation-example-2": "Rafraîchir les étudiants 2 et 4"
 }

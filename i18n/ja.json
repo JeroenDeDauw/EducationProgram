@@ -552,7 +552,7 @@
 	"apihelp-liststudents-example-3": "コース 3、4、5、6 の生徒の利用者 ID をコースごとにグループ化して CSV 形式で列挙",
 	"apihelp-refresheducation-description": "教育プログラムのオブジェクトの要約データを再構築します。",
 	"apihelp-refresheducation-param-ids": "更新するオブジェクトの ID です。",
-	"apihelp-refresheducation-param-type": "削除するオブジェクトの種類です。",
+	"apihelp-refresheducation-param-type": "リフレッシュするオブジェクトの種類です。",
 	"apihelp-refresheducation-example-1": "コース 42 を更新",
 	"apihelp-refresheducation-example-2": "生徒 2、4 を更新"
 }
