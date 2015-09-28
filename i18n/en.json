@@ -752,7 +752,7 @@
 	"apihelp-liststudents-example-3": "List students by user ID in courses 3, 4, 5, and 6, grouped by course, in CSV format",
 	"apihelp-refresheducation-description": "Rebuild summary data of Education Program objects.",
 	"apihelp-refresheducation-param-ids": "The IDs of the objects to refresh.",
-	"apihelp-refresheducation-param-type": "Type of object to delete.",
+	"apihelp-refresheducation-param-type": "Type of object to refresh.",
 	"apihelp-refresheducation-example-1": "Refresh course 42",
 	"apihelp-refresheducation-example-2": "Refresh students 2 and 4"
 }
