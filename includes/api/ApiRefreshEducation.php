@@ -4,7 +4,7 @@ namespace EducationProgram;
 use ApiBase;
 
 /**
- * API module to delete objects stored by the Education Program extension.
+ * API module to refresh objects stored by the Education Program extension.
  *
  * @since 0.1
  *

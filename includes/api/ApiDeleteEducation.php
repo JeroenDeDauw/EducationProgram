@@ -140,7 +140,7 @@ class ApiDeleteEducation extends ApiBase {
 	 */
 	public function getParamDescription() {
 		return array(
-			'ids' => 'The IDs of the reviews to delete',
+			'ids' => 'The IDs of the objects to delete',
 			'token' => 'Edit token. You can get one of these through prop=info.',
 			'type' => 'Type of object to delete.',
 			'comment' => 'Message with the reason for this change for the log',
@@ -152,7 +152,7 @@ class ApiDeleteEducation extends ApiBase {
 	 */
 	public function getDescription() {
 		return array(
-			'API module for deleting objects parts of the Education Program extension.'
+			'API module for deleting objects created by the Education Program extension.'
 		);
 	}
 
