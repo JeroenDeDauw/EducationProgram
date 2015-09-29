@@ -617,7 +617,7 @@
 	"apihelp-enlist-example-3": "Usuń użytkownika o numerze 9001 jako instruktora kursu 42",
 	"apihelp-liststudents-param-courseids": "Identyfikatory kursów.",
 	"apihelp-refresheducation-param-ids": "Identyfikatory obiektów do uaktualnienia.",
-	"apihelp-refresheducation-param-type": "Typ obiektu do usunięcia.",
+	"apihelp-refresheducation-param-type": "Typ obiektu do odświeżenia.",
 	"apihelp-refresheducation-example-1": "Odśwież kurs 42",
 	"apihelp-refresheducation-example-2": "Odśwież studentów 2 i 4"
 }

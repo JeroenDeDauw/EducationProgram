@@ -761,7 +761,7 @@
 	"apihelp-liststudents-example-3": "רשימת הסטודנטים לפי מזהה משתמש בקורסים 3, 4, 5 ו־6, מקובצים לפי קורס, בתסדיר CSV",
 	"apihelp-refresheducation-description": "בנייה מחדש של נתוני תקציר עבור עצמי תכנית ההשכלה.",
 	"apihelp-refresheducation-param-ids": "המזהים של העצמים לרענון.",
-	"apihelp-refresheducation-param-type": "סוג העצם למחיקה.",
+	"apihelp-refresheducation-param-type": "סוג העצם לרענון.",
 	"apihelp-refresheducation-example-1": "רענון קורס 42",
 	"apihelp-refresheducation-example-2": "רענון סטודנטים 2 ו־4"
 }

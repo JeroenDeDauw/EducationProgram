@@ -767,7 +767,7 @@
 	"apihelp-liststudents-example-3": "按用户ID列出课程3、4、5和6的学生，按课程分组，CSV格式。",
 	"apihelp-refresheducation-description": "重建教育计划项目的摘要数据。",
 	"apihelp-refresheducation-param-ids": "要刷新的对象ID。",
-	"apihelp-refresheducation-param-type": "要删除的对象类型。",
+	"apihelp-refresheducation-param-type": "要刷新的对象类型。",
 	"apihelp-refresheducation-example-1": "刷新课程42",
 	"apihelp-refresheducation-example-2": "刷新学生2和4"
 }
