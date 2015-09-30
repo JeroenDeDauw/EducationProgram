@@ -731,7 +731,7 @@
 	"apihelp-deleteeducation-example-1": "Обриши курс 42",
 	"apihelp-deleteeducation-example-2": "Обриши организације 2 и 4",
 	"apihelp-enlist-description": "Повежи или разреши корисника као наставника или амбасадора на овом курсу.",
-	"apihelp-enlist-param-subaction": "Прецизирајте шта желите да урадите са наставником или амбасадором.",
+	"apihelp-enlist-param-subaction": "Прецизирајте шта желите да урадите са наставником или волонтером.",
 	"apihelp-enlist-param-role": "Улога учесника. \"Наставник\" за наставника, \"Онлајн\" за онлајн амбасадоре и \"Универзитетски\" за универзитетске амбасадоре.",
 	"apihelp-enlist-param-username": "Име корисника кога треба повезати или одвојити.",
 	"apihelp-enlist-param-userid": "Идентификација корисника кога треба повезати или одвојити.",
@@ -752,7 +752,7 @@
 	"apihelp-liststudents-example-3": "Наведи студенте са курсева 3,4,5 и 6, по корисничким идентификацијама, груписане према курсу, у CSV формату",
 	"apihelp-refresheducation-description": "Обнови податке о циљевима образовног програма.",
 	"apihelp-refresheducation-param-ids": "Идентификација циљева које треба освежити.",
-	"apihelp-refresheducation-param-type": "Врста циљева које треба обрисати.",
+	"apihelp-refresheducation-param-type": "Врста циљева које треба освежити.",
 	"apihelp-refresheducation-example-1": "Освежи курс 42",
 	"apihelp-refresheducation-example-2": "Освежи студенте 2 и 4"
 }

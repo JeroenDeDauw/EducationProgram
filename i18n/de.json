@@ -751,7 +751,7 @@
 	"apihelp-liststudents-example-3": "Listet Studenten nach Benutzerkennung in den Kursen 3, 4, 5 und 6 im CSV-Format auf, gruppiert nach Kurs",
 	"apihelp-refresheducation-description": "Baut Zusammenfassungsdaten von Bildungsprogrammobjekten nach.",
 	"apihelp-refresheducation-param-ids": "Die Kennungen der zu aktualisierenden Objekte.",
-	"apihelp-refresheducation-param-type": "Zu löschender Objekttyp.",
+	"apihelp-refresheducation-param-type": "Zu aktualisierender Objekttyp.",
 	"apihelp-refresheducation-example-1": "Kurs 42 aktualisieren",
 	"apihelp-refresheducation-example-2": "Studenten 2 und 4 aktualisieren"
 }
