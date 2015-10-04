@@ -497,7 +497,7 @@
 	"apihelp-enlist-param-courseid": "D'Nummer (ID) vum Cours.",
 	"apihelp-enlist-param-reason": "Grond fir ze Läschen, fir d'Logbuch.",
 	"apihelp-liststudents-param-courseids": "Nummere (ID) vun de Coursen.",
-	"apihelp-refresheducation-param-type": "Typ vun Objet fir ze läschen.",
+	"apihelp-refresheducation-param-type": "Typ vun Objet fir z'aktualiséieren.",
 	"apihelp-refresheducation-example-1": "Cours 42 aktualiséieren",
 	"apihelp-refresheducation-example-2": "Studenten 2 a 4 aktualiséieren"
 }
