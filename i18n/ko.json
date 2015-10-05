@@ -4,7 +4,8 @@
 			"Hym411",
 			"Priviet",
 			"아라",
-			"Revi"
+			"Revi",
+			"Hwangjy9"
 		]
 	},
 	"educationprogram-desc": "과정, 기관 및 다양한 교육 사용자 역할을 관리하는 다양한 인터페이스를 추가하여 교육 프로그램을 사용하기 쉽게 합니다",
@@ -654,6 +655,8 @@
 	"ep-studentactivity-count": "{{PLURAL:$1|학생 $1명}}이 마지막으로 $2에 활동했습니다.",
 	"ep-diff-old": "현재 값",
 	"ep-diff-new": "새 값",
+	"ep-diff-previous": "이전 판",
+	"ep-diff-current": "최신판",
 	"ep-timeline-remaining": "{{PLURAL:$1|다른}} $1명",
 	"ep-timeline-unknown": "$1 사용자가 $3 $2에 무언가를 했습니다",
 	"ep-timeline-ago": "$1 전",
