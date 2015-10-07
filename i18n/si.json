@@ -3,7 +3,8 @@
 		"authors": [
 			"Sahan.ssw",
 			"පසිඳු කාවින්ද",
-			"ශ්වෙත"
+			"ශ්වෙත",
+			"Susith Chandira Gts"
 		]
 	},
 	"ep-item-summary": "සාරාංශය",
@@ -19,6 +20,7 @@
 	"ep-tab-enroll": "ලියාපදිංචි කරන්න",
 	"ep-tab-disenroll": "ලියාපදිංචි නොකරන්න",
 	"ep-tab-delete": "මකන්න",
+	"ep-tab-activity": "ක්‍රියාකාරකම් නරඹන්න",
 	"tooltip-ep-form-save": "සුරකින්න",
 	"tooltip-ep-edit-institution": "මෙම ආයතනය සංස්කරණය කරන්න",
 	"tooltip-ep-edit-course": "මෙම පාඨමාලාව සංස්කරණය කරන්න",
