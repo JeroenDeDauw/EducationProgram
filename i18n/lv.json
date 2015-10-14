@@ -88,7 +88,7 @@
 	"logentry-student-selfremove": "$1 {{GENDER:$2|atcēla reģistrāciju}} kursam $3",
 	"logentry-eparticle-selfadd": "$1 pievienoja rakstu $3 {{GENDER:$2|savam}} kursa $4 rakstu sarakstam",
 	"logentry-eparticle-selfremove": "$1 noņēma rakstu $3 no {{GENDER:$2|sava}} kursa $4 rakstu saraksta",
-	"logentry-eparticle-add": "$1 {{GENDER:$2|pievienoja}} rakstu $3 to {{GENDER:$6|$5}} kursa $4 rakstu saraktam",
+	"logentry-eparticle-add": "$1 {{GENDER:$2|pievienoja}} rakstu $3 {{GENDER:$6|$5}} kursa $4 rakstu sarakstam",
 	"logentry-eparticle-remove": "$1 {{GENDER:$2|noņēma}} rakstu $3 no {{GENDER:$6|$5}} kursa $4 rakstu saraksta",
 	"logentry-eparticle-review": "$1 pievienoja sevi kā {{GENDER:$2|recenzentu|recenzenti}} rakstam $3, {{GENDER:$6|pie kā strādā}} $5 kursā $4",
 	"logentry-eparticle-unreview": "$1 noņēma sevi kā {{GENDER:$2|recenzentu|recenzenti}} no raksta $3, {{GENDER:$6|pie kā strādā}} $5 kursā $4",

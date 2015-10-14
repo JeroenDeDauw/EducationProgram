@@ -764,7 +764,7 @@
 	"apihelp-liststudents-example-3": "Показать по ID студентов курсов 3, 4, 5 и 6, сгруппированных по курсу в формате CSV",
 	"apihelp-refresheducation-description": "Перестроить сводные данные Программы Образования.",
 	"apihelp-refresheducation-param-ids": "Идентификаторы объектов для обновления.",
-	"apihelp-refresheducation-param-type": "Тип объекта для удаления.",
+	"apihelp-refresheducation-param-type": "Тип объекта для обновления.",
 	"apihelp-refresheducation-example-1": "Обновить курс 42",
 	"apihelp-refresheducation-example-2": "Обновить студентов 2 и 4"
 }
