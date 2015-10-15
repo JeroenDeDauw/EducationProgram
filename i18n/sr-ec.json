@@ -730,7 +730,7 @@
 	"apihelp-deleteeducation-param-comment": "Разлог за брисање, за дневник брисања.",
 	"apihelp-deleteeducation-example-1": "Обриши курс 42",
 	"apihelp-deleteeducation-example-2": "Обриши организације 2 и 4",
-	"apihelp-enlist-description": "Повежи или разреши корисника као наставника или амбасадора на овом курсу.",
+	"apihelp-enlist-description": "Именуј или разреши корисника као наставника или волонтера на курсу.",
 	"apihelp-enlist-param-subaction": "Прецизирајте шта желите да урадите са наставником или волонтером.",
 	"apihelp-enlist-param-role": "Улога учесника. \"Наставник\" за наставника, \"Онлајн\" за онлајн амбасадоре и \"Универзитетски\" за универзитетске амбасадоре.",
 	"apihelp-enlist-param-username": "Име корисника кога треба повезати или одвојити.",

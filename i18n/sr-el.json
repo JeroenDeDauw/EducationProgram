@@ -197,6 +197,7 @@
 	"ep-timeline-users-edit-user": "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} stranicu korisnika '''[[$2|$3]]'''.",
 	"ep-timeline-users-create-usertalk-self": "'''[[User:$3|$3]]''' je {{GENDER:$3|napravio|napravila}} svoju '''[[$2|stranicu za razgovor]]''' i na nju {{GENDER:$3|postavio|postavila}} {{PLURAL:$4|poruku|poruke}}.",
 	"ep-course-talk-link-text-view-changes": "Pogledaj izmene",
+	"apihelp-enlist-description": "Imenuj ili razreši korisnika kao nastavnika ili volontera na kursu.",
 	"apihelp-enlist-param-subaction": "Precizirajte šta želite da uradite sa nastavnikom ili volonterom.",
 	"apihelp-refresheducation-param-type": "Vrsta ciljeva koje treba osvežiti."
 }
