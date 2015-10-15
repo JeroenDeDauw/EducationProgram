@@ -174,7 +174,7 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	 *
 	 * @param array $data
 	 *
-	 * @return Bool|Array
+	 * @return bool|array
 	 */
 	public function onSubmit( array $data ) {
 		$class = $this->getClassName();

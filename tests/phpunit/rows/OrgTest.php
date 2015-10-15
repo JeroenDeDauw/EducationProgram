@@ -21,7 +21,7 @@ class OrgTest extends PageObjectTest {
 	 * Returns the name of the subclass of ORMRow that we're testing (in this
 	 * case, \EducationProgram\Org).
 	 *
-	 * @see \ORMRowTest::getRowClass()
+	 * @see ORMRowTest::getRowClass()
 	 * @since 0.4 alpha
 	 * @return string
 	 */
@@ -32,7 +32,7 @@ class OrgTest extends PageObjectTest {
 	/**
 	 * Returns the table whose rows are represented by the class we're testing.
 	 *
-	 * @see \ORMRowTest::getTableInstance()
+	 * @see ORMRowTest::getTableInstance()
 	 * @since 0.4 alpha
 	 * @return \EducationProgram\Orgs
 	 */
@@ -45,7 +45,7 @@ class OrgTest extends PageObjectTest {
 	 * of the class we're testing (in this case, \EducationProgram\Org).
 	 * The test instances we'll use will be created with these arguments.
 	 *
-	 * @see \ORMRowTest::constructorTestProvider()
+	 * @see ORMRowTest::constructorTestProvider()
 	 * @since 0.4 alpha
 	 * @return array
 	 */
@@ -74,7 +74,7 @@ class OrgTest extends PageObjectTest {
 	 * is always munged to start with a capital, and the superclass
 	 * provides a string that doesn't.
 	 *
-	 * @see \ORMRowTest::getMockValues()
+	 * @see ORMRowTest::getMockValues()
 	 * @since 1.20
 	 * @return array
 	 */

@@ -12,7 +12,7 @@ namespace EducationProgram;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class OAs extends \ORMTable {
+class OAs extends ORMTable {
 
 	public function __construct() {
 		$this->fieldPrefix = 'oa_';

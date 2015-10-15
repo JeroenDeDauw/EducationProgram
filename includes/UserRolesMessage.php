@@ -153,7 +153,7 @@ class UserRolesMessage {
 	 * Before calling this method, call prepare() and check that there is some
 	 * output via userHasRoles();
 	 *
-	 * @throws Exception exception if there's no message to output
+	 * @throws \Exception exception if there's no message to output
 	 */
 	public function output() {
 		// sanity check

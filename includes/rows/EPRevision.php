@@ -13,7 +13,7 @@ use User;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class EPRevision extends \ORMRow {
+class EPRevision extends ORMRow {
 
 	/**
 	 * Cached user object for this revision.

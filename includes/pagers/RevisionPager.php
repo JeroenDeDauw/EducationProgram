@@ -176,7 +176,7 @@ class RevisionPager extends \ReverseChronologicalPager {
 	 *	options => option array
 	 *	join_conds => JOIN conditions
 	 *
-	 * @return Array
+	 * @return array
 	 */
 	function getQueryInfo() {
 		$table = Revisions::singleton();
@@ -198,7 +198,7 @@ class RevisionPager extends \ReverseChronologicalPager {
 	 * Needless to say, it's really not a good idea to use a non-unique index
 	 * for this!  That won't page right.
 	 *
-	 * @return string|Array
+	 * @return string|array
 	 */
 	function getIndexField() {
 		return Revisions::singleton()->getPrefixedField( 'time' );

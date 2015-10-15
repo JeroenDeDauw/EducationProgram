@@ -2,7 +2,6 @@
 
 namespace EducationProgram;
 
-use ORMResult;
 use Title;
 
 /**

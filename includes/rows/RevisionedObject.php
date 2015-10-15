@@ -1,8 +1,6 @@
 <?php
 
 namespace EducationProgram;
-use IORMRow;
-use ORMResult;
 
 /**
  * Abstract base class for ORMRows with revision history and logging support.
@@ -14,7 +12,7 @@ use ORMResult;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class RevisionedObject extends \ORMRow {
+abstract class RevisionedObject extends ORMRow {
 	/**
 	 * If the object should log changes.
 	 * Can be changed via disableLogging and enableLogging.

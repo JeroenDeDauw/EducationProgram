@@ -238,7 +238,7 @@ class CoursePager extends EPPager {
 	/**
 	 * @see EPPager::getControlLinks()
 	 */
-	protected function getControlLinks( \IORMRow $item ) {
+	protected function getControlLinks( IORMRow $item ) {
 		$links = parent::getControlLinks( $item );
 
 		$links[] = $item->getLink( 'view', $this->msg( 'view' )->escaped() );

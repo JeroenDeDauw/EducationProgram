@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Xml, Html, IORMTable, Exception;
+use IContextSource, Xml, Html, Exception;
 
 /**
  * Class representing a single course.

@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IORMRow, Message, Html;
+use Message, Html;
 
 /**
  * Base special page for special pages in the Education Program extension,

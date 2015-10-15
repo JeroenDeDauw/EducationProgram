@@ -2,7 +2,9 @@
 
 namespace EducationProgram\Tests\Rows;
 
-abstract class PageObjectTest extends \ORMRowTest {
+use EducationProgram\Tests\ORMRowTest;
+
+abstract class PageObjectTest extends ORMRowTest {
 	/**
 	 * Provides pairs of duplicate instances for testing the addition of an
 	 * instance with the same name/title as one that already exists.

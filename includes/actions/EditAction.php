@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, IORMTable, HTMLForm, Title, IORMRow, Message;
+use Page, IContextSource, HTMLForm, Title, Message;
 
 /**
  * Abstract action for editing PageObject items.
@@ -424,7 +424,7 @@ abstract class EditAction extends Action {
 	 *
 	 * @param array $data
 	 *
-	 * @return Bool|Array
+	 * @return bool|array
 	 */
 	public function handleSubmission( array $data ) {
 		$fields = array();

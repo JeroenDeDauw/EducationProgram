@@ -15,7 +15,7 @@ use Title;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class PageTable extends \ORMTable {
+abstract class PageTable extends ORMTable {
 
 	/**
 	 * Returns the field use to identify this object, ie the part used as page title.

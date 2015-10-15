@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, IORMRow, Html;
+use Page, IContextSource, Html;
 
 /**
  * Action for viewing an org.

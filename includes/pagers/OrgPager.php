@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Linker, SpecialPage, IORMRow;
+use IContextSource, Linker, SpecialPage;
 
 /**
  * Org pager, primarily for Special:Institutions.

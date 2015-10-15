@@ -13,7 +13,7 @@ use User, IContextSource;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class RoleObject extends \ORMRow implements IRole {
+abstract class RoleObject extends ORMRow implements IRole {
 
 	/**
 	 * Field for caching the linked user.

@@ -22,7 +22,7 @@ class CourseTest extends PageObjectTest {
 	 * Returns the name of the subclass of ORMRow that we're testing (in this
 	 * case, \EducationProgram\Course).
 	 *
-	 * @see \ORMRowTest::getRowClass()
+	 * @see ORMRowTest::getRowClass()
 	 * @since 0.4 alpha
 	 * @return string
 	 */
@@ -33,7 +33,7 @@ class CourseTest extends PageObjectTest {
 	/**
 	 * Returns the table whose rows are represented by the class we're testing.
 	 *
-	 * @see \ORMRowTest::getTableInstance()
+	 * @see ORMRowTest::getTableInstance()
 	 * @since 0.4 alpha
 	 * @return \EducationProgram\Courses
 	 */
@@ -46,7 +46,7 @@ class CourseTest extends PageObjectTest {
 	 * of the class we're testing (in this case, \EducationProgram\Course).
 	 * The test instances we'll use will be created with these arguments.
 	 *
-	 * @see \ORMRowTest::constructorTestProvider()
+	 * @see ORMRowTest::constructorTestProvider()
 	 * @since 0.4 alpha
 	 * @return array
 	 */

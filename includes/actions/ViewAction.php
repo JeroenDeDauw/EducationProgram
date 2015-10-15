@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, Linker, IORMRow, Html;
+use Page, IContextSource, Linker, Html;
 
 /**
  * Abstract action for viewing ORMRow items.

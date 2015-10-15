@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, IORMTable, Linker;
+use IContextSource, Linker;
 
 /**
  * Online ambassador pager.

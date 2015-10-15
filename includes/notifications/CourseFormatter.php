@@ -16,10 +16,10 @@ namespace EducationProgram;
 class CourseFormatter extends \EchoEditFormatter {
 
 	/**
-	 * @param $event EchoEvent
+	 * @param $event \EchoEvent
 	 * @param $param string
-	 * @param $message Message
-	 * @param $user User
+	 * @param $message \Message
+	 * @param $user \User
 	 */
 	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'short-title-text' ) {
@@ -48,4 +48,4 @@ class CourseFormatter extends \EchoEditFormatter {
 			parent::processParam( $event, $param, $message, $user );
 		}
 	}
-};
+}

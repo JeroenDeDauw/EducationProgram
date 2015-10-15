@@ -343,7 +343,7 @@ class SpecialEnroll extends VerySpecialPage {
 	 *
 	 * @param array $data
 	 *
-	 * @return Bool|Array
+	 * @return Bool|array
 	 */
 	public function handleSubmission( array $data ) {
 		if ( array_key_exists( 'realname', $data ) ) {

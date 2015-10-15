@@ -54,7 +54,7 @@ class ArticleAdder {
 	 *
 	 * @since 0.3
 	 *
-	 * @param User $actionUser The user performing this action
+	 * @param \User $actionUser The user performing this action
 	 * @param int $courseId
 	 * @param int $userId
 	 * @param int $pageId

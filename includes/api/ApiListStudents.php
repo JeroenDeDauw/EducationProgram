@@ -178,7 +178,7 @@ class ApiListStudents extends ApiBase {
 	 * students, instructors or volunteers in that course.
 	 *
 	 * @param Course $course
-	 * @param str $courseRole
+	 * @param string $courseRole
 	 * @return array of user objects
 	 */
 	protected function getParticipantsAsUsers( Course $course, $courseRole ) {
@@ -274,7 +274,7 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param array $participantsList
 	 * @param string $propName
-	 * @param ApiResult $results
+	 * @param \ApiResult $results
 	 * @param int $courseId
 	 * @param int $courseIndex
 	 */
@@ -335,7 +335,7 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param array $studentsList
 	 * @param string $propName
-	 * @param ApiResult $results
+	 * @param \ApiResult $results
 	 * @param int $courseId
 	 * @param int $courseIndex
 	 * @param $articleStore articleStore object
@@ -463,7 +463,7 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param int[]|int $courseIds A list of one or more course IDs
 	 * @param array $studentsList A set of student users
-	 * @param ApiResult $results
+	 * @param \ApiResult $results
 	 * @param int $courseIndex
 	 * @param $articleStore articleStore object
 	 */
@@ -507,7 +507,7 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param int $courseId
 	 * @param Course $course
-	 * @param ApiResult $results
+	 * @param \ApiResult $results
 	 */
 	protected function outputCourseProperties(
 		$courseId, $course, $courseIndex, $results ) {
@@ -626,7 +626,7 @@ class ApiListStudents extends ApiBase {
 	 * indexed parent tag, or as a top-level element.
 	 *
 	 * @param int $courseIndex
-	 * @param str $userLabel
+	 * @param string $userLabel
 	 */
 	protected function usersPath( $courseIndex, $userLabel = 'students' ) {
 		if ( !is_null ( $courseIndex ) ) {
@@ -641,7 +641,7 @@ class ApiListStudents extends ApiBase {
 	 * <student>, <instructor>, <online_volunteer> or <campus_volunteer>.
 	 *
 	 * @param int $courseIndex
-	 * @param str $userLabel
+	 * @param string $userLabel
 	 * @param int $userIndex
 	 */
 	protected function userPath( $courseIndex, $userLabel, $userIndex = null ) {

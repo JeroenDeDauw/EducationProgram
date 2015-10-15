@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, Html, IORMRow, Linker, SpecialPage;
+use Page, IContextSource, Html, Linker, SpecialPage;
 
 /**
  * Action for viewing a course.
