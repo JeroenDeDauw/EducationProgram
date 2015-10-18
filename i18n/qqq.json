@@ -19,7 +19,8 @@
 			"Ragesoss",
 			"Liuxinyu970226",
 			"Umherirrender",
-			"J. 'mach' wust"
+			"J. 'mach' wust",
+			"Aursani"
 		]
 	},
 	"educationprogram-desc": "{{desc|name=Education Program|url=https://www.mediawiki.org/wiki/Extension:Education_Program}}",
@@ -37,7 +38,7 @@
 	"ep-err-org-exists-title": "Title of error page if a user re-submits form for creating an institution.\n\nSee also:\n* {{msg-mw|Ep-err-org-exists-text}}\n* {{msg-mw|Ep-err-course-exists-title}}",
 	"ep-err-org-exists-text": "Text of error page if a user re-submits form for creating an institution. Parameters:\n* $1 - institution name (page title)\nSee also:\n* {{msg-mw|Ep-err-org-exists-title}}\n* {{msg-mw|Ep-err-course-exists-text}}",
 	"ep-didyouknow-header": "Message displayed as a header in the did you know box.\n{{Identical|Did you know}}",
-	"ep-tab-view": "Label for a tab at the top of the page.\n{{Identical|Read}}",
+	"ep-tab-view": "Label for a tab at the top of the page.\n{{Identical|پڙهو}}",
 	"ep-tab-edit": "Label for a tab at the top of the page.\n{{Identical|Edit}}",
 	"ep-tab-create": "Label for a tab at the top of the page.\n{{Identical|Create}}",
 	"ep-tab-history": "Label for a tab at the top of the page.\n{{Identical|View history}}",
