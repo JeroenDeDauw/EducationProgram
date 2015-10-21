@@ -156,7 +156,7 @@ class Org extends PageObject {
 	 * @return boolean Success indicator
 	 */
 	public function save( $functionName = null ) {
-		wfGetDB( DB_MASTER )->begin( __METHOD__ );
+		wfGetDB( DB_MASTER )->startAtomic( __METHOD__ );
 
 		// Check if we're attempting to create an institution that already exists.
 		// This can happen if the user clicks the "Submit" button of the
@@ -196,7 +196,7 @@ class Org extends PageObject {
 			}
 		}
 
-		wfGetDB( DB_MASTER )->commit( __METHOD__ );
+		wfGetDB( DB_MASTER )->endAtomic( __METHOD__ );
 
 		return $success;
 	}

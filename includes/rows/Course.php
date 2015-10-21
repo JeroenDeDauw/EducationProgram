@@ -309,13 +309,13 @@ class Course extends PageObject {
 			}
 
 			$dbw = wfGetDB( DB_MASTER );
-			$dbw->begin();
+			$dbw->startAtomic( __METHOD__ );
 
 			foreach ( $addData as $item ) {
 				$dbw->insert( 'ep_users_per_course', $item );
 			}
 
-			$dbw->commit();
+			$dbw->endAtomic( __METHOD__ );
 		}
 	}
 

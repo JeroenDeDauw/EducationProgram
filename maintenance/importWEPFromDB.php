@@ -141,7 +141,7 @@ class ImportWEPFromDB extends \Maintenance {
 
 		$dbw = wfGetDB( DB_MASTER );
 
-		$dbw->begin();
+		$dbw->startAtomic( __METHOD__ );
 
 		$orgTable = Orgs::singleton();
 
@@ -176,7 +176,7 @@ class ImportWEPFromDB extends \Maintenance {
 			}
 		}
 
-		$dbw->commit();
+		$dbw->endAtomic( __METHOD__ );
 	}
 
 	/**

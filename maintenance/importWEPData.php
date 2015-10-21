@@ -101,7 +101,7 @@ class ImportWEPData extends \Maintenance {
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
 
-		wfGetDB( DB_MASTER )->begin();
+		wfGetDB( DB_MASTER )->startAtomic( __METHOD__ );
 
 		foreach ( $orgs as $org => &$id ) {
 			/**
@@ -119,7 +119,7 @@ class ImportWEPData extends \Maintenance {
 			$id = $org->getId();
 		}
 
-		wfGetDB( DB_MASTER )->commit();
+		wfGetDB( DB_MASTER )->endAtomic( __METHOD__ );
 	}
 
 	/**
