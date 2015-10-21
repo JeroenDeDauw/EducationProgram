@@ -25,11 +25,12 @@ class LogFormatter extends \LogFormatter {
 	 *
 	 * @param Title $title
 	 * @param array $parameters
+	 * @param string|null $html Linktext of the link as raw html
 	 *
 	 * @throws Exception
 	 * @return String
 	 */
-	protected function makePageLink( Title $title = null, $parameters = array() ) {
+	protected function makePageLink( Title $title = null, $parameters = array(), $html = null ) {
 		if ( !$title instanceof Title ) {
 			throw new Exception( 'Expected title, got null' );
 		}
