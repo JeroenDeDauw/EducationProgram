@@ -194,48 +194,47 @@ class ImportWEPData extends \Maintenance {
 			}
 			else {
 				if ( $user->getId() === 0 ) {
+					if ( !$user->addToDatabase()->isOK() ) {
+						echo "Failed to insert student '$name'. (failed to create user)\n";
+						continue;
+					}
 					$user->setPassword( 'ohithere' );
-					$user->addToDatabase();
+					$user->saveSettings();
 				}
 
-				if ( $user->getId() === 0 ) {
-					echo "Failed to insert student '$name'. (failed to create user)\n";
+				$student = Student::newFromUser( $user );
+
+				if ( is_null( $student->getId() ) ) {
+					if ( !$student->save() ) {
+						echo "Failed to insert student '$name'. (failed create student profile)\n";
+						continue;
+					}
 				}
-				else {
-					$student = Student::newFromUser( $user );
 
-					if ( is_null( $student->getId() ) ) {
-						if ( !$student->save() ) {
-							echo "Failed to insert student '$name'. (failed create student profile)\n";
-							continue;
-						}
-					}
+				$courses = array();
 
-					$courses = array();
+				foreach ( $courseNames as $courseName ) {
+					if ( array_key_exists( $courseName, $courseIds ) ) {
+						$revAction = new RevisionAction();
+						$revAction->setUser( $user );
+						$revAction->setComment( 'Import' );
 
-					foreach ( $courseNames as $courseName ) {
-						if ( array_key_exists( $courseName, $courseIds ) ) {
-							$revAction = new RevisionAction();
-							$revAction->setUser( $user );
-							$revAction->setComment( 'Import' );
-
-							/**
-							 * @var Course $course
-							 */
-							$course = Courses::singleton()->selectRow( null, array( 'id' => $courseIds[$courseName] ) );
-							$course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
-						}
-						else {
-							echo "Failed to associate student '$name' with course '$courseName'.\n";
-						}
-					}
-
-					if ( $student->associateWithCourses( $courses ) ) {
-						echo "Inserted student '$name'\t\t and associated with courses: " . str_replace( '_', ' ', implode( ', ', $courseNames ) ) . "\n";
+						/**
+						 * @var Course $course
+						 */
+						$course = Courses::singleton()->selectRow( null, array( 'id' => $courseIds[$courseName] ) );
+						$course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
 					}
 					else {
-						echo "Failed to insert student '$name'. (failed to associate courses)\n";
+						echo "Failed to associate student '$name' with course '$courseName'.\n";
 					}
+				}
+
+				if ( $student->associateWithCourses( $courses ) ) {
+					echo "Inserted student '$name'\t\t and associated with courses: " . str_replace( '_', ' ', implode( ', ', $courseNames ) ) . "\n";
+				}
+				else {
+					echo "Failed to insert student '$name'. (failed to associate courses)\n";
 				}
 			}
 		}

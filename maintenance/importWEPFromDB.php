@@ -279,8 +279,6 @@ class ImportWEPFromDB extends \Maintenance {
 			}
 			else {
 				if ( $user->getId() === 0 ) {
-					$user->setPassword( 'ohithere' );
-
 					if ( $student->student_lastname !== '' && $student->student_firstname !== '' ) {
 						$user->setRealName( $student->student_firstname . ' ' . $student->student_lastname );
 					}
@@ -289,43 +287,43 @@ class ImportWEPFromDB extends \Maintenance {
 						$user->setEmail( $student->student_email );
 					}
 
-					$user->addToDatabase();
+					if ( !$user->addToDatabase()->isOK() ) {
+						$this->err( "Failed to insert student '$name'. (failed to create user)" );
+						continue;
+					}
+					$user->setPassword( 'ohithere' );
+					$user->saveSettings();
 				}
 
-				if ( $user->getId() === 0 ) {
-					$this->err( "Failed to insert student '$name'. (failed to create user)" );
-				}
-				else {
-					$studentObject = Student::newFromUser( $user );
+				$studentObject = Student::newFromUser( $user );
 
-					if ( is_null( $studentObject->getId() ) ) {
-						if ( !$studentObject->save() ) {
-							$this->err( "Failed to insert student '$name'. (failed create student profile)" );
-							continue;
-						}
+				if ( is_null( $studentObject->getId() ) ) {
+					if ( !$studentObject->save() ) {
+						$this->err( "Failed to insert student '$name'. (failed create student profile)" );
+						continue;
+					}
+				}
+
+				foreach ( array( $student->student_course_id ) as $courseId ) {
+					$success = false;
+
+					if ( array_key_exists( $courseId, $this->courseIds ) ) {
+						$revAction = new RevisionAction();
+						$revAction->setUser( $user );
+						$revAction->setComment( 'Import' );
+
+						/**
+						 * @var Course $course
+						 */
+						$course = Courses::singleton()->selectRow( null, array( 'id' => $this->courseIds[$courseId] ) );
+						$success = $course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
 					}
 
-					foreach ( array( $student->student_course_id ) as $courseId ) {
-						$success = false;
-
-						if ( array_key_exists( $courseId, $this->courseIds ) ) {
-							$revAction = new RevisionAction();
-							$revAction->setUser( $user );
-							$revAction->setComment( 'Import' );
-
-							/**
-							 * @var Course $course
-							 */
-							$course = Courses::singleton()->selectRow( null, array( 'id' => $this->courseIds[$courseId] ) );
-							$success = $course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
-						}
-
-						if ( $success !== false ) {
-							$this->msg( "\tAssociated student '$name' with course '$courseId'.", 2 );
-						}
-						else {
-							$this->msg( "\tFailed to associate student '$name' with course '$courseId'." );
-						}
+					if ( $success !== false ) {
+						$this->msg( "\tAssociated student '$name' with course '$courseId'.", 2 );
+					}
+					else {
+						$this->msg( "\tFailed to associate student '$name' with course '$courseId'." );
 					}
 				}
 			}
