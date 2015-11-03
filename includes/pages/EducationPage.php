@@ -1,7 +1,7 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Title, WikiPage, Exception, Language;
+use ContextSource, Title, WikiPage, Exception, Language;
 
 /**
  * Abstract Page for interacting with a PageObject.
@@ -18,7 +18,7 @@ use IContextSource, Title, WikiPage, Exception, Language;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class EducationPage implements \Page, IContextSource {
+abstract class EducationPage extends ContextSource implements \Page {
 
 	/**
 	 * Returns a list of actions this page can handle.
@@ -38,12 +38,6 @@ abstract class EducationPage implements \Page, IContextSource {
 	 * @return PageTable
 	 */
 	public abstract function getTable();
-
-	/**
-	 * @since 0.1
-	 * @var IContextSource
-	 */
-	protected $context;
 
 	/**
 	 * @since 0.1
@@ -80,14 +74,6 @@ abstract class EducationPage implements \Page, IContextSource {
 
 	}
 
-	public function setContext( IContextSource $context ) {
-		$this->context = $context;
-	}
-
-	public function getContext() {
-		return $this->context;
-	}
-
 	public function getPage() {
 		return $this->page;
 	}
@@ -98,55 +84,6 @@ abstract class EducationPage implements \Page, IContextSource {
 
 	public function getTitle() {
 		return $this->page->getTitle();
-	}
-
-	public function getRequest() {
-		return $this->getContext()->getRequest();
-	}
-
-	public function canUseWikiPage() {
-		return $this->getContext()->canUseWikiPage();
-	}
-
-	public function getWikiPage() {
-		return $this->getContext()->getWikiPage();
-	}
-
-	public function getOutput() {
-		return $this->getContext()->getOutput();
-	}
-
-	public function getUser() {
-		return $this->getContext()->getUser();
-	}
-
-	public function getLanguage() {
-		return $this->getContext()->getLanguage();
-	}
-
-	public function getSkin() {
-		return $this->getContext()->getSkin();
-	}
-
-	public function getConfig() {
-		return $this->getContext()->getConfig();
-	}
-
-	public function exportSession() {
-		return $this->getContext()->exportSession();
-	}
-
-	public function msg( /* $args */ ) {
-		$args = func_get_args();
-		return call_user_func_array( array( $this->getContext(), 'msg' ), $args );
-	}
-
-	public function getTiming() {
-		return $this->getContext()->getTiming();
-	}
-
-	public function getStats() {
-		return $this->getContext()->getStats();
 	}
 
 	public function getActionOverrides() {
@@ -163,15 +100,6 @@ abstract class EducationPage implements \Page, IContextSource {
 
 	public function getTouched() {
 		return '19700101000000';
-	}
-
-	/**
-	 * @deprecated
-	 * @return Language
-	 */
-	public function getLang() {
-		wfDeprecated( __METHOD__, '1.19' );
-		return $this->getLanguage();
 	}
 
 	public function getEditRight() {
