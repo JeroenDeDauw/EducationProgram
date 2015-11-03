@@ -698,7 +698,7 @@
 	"ep-dashboard-login-first": "Нужно войти в систему, чтобы просмотреть свои курсы.",
 	"ep-dashboard-timeline-empty": "Не было никаких последних действий по этому курсу.",
 	"ep-dashboard-enroll-first": "В настоящее время Вы не записаны не на один текущий курс. Вы можете просмотреть [[Special:Courses|список курсов]].",
-	"ep-user-roles-message-main-student": "[[$1|$2]] является {{GENDER:$2|студентом|студенткой}} {{PLURAL:$4|$3}}.",
+	"ep-user-roles-message-main-student": "[[$1|$2]] {{GENDER:$2|проходит обучение в рамках}} {{PLURAL:$4|1=курса «$3»|следующих курсов: $3}}.",
 	"ep-user-roles-message-main-instructor": "[[$1|$2]] {{GENDER:$2|инструктор}} для {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-main-online": "[[$1|$2]] {{GENDER:$2|онлайн-волонтер}} для {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-main-campus": "[[$1|$2]] {{GENDER:$2|волонтер кампуса}} для {{PLURAL:$4|$3}}.",
