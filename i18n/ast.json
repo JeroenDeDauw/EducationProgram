@@ -503,6 +503,7 @@
 	"specialstudent-summary-last-active": "Última actividá",
 	"specialstudent-summary-first-enroll": "Primera matrícula",
 	"specialstudent-summary-user": "Nome d'usuariu",
+	"ep-student-courses": "Cursos nos qu'esti alumnu ta matriculáu",
 	"ep-student-articles": "Artículos nos que ta trabayando esti alumnu",
 	"ep-enroll-title": "Matriculase'n $1 de $2",
 	"ep-enroll-login-first": "Primero que puedas matriculate nesti cursu, tienes d'aniciar sesión.",
@@ -675,5 +676,9 @@
 	"ep-timeline-users-create-talk": "{{GENDER:$6|$1}} creó la '''[[$2|páxina d'alderique]]''' de '''[[$3]]''' y dexó {{PLURAL:$4|un mensaxe|dellos mensaxes}} nella.",
 	"ep-timeline-users-create-user": "{{GENDER:$6|$1}} creó la páxina d'usuariu de '''[[$2|$3]]'''.",
 	"ep-timeline-users-create-usertalk": "'''[[User:$3|$3]]''' recibió {{PLURAL:$4|un mensaxe|mensaxes}} {{GENDER:$3|na so}} '''[[$2|páxina d'alderique]]''' acabante de crear.",
+	"ep-timeline-users-create-user-self": "$1 creó la so '''[[$2|páxina d'{{GENDER:$6|usuariu|usuaria}}]]'''.",
+	"ep-timeline-users-create-usertalk-self": "'''[[User:$3|$3]]''' creó {{GENDER:$3|la so}} '''[[$2|páxina d'alderique]]''' y publicó {{PLURAL:$4|un mensaxe|dellos mensaxes}} nella.",
+	"ep-dashboard-login-first": "Precises aniciar sesión antes de poder ver los tos cursos.",
+	"ep-dashboard-timeline-empty": "Nun hebo nenguna actividá de recién pa esti cursu.",
 	"ep-course-talk-link-text-view-message": "Ver mensaxe"
 }

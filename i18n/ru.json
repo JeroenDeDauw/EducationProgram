@@ -562,7 +562,7 @@
 	"ep-mycourses-login-first": "Нужно войти в систему, чтобы просмотреть свои курсы.",
 	"ep-mycourses-courses-epoa": "{{PLURAL:$1|Курс|Курсов|Курса}}, где я {{GENDER:$2|онлайн-доброволец}}",
 	"ep-mycourses-courses-epca": "{{PLURAL:$1|Курс|Курсов|Курса}}, где я {{GENDER:$2|доброволец кампуса}}",
-	"ep-mycourses-courses-epinstructor": "{{PLURAL:$1|Курс|Курсов|Курса}}, где я {{GENDER:$2|инструктор}}",
+	"ep-mycourses-courses-epinstructor": "{{PLURAL:$1|Курс|Курсы}}, где я {{GENDER:$2|инструктор}}",
 	"ep-mycourses-courses-epstudent": "{{PLURAL:$1|Курс|Курсов|Курса}}, куда меня записали",
 	"ep-mycourses-nocourses-epca": "Еще нет курсов, для которых Вы {{GENDER:$1|доброволец кампуса}}.",
 	"ep-mycourses-nocourses-epoa": "Еще нет курсов, для которых Вы {{GENDER:$1|онлайн-доброволец}}.",
