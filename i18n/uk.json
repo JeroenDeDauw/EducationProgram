@@ -728,9 +728,10 @@
 	"apihelp-deleteeducation-param-type": "Тип об'єкта для вилучення.",
 	"apihelp-deleteeducation-param-comment": "Причина цього вилучення, для журналу.",
 	"apihelp-deleteeducation-example-1": "Вилучити курс 42",
-	"apihelp-deleteeducation-example-2": "Вилучити орг-ції 2 і 4",
-	"apihelp-enlist-description": "Прив'язати чи відв'язати користувача як інструктора чи амбасадора курсу.",
-	"apihelp-enlist-param-subaction": "Вказує, що Ви хочете зробити з інструктором або амбасадором.",
+	"apihelp-deleteeducation-example-2": "Вилучити організації 2 і 4",
+	"apihelp-enlist-description": "Прив'язати чи відв'язати користувача як інструктора чи волонтера курсу.",
+	"apihelp-enlist-param-subaction": "Вказує, що Ви хочете зробити з інструктором або волонтером.",
+	"apihelp-enlist-param-role": "Управління роллю. «Instructor» для інструктора, «online» для онлайн-волонтера і «campus» для волонтера кампусу.",
 	"apihelp-enlist-param-username": "Ім'я користувача для прив'язування чи відв'язування.",
 	"apihelp-enlist-param-userid": "ID користувача для прив'язування чи відв'язування.",
 	"apihelp-enlist-param-courseid": "ID курсу.",
@@ -750,7 +751,7 @@
 	"apihelp-liststudents-example-3": "Список студентів за ID користувача у курсах 3, 4, 5 і 6, згрупованих за курсом, у форматі CSV",
 	"apihelp-refresheducation-description": "Перебудувати зведені дані об'єктів Освітньої програми.",
 	"apihelp-refresheducation-param-ids": "ID об'єктів для оновлення.",
-	"apihelp-refresheducation-param-type": "Тип об'єкта для вилучення.",
+	"apihelp-refresheducation-param-type": "Тип об'єкта для оновлення.",
 	"apihelp-refresheducation-example-1": "Оновити курс 42",
 	"apihelp-refresheducation-example-2": "Оновити студентів 2 і 4"
 }
