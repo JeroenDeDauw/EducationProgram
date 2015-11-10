@@ -390,16 +390,6 @@ class ArticleTable extends EPPager {
 				$html
 			);
 		}
-		else {
-			wfDebugLog(
-				'bug46577',
-				json_encode( array(
-					'title' => $article->getPageTitle(),
-					'pageid' => $article->getPageId(),
-					'id' => $article->getId(),
-				) )
-			);
-		}
 
 		$attr = array(
 			'href' => '#',
