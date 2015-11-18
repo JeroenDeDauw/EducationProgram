@@ -187,6 +187,8 @@ $wgAutoloadClasses['EducationProgram\StudentAddNotification']	    = $dir . '/inc
 $wgAutoloadClasses['EducationProgram\InstructorAddNotification']	= $dir . '/includes/notifications/InstructorAddNotification.php';
 $wgAutoloadClasses['EducationProgram\CampusAddNotification']    	= $dir . '/includes/notifications/CampusAddNotification.php';
 $wgAutoloadClasses['EducationProgram\OnlineAddNotification']	    = $dir . '/includes/notifications/OnlineAddNotification.php';
+$wgAutoloadClasses['EducationProgram\PresentationModel\CourseTalk']	= $dir . '/includes/notifications/PresentationModel/CourseTalk.php';
+$wgAutoloadClasses['EducationProgram\PresentationModel\RoleAdd']	= $dir . '/includes/notifications/PresentationModel/RoleAdd.php';
 
 // includes
 // These are other miscellaneous classes used by the extension and their corresponding PHP files.
