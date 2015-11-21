@@ -30,6 +30,7 @@ class CourseTalkNotification implements INotificationType {
 	 */
 	public function getParameters() {
 		return array(
+			'presentation-model' => 'EducationProgram\\PresentationModel\\CourseTalk',
 			'primary-link' => array(
 				'message' => 'ep-course-talk-link-text-view-message',
 				'destination' => 'title'

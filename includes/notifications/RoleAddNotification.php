@@ -23,6 +23,7 @@ abstract class RoleAddNotification implements INotificationType {
 	 */
 	protected function getGenericParameters() {
 		return array(
+			'presentation-model' => 'EducationProgram\\PresentationModel\\RoleAdd',
 			'primary-link' => array(
 				'message' => 'ep-role-add-link-text-view-course',
 				'destination' => 'title'

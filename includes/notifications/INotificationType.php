@@ -87,7 +87,7 @@ interface INotificationType {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param $event EchoEvent
+	 * @param $event \EchoEvent
 	 * @param $users array
 	 */
 	function getUsersNotified( \EchoEvent $event, array &$users );
