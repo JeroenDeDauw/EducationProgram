@@ -720,6 +720,7 @@
 	"ep-online-add-notification-title": "Du har {{GENDER:$1|lagts till}} som en onlineambassadör i [[$2|$3]] av [[User:$1|$1]].",
 	"ep-online-add-notification-title-email-subject": "Du har {{GENDER:$1|lagts till}} som en onlineambassadör i $2 av $1.",
 	"ep-online-add-notification-title-email-body": "Du har {{GENDER:$1|lagts till}} som en onlineambassadör i $2 av $1.",
+	"notification-header-ep-student-add-notification": "Du har {{GENDER:$2|lagts till}} i $3 av $1.",
 	"apihelp-addstudents-description": "Lägg till flera studenter i en kurs.",
 	"apihelp-addstudents-param-studentusernames": "Studenternas användarnamn att lägga till i kursen.",
 	"apihelp-addstudents-param-courseid": "ID för kursen dit studenterna ska läggas till/tas bort.",

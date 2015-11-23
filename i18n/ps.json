@@ -133,5 +133,6 @@
 	"ep-campus-name-input": "کارن-نوم:",
 	"epoa-profile-bio": "لنډ ژوندليک",
 	"epca-profile-bio": "لنډ ژوندليک",
-	"ep-timeline-ago": "$1 دمخه"
+	"ep-timeline-ago": "$1 دمخه",
+	"notification-header-ep-student-add-notification": "تاسې $3 کې د $1 لخوا {{GENDER:$2|ورگډ شوی}}."
 }
