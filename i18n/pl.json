@@ -607,6 +607,8 @@
 	"ep-course-talk-link-text-view-message": "Zobacz wiadomość",
 	"ep-course-talk-link-text-view-changes": "Zobacz zmiany",
 	"ep-role-add-link-text-view-course": "Zobacz kurs",
+	"notification-header-ep-instructor-add-notification": "{{GENDER:$2|Zostałeś dodany jako instruktor|Zostałaś dodana jako instruktorka}} do $3 przez $1.",
+	"notification-header-ep-student-add-notification": "{{GENDER:$2|Zostałeś dodany|Zostałaś dodana}} do $3 przez $1.",
 	"apihelp-addstudents-description": "Dodaj wielu studentów do kursu.",
 	"apihelp-deleteeducation-example-1": "Usuń kurs 42",
 	"apihelp-deleteeducation-example-2": "Usuń organizacje 2. i 4.",
