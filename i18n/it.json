@@ -39,7 +39,7 @@
 	"tooltip-ep-edit-institution": "Modifica questo istituto",
 	"tooltip-ep-edit-course": "Modifica questo corso",
 	"tooltip-ep-summary": "Inserire una breve sintesi",
-	"tooltip-ep-minor": "Segnala come modifica minore",
+	"tooltip-ep-minor": "Contrassegna questa modifica come minore",
 	"ep-nav-orgs": "Elenco istituti",
 	"ep-nav-courses": "Elenco corsi",
 	"ep-nav-mycourses": "Tuoi corsi",
