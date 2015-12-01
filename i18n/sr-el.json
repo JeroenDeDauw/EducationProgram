@@ -208,7 +208,7 @@
 	"ep-timeline-ago": "pre $1",
 	"ep-timeline-cutoff": "$1…",
 	"ep-timeline-no-summary": "''Opis nije dostupan''",
-	"ep-timeline-users-edit-article": "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} članak '''[[$2]]'''.",
+	"ep-timeline-users-edit-article": "$1 {{PLURAL:$5|1={{GENDER:$6|je uredio|je uredila}}|su uredili}} članak '''[[$2]]'''.",
 	"ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1 je ostavio|$1 je ostavila}}|$1 su ostavili}} {{PLURAL:$4|1=poruku|poruke}} na '''[[$2|stranici za razgovor]]''' članaka '''[[$3]]'''.",
 	"ep-timeline-users-edit-user": "$1 {{GENDER:$1|je uredio|je uredila|je uredio}} stranicu korisnika '''[[$2|$3]]'''.",
 	"ep-timeline-users-create-talk": "$1 je {{GENDER:$6|napravio|napravila}} '''[[$2|stranicu za razgovor]]''' za članak '''[[$3]]''' i {{GENDER:$6|ostavio|ostavila}} {{PLURAL:$4|poruku|poruke}} na njoj.",
