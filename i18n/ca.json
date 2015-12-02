@@ -9,7 +9,8 @@
 			"Dvdgmz",
 			"Paucabot",
 			"Jey",
-			"Vriullop"
+			"Vriullop",
+			"Jaumeortola"
 		]
 	},
 	"educationprogram-desc": "Facilita els programes educatius afegint diferents interfícies per gestionar cursos, institucions i els diversos rols d'usuari.",
@@ -363,8 +364,8 @@
 	"vieworgaction-summary-city": "Ciutat",
 	"vieworgaction-summary-country": "País",
 	"vieworgaction-summary-status": "Estat",
-	"vieworgaction-summary-courses": "Número de cursos",
-	"vieworgaction-summary-students": "Número d'estudiants",
+	"vieworgaction-summary-courses": "Nombre de cursos",
+	"vieworgaction-summary-students": "Nombre d'estudiants",
 	"ep-institution-add-course": "Afegeix un curs",
 	"ep-institution-inactive": "Inactiu",
 	"ep-institution-active": "Actiu",
@@ -381,7 +382,7 @@
 	"viewcourseaction-summary-term": "Trimestre",
 	"viewcourseaction-summary-start": "Inicia",
 	"viewcourseaction-summary-end": "Finalitza",
-	"viewcourseaction-summary-students": "Número d'estudiants",
+	"viewcourseaction-summary-students": "Nombre d'estudiants",
 	"viewcourseaction-summary-status": "Estat",
 	"viewcourseaction-summary-token": "Fitxa d'inscripció",
 	"viewcourseaction-summary-instructors": "Coordinadors",

@@ -3,7 +3,8 @@
 		"authors": [
 			"Subi",
 			"Xabier Armendaritz",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"An13sa"
 		]
 	},
 	"ep-item-summary": "Laburpena",
@@ -83,7 +84,7 @@
 	"educationprogram-org-edit-city": "Hiria",
 	"educationprogram-org-edit-country": "Herrialdea",
 	"educationprogram-org-submit": "Bidali",
-	"ep-course-edit-description": "Deskribapena",
+	"ep-course-edit-description": "Orrialdeko testua",
 	"ep-addstudents-btn": "Gehitu",
 	"vieworgaction-summary-name": "Izena",
 	"vieworgaction-summary-city": "Hiria",
