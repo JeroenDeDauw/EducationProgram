@@ -243,4 +243,4 @@ class ImportWEPData extends \Maintenance {
 }
 
 $maintClass = 'EducationProgram\ImportWEPData';
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;

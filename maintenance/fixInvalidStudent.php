@@ -110,4 +110,5 @@ class FixInvalidStudent extends \Maintenance {
 	}
 }
 
-$maintClass = '\EducationProgram\FixInvalidStudent'; require_once( RUN_MAINTENANCE_IF_MAIN );
+$maintClass = '\EducationProgram\FixInvalidStudent';
+require_once RUN_MAINTENANCE_IF_MAIN;

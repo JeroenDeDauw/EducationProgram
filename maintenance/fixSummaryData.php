@@ -43,4 +43,5 @@ class FixSummaryData extends \Maintenance {
 	}
 }
 
-$maintClass = '\EducationProgram\FixSummaryData'; require_once( RUN_MAINTENANCE_IF_MAIN );
+$maintClass = '\EducationProgram\FixSummaryData';
+require_once RUN_MAINTENANCE_IF_MAIN;

@@ -60,4 +60,4 @@ class DeleteEducation extends Maintenance {
 }
 
 $maintClass = 'DeleteEducation';
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;
