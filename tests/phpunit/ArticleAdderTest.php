@@ -4,7 +4,6 @@ namespace EducationProgram\Tests;
 
 use EducationProgram\ArticleAdder;
 use EducationProgram\ArticleStore;
-use EducationProgram\EPArticle;
 
 /**
  * Tests for the EducationProgram\ArticleAdder class.

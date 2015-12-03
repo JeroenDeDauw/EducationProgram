@@ -2,7 +2,6 @@
 
 namespace EducationProgram\Events;
 
-use IContextSource;
 use Language;
 use OutputPage;
 

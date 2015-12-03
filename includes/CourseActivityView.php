@@ -8,7 +8,6 @@ use EducationProgram\Events\Timeline;
 use EducationProgram\Store\CourseStore;
 use Language;
 use OutputPage;
-use Wikibase\Test\Api\LangAttributeBase;
 
 /**
  * This program is free software; you can redistribute it and/or modify

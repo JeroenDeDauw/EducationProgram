@@ -2,8 +2,6 @@
 
 namespace EducationProgram;
 
-use EducationProgram\Events\Timeline;
-
 /**
  * Action for viewing a course.
  *

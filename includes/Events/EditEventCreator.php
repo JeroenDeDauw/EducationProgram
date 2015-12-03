@@ -2,7 +2,6 @@
 
 namespace EducationProgram\Events;
 
-use EducationProgram\Courses;
 use EducationProgram\Student;
 use EducationProgram\UserCourseFinder;
 
