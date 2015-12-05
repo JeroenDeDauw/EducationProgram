@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ilnur efende"
+			"Ilnur efende",
+			"Ильнар"
 		]
 	},
 	"ep-tab-disenroll": "Чыгу",
 	"special-disenroll": "Чыгу",
 	"ep-disenroll-button": "Чыгу",
+	"ep-timeline-ago": "$1 элек",
 	"ep-course-talk-link-text-view-changes": "Үзгәртүләрне карау"
 }
