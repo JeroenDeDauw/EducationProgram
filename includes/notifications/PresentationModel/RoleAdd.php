@@ -22,8 +22,8 @@ class RoleAdd extends \EchoEventPresentationModel {
 	 */
 	public function getPrimaryLink() {
 		return array(
-			$this->event->getTitle()->getFullURL(),
-			$this->msg( 'ep-role-add-link-text-view-course' )->text()
+			'url' => $this->event->getTitle()->getFullURL(),
+			'label' => $this->msg( 'ep-role-add-link-text-view-course' )->text(),
 		);
 	}
 

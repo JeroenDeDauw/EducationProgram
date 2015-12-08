@@ -22,8 +22,8 @@ class CourseTalk extends RoleAdd {
 	 */
 	public function getPrimaryLink() {
 		return array(
-			$this->event->getTitle()->getFullURL(),
-			$this->msg( 'ep-course-talk-link-text-view-message' )->text()
+			'url' => $this->event->getTitle()->getFullURL(),
+			'label' => $this->msg( 'ep-course-talk-link-text-view-message' )->text(),
 		);
 	}
 
@@ -32,10 +32,14 @@ class CourseTalk extends RoleAdd {
 	 */
 	public function getSecondaryLinks() {
 		return array(
-			$this->event->getTitle()->getLocalURL( array(
+			'url' => $this->event->getTitle()->getLocalURL( array(
 				'oldid' => 'prev',
 				'diff' => $this->event->getExtraParam( 'revid' )
-			) ) => $this->msg( 'ep-course-talk-link-text-view-changes' )->text()
+			) ),
+			'label' => $this->msg( 'ep-course-talk-link-text-view-changes' )->text(),
+			'description' => '',
+			'icon' => false,
+			'prioritized' => true,
 		);
 	}
 }
