@@ -224,7 +224,7 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param array $studentsList
 	 * @param string $propName
-	 * @param ApiResult @results
+	 * @param ApiResult $results
 	 * @param int[]|int $courseIds A list of one or more course IDs
 	 * @param int $courseIndex
 	 * @param $articleStore articleStore object
