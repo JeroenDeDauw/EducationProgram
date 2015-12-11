@@ -3,7 +3,8 @@
 		"authors": [
 			"AnakngAraw",
 			"아라",
-			"Jojit fb"
+			"Jojit fb",
+			"Leeheonjin"
 		]
 	},
 	"educationprogram-desc": "Nagpapaginhawa sa mga programang pang-edukasyon sa pamamagitan ng pagdaragdag ng sari-saring mga ugnayang-mukha upang mapamahalaan ang mga kurso, mga institusyon at ang samu't saring mga gampaning pangtagagamit ng edukasyon.",
@@ -636,5 +637,6 @@
 	"ep-timeline-users-create-usertalk-self": "Nilikha ni '''[[User:$3|$3]]''' ang '''[[$2|pahina ng usapan]]''' at nagpaskil ng {{PLURAL:$4|isang mensahe|ilang mga mensahe}} sa ibabaw nito.",
 	"ep-dashboard-login-first": "Kailangan mong lumagda bago mo matingnan ang mga kurso mo.",
 	"ep-dashboard-timeline-empty": "Walang kamakailang gawain para sa kursong ito.",
-	"ep-dashboard-enroll-first": "Kasalukuyang hindi ka nakatala sa loob ng anumang masisiglang mga kurso. Matitingnan mo ang [[Special:Courses|tala ng mga kurso]] at makakapagpatala sa loob ng isa."
+	"ep-dashboard-enroll-first": "Kasalukuyang hindi ka nakatala sa loob ng anumang masisiglang mga kurso. Matitingnan mo ang [[Special:Courses|tala ng mga kurso]] at makakapagpatala sa loob ng isa.",
+	"notification-header-ep-student-add-notification": "{{GENDER:$2|Idinagdag}} ka sa $3 ni $1"
 }
