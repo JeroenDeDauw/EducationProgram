@@ -14,7 +14,8 @@
 			"Polyethylen",
 			"!Silent",
 			"OTAVIO1981",
-			"J. 'mach' wust"
+			"J. 'mach' wust",
+			"Opraco"
 		]
 	},
 	"educationprogram-desc": "Viabiliza programas educativos disponibilizando várias interfaces para administrar cursos, instituições e os vários tipos de utilizador relacionados.",
@@ -147,13 +148,13 @@
 	"group-epcoordinator-member": "{{GENDER:$1|coordenador do curso|coordenadora do curso}}",
 	"grouppage-epcoordinator": "{{ns:project}}:Coordenadores do curso",
 	"group-eponline": "Voluntários do curso que estão online",
-	"group-eponline-member": "{{GENDER:$1|voluntário de curso online}}",
+	"group-eponline-member": "{{GENDER:$1|voluntário|voluntária|voluntário(a)}} de curso online",
 	"grouppage-eponline": "{{ns:project}}:Voluntários_online_do_curso",
 	"group-epcampus": "Voluntários de campus de curso",
-	"group-epcampus-member": "{{GENDER:$1|voluntário de campus de curso|voluntária de campus de curso}}",
+	"group-epcampus-member": "{{GENDER:$1|voluntário|voluntária|voluntário(a)}} de campus de curso",
 	"grouppage-epcampus": "{{ns:project}}:Voluntários_de_campus_do_curso",
 	"group-epinstructor": "Professores do curso",
-	"group-epinstructor-member": "{{GENDER:$1|professor do curso|professora do curso}}",
+	"group-epinstructor-member": "{{GENDER:$1|professor|professora|professor(a)}} do curso",
 	"grouppage-epinstructor": "{{ns:project}}:Professores_do_curso",
 	"specialpages-group-education": "Educação",
 	"special-mycourses": "Os seus cursos",
