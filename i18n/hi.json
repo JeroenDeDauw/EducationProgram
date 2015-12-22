@@ -5,7 +5,8 @@
 			"Karthi.dr",
 			"Siddhartha Ghai",
 			"Vivek Rai",
-			"NehalDaveND"
+			"NehalDaveND",
+			"Sfic"
 		]
 	},
 	"ep-item-summary": "सारांश",
@@ -68,6 +69,7 @@
 	"ep-pager-summary-message-course": "सारांश:",
 	"epstudentpager-header-user-id": "सदस्यनाम",
 	"epstudentpager-header-id": "आईडी",
+	"epstudentpager-header-last-active": "अन्तिम सक्रिय",
 	"epstudentpager-yes": "हाँ",
 	"epstudentpager-no": "नहीं",
 	"epstudentpager-header-student": "छात्र",
@@ -138,6 +140,7 @@
 	"coursepage-epundelete-cancel-button": "रद्द करें",
 	"orgpage-epundelete-summary": "कारण:",
 	"orgpage-epundelete-cancel-button": "रद्द करें",
+	"specialstudent-summary-last-active": "अन्तिम गतिविधि",
 	"specialstudent-summary-user": "सदस्यनाम",
 	"ep-enroll-legend": "नामांकित करें",
 	"ep-enroll-realname": "वास्तविक नाम (अनिवार्य)",
