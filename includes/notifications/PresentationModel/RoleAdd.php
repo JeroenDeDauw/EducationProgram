@@ -30,6 +30,13 @@ class RoleAdd extends \EchoEventPresentationModel {
 	/**
 	 * {@inheritdoc}
 	 */
+	public function getSecondaryLinks() {
+		return array( $this->getAgentLink() );
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
 

@@ -31,7 +31,7 @@ class CourseTalk extends RoleAdd {
 	 * {@inheritdoc}
 	 */
 	public function getSecondaryLinks() {
-		return array(
+		$viewChangesLink = array(
 			'url' => $this->event->getTitle()->getLocalURL( array(
 				'oldid' => 'prev',
 				'diff' => $this->event->getExtraParam( 'revid' )
@@ -41,5 +41,6 @@ class CourseTalk extends RoleAdd {
 			'icon' => false,
 			'prioritized' => true,
 		);
+		return array( $this->getAgentLink(), $viewChangesLink );
 	}
 }
