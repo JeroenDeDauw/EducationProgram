@@ -6,8 +6,13 @@
 		]
 	},
 	"ep-tab-disenroll": "Чыгу",
+	"special-institutions": "Оешмалар",
+	"special-student": "Мөгаллим",
+	"special-students": "Мөгаллимнәр",
+	"special-educationprogram": "Мәгариф программасы",
 	"special-disenroll": "Чыгу",
 	"ep-disenroll-button": "Чыгу",
 	"ep-timeline-ago": "$1 элек",
+	"echo-category-title-education-program": "Мәгариф программасы",
 	"ep-course-talk-link-text-view-changes": "Үзгәртүләрне карау"
 }
