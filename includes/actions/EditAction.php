@@ -52,6 +52,10 @@ abstract class EditAction extends Action {
 		parent::__construct( $page, $context );
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	/**
 	 * @see FormlessAction::onView()
 	 */

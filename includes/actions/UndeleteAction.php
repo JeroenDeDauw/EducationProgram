@@ -23,6 +23,10 @@ class UndeleteAction extends Action {
 		return 'epundelete';
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	/**
 	 * @see Action::getRestriction()
 	 */
