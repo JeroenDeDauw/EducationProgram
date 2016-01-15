@@ -38,7 +38,7 @@ class CourseTalk extends RoleAdd {
 			) ),
 			'label' => $this->msg( 'ep-course-talk-link-text-view-changes' )->text(),
 			'description' => '',
-			'icon' => false,
+			'icon' => 'changes',
 			'prioritized' => true,
 		);
 		return array( $this->getAgentLink(), $viewChangesLink );
