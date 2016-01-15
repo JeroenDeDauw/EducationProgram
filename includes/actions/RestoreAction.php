@@ -23,6 +23,10 @@ class RestoreAction extends Action {
 		return 'eprestore';
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	/**
 	 * @see Action::getRestriction()
 	 */

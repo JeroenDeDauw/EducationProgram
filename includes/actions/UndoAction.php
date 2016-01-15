@@ -23,6 +23,10 @@ class UndoAction extends Action {
 		return 'epundo';
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	/**
 	 * @see Action::getRestriction()
 	 */

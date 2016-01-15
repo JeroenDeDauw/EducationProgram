@@ -22,6 +22,10 @@ class DeleteAction extends Action {
 		return 'delete';
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	/**
 	 * @see Action::getDescription()
 	 */
