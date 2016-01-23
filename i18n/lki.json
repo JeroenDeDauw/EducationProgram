@@ -4,7 +4,9 @@
 			"Lakzon"
 		]
 	},
+	"eporgpager-header-active": "فەعال",
 	"ep-course-invalid-description": "توضیحات نیازمند داشتن حداقل $1 {{PLURAL:$1|نویسه}} است.",
+	"ep-institution-active": "فەعال؟",
 	"ep-course-description": "توضیحۀل",
 	"ep-instructor-add-text": "شما در حال افزودن مربی برای دورهٔ $1 هستید. نام کاربری استاد و توضیحی اینکه چرا این شخص اضافه می‌شود را بیافزایید.",
 	"ep-instructor-add-self-text": "شما در حال افزودن خودتان به عنوان {{GENDER:$2|استاد}} دورهٔ $1 هستید. لطفاً توضیحات مختصری دربارهٔ اینکه چرا چنین کاری می‌کنید بیافزایید.",
