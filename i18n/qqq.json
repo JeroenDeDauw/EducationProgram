@@ -173,7 +173,7 @@
 	"special-institutions": "{{doc-special|Institutions}}\n{{Identical|Institution}}",
 	"special-student": "{{doc-special|student}}\n{{Identical|Student}}",
 	"special-students": "{{doc-special|students}}\n{{Identical|Student}}",
-	"special-courses": "{{doc-special|courses}}",
+	"special-courses": "{{doc-special|courses}}\n{{Identical|Course}}",
 	"special-educationprogram": "{{doc-special|EducationProgram}}\n{{Identical|Education program}}",
 	"special-enroll": "{{doc-special|enroll}}",
 	"special-onlineambassadors": "{{doc-special|OnlineAmbassadors}}\n{{Identical|Online volunteer}}",
