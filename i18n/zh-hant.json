@@ -660,7 +660,7 @@
 	"ep-timeline-users-create-article": "{{GENDER:$6|$1}}建立條目'''[[$2]]'''。",
 	"ep-timeline-users-create-user": "{{GENDER:$6|$1}}建立'''[[$2|$3]]'''的使用者頁面。",
 	"ep-timeline-users-create-user-self": "$1 已建立{{GENDER:$6|他|她|他們}}的'''[[$2|使用者頁面]]'''。",
-	"ep-dashboard-login-first": "您必須登入才可檢視您的課程。",
+	"ep-dashboard-login-first": "您必須登入方可檢視您的課程。",
 	"ep-dashboard-timeline-empty": "本課程沒有最近活動。",
 	"ep-user-roles-message-main-student": "[[$1|$2]] 在 {{PLURAL:$4|$3}} 是{{GENDER:$2|一名學生}}。",
 	"ep-user-roles-message-main-instructor": "[[$1|$2]] 在 {{PLURAL:$4|$3}} 是{{GENDER:$2|一名導師}}。",
