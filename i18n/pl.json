@@ -303,7 +303,7 @@
 	"ep-addstudents-section": "Dodaj studentów do tego kursu",
 	"ep-addstudents-instructions": "Wprowadź nazwy użytkownika, pod jakimi zarejestrowali się studenci. Naciśnij klawisz Enter po każdej z nich lub kliknij menu podręczne. Można także wstawić listę nazw uczestników ze schowka.\n\nPo zakończeniu wprowadzania danych naciśnij przycisk \"{{int:ep-addstudents-btn}}\".",
 	"ep-addstudents-url-instructions": "Pamiętaj, że studenci mogą także sami dodać się do listy uczestników klikając ten link w przeglądarce:",
-	"ep-addstudents-invalid-users": "{{PLURAL:$1|Nie ma takiego użytkownika|Nie ma takich użytkowników}}: $2.",
+	"ep-addstudents-invalid-users": "Nie ma {{PLURAL:$1|{{GENDER:$2|takiego użytkownika|takiej użytkowniczki}}|takich użytkowników}}: $2.",
 	"ep-addstudents-btn": "Dodaj",
 	"ep-addstudents-success": "Dodano $1 {{PLURAL:$1|{{GENDER:$2|studenta|studentkę}}|studentów}} do tego kursu.",
 	"ep-addstudents-alreadyenrolled": "{{PLURAL:$1|{{GENDER:$3|Następujący student nie został dodany|Następująca studentka nie została dodana}}|Następujący studenci nie zostali dodani}} ponieważ już {{PLURAL:$1|występuje|występują}} na liście uczestników kursu: $2.",
