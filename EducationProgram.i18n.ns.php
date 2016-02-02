@@ -33,6 +33,11 @@ $namespaceNames['cs'] = array(
 	EP_NS_TALK => 'Diskuse_ke_kurzu',
 );
 
+$namespaceNames['es'] = array(
+	EP_NS      => 'Programa_educativo',
+	EP_NS_TALK => 'Programa_educativo_discusión',
+);
+
 $namespaceNames['fa'] = array(
 	EP_NS      => 'برنامه_آموزشی',
 	EP_NS_TALK => 'بحث_برنامه_آموزشی',
