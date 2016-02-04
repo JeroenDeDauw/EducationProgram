@@ -216,6 +216,10 @@
 	"ep-dashboard-login-first": "Morate biti prijavljeni da biste videli svoje kurseve.",
 	"ep-echo-pref-tooltip": "Obaveštenja o kursevima obrazovnog programa u kojima učestvujete.",
 	"ep-course-talk-link-text-view-changes": "Pogledaj izmene",
+	"notification-header-ep-campus-add-notification": "Dodati ste kao {{GENDER:$2|univerzitetski}} volonter na $3 od strane $1.",
+	"notification-header-ep-course-talk-notification": "$1 je {{GENDER:$2|uredio|uredila}} stranicu za razgovor kursa $3.",
+	"notification-header-ep-online-add-notification": "Dodati ste kao {{GENDER:$2|onlajn}} volonter na $3 od strane $1.",
+	"notification-header-ep-student-add-notification": "{{GENDER:$2|Dodati}} ste na $3 od strane $1.",
 	"apihelp-enlist-description": "Imenuj ili razreši korisnika kao nastavnika ili volontera na kursu.",
 	"apihelp-enlist-param-subaction": "Precizirajte šta želite da uradite sa nastavnikom ili volonterom.",
 	"apihelp-refresheducation-param-type": "Vrsta ciljeva koje treba osvežiti."
