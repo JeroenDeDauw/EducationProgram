@@ -40,6 +40,16 @@ class RoleAdd extends \EchoEventPresentationModel {
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
 
+		$truncatedCourseName = $this->language->truncate(
+			$this->getCourseName(),
+			self::PAGE_NAME_RECOMMENDED_LENGTH
+		);
+		$msg->params( $truncatedCourseName );
+
+		return $msg;
+	}
+
+	private function getCourseName() {
 		// TODO Here we're adding yet another bit of unencapsulated code
 		// that depends on the standard org/course (term) format.
 		// Other patches currently in the pipeline face the same issue.
@@ -47,8 +57,6 @@ class RoleAdd extends \EchoEventPresentationModel {
 		// Once they're through we can consider a general solution.
 		$fullTitle = $this->event->getTitle()->getText();
 		$titleParts = explode( '/', $fullTitle, 2 );
-		$msg->params( $titleParts[1] );
-
-		return $msg;
+		return $titleParts[1];
 	}
 }
