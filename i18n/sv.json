@@ -83,7 +83,7 @@
 	"logentry-online-selfadd": "$1 lade till {{GENDER:$2|sig själv}} som {{GENDER:$2|onlineambassadör}} till kursen $3",
 	"logentry-online-selfremove": "$1 tog bort {{GENDER:$2|sig själv}} som {{GENDER:$2|onlineambassadör}} från kursen $3",
 	"logentry-online-profilesave": "$1 uppdaterade {{GENDER:$2|sin}} onlineambassadörsprofil",
-	"logentry-campus-add": "$1 {{GENDER:$2|lade till}} {{PLURAL:$4|{{SITENAME}}ambassadör|{{SITENAME}}ambassadörer}} $5 till kurs $3",
+	"logentry-campus-add": "$1 {{GENDER:$2|lade till}} {{PLURAL:$4|{{SITENAME}}{{GENDER:$5|ambassadör}}|{{SITENAME}}ambassadörer}} $5 till kurs $3",
 	"logentry-campus-remove": "$1 {{GENDER:$2|tog bort}} {{PLURAL:$4|{{GENDER:$5|{{SITENAME}}ambassadör}}|{{SITENAME}}ambassadörer}} $5 från kurs $3",
 	"logentry-campus-selfadd": "$1 lade till {{GENDER:$2|sig själv}} som {{GENDER:$2|{{SITENAME}}ambassadör}} till kurs $3",
 	"logentry-campus-selfremove": "$1 tog bort {{GENDER:$2|sig själv}} som {{GENDER:$2|{{SITENAME}}ambassadör}} från kurs $3",

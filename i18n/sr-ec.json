@@ -710,7 +710,7 @@
 	"ep-course-talk-notification-title-email-body": "$1 је {{GENDER:$1|уредио|уредила}} страницу за разговор курса $2.",
 	"ep-role-add-link-text-view-course": "Види курс",
 	"ep-student-add-notification-title": "Додати сте на [[$2|$3]] од стране [[User:$1|$1]].",
-	"ep-student-add-notification-title-email-subject": "Додати сте на $2 од стране $1.",
+	"ep-student-add-notification-title-email-subject": "Додати сте на $2 од {{GENDER:$1|стране}} $1.",
 	"ep-student-add-notification-title-email-body": "Додати сте на $2 од стране $1.",
 	"ep-instructor-add-notification-title": "Додати сте као наставник на [[$2|$3]] од стране [[User:$1|$1]].",
 	"ep-instructor-add-notification-title-email-subject": "Додати сте као наставник на $2 од стране  $1.",

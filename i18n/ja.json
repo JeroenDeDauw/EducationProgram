@@ -4,7 +4,8 @@
 			"Anakmalaysia",
 			"Shirayuki",
 			"SkyDaisy9",
-			"Sujiniku"
+			"Sujiniku",
+			"Otokoume"
 		]
 	},
 	"ep-item-summary": "要約",
@@ -55,7 +56,7 @@
 	"logentry-course-remove": "$1 がコース $3 を除去しました",
 	"logentry-course-update": "$1 がコース $3 を更新しました",
 	"logentry-course-undelete": "$1 がコース $3 を{{GENDER:$2|復帰しました}}",
-	"logentry-instructor-add": "$1 がコース $3 に{{PLURAL:$4|講師}} $5 を{{GENDER:$2|追加しました}}",
+	"logentry-instructor-add": "$1 がコース $3 に{{PLURAL:$4|{{GENDER:$5|講師}}}} $5 を{{GENDER:$2|追加しました}}",
 	"logentry-instructor-remove": "$1 がコース $3 から{{PLURAL:$4|講師}} $5 を{{GENDER:$2|除去しました}}",
 	"logentry-instructor-selfadd": "$1 が{{GENDER:$2|講師}}として{{GENDER:$2|自身}}をコース $3 に追加しました",
 	"logentry-instructor-selfremove": "$1 が{{GENDER:$2|講師}}としての{{GENDER:$2|自身}}をコース $3 から除去しました",
