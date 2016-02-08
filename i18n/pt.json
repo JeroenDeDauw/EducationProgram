@@ -358,7 +358,7 @@
 	"ep-addstudents-section": "Acrescentar estudantes a este curso.",
 	"ep-addstudents-instructions": "Escreva os nomes de utilizador dos estudantes que pretende acrescentar. Pressione enter depois de cada um, ou pressione o menu que aparece. Também pode colar uma lista com todos os nomes de utilizador.",
 	"ep-addstudents-url-instructions": "Lembre-se que os estudantes também se podem acrescentar a eles próprios abrindo este link nos seus navegadores.",
-	"ep-addstudents-invalid-users": "{{PLURAL:$1|Este utilizador não existe|Estes utilizadores não existem}}: $2.",
+	"ep-addstudents-invalid-users": "{{PLURAL:$1|{{GENDER:$2|Este utilizador|Esta utilizadora|Este(a) utilizador(a)}} não existe|Estes utilizadores não existem}}: $2.",
 	"ep-addstudents-btn": "Acrescentar",
 	"ep-addstudents-success": "Acrescentou $1 {{PLURAL:$1|{{GENDER:$2|estudante}}|estudantes}} a este curso.",
 	"ep-addstudents-alreadyenrolled": "{{PLURAL:$1|{{GENDER:$3|O seguinte estudante não foi acrescentado porque já estava inscrito|A seguinte estudante não foi acrescentada porque já estava inscrita|O(A) seguinte estudante não foi acrescentado(a) porque já estava inscrito(a)}}|Os seguintes estudantes não foram acrescentados porque já estavam inscritos}} no curso: $2.",

@@ -1,8 +1,30 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kolega2357"
+			"Kolega2357",
+			"Conquistador"
 		]
 	},
-	"right-ep-addstudent": "Upis studenata kao korisnika"
+	"right-ep-addstudent": "Upis studenata kao korisnika",
+	"ep-pager-cancel-button-org": "Otkaži",
+	"ep-pager-cancel-button-course": "Otkaži",
+	"ep-articletable-addreviwer-cancel": "Otkaži",
+	"ep-articletable-remreviwer-cancel": "Otkaži",
+	"ep-articletable-remstudent-cancel": "Otkaži",
+	"ep-articletable-remarticle-cancel": "Otkaži",
+	"coursepage-delete-cancel-button": "Otkaži",
+	"orgpage-delete-cancel-button": "Otkaži",
+	"orgpage-eprestore-cancel-button": "Otkaži",
+	"coursepage-eprestore-cancel-button": "Otkaži",
+	"orgpage-epundo-cancel-button": "Otkaži",
+	"coursepage-epundo-cancel-button": "Otkaži",
+	"coursepage-epundelete-cancel-button": "Otkaži",
+	"orgpage-epundelete-cancel-button": "Otkaži",
+	"ep-disenroll-cancel": "Otkaži",
+	"ep-instructor-cancel-button": "Otkaži",
+	"ep-instructor-add-cancel-button": "Otkaži",
+	"ep-online-cancel-button": "Otkaži",
+	"ep-online-add-cancel-button": "Otkaži",
+	"ep-campus-cancel-button": "Otkaži",
+	"ep-campus-add-cancel-button": "Otkaži"
 }
