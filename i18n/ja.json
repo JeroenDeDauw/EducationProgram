@@ -531,6 +531,7 @@
 	"ep-course-talk-link-text-view-message": "メッセージを閲覧",
 	"ep-course-talk-link-text-view-changes": "差分を閲覧",
 	"notification-header-ep-campus-add-notification": "あなたはキャンパスのボランティアとして'''$3'''に{{GENDER:$2|追加されました}}。",
+	"notification-header-ep-course-talk-notification": "コース '''$3''' のトークページが{{GENDER:$2|編集されました}}。",
 	"notification-header-ep-instructor-add-notification": "あなたはインストラクターとして'''$3'''に{{GENDER:$2|追加されました}}。",
 	"notification-header-ep-online-add-notification": "あなたはオンラインのボランティアとして'''$3'''に{{GENDER:$2|追加されました}}。",
 	"notification-header-ep-student-add-notification": "あなたは'''$3'''に{{GENDER:$2|追加されました}}。",
