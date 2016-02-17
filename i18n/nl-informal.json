@@ -91,7 +91,7 @@
 	"onlineambassadorprofile-text": "Als studenten kijken naar beschikbare ambassadeurs, krijgen ze je Online ambassadeursprofiel te zien.",
 	"epoa-profile-photo-help": "Een foto van jou die wordt weergegeven naast uw beschrijving. Voer de naam in van een afbeelding op Wikimedia Commons om een voorvertoning weer te geven. Je kunt de eerste paar letters van een afbeeldingsnaam invoeren en dan je afbeelding uit de lijst selecteren. [$1 Upload een afbeelding] als je nog geen afbeelding op Commons hebt.",
 	"epoa-profile-saved": "Je profiel is opgeslagen",
-	"epoa-profile-invalid-bio": "De beschrijving moet tenminste {{PLURAL:$1|één teken|$1 tekens}} bevatten.",
+	"epoa-profile-invalid-bio": "De beschrijving moet ten minste {{PLURAL:$1|één teken|$1 tekens}} bevatten.",
 	"campusambassadorprofile-text": "Als studenten kijken naar beschikbare ambassadeurs, krijgen ze je Campusambassadeursprofiel te zien.",
 	"epca-profile-photo-help": "Een foto van u die wordt weergegeven naast je beschrijving. Voer de naam in van een afbeelding op Wikimedia Commons om een voorvertoning weer te geven. Je kunt de eerste paar letters van een afbeeldingsnaam invoeren en dan je afbeelding uit de lijst selecteren. [$1 Upload een afbeelding] als je nog geen afbeelding op Commons heeft.",
 	"epca-profile-saved": "Je profiel is opgeslagen",
