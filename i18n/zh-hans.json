@@ -22,7 +22,8 @@
 			"Impersonator 1",
 			"Cwek",
 			"Papapasan",
-			"LNDDYL"
+			"LNDDYL",
+			"飞舞回堂前"
 		]
 	},
 	"educationprogram-desc": "通过添加不同的接口来管理课程、机构和各种不同的教育用户角色，以此促进教育计划。",
@@ -107,8 +108,8 @@
 	"logentry-student-remove": "$1从课程$3中{{GENDER:$2|移除}}{{PLURAL:$4|{{GENDER:$5|学生}}|以下学生}}：$5",
 	"logentry-student-selfadd": "$1在课程$3{{GENDER:$2|登记}}",
 	"logentry-student-selfremove": "$1被课程$3{{GENDER:$2|开除}}",
-	"logentry-eparticle-selfadd": "$1在$4课程中加入文章$3至{{GENDER:$2|他|她|他们}}的文章列表",
-	"logentry-eparticle-selfremove": "$1在课程$4中将文章$3从{{GENDER:$2|他|她|他们}}的文章列表中移除",
+	"logentry-eparticle-selfadd": "$1在$4课程中加入文章$3至{{GENDER:$2|他|她|他}}的文章列表",
+	"logentry-eparticle-selfremove": "$1在课程$4中将文章$3从{{GENDER:$2|他|她|他}}的文章列表中移除",
 	"logentry-eparticle-add": "$1在课程$4中{{GENDER:$2|加入}}文章$3至{{GENDER:$6|$5}}的文章列表中",
 	"logentry-eparticle-remove": "$1在课程$4中从{{GENDER:$6|$5}}的文章列表中{{GENDER:$2|移除}}文章$3",
 	"logentry-eparticle-review": "$1将{{GENDER:$2|他本人|她本人|他们自己}}添加为$5{{GENDER:$6|所编辑的}}课程$4下属条目$3的审核员",
@@ -690,9 +691,9 @@
 	"ep-timeline-users-edit-article": "$5个{{GENDER:$6|$1}}编辑了条目'''[[$2]]'''。",
 	"ep-timeline-users-edit-talk": "$5个{{GENDER:$6|$1}}在'''[[$3]]'''的'''[[$2|讨论页]]'''上留下了$4条留言。",
 	"ep-timeline-users-edit-user": "$5个{{GENDER:$6|$1}}编辑了'''[[$2|$3]]'''的用户页。",
-	"ep-timeline-users-edit-usertalk": "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她|他们}}的'''[[$2|对话页]]'''上收到了{{PLURAL:$4|留言}}。",
+	"ep-timeline-users-edit-usertalk": "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她|他}}的'''[[$2|对话页]]'''上收到了{{PLURAL:$4|留言}}。",
 	"ep-timeline-users-edit-user-self": "$1编辑了{{GENDER:$6|他|她|他们}}的'''[[$2|用户页面]]'''。",
-	"ep-timeline-users-edit-usertalk-self": "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她|他们}}的'''[[$2|对话页]]'''上{{PLURAL:$4|留言}} 。",
+	"ep-timeline-users-edit-usertalk-self": "'''[[User:$3|$3]]'''在{{GENDER:$3|他|她|他}}的'''[[$2|对话页]]'''上{{PLURAL:$4|留言}} 。",
 	"ep-timeline-users-create-article": "{{GENDER:$6|$1}}创建了条目'''[[$2]]'''。",
 	"ep-timeline-users-create-talk": "{{GENDER:$6|$1}}创建了'''[[$3]]'''的'''[[$2|对话页]]'''并留下了$4条留言。",
 	"ep-timeline-users-create-user": "{{GENDER:$6|$1}}创建了'''[[$2|$3]]'''的用户页面。",
