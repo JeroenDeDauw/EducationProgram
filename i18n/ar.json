@@ -12,7 +12,8 @@
 			"Zanatos",
 			"زكريا",
 			"محمد أحمد عبد الفتاح",
-			"Hiba Alshawi"
+			"Hiba Alshawi",
+			"Maroen1990"
 		]
 	},
 	"educationprogram-desc": "وتساعد البرامج التعليمية عن طريق إضافات واجهات عديدة لإدارة المناهج والمؤسسات وأدوار المستفيدين من العملية التعليمية.",
@@ -231,7 +232,7 @@
 	"ep-pager-confirm-delete-org": "أكّد حذف {{PLURAL:$1||المؤسسة|المؤسستين|مؤسسات متعددة}}",
 	"ep-pager-retry-button-org": "أعد المحاولة",
 	"ep-pager-summary-message-org": "الملخص:",
-	"ep-pager-confirm-message-org": "أنت على وشك حذف مؤسسة $1 . سيؤدي ذلك إلى حذف كافة بيانات المقررات والطلبة المرتبطين بها!",
+	"ep-pager-confirm-message-org": "أنت على وشك حذف مؤسسة $1 .",
 	"ep-pager-confirm-message-org-many": "أنت على وشك حذف هذه المؤسسات: $1 .",
 	"epcoursepager-header-name": "الاسم",
 	"epcoursepager-header-term": "فصل دراسي",
@@ -251,8 +252,8 @@
 	"ep-pager-confirm-delete-course": "أكّد حذف {{PLURAL:$1||مقرر|مقررين|عدة مقررات}}",
 	"ep-pager-retry-button-course": "أعد المحاولة",
 	"ep-pager-summary-message-course": "ملخص:",
-	"ep-pager-confirm-message-course": "أنت على وشك إزالة المقرر $1 . سيؤدي ذلك إلى إزالة كافة بيانات الطلبة المرتبطة به!",
-	"ep-pager-confirm-message-course-many": "أنت على وشك إزالة هذه المقررات:  $1 . سيؤدي هذا إلى إزالة كافة بيانات الطلبة المرتبطة بها!",
+	"ep-pager-confirm-message-course": "أنت على وشك إزالة المقرر $1 . سيؤدي ذلك إلى إزالة كافة  الطلبة المرتبطة به!",
+	"ep-pager-confirm-message-course-many": "أنت على وشك إزالة هذه المقررات:  $1 . سيؤدي هذا إلى إزالة كافة  الطلبة المرتبطة بها!",
 	"epstudentpager-header-user-id": "اسم المستخدم",
 	"epstudentpager-header-id": "رقم",
 	"epstudentpager-header-current-courses": "المقررات الحالية",
