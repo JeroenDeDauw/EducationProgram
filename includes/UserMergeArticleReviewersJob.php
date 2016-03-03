@@ -85,10 +85,13 @@ class UserMergeArticleReviewersJob extends Job {
 	/**
 	 * Usermerge in an array of ids. Returns true if there were changes.
 	 *
-	 * @param
+	 * @param int[] $ids
+	 * @param int $oldId
+	 * @param int $newId
+	 *
+	 * @return bool
 	 */
-	protected function mergeIds( &$ids, $oldId, $newId  ) {
-
+	protected function mergeIds( array &$ids, $oldId, $newId ) {
 		$i = array_search( $oldId, $ids );
 
 		if ( $i !== false ) {
