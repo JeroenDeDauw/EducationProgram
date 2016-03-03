@@ -42,7 +42,9 @@ class RoleAdd extends \EchoEventPresentationModel {
 
 		$truncatedCourseName = $this->language->truncate(
 			$this->getCourseName(),
-			self::PAGE_NAME_RECOMMENDED_LENGTH
+			self::PAGE_NAME_RECOMMENDED_LENGTH,
+			'...',
+			false
 		);
 		$msg->params( $truncatedCourseName );
 
