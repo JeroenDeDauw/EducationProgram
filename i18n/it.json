@@ -498,7 +498,7 @@
 	"orgpage-epundelete-summary": "Motivo:",
 	"orgpage-epundelete-undelete-button": "Annulla cancellazione istituto",
 	"orgpage-epundelete-cancel-button": "Annulla",
-	"orgpage-epundelete-undeleted": "Annullata correttamente cancellazione dell'istituto $1.",
+	"orgpage-epundelete-undeleted": "Annullata cancellazione dell'istituto $1.",
 	"orgpage-epundelete-undo-failed": "Errore durante l'annullamento della cancellazione dell'istituto $1.",
 	"orgpage-epundelete-failed-norevs": "Errore durante l'annullamento della cancellazione dell'istituto $1. Non ci sono modifiche da ripristinare.",
 	"orgpage-epundelete-failed-exists": "Errore durante l'annullamento della cancellazione dell'istituto $1. Esiste già.",
