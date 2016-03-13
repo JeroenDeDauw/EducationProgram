@@ -370,7 +370,7 @@
 	"orgpage-epundelete-summary": "Grond:",
 	"orgpage-epundelete-undelete-button": "Institutioun restauréieren",
 	"orgpage-epundelete-cancel-button": "Ofbriechen",
-	"orgpage-epundelete-undeleted": "D'Institutioun $1 gouf restauréiert.",
+	"orgpage-epundelete-undeleted": "Institutioun $1 restauréiert.",
 	"orgpage-epundelete-undo-failed": "D'Institutioun $1 konnt net restauréiert ginn.",
 	"orgpage-epundelete-failed-norevs": "D'Institutioun $1 konnt net restauréiert ginn. Et gëtt keng Versiounen fir ze restauréieren.",
 	"orgpage-epundelete-failed-exists": "D'Institutioun  $1 konnt net restauréiert ginn. Et gëtt se schonn.",
