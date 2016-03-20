@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"KuboF",
-			"Yekrats"
+			"Yekrats",
+			"Robin van der Vliet"
 		]
 	},
 	"ep-item-summary": "Resumo",
@@ -172,7 +173,12 @@
 	"viewcourseaction-summary-end": "Fino",
 	"viewcourseaction-summary-students": "Nombro de lernantoj",
 	"viewcourseaction-summary-status": "Statuso",
+	"coursepage-delete-cancel-button": "Nuligi",
+	"orgpage-delete-cancel-button": "Nuligi",
 	"ep-delete-org-has-courses-close-dialog": "Fermi",
+	"orgpage-eprestore-cancel-button": "Nuligi",
+	"coursepage-eprestore-cancel-button": "Nuligi",
+	"orgpage-epundo-cancel-button": "Nuligi",
 	"coursepage-epundo-undo-button": "Malfari revizion",
 	"coursepage-epundo-cancel-button": "Nuligi",
 	"coursepage-epundelete-title": "Malforigi kurson \"$1\"",
