@@ -369,7 +369,7 @@
 	"coursepage-edit-undelete-link": "ripristina $1 {{PLURAL:$1|versione|versioni}}",
 	"ep-undelete-course-no-rights": "Questo corso è stato cancellato. Non hai i permessi per ripristinarlo.",
 	"ep-undelete-course-org-deleted": "Questo corso ed il suo istituto, [[$1|$2]], sono stati cancellati. Prima di ripristinare il corso, [$3 ripristina $2].",
-	"ep-pager-confirm-delete": "Sei sicuro di voler eliminare questo elemento?",
+	"ep-pager-confirm-delete": "Sei sicuro di voler cancellare questo elemento?",
 	"ep-pager-delete-fail": "Impossibile eliminare questo elemento.",
 	"ep-pager-confirm-delete-selected": "Sei sicuro di voler eliminare {{PLURAL:$1|l'elemento selezionato|gli elementi selezionati}}?",
 	"ep-pager-delete-selected-fail": "Impossibile eliminare {{PLURAL:$1|l'elemento selezionato|gli elementi selezionati}}.",

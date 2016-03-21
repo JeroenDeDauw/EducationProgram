@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Haqmar",
-			"Ләйсән"
+			"Ләйсән",
+			"Айсар"
 		]
 	},
 	"ep-toplink": "Курстар",
@@ -138,5 +139,8 @@
 	"viewcourseaction-summary-start": "Башлау",
 	"viewcourseaction-summary-end": "Бөтөү",
 	"viewcourseaction-summary-students": "Талип һаны",
-	"viewcourseaction-summary-status": "Статус"
+	"viewcourseaction-summary-status": "Статус",
+	"coursepage-delete-deleted": "$1 курсы юйылды.",
+	"coursepage-eprestore-restored": "Курс $1 тергеҙелде.",
+	"coursepage-epundelete-undeleted": "$1 курсы тергеҙелде."
 }
