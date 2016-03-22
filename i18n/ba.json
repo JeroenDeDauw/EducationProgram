@@ -142,5 +142,7 @@
 	"viewcourseaction-summary-status": "Статус",
 	"coursepage-delete-deleted": "$1 курсы юйылды.",
 	"coursepage-eprestore-restored": "Курс $1 тергеҙелде.",
-	"coursepage-epundelete-undeleted": "$1 курсы тергеҙелде."
+	"coursepage-epundo-undid": "$ 1 курсы версияһы кире алынды.",
+	"coursepage-epundelete-undeleted": "$1 курсы тергеҙелде.",
+	"ep-disenroll-success": "{{GENDER:$1|Һеҙ}} {{GENDER:$1|был курстан}} алындығыҙ!"
 }
