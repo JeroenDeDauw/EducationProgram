@@ -642,7 +642,7 @@
 	"ep-campus-remove": "smazat jako Dobrovolníka dostupného osobně",
 	"ep-online-remove": "smazat jako Online dobrovolníka",
 	"ep-enlist-invalid-user-args": "Je potřeba zadat uživatelské jméno nebo parametr userid.",
-	"ep-enlist-invalid-user": "Zadané uživatelské id nebo jméno není platné a proto nemohlo být přidruženo jako instruktor nebo dobrovolník v zadaném kurzu",
+	"ep-enlist-invalid-user": "Zadané uživatelské ID nebo jméno není platné, a proto nemohlo být přidruženo jako instruktor nebo dobrovolník v zadaném kurzu",
 	"ep-enlist-invalid-course": "Neexistuje žádný kurz s tímto ID",
 	"onlineambassadorprofile": "Profil online dobrovolníka",
 	"onlineambassadorprofile-legend": "Váš profil Online dobrovolníka",

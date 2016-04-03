@@ -236,6 +236,7 @@
 	"ep-pager-confirm-message-org-many": "أنت على وشك حذف هذه المؤسسات: $1 .",
 	"epcoursepager-header-name": "الاسم",
 	"epcoursepager-header-term": "فصل دراسي",
+	"epcoursepager-header-id": "معرف المساق",
 	"epcoursepager-header-start": "البداية",
 	"epcoursepager-header-org-id": "مؤسسة تعليمية",
 	"epcoursepager-header-end": "النهاية",
