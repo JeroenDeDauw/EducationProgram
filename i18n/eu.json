@@ -4,7 +4,8 @@
 			"Subi",
 			"Xabier Armendaritz",
 			"පසිඳු කාවින්ද",
-			"An13sa"
+			"An13sa",
+			"Sator"
 		]
 	},
 	"ep-item-summary": "Laburpena",
@@ -62,6 +63,7 @@
 	"ep-pager-retry-button-course": "Saiatu berriro",
 	"ep-pager-summary-message-course": "Laburpena:",
 	"epstudentpager-header-user-id": "Erabiltzaile izena",
+	"epstudentpager-header-id": "ID",
 	"epstudentpager-yes": "Bai",
 	"epstudentpager-no": "Ez",
 	"epstudentpager-header-student": "Ikaslea",
