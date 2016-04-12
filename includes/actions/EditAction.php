@@ -416,10 +416,12 @@ abstract class EditAction extends Action {
 
 		if ( $req->getCheck( $fieldName ) ) {
 			$title = $this->table->selectFieldsRow( $this->getTitleField(), array( 'id' => $req->getInt( $fieldName ) ) );
-			$title = $this->table->getTitleFor( $title );
+			if ( $title ) {
+				$title = $this->table->getTitleFor( $title );
+			}
 		}
 
-		return is_null( $title ) ? $this->getTitle() : $title;
+		return $title ?: $this->getTitle();
 	}
 
 	/**
