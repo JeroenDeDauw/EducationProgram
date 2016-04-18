@@ -371,7 +371,7 @@
 	"ep-undelete-course-org-deleted": "Questo corso ed il suo istituto, [[$1|$2]], sono stati cancellati. Prima di ripristinare il corso, [$3 ripristina $2].",
 	"ep-pager-confirm-delete": "Sei sicuro di voler cancellare questo elemento?",
 	"ep-pager-delete-fail": "Impossibile eliminare questo elemento.",
-	"ep-pager-confirm-delete-selected": "Sei sicuro di voler eliminare {{PLURAL:$1|l'elemento selezionato|gli elementi selezionati}}?",
+	"ep-pager-confirm-delete-selected": "Sei sicuro di voler cancellare {{PLURAL:$1|l'elemento selezionato|gli elementi selezionati}}?",
 	"ep-pager-delete-selected-fail": "Impossibile eliminare {{PLURAL:$1|l'elemento selezionato|gli elementi selezionati}}.",
 	"vieworgaction-none": "Non c'è ancora alcun istituto con il nome \"$1\". Vedi la [[Special:Institutions|lista degli istituti]].",
 	"ep-institution-create": "Non c'è ancora alcun istituto con il nome \"$1\", ma puoi crearlo.",
