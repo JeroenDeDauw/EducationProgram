@@ -237,7 +237,7 @@
 	"ep-revision-compare": "Compare link shown next to revisions on history pages.",
 	"eporgpager-header-name": "Table column header.\n{{Identical|Name}}",
 	"eporgpager-header-city": "Table column header.\n{{Identical|City}}",
-	"eporgpager-header-country": "Table column header",
+	"eporgpager-header-country": "Table column header\n{{Identical|Country}}",
 	"eporgpager-filter-country": "Filter control label",
 	"eporgpager-header-course-count": "Table column header",
 	"eporgpager-header-student-count": "Table column header.\n{{Identical|Student}}",
