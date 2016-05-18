@@ -124,7 +124,10 @@ class SpecialEnroll extends VerySpecialPage {
 				$formFields = $this->getFormFields();
 
 				if ( $hasFields || count( $formFields ) < 3 ) {
-					$this->doEnroll( $course );
+					// Defer per T92357
+					\DeferredUpdates::addCallableUpdate( function () use ( $course ) {
+						$this->doEnroll( $course );
+					} );
 					$this->onSuccess();
 				}
 				else {
