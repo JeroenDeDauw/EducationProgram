@@ -261,7 +261,7 @@
 	"ep-pager-retry-button-course": "Tentar novamente",
 	"ep-pager-summary-message-course": "Sumário:",
 	"ep-pager-confirm-message-course": "Você está prestes a excluir o curso $1. Isto removerá todos os estudantes associados!",
-	"ep-pager-confirm-message-course-many": "Está prestes a eliminar estes cursos: <span class=\"notranslate\" converter=\"não\">$1</span>. Isto irá remover todos os estudantes associados!",
+	"ep-pager-confirm-message-course-many": "Está prestes a eliminar estes cursos: $1. Isto irá remover todos os estudantes associados!",
 	"epstudentpager-header-user-id": "Nome de utilizador(a)",
 	"epstudentpager-header-id": "ID",
 	"epstudentpager-header-current-courses": "Cursos atuais",
