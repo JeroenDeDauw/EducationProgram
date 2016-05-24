@@ -109,7 +109,7 @@
 	"logentry-eparticle-review": "$1 {{GENDER:$2|הוסיף|הוסיפה}} את {{GENDER:$2|עצמו כבודק|עצמה כבודקת}} של הערך $3 ש{{GRAMMAR:תחילית|$5}} {{GENDER:$6|עובד|עובדת}} עליו כחלק מהקורס $4",
 	"logentry-eparticle-unreview": "$1 {{GENDER:$2|הסיר|הסירה}} את {{GENDER:$2|עצמו כבודק|עצמה כבודקת}} של הערך $3 ש{{GRAMMAR:תחילית|$5}} {{GENDER:$6|עובד|עובדת}} עליו כחלק מהקורס $4",
 	"prefs-education": "הוראה",
-	"ep-prefs-showtoplink": "הצגת קישור ל[[Special:MyCourses|קורסים שלך]] מעל כל עמוד.",
+	"ep-prefs-showtoplink": "הצגת קישור ל[[Special:MyCourses|קורסים שלי]] בחלקו העליון של כל דף.",
 	"ep-prefs-bulkdelorgs": "הצגת פקודת מחיקה מרובה ל[[Special:Institutions|מוסדות]].",
 	"ep-prefs-bulkdelcourses": "הצגת פקודת מחיקה מרובה ל[[Special:Courses|קורסים]].",
 	"right-ep-org": "ניהול מוסדות בתוכנית ההוראה",
