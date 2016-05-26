@@ -2,6 +2,8 @@
 
 namespace EducationProgram;
 
+use Linker;
+
 /**
  * An error page that can contain a live link to the page that threw it.
  * (This is useful for error messages in this extension.)
@@ -50,7 +52,7 @@ class ErrorPageErrorWithSelflink extends \ErrorPageError {
 	 * @see ErrorPageError::report()
 	 */
 	function report() {
-		global $wgOut, $wgParser;
+		global $wgOut;
 
 		// get actual message objects
 		$titleAsMessageObj = $this->getAsMessageObj( $this->title );
@@ -58,8 +60,8 @@ class ErrorPageErrorWithSelflink extends \ErrorPageError {
 
 		// create an internal link and set it as a message param
 		if (!is_null( $this->articleTitle ) ) {
-			$internalLink = $wgParser->makeKnownLinkHolder( $this->articleTitle, $this->linkText );
-			$msgAsMessageObj->params( $internalLink );
+			$internalLink = Linker::linkKnown( $this->articleTitle, $this->linkText );
+			$msgAsMessageObj->rawParams( $internalLink );
 		}
 
 		// create the output; see ErrorPageError and OutputPage::showErrorPage()
