@@ -711,7 +711,7 @@
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|מתנדב מקוון|מתנדבת מקוונת}}",
 	"ep-user-roles-message-rolename-campus": "{{GENDER:$1|מתנדב|מתנדבת}} קמפוס",
 	"echo-category-title-education-program": "תוכנית הוראה",
-	"ep-echo-pref-tooltip": "להודיע לי על אירועים הקשורים לתוכנית ההוראה של קורסים שאני {{GENDER:|מעורב|מעורבת}} בהם.",
+	"ep-echo-pref-tooltip": "להודיע לי על אירועים הקשורים לקורסים של תוכנית ההוראה שאני {{GENDER:|מעורב|מעורבת}} בה.",
 	"ep-course-talk-link-text-view-message": "הצגת הודעה",
 	"ep-course-talk-link-text-view-changes": "הצגת שינויים",
 	"ep-course-talk-notification-title": "[[$2|דף השיחה של הקורס $3]] {{GENDER:$1|נערך}} על ידי [[User:$1|$1]].",
