@@ -29,6 +29,7 @@ abstract class RoleAddNotification implements INotificationType {
 				'destination' => 'title'
 			),
 			'group' => 'interactive',
+			'section' => 'alert',
 
 			// The custom message param 'short-title-text' requires a custom
 			// notification formatter. See CourseFormatter.
