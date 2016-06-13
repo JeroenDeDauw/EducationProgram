@@ -24,12 +24,12 @@
 	"epstudentpager-no": "یوخ",
 	"ep-articletable-addreviwer-cancel": "لغو ائت",
 	"ep-articletable-remreviwer-cancel": "لغو ائت",
-	"ep-articletable-remstudent-cancel": "لغو ائت",
-	"ep-articletable-remarticle-cancel": "لغو ائت",
-	"orgpage-eprestore-cancel-button": "لغو ائت",
+	"ep-articletable-remstudent-cancel": "وازگئچ",
+	"ep-articletable-remarticle-cancel": "وازگئچ",
+	"orgpage-eprestore-cancel-button": "وازگئچ",
 	"orgpage-epundo-undo-button": "دییشدیرمه قایتاریشی",
 	"orgpage-epundo-cancel-button": "لغو ائت",
 	"coursepage-epundo-cancel-button": "لغو ائت",
 	"coursepage-epundelete-cancel-button": "لغو ائت",
-	"orgpage-epundelete-cancel-button": "لغو ائت"
+	"orgpage-epundelete-cancel-button": "وازگئچ"
 }
