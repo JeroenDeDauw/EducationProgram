@@ -40,6 +40,7 @@ class CourseTalkNotification implements INotificationType {
 				'destination' => 'diff'
 			),
 			'group' => 'interactive',
+			'section' => 'message',
 
 			// The custom message param 'short-title-text' requires a custom
 			// notification formatter. See CourseFormatter.
