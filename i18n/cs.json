@@ -9,7 +9,8 @@
 			"Paxt",
 			"Utar",
 			"Vks",
-			"Urbanecm"
+			"Urbanecm",
+			"Dvorapa"
 		]
 	},
 	"educationprogram-desc": "Usnadňuje vzdělávací programy přidáním rozhraní pro správu kurzů, institucí a různých vzdělávacích rolí uživatelů",
@@ -703,7 +704,7 @@
 	"ep-user-roles-message-rolename-online": "Online {{GENDER:$1|dobrovolník|dobrovolnice}}",
 	"ep-user-roles-message-rolename-campus": "{{GENDER:$1|dobrovolník dostupný osobně}}",
 	"echo-category-title-education-program": "Vzdělávací program",
-	"ep-echo-pref-tooltip": "Upozorněte mě na události spojené s kurzy Vzdělávacího programu, ve kterých jsem {{GENDER:|zapojen|zapojena}}.",
+	"ep-echo-pref-tooltip": "Upozorněte mě na události spojené s kurzy Vzdělávacího programu, ve kterých jsem {{GENDER:|zapojen|zapojena|zapojen(a)}}.",
 	"ep-course-talk-link-text-view-message": "Zobrazit zprávu",
 	"ep-course-talk-link-text-view-changes": "Zobrazit změny",
 	"ep-course-talk-notification-title": "[[$2|Diskuse kurzu $3]] byla {{GENDER:$1|editována}} uživatelem [[User:$1|$1]].",

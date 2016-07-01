@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"AlnashPiyash2"
+			"AlnashPiyash2",
+			"Kaganer"
 		]
 	},
+	"ep-tab-edit": "Тупатъяно",
 	"ep-tab-disenroll": "Потыны",
 	"ep-disenroll-button": "Потыны"
 }
