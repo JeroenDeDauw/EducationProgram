@@ -36,8 +36,8 @@ interface INotificationType {
 
 	/**
 	 * Get the array of parameters used to define the type of notification in
-	 * onBeforeCreateEchoEvent, *except* the 'formatter-class' and 'category'
-	 * parameters, which will be provided by the NotificationsManager.
+	 * onBeforeCreateEchoEvent, *except* the 'category' parameters,
+	 * which will be provided by the NotificationsManager.
 	 *
 	 * @since 0.4 alpha
 	 *

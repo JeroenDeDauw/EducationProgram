@@ -24,18 +24,4 @@ class StudentAddNotification extends RoleAddNotification {
 	public function getKey() {
 		return StudentAddNotification::KEY;
 	}
-
-	/**
-	 * @since 0.4 alpha
-	 * @see EducationProgram.INotificationType::getParameters()
-	 */
-	public function getParameters() {
-		return array_merge( parent::getGenericParameters(),
-			array(
-				'title-message' => 'ep-student-add-notification-title',
-				'email-subject-message' => 'ep-student-add-notification-title-email-subject',
-				'email-body-batch-message' => 'ep-student-add-notification-title-email-body',
-			)
-		);
-	}
 }

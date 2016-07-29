@@ -117,25 +117,11 @@ class Extension {
 
 			$this->notificationsMgr = new NotificationsManager();
 
-			$this->notificationsMgr->registerTypeAndFormatter(
-				'EducationProgram\CourseTalkNotification',
-				'EducationProgram\CourseFormatter' );
-
-			$this->notificationsMgr->registerTypeAndFormatter(
-				'EducationProgram\StudentAddNotification',
-				'EducationProgram\CourseFormatter' );
-
-			$this->notificationsMgr->registerTypeAndFormatter(
-				'EducationProgram\InstructorAddNotification',
-				'EducationProgram\CourseFormatter' );
-
-			$this->notificationsMgr->registerTypeAndFormatter(
-				'EducationProgram\CampusAddNotification',
-				'EducationProgram\CourseFormatter' );
-
-			$this->notificationsMgr->registerTypeAndFormatter(
-				'EducationProgram\OnlineAddNotification',
-				'EducationProgram\CourseFormatter' );
+			$this->notificationsMgr->registerType( 'EducationProgram\CourseTalkNotification' );
+			$this->notificationsMgr->registerType( 'EducationProgram\StudentAddNotification' );
+			$this->notificationsMgr->registerType( 'EducationProgram\InstructorAddNotification' );
+			$this->notificationsMgr->registerType( 'EducationProgram\CampusAddNotification' );
+			$this->notificationsMgr->registerType( 'EducationProgram\OnlineAddNotification' );
 		}
 
 		return $this->notificationsMgr;

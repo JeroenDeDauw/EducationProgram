@@ -29,14 +29,13 @@ class NotificationsManager {
 
 	/**
 	 * An associative array. Keys are string keys that designate notification
-	 * types. Values are instances of NotificationTypeAndFormatter (defined
-	 * below).
+	 * types. Values are instances of notification type classes (implementing INotificationType).
 	 *
 	 * @since 0.4 alpha
 	 *
 	 * @var array
 	 */
-	private $typesAndFormattersByKey = array();
+	private $typesByKey = array();
 
 	/**
 	 * Get the string key for the EP notifications category.
@@ -50,21 +49,16 @@ class NotificationsManager {
 	}
 
 	/**
-	 * Register a notification type and a formatter to use with it.
+	 * Register a notification type.
 	 *
 	 * @since 0.4 alpha
 	 *
 	 * @param string $typeName The name of an implementation of
 	 *   EducationProgram/INotificationType
-	 * @param string $formatterName The name of a subclass of
-	 *   EchoNotificationFormatter
 	 */
-	public function registerTypeAndFormatter( $typeName, $formatterName ) {
-
+	public function registerType( $typeName ) {
 		$type = new $typeName();
-
-		$this->typesAndFormattersByKey[$type->getKey()] =
-			new NotificationTypeAndFormatter( $type, $formatterName );
+		$this->typesByKey[$type->getKey()] = $type;
 	}
 
 	/**
@@ -87,17 +81,14 @@ class NotificationsManager {
 			'tooltip' => 'ep-echo-pref-tooltip',
 		);
 
-		foreach ( $this->typesAndFormattersByKey
-			as $typeKey => $typeAndFormatter ) {
+		foreach ( $this->typesByKey as $typeKey => $type ) {
 
-			$type = $typeAndFormatter->type;
 			$params = $type->getParameters();
 
 			// tell Echo about the notification type
 			$notifications[$typeKey] = array_merge(
 				$params,
 				array(
-					'formatter-class' => $typeAndFormatter->formatterName,
 					'category' => NotificationsManager::CATEGORY,
 				)
 			);
@@ -126,9 +117,9 @@ class NotificationsManager {
 
 		$key = $event->getType();
 
-		if ( isset( $this->typesAndFormattersByKey[$key] ) ) {
-			$typeAndFormatter = $this->typesAndFormattersByKey[$key];
-			$typeAndFormatter->type->getUsersNotified( $event, $users );
+		if ( isset( $this->typesByKey[$key] ) ) {
+			$type = $this->typesByKey[$key];
+			$type->getUsersNotified( $event, $users );
 		}
 	}
 
@@ -141,12 +132,12 @@ class NotificationsManager {
 	 */
 	public function trigger( $key, array $parameters ) {
 
-		if ( !isset( $this->typesAndFormattersByKey[$key] ) ) {
+		if ( !isset( $this->typesByKey[$key] ) ) {
 			throw new \InvalidArgumentException(
 				'No notification type for key ' . $key );
 		}
 
-		$typeAndFormatter = $this->typesAndFormattersByKey[$key];
+		$type = $this->typesByKey[$key];
 
 		// Checking that Echo is installed. We're assuming that \EchoEvent will
 		// be used to trigger the notification, and that this is the only bit of
@@ -155,35 +146,7 @@ class NotificationsManager {
 			trigger_error( 'Tried to send a notification, couldn\'t find ' .
 				'the EchoEvent class. Is Echo installed?', E_USER_NOTICE );
 		} else {
-			$typeAndFormatter->type->trigger( $parameters );
+			$type->trigger( $parameters );
 		}
-	}
-}
-
-/**
- * Tiny utility class for associating notification types and formatters.
- *
- * @since 0.4 alpha
- *
- * @ingroup EducationProgram
- *
- * @license GNU GPL v2+
- * @author Andrew Green < agreen at wikimedia dot org >
- */
-class NotificationTypeAndFormatter {
-
-	/**
-	 * @var INotificationType
-	 */
-	public $type;
-
-	/**
-	 * @var string The name of a subclass of EchoNotificationFormatter.
-	 */
-	public $formatterName;
-
-	public function __construct( $type, $formatterName ) {
-		$this->type = $type;
-		$this->formatterName = $formatterName;
 	}
 }

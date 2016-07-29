@@ -31,25 +31,8 @@ class CourseTalkNotification implements INotificationType {
 	public function getParameters() {
 		return array(
 			'presentation-model' => 'EducationProgram\\PresentationModel\\CourseTalk',
-			'primary-link' => array(
-				'message' => 'ep-course-talk-link-text-view-message',
-				'destination' => 'title'
-			),
-			'secondary-link' => array(
-				'message' => 'ep-course-talk-link-text-view-changes',
-				'destination' => 'diff'
-			),
 			'group' => 'interactive',
 			'section' => 'message',
-
-			// The custom message param 'short-title-text' requires a custom
-			// notification formatter. See CourseFormatter.
-			'title-message' => 'ep-course-talk-notification-title',
-			'title-params' => array( 'agent', 'title', 'short-title-text' ),
-			'email-subject-message' => 'ep-course-talk-notification-title-email-subject',
-			'email-subject-params' => array( 'agent', 'short-title-text' ),
-			'email-body-batch-message' => 'ep-course-talk-notification-title-email-body',
-			'email-body-batch-params' => array( 'agent', 'short-title-text' ),
 			'icon' => 'ep-course-talk-icon',
 		);
 	}
@@ -114,8 +97,7 @@ class CourseTalkNotification implements INotificationType {
 		$revision = $params['revision'];
 
 		if ( $revision ) {
-			// 'revid' is used by the EchoBasicFormatter (which
-			// CourseFormatter inherits from) to generate the diff
+			// 'revid' is used to generate the diff
 			// destination, which we use in the secondary link.
 			$eventParams = array_merge(
 				$eventParams, array (

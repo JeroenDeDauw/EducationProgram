@@ -15,27 +15,17 @@ namespace EducationProgram;
 abstract class RoleAddNotification implements INotificationType {
 
 	/**
-	 * Returns the generic parameters that are identical across
+	 * Returns the parameters that are identical across
 	 * all roles for this notification.
 	 *
 	 * Subclasses should append to this array with role-specific
 	 * parameters in their implementation of getParameters().
 	 */
-	protected function getGenericParameters() {
+	public function getParameters() {
 		return array(
 			'presentation-model' => 'EducationProgram\\PresentationModel\\RoleAdd',
-			'primary-link' => array(
-				'message' => 'ep-role-add-link-text-view-course',
-				'destination' => 'title'
-			),
 			'group' => 'interactive',
 			'section' => 'alert',
-
-			// The custom message param 'short-title-text' requires a custom
-			// notification formatter. See CourseFormatter.
-			'title-params' => array( 'agent', 'title', 'short-title-text' ),
-			'email-subject-params' => array( 'agent', 'short-title-text' ),
-			'email-body-batch-params' => array( 'agent', 'short-title-text' ),
 			'icon' => 'ep-added-to-course-icon',
 		);
 	}

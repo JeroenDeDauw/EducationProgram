@@ -24,19 +24,4 @@ class InstructorAddNotification extends RoleAddNotification {
 	public function getKey() {
 		return InstructorAddNotification::KEY;
 	}
-
-	/**
-	 * @since 0.4 alpha
-	 * @see EducationProgram.INotificationType::getParameters()
-	 */
-	public function getParameters() {
-		return array_merge( parent::getGenericParameters(),
-			array(
-				'title-message' => 'ep-instructor-add-notification-title',
-				'email-subject-message' => 'ep-instructor-add-notification-title-email-subject',
-				'email-body-batch-message' => 'ep-instructor-add-notification-title-email-body',
-			)
-		);
-	}
-
 }
