@@ -160,6 +160,7 @@
 	"ep-campus-summary-input": "Laburpena:",
 	"ep-campus-name-input": "Erabiltzaile izena:",
 	"ep-timeline-cutoff": "$1 ...",
+	"ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}}(e)k {{PLURAL:$4|mezu}} utzi du(te) '''[[$3]]''' artikuluaren '''[[$2|eztabaida orrian]]'''.",
 	"ep-course-talk-link-text-view-message": "Ikusi mezua",
 	"ep-course-talk-link-text-view-changes": "Ikusi aldaketak",
 	"ep-role-add-link-text-view-course": "Ikusi ikastaroa"
