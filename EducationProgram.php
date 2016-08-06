@@ -31,10 +31,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-// This checks that compatible up-to-date version of MediaWiki is being used.
-if ( version_compare( $wgVersion, '1.21c', '<' ) ) { // Needs to be 1.21c because version_compare() works in confusing ways.
-	die( '<strong>Error:</strong> Education Program requires MediaWiki 1.21 or above.' );
-}
 
 // This is the version number for the Education Program extension. Bump it up after significant software changes.
 define( 'EP_VERSION', '0.5.0 alpha' );

@@ -76,7 +76,7 @@ class Settings {
 		static $settings = null;
 
 		if ( $settings === null ) {
-			$settings = new self( $GLOBALS['egEPSettings'] );
+			$settings = new self( $GLOBALS['wgEPSettings'] );
 		}
 
 		return $settings->getSetting( $settingName );

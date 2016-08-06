@@ -142,7 +142,7 @@ class Extension {
 		static $instance = null;
 
 		if ( $instance === null ) {
-			$instance = new static( new Settings( $GLOBALS['egEPSettings'] ) );
+			$instance = new static( new Settings( $GLOBALS['wgEPSettings'] ) );
 		}
 
 		return $instance;

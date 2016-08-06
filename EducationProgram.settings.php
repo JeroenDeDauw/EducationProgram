@@ -5,7 +5,7 @@ global $wgExtensionAssetsPath, $wgScriptPath;
 $epResourceDir = $egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions' : $wgExtensionAssetsPath;
 $epResourceDir .= '/EducationProgram/resources/';
 
-$egEPSettings = array(
+$wgEPSettings = array(
 	'enableTopLink' => true,
 	'ambassadorPictureDomains' => array(
 		'wikimedia.org'
