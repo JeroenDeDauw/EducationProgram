@@ -1,13 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Calak"
+			"Calak",
+			"Sarchia"
 		]
 	},
 	"ep-item-summary": "کورتە",
 	"ep-form-minor": "ئەمە دەستکارییەکی بچووکە",
+	"ep-tab-view": "خوێندنەوە",
+	"ep-tab-delete": "سڕینەوە",
 	"tooltip-ep-edit-institution": "ئەم دامەزراوەیە دەستکاری بکە",
 	"ep-pager-go": "بڕۆ",
+	"ep-pager-delete-selected": "سڕینەوە",
+	"epcoursepager-header-lang": "زمان",
+	"epcoursepager-filter-lang": "زمان",
 	"epstudentpager-yes": "بەڵێ",
 	"epstudentpager-no": "نا",
 	"epstudentpager-header-articles": "وتارەکان",
