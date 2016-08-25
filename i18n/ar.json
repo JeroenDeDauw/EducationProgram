@@ -142,7 +142,7 @@
 	"group-epcoordinator-member": "{{GENDER:$1|منسق المقرر|منسقة المقرر|منسق المقرر}}",
 	"grouppage-epcoordinator": "{{ns:project}}:منسقو المقرر",
 	"group-eponline": "سفراء وب لمنهج دراسي",
-	"group-eponline-member": "{{GENDER:$1|سفير الوب|سفيرة الوب|سفير الوب}}",
+	"group-eponline-member": "{{GENDER:$1|سفير الويب|سفيرة الويب|سفير الويب}}",
 	"grouppage-eponline": "{{ns:project}}:سفراء الويب",
 	"group-epcampus": "سفراء جامعة لمقرر",
 	"group-epcampus-member": "{{GENDER:$1|سفير الجامعة|سفيرة الجامعة|سفير الجامعة}}",
