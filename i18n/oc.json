@@ -116,6 +116,7 @@
 	"educationprogram-org-edit-city": "Vila",
 	"educationprogram-org-edit-country": "País",
 	"educationprogram-org-submit": "Mandar",
+	"educationprogram-org-invalid-country": "Es pas un país valid.",
 	"coursepage-edit-legend-add": "Apondre un cors",
 	"coursepage-edit-legend-edit": "Modificar lo cors",
 	"ep-course-edit-org": "Institucion",
