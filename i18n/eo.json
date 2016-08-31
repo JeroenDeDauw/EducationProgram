@@ -3,7 +3,8 @@
 		"authors": [
 			"KuboF",
 			"Yekrats",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Gamliel Fishkin"
 		]
 	},
 	"ep-item-summary": "Resumo",
@@ -29,6 +30,8 @@
 	"ep-nav-courses": "Listo de kursoj",
 	"ep-nav-mycourses": "Viaj kursoj",
 	"ep-nav-students": "Listo de lernantoj",
+	"prefs-education": "Edukado",
+	"ep-prefs-showtoplink": "Montri ligilon al [[Special:MyCourses|viaj kursoj]] supre de ĉiu paĝo.",
 	"right-ep-bulkdelorgs": "Amase forigi lernejojn",
 	"right-ep-bulkdelcourses": "Amase forigi kursojn",
 	"right-ep-remarticle": "Malasociigi artikolojn de lernantoj",
@@ -233,5 +236,6 @@
 	"ep-diff-new": "Nova valoro",
 	"ep-timeline-ago": "antaŭ $1",
 	"ep-timeline-cutoff": "$1 ...",
-	"ep-user-roles-message-additional": "{{GENDER:$1|Li|Ŝi|Ĝi}} ankaŭ estas $2."
+	"ep-user-roles-message-additional": "{{GENDER:$1|Li|Ŝi|Ĝi}} ankaŭ estas $2.",
+	"echo-category-title-education-program": "Eduka programo"
 }
