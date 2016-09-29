@@ -359,6 +359,7 @@
 	"ep-instructor-add-close-button": "Itxi",
 	"ep-instructor-add-retry": "Saiatu berriro",
 	"ep-instructor-add-self-title": "Ikastaro honetako {{GENDER:$1|irakasle}} bilakatu",
+	"ep-instructor-add-button": "Irakaslea gehitu",
 	"ep-instructor-add-self-button": "{{GENDER:$1|Irakasle}} bilakatu",
 	"ep-instructor-add-cancel-button": "Utzi",
 	"ep-instructor-summary-input": "Laburpena:",
