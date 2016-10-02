@@ -678,7 +678,7 @@
 	"epca-profile-invalid-bio": "您的简历需要包含至少$1字符。",
 	"epca-visible": "公开列出{{GENDER:$1|您}}为校园志愿者",
 	"ep-studentactivity-noresults": "在最近$1没有学生活跃。\n您可[[Special:Students|点此]]查看学生的完整列表。",
-	"ep-studentactivity-count": "在最近$2中有$1名学生活跃。",
+	"ep-studentactivity-count": "在最近$2中有{{PLURAL:$1|$1名学生}}活跃。",
 	"ep-diff-old": "当前值",
 	"ep-diff-new": "新值",
 	"ep-diff-previous": "旧有版本",

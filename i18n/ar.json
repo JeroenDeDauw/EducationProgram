@@ -13,7 +13,8 @@
 			"زكريا",
 			"محمد أحمد عبد الفتاح",
 			"Hiba Alshawi",
-			"Maroen1990"
+			"Maroen1990",
+			"ديفيد"
 		]
 	},
 	"educationprogram-desc": "وتساعد البرامج التعليمية عن طريق إضافات واجهات عديدة لإدارة المناهج والمؤسسات وأدوار المستفيدين من العملية التعليمية.",
@@ -656,6 +657,7 @@
 	"ep-timeline-ago": "قبل $1",
 	"ep-timeline-cutoff": "$1 ...",
 	"ep-timeline-no-summary": "''لم تقدم ملخصا''",
+	"ep-timeline-users-edit-article": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} عدل المقالة '''[[$2]]'''.",
 	"ep-timeline-users-edit-usertalk": "{{GENDER:$3|تلقى|تلقت}} '''[[User:$3|$3]]''' {{PLURAL:$4||رسالة|رسالتين|رسائل}} على '''[[$2|صفحة {{GENDER:$3|نقاشه|نقاشها}}]]'''.",
 	"ep-timeline-users-edit-user-self": "{{GENDER:$3|عدل|عدلت}} $1 '''[[$2|{{GENDER:$3|صفحته|صفحتها}}]]'''.",
 	"ep-timeline-users-edit-usertalk-self": "{{GENDER:$3|نشر|نشرت}} '''[[User:$3|$3]]''' {{PLURAL:$4||رسالة|رسالتين|رسائل}} على '''[[$2|صفحة {{GENDER:$3|نقاشه|نقاشها}}]]'''.",
