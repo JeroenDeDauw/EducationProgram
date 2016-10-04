@@ -137,8 +137,13 @@ class EditEventCreator {
 
 		if ( MWNamespace::isTalk( $title->getNamespace() ) && !is_null( $revision->getParentId() ) ) {
 			$diff = new Diff(
-				explode( "\n", Revision::newFromId( $revision->getParentId() )->getText() ),
-				explode( "\n", $revision->getText() )
+				explode(
+					"\n",
+					ContentHandler::getContentText(
+						Revision::newFromId( $revision->getParentId() )->getContent()
+					)
+				),
+				explode( "\n", ContentHandler::getContentText( $revision->getContent() ) )
 			);
 
 			// Only an order of magnitude more lines then the python equivalent, but oh well... >_>
