@@ -714,7 +714,7 @@
 	"ep-user-roles-message-rolename-instructor": "{{GENDER:$1|инструктор}}",
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|онлайн-волонтер}}",
 	"ep-user-roles-message-rolename-campus": "{{GENDER:$1|волонтер кампусов}}",
-	"echo-category-title-education-program": "Образовательная программа",
+	"echo-category-title-education-program": "образовательная программа",
 	"ep-echo-pref-tooltip": "Сообщите мне о событиях, связанных с курсами образовательной программы, в которых я участвую.",
 	"ep-course-talk-link-text-view-message": "Просмотр сообщения",
 	"ep-course-talk-link-text-view-changes": "Просмотр изменений",
