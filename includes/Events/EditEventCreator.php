@@ -12,6 +12,7 @@ use DatabaseBase;
 use MWNamespace;
 use Diff;
 use DiffOp;
+use ContentHandler;
 
 /**
  * Class that generates edit based events by handling new edits.
