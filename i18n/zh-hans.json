@@ -365,7 +365,7 @@
 	"ep-editcourse": "您正在编辑一个已经存在的课程。",
 	"ep-editcourse-exists-already": "此课程已存在。您正在编辑它。",
 	"ep-addstudents-section": "将学生添加至此课程",
-	"ep-addstudents-instructions": "键入您希望加入的学生的用户名。每个用户名后按回车键，或在出现的菜单上单击。您也可以粘贴用户名列表。\n当您完成时点击“{{int:ep-addstudents-btn}}”。",
+	"ep-addstudents-instructions": "键入您希望加入的学生的用户名。每个用户名后按回车键，或在出现的菜单上单击。您也可以粘贴用户名列表。\n\n当您完成时点击“{{int:ep-addstudents-btn}}”。",
 	"ep-addstudents-url-instructions": "注意学生也可以通过浏览器打开此链接加入他们自己：",
 	"ep-addstudents-invalid-users": "{{PLURAL:$1|该{{GENDER:$2|用户}}|这些用户}}不存在：$2。",
 	"ep-addstudents-btn": "添加",
