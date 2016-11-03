@@ -51,7 +51,11 @@ class ApiDeleteEducation extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		if ( !$this->userIsAllowed( $params['type'], $params ) || $this->getUser()->isBlocked() ) {
-			$this->dieUsageMsg( array( 'badaccess-groups' ) );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( 'apierror-permissiondenied-generic', 'permissiondenied' );
+			} else {
+				$this->dieUsageMsg( array( 'badaccess-groups' ) );
+			}
 		}
 
 		// If we're deleting institutions, we'll do some extra checks
@@ -65,9 +69,13 @@ class ApiDeleteEducation extends ApiBase {
 				$deletionHelper = new OrgDeletionHelper( $org, $this );
 
 				if ( !$deletionHelper->checkRestrictions() ) {
-
-					$this->dieUsage( $deletionHelper->getCantDeleteMsgPlain(),
-						'org_deletion_restriction');
+					if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+						$this->dieWithError( $deletionHelper->getCantDeleteMsg(),
+							'org_deletion_restriction');
+					} else {
+						$this->dieUsage( $deletionHelper->getCantDeleteMsgPlain(),
+							'org_deletion_restriction');
+					}
 				}
 			}
 		}

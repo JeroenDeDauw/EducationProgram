@@ -19,7 +19,11 @@ class ApiEnlist extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		if ( !( isset( $params['username'] ) XOR isset( $params['userid'] ) ) ) {
-			$this->dieUsage( $this->msg( 'ep-enlist-invalid-user-args' )->text(), 'username-xor-userid' );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( 'ep-enlist-invalid-user-args', 'username-xor-userid' );
+			} else {
+				$this->dieUsage( $this->msg( 'ep-enlist-invalid-user-args' )->text(), 'username-xor-userid' );
+			}
 		}
 
 		if ( isset( $params['username'] ) ) {
@@ -31,11 +35,19 @@ class ApiEnlist extends ApiBase {
 		}
 
 		if ( $userId < 1 ) {
-			$this->dieUsage( $this->msg( 'ep-enlist-invalid-user' )->text(), 'invalid-user' );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( 'ep-enlist-invalid-user', 'invalid-user' );
+			} else {
+				$this->dieUsage( $this->msg( 'ep-enlist-invalid-user' )->text(), 'invalid-user' );
+			}
 		}
 
 		if ( !$this->userIsAllowed( $userId, $params['role'], $params['subaction'] ) ) {
-			$this->dieUsageMsg( array( 'badaccess-groups' ) );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( 'apierror-permissiondenied-generic', 'permissiondenied' );
+			} else {
+				$this->dieUsageMsg( array( 'badaccess-groups' ) );
+			}
 		}
 
 		$roleMap = array(
@@ -53,7 +65,11 @@ class ApiEnlist extends ApiBase {
 		$course = Courses::singleton()->selectRow( array( 'id', 'name', 'title', $field ), array( 'id' => $params['courseid'] ) );
 
 		if ( $course === false ) {
-			$this->dieUsage( $this->msg( 'ep-enlist-invalid-course' )->text(), 'invalid-course' );
+			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				$this->dieWithError( 'ep-enlist-invalid-course', 'invalid-course' );
+			} else {
+				$this->dieUsage( $this->msg( 'ep-enlist-invalid-course' )->text(), 'invalid-course' );
+			}
 		}
 
 		$revAction = new RevisionAction();

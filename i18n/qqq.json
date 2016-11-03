@@ -764,5 +764,6 @@
 	"apihelp-refresheducation-param-ids": "{{doc-apihelp-param|refresheducation|ids}}",
 	"apihelp-refresheducation-param-type": "{{doc-apihelp-param|refresheducation|type}}",
 	"apihelp-refresheducation-example-1": "{{doc-apihelp-example|refresheducation}}",
-	"apihelp-refresheducation-example-2": "{{doc-apihelp-example|refresheducation}}"
+	"apihelp-refresheducation-example-2": "{{doc-apihelp-example|refresheducation}}",
+	"apierror-educationprogram-overlimit": "{{doc-apierror}}\n\nParameters:\n* $1 - Course ID"
 }
