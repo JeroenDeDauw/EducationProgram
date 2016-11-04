@@ -712,7 +712,7 @@
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]]是$3个课程中的教师。",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]]是$3个课程中的在线志愿者。",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]]是$3个课程中的校园志愿者。",
-	"ep-user-roles-message-additional": "{{GENDER:$1|他也是|她也是|他们也都是}}$2。",
+	"ep-user-roles-message-additional": "{{GENDER:$1|他|她|他}}也是$2。",
 	"ep-user-roles-message-rolename-student": "{{GENDER:$1|一名学生}}",
 	"ep-user-roles-message-rolename-instructor": "{{GENDER:$1|教师}}",
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|一名在线志愿者}}",
