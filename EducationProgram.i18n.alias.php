@@ -644,22 +644,22 @@ $specialPageAliases['tr'] = array(
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
-	'MyCourses' => array( 'Мої_курси' ),
-	'ManageCourses' => array( 'Керувати_курсами' ),
-	'Institutions' => array( 'Інституції', 'Орг-ції' ),
+	'MyCourses' => array( 'Мої_курси', 'Мои_курсы' ),
+	'ManageCourses' => array( 'Керувати_курсами', 'Управление_курсами' ),
+	'Institutions' => array( 'Інституції', 'Орг-ції', 'Учебные_заведения' ),
 	'Student' => array( 'Студент' ),
-	'Students' => array( 'Студенти' ),
-	'Courses' => array( 'Курси' ),
-	'EducationProgram' => array( 'Освітня_Програма' ),
-	'Enroll' => array( 'Записатись' ),
-	'Disenroll' => array( 'Відписатись' ),
+	'Students' => array( 'Студенти', 'Студенты' ),
+	'Courses' => array( 'Курси', 'Курсы' ),
+	'EducationProgram' => array( 'Освітня_Програма', 'Образовательная_программа' ),
+	'Enroll' => array( 'Записатись', 'Зарегистрировать' ),
+	'Disenroll' => array( 'Відписатись', 'Исключить' ),
 	'CampusAmbassadors' => array( 'Добровольці_кампусу' ),
 	'OnlineAmbassadors' => array( 'Онлайн-добровольці' ),
 	'OnlineAmbassadorProfile' => array( 'Профіль_добровольця_кампусу' ),
 	'CampusAmbassadorProfile' => array( 'Профіль_онлайн-добровольця' ),
-	'StudentActivity' => array( 'Активність_студента' ),
-	'Articles' => array( 'Статті' ),
-	'CourseActivity' => array( 'Активність_на_курсі' ),
+	'StudentActivity' => array( 'Активність_студента', 'Активность_студента' ),
+	'Articles' => array( 'Статті', 'Статьи' ),
+	'CourseActivity' => array( 'Активність_на_курсі', 'Активность_на_курсе' ),
 );
 
 /** Urdu (اردو) */
