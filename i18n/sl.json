@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eleassar"
+			"Eleassar",
+			"Janezdrilc"
 		]
 	},
 	"ep-course-edit-description": "Besedilo strani",
-	"ep-course-edit-title": "Naslov strani"
+	"ep-course-edit-title": "Naslov strani",
+	"echo-category-title-education-program": "Izobraževalni program",
+	"ep-echo-pref-tooltip": "Obvesti me o dogodkih v zvezi z izobraževalnim programom, v katerem sodelujem."
 }
