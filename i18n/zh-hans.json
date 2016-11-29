@@ -338,7 +338,7 @@
 	"orgpage-edit-title-edit": "编辑机构：$1",
 	"orgpage-edit-title-add": "添加机构：$1",
 	"orgpage-edit-deleted": "'''警告：您正在重新创建之前曾被删除过的机构。'''\n\n您应当考虑是否应当继续再次创建该机构。\n为了方便参考，下面提供该机构的删除日志：",
-	"orgpage-edit-undelete-revisions": "该机构已被删除。你可以$1。",
+	"orgpage-edit-undelete-revisions": "该机构已被删除。您可以$1。",
 	"orgpage-edit-undelete-link": "还原$1个{{PLURAL:$1|版本}}",
 	"educationprogram-org-invalid-name": "名称需要包含至少$1个字符。",
 	"educationprogram-org-invalid-city": "城市名需要包含至少$1个字符。",
