@@ -115,6 +115,26 @@ $specialPageAliases['bgn'] = array(
 	'CourseActivity' => array( 'سبق_ئی_پئالیت' ),
 );
 
+/** Bengali (বাংলা) */
+$specialPageAliases['bn'] = array(
+	'MyCourses' => array( 'আমার_কোর্স' ),
+	'ManageCourses' => array( 'কোর্স_পরিচালনা' ),
+	'Institutions' => array( 'প্রতিষ্ঠান', 'অর্গ' ),
+	'Student' => array( 'শিক্ষার্থী' ),
+	'Students' => array( 'ছাত্রছাত্রী' ),
+	'Courses' => array( 'কোর্স' ),
+	'EducationProgram' => array( 'শিক্ষা_কর্মসূচী' ),
+	'Enroll' => array( 'তালিকাভুক্ত' ),
+	'Disenroll' => array( 'অ-তালিকাভুক্ত' ),
+	'CampusAmbassadors' => array( 'ক্যাম্পাস_স্বেচ্ছাসেবক', 'ক্যাম্পাস_দূত' ),
+	'OnlineAmbassadors' => array( 'অনলাইন_স্বেচ্ছাসেবক', 'অনলাইন_দূত' ),
+	'OnlineAmbassadorProfile' => array( 'অনলাইন_স্বেচ্ছাসেবকের_প্রোফাইল', 'অনলাইন_দূতের_প্রোফাইল' ),
+	'CampusAmbassadorProfile' => array( 'ক্যাম্পাস_স্বেচ্ছাসেবকের_প্রোফাইল', 'ক্যাম্পাস_দূতের_প্রোফাইল' ),
+	'StudentActivity' => array( 'শিক্ষার্থীর_কার্যক্রম', 'শিক্ষার্থীর_কার্যকলাপ' ),
+	'Articles' => array( 'নিবন্ধসমূহ' ),
+	'CourseActivity' => array( 'কোর্সের_কার্যক্রম', 'কোর্সের_কার্যকলাপ' ),
+);
+
 /** буряад (буряад) */
 $specialPageAliases['bxr'] = array(
 	'Student' => array( 'Оюутан' ),
