@@ -744,5 +744,6 @@
 	"apihelp-refresheducation-param-ids": "The IDs of the objects to refresh.",
 	"apihelp-refresheducation-param-type": "Type of object to refresh.",
 	"apihelp-refresheducation-example-1": "Refresh course 42",
-	"apihelp-refresheducation-example-2": "Refresh students 2 and 4"
+	"apihelp-refresheducation-example-2": "Refresh students 2 and 4",
+	"apierror-educationprogram-overlimit": "Query exceeded limit with course $1. Try again with fewer courses."
 }

@@ -93,12 +93,19 @@ class OrgDeletionHelper {
 	 * Returns a plain-text message explaining why the institution can't be
 	 * deleted.
 	 */
-	public function getCantDeleteMsgPlain() {
+	public function getCantDeleteMsg() {
 
 		$msgInfo = $this->getCantDeleteMsgKeyAndParams( true );
 
-		return $this->context->msg( $msgInfo['key'],
-				$msgInfo['params'] )->plain();
+		return $this->context->msg( $msgInfo['key'], $msgInfo['params'] );
+	}
+
+	/**
+	 * Returns a plain-text message explaining why the institution can't be
+	 * deleted.
+	 */
+	public function getCantDeleteMsgPlain() {
+		return $this->getCantDeleteMsg()->plain();
 	}
 
 	/**
