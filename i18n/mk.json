@@ -739,5 +739,6 @@
 	"apihelp-refresheducation-param-ids": "Назнаки на објектите за превчитување.",
 	"apihelp-refresheducation-param-type": "Тип на објект за превчитување.",
 	"apihelp-refresheducation-example-1": "Превчитај го курсот 42",
-	"apihelp-refresheducation-example-2": "Превчитај ги учениците 2 и 4"
+	"apihelp-refresheducation-example-2": "Превчитај ги учениците 2 и 4",
+	"apierror-educationprogram-overlimit": "Барањето ја надмина границата со курсот $1. Пробајте со помалку курсеви."
 }
