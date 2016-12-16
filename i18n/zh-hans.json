@@ -761,5 +761,6 @@
 	"apihelp-refresheducation-param-ids": "要刷新的对象ID。",
 	"apihelp-refresheducation-param-type": "要刷新的对象类型。",
 	"apihelp-refresheducation-example-1": "刷新课程42",
-	"apihelp-refresheducation-example-2": "刷新学生2和4"
+	"apihelp-refresheducation-example-2": "刷新学生2和4",
+	"apierror-educationprogram-overlimit": "查询超过课程$1的限制。请减少课程数量后重试。"
 }
