@@ -754,5 +754,6 @@
 	"apihelp-refresheducation-param-ids": "המזהים של העצמים לרענון.",
 	"apihelp-refresheducation-param-type": "סוג העצם לרענון.",
 	"apihelp-refresheducation-example-1": "רענון קורס 42",
-	"apihelp-refresheducation-example-2": "רענון סטודנטים 2 ו־4"
+	"apihelp-refresheducation-example-2": "רענון סטודנטים 2 ו־4",
+	"apierror-educationprogram-overlimit": "השאילתה עברה את הסף עם הקורס $1. נא לנסות שוב עם פחות קורסים."
 }
