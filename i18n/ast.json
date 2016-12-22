@@ -739,5 +739,6 @@
 	"apihelp-refresheducation-param-ids": "Los identificadores de los oxetos a refrescar.",
 	"apihelp-refresheducation-param-type": "Tipu d'oxetu a refrescar.",
 	"apihelp-refresheducation-example-1": "Refrescar el cursu 42",
-	"apihelp-refresheducation-example-2": "Refrescar los estudiantes 2 y 4"
+	"apihelp-refresheducation-example-2": "Refrescar los estudiantes 2 y 4",
+	"apierror-educationprogram-overlimit": "La consulta pasó de la llende col cursu $1. TTenta de nueves con menos cursos."
 }
