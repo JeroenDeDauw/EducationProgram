@@ -760,5 +760,6 @@
 	"apihelp-refresheducation-param-ids": "Los identificadores de los objetos que se actualizarán.",
 	"apihelp-refresheducation-param-type": "Tipo de objeto que se actualizará.",
 	"apihelp-refresheducation-example-1": "Actualizar curso 42",
-	"apihelp-refresheducation-example-2": "Actualizar estudiantes 2 y 4"
+	"apihelp-refresheducation-example-2": "Actualizar estudiantes 2 y 4",
+	"apierror-educationprogram-overlimit": "La consulta sobrepasó el límite con el curso $1. Vuelve a intentarlo con menos cursos."
 }
