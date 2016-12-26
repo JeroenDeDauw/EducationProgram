@@ -6,7 +6,8 @@
 			"Marmase",
 			"Mirzali",
 			"Kumkumuk",
-			"Asmen"
+			"Asmen",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"ep-item-summary": "Xulasa",
@@ -14,7 +15,7 @@
 	"ep-form-summary": "Xulasa:",
 	"ep-form-minor": "No yew vurnayışo werdiyo",
 	"ep-student-view-profile": "profilê telebi",
-	"ep-tab-view": "Bıwane",
+	"ep-tab-view": "Buwan",
 	"ep-tab-edit": "Bıvurne",
 	"ep-tab-create": "Vıraze",
 	"ep-tab-history": "Tarixê pele bıvêne",
@@ -41,6 +42,7 @@
 	"special-students": "Telebey",
 	"special-courses": "Kursi",
 	"special-enroll": "Bıloğne",
+	"special-articles": "Wesiqey (Programé Musnayışi)",
 	"ep-course-status-current": "Nıkayên",
 	"ep-course-status-planned": "Planiya",
 	"ep-educationprogram-courses": "Amariya kursan",
