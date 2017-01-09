@@ -739,7 +739,7 @@
 	"apihelp-liststudents-param-prop": "Welke eigenschap om voor elke leerling:\n;gebruikersnaam:De gebruikersnaam van de student.\n;id:de ID van De gebruiker van de student.",
 	"apihelp-liststudents-param-group": "Als gegeven, wordt de query aan de groep studenten per cursus.",
 	"apihelp-liststudents-param-csv": "Indien opgegeven, retourneert de zoekopdracht gebruikersnamen in CSV-opmaak, en voegt daar de pagina's aan toe die aan die studenten zijn toegewezen.",
-	"apihelp-liststudents-example-1": "Lijst van studenten in de cursus 3",
+	"apihelp-liststudents-example-1": "Lijst van studenten in cursus 3",
 	"apihelp-liststudents-example-2": "Lijst van studenten in de vakken 3, 4, 5, en 6, gegroepeerd per cursus, in CSV-formaat",
 	"apihelp-liststudents-example-3": "Lijst leerlingen met een user ID in de vakken 3, 4, 5, en 6, gegroepeerd per cursus, in CSV-formaat",
 	"apihelp-refresheducation-description": "Rebuild overzicht gegevens van de Opleiding objecten.",
