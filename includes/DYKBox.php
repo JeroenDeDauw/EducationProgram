@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use IContextSource;
 use Html;
 use WikiPage;
@@ -57,14 +58,13 @@ class DYKBox extends \ContextSource {
 
 		if ( $title === false ) {
 			return '';
-		}
-		else {
+		} else {
 			$html .= $this->getOutput()->parse( $this->getArticleContent( $title ) );
 		}
 
 		$html = Html::rawElement(
 			'div',
-			array( 'class' => 'didyouknow' ),
+			[ 'class' => 'didyouknow' ],
 			$html
 		);
 
@@ -79,9 +79,9 @@ class DYKBox extends \ContextSource {
 	 * @return array
 	 */
 	public static function getModules() {
-		return array(
+		return [
 			'ep.dyk'
-		);
+		];
 	}
 
 	/**
@@ -163,14 +163,14 @@ class DYKBox extends \ContextSource {
 		$randomFunction = $dbr->getType() === 'sqlite' ? 'RANDOM()' : 'RAND()';
 
 		$res = $dbr->selectRow(
-			array( 'page', 'categorylinks' ),
-			array( 'page_namespace', 'page_title' ),
-			array(
+			[ 'page', 'categorylinks' ],
+			[ 'page_namespace', 'page_title' ],
+			[
 				'cl_from=page_id',
 				'cl_to' => Title::newFromText( $categoryName, NS_CATEGORY )->getDBkey()
-			),
+			],
 			__METHOD__,
-			array( 'ORDER BY' => $randomFunction )
+			[ 'ORDER BY' => $randomFunction ]
 		);
 
 		if ( $res !== false ) {

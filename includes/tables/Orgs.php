@@ -49,7 +49,7 @@ class Orgs extends PageTable {
 	 * @return array
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id' => 'id',
 
 			'name' => 'str',
@@ -66,7 +66,7 @@ class Orgs extends PageTable {
 			'last_active_date' => 'str', // TS_MW
 
 			'touched' => 'str', // TS_MW
-		);
+		];
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Orgs extends PageTable {
 	 * @return array
 	 */
 	public function getDefaults() {
-		return array(
+		return [
 			'name' => '',
 			'city' => '',
 			'country' => '',
@@ -86,9 +86,9 @@ class Orgs extends PageTable {
 			'instructor_count' => 0,
 			'ca_count' => 0,
 			'oa_count' => 0,
-			'courses' => array(),
+			'courses' => [],
 			'last_active_date' => '19700101000000',
-		);
+		];
 	}
 
 	/**
@@ -97,7 +97,7 @@ class Orgs extends PageTable {
 	public function getRevertibleFields() {
 		return array_diff(
 			array_keys( $this->getFields() ),
-			array_merge( array( 'id' ), $this->getSummaryFields() )
+			array_merge( [ 'id' ], $this->getSummaryFields() )
 		);
 	}
 
@@ -116,7 +116,7 @@ class Orgs extends PageTable {
 	 * @return array
 	 */
 	public function getSummaryFields() {
-		return array(
+		return [
 			'course_count',
 			'student_count',
 			'instructor_count',
@@ -124,7 +124,7 @@ class Orgs extends PageTable {
 			'ca_count',
 			'courses',
 			'last_active_date',
-		);
+		];
 	}
 
 	/**
@@ -175,7 +175,7 @@ class Orgs extends PageTable {
 	/**
 	 * @see ORMTable::updateSummaryFields()
 	 */
-	public function updateSummaryFields( $summaryFields = null, array $conditions = array() ) {
+	public function updateSummaryFields( $summaryFields = null, array $conditions = [] ) {
 
 		// We know that updating summary fields will involve reading data about
 		// courses. If $read_master_for_summraies is set, make sure that

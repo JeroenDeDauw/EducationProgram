@@ -29,12 +29,12 @@ class CourseTalkNotification implements INotificationType {
 	 * @see EducationProgram.INotificationType::getParameters()
 	 */
 	public function getParameters() {
-		return array(
+		return [
 			'presentation-model' => 'EducationProgram\\PresentationModel\\CourseTalk',
 			'group' => 'interactive',
 			'section' => 'message',
 			'icon' => 'ep-course-talk-icon',
-		);
+		];
 	}
 
 	/**
@@ -42,7 +42,7 @@ class CourseTalkNotification implements INotificationType {
 	 * @see EducationProgram.INotificationType::getIconParameters()
 	 */
 	public function getIconParameters() {
-		return array( 'path' => 'EducationProgram/resources/images/course-talk-notification.png' );
+		return [ 'path' => 'EducationProgram/resources/images/course-talk-notification.png' ];
 	}
 
 	/**
@@ -83,16 +83,16 @@ class CourseTalkNotification implements INotificationType {
 
 		// Don't send notifications for sub-talk-pages or if if the course
 		// doesn't exist. Note: the second check depends on the first one.
-		if ( Utils::isCourseSubPage( $title) ||
+		if ( Utils::isCourseSubPage( $title ) ||
 			!Courses::singleton()->getFromTitle( $title ) ) {
 			return;
 		}
 
-		$eventParams = array(
+		$eventParams = [
 			'type' => CourseTalkNotification::KEY,
 			'title' => $title,
 			'agent' => $params['agent'],
-		);
+		];
 
 		$revision = $params['revision'];
 
@@ -100,9 +100,9 @@ class CourseTalkNotification implements INotificationType {
 			// 'revid' is used to generate the diff
 			// destination, which we use in the secondary link.
 			$eventParams = array_merge(
-				$eventParams, array (
-					'extra' => array( 'revid' => $revision->getId() )
-				)
+				$eventParams, [
+					'extra' => [ 'revid' => $revision->getId() ]
+				]
 			);
 		}
 

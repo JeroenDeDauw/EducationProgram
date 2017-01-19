@@ -29,7 +29,7 @@ class ArticleTable extends EPPager {
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $articles = array();
+	protected $articles = [];
 
 	/**
 	 * Id of the course all articles should belong to.
@@ -82,7 +82,7 @@ class ArticleTable extends EPPager {
 	 * @param Course $course The course object or these articles. Should be sent
 	 *   when the table is for only one course.
 	 */
-	public function __construct( IContextSource $context, array $conds = array(),
+	public function __construct( IContextSource $context, array $conds = [],
 			$courseIds, array $userIds = null, $course = null ) {
 		$this->mDefaultDirection = true;
 		$this->courseIds = (array)$courseIds;
@@ -121,7 +121,7 @@ class ArticleTable extends EPPager {
 	 * @see Pager::getFields()
 	 */
 	public function getFields() {
-		$fields = array( 'id' );
+		$fields = [ 'id' ];
 
 		if ( $this->showStudents ) {
 			$fields[] = 'user_id';
@@ -168,7 +168,7 @@ class ArticleTable extends EPPager {
 			// we received a valid $this->course object, and the user is
 			// an instructor, an online ambassador or a campus ambassador
 			// for this course.
-			( !is_null($this->course) && ( RoleObject::isInRoleObjArray(
+			( !is_null( $this->course ) && ( RoleObject::isInRoleObjArray(
 				$userId, $this->course->getAllNonStudentRoleObjs() ) ) ) ) ) {
 
 				$showArticleAddition = true;
@@ -197,7 +197,7 @@ class ArticleTable extends EPPager {
 
 		// one extra row for showing the article addition control (which spans the
 		// last two columns)
-		if ($showArticleAddition) {
+		if ( $showArticleAddition ) {
 			$rowCount++;
 		}
 
@@ -206,9 +206,9 @@ class ArticleTable extends EPPager {
 
 		$studentUserId = $student->getField( 'user_id' );
 
-		$html = Html::openElement( 'tr', array_merge (
+		$html = Html::openElement( 'tr', array_merge(
 				$this->getRowAttrs( $row ),
-				array( 'data-user-id' => $studentUserId )
+				[ 'data-user-id' => $studentUserId ]
 		) );
 
 		if ( $this->showStudents ) {
@@ -250,7 +250,7 @@ class ArticleTable extends EPPager {
 
 			$articleRowCount = count( $reviewers );
 
-			if ($canBecomeReviewer) {
+			if ( $canBecomeReviewer ) {
 				$articleRowCount++;
 			}
 
@@ -276,8 +276,7 @@ class ArticleTable extends EPPager {
 				}
 
 				$html .= $this->getReviewerAdditionControl( $article );
-			}
-			elseif ( count( $reviewers ) === 0 ) {
+			} elseif ( count( $reviewers ) === 0 ) {
 				$html .= '<td></td>';
 			}
 		}
@@ -288,8 +287,7 @@ class ArticleTable extends EPPager {
 			}
 
 			$html .= $this->getArticleAdditionControl( reset( $this->courseIds ), $studentUserId );
-		}
-		elseif ( $isFirst ) {
+		} elseif ( $isFirst ) {
 			$html .= '<td></td><td></td>';
 		}
 	}
@@ -317,9 +315,9 @@ class ArticleTable extends EPPager {
 				$userId,
 				$user->getName(),
 				$this->getContext(),
-				array( Html::element(
+				[ Html::element(
 					'a',
-					array(
+					[
 						'href' => '#',
 						'data-user-id' => $userId,
 						'data-course-id' => reset( $this->courseIds ),
@@ -327,12 +325,11 @@ class ArticleTable extends EPPager {
 						'data-course-name' => $this->getCourseName(),
 						'data-token' => $this->getUser()->getEditToken( reset( $this->courseIds ) . 'remstudent' . $userId ),
 						'class' => 'ep-rem-student',
-					),
+					],
 					$this->msg( 'ep-articles-remstudent' )->text()
-				) )
+				) ]
 			);
-		}
-		else {
+		} else {
 			$html .= Utils::getToolLinks( $userId, $user->getName(), $this->getContext() );
 		}
 
@@ -340,7 +337,7 @@ class ArticleTable extends EPPager {
 			'td',
 			array_merge(
 				$this->getCellAttrs( 'user_id', $userId ),
-				array( 'rowspan' => $rowSpan )
+				[ 'rowspan' => $rowSpan ]
 			),
 			$html
 		);
@@ -358,9 +355,9 @@ class ArticleTable extends EPPager {
 		if ( $this->courseName === false ) {
 			$this->courseName = Courses::singleton()->selectFieldsRow(
 				'name',
-				array(
+				[
 					'id' => $this->courseIds
-				)
+				]
 			);
 		}
 
@@ -391,13 +388,13 @@ class ArticleTable extends EPPager {
 			);
 		}
 
-		$attr = array(
+		$attr = [
 			'href' => '#',
 			'data-article-id' => $article->getId(),
 			'data-article-name' => $titleText,
 			'data-token' => $this->getUser()->getEditToken( 'remarticle' . $article->getId() ),
 			'class' => 'ep-rem-article',
-		);
+		];
 
 		$user = $this->getUser();
 
@@ -409,9 +406,9 @@ class ArticleTable extends EPPager {
 			$attr['data-course-name'] = $this->getCourseName();
 
 			$title = Courses::singleton()->getTitleFor( $this->getCourseName() );
-			$attr['data-remove-target'] = $title->getLocalURL( array(
+			$attr['data-remove-target'] = $title->getLocalURL( [
 				'returnto' => $this->getTitle()->getFullText(),
-			) );
+			] );
 
 			if ( $article->userCanRemove( $user ) ) {
 				$html .= ' (' . Html::element(
@@ -426,7 +423,7 @@ class ArticleTable extends EPPager {
 			'td',
 			array_merge(
 				$this->getCellAttrs( 'articles', $article ),
-				array( 'rowspan' => $rowSpan )
+				[ 'rowspan' => $rowSpan ]
 			),
 			$html
 		);
@@ -467,9 +464,9 @@ class ArticleTable extends EPPager {
 				$userId,
 				$name,
 				$this->getContext(),
-				array( Html::element(
+				[ Html::element(
 					'a',
-					array(
+					[
 						'href' => '#',
 						'data-user-id' => $userId,
 						'data-article-id' => $article->getId(),
@@ -479,28 +476,26 @@ class ArticleTable extends EPPager {
 						'data-reviewer-id' => $user->getId(),
 						'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
 						'class' => 'ep-rem-reviewer',
-					),
+					],
 					$this->msg( 'ep-articles-remreviewer' )->text()
-				) )
+				) ]
 			);
-		}
-		elseif ( $this->getUser()->getId() === $userId ) {
+		} elseif ( $this->getUser()->getId() === $userId ) {
 			$html .= Linker::userToolLinks( $userId, $name );
 			$html .= '<br />';
 			$html .= Html::element(
 				'button',
-				array(
+				[
 					'class' => 'ep-rem-reviewer-self',
 					'disabled' => 'disabled',
 					'data-article-id' => $article->getId(),
 					'data-article-name' => $titleText,
 					'data-student-name' => $article->getUser()->getName(),
 					'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
-				),
+				],
 				$this->msg( 'ep-articles-remreviewer-self' )->text()
 			);
-		}
-		else {
+		} else {
 			$html .= Linker::userToolLinks( $userId, $name );
 		}
 
@@ -521,8 +516,8 @@ class ArticleTable extends EPPager {
 	 * @return string
 	 */
 	protected function getArticleAdditionControl( $courseId, $studentUserId ) {
-		$courseTitle = Courses::singleton()->selectFieldsRow( 'title', array( 'id' => $courseId ) );
-		$query = array( 'action' => 'epaddarticle' );
+		$courseTitle = Courses::singleton()->selectFieldsRow( 'title', [ 'id' => $courseId ] );
+		$query = [ 'action' => 'epaddarticle' ];
 
 		if ( $this->getTitle()->getNamespace() !== EP_NS && !Utils::isCourse( $this->getTitle() ) ) {
 			$query['returnto'] = $this->getTitle()->getFullText();
@@ -530,10 +525,10 @@ class ArticleTable extends EPPager {
 
 		$html = Html::openElement(
 			'form',
-			array(
+			[
 				'method' => 'post',
 				'action' => Courses::singleton()->getTitleFor( $courseTitle )->getLocalURL( $query ),
-			)
+			]
 		);
 
 		$html .=  Xml::inputLabel(
@@ -542,20 +537,20 @@ class ArticleTable extends EPPager {
 			'addarticlename',
 			false,
 			false,
-			array ( 'class' => 'ep-addarticlename' )
+			[ 'class' => 'ep-addarticlename' ]
 		);
 
 		$html .= '&#160;' . Html::input(
 			'addarticle',
 			$this->msg( 'ep-articles-addarticle-button' )->text(),
 			'submit',
-			array(
+			[
 				'class' => 'ep-addarticle',
-			)
+			]
 		);
 
 		$html .= Html::hidden( 'course-id', $courseId );
-		$html .= Html::hidden( 'token', $this->getUser()->getEditToken( 'addarticle' . $courseId . $studentUserId) );
+		$html .= Html::hidden( 'token', $this->getUser()->getEditToken( 'addarticle' . $courseId . $studentUserId ) );
 		$html .= Html::hidden( 'student-user-id', $studentUserId );
 
 		$html .= '</form>';
@@ -578,14 +573,14 @@ class ArticleTable extends EPPager {
 
 		$html = Html::element(
 			'button',
-			array(
+			[
 				'class' => 'ep-become-reviewer',
 				'disabled' => 'disabled',
 				'data-article-id' => $article->getId(),
 				'data-article-name' => $titleText,
 				'data-user-name' => $article->getUser()->getName(),
 				'data-token' => $this->getUser()->getEditToken( 'addreviewer' . $article->getId() ),
-			),
+			],
 			$this->msg( 'ep-articles-becomereviewer' )->text()
 		);
 
@@ -595,14 +590,16 @@ class ArticleTable extends EPPager {
 	/**
 	 * @see Pager::getFormattedValue()
 	 */
-	protected function getFormattedValue( $name, $value ) { /* ... */ }
+	protected function getFormattedValue( $name, $value ) {
+	/* ... */
+	}
 
 	/**
 	 * @see Pager::getSortableFields()
 	 */
 	protected function getSortableFields() {
-		return array(
-		);
+		return [
+		];
 	}
 
 	/**
@@ -634,12 +631,12 @@ class ArticleTable extends EPPager {
 	 * @see IndexPager::doBatchLookups()
 	 */
 	protected function doBatchLookups() {
-		$userIds = array();
+		$userIds = [];
 		$field = $this->table->getPrefixedField( 'user_id' );
 
 		foreach ( $this->mResult as $student ) {
 			$userIds[] = $student->$field;
-			$this->articles[$student->$field] = array();
+			$this->articles[$student->$field] = [];
 		}
 
 		$articles = Extension::globalInstance()->newArticleStore()->getArticlesByCourseAndUsers(

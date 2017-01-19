@@ -1,7 +1,11 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Html, Linker, Title;
+
+use IContextSource;
+use Html;
+use Linker;
+use Title;
 
 /**
  * Static class with utility functions for the Education Program extension.
@@ -55,7 +59,7 @@ class Utils {
 	 */
 	public static function getCountryOptions( $langCode ) {
 		return array_merge(
-			array( '' => '' ),
+			[ '' => '' ],
 			self::getValuesAppendedKeys( \CountryNames::getNames( $langCode ) )
 		);
 	}
@@ -72,7 +76,7 @@ class Utils {
 	 */
 	public static function getLanguageOptions( $langCode ) {
 		return array_merge(
-			array( '' => '' ),
+			[ '' => '' ],
 			self::getValuesAppendedKeys( \Language::fetchLanguageNames( $langCode ) )
 		);
 	}
@@ -91,7 +95,7 @@ class Utils {
 			array_map(
 				function( $value, $key ) {
 					return $key . ' - ' . $value;
-				} ,
+				},
 				array_values( $list ),
 				array_keys( $list )
 			),
@@ -112,7 +116,7 @@ class Utils {
 	 */
 	public static function getRoleToolLinks( IRole $role, IContextSource $context, Course $course = null ) {
 		$roleName = $role->getRoleName();
-		$links = array();
+		$links = [];
 
 		$user = $role->getUser();
 
@@ -120,7 +124,7 @@ class Utils {
 			( $context->getUser()->isAllowed( 'ep-' . $roleName ) || $user->getId() == $context->getUser()->getId() ) ) {
 			$links[] = Html::element(
 				'a',
-				array(
+				[
 					'href' => '#',
 					'class' => 'ep-remove-role',
 					'data-role' => $roleName,
@@ -129,7 +133,7 @@ class Utils {
 					'data-userid' => $user->getId(),
 					'data-username' => $user->getName(),
 					'data-bestname' => $role->getName(),
-				),
+				],
 				// Give grep a chance to find the usages:
 				// ep-instructor-remove, ep-campus-remove, ep-online-remove
 				$context->msg( 'ep-' . $roleName . '-remove' )->text()
@@ -153,8 +157,8 @@ class Utils {
 	 *
 	 * @return string
 	 */
-	public static function getToolLinks( $userId, $userName, IContextSource $context, array $extraLinks = array() ) {
-		$links = array();
+	public static function getToolLinks( $userId, $userName, IContextSource $context, array $extraLinks = [] ) {
+		$links = [];
 
 		$links[] = Linker::userTalkLink( $userId, $userName );
 
@@ -163,9 +167,9 @@ class Utils {
 			$context->msg( 'contribslink' )->escaped()
 		);
 
-                // Add a link showing all the user subpages for the user.
+				// Add a link showing all the user subpages for the user.
 		$links[] = Linker::link(
-                        \SpecialPage::getTitleFor( 'Prefixindex', 'User:' . $userName, '' ),
+						\SpecialPage::getTitleFor( 'Prefixindex', 'User:' . $userName, '' ),
 			$context->msg( 'ep-articles-sandboxes' )->escaped()
 		);
 
@@ -263,11 +267,11 @@ class Utils {
 			Utils::getStrFromTitleOrStr( $title ),
 			$matches );
 
-		return array(
+		return [
 			'org_name' => $matches[1],
 			'course_name' => $matches[2],
 			'term' => $matches[3]
-		);
+		];
 	}
 
 	/**
@@ -281,7 +285,7 @@ class Utils {
 	 * @return boolean
 	 */
 	public static function isCourseSubPage( $title ) {
-		return substr_count( Utils::getStrFromTitleOrStr ( $title ), '/' )
+		return substr_count( Utils::getStrFromTitleOrStr( $title ), '/' )
 			> 1;
 	}
 

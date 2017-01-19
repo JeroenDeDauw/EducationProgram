@@ -42,6 +42,6 @@ interface UserCourseFinder {
 	 *
 	 * @return int[]
 	 */
-	public function getCoursesForUsers( $userIds, $roles = array() );
+	public function getCoursesForUsers( $userIds, $roles = [] );
 
 }

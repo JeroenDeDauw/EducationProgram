@@ -42,7 +42,7 @@ class RemoveReviewerAction extends \FormlessAction {
 			$article = $articleStore->getArticle( $req->getInt( 'article-id' ) );
 
 			if ( $article !== false ) {
-				$removedReviewers = $article->removeReviewers( array( $userIdToRemove ) );
+				$removedReviewers = $article->removeReviewers( [ $userIdToRemove ] );
 
 				if ( !empty( $removedReviewers ) ) {
 					if ( $articleStore->updateArticle( $article ) ) {

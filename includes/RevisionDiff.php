@@ -14,7 +14,7 @@ namespace EducationProgram;
  */
 class RevisionDiff {
 
-	protected $changedFields = array();
+	protected $changedFields = [];
 
 	protected $isValid = true;
 
@@ -67,7 +67,7 @@ class RevisionDiff {
 		EPRevision $revision,
 		array $fields = null ) {
 
-		$changedFields = array();
+		$changedFields = [];
 
 		$targetObject = $revision->getPreviousRevision()->getObject();
 
@@ -83,13 +83,13 @@ class RevisionDiff {
 				if ( $currentObject->getField( $fieldName, null ) ===
 					$sourceObject->getField( $fieldName, null )
 					&&
-					( 	( $sourceHasField XOR $targetHasField )
+					( ( $sourceHasField xor $targetHasField )
 						||
 						$sourceObject->getField( $fieldName, null ) !==
 						$targetObject->getField( $fieldName, null )
 					) ) {
 
-					$changedFields[$fieldName] = array();
+					$changedFields[$fieldName] = [];
 
 					if ( $sourceHasField ) {
 						$changedFields[$fieldName]['source'] =
@@ -149,17 +149,17 @@ class RevisionDiff {
 		RevisionedObject $targetObject,
 		$fields ) {
 
-		$changedFields = array();
+		$changedFields = [];
 
 		foreach ( $fields as $fieldName ) {
 			$sourceHasField = $sourceObject->hasField( $fieldName );
 			$targetHasField = $targetObject->hasField( $fieldName );
 
-			if ( ( $sourceHasField XOR $targetHasField )
+			if ( ( $sourceHasField xor $targetHasField )
 				|| $sourceObject->getField( $fieldName, null ) !==
 				$targetObject->getField( $fieldName, null ) ) {
 
-				$changedFields[$fieldName] = array();
+				$changedFields[$fieldName] = [];
 
 				if ( $sourceHasField ) {
 					$changedFields[$fieldName]['source'] =

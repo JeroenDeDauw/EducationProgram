@@ -74,8 +74,8 @@ class ArticleStore {
 
 		return $this->getReadConnection()->selectRow(
 			$this->tableName,
-			array( 'article_id' ),
-			array( 'article_id' => $articleId ),
+			[ 'article_id' ],
+			[ 'article_id' => $articleId ],
 			__METHOD__
 		) !== false;
 	}
@@ -148,7 +148,7 @@ class ArticleStore {
 		$success = $this->getWriteConnection()->update(
 			$this->tableName,
 			$this->getWriteFields( $article ),
-			array( 'article_id' => $article->getId() ),
+			[ 'article_id' => $article->getId() ],
 			__METHOD__
 		) !== false;
 
@@ -163,13 +163,13 @@ class ArticleStore {
 	 * @return array
 	 */
 	protected function getWriteFields( EPArticle $article ) {
-		return array(
+		return [
 			'article_course_id' => $article->getCourseId(),
 			'article_user_id' => $article->getUserId(),
 			'article_page_id' => $article->getPageId(),
 			'article_page_title' => $article->getPageTitle(),
 			'article_reviewers' => serialize( $article->getReviewers() ),
-		);
+		];
 	}
 
 	/**
@@ -186,9 +186,9 @@ class ArticleStore {
 		$row = $this->getReadConnection()->selectRow(
 			$this->tableName,
 			$this->getReadFields(),
-			array(
+			[
 				 'article_id' => $articleId
-			),
+			],
 			__METHOD__
 		);
 
@@ -221,7 +221,7 @@ class ArticleStore {
 	 * @return string[]
 	 */
 	protected function getReadFields() {
-		return array(
+		return [
 			'article_id',
 
 			'article_course_id',
@@ -229,7 +229,7 @@ class ArticleStore {
 			'article_page_id',
 			'article_page_title',
 			'article_reviewers',
-		);
+		];
 	}
 
 	/**
@@ -244,9 +244,9 @@ class ArticleStore {
 	public function deleteArticle( $articleId ) {
 		return $this->getWriteConnection()->delete(
 			$this->tableName,
-			array(
+			[
 				 'article_id' => $articleId
-			),
+			],
 			__METHOD__
 		) !== false;
 	}
@@ -265,12 +265,12 @@ class ArticleStore {
 	public function hasArticleWith( $courseId, $userId, $pageId ) {
 		return $this->getReadConnection()->selectRow(
 			$this->tableName,
-			array( 'article_id' ),
-			array(
+			[ 'article_id' ],
+			[
 				 'article_course_id' => $courseId,
 				 'article_user_id' => $userId,
 				 'article_page_id' => $pageId,
-			),
+			],
 			__METHOD__
 		) !== false;
 	}
@@ -296,10 +296,10 @@ class ArticleStore {
 
 		return $this->getWriteConnection()->delete(
 			$this->tableName,
-			array(
+			[
 				'article_course_id' => $courseIds,
 				'article_user_id' => $userIds,
-			),
+			],
 			__METHOD__
 		) !== false;
 	}
@@ -326,14 +326,14 @@ class ArticleStore {
 		$articleRows = $this->getReadConnection()->select(
 			$this->tableName,
 			$this->getReadFields(),
-			array(
+			[
 				 'article_course_id' => $courseIds,
 				 'article_user_id' => $userIds,
-			),
+			],
 			__METHOD__
 		);
 
-		$articles = array();
+		$articles = [];
 
 		foreach ( $articleRows as $articleRow ) {
 			$articles[] = $this->newArticleFromRow( $articleRow );

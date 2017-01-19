@@ -86,21 +86,20 @@ class EditEventCreator {
 	 */
 	public function getEventsForEdit( Page $article, Revision $rev, User $user ) {
 		if ( !$user->isLoggedIn() ) {
-			return array();
+			return [];
 		}
 
 		$namespace = $article->getTitle()->getNamespace();
 
-		if ( !in_array( $namespace, array( NS_MAIN, NS_TALK, NS_USER, NS_USER_TALK ) ) ) {
-			return array();
+		if ( !in_array( $namespace, [ NS_MAIN, NS_TALK, NS_USER, NS_USER_TALK ] ) ) {
+			return [];
 		}
 
 		$courseIds = $this->userCourseFinder->getCoursesForUsers( $user->getId(), EP_STUDENT );
 
 		if ( empty( $courseIds ) ) {
-			$events = array();
-		}
-		else {
+			$events = [];
+		} else {
 			$events = $this->createEditEvents( $rev, $user, $courseIds );
 
 			$this->updateLastActive( $namespace, $user );
@@ -122,19 +121,19 @@ class EditEventCreator {
 	 */
 	protected function createEditEvents( Revision $revision, User $user, array $courseIds ) {
 		if ( is_null( $revision->getTitle() ) ) {
-			return array();
+			return [];
 		}
 
-		$events = array();
+		$events = [];
 
 		$title = $revision->getTitle();
 
-		$info = array(
+		$info = [
 			'page' => $title->getFullText(),
 			'comment' => $revision->getComment(),
 			'minoredit' => $revision->isMinor(),
 			'parent' => $revision->getParentId()
-		);
+		];
 
 		if ( MWNamespace::isTalk( $title->getNamespace() ) && !is_null( $revision->getParentId() ) ) {
 			$diff = new Diff(
@@ -161,7 +160,7 @@ class EditEventCreator {
 				)
 			);
 
-			if ( $lines !== array() ) {
+			if ( $lines !== [] ) {
 				$lines = call_user_func_array( 'array_merge', $lines );
 			}
 
@@ -193,12 +192,12 @@ class EditEventCreator {
 	 * @param User $user
 	 */
 	protected function updateLastActive( $namespace, User $user ) {
-		if ( in_array( $namespace, array( NS_MAIN, NS_TALK ) ) ) {
+		if ( in_array( $namespace, [ NS_MAIN, NS_TALK ] ) ) {
 			$student = Student::newFromUserId( $user->getId(), true );
 
-			$student->setFields( array(
+			$student->setFields( [
 				'last_active' => wfTimestampNow()
-			) );
+			] );
 
 			if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
 				$student->save();

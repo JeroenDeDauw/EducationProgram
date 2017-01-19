@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram\Tests;
+
 use EducationProgram\Menu;
 
 /**

@@ -38,7 +38,7 @@ class SpecialStudentActivity extends VerySpecialPage {
 
 		$this->displayNavigation();
 
-		$this->addCachedHTML( array( $this, 'displayCachedContent' ) );
+		$this->addCachedHTML( [ $this, 'displayCachedContent' ] );
 	}
 
 	/**
@@ -51,9 +51,9 @@ class SpecialStudentActivity extends VerySpecialPage {
 	public function displayCachedContent() {
 		$duration = Settings::get( 'recentActivityLimit' );
 
-		$conds = array( 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
+		$conds = [ 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
 			wfTimestamp( TS_MW, time() - $duration )
-		) );
+		) ];
 
 		return $this->displayStudentMeter( $conds, $duration ) .
 			'<br />' .
@@ -81,13 +81,12 @@ class SpecialStudentActivity extends VerySpecialPage {
 				$pager->getBody() .
 				$pager->getNavigationBar() .
 				$pager->getMultipleItemControl();
-		}
-		else {
+		} else {
 			$html = $pager->getFilterControl( true )
 				. '<br />'
 				. $this->msg(
 					'ep-studentactivity-noresults',
-					$this->getLanguage()->formatDuration( $duration, array( 'hours' ) )
+					$this->getLanguage()->formatDuration( $duration, [ 'hours' ] )
 				)->parse();
 		}
 
@@ -109,23 +108,22 @@ class SpecialStudentActivity extends VerySpecialPage {
 
 		if ( $studentCount < 10 ) {
 			$image = $studentCount < 5 ? 0 : 5;
-		}
-		else {
+		} else {
 			$image = min( round( $studentCount / 10 ) * 10, 60 );
 		}
 
 		$message = $this->msg(
 			'ep-studentactivity-count',
 			$studentCount,
-			$this->getLanguage()->formatDuration( $duration, array( 'hours' ) )
+			$this->getLanguage()->formatDuration( $duration, [ 'hours' ] )
 		)->escaped();
 
-		return \Html::element( 'img', array(
+		return \Html::element( 'img', [
 			'src' => Settings::get( 'imageDir' ) . 'student-o-meter_morethan-' . $image . '.png',
 			'alt' => $message,
 			'title' => $message,
 			'class' => 'studentometer'
-		) );
+		] );
 	}
 
 	protected function getGroupName() {

@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram\Tests;
+
 use SpecialPage;
 
 /**
@@ -34,7 +35,7 @@ use SpecialPage;
 class SpecialsTest extends \MediaWikiTestCase {
 
 	public function specialProvider() {
-		$specials = array(
+		$specials = [
 			'Courses',
 			'Articles',
 			'CampusAmbassadors',
@@ -49,9 +50,9 @@ class SpecialsTest extends \MediaWikiTestCase {
 			'Student',
 			'StudentActivity',
 			'Students',
-		);
+		];
 
-		$argLists = array();
+		$argLists = [];
 
 		foreach ( $specials as $special ) {
 			if ( array_key_exists( $special, $GLOBALS['wgSpecialPages'] ) ) {
@@ -59,11 +60,11 @@ class SpecialsTest extends \MediaWikiTestCase {
 				$context = \RequestContext::newExtraneousContext( $specialPage->getPageTitle() );
 
 				$specialPage->setContext( clone $context );
-				$argLists[] = array( clone $specialPage );
+				$argLists[] = [ clone $specialPage ];
 
 				$context->setUser( new MockSuperUser() );
 				$specialPage->setContext( $context );
-				$argLists[] = array( $specialPage );
+				$argLists[] = [ $specialPage ];
 			}
 		}
 

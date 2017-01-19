@@ -40,7 +40,7 @@ class UPCUserCourseFinderTest extends UserCourseFinderTest {
 	 * @return UserCourseFinder[]
 	 */
 	public function getInstances() {
-		$instances = array();
+		$instances = [];
 
 		$instances[] = new UPCUserCourseFinder( wfGetDB( DB_SLAVE ) );
 

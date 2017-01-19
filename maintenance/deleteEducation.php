@@ -31,7 +31,7 @@ class DeleteEducation extends Maintenance {
 			return;
 		}
 
-		$tables = array(
+		$tables = [
 			'orgs',
 			'courses',
 			'students',
@@ -42,7 +42,7 @@ class DeleteEducation extends Maintenance {
 			'articles',
 			'revisions',
 			'events'
-		);
+		];
 
 		$dbw = wfGetDB( DB_MASTER );
 

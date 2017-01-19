@@ -1,7 +1,12 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, HTMLForm, Title, Message;
+
+use Page;
+use IContextSource;
+use HTMLForm;
+use Title;
+use Message;
 
 /**
  * Abstract action for editing PageObject items.
@@ -66,8 +71,7 @@ abstract class EditAction extends Action {
 
 		if ( $this->getRequest()->wasPosted() && $this->getUser()->matchEditToken( $this->getRequest()->getVal( 'wpEditToken' ) ) ) {
 			$this->showForm();
-		}
-		else {
+		} else {
 			$this->showContent();
 		}
 
@@ -96,7 +100,7 @@ abstract class EditAction extends Action {
 	 *
 	 * @return string
 	 */
-	protected abstract function getMessageKeyBase();
+	abstract protected function getMessageKeyBase();
 
 	/**
 	 * @see Action::getDescription()
@@ -119,8 +123,7 @@ abstract class EditAction extends Action {
 
 		if ( $object !== false && $this->getRequest()->getText( 'redlink' ) === '1' ) {
 			$out->redirect( $this->getTitle()->getLocalURL() );
-		}
-		else {
+		} else {
 			if ( $object === false ) {
 
 				// Note: this fragment of code is only executed by
@@ -137,8 +140,7 @@ abstract class EditAction extends Action {
 
 				$this->isNew = true;
 				$object = $this->table->newRow( $data, true );
-			}
-			elseif ( $this->isNewPost() ) {
+			} elseif ( $this->isNewPost() ) {
 				// Give grep a chance to find the usages:
 				// ep-editorg-exists-already, ep-editcourse-exists-already
 				$this->showWarning( $this->msg( $this->getMessageKeyBase() . '-exists-already' ) );
@@ -197,8 +199,7 @@ abstract class EditAction extends Action {
 		if ( $this->getRequest()->wasPosted() && $this->getRequest()->getCheck( 'isnew' ) ) {
 			$form->prepareForm();
 			$form->displayForm( \Status::newGood() );
-		}
-		else {
+		} else {
 			if ( $form->show() ) {
 				$this->onSuccess();
 			}
@@ -215,12 +216,11 @@ abstract class EditAction extends Action {
 	 * @return array
 	 */
 	protected function getNewData() {
-		$data = array();
+		$data = [];
 
 		if ( $this->isNewPost() ) {
 			$data['name'] = $this->getRequest()->getVal( 'newname' );
-		}
-		else {
+		} else {
 			$data['name'] = $this->getTitle()->getText();
 		}
 
@@ -237,7 +237,7 @@ abstract class EditAction extends Action {
 	 * @return array
 	 */
 	protected function getTitleConditions() {
-		return array( $this->getTitleField() => $this->getTitle()->getText() );
+		return [ $this->getTitleField() => $this->getTitle()->getText() ];
 	}
 
 	/**
@@ -247,7 +247,7 @@ abstract class EditAction extends Action {
 	 *
 	 * @return string
 	 */
-	protected abstract function getTitleField();
+	abstract protected function getTitleField();
 
 	/**
 	 * @see FormSpecialPage::getForm()
@@ -260,24 +260,24 @@ abstract class EditAction extends Action {
 		$fields = $this->getFormFields();
 
 		if ( $this->isNew() ) {
-			$fields['isnew'] = array(
+			$fields['isnew'] = [
 				'type' => 'hidden',
 				'default' => 1,
-			);
+			];
 		}
 
 		if ( $this->getRequest()->getCheck( 'wpreturnto' ) ) {
-			$fields['returnto'] = array(
+			$fields['returnto'] = [
 				'type' => 'hidden',
 				'default' => $this->getRequest()->getText( 'wpreturnto' ),
-			);
+			];
 		}
 
 		$form = new FailForm( $fields, $this->getContext() );
 
-		$form->setQuery( array( 'action' => 'edit' ) );
+		$form->setQuery( [ 'action' => 'edit' ] );
 
-		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
+		$form->setSubmitCallback( [ $this, 'handleSubmission' ] );
 		$form->setSubmitText( $this->msg( 'educationprogram-org-submit' )->text() );
 		$form->setSubmitTooltip( 'ep-form-save' );
 		$form->setShowSummary( !$this->isNew() );
@@ -290,10 +290,10 @@ abstract class EditAction extends Action {
 			'cancelEdit',
 			$this->msg( 'cancel' )->text(),
 			'cancelEdit',
-			array(
+			[
 				'data-target-url' => $this->getReturnToTitle()->getFullURL(),
 				'class' => 'ep-cancel',
-			)
+			]
 		);
 
 		return $form;
@@ -304,9 +304,9 @@ abstract class EditAction extends Action {
 	 * @return array
 	 */
 	protected function getFormFields() {
-		$fields = array();
+		$fields = [];
 
-		$fields['id'] = array( 'type' => 'hidden' );
+		$fields['id'] = [ 'type' => 'hidden' ];
 
 		$req = $this->getRequest();
 
@@ -339,7 +339,7 @@ abstract class EditAction extends Action {
 			}
 		}
 
-		$mappedFields = array();
+		$mappedFields = [];
 
 		foreach ( $fields as $name => $field ) {
 			if ( $this->getRequest()->getCheck( 'isnew' ) ) {
@@ -391,14 +391,11 @@ abstract class EditAction extends Action {
 	protected function getReturnToTitle( $addedItem = false ) {
 		if ( $this->getRequest()->getCheck( 'wpreturnto' ) ) {
 			return Title::newFromText( $this->getRequest()->getText( 'wpreturnto' ) );
-		}
-		elseif ( !$addedItem && $this->isNew() ) {
+		} elseif ( !$addedItem && $this->isNew() ) {
 			return \SpecialPage::getTitleFor( $this->page->getListPage() );
-		}
-		elseif ( $this->item !== false ) {
+		} elseif ( $this->item !== false ) {
 			return $this->item->getTitle();
-		}
-		else {
+		} else {
 			return $this->getIdentifierFromRequestArgs();
 		}
 	}
@@ -415,7 +412,7 @@ abstract class EditAction extends Action {
 		$title = null;
 
 		if ( $req->getCheck( $fieldName ) ) {
-			$title = $this->table->selectFieldsRow( $this->getTitleField(), array( 'id' => $req->getInt( $fieldName ) ) );
+			$title = $this->table->selectFieldsRow( $this->getTitleField(), [ 'id' => $req->getInt( $fieldName ) ] );
 			if ( $title ) {
 				$title = $this->table->getTitleFor( $title );
 			}
@@ -433,11 +430,11 @@ abstract class EditAction extends Action {
 	 * @return bool|array
 	 */
 	public function handleSubmission( array $data ) {
-		$fields = array();
-		$unknownValues = array();
+		$fields = [];
+		$unknownValues = [];
 
 		foreach ( $data as $name => $value ) {
-			$matches = array();
+			$matches = [];
 
 			if ( preg_match( '/item-(.+)/', $name, $matches ) ) {
 				if ( $matches[1] === 'id' && ( $value === '' || $value === '0' ) ) {
@@ -446,8 +443,7 @@ abstract class EditAction extends Action {
 
 				if ( $this->table->canHaveField( $matches[1] ) ) {
 					$fields[$matches[1]] = $value;
-				}
-				else {
+				} else {
 					$unknownValues[$matches[1]] = $value;
 				}
 			}
@@ -457,7 +453,7 @@ abstract class EditAction extends Action {
 		$fields = array_combine(
 			$keys,
 			array_map(
-				array( $this, 'handleKnownField' ),
+				[ $this, 'handleKnownField' ],
 				$keys,
 				$fields
 			)
@@ -483,9 +479,8 @@ abstract class EditAction extends Action {
 
 		if ( $success ) {
 			return true;
-		}
-		else {
-			return array( 'ep-err-failed-to-save' );
+		} else {
+			return [ 'ep-err-failed-to-save' ];
 		}
 	}
 

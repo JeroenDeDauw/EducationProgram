@@ -41,16 +41,16 @@ abstract class UserCourseFinderTest extends \PHPUnit_Framework_TestCase {
 	abstract public function getInstances();
 
 	public function argumentProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array( 1, array() );
-		$argLists[] = array( 1, EP_STUDENT );
-		$argLists[] = array( 1, array( EP_INSTRUCTOR, EP_STUDENT ) );
-		$argLists[] = array( 1, array( EP_INSTRUCTOR ) );
-		$argLists[] = array( array( 1 ), EP_STUDENT );
-		$argLists[] = array( array( 1, 2, 3 ), EP_STUDENT );
-		$argLists[] = array( array( 1, 2, 3 ), array( EP_STUDENT, EP_INSTRUCTOR ) );
-		$argLists[] = array( array(), array( EP_STUDENT, EP_INSTRUCTOR ) );
+		$argLists[] = [ 1, [] ];
+		$argLists[] = [ 1, EP_STUDENT ];
+		$argLists[] = [ 1, [ EP_INSTRUCTOR, EP_STUDENT ] ];
+		$argLists[] = [ 1, [ EP_INSTRUCTOR ] ];
+		$argLists[] = [ [ 1 ], EP_STUDENT ];
+		$argLists[] = [ [ 1, 2, 3 ], EP_STUDENT ];
+		$argLists[] = [ [ 1, 2, 3 ], [ EP_STUDENT, EP_INSTRUCTOR ] ];
+		$argLists[] = [ [], [ EP_STUDENT, EP_INSTRUCTOR ] ];
 
 		return $argLists;
 	}
@@ -58,7 +58,7 @@ abstract class UserCourseFinderTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider argumentProvider
 	 */
-	public function testGetCoursesForUsers( $userIds, $roles = array() ) {
+	public function testGetCoursesForUsers( $userIds, $roles = [] ) {
 		foreach ( $this->getInstances() as $courseFinder ) {
 			$courseIds = $courseFinder->getCoursesForUsers( $userIds, $roles );
 

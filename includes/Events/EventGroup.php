@@ -39,7 +39,7 @@ class EventGroup {
 	 * @throws InvalidArgumentException
 	 */
 	public function __construct( array $events ) {
-		if ( $events === array() ) {
+		if ( $events === [] ) {
 			throw new InvalidArgumentException( 'Cannot construct an EventGroup with no events' );
 		}
 

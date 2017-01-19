@@ -42,7 +42,7 @@ class Events extends ORMTable {
 	 * @return array
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id' => 'id',
 
 			'course_id' => 'int',
@@ -50,7 +50,7 @@ class Events extends ORMTable {
 			'time' => 'str', // TS_MW
 			'type' => 'str',
 			'info' => 'blob',
-		);
+		];
 	}
 
 }

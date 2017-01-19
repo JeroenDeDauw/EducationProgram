@@ -20,7 +20,7 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	 *
 	 * @return string
 	 */
-	protected abstract function getClassName();
+	abstract protected function getClassName();
 
 	/**
 	 * Returns if the user can access the page or not.
@@ -29,14 +29,14 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	 *
 	 * @return boolean
 	 */
-	protected abstract function userCanAccess();
+	abstract protected function userCanAccess();
 
 	/**
 	 * @since 0.1
 	 *
 	 * @return string
 	 */
-	protected abstract function getMsgPrefix();
+	abstract protected function getMsgPrefix();
 
 	/**
 	 * Returns if the special page should be listed on Special:SpecialPages and similar interfaces.
@@ -91,7 +91,7 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	 * @return array
 	 */
 	protected function getFormFields() {
-		$fields = array();
+		$fields = [];
 
 		$class = $this->getClassName();
 		$ambassador = $class::newFromUser( $this->getUser(), true );
@@ -101,20 +101,20 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 		// Messages that can be used here:
 		// * epoa-visible
 		// * epca-visible
-		$fields['visible'] = array(
+		$fields['visible'] = [
 			'type' => 'check',
 			'label' => wfMessage( $this->getMsgPrefix() . 'visible', $this->getUser() )->text(),
 			'required' => true,
 			'rows' => 10,
 			'default' => $ambassador->getField( 'visible' ),
-		);
+		];
 
 		// Messages that can be used here:
 		// * epoa-profile-bio
 		// * epca-profile-bio
 		// * epoa-profile-invalid-bio
 		// * epca-profile-invalid-bio
-		$fields['bio'] = array(
+		$fields['bio'] = [
 			'type' => 'textarea',
 			'label-message' => $this->getMsgPrefix() . 'profile-bio',
 			'required' => true,
@@ -124,26 +124,26 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 			'rows' => 10,
 			'id' => 'wpTextbox1',
 			'default' => $ambassador->getField( 'bio' ),
-		);
+		];
 
 		// Messages that can be used here:
 		// * epoa-profile-photo
 		// * epca-profile-photo
 		// * epoa-profile-photo-help
 		// * epca-profile-photo-help
-		$fields['photo'] = array(
+		$fields['photo'] = [
 			'type' => 'text',
 			'label-message' => $this->getMsgPrefix() . 'profile-photo',
-			'help-message' => array( $this->getMsgPrefix() . 'profile-photo-help', Settings::get( 'ambassadorCommonsUrl' ) ),
+			'help-message' => [ $this->getMsgPrefix() . 'profile-photo-help', Settings::get( 'ambassadorCommonsUrl' ) ],
 			'default' => $ambassador->getField( 'photo' ),
 			'cssclass' => 'commons-input',
-		);
+		];
 
 		if ( !is_null( $ambassador->getId() ) ) {
-			$fields['id'] = array(
+			$fields['id'] = [
 				'type' => 'hidden',
 				'default' => $ambassador->getId(),
-			);
+			];
 		}
 
 		return $fields;
@@ -157,12 +157,12 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	public function onSuccess() {
 		$class = $this->getClassName();
 
-		Utils::log( array(
+		Utils::log( [
 			'type' => $class::newFromUser( $this->getUser() )->getRoleName(),
 			'subtype' => 'profilesave',
 			'user' => $this->getUser(),
 			'title' => $this->getPageTitle(),
-		) );
+		] );
 
 		$this->getRequest()->setSessionData( 'epprofilesaved', true );
 		$this->getOutput()->redirect( $this->getPageTitle()->getLocalURL() );
@@ -182,7 +182,7 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 		$ambassador = $class::newFromUser( $this->getUser() );
 		$ambassador->setFields( $data );
 
-		return $ambassador->save() ? true : array();
+		return $ambassador->save() ? true : [];
 	}
 
 	/**

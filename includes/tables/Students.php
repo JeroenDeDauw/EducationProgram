@@ -42,7 +42,7 @@ class Students extends ORMTable {
 	 * @return array
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id' => 'id',
 
 			'user_id' => 'int',
@@ -52,7 +52,7 @@ class Students extends ORMTable {
 			'last_course' => 'int',
 			'last_active' => 'str', // TS_MW
 			'active_enroll' => 'bool',
-		);
+		];
 	}
 
 	/**
@@ -61,10 +61,10 @@ class Students extends ORMTable {
 	 * @return array
 	 */
 	public function getSummaryFields() {
-		return array(
+		return [
 			'last_active',
 			'active_enroll',
-		);
+		];
 	}
 
 }

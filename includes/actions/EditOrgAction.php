@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource;
+
+use Page;
+use IContextSource;
 
 /**
  * Action to edit an org.
@@ -60,7 +62,7 @@ class EditOrgAction extends EditAction {
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-		$fields['name'] = array(
+		$fields['name'] = [
 			'type' => 'text',
 			'label-message' => 'educationprogram-org-edit-name',
 			'maxlength' => 255,
@@ -76,28 +78,28 @@ class EditOrgAction extends EditAction {
 
 				return true;
 			},
-		);
+		];
 
-		$fields['city'] = array(
+		$fields['city'] = [
 			'type' => 'text',
 			'label-message' => 'educationprogram-org-edit-city',
 			'validation-callback' => function( $value, array $alldata = null ) {
 				return $value !== '' && strlen( $value ) < 2 ? wfMessage( 'educationprogram-org-invalid-city', 2 )->text() : true;
 			},
-		);
+		];
 
 		if ( !in_array( $this->getRequest()->getText( 'wpitem-country', '' ), Settings::get( 'citylessCountries' ) ) ) {
 			$fields['city']['required'] = true;
 		}
 
-		$fields['country'] = array(
+		$fields['country'] = [
 			'type' => 'select',
 			'label-message' => 'educationprogram-org-edit-country',
 			'maxlength' => 255,
 			'required' => true,
 			'options' => Utils::getCountryOptions( $this->getLanguage()->getCode() ),
-			'validation-callback' => array( $this, 'countryIsValid' ),
-		);
+			'validation-callback' => [ $this, 'countryIsValid' ],
+		];
 
 		return $this->processFormFields( $fields );
 	}

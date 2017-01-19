@@ -1,7 +1,11 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Xml, Html, Exception;
+
+use IContextSource;
+use Xml;
+use Html;
+use Exception;
 
 /**
  * Class representing a single course.
@@ -62,12 +66,12 @@ class Course extends PageObject {
 	 *
 	 * @var array
 	 */
-	protected $fieldsAndUPCConstants = array(
+	protected $fieldsAndUPCConstants = [
 		'online_ambs' => EP_OA,
 		'campus_ambs' => EP_CA,
 		'students' => EP_STUDENT,
 		'instructors' => EP_INSTRUCTOR,
-	);
+	];
 
 	/**
 	 * Returns a list of statuses a term can have.
@@ -78,11 +82,11 @@ class Course extends PageObject {
 	 * @return array
 	 */
 	public static function getStatuses() {
-		return array(
+		return [
 			wfMessage( 'ep-course-status-passed' )->text() => 'passed',
 			wfMessage( 'ep-course-status-current' )->text() => 'current',
 			wfMessage( 'ep-course-status-planned' )->text() => 'planned',
-		);
+		];
 	}
 
 	/**
@@ -104,25 +108,24 @@ class Course extends PageObject {
 		return $map[$status];
 	}
 
-	protected static $countMap = array(
+	protected static $countMap = [
 		'student_count' => 'students',
 		'instructor_count' => 'instructors',
 		'oa_count' => 'online_ambs',
 		'ca_count' => 'campus_ambs',
-	);
+	];
 
 	/**
 	 * @see ORMRow::loadSummaryFields()
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'org_id' );
-		}
-		else {
+			$summaryFields = [ 'org_id' ];
+		} else {
 			$summaryFields = (array)$summaryFields;
 		}
 
-		$fields = array();
+		$fields = [];
 
 		if ( in_array( 'org_id', $summaryFields ) ) {
 			$fields['org_id'] = $this->getField( 'org_id' );
@@ -141,7 +144,7 @@ class Course extends PageObject {
 
 			// these are the only org summary fields that could need updating
 			$this->updateOrgSummaryFields( null,
-					array( 'course_count', 'last_active_date' ) );
+					[ 'course_count', 'last_active_date' ] );
 		}
 
 		return $success;
@@ -167,29 +170,29 @@ class Course extends PageObject {
 	protected function onUpdated( RevisionedObject $originalCourse ) {
 
 		// add and remove rows from ep_users_per_course as needed
-		$newUserIdsAndRoles = array();
+		$newUserIdsAndRoles = [];
 		$dbm = wfGetDB( DB_MASTER );
 
-		foreach ( array( 'online_ambs', 'campus_ambs', 'students', 'instructors' ) as $usersField ) {
+		foreach ( [ 'online_ambs', 'campus_ambs', 'students', 'instructors' ] as $usersField ) {
 			if ( $this->hasField( $usersField ) && $originalCourse->getField( $usersField ) !== $this->getField( $usersField ) ) {
 				$removedIds = array_diff( $originalCourse->getField( $usersField ), $this->getField( $usersField ) );
 				$addedIds = array_diff( $this->getField( $usersField ), $originalCourse->getField( $usersField ) );
 
 				// prepare data for rows to add
 				foreach ( $addedIds as $addedId ) {
-					$newUserIdsAndRoles[] = array(
+					$newUserIdsAndRoles[] = [
 						'user_id' => $addedId,
 						'role' => $usersField,
-					);
+					];
 				}
 
 				// remove rows as required
 				if ( !empty( $removedIds ) ) {
-					$dbm->delete( 'ep_users_per_course', array(
+					$dbm->delete( 'ep_users_per_course', [
 						'upc_course_id' => $this->getId(),
 						'upc_user_id' => $removedIds,
 						'upc_role' => $this->fieldsAndUPCConstants[$usersField],
-					) );
+					] );
 				}
 			}
 		}
@@ -249,7 +252,7 @@ class Course extends PageObject {
 		// make sure Orgs uses up-to-date info
 		$previousRMFSValue = Orgs::singleton()->getReadMasterForSummaries();
 		Orgs::singleton()->setReadMasterForSummaries( true );
-		Orgs::singleton()->updateSummaryFields( $fields, array( 'id' => $org_id ) );
+		Orgs::singleton()->updateSummaryFields( $fields, [ 'id' => $org_id ] );
 		Orgs::singleton()->setReadMasterForSummaries( $previousRMFSValue );
 	}
 
@@ -278,34 +281,34 @@ class Course extends PageObject {
 		// if no param, build the data from this course's user fields
 		if ( is_null( $userIdsAndRoles ) ) {
 
-			$userIdsAndRoles = array();
+			$userIdsAndRoles = [];
 
-			foreach ( array( 'online_ambs', 'campus_ambs', 'students',
-				 'instructors' ) as $usersField ) {
+			foreach ( [ 'online_ambs', 'campus_ambs', 'students',
+				 'instructors' ] as $usersField ) {
 
 				$addedIds = $this->getField( $usersField );
 
 				foreach ( $addedIds as $addedId ) {
-					$userIdsAndRoles[] = array(
+					$userIdsAndRoles[] = [
 						'user_id' => $addedId,
 						'role' => $usersField,
-					);
+					];
 				}
 			}
 		}
 
 		// add the rows as necessary
 		if ( !empty( $userIdsAndRoles ) ) {
-			$addData = array();
+			$addData = [];
 
 			foreach ( $userIdsAndRoles as $userIdAndRole ) {
-				$addData[] = array(
+				$addData[] = [
 					'upc_course_id' => $this->getId(),
 					'upc_user_id' => $userIdAndRole['user_id'],
 					'upc_role' => $this->
 						fieldsAndUPCConstants[$userIdAndRole['role']],
 					'upc_time' => wfTimestampNow(),
-				);
+				];
 			}
 
 			$dbw = wfGetDB( DB_MASTER );
@@ -327,7 +330,7 @@ class Course extends PageObject {
 	protected function upcPurge() {
 		wfGetDB( DB_MASTER )
 			->delete( 'ep_users_per_course',
-			array( 'upc_course_id' => $this->getId() ) );
+			[ 'upc_course_id' => $this->getId() ] );
 	}
 
 	/**
@@ -341,7 +344,7 @@ class Course extends PageObject {
 		if ( !$this->hasIdField() ) {
 			$title = $this->getField( 'title' );
 
-			if ( $this->table->has( array( 'title' => $title ) ) ) {
+			if ( $this->table->has( [ 'title' => $title ] ) ) {
 
 				$pageTitle = $this->getTitle(); // title of the Wiki page
 				throw new ErrorPageErrorWithSelflink( 'ep-err-course-exists-title',
@@ -353,7 +356,7 @@ class Course extends PageObject {
 			$this->setField( 'name', $GLOBALS['wgLang']->ucfirst( $this->getField( 'name' ) ) );
 		}
 
-		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $summaryField ) {
+		foreach ( [ 'student_count', 'instructor_count', 'oa_count', 'ca_count' ] as $summaryField ) {
 			$field = self::$countMap[$summaryField];
 			if ( $this->hasField( $field ) ) {
 				$this->setField( $summaryField, count( $this->getField( $field ) ) );
@@ -374,7 +377,7 @@ class Course extends PageObject {
 	 */
 	public function getOrg( $fields = null ) {
 		if ( $this->org === false ) {
-			$this->org = Orgs::singleton()->selectRow( $fields, array( 'id' => $this->loadAndGetField( 'org_id' ) ) );
+			$this->org = Orgs::singleton()->selectRow( $fields, [ 'id' => $this->loadAndGetField( 'org_id' ) ] );
 		}
 
 		return $this->org;
@@ -400,10 +403,10 @@ class Course extends PageObject {
 
 		$html .= Html::openElement(
 			'form',
-			array(
+			[
 				'method' => 'post',
-				'action' => Courses::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( array( 'action' => 'edit' ) ),
-			)
+				'action' => Courses::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( [ 'action' => 'edit' ] ),
+			]
 		);
 
 		$html .= '<fieldset>';
@@ -412,7 +415,7 @@ class Course extends PageObject {
 
 		$html .= '<p>' . $context->msg( 'ep-courses-namedoc' )->escaped() . '</p>';
 
-		$html .= Html::element( 'label', array( 'for' => 'neworg' ), $context->msg( 'ep-courses-neworg' )->plain() );
+		$html .= Html::element( 'label', [ 'for' => 'neworg' ], $context->msg( 'ep-courses-neworg' )->plain() );
 
 		$select = new \XmlSelect(
 			'neworg',
@@ -420,7 +423,7 @@ class Course extends PageObject {
 			array_key_exists( 'org', $args ) ? $args['org'] : false
 		);
 
-		$orgs = Orgs::singleton()->selectFields( array( 'id', 'name' ) );
+		$orgs = Orgs::singleton()->selectFields( [ 'id', 'name' ] );
 		natcasesort( $orgs );
 		$orgs = array_flip( $orgs );
 
@@ -447,10 +450,10 @@ class Course extends PageObject {
 			'addnewcourse',
 			$context->msg( 'ep-courses-add' )->plain(),
 			'submit',
-			array(
+			[
 				'disabled' => 'disabled',
 				'class' => 'ep-course-add',
-			)
+			]
 		);
 
 		$html .= Html::hidden( 'isnew', 1 );
@@ -471,11 +474,10 @@ class Course extends PageObject {
 	 *
 	 * @return string
 	 */
-	public static function getAddNewRegion( IContextSource $context, array $args = array() ) {
+	public static function getAddNewRegion( IContextSource $context, array $args = [] ) {
 		if ( Orgs::singleton()->has() ) {
 			return Course::getAddNewControl( $context, $args );
-		}
-		else {
+		} else {
 			return $context->msg( 'ep-courses-addorgfirst' )->parse();
 		}
 	}
@@ -516,11 +518,9 @@ class Course extends PageObject {
 	public function getStatus() {
 		if ( $this->getDaysLeft() <= 0 ) {
 			$status = 'passed';
-		}
-		elseif ( $this->getDaysPassed() <= 0 ) {
+		} elseif ( $this->getDaysPassed() <= 0 ) {
 			$status = 'planned';
-		}
-		else {
+		} else {
 			$status = 'current';
 		}
 
@@ -565,9 +565,8 @@ class Course extends PageObject {
 			$userIds = $this->getField( $fieldName );
 
 			if ( empty( $userIds ) ) {
-				$this->$classField = array();
-			}
-			else {
+				$this->$classField = [];
+			} else {
 				/**
 				 * @var IORMTable $table
 				 */
@@ -575,7 +574,7 @@ class Course extends PageObject {
 
 				$this->$classField = $table->select(
 					null,
-					array( 'user_id' => $userIds )
+					[ 'user_id' => $userIds ]
 				);
 
 				$this->$classField = iterator_to_array( $this->$classField );
@@ -583,14 +582,14 @@ class Course extends PageObject {
 				// At this point we will have all users that actually have an entry in the role table.
 				// But it's possible they do not have such an entry, so create new objects for those.
 
-				$addedIds = array();
+				$addedIds = [];
 
 				foreach ( $this->$classField as /* EPRole */ $userInRole ) {
 					$addedIds[] = $userInRole->getField( 'user_id' );
 				}
 
 				foreach ( array_diff( $userIds, $addedIds ) as $remainingId ) {
-					array_push( $this->$classField, $table->newRow( array( 'user_id' => $remainingId ) ) );
+					array_push( $this->$classField, $table->newRow( [ 'user_id' => $remainingId ] ) );
 				}
 			}
 		}
@@ -729,12 +728,12 @@ class Course extends PageObject {
 	 */
 	public function enlistUsers( $newUserIds, $role, $save = true,
 			RevisionAction $revAction = null, &$addedUserIds = null ) {
-		$roleMap = array(
+		$roleMap = [
 			'student' => 'students',
 			'campus' => 'campus_ambs',
 			'online' => 'online_ambs',
 			'instructor' => 'instructors',
-		);
+		];
 
 		$field = $roleMap[$role];
 		$userIds = $this->getField( $field );
@@ -742,8 +741,7 @@ class Course extends PageObject {
 
 		if ( empty( $usersToAddIds ) ) {
 			return 0;
-		}
-		else {
+		} else {
 			$this->setField( $field, array_merge( $userIds, $usersToAddIds ) );
 
 			$success = true;
@@ -784,11 +782,11 @@ class Course extends PageObject {
 				if ( $action === 'add' ) {
 					Extension::globalInstance()->getNotificationsManager()->trigger(
 						$this->getAddNotificationKey( $role ),
-						array(
+						[
 							'role-add-title' => $this->getTitle(),
 							'agent' => $revAction->getUser(),
 							'users' => $usersToAddIds,
-						)
+						]
 					);
 				}
 
@@ -818,12 +816,12 @@ class Course extends PageObject {
 	public function unenlistUsers( $sadUsers, $role, $save = true, RevisionAction $revAction = null ) {
 		$sadUsers = (array)$sadUsers;
 
-		$roleMap = array(
+		$roleMap = [
 			'student' => 'students',
 			'campus' => 'campus_ambs',
 			'online' => 'online_ambs',
 			'instructor' => 'instructors',
-		);
+		];
 
 		$field = $roleMap[$role];
 
@@ -831,8 +829,7 @@ class Course extends PageObject {
 
 		if ( empty( $removedUsers ) ) {
 			return 0;
-		}
-		else {
+		} else {
 			$this->setField( $field, array_diff( $this->getField( $field ), $sadUsers ) );
 
 			if ( $role === 'student' ) {
@@ -874,7 +871,7 @@ class Course extends PageObject {
 		// Check whether to hide 'token' field, which is the only info in
 		// course or org diffs that should be hidden from unprivileged users.
 		if ( $hidePriviledgedFields ) {
-			if ( ( $key = array_search('token', $fields) ) !== false) {
+			if ( ( $key = array_search( 'token', $fields ) ) !== false ) {
 				unset( $fields[$key] );
 			}
 		}
@@ -894,14 +891,14 @@ class Course extends PageObject {
 	 * @param string $message
 	 */
 	protected function logRoleChange( $action, $role, array $users, $message ) {
-		$names = array();
+		$names = [];
 
-		$classes = array(
+		$classes = [
 			'instructor' => 'EducationProgram\Instructor',
 			'campus' => 'EducationProgram\CA',
 			'online' => 'EducationProgram\OA',
 			'student' => 'EducationProgram\Student',
-		);
+		];
 
 		$class = $classes[$role];
 
@@ -909,17 +906,17 @@ class Course extends PageObject {
 			$names[] = $class::newFromUserId( $userId )->getName();
 		}
 
-		$info = array(
+		$info = [
 			'type' => $role,
 			'subtype' => $action,
 			'title' => $this->getTitle(),
-		);
+		];
 
-		if ( in_array( $action, array( 'add', 'remove' ) ) ) {
-			$info['parameters'] = array(
+		if ( in_array( $action, [ 'add', 'remove' ] ) ) {
+			$info['parameters'] = [
 				'4::usercount' => count( $names ),
 				'5::users' => $names
-			);
+			];
 		}
 
 		if ( $message !== '' ) {
@@ -934,7 +931,7 @@ class Course extends PageObject {
 	 */
 	protected function restoreField( $fieldName, $newValue ) {
 		if ( $fieldName !== 'org_id'
-			|| Orgs::singleton()->has( array( 'id' => $newValue ) ) ) {
+			|| Orgs::singleton()->has( [ 'id' => $newValue ] ) ) {
 			parent::restoreField( $fieldName, $newValue );
 		}
 	}
@@ -951,7 +948,7 @@ class Course extends PageObject {
 	 *
 	 * @return string
 	 */
-	public function getLink( $action = 'view', $html = null, array $customAttribs = array(), array $query = array() ) {
+	public function getLink( $action = 'view', $html = null, array $customAttribs = [], array $query = [] ) {
 		return parent::getLink(
 			$action,
 			is_null( $html ) ? htmlspecialchars( $this->getField( 'name' ) ) : $html,

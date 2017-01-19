@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use IContextSource;
 
 /**
@@ -23,7 +24,7 @@ class StudentPager extends EPPager {
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $userNames = array();
+	protected $userNames = [];
 
 	/**
 	 * List of user ids with the names of their associated courses.
@@ -32,7 +33,7 @@ class StudentPager extends EPPager {
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $courseTitles = array();
+	protected $courseTitles = [];
 
 	/**
 	 * Constructor.
@@ -40,7 +41,7 @@ class StudentPager extends EPPager {
 	 * @param IContextSource $context
 	 * @param array $conds
 	 */
-	public function __construct( IContextSource $context, array $conds = array() ) {
+	public function __construct( IContextSource $context, array $conds = [] ) {
 		$this->mDefaultDirection = true;
 
 		// when MW 1.19 becomes min, we want to pass an IContextSource $context here.
@@ -51,13 +52,13 @@ class StudentPager extends EPPager {
 	 * @see Pager::getFields()
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id',
 			'user_id',
 			'first_enroll',
 			'last_active',
-			//'active_enroll',
-		);
+			// 'active_enroll',
+		];
 	}
 
 	/**
@@ -86,8 +87,7 @@ class StudentPager extends EPPager {
 
 					$value = \Linker::userLink( $value, $userName, $displayName )
 						. Student::getViewLinksFor( $this->getContext(), $value, $userName );
-				}
-				else {
+				} else {
 					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );
 				}
 				break;
@@ -123,12 +123,12 @@ class StudentPager extends EPPager {
 	 * @see Pager::getSortableFields()
 	 */
 	protected function getSortableFields() {
-		return array(
+		return [
 			'id',
 			'first_enroll',
 			'last_active',
 			'active_enroll',
-		);
+		];
 	}
 
 	/**
@@ -155,7 +155,7 @@ class StudentPager extends EPPager {
 	 * @see IndexPager::doBatchLookups()
 	 */
 	protected function doBatchLookups() {
-		$userIds = array();
+		$userIds = [];
 		$field = $this->table->getPrefixedField( 'user_id' );
 
 		foreach ( $this->mResult as $student ) {
@@ -165,35 +165,35 @@ class StudentPager extends EPPager {
 		if ( !empty( $userIds ) ) {
 			$result = wfGetDB( DB_SLAVE )->select(
 				'user',
-				array( 'user_id', 'user_name', 'user_real_name' ),
-				array( 'user_id' => $userIds ),
+				[ 'user_id', 'user_name', 'user_real_name' ],
+				[ 'user_id' => $userIds ],
 				__METHOD__
 			);
 
 			foreach ( $result as $user ) {
 				$real = $user->user_real_name === '' ? $user->user_name : $user->user_real_name;
-				$this->userNames[$user->user_id] = array( $user->user_name, $real );
+				$this->userNames[$user->user_id] = [ $user->user_name, $real ];
 			}
 
 			$courseNameField = Courses::singleton()->getPrefixedField( 'title' );
 
 			$result = wfGetDB( DB_SLAVE )->select(
-				array( 'ep_courses', 'ep_users_per_course' ),
-				array( $courseNameField, 'upc_user_id' ),
-				array_merge( array(
+				[ 'ep_courses', 'ep_users_per_course' ],
+				[ $courseNameField, 'upc_user_id' ],
+				array_merge( [
 					'upc_role' => EP_STUDENT,
 					'upc_user_id' => $userIds,
-				), Courses::getStatusConds( 'current', true ) ) ,
+				], Courses::getStatusConds( 'current', true ) ),
 				__METHOD__,
-				array(),
-				array(
-					'ep_users_per_course' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
-				)
+				[],
+				[
+					'ep_users_per_course' => [ 'INNER JOIN', [ 'upc_course_id=course_id' ] ],
+				]
 			);
 
 			foreach ( $result as $courseForUser ) {
 				if ( !array_key_exists( $courseForUser->upc_user_id, $this->courseTitles ) ) {
-					$this->courseTitles[$courseForUser->upc_user_id] = array();
+					$this->courseTitles[$courseForUser->upc_user_id] = [];
 				}
 
 				$this->courseTitles[$courseForUser->upc_user_id][] = $courseForUser->$courseNameField;

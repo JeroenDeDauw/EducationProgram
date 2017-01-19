@@ -1,7 +1,10 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, Html;
+
+use Page;
+use IContextSource;
+use Html;
 
 /**
  * Action for viewing an org.
@@ -57,14 +60,14 @@ class ViewOrgAction extends ViewAction {
 	public function getPageHTML( IORMRow $org ) {
 		$html = parent::getPageHTML( $org );
 
-		$html .= Html::element( 'h2', array(), $this->msg( 'ep-institution-courses' )->text() );
+		$html .= Html::element( 'h2', [], $this->msg( 'ep-institution-courses' )->text() );
 
-		$html .= CoursePager::getPager( $this->getContext(), array( 'org_id' => $org->getId() ) );
+		$html .= CoursePager::getPager( $this->getContext(), [ 'org_id' => $org->getId() ] );
 		$this->getOutput()->addModules( CoursePager::getModules() );
 
 		if ( $this->getUser()->isAllowed( 'ep-course' ) ) {
-			$html .= Html::element( 'h2', array(), $this->msg( 'ep-institution-add-course' )->text() );
-			$html .= Course::getAddNewControl( $this->getContext(), array( 'org' => $org->getId() ) );
+			$html .= Html::element( 'h2', [], $this->msg( 'ep-institution-add-course' )->text() );
+			$html .= Course::getAddNewControl( $this->getContext(), [ 'org' => $org->getId() ] );
 		}
 
 		return $html;
@@ -80,7 +83,7 @@ class ViewOrgAction extends ViewAction {
 	 * @return array
 	 */
 	protected function getSummaryData( IORMRow $org ) {
-		$stats = array();
+		$stats = [];
 
 		$stats['name'] = $org->getField( 'name' );
 		$stats['city'] = $org->getField( 'city' );
@@ -104,8 +107,8 @@ class ViewOrgAction extends ViewAction {
 			$stats['courses'] = \Linker::linkKnown(
 				\SpecialPage::getTitleFor( 'Courses' ),
 				$stats['courses'],
-				array(),
-				array( 'org_id' => $org->getId() )
+				[],
+				[ 'org_id' => $org->getId() ]
 			);
 		}
 
@@ -119,10 +122,10 @@ class ViewOrgAction extends ViewAction {
 	protected function getCacheKey() {
 		$user = $this->getUser();
 
-		return array_merge( array(
+		return array_merge( [
 			$user->isAllowed( 'ep-org' ),
 			$user->isAllowed( 'ep-course' ),
 			$user->isAllowed( 'ep-bulkdelcourses' ) && $user->getOption( 'ep_bulkdelcourses' ),
-		), parent::getCacheKey() );
+		], parent::getCacheKey() );
 	}
 }

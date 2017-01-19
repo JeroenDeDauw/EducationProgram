@@ -22,12 +22,12 @@ abstract class RoleAddNotification implements INotificationType {
 	 * parameters in their implementation of getParameters().
 	 */
 	public function getParameters() {
-		return array(
+		return [
 			'presentation-model' => 'EducationProgram\\PresentationModel\\RoleAdd',
 			'group' => 'interactive',
 			'section' => 'alert',
 			'icon' => 'ep-added-to-course-icon',
-		);
+		];
 	}
 
 	/**
@@ -35,7 +35,7 @@ abstract class RoleAddNotification implements INotificationType {
 	 * @see EducationProgram.INotificationType::getIconParameters()
 	 */
 	public function getIconParameters() {
-		return array( 'path' => 'EducationProgram/resources/images/added-to-course-notification.png' );
+		return [ 'path' => 'EducationProgram/resources/images/added-to-course-notification.png' ];
 	}
 
 	/**
@@ -62,14 +62,14 @@ abstract class RoleAddNotification implements INotificationType {
 	 * @see EducationProgram.INotificationType::trigger()
 	 */
 	public function trigger( $params ) {
-		\EchoEvent::create( array(
+		\EchoEvent::create( [
 			'type' => $this->getKey(),
 			'title' => $params['role-add-title'],
 			'agent' => $params['agent'],
-			'extra' => array (
+			'extra' => [
 				// user(s) added to the course
 				'users' => $params['users'],
-			),
-		) );
+			],
+		] );
 	}
 }

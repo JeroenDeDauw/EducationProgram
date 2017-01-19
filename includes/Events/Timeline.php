@@ -109,9 +109,9 @@ class Timeline {
 	 * @return array
 	 */
 	public static function getModules() {
-		return array(
+		return [
 			'ep.timeline'
-		);
+		];
 	}
 
 }

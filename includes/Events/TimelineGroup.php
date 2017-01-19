@@ -87,18 +87,17 @@ abstract class TimelineGroup {
 		foreach ( $group->getEvents() as $event ) {
 			if ( is_null( $type ) ) {
 				$type = $event->getType();
-			}
-			elseif ( $type !== $event->getType() ) {
+			} elseif ( $type !== $event->getType() ) {
 				throw new Exception( 'Got events of different types when trying to build a ' . __CLASS__ );
 			}
 		}
 
-		$typeMap = array(
+		$typeMap = [
 			'edit-' . NS_MAIN => '\EducationProgram\Events\EditGroup',
 			'edit-' . NS_TALK => '\EducationProgram\Events\EditGroup',
 			'edit-' . NS_USER => '\EducationProgram\Events\EditGroup',
 			'edit-' . NS_USER_TALK => '\EducationProgram\Events\EditGroup',
-		);
+		];
 
 		$class = array_key_exists( $type, $typeMap ) ? $typeMap[$type] : '\EducationProgram\Events\UnknownGroup';
 
@@ -169,7 +168,7 @@ abstract class TimelineGroup {
 	 * @return string
 	 */
 	protected function getClusterHTML() {
-		return implode( '', array_map( array( $this, 'getSegment' ), $this->events ) );
+		return implode( '', array_map( [ $this, 'getSegment' ], $this->events ) );
 	}
 
 	/**
@@ -180,9 +179,9 @@ abstract class TimelineGroup {
 	 * @return array
 	 */
 	protected function getHeaderAttributes() {
-		return array(
+		return [
 			'class' => 'ep-timeline-group-header'
-		);
+		];
 	}
 
 	/**
@@ -193,9 +192,9 @@ abstract class TimelineGroup {
 	 * @return array
 	 */
 	protected function getClusterAttributes() {
-		return array(
+		return [
 			'class' => 'ep-timeline-group'
-		);
+		];
 	}
 
 	/**
@@ -225,9 +224,9 @@ abstract class TimelineGroup {
 	 * @return array
 	 */
 	protected function getSegmentAttributes( Event $event ) {
-		return array(
+		return [
 			'class' => 'ep-event-item',
-		);
+		];
 	}
 
 	/**
@@ -239,7 +238,7 @@ abstract class TimelineGroup {
 	 *
 	 * @return string
 	 */
-	protected abstract function getSegmentHTML( Event $event );
+	abstract protected function getSegmentHTML( Event $event );
 
 	protected function newMessage( $key ) {
 		$params = func_get_args();
@@ -323,8 +322,7 @@ class EditGroup extends TimelineGroup {
 				$text = substr( $text, 0, Settings::get( 'timelineMessageLengthLimit' ) );
 				$text = $this->newMessage( 'ep-timeline-cutoff', $text )->plain();
 			}
-		}
-		else {
+		} else {
 			$text = trim( $info['comment'] ) === '' ? $this->newMessage( 'ep-timeline-no-summary' )->plain() : $info['comment'];
 		}
 
@@ -337,7 +335,7 @@ class EditGroup extends TimelineGroup {
 
 		$html .= '<span class="ep-event-ago">' . $this->newMessage(
 			'ep-timeline-ago',
-			$this->language->formatDuration( $event->getAge(), array( 'days', 'hours', 'minutes' ) )
+			$this->language->formatDuration( $event->getAge(), [ 'days', 'hours', 'minutes' ] )
 		)->escaped() . '</span>';
 
 		return $html;
@@ -351,7 +349,7 @@ class EditGroup extends TimelineGroup {
 	 * @return string
 	 */
 	protected function getHeaderHTML() {
-		$userIds = array();
+		$userIds = [];
 
 		/**
 		 * @var Event $event
@@ -362,8 +360,8 @@ class EditGroup extends TimelineGroup {
 
 		$userIds = array_unique( $userIds );
 
-		$userLinks = array();
-		$userNames = array();
+		$userLinks = [];
+		$userNames = [];
 
 		foreach ( array_slice( $userIds, 0, Settings::get( 'timelineUserLimit' ) ) as $userId ) {
 			$userNames[$userId] = User::newFromId( $userId )->getName();
@@ -383,12 +381,12 @@ class EditGroup extends TimelineGroup {
 		$type = explode( '-', $this->events[0]->getType() );
 		$type = (int)array_pop( $type );
 
-		$keys = array(
+		$keys = [
 			NS_MAIN => 'article',
 			NS_TALK => 'talk',
 			NS_USER => 'user',
 			NS_USER_TALK => 'usertalk',
-		);
+		];
 
 		// Give grep a chance to find the usages:
 		// ep-timeline-users-edit-article, ep-timeline-users-edit-talk, ep-timeline-users-edit-user,
@@ -400,7 +398,7 @@ class EditGroup extends TimelineGroup {
 
 		$subjectText = Title::newFromText( $info['page'] )->getSubjectPage()->getText();
 
-		if ( in_array( $type, array( NS_USER, NS_USER_TALK ) )
+		if ( in_array( $type, [ NS_USER, NS_USER_TALK ] )
 			&& count( $userIds ) == 1 ) {
 			$user = User::newFromName( $subjectText );
 

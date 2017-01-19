@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use Title;
 
 /**
@@ -28,8 +29,8 @@ class AddArticleAction extends \FormlessAction {
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
-        global $wgServer;
-        global $wgArticlePath;
+		global $wgServer;
+		global $wgArticlePath;
 
 		$req = $this->getRequest();
 		$user = $this->getUser();
@@ -46,11 +47,9 @@ class AddArticleAction extends \FormlessAction {
 
 			if ( strpos( $wgServer, "http://" ) !== false ) {
 				$serverWithoutProtocol = substr( $wgServer, strlen( "http://" ) );
-			}
-			else if ( strpos( $wgServer, "https://" ) !== false ) {
+			} elseif ( strpos( $wgServer, "https://" ) !== false ) {
 				$serverWithoutProtocol = substr( $wgServer, strlen( "https://" ) );
-			}
-			else {
+			} else {
 				$serverWithoutProtocol = substr( $wgServer, strlen( "//" ) );
 			}
 
@@ -70,8 +69,8 @@ class AddArticleAction extends \FormlessAction {
 
 			// TODO: migrate into ArticleAdder
 			$course = Courses::singleton()->selectRow(
-				array( 'students', 'name' ),
-				array( 'id' => $courseId )
+				[ 'students', 'name' ],
+				[ 'id' => $courseId ]
 			);
 
 			if ( $course !== false && in_array( $studentUserId, $course->getField( 'students' ) ) ) {

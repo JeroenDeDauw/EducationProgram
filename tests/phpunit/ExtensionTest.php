@@ -33,7 +33,7 @@ use EducationProgram\Settings;
 class ExtensionTest extends \PHPUnit_Framework_TestCase {
 
 	public function testConstructWithNoSettings() {
-		new Extension( new Settings( array() ) );
+		new Extension( new Settings( [] ) );
 		$this->assertTrue( true );
 	}
 

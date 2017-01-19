@@ -115,13 +115,13 @@ final class Hooks {
 			// Find the watchlist item and replace it by the my contests link and itself.
 			if ( $wgUser->isLoggedIn() && $wgUser->getOption( 'ep_showtoplink' ) ) {
 				$url = \SpecialPage::getTitleFor( 'MyCourses' )->getLinkUrl();
-				$myCourses = array(
+				$myCourses = [
 					'text' => wfMessage( 'ep-toplink' )->text(),
 					'href' => $url,
 					'active' => ( $url == $title->getLinkUrl() )
-				);
+				];
 
-				$insertUrls = array( 'mycourses' => $myCourses );
+				$insertUrls = [ 'mycourses' => $myCourses ];
 
 				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
 			}
@@ -143,27 +143,27 @@ final class Hooks {
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		if ( Settings::get( 'enableTopLink' ) ) {
-			$preferences['ep_showtoplink'] = array(
+			$preferences['ep_showtoplink'] = [
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-showtoplink',
 				'section' => 'rendering/education',
-			);
+			];
 		}
 
 		if ( $user->isAllowed( 'ep-bulkdelorgs' ) ) {
-			$preferences['ep_bulkdelorgs'] = array(
+			$preferences['ep_bulkdelorgs'] = [
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-bulkdelorgs',
 				'section' => 'rendering/education',
-			);
+			];
 		}
 
 		if ( $user->isAllowed( 'ep-bulkdelcourses' ) ) {
-			$preferences['ep_bulkdelcourses'] = array(
+			$preferences['ep_bulkdelcourses'] = [
 				'type' => 'toggle',
 				'label-message' => 'ep-prefs-bulkdelcourses',
 				'section' => 'rendering/education',
-			);
+			];
 		}
 
 		return true;
@@ -235,7 +235,7 @@ final class Hooks {
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		$textParts = \SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
 
-		if ( in_array( $textParts[0], array( 'Enroll', 'Disenroll' ) )
+		if ( in_array( $textParts[0], [ 'Enroll', 'Disenroll' ] )
 			&& !is_null( $textParts[1] ) && trim( $textParts[1] ) !== '' ) {
 
 			// Remove the token from the title if needed.
@@ -270,8 +270,8 @@ final class Hooks {
 	 */
 	protected static function displayTabs( SkinTemplate &$sktemplate, array &$links, Title $title ) {
 		if ( $title->getNamespace() == EP_NS ) {
-			$links['views'] = array();
-			$links['actions'] = array();
+			$links['views'] = [];
+			$links['actions'] = [];
 
 			$user = $sktemplate->getUser();
 			$class = Utils::isCourse( $title ) ? 'EducationProgram\Courses' : 'EducationProgram\Orgs';
@@ -280,65 +280,65 @@ final class Hooks {
 			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
 
 			if ( $exists ) {
-				$links['views']['view'] = array(
+				$links['views']['view'] = [
 					'class' => ( !$isSpecial && $type === '' ) ? 'selected' : false,
 					'text' => $sktemplate->msg( 'ep-tab-view' )->text(),
 					'href' => $title->getLocalUrl()
-				);
+				];
 			}
 
 			$page = EducationPage::factory( $title );
 
 			if ( $user->isAllowed( $page->getLimitedEditRight() ) ) {
 
-				$links['views']['edit'] = array(
+				$links['views']['edit'] = [
 					'class' => $type === 'edit' ? 'selected' : false,
 					'text' => $sktemplate->msg( $exists ? 'ep-tab-edit' : 'ep-tab-create' )->text(),
-					'href' => $title->getLocalUrl( array( 'action' => 'edit' ) )
-				);
+					'href' => $title->getLocalUrl( [ 'action' => 'edit' ] )
+				];
 			}
 
 			if ( $user->isAllowed( $page->getEditRight() ) && $exists ) {
-				$links['actions']['delete'] = array(
+				$links['actions']['delete'] = [
 					'class' => $type === 'delete' ? 'selected' : false,
 					'text' => $sktemplate->msg( 'ep-tab-delete' )->text(),
-					'href' => $title->getLocalUrl( array( 'action' => 'delete' ) )
-				);
+					'href' => $title->getLocalUrl( [ 'action' => 'delete' ] )
+				];
 			}
 
 			if ( $exists ) {
-				$links['views']['history'] = array(
+				$links['views']['history'] = [
 					'class' => $type === 'history' ? 'selected' : false,
 					'text' => $sktemplate->msg( 'ep-tab-history' )->text(),
-					'href' => $title->getLocalUrl( array( 'action' => 'history' ) )
-				);
+					'href' => $title->getLocalUrl( [ 'action' => 'history' ] )
+				];
 
 				if ( Utils::isCourse( $title ) ) {
-					$links['views']['activity'] = array(
+					$links['views']['activity'] = [
 						'class' => $type === 'epcourseactivity' ? 'selected' : false,
 						'text' => $sktemplate->msg( 'ep-tab-activity' )->text(),
-						'href' => $title->getLocalUrl( array( 'action' => 'epcourseactivity' ) )
-					);
+						'href' => $title->getLocalUrl( [ 'action' => 'epcourseactivity' ] )
+					];
 
 					$student = Student::newFromUser( $user );
-					$hasCourse = $student !== false && $student->hasCourse( array( 'title' => $title->getText() ) );
+					$hasCourse = $student !== false && $student->hasCourse( [ 'title' => $title->getText() ] );
 
 					if ( $user->isAllowed( 'ep-enroll' ) && !$user->isBlocked() ) {
 						if ( !$hasCourse && Courses::singleton()->hasActiveTitle( $title->getText() ) ) {
-							$links['views']['enroll'] = array(
+							$links['views']['enroll'] = [
 								'class' => $isSpecial ? 'selected' : false,
 								'text' => $sktemplate->msg( 'ep-tab-enroll' )->text(),
 								'href' => \SpecialPage::getTitleFor( 'Enroll', $title->getText() )->getLocalURL()
-							);
+							];
 						}
 					}
 
 					if ( $hasCourse && Courses::singleton()->hasActiveTitle( $title->getText() ) ) {
-						$links[$isSpecial ? 'views' : 'actions']['disenroll'] = array(
+						$links[$isSpecial ? 'views' : 'actions']['disenroll'] = [
 							'class' => $isSpecial ? 'selected' : false,
 							'text' => $sktemplate->msg( 'ep-tab-disenroll' )->text(),
 							'href' => \SpecialPage::getTitleFor( 'Disenroll', $title->getText() )->getLocalURL()
-						);
+						];
 					}
 				}
 			}
@@ -360,8 +360,7 @@ final class Hooks {
 		if ( $title->getNamespace() == EP_NS ) {
 			if ( Utils::isCourse( $title ) ) {
 				$class = 'EducationProgram\Courses';
-			}
-			else {
+			} else {
 				$class = 'EducationProgram\Orgs';
 			}
 
@@ -374,7 +373,7 @@ final class Hooks {
 	}
 
 	public static function onMovePageIsValidMove( Title $oldTitle, Title $newTitle, \Status $status ) {
-		$nss = array( EP_NS, EP_NS_TALK );
+		$nss = [ EP_NS, EP_NS_TALK ];
 		$allowed = !in_array( $oldTitle->getNamespace(), $nss ) && !in_array( $newTitle->getNamespace(), $nss );
 
 		if ( !$allowed ) {
@@ -420,7 +419,7 @@ final class Hooks {
 	 * @return boolean
 	 */
 	public static function onNamespaceIsMovable( $index, &$movable ) {
-		if ( in_array( $index, array( EP_NS, EP_NS_TALK ) ) ) {
+		if ( in_array( $index, [ EP_NS, EP_NS_TALK ] ) ) {
 			$movable = false;
 		}
 
@@ -552,11 +551,11 @@ final class Hooks {
 			// notification is actually sent.
 			Extension::globalInstance()->getNotificationsManager()->trigger(
 				'ep-course-talk-notification',
-				array(
+				[
 					'course-talk-title' => $title,
 					'agent' => $user,
 					'revision' => $revision,
-				)
+				]
 			);
 		}
 
@@ -594,13 +593,13 @@ final class Hooks {
 		// automatically by Course::save(), called from onMergeAccountFromTo().
 
 		// array( tableName, idField, textField, 'options' => array() )
-		$fields[] = array( 'ep_articles', 'article_user_id', 'options' => array( 'IGNORE' ) );
-		$fields[] = array( 'ep_students', 'student_user_id', 'options' => array( 'IGNORE' ) );
-		$fields[] = array( 'ep_instructors', 'instructor_user_id',  'options' => array( 'IGNORE' ) );
-		$fields[] = array( 'ep_cas', 'ca_user_id', 'options' => array( 'IGNORE' ) );
-		$fields[] = array( 'ep_oas', 'oa_user_id', 'options' => array( 'IGNORE' ) );
-		$fields[] = array( 'ep_events', 'event_user_id' );
-		$fields[] = array( 'ep_revisions', 'rev_user_id', 'rev_user_text' );
+		$fields[] = [ 'ep_articles', 'article_user_id', 'options' => [ 'IGNORE' ] ];
+		$fields[] = [ 'ep_students', 'student_user_id', 'options' => [ 'IGNORE' ] ];
+		$fields[] = [ 'ep_instructors', 'instructor_user_id',  'options' => [ 'IGNORE' ] ];
+		$fields[] = [ 'ep_cas', 'ca_user_id', 'options' => [ 'IGNORE' ] ];
+		$fields[] = [ 'ep_oas', 'oa_user_id', 'options' => [ 'IGNORE' ] ];
+		$fields[] = [ 'ep_events', 'event_user_id' ];
+		$fields[] = [ 'ep_revisions', 'rev_user_id', 'rev_user_text' ];
 
 		return true;
 	}
@@ -615,14 +614,14 @@ final class Hooks {
 	 * @since 0.5.0 alpha
 	 */
 	public static function onUserMergeAccountDeleteTables( array &$tables ) {
-		$tables += array(
+		$tables += [
 			'ep_articles' => 'article_user_id',
 			'ep_users_per_course' => 'upc_user_id',
 			'ep_students' => 'student_user_id',
 			'ep_instructors' => 'instructor_user_id',
 			'ep_cas' => 'ca_user_id',
 			'ep_oas' => 'oa_user_id',
-		);
+		];
 
 		return true;
 	}
@@ -646,15 +645,15 @@ final class Hooks {
 		$userCourseFinder = new UPCUserCourseFinder( $dbw );
 
 		$courseIds =
-			$userCourseFinder->getCoursesForUsers( $oldId, array(), false );
+			$userCourseFinder->getCoursesForUsers( $oldId, [], false );
 
 		// Fields with arrays of the ids of users that have a role in a course
-		$roleFields = array(
+		$roleFields = [
 				'students',
 				'online_ambs',
 				'campus_ambs',
 				'instructors'
-		);
+		];
 
 		// A function to usermerge in an array of ids. Returns true if there
 		// were changes.
@@ -671,11 +670,11 @@ final class Hooks {
 			return false;
 		};
 
-		foreach( $courseIds as $courseId ) {
+		foreach ( $courseIds as $courseId ) {
 
 			// Fetch the course
 			$course = Courses::singleton()->selectRow(
-					null, array( 'id' => $courseId ) );
+					null, [ 'id' => $courseId ] );
 
 			// Sanity check
 			if ( !$course ) {
@@ -702,10 +701,10 @@ final class Hooks {
 		// of rows to change (unlikely but not impossible).
 		$job = new UserMergeArticleReviewersJob(
 			Title::newFromText( 'EducationProgram UserMerge reviewers/' . uniqid() ),
-			array(
+			[
 				'oldUserId' => $oldId,
 				'newUserId' => $newId
-				)
+				]
 			);
 
 		JobQueueGroup::singleton()->push( $job );

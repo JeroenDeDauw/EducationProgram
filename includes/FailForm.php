@@ -1,7 +1,10 @@
 <?php
 
 namespace EducationProgram;
-use Xml, Html, Linker;
+
+use Xml;
+use Html;
+use Linker;
 
 /**
  * I so love HTMLForm.
@@ -20,7 +23,7 @@ class FailForm extends \HTMLForm {
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $query = array();
+	protected $query = [];
 
 	/**
 	 * Should the summary field be shown or not?
@@ -52,19 +55,18 @@ class FailForm extends \HTMLForm {
 			? 'multipart/form-data'
 			: 'application/x-www-form-urlencoded';
 		// Attributes
-		$attribs = array(
+		$attribs = [
 			'action'  => $this->getTitle()->getFullURL( $this->query ),
 			'method'  => $this->mMethod,
 			'class'   => 'visualClear',
 			'enctype' => $encType,
-		);
+		];
 		if ( !empty( $this->mId ) ) {
 			$attribs['id'] = $this->mId;
 		}
 
 		return Html::rawElement( 'form', $attribs, $html );
 	}
-
 
 	/**
 	 * Sets the query for the action URL.
@@ -110,17 +112,17 @@ class FailForm extends \HTMLForm {
 		if ( $this->showSummary ) {
 			$html .= Html::element(
 				'label',
-				array( 'for' => 'wpSummary' ),
+				[ 'for' => 'wpSummary' ],
 				$this->msg( 'ep-form-summary' )->text()
 			) . '&#160;';
 
-			$attrs = array(
+			$attrs = [
 				'id' => 'wpSummary',
 				'name' => 'wpSummary',
 				'size' => 60,
 				'maxlength' => 250,
 				'spellcheck' => true
-			);
+			];
 
 			$attrs = array_merge( $attrs, Linker::tooltipAndAccesskeyAttribs( 'ep-summary' ) );
 

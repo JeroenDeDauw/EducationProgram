@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Linker;
+
+use IContextSource;
+use Linker;
 
 /**
  * Student pager, primarily for Special:Students.
@@ -22,7 +24,7 @@ class StudentActivityPager extends EPPager {
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $userNames = array();
+	protected $userNames = [];
 
 	/**
 	 * List of course ids mapped to their titles.
@@ -31,7 +33,7 @@ class StudentActivityPager extends EPPager {
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $courseTitles = array();
+	protected $courseTitles = [];
 
 	/**
 	 * List of course ids pointing to the id of their org.
@@ -40,7 +42,7 @@ class StudentActivityPager extends EPPager {
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $courseOrgs = array();
+	protected $courseOrgs = [];
 
 	/**
 	 * List of org ids mapped with their associated names and countries.
@@ -49,7 +51,7 @@ class StudentActivityPager extends EPPager {
 	 * @since 0.1
 	 * @var array
 	 */
-	protected $orgData = array();
+	protected $orgData = [];
 
 	/**
 	 * Constructor.
@@ -57,7 +59,7 @@ class StudentActivityPager extends EPPager {
 	 * @param IContextSource $context
 	 * @param array $conds
 	 */
-	public function __construct( IContextSource $context, array $conds = array() ) {
+	public function __construct( IContextSource $context, array $conds = [] ) {
 		$this->mDefaultDirection = true;
 		parent::__construct( $context, $conds, Students::singleton() );
 	}
@@ -66,12 +68,12 @@ class StudentActivityPager extends EPPager {
 	 * @see Pager::getFields()
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id',
 			'user_id',
 			'last_course',
 			'last_active',
-		);
+		];
 	}
 
 	/**
@@ -100,8 +102,7 @@ class StudentActivityPager extends EPPager {
 
 					$value = Linker::userLink( $value, $userName, $displayName )
 						. Student::getViewLinksFor( $this->getContext(), $value, $userName );
-				}
-				else {
+				} else {
 					$value = '';
 					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );
 				}
@@ -112,8 +113,7 @@ class StudentActivityPager extends EPPager {
 			case 'last_course':
 				if ( array_key_exists( $value, $this->courseTitles ) ) {
 					$value = Courses::singleton()->getLinkFor( $this->courseTitles[$value] );
-				}
-				else {
+				} else {
 					$value = '';
 					wfWarn( 'Course id not in $this->courseTitles in ' . __METHOD__ );
 				}
@@ -127,13 +127,11 @@ class StudentActivityPager extends EPPager {
 					if ( array_key_exists( $orgId, $this->orgData ) ) {
 						$value = $this->orgData[$orgId]['flag'];
 						$value .= Orgs::singleton()->getLinkFor( $this->orgData[$orgId]['name'] );
-					}
-					else {
+					} else {
 						$value = '';
 						wfWarn( 'Org id not in $this->orgNames in ' . __METHOD__ );
 					}
-				}
-				else {
+				} else {
 					$value = '';
 					wfWarn( 'Course id not in $this->courseOrgs in ' . __METHOD__ );
 				}
@@ -147,8 +145,8 @@ class StudentActivityPager extends EPPager {
 	 * @see Pager::getSortableFields()
 	 */
 	protected function getSortableFields() {
-		return array(
-		);
+		return [
+		];
 	}
 
 	/**
@@ -173,7 +171,7 @@ class StudentActivityPager extends EPPager {
 
 		unset( $fields['id'] );
 
-		$fields = wfArrayInsertAfter( $fields, array( 'org_id' => 'org-id' ), 'user_id' );
+		$fields = wfArrayInsertAfter( $fields, [ 'org_id' => 'org-id' ], 'user_id' );
 
 		return $fields;
 	}
@@ -182,8 +180,8 @@ class StudentActivityPager extends EPPager {
 	 * @see IndexPager::doBatchLookups()
 	 */
 	protected function doBatchLookups() {
-		$userIds = array();
-		$courseIds = array();
+		$userIds = [];
+		$courseIds = [];
 
 		$userField = $this->table->getPrefixedField( 'user_id' );
 		$courseField = $this->table->getPrefixedField( 'last_course' );
@@ -196,24 +194,24 @@ class StudentActivityPager extends EPPager {
 		if ( !empty( $userIds ) ) {
 			$result = wfGetDB( DB_SLAVE )->select(
 				'user',
-				array( 'user_id', 'user_name', 'user_real_name' ),
-				array( 'user_id' => $userIds ),
+				[ 'user_id', 'user_name', 'user_real_name' ],
+				[ 'user_id' => $userIds ],
 				__METHOD__
 			);
 
 			foreach ( $result as $user ) {
 				$real = $user->user_real_name === '' ? $user->user_name : $user->user_real_name;
-				$this->userNames[$user->user_id] = array( $user->user_name, $real );
+				$this->userNames[$user->user_id] = [ $user->user_name, $real ];
 			}
 		}
 
 		if ( !empty( $courseIds ) ) {
 			$courses = Courses::singleton()->selectFields(
-				array( 'id', 'org_id' , 'title'),
-				array( 'id' => array_unique( $courseIds ) )
+				[ 'id', 'org_id' , 'title' ],
+				[ 'id' => array_unique( $courseIds ) ]
 			);
 
-			$orgIds = array();
+			$orgIds = [];
 
 			foreach ( $courses as $courseData ) {
 				$this->courseTitles[$courseData['id']] = $courseData['title'];
@@ -221,17 +219,17 @@ class StudentActivityPager extends EPPager {
 				$this->courseOrgs[$courseData['id']] = $courseData['org_id'];
 			}
 
-			if ( $orgIds !== array() ) {
+			if ( $orgIds !== [] ) {
 				$orgs = Orgs::singleton()->selectFields(
-					array( 'id', 'name', 'country' ),
-					array( 'id' => array_unique( $orgIds ) )
+					[ 'id', 'name', 'country' ],
+					[ 'id' => array_unique( $orgIds ) ]
 				);
 
 				foreach ( $orgs as $org ) {
-					$this->orgData[$org['id']] = array(
+					$this->orgData[$org['id']] = [
 						'name' => $org['name'],
 						'flag' => $this->getFlagHtml( $org['country'] ),
-					);
+					];
 				}
 			}
 		}
@@ -241,7 +239,7 @@ class StudentActivityPager extends EPPager {
 		$file = false;
 		$countryFlags = Settings::get( 'countryFlags' );
 
-		if ( array_key_exists( $country, $countryFlags )  ) {
+		if ( array_key_exists( $country, $countryFlags ) ) {
 			$file = wfFindFile( $countryFlags[$country] );
 		}
 
@@ -252,17 +250,15 @@ class StudentActivityPager extends EPPager {
 		if ( $file === false ) {
 			wfWarn( 'Could not find fallback flag in ' . __METHOD__ );
 			$flag = '';
-		}
-		else {
-			$thumb = $file->transform( array(
+		} else {
+			$thumb = $file->transform( [
 				'width' => Settings::get( 'flagWidth' ),
 				'height' => Settings::get( 'flagHeight' ),
-			) );
+			] );
 
 			if ( $thumb && !$thumb->isError() ) {
 				$flag = $thumb->toHtml() . ' ';
-			}
-			else {
+			} else {
 				wfWarn( 'Thumb error in ' . __METHOD__ );
 				$flag = '';
 			}

@@ -46,7 +46,7 @@ class EventStoreTest extends \MediaWikiTestCase {
 
 		wfGetDB( DB_MASTER )->delete( 'ep_events', '*' );
 
-		$events = array();
+		$events = [];
 
 		$events[] = new Event(
 			null,
@@ -54,7 +54,7 @@ class EventStoreTest extends \MediaWikiTestCase {
 			1,
 			'20010115123456',
 			'foobar',
-			array( 'baz' )
+			[ 'baz' ]
 		);
 
 		$events[] = new Event(
@@ -63,7 +63,7 @@ class EventStoreTest extends \MediaWikiTestCase {
 			1,
 			'20010115123457',
 			'foobar',
-			array( 'bah' )
+			[ 'bah' ]
 		);
 
 		$events[] = new Event(
@@ -72,7 +72,7 @@ class EventStoreTest extends \MediaWikiTestCase {
 			1,
 			'20110115123457',
 			'foobar',
-			array( 'spam' )
+			[ 'spam' ]
 		);
 
 		$events[] = new Event(
@@ -81,7 +81,7 @@ class EventStoreTest extends \MediaWikiTestCase {
 			2,
 			'20110115123457',
 			'foobar',
-			array( 'hax' )
+			[ 'hax' ]
 		);
 
 		$events[] = new Event(
@@ -90,7 +90,7 @@ class EventStoreTest extends \MediaWikiTestCase {
 			1,
 			'20110115123457',
 			'nyan',
-			array( '~=[,,_,,]:3', 42, array( 'o_O' ) )
+			[ '~=[,,_,,]:3', 42, [ 'o_O' ] ]
 		);
 
 		foreach ( $events as $event ) {
@@ -99,59 +99,52 @@ class EventStoreTest extends \MediaWikiTestCase {
 	}
 
 	public function queryProvider() {
-		$argLists = array();
+		$argLists = [];
 
 		$query = new EventQuery();
 		$query->setCourses( 900001 );
 
-		$argLists[] = array( $query, 4 );
-
+		$argLists[] = [ $query, 4 ];
 
 		$query = new EventQuery();
 		$query->setCourses( 900002 );
 
-		$argLists[] = array( $query, 1 );
-
+		$argLists[] = [ $query, 1 ];
 
 		$query = new EventQuery();
 		$query->setCourses( 900003 );
 
-		$argLists[] = array( $query, 0 );
-
+		$argLists[] = [ $query, 0 ];
 
 		$query = new EventQuery();
-		$query->setCourses( array( 900001, 900002, 900003 ) );
+		$query->setCourses( [ 900001, 900002, 900003 ] );
 
-		$argLists[] = array( $query, 5 );
-
+		$argLists[] = [ $query, 5 ];
 
 		$query = new EventQuery();
 		$query->setCourses( 900001 );
 		$query->setRowLimit( 2 );
 
-		$argLists[] = array( $query, 2 );
-
+		$argLists[] = [ $query, 2 ];
 
 		$query = new EventQuery();
 		$query->setCourses( 900001 );
 		$query->setRowLimit( 2 );
 		$query->setSortOrder( EventQuery::ORDER_TIME_ASC );
 
-		$argLists[] = array( $query, 2 );
-
+		$argLists[] = [ $query, 2 ];
 
 		$query = new EventQuery();
 		$query->setCourses( 900001 );
 		$query->setTimeLimit( '20050115123457', EventQuery::COMP_BIGGER );
 
-		$argLists[] = array( $query, 3 );
-
+		$argLists[] = [ $query, 3 ];
 
 		$query = new EventQuery();
 		$query->setCourses( 900001 );
 		$query->setTimeLimit( '20050115123457', EventQuery::COMP_SMALLER );
 
-		$argLists[] = array( $query, 1 );
+		$argLists[] = [ $query, 1 ];
 
 		return $argLists;
 	}
@@ -172,7 +165,7 @@ class EventStoreTest extends \MediaWikiTestCase {
 	}
 
 	public function eventProvider() {
-		$events = array();
+		$events = [];
 
 		$events[] = new Event(
 			null,
@@ -180,7 +173,7 @@ class EventStoreTest extends \MediaWikiTestCase {
 			4242,
 			'20110115123457',
 			'foobar',
-			array( 'hax' )
+			[ 'hax' ]
 		);
 
 		$events[] = new Event(
@@ -189,7 +182,7 @@ class EventStoreTest extends \MediaWikiTestCase {
 			31337,
 			'20110115123457',
 			'nyan',
-			array( '~=[,,_,,]:3', 42, array( 'o_O' ) )
+			[ '~=[,,_,,]:3', 42, [ 'o_O' ] ]
 		);
 
 		return $this->arrayWrap( $events );

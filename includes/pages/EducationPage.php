@@ -1,7 +1,12 @@
 <?php
 
 namespace EducationProgram;
-use ContextSource, Title, WikiPage, Exception, Language;
+
+use ContextSource;
+use Title;
+use WikiPage;
+use Exception;
+use Language;
 
 /**
  * Abstract Page for interacting with a PageObject.
@@ -28,7 +33,7 @@ abstract class EducationPage extends ContextSource implements \Page {
 	 *
 	 * @return array
 	 */
-	public abstract function getActions();
+	abstract public function getActions();
 
 	/**
 	 * Returns an instance of the PageTable class for the PageObject being handled.
@@ -37,7 +42,7 @@ abstract class EducationPage extends ContextSource implements \Page {
 	 *
 	 * @return PageTable
 	 */
-	public abstract function getTable();
+	abstract public function getTable();
 
 	/**
 	 * @since 0.1
@@ -64,8 +69,7 @@ abstract class EducationPage extends ContextSource implements \Page {
 		if ( $title->getNamespace() == EP_NS ) {
 			$class = Utils::isCourse( $title ) ? 'EducationProgram\CoursePage' : 'EducationProgram\OrgPage';
 			return new $class( $title );
-		}
-		else {
+		} else {
 			throw new Exception( 'Namespace not handled by Page' );
 		}
 	}
@@ -123,7 +127,8 @@ abstract class EducationPage extends ContextSource implements \Page {
 		return static::$info['log-type'];
 	}
 
-	public function loadPageData( $from = 'fromdb' ) {}
+	public function loadPageData( $from = 'fromdb' ) {
+	}
 
 	public function exists() {
 		return $this->getTitle()->exists();

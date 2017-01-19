@@ -21,26 +21,26 @@ class CourseTalk extends RoleAdd {
 	 * {@inheritdoc}
 	 */
 	public function getPrimaryLink() {
-		return array(
+		return [
 			'url' => $this->event->getTitle()->getFullURL(),
 			'label' => $this->msg( 'ep-course-talk-link-text-view-message' )->text(),
-		);
+		];
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
 	public function getSecondaryLinks() {
-		$viewChangesLink = array(
-			'url' => $this->event->getTitle()->getLocalURL( array(
+		$viewChangesLink = [
+			'url' => $this->event->getTitle()->getLocalURL( [
 				'oldid' => 'prev',
 				'diff' => $this->event->getExtraParam( 'revid' )
-			) ),
+			] ),
 			'label' => $this->msg( 'ep-course-talk-link-text-view-changes' )->text(),
 			'description' => '',
 			'icon' => 'changes',
 			'prioritized' => true,
-		);
-		return array( $this->getAgentLink(), $viewChangesLink );
+		];
+		return [ $this->getAgentLink(), $viewChangesLink ];
 	}
 }

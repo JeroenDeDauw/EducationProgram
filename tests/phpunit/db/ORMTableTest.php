@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram\Tests;
+
 use EducationProgram\IORMRow;
 use EducationProgram\IORMTable;
 use EducationProgram\ORMTable;
@@ -121,10 +122,10 @@ class PageORMTableForTesting extends ORMTable {
 	 * @return array
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id' => 'int',
 			'namespace' => 'int',
 			'title' => 'str',
-		);
+		];
 	}
 }

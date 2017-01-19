@@ -56,19 +56,17 @@ class SpecialMyCourses extends VerySpecialPage {
 
 			$this->displayDidYouKnow();
 
-			if ( $this->courses === array() ) {
+			if ( $this->courses === [] ) {
 				$this->getOutput()->addWikiMsg( 'ep-dashboard-enroll-first' );
-			}
-			else {
+			} else {
 				$this->displayTimelines();
 			}
-		}
-		else {
+		} else {
 			$this->getOutput()->addHTML( Linker::linkKnown(
 				\SpecialPage::getTitleFor( 'Userlogin' ),
 				$this->msg( 'ep-dashboard-login-first' )->escaped(),
-				array(),
-				array( 'returnto' => $this->getPageTitle( $this->subPage )->getFullText() )
+				[],
+				[ 'returnto' => $this->getPageTitle( $this->subPage )->getFullText() ]
 			) );
 		}
 	}
@@ -84,10 +82,10 @@ class SpecialMyCourses extends VerySpecialPage {
 
 		$courses = Courses::singleton()->getCoursesForUsers(
 			$this->getUser()->getId(),
-			array(),
-			array(
+			[],
+			[
 				'end >= ' . $now
-			)
+			]
 		);
 
 		$this->courses = iterator_to_array( $courses );
@@ -110,14 +108,14 @@ class SpecialMyCourses extends VerySpecialPage {
 
 				if ( !is_null( $course ) ) {
 					$specificCategory = Orgs::singleton()->selectFieldsRow(
-						array( 'name' ),
-						array( 'id' => $course->getField( 'org_id' ) )
+						[ 'name' ],
+						[ 'id' => $course->getField( 'org_id' ) ]
 					);
 
 					if ( is_string( $specificCategory ) ) {
 						$specificCategory = str_replace(
-							array( '$1', '$2' ),
-							array( $specificCategory, Settings::get( 'dykCategory' ) ),
+							[ '$1', '$2' ],
+							[ $specificCategory, Settings::get( 'dykCategory' ) ],
 							Settings::get( 'dykOrgCategory' )
 						);
 					}
@@ -131,7 +129,7 @@ class SpecialMyCourses extends VerySpecialPage {
 
 				return $box->getHTML();
 			},
-			array( $this->getContext(), $this->courses )
+			[ $this->getContext(), $this->courses ]
 		);
 
 		$this->getOutput()->addModules( DYKBox::getModules() );
@@ -147,7 +145,7 @@ class SpecialMyCourses extends VerySpecialPage {
 			$this->displayTimeline( $course );
 		}
 
-		if ( $this->courses !== array() ) {
+		if ( $this->courses !== [] ) {
 			$this->getOutput()->addModules( Timeline::getModules() );
 		}
 	}
@@ -168,7 +166,7 @@ class SpecialMyCourses extends VerySpecialPage {
 				},
 				$this->courses
 			),
-			array( $this->getUser()->getOption( 'ep_showdyk' ) )
+			[ $this->getUser()->getOption( 'ep_showdyk' ) ]
 		);
 	}
 
@@ -203,15 +201,14 @@ class SpecialMyCourses extends VerySpecialPage {
 					$course->getTitle(),
 					\Html::element(
 						'h2',
-						array('class' => 'ep-course-title'),
+						[ 'class' => 'ep-course-title' ],
 						$course->getField( 'name' )
 					)
 				);
 
-				if ( $events === array() ) {
+				if ( $events === [] ) {
 					$html .= $context->msg( 'ep-dashboard-timeline-empty' )->escaped();
-				}
-				else {
+				} else {
 					$timeline = new Timeline(
 						$context->getOutput(),
 						$context->getLanguage(),
@@ -223,7 +220,7 @@ class SpecialMyCourses extends VerySpecialPage {
 
 				return $html;
 			},
-			array( $course, $this->getContext() )
+			[ $course, $this->getContext() ]
 		);
 	}
 
@@ -239,7 +236,7 @@ class SpecialMyCourses extends VerySpecialPage {
 			/**
 			 * @var Course $course
 			 */
-			$course = Courses::singleton()->selectRow( null, array( 'id' => $this->getRequest()->getInt( 'enrolled' ) ) );
+			$course = Courses::singleton()->selectRow( null, [ 'id' => $this->getRequest()->getInt( 'enrolled' ) ] );
 
 			if ( $course !== false && in_array( $this->getUser()->getId(), $course->getField( 'students' ) ) ) {
 				$this->showSuccess( $this->msg( 'ep-mycourses-enrolled' )->rawParams(

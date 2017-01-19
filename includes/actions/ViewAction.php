@@ -1,7 +1,11 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, Linker, Html;
+
+use Page;
+use IContextSource;
+use Linker;
+use Html;
 
 /**
  * Abstract action for viewing ORMRow items.
@@ -80,15 +84,14 @@ abstract class ViewAction extends Action {
 			$currentObject = $this->table->get( $name, 'id' );
 
 			if ( $currentObject !== false ) {
-				$rev = Revisions::singleton()->selectRow( null, array(
+				$rev = Revisions::singleton()->selectRow( null, [
 					'id' => $this->getRequest()->getInt( 'revid' ),
 					'object_id' => $currentObject->getField( 'id' )
-				) );
+				] );
 
 				if ( $rev === false ) {
 					// TODO high
-				}
-				else {
+				} else {
 					$object = $rev->getObject();
 					$this->displayRevisionNotice( $rev );
 				}
@@ -103,17 +106,15 @@ abstract class ViewAction extends Action {
 			$this->displayNavigation();
 
 			if ( $this->getUser()->isAllowed( $this->page->getEditRight() ) ) {
-				$out->redirect( $this->getTitle()->getLocalURL( array( 'action' => 'edit' ) ) );
-			}
-			else {
+				$out->redirect( $this->getTitle()->getLocalURL( [ 'action' => 'edit' ] ) );
+			} else {
 				Utils::displayResult( $this->getContext() );
 
 				$out->addWikiMsg( str_replace( 'educationprogram\\', '', strtolower( get_called_class() ) ) . '-none', $name );
 
 				$this->displayDeletionLog();
 			}
-		}
-		else {
+		} else {
 			$this->object = $object;
 
 			Utils::displayResult( $this->getContext() );
@@ -122,7 +123,7 @@ abstract class ViewAction extends Action {
 
 			$this->startCache( 3600 );
 
-			$this->addCachedHTML( array( $this, 'getPageHTML' ), $object );
+			$this->addCachedHTML( [ $this, 'getPageHTML' ], $object );
 
 			$this->saveCache();
 		}
@@ -151,7 +152,7 @@ abstract class ViewAction extends Action {
 		$tddate = $lang->date( $rev->getField( 'time' ), true );
 		$tdtime = $lang->time( $rev->getField( 'time' ), true );
 
-		$userToolLinks = Linker::userLink(  $rev->getUser()->getId(), $rev->getUser()->getName() )
+		$userToolLinks = Linker::userLink( $rev->getUser()->getId(), $rev->getUser()->getName() )
 			. Linker::userToolLinks( $rev->getUser()->getId(), $rev->getUser()->getName() );
 
 		$infomsg = $rev->isLatest() && !$this->msg( 'revision-info-current' )->isDisabled()
@@ -214,9 +215,9 @@ abstract class ViewAction extends Action {
 			$class .= ' mw-collapsed';
 		}
 
-		$html .= Html::openElement( 'table', array( 'class' => $class ) );
+		$html .= Html::openElement( 'table', [ 'class' => $class ] );
 
-		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), $this->msg( 'ep-item-summary' )->text() ) . '</tr>';
+		$html .= '<tr>' . Html::element( 'th', [ 'colspan' => 2 ], $this->msg( 'ep-item-summary' )->text() ) . '</tr>';
 
 		$summaryData = is_null( $summaryData ) ? $this->getSummaryData( $item ) : $summaryData;
 
@@ -225,13 +226,13 @@ abstract class ViewAction extends Action {
 
 			$html .= Html::element(
 				'th',
-				array( 'class' => 'ep-summary-name' ),
+				[ 'class' => 'ep-summary-name' ],
 				$this->msg( str_replace( 'educationprogram\\', '', strtolower( get_called_class() ) ) . '-summary-' . $stat )->text()
 			);
 
 			$html .= Html::rawElement(
 				'td',
-				array( 'class' => 'ep-summary-value' ),
+				[ 'class' => 'ep-summary-value' ],
 				$value
 			);
 
@@ -254,7 +255,7 @@ abstract class ViewAction extends Action {
 	 * @return array
 	 */
 	protected function getSummaryData( IORMRow $item ) {
-		return array();
+		return [];
 	}
 
 	/**
@@ -263,7 +264,7 @@ abstract class ViewAction extends Action {
 	 */
 	protected function getCacheKey() {
 		return array_merge(
-			array( $this->object->getTouched() ),
+			[ $this->object->getTouched() ],
 			$this->getRequest()->getValues(),
 			parent::getCacheKey()
 		);

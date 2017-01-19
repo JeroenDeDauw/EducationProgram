@@ -15,23 +15,23 @@ namespace EducationProgram;
  */
 class OrgPage extends EducationPage {
 
-	protected static $info = array(
+	protected static $info = [
 		'edit-right' => 'ep-org',
 		'list' => 'Institutions',
 		'log-type' => 'institution',
-	);
+	];
 
 	/**
 	 * @see EducationPage::getActions()
 	 */
 	public function getActions() {
-		return array(
+		return [
 			'view' => 'EducationProgram\ViewOrgAction',
 			'edit' => 'EducationProgram\EditOrgAction',
 			'history' => 'EducationProgram\HistoryAction',
 			'delete' => 'EducationProgram\DeleteOrgAction',
 			'purge' => 'EducationProgram\ViewOrgAction',
-		);
+		];
 	}
 
 	/**

@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use SpecialPage;
 
 /**
@@ -39,8 +40,7 @@ class SpecialCAs extends VerySpecialPage {
 
 			$this->startCache( 3600 );
 			$this->addCachedHTML( 'EducationProgram\CA::getPager', $this->getContext() );
-		}
-		else {
+		} else {
 			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'CampusAmbassador', $this->subPage )->getLocalURL() );
 		}
 	}

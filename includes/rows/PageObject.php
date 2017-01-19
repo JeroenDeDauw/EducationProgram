@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use Title, Exception;
+
+use Title;
+use Exception;
 
 /**
  * Abstract base class for RevisionedObject that have associated view, edit and history pages.
@@ -50,7 +52,7 @@ abstract class PageObject extends RevisionedObject {
 	 *
 	 * @return string
 	 */
-	public function getLink( $action = 'view', $html = null, array $customAttribs = array(), array $query = array() ) {
+	public function getLink( $action = 'view', $html = null, array $customAttribs = [], array $query = [] ) {
 		return $this->table->getLinkFor(
 			$this->getIdentifier(),
 			$action,
@@ -81,12 +83,11 @@ abstract class PageObject extends RevisionedObject {
 
 		if ( is_null( $title ) ) {
 			return false;
-		}
-		else {
-			return array(
+		} else {
+			return [
 				'type' => EducationPage::factory( $title )->getLogType(),
 				'title' => $title,
-			);
+			];
 		}
 	}
 

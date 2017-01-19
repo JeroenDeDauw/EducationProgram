@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource;
+
+use Page;
+use IContextSource;
 
 /**
  * Action to edit a course.
@@ -72,7 +74,7 @@ class EditCourseAction extends EditAction {
 	public function onView() {
 		$out = $this->getOutput();
 
-		$out->addModules( array( 'ep.datepicker') );
+		$out->addModules( [ 'ep.datepicker' ] );
 
 		$identifier = Courses::normalizeTitle( $this->getTitle()->getText() );
 
@@ -82,10 +84,10 @@ class EditCourseAction extends EditAction {
 			// institution hasn't been deleted before displaying undelete
 			// info.
 			$latestRevision = Revisions::singleton()->getLatestRevision(
-				array(
+				[
 					'object_identifier' => $identifier,
 					'type' => Courses::singleton()->getRevisionedObjectTypeId(),
-				)
+				]
 			);
 
 			// Make sure there are indeed previous revisions to undelete
@@ -109,7 +111,7 @@ class EditCourseAction extends EditAction {
 
 			$out->addHTML( Course::getAddNewRegion(
 				$this->getContext(),
-				array(
+				[
 					'name' => $this->getRequest()->getText(
 						'newname',
 						$this->getLanguage()->ucfirst( $name )
@@ -118,7 +120,7 @@ class EditCourseAction extends EditAction {
 						'newterm',
 						$term
 					),
-				)
+				]
 			) );
 
 			$out->addModules( 'ep.addcourse' );
@@ -128,8 +130,7 @@ class EditCourseAction extends EditAction {
 			$out->setPageTitle( $this->getPageTitle() );
 
 			return '';
-		}
-		else {
+		} else {
 			return parent::onView();
 		}
 	}
@@ -149,19 +150,18 @@ class EditCourseAction extends EditAction {
 		$titleText = explode( '/', $titleText, 2 );
 		$titleText = array_pop( $titleText );
 
-		$matches = array();
+		$matches = [];
 		preg_match( '/(.*)\((.*)\)/', $titleText, $matches );
 
 		if ( count( $matches ) == 3 && trim( $matches[1] ) !== '' && $matches[2] !== '' ) {
 			$name = trim( $matches[1] );
 			$term = trim( $matches[2] );
-		}
-		else {
+		} else {
 			$name = $titleText;
 			$term = '';
 		}
 
-		return array( $name, $term );
+		return [ $name, $term ];
 	}
 
 	/**
@@ -171,12 +171,12 @@ class EditCourseAction extends EditAction {
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-		$orgOptions = Orgs::singleton()->selectFields( array( 'name', 'id' ) );
+		$orgOptions = Orgs::singleton()->selectFields( [ 'name', 'id' ] );
 
-		$messageMethod = array( $this, 'msg' );
+		$messageMethod = [ $this, 'msg' ];
 
 		// Show description ("page text") field to all users
-		$fields['description'] = array(
+		$fields['description'] = [
 			'type' => 'textarea',
 			'label-message' => 'ep-course-edit-description',
 			'required' => true,
@@ -190,13 +190,13 @@ class EditCourseAction extends EditAction {
 			'rows' => 15,
 			'cols' => 200,
 			'id' => 'wpTextbox1',
-		);
+		];
 
 		// Only show remaining controls if the user has sufficient rights.
 		if ( $this->getUser()->isAllowed(
 			$this->getManagementRestriction() ) ) {
 
-			$fields['token'] = array(
+			$fields['token'] = [
 				'type' => 'text',
 				'label-message' => 'ep-course-edit-token',
 				'help-message' => 'ep-course-help-token',
@@ -211,22 +211,22 @@ class EditCourseAction extends EditAction {
 
 					return true;
 				},
-			);
+			];
 
-			$fields['start'] = array(
+			$fields['start'] = [
 				'class' => 'EducationProgram\HTMLDateField',
 				'label-message' => 'ep-course-edit-start',
 				'required' => true,
-			);
+			];
 
-			$fields['end'] = array(
+			$fields['end'] = [
 				'class' => 'EducationProgram\HTMLDateField',
 				'label-message' => 'ep-course-edit-end',
 				'required' => true,
-			);
+			];
 
 			$langOptions = Utils::getLanguageOptions( $this->getLanguage()->getCode() );
-			$fields['lang'] = array(
+			$fields['lang'] = [
 				'type' => 'select',
 				'label-message' => 'ep-course-edit-lang',
 				'maxlength' => 255,
@@ -239,7 +239,7 @@ class EditCourseAction extends EditAction {
 
 					return call_user_func( $messageMethod, 'ep-course-invalid-lang' )->text();
 				},
-			);
+			];
 		}
 
 		return $this->processFormFields( $fields );
@@ -266,16 +266,15 @@ class EditCourseAction extends EditAction {
 
 			$data['term'] = $this->getRequest()->getVal( 'newterm' );
 
-			$data['description'] = $this->getDefaultDescription( array(
+			$data['description'] = $this->getDefaultDescription( [
 				'institutionid' => $data['org_id'],
 				'name' => $name,
 				'title' => $name,
 				'term' => $data['term'],
-			) );
+			] );
 
 			$data['lang'] = $GLOBALS['wgContLang']->getCode();
-		}
-		else {
+		} else {
 			unset( $data['name'] );
 		}
 
@@ -286,7 +285,7 @@ class EditCourseAction extends EditAction {
 	 * @see EditAction::handleKnownField()
 	 */
 	protected function handleKnownField( $name, $value ) {
-		if ( in_array( $name, array( 'end', 'start' ) ) ) {
+		if ( in_array( $name, [ 'end', 'start' ] ) ) {
 			$value = wfTimestamp( TS_MW, strtotime( $value . ' UTC' ) );
 		}
 
@@ -311,14 +310,14 @@ class EditCourseAction extends EditAction {
 		$primaryPage = Settings::get( 'courseDescPage' );
 		$orgPage = Settings::get( 'courseOrgDescPage' );
 
-		$orgTitle = Orgs::singleton()->selectFieldsRow( 'name', array( 'id' => $data['institutionid'] ) );
+		$orgTitle = Orgs::singleton()->selectFieldsRow( 'name', [ 'id' => $data['institutionid'] ] );
 
 		$content = false;
 
 		if ( $orgTitle !== false ) {
 			$orgPage = str_replace(
-				array( '$1', '$2' ),
-				array( $orgTitle, $primaryPage ),
+				[ '$1', '$2' ],
+				[ $orgTitle, $primaryPage ],
 				$orgPage
 			);
 
@@ -331,8 +330,7 @@ class EditCourseAction extends EditAction {
 
 		if ( $content === false ) {
 			$content = '';
-		}
-		else {
+		} else {
 			if ( $orgTitle !== false ) {
 				$data['institution'] = $orgTitle;
 			}
@@ -369,7 +367,7 @@ class EditCourseAction extends EditAction {
 	 * @return string
 	 */
 	protected function getPrefixedTitle( $courseName, $orgId ) {
-		$prefix = Orgs::singleton()->selectFieldsRow( 'name', array( 'id' => $orgId ) ) . '/';
+		$prefix = Orgs::singleton()->selectFieldsRow( 'name', [ 'id' => $orgId ] ) . '/';
 
 		if ( strpos( $courseName, $prefix ) !== 0 ) {
 			$courseName = $prefix . $courseName;
@@ -394,7 +392,7 @@ class EditCourseAction extends EditAction {
 		$fields['name'] = $info_from_title['course_name'];
 		$fields['term'] = $info_from_title['term'];
 		$fields['org_id'] = Orgs::singleton()->selectFieldsRow(
-			'id', array( 'name' => $info_from_title['org_name'] ));
+			'id', [ 'name' => $info_from_title['org_name'] ] );
 
 		// These fields are deprecated, so make sure they can't be
 		// set. (Already removed from the UI.)

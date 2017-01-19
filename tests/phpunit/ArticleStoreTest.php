@@ -42,7 +42,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 	}
 
 	public function articleProvider() {
-		$articles = array();
+		$articles = [];
 
 		$articles[] = new EPArticle(
 			null,
@@ -50,7 +50,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 			3,
 			4,
 			'Foo_bar',
-			array()
+			[]
 		);
 
 		$articles[] = new EPArticle(
@@ -59,7 +59,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 			3000,
 			4000,
 			'A',
-			array( 1, 2, 5, 42, 3 )
+			[ 1, 2, 5, 42, 3 ]
 		);
 
 		return $this->arrayWrap( $articles );
@@ -95,7 +95,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 			$article->getUserId() + 1,
 			$article->getPageId() + 1,
 			'Nyan',
-			array( 9001 )
+			[ 9001 ]
 		);
 
 		$this->assertTrue(
@@ -138,7 +138,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				1,
 				1,
 				'foo',
-				array()
+				[]
 			)
 		);
 	}
@@ -153,7 +153,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				1,
 				1,
 				'foo',
-				array()
+				[]
 			)
 		);
 	}
@@ -198,7 +198,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				1,
 				1,
 				'foo',
-				array()
+				[]
 			)
 		);
 
@@ -209,7 +209,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				1,
 				2,
 				'bar',
-				array()
+				[]
 			)
 		);
 
@@ -220,7 +220,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				1,
 				3,
 				'baz',
-				array()
+				[]
 			)
 		);
 
@@ -231,7 +231,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				2,
 				4,
 				'bah',
-				array()
+				[]
 			)
 		);
 
@@ -245,35 +245,35 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 			'deleteArticleByCourseAndUsers returned true'
 		);
 
-		$this->assertHasArticles( $store, array( $id0, $id1, $id2, $id3 ) );
+		$this->assertHasArticles( $store, [ $id0, $id1, $id2, $id3 ] );
 
 		$this->assertTrue(
 			$store->deleteArticleByCourseAndUsers( 1, 1 ),
 			'deleteArticleByCourseAndUsers returned true'
 		);
 
-		$this->assertHasArticles( $store, array( $id2, $id3 ) );
-		$this->assertNotHasArticles( $store, array( $id0, $id1 ) );
+		$this->assertHasArticles( $store, [ $id2, $id3 ] );
+		$this->assertNotHasArticles( $store, [ $id0, $id1 ] );
 
 		$this->assertTrue(
-			$store->deleteArticleByCourseAndUsers( array( 1 ), array( 1 ) ),
+			$store->deleteArticleByCourseAndUsers( [ 1 ], [ 1 ] ),
 			'deleteArticleByCourseAndUsers returned true'
 		);
 
 		$this->assertTrue(
-			$store->deleteArticleByCourseAndUsers( array( 2, 3, 4 ), array( 1, 2, 3, 4 ) ),
+			$store->deleteArticleByCourseAndUsers( [ 2, 3, 4 ], [ 1, 2, 3, 4 ] ),
 			'deleteArticleByCourseAndUsers returned true'
 		);
 
-		$this->assertHasArticles( $store, array( $id3 ) );
-		$this->assertNotHasArticles( $store, array( $id2 ) );
+		$this->assertHasArticles( $store, [ $id3 ] );
+		$this->assertNotHasArticles( $store, [ $id2 ] );
 
 		$this->assertTrue(
-			$store->deleteArticleByCourseAndUsers( array( 1, 2, 3 ), 2 ),
+			$store->deleteArticleByCourseAndUsers( [ 1, 2, 3 ], 2 ),
 			'deleteArticleByCourseAndUsers returned true'
 		);
 
-		$this->assertNotHasArticles( $store, array( $id3 ) );
+		$this->assertNotHasArticles( $store, [ $id3 ] );
 	}
 
 	/**
@@ -304,22 +304,22 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 
 	public function testDeleteArticleByCourseAndUsersWithEmptyArrayAsFirstArgument() {
 		$this->setExpectedException( 'InvalidArgumentException' );
-		$this->newStore()->deleteArticleByCourseAndUsers( array(), 2 );
+		$this->newStore()->deleteArticleByCourseAndUsers( [], 2 );
 	}
 
 	public function testDeleteArticleByCourseAndUsersWithEmptyArrayAsSecondArgument() {
 		$this->setExpectedException( 'InvalidArgumentException' );
-		$this->newStore()->deleteArticleByCourseAndUsers( array( 2 ), array() );
+		$this->newStore()->deleteArticleByCourseAndUsers( [ 2 ], [] );
 	}
 
 	public function testGetArticlesByCourseAndUsersEmptyArrayAsSecondArgument() {
 		$this->setExpectedException( 'InvalidArgumentException' );
-		$this->newStore()->getArticlesByCourseAndUsers( array( 2 ), array() );
+		$this->newStore()->getArticlesByCourseAndUsers( [ 2 ], [] );
 	}
 
 	public function testGetArticlesByCourseAndUsersEmptyArrayAsFirstArgument() {
 		$this->setExpectedException( 'InvalidArgumentException' );
-		$this->newStore()->getArticlesByCourseAndUsers( array(), 2 );
+		$this->newStore()->getArticlesByCourseAndUsers( [], 2 );
 	}
 
 	public function testGetArticlesByCourseAndUsers() {
@@ -332,7 +332,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				44441,
 				1,
 				'foo',
-				array()
+				[]
 			)
 		);
 
@@ -343,7 +343,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				44441,
 				2,
 				'bar',
-				array()
+				[]
 			)
 		);
 
@@ -354,7 +354,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				44441,
 				3,
 				'baz',
-				array()
+				[]
 			)
 		);
 
@@ -365,32 +365,32 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 				44442,
 				4,
 				'bah',
-				array()
+				[]
 			)
 		);
 
 		$this->assertHasArticlesMatchingConditions(
-			array(),
-			array( 667788 ),
-			array( 667788 )
+			[],
+			[ 667788 ],
+			[ 667788 ]
 		);
 
 		$this->assertHasArticlesMatchingConditions(
-			array(),
-			array( 33331, 33332 ),
-			array( 667788 )
+			[],
+			[ 33331, 33332 ],
+			[ 667788 ]
 		);
 
 		$this->assertHasArticlesMatchingConditions(
-			array( $id3 ),
-			array( 33331, 33332 ),
-			array( 44442 )
+			[ $id3 ],
+			[ 33331, 33332 ],
+			[ 44442 ]
 		);
 
 		$this->assertHasArticlesMatchingConditions(
-			array( $id0, $id1, $id2, $id3 ),
-			array( 33331, 33332 ),
-			array( 44441, 44442 )
+			[ $id0, $id1, $id2, $id3 ],
+			[ 33331, 33332 ],
+			[ 44441, 44442 ]
 		);
 	}
 
@@ -401,7 +401,7 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 		$this->assertContainsOnlyInstancesOf( 'EducationProgram\EPArticle', $articles );
 		$this->assertSameSize( $expectedIds, $articles );
 
-		$actualIds = array();
+		$actualIds = [];
 
 		foreach ( $articles as $article ) {
 			$actualIds[] = $article->getId();

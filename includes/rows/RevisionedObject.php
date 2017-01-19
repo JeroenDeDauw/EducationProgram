@@ -144,7 +144,7 @@ abstract class RevisionedObject extends ORMRow {
 	protected function saveExisting( $functionName = null ) {
 		if ( !$this->inSummaryMode ) {
 			$this->table->setReadDb( DB_MASTER );
-			$originalObject = $this->table->selectRow( null, array( 'id' => $this->getId() ) );
+			$originalObject = $this->table->selectRow( null, [ 'id' => $this->getId() ] );
 			$this->table->setReadDb( DB_SLAVE );
 
 			if ( $originalObject === false ) {
@@ -178,7 +178,7 @@ abstract class RevisionedObject extends ORMRow {
 	 * @return boolean
 	 */
 	protected function fieldsChanged( IORMRow $object, $excludeSummaryFields = false ) {
-		$exclusionFields = array();
+		$exclusionFields = [];
 
 		if ( $excludeSummaryFields !== false ) {
 			$exclusionFields = is_array( $excludeSummaryFields ) ? $excludeSummaryFields : $this->table->getSummaryFields();
@@ -214,7 +214,8 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @since 0.4 alpha
 	 */
-	protected function onUndeleted() { }
+	protected function onUndeleted() {
+	}
 
 	/**
 	 * @see ORMRow::insert()
@@ -299,8 +300,8 @@ abstract class RevisionedObject extends ORMRow {
 	 */
 	public function getRevisionById( $id ) {
 		$objects = $this->getRevisions(
-			array( 'id' => $id ),
-			array( 'LIMIT' => 1 )
+			[ 'id' => $id ],
+			[ 'LIMIT' => 1 ]
 		);
 
 		return $objects->isEmpty() ? false : $objects->current();
@@ -317,7 +318,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @return ORMResult
 	 */
-	public function getRevisions( array $conditions = array(), array $options = array() ) {
+	public function getRevisions( array $conditions = [], array $options = [] ) {
 		return Revisions::singleton()->select( null, array_merge(
 			$this->getRevisionIdentifiers(),
 			$conditions
@@ -329,12 +330,12 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @return string
 	 */
-	protected abstract function getTypeId();
+	abstract protected function getTypeId();
 
 	public function getRevisionIdentifiers() {
-		$identifiers = array(
+		$identifiers = [
 			'type' => $this->getTypeId()
-		);
+		];
 
 		if ( $this->hasIdField() ) {
 			$identifiers['object_id'] = $this->getId();
@@ -354,7 +355,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @return EPRevision|bool false
 	 */
-	public function getLatestRevision( array $conditions = array(), array $options = array() ) {
+	public function getLatestRevision( array $conditions = [], array $options = [] ) {
 		$options['ORDER BY'] = Revisions::singleton()->getPrefixedField( 'id' ) . ' DESC';
 
 		return Revisions::singleton()->selectRow( null, array_merge(
@@ -469,8 +470,7 @@ abstract class RevisionedObject extends ORMRow {
 		foreach ( $diff->getChangedFields() as $fieldName => $values ) {
 			if ( array_key_exists( 'target', $values ) ) {
 				$this->restoreField( $fieldName, $values['target'] );
-			}
-			else {
+			} else {
 				$this->removeField( $fieldName );
 			}
 		}

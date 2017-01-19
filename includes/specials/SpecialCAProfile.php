@@ -30,8 +30,6 @@ class SpecialCAProfile extends SpecialAmbassadorProfile {
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-
-
 		return $fields;
 	}
 

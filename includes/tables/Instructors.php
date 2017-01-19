@@ -42,11 +42,11 @@ class Instructors extends ORMTable {
 	 * @return array
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id' => 'id',
 
 			'user_id' => 'int',
-		);
+		];
 	}
 
 }

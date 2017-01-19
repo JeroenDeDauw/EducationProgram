@@ -53,16 +53,16 @@ class ArticleAdderTest extends \MediaWikiTestCase {
 	}
 
 	public function addArticleProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array(
+		$argLists[] = [
 			new MockSuperUser(), // Action user
 			10, // Course id
 			20, // User id
 			30, // Page id,
 			'Page_title',
-			array( 4, 5, 6 ) // Reviewer user ids
-		);
+			[ 4, 5, 6 ] // Reviewer user ids
+		];
 
 		return $argLists;
 	}

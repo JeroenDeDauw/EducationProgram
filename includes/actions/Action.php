@@ -33,15 +33,15 @@ abstract class Action extends \CachedAction {
 
 		\LogEventsList::showLogExtract(
 			$out,
-			array( $this->page->getLogType() ),
+			[ $this->page->getLogType() ],
 			$this->getTitle(),
 			'',
-			array(
+			[
 				'lim' => 10,
-				'conds' => array( 'log_action' => 'remove' ),
+				'conds' => [ 'log_action' => 'remove' ],
 				'showIfEmpty' => false,
-				'msgKey' => array( $this->prefixMsg( 'deleted' )  )
-			)
+				'msgKey' => [ $this->prefixMsg( 'deleted' ) ]
+			]
 		);
 	}
 
@@ -55,9 +55,9 @@ abstract class Action extends \CachedAction {
 	 * @since 0.1
 	 */
 	public function displayUndeletionLink() {
-		$revisionCount = Revisions::singleton()->count( array(
+		$revisionCount = Revisions::singleton()->count( [
 			'object_identifier' => $this->getTitle()->getText()
-		) );
+		] );
 
 		if ( $revisionCount > 0 ) {
 			$this->getOutput()->addHTML( $this->msg(
@@ -65,8 +65,8 @@ abstract class Action extends \CachedAction {
 				\Message::rawParam( \Linker::linkKnown(
 					$this->getTitle(),
 					$this->msg( $this->prefixMsg( 'undelete-link' ) )->numParams( $revisionCount )->escaped(),
-					array(),
-					array( 'action' => 'epundelete' )
+					[],
+					[ 'action' => 'epundelete' ]
 				) )
 			)->text() );
 		}

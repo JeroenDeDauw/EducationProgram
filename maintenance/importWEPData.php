@@ -41,13 +41,13 @@ class ImportWEPData extends \Maintenance {
 			return;
 		}
 
-		$orgs = array(); // org name => org id
-		$courses = array(); // course => org name
-		$students = array(); // student => [ courses ]
+		$orgs = []; // org name => org id
+		$courses = []; // course => org name
+		$students = []; // student => [ courses ]
 
 		$text = str_replace(
-			array( '_', '%27' ),
-			array( ' ', "'" ),
+			[ '_', '%27' ],
+			[ ' ', "'" ],
 			$text
 		);
 
@@ -60,7 +60,7 @@ class ImportWEPData extends \Maintenance {
 				$org = $cells[2];
 
 				if ( !array_key_exists( $student, $students ) ) {
-					$students[$student] = array();
+					$students[$student] = [];
 				}
 
 				if ( !in_array( $course, $students[$student] ) ) {
@@ -108,10 +108,10 @@ class ImportWEPData extends \Maintenance {
 			 * @var RevisionedObject $org
 			 */
 			$org = Orgs::singleton()->newRow(
-				array(
+				[
 					'name' => $org,
 					'country' => 'US',
-				),
+				],
 				true
 			);
 
@@ -135,7 +135,7 @@ class ImportWEPData extends \Maintenance {
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
 
-		$courseIds = array();
+		$courseIds = [];
 
 		foreach ( $courses as $course => $org ) {
 			$name = $course;
@@ -146,14 +146,14 @@ class ImportWEPData extends \Maintenance {
 			$end{3} = '3';
 
 			$course = Courses::singleton()->newRow(
-				array(
+				[
 					'org_id' => $orgs[$org],
 					'title' => $course,
 					'name' => $course,
 					'start' => $start,
 					'end' => $end,
 					'lang' => 'en',
-				),
+				],
 				true
 			);
 
@@ -191,8 +191,7 @@ class ImportWEPData extends \Maintenance {
 
 			if ( $user === false ) {
 				echo "Failed to insert student '$name'. (invalid user name)\n";
-			}
-			else {
+			} else {
 				if ( $user->getId() === 0 ) {
 					if ( !$user->addToDatabase()->isOK() ) {
 						echo "Failed to insert student '$name'. (failed to create user)\n";
@@ -211,7 +210,7 @@ class ImportWEPData extends \Maintenance {
 					}
 				}
 
-				$courses = array();
+				$courses = [];
 
 				foreach ( $courseNames as $courseName ) {
 					if ( array_key_exists( $courseName, $courseIds ) ) {
@@ -222,18 +221,16 @@ class ImportWEPData extends \Maintenance {
 						/**
 						 * @var Course $course
 						 */
-						$course = Courses::singleton()->selectRow( null, array( 'id' => $courseIds[$courseName] ) );
-						$course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
-					}
-					else {
+						$course = Courses::singleton()->selectRow( null, [ 'id' => $courseIds[$courseName] ] );
+						$course->enlistUsers( [ $user->getId() ], 'student', true, $revAction );
+					} else {
 						echo "Failed to associate student '$name' with course '$courseName'.\n";
 					}
 				}
 
 				if ( $student->associateWithCourses( $courses ) ) {
 					echo "Inserted student '$name'\t\t and associated with courses: " . str_replace( '_', ' ', implode( ', ', $courseNames ) ) . "\n";
-				}
-				else {
+				} else {
 					echo "Failed to insert student '$name'. (failed to associate courses)\n";
 				}
 			}

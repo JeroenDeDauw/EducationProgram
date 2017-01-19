@@ -1,7 +1,10 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Linker, Html;
+
+use IContextSource;
+use Linker;
+use Html;
 
 /**
  * History pager.
@@ -36,11 +39,10 @@ class RevisionPager extends \ReverseChronologicalPager {
 	 * @param PageTable $table
 	 * @param array $conds
 	 */
-	public function __construct( IContextSource $context, PageTable $table, array $conds = array() ) {
+	public function __construct( IContextSource $context, PageTable $table, array $conds = [] ) {
 		if ( method_exists( 'ReverseChronologicalPager', 'getUser' ) ) {
 			parent::__construct( $context );
-		}
-		else {
+		} else {
 			parent::__construct();
 		}
 
@@ -84,8 +86,8 @@ class RevisionPager extends \ReverseChronologicalPager {
 		$html .= $object->getLink(
 			'view',
 			htmlspecialchars( $this->getLanguage()->timeanddate( $revision->getField( 'time' ) ) ),
-			array(),
-			array( 'revid' => $revision->getId() )
+			[],
+			[ 'revid' => $revision->getId() ]
 		);
 
 		$html .= '&#160;&#160;';
@@ -103,10 +105,10 @@ class RevisionPager extends \ReverseChronologicalPager {
 
 			$html .= Html::rawElement(
 				'span',
-				array(
+				[
 					'dir' => 'auto',
 					'class' => 'comment',
-				),
+				],
 				'(' . $this->getOutput()->parseInline( $revision->getField( 'comment' ) ) . ')'
 			);
 		}
@@ -114,14 +116,14 @@ class RevisionPager extends \ReverseChronologicalPager {
 		// If users have full edit rights to course pages, they can undo revisions
 		// and restore revisions.
 		if ( $this->getUser()->isAllowed( $this->table->getEditRight() ) ) {
-			$actionLinks = array();
+			$actionLinks = [];
 
 			if ( $this->mOffset !== '' || $this->rowNr < $this->mResult->numRows() - 1 ) {
 				$actionLinks[] = $object->getLink(
 					'epundo',
 					$this->msg( 'ep-revision-undo' )->escaped(),
-					array(),
-					array( 'revid' => $revision->getId() )
+					[],
+					[ 'revid' => $revision->getId() ]
 				);
 			}
 
@@ -129,11 +131,10 @@ class RevisionPager extends \ReverseChronologicalPager {
 				$actionLinks[] = $object->getLink(
 					'eprestore',
 					$this->msg( 'ep-revision-restore' )->escaped(),
-					array(),
-					array( 'revid' => $revision->getId() )
+					[],
+					[ 'revid' => $revision->getId() ]
 				);
 			}
-
 
 		}
 
@@ -142,8 +143,8 @@ class RevisionPager extends \ReverseChronologicalPager {
 			$actionLinks[] = $object->getLink(
 				'epcompare',
 				$this->msg( 'ep-revision-compare' )->escaped(),
-				array(),
-				array( 'revid' => $revision->getId() )
+				[],
+				[ 'revid' => $revision->getId() ]
 			);
 		}
 
@@ -180,12 +181,12 @@ class RevisionPager extends \ReverseChronologicalPager {
 	 */
 	function getQueryInfo() {
 		$table = Revisions::singleton();
-		return array(
+		return [
 			'tables' => $table->getName(),
 			'fields' => $table->getPrefixedFields( $table->getFieldNames() ),
 			'conds' => $table->getPrefixedValues( $this->conds ),
-			'options' => array( 'USE INDEX' => array( 'ep_revisions' => 'ep_revision_time' ) ),
-		);
+			'options' => [ 'USE INDEX' => [ 'ep_revisions' => 'ep_revision_time' ] ],
+		];
 	}
 
 	/**

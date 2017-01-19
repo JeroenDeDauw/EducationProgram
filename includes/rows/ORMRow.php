@@ -41,7 +41,7 @@ class ORMRow implements IORMRow {
 	 * @since 1.20
 	 * @var array
 	 */
-	protected $fields = array( 'id' => null );
+	protected $fields = [ 'id' => null ];
 
 	/**
 	 * If the object should update summaries of linked items when changed.
@@ -86,7 +86,7 @@ class ORMRow implements IORMRow {
 		$this->table = $table;
 
 		if ( !is_array( $fields ) ) {
-			$fields = array();
+			$fields = [];
 		}
 
 		if ( $loadDefaults ) {
@@ -124,8 +124,8 @@ class ORMRow implements IORMRow {
 		if ( !empty( $fields ) ) {
 			$result = $this->table->rawSelectRow(
 				$this->table->getPrefixedFields( $fields ),
-				array( $this->table->getPrefixedField( 'id' ) => $this->getId() ),
-				array( 'LIMIT' => 1 ),
+				[ $this->table->getPrefixedField( 'id' ) => $this->getId() ],
+				[ 'LIMIT' => 1 ],
 				__METHOD__
 			);
 
@@ -175,7 +175,7 @@ class ORMRow implements IORMRow {
 	 */
 	public function loadAndGetField( $name ) {
 		if ( !$this->hasField( $name ) ) {
-			$this->loadFields( array( $name ) );
+			$this->loadFields( [ $name ] );
 		}
 
 		return $this->getField( $name );
@@ -247,7 +247,7 @@ class ORMRow implements IORMRow {
 	 * @return array
 	 */
 	protected function getWriteValues() {
-		$values = array();
+		$values = [];
 
 		foreach ( $this->table->getFields() as $name => $type ) {
 			if ( array_key_exists( $name, $this->fields ) ) {
@@ -302,8 +302,8 @@ class ORMRow implements IORMRow {
 	 * @return array
 	 */
 	public function toArray( $fields = null, $incNullId = false ) {
-		$data = array();
-		$setFields = array();
+		$data = [];
+		$setFields = [];
 
 		if ( !is_array( $fields ) ) {
 			$setFields = $this->getSetFieldNames();
@@ -390,7 +390,7 @@ class ORMRow implements IORMRow {
 	 * @return array
 	 */
 	protected function getUpdateConditions() {
-		return array( 'id' => $this->getId() );
+		return [ 'id' => $this->getId() ];
 	}
 
 	/**
@@ -467,7 +467,7 @@ class ORMRow implements IORMRow {
 	 * @return array|null
 	 */
 	protected function getBeforeRemoveFields() {
-		return array();
+		return [];
 	}
 
 	/**

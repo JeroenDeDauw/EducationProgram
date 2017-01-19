@@ -76,7 +76,7 @@ abstract class EPPager extends \TablePager {
 	 * @return array
 	 */
 	public static function getModules() {
-		return array( 'ep.pager' );
+		return [ 'ep.pager' ];
 	}
 
 	/**
@@ -85,7 +85,7 @@ abstract class EPPager extends \TablePager {
 	function formatRow( $row ) {
 		$this->mCurrentRow = $row;
 		$this->prepareCurrentRowObjs();
-		$cells = array();
+		$cells = [];
 
 		// Check the specific pager type for whether
 		// to hide this particular row.
@@ -97,21 +97,18 @@ abstract class EPPager extends \TablePager {
 			if ( $field === '_select' ) {
 				$value = Html::element(
 					'input',
-					array(
+					[
 						'type' => 'checkbox',
 						'value' => $this->currentObject->getId(),
 						'id' => 'select-' . $this->getInstanceNumber() . '-' . $this->currentObject->getId(),
 						'name' => 'epitemsselected',
 						'class' => 'ep-select-item',
 						'data-pager-id' => $this->getInstanceNumber(),
-					)
+					]
 				);
-			}
-			elseif ( $field === '_controls' ) {
+			} elseif ( $field === '_controls' ) {
 				$value = $this->getLanguage()->pipeList( $this->getControlLinks( $this->currentObject ) );
-			}
-
-			else {
+			} else {
 				$prefixedField = $this->table->getPrefixedField( $field );
 				$value = isset( $row->$prefixedField ) ? $row->$prefixedField : null;
 			}
@@ -146,7 +143,7 @@ abstract class EPPager extends \TablePager {
 	 * @return array
 	 */
 	public function getFieldNames() {
-		$fields = array();
+		$fields = [];
 
 		if ( $this->hasMultipleItemControl() ) {
 			$fields['_select'] = '';
@@ -178,13 +175,12 @@ abstract class EPPager extends \TablePager {
 			return '';
 		}
 
-		$controls = array();
+		$controls = [];
 
 		foreach ( $this->getMultipleItemActions() as $label => $attribs ) {
 			if ( array_key_exists( 'class', $attribs ) ) {
 				$attribs['class'] .= ' ep-pager-items-action';
-			}
-			else {
+			} else {
 				$attribs['class'] = 'ep-pager-items-action';
 			}
 
@@ -213,7 +209,7 @@ abstract class EPPager extends \TablePager {
 	 * @return array
 	 */
 	protected function getMultipleItemActions() {
-		$actions = array();
+		$actions = [];
 		return $actions;
 	}
 
@@ -248,17 +244,17 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @return array
 	 */
-	protected abstract function getFields();
+	abstract protected function getFields();
 
 	/**
 	 * @see IndexPager::getQueryInfo()
 	 */
 	function getQueryInfo() {
-		return array(
-			'tables' => array( $this->table->getName() ),
+		return [
+			'tables' => [ $this->table->getName() ],
 			'fields' => $this->table->getPrefixedFields( $this->table->getFieldNames() ),
 			'conds' => $this->table->getPrefixedValues( $this->getConditions() ),
-		);
+		];
 	}
 
 	/**
@@ -270,7 +266,7 @@ abstract class EPPager extends \TablePager {
 	 * @return array
 	 */
 	protected function getConditions() {
-		$conds = array();
+		$conds = [];
 
 		if ( $this->enableFilter ) {
 			$filterOptions = $this->getFilterOptions();
@@ -307,7 +303,7 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @return array of string
 	 */
-	protected abstract function getSortableFields();
+	abstract protected function getSortableFields();
 
 	/**
 	 * Returns a list with the filter options.
@@ -317,7 +313,7 @@ abstract class EPPager extends \TablePager {
 	 * @return array
 	 */
 	protected function getFilterOptions() {
-		return array();
+		return [];
 	}
 
 	/**
@@ -375,14 +371,14 @@ abstract class EPPager extends \TablePager {
 		if ( $hideWhenNoResults && $this->getNumRows() < 1 ) {
 			$noFiltersSet = array_reduce( $filterOptions, function( $current, array $data ) {
 				return $current && ( $data['value'] === '' || is_null( $data['value'] ) );
-			} , true );
+			}, true );
 
 			if ( $noFiltersSet || !$this->table->has() ) {
 				return '';
 			}
 		}
 
-		$controls = array();
+		$controls = [];
 
 		foreach ( $filterOptions as $optionName => $optionData ) {
 			switch ( $optionData['type'] ) {
@@ -411,9 +407,9 @@ abstract class EPPager extends \TablePager {
 		$title = $this->getTitle()->getFullText();
 
 		return
- 			'<fieldset>' .
+				'<fieldset>' .
 				'<legend>' . $this->msg( 'ep-pager-showonly' )->escaped() . '</legend>' .
-				'<form method="post" action="' . htmlspecialchars( wfAppendQuery( $GLOBALS['wgScript'], array( 'title' => $title ) ) ) . '">' .
+				'<form method="post" action="' . htmlspecialchars( wfAppendQuery( $GLOBALS['wgScript'], [ 'title' => $title ] ) ) . '">' .
 					Html::hidden( 'title', $title ) .
 					implode( '', $controls ) .
 					'&#160;<input type="submit" class="ep-pager-go" value="' . $this->msg( 'ep-pager-go' )->escaped() . '">' .
@@ -445,8 +441,7 @@ abstract class EPPager extends \TablePager {
 				}
 
 				$changed = true;
-			}
-			elseif ( !is_null( $req->getSessionData( $this->getNameForSession( $optionName ) ) ) ) {
+			} elseif ( !is_null( $req->getSessionData( $this->getNameForSession( $optionName ) ) ) ) {
 				$optionData['value'] = $req->getSessionData( $this->getNameForSession( $optionName ) );
 				$changed = true;
 			}
@@ -482,7 +477,7 @@ abstract class EPPager extends \TablePager {
 	/**
 	 * @see TablePager::formatValue()
 	 */
-	public final function formatValue( $name, $value ) {
+	final public function formatValue( $name, $value ) {
 		return $this->getFormattedValue( $name, $value );
 	}
 
@@ -497,7 +492,7 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @return string
 	 */
-	protected abstract function getFormattedValue( $name, $value );
+	abstract protected function getFormattedValue( $name, $value );
 
 	/**
 	 * Returns a list of (escaped, html) links to add in an additional column.
@@ -509,7 +504,7 @@ abstract class EPPager extends \TablePager {
 	 * @return array
 	 */
 	protected function getControlLinks( IORMRow $item ) {
-		return array();
+		return [];
 	}
 
 	/**
@@ -526,13 +521,13 @@ abstract class EPPager extends \TablePager {
 	protected function getDeletionLink( $type, $id, $name ) {
 		return Html::element(
 			'a',
-			array(
+			[
 				'href' => '#',
 				'class' => 'ep-pager-delete',
 				'data-id' => $id,
 				'data-type' => $type,
 				'data-name' => $name,
-			),
+			],
 			$this->msg( 'delete' )->text()
 		);
 	}
@@ -559,17 +554,16 @@ abstract class EPPager extends \TablePager {
 			$name = $name === '' ? '' : $this->getMsg( 'header-' . $name );
 
 			if ( $field === '_select' ) {
-				$s .= '<th width="30px">' . Html::element( 'input', array(
+				$s .= '<th width="30px">' . Html::element( 'input', [
 					'type' => 'checkbox',
 					'name' => 'ep-pager-select-all-' . $this->getInstanceNumber(),
 					'id' => 'ep-pager-select-all-' . $this->getInstanceNumber(),
 					'class' => 'ep-pager-select-all',
-				) ) . "</th>\n";
-			}
-			elseif ( strval( $name ) == '' ) {
+				] ) . "</th>\n";
+			} elseif ( strval( $name ) == '' ) {
 				$s .= "<th>&#160;</th>\n";
 			} elseif ( $this->isFieldSortable( $field ) ) {
-				$query = array( 'sort' => $field, 'limit' => $this->mLimit );
+				$query = [ 'sort' => $field, 'limit' => $this->mLimit ];
 
 				if ( $field == $this->mSort ) {
 					# This is the sorted column
@@ -596,8 +590,7 @@ abstract class EPPager extends \TablePager {
 				} else {
 					$s .= '<th>' . $this->makeLink( htmlspecialchars( $name ), $query ) . "</th>\n";
 				}
-			}
-			else {
+			} else {
 				$s .= '<th>' . htmlspecialchars( $name ) . "</th>\n";
 			}
 		}

@@ -42,26 +42,23 @@ class SpecialManageCourses extends VerySpecialPage {
 
 			if ( $this->subPage === '' ) {
 				$this->displayCourses();
-			}
-			else {
-				$course = Courses::singleton()->selectRow( null, array( 'title' => $this->subPage ) );
+			} else {
+				$course = Courses::singleton()->selectRow( null, [ 'title' => $this->subPage ] );
 
 				if ( $course === false ) {
 					// TODO high
-				}
-				else {
+				} else {
 					$this->displayCourse( $course );
 				}
 			}
-		}
-		else {
+		} else {
 			$this->getOutput()->addHTML( \Linker::linkKnown(
 				\SpecialPage::getTitleFor( 'Userlogin' ),
 				$this->msg( 'ep-mycourses-login-first' )->escaped(),
-				array(),
-				array(
+				[],
+				[
 					'returnto' => $this->getPageTitle( $this->subPage )->getFullText()
-				)
+				]
 			) );
 		}
 	}
@@ -105,8 +102,7 @@ class SpecialManageCourses extends VerySpecialPage {
 	protected function displayEnrollment( array $courses ) {
 		if ( count( $courses ) == 1 ) {
 			$this->displayCourse( $courses[0] );
-		}
-		else {
+		} else {
 			$this->displayCourseList( $courses );
 		}
 	}
@@ -122,7 +118,7 @@ class SpecialManageCourses extends VerySpecialPage {
 	protected function displayRoleAssociation( $class ) {
 		$user = $this->getUser();
 		$userRole = $class::newFromUser( $user );
-		$courses = $userRole->getCourses( array( 'id', 'name', 'title', 'org_id', 'students' ) );
+		$courses = $userRole->getCourses( [ 'id', 'name', 'title', 'org_id', 'students' ] );
 
 		$isAllowed = false;
 
@@ -151,19 +147,16 @@ class SpecialManageCourses extends VerySpecialPage {
 			// ep-mycourses-courses-epinstructor, ep-mycourses-courses-epstudent
 			$message = $this->msg( 'ep-mycourses-courses-' . $classNameForMessage )
 				->numParams( count( $courses ) )->params( $this->getUser()->getName() )->text();
-			$this->getOutput()->addElement( 'h2', array(), $message );
+			$this->getOutput()->addElement( 'h2', [], $message );
 
 			if ( $class == 'Student' ) {
 				$this->displayEnrollment( $courses );
-			}
-			elseif ( $class == 'Instructor' ) {
+			} elseif ( $class == 'Instructor' ) {
 				$this->displayCourseTables( $courses );
-			}
-			else {
+			} else {
 				$this->displayCoursePager( $courses, $class );
 			}
-		}
-		elseif ( $isAllowed ) {
+		} elseif ( $isAllowed ) {
 			// Give grep a chance to find the usages:
 			// ep-mycourses-nocourses-epstudent, ep-mycourses-nocourses-epca,
 			// ep-mycourses-nocourses-epoa, ep-mycourses-nocourses-epinstructor
@@ -183,7 +176,7 @@ class SpecialManageCourses extends VerySpecialPage {
 		 * @var Course $course
 		 */
 		foreach ( $courses as  $course ) {
-			$out->addElement( 'h3', array(), $course->getField( 'name' ) );
+			$out->addElement( 'h3', [], $course->getField( 'name' ) );
 
 			$out->addHTML(
 				$this->msg( 'ep-mycourses-course-org-links' )
@@ -193,10 +186,10 @@ class SpecialManageCourses extends VerySpecialPage {
 
 			$studentIds = $course->getField( 'students' );
 
-			if ( $studentIds !== array() ) {
+			if ( $studentIds !== [] ) {
 				$pager = new ArticleTable(
 					$this->getContext(),
-					array( 'user_id' => $studentIds ),
+					[ 'user_id' => $studentIds ],
 					$course->getId()
 				);
 
@@ -236,9 +229,9 @@ class SpecialManageCourses extends VerySpecialPage {
 
 		$pager = new ArticleTable(
 			$this->getContext(),
-			array( 'user_id' => $this->getUser()->getId() ),
+			[ 'user_id' => $this->getUser()->getId() ],
 			$course->getId(),
-			array( $this->getUser()->getId() )
+			[ $this->getUser()->getId() ]
 		);
 
 		$this->getOutput()->addModules( ArticleTable::getModules() );
@@ -268,7 +261,7 @@ class SpecialManageCourses extends VerySpecialPage {
 		 * @var Course $course
 		 */
 		foreach ( $courses as $course ) {
-			$this->getOutput()->addElement( 'h3', array(), $course->getField( 'name' ) );
+			$this->getOutput()->addElement( 'h3', [], $course->getField( 'name' ) );
 			$this->displayCourse( $course );
 		}
 	}
@@ -291,7 +284,7 @@ class SpecialManageCourses extends VerySpecialPage {
 			$courses
 		);
 
-		$pager = new CoursePager( $this->getContext(), array( 'id' => $courseIds ), true );
+		$pager = new CoursePager( $this->getContext(), [ 'id' => $courseIds ], true );
 
 		$pager->setFilterPrefix( $class );
 		$pager->setEnableFilter( count( $courses ) > 1 );
@@ -303,8 +296,7 @@ class SpecialManageCourses extends VerySpecialPage {
 					$pager->getBody() .
 					$pager->getNavigationBar()
 			);
-		}
-		else {
+		} else {
 			$out->addHTML( $pager->getFilterControl() );
 			$out->addWikiMsg( 'ep-courses-noresults' );
 		}

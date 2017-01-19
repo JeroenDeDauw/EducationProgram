@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use ApiBase, User;
+
+use ApiBase;
+use User;
 
 /**
  * API module for adding multiple students to a course.
@@ -23,10 +25,10 @@ class ApiAddStudents extends ApiBase {
 		// verification, so we don't need to do any of that here.
 
 		// get the course, die if the course id is invalid
-		$course = Courses::singleton()->selectRow( null, array( 'id' => $params['courseid'] ) );
+		$course = Courses::singleton()->selectRow( null, [ 'id' => $params['courseid'] ] );
 		if ( $course === false ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
-				$this->dieWithError( array( 'apierror-badparameter', 'courseid' ), 'invalid-course' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( [ 'apierror-badparameter', 'courseid' ], 'invalid-course' );
 			} else {
 				$this->dieUsage( 'Invalid course id', 'invalid-course' );
 			}
@@ -39,7 +41,7 @@ class ApiAddStudents extends ApiBase {
 				$user->getId(),
 				$course->getAllNonStudentRoleObjs() ) ) {
 
-			if ( is_callable( array( $this, 'checkUserRightsAny' ) ) ) {
+			if ( is_callable( [ $this, 'checkUserRightsAny' ] ) ) {
 				$this->checkUserRightsAny( 'ep-addstudent' );
 			} else {
 				$this->dieUsage( 'User is not authorized to perform this action', 'no-rights' );
@@ -49,23 +51,23 @@ class ApiAddStudents extends ApiBase {
 		// check the usernames sent, get user ids
 		$apiParams = new \DerivativeRequest(
 			$this->getRequest(),
-			array(
+			[
 				'action' => 'query',
 				'list' => 'users',
-				'ususers' => implode( '|', $params['studentusernames'] ) )
+				'ususers' => implode( '|', $params['studentusernames'] ) ]
 		);
 
 		$api = new \ApiMain( $apiParams );
 		$api->execute();
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$usersData = $api->getResult()->getResultData( null, array( 'Strip' => 'all' ) );
+			$usersData = $api->getResult()->getResultData( null, [ 'Strip' => 'all' ] );
 		} else {
 			$usersData = & $api->getResultData();
 		}
 
 		// make lists: valid and invalid (invalid name or non-existent) users
-		$validUsersMap = array(); // associative array, id => name
-		$invalidUserNames = array(); // just names, indexed numerically
+		$validUsersMap = []; // associative array, id => name
+		$invalidUserNames = []; // just names, indexed numerically
 
 		foreach ( $usersData['query']['users'] as $key => $userData ) {
 			if ( isset ( $userData['userid'] ) ) {
@@ -82,18 +84,18 @@ class ApiAddStudents extends ApiBase {
 		if ( count( $invalidUserNames ) > 0 ) {
 
 			$r->addValue( null, 'success', false );
-			$r->addValue( null, 'usersAddedCount', 0);
+			$r->addValue( null, 'usersAddedCount', 0 );
 
 			// Use array_values to make sure we get an array and not an object
 			// on the JS end.
-			$r->addValue( null, 'invalidUserNames', array_values( $invalidUserNames) );
+			$r->addValue( null, 'invalidUserNames', array_values( $invalidUserNames ) );
 
 		// otherwise add the users
 		} else {
 
 			$revAction = new RevisionAction();
 			$revAction->setUser( $user );
-			$addedUserIds = array();
+			$addedUserIds = [];
 
 			$enlistmentResult = $course->enlistUsers( array_keys( $validUsersMap ),
 				'student', true, $revAction, $addedUserIds );
@@ -104,7 +106,7 @@ class ApiAddStudents extends ApiBase {
 			if ( $enlistmentResult === false ||
 				$enlistmentResult != count( $addedUserIds ) ) {
 
-				if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 					$this->dieWithError( 'apierror-unknownerror-nocode', 'internal-error' );
 				} else {
 					$this->dieUsage( 'Somthing bad happened.', 'internal-error' );
@@ -123,7 +125,7 @@ class ApiAddStudents extends ApiBase {
 				$r->addValue( null, 'studentsAddedIds',
 						array_values( $addedUserIds ) );
 
-				if ( count ( $addedUserIds ) === 1 ) {
+				if ( count( $addedUserIds ) === 1 ) {
 					$r->addValue( null, 'oneStudentAddedGender',
 						User::newFromId( $addedUserIds[0] )
 						->getOption( 'gender' ) );
@@ -140,7 +142,7 @@ class ApiAddStudents extends ApiBase {
 					)
 				);
 
-				if ( count ( $alreadyEnrolledIds ) === 1 ) {
+				if ( count( $alreadyEnrolledIds ) === 1 ) {
 					$r->addValue( null, 'oneAlreadyEnrolledGender',
 						User::newFromId( $alreadyEnrolledIds[0] )
 						->getOption( 'gender' ) );
@@ -163,60 +165,59 @@ class ApiAddStudents extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'studentusernames' => array(
+		return [
+			'studentusernames' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'courseid' => array(
+			],
+			'courseid' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'token' => array(
+			],
+			'token' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-		);
+			],
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getParamDescription() {
-		return array(
+		return [
 			'studentusernames' => 'The usernames of the students to add to the course, separated by a |',
 			'courseid' => 'The ID of the course to which the students should be added/removed',
 			'token' => 'Edit token.',
-		);
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getDescription() {
-		return array(
+		return [
 				'Add multiple students to a course.'
-		);
+		];
 	}
-
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	protected function getExamples() {
-		return array(
+		return [
 			'api.php?action=addstudents&courseid=42&token=123456789&students=User1|User3|AnotherUser',
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=addstudents&courseid=42&token=123456789&students=User1|User3|AnotherUser'
 				=> 'apihelp-addstudents-example-1',
-		);
+		];
 	}
 }

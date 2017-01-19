@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram\Tests;
+
 use EducationProgram\Orgs;
 
 /**
@@ -26,9 +27,9 @@ use EducationProgram\Orgs;
 class OrgsTest extends \MediaWikiTestCase {
 
 	public function newFromArrayProvider() {
-		return array(
-			array(
-				array(
+		return [
+			[
+				[
 					'name' => 'foo',
 					'city' => 'bar',
 					'country' => 'baz',
@@ -39,17 +40,17 @@ class OrgsTest extends \MediaWikiTestCase {
 					'instructor_count' => 23,
 					'ca_count' => 4,
 					'oa_count' => 2,
-					'courses' => array( 11, 7, 5, 3, 2, 1 ),
-				),
+					'courses' => [ 11, 7, 5, 3, 2, 1 ],
+				],
 				true
-			),
-			array(
-				array(
+			],
+			[
+				[
 					'name' => 'foo'
-				),
+				],
 				true
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -66,7 +67,6 @@ class OrgsTest extends \MediaWikiTestCase {
 			$this->assertEquals( $data[$field], $change->getField( $field ) );
 		}
 
-
 	}
 
 	/**
@@ -81,9 +81,9 @@ class OrgsTest extends \MediaWikiTestCase {
 
 		$id = $org->getId();
 
-		$this->assertEquals( 1, $orgsTable->count( array( 'id' => $id ) ) );
+		$this->assertEquals( 1, $orgsTable->count( [ 'id' => $id ] ) );
 
-		$obtainedOrg = $orgsTable->selectRow( null, array( 'id' => $id ) );
+		$obtainedOrg = $orgsTable->selectRow( null, [ 'id' => $id ] );
 
 		foreach ( array_keys( $data ) as $field ) {
 			if ( $field === 'name' ) {
@@ -95,7 +95,7 @@ class OrgsTest extends \MediaWikiTestCase {
 
 		$this->assertTrue( $obtainedOrg->remove() );
 
-		$this->assertEquals( 0, $orgsTable->count( array( 'id' => $id ) ) );
+		$this->assertEquals( 0, $orgsTable->count( [ 'id' => $id ] ) );
 	}
 
 }

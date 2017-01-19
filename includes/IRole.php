@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use User, IContextSource;
+
+use User;
+use IContextSource;
 
 /**
  * Interface for classes representing a user in a certain role.

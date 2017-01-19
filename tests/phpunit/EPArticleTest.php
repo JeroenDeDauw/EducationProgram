@@ -36,13 +36,13 @@ use EducationProgram\EPArticle;
 class EPArticleTest extends \PHPUnit_Framework_TestCase {
 
 	public function constructorProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array( 1, 42, 23, 9001, 'Foobar', array() );
-		$argLists[] = array( null, 42, 23, 9001, 'Foobar', array() );
-		$argLists[] = array( null, 42, 23, 9001, 'Foobar', array( 1, 2, 3 ) );
-		$argLists[] = array( 42, 1, 2, 3, 'Foo_bar_baz!', array( 8822, 5566, 1144, 5, 6, 7 ) );
-		$argLists[] = array( 1, 1, 1, 1, 'A', array( 2 ) );
+		$argLists[] = [ 1, 42, 23, 9001, 'Foobar', [] ];
+		$argLists[] = [ null, 42, 23, 9001, 'Foobar', [] ];
+		$argLists[] = [ null, 42, 23, 9001, 'Foobar', [ 1, 2, 3 ] ];
+		$argLists[] = [ 42, 1, 2, 3, 'Foo_bar_baz!', [ 8822, 5566, 1144, 5, 6, 7 ] ];
+		$argLists[] = [ 1, 1, 1, 1, 'A', [ 2 ] ];
 
 		return $argLists;
 	}
@@ -83,63 +83,63 @@ class EPArticleTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function addReviewerProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array(
-			array(),
-			array(),
-			array(),
-			array(),
-		);
+		$argLists[] = [
+			[],
+			[],
+			[],
+			[],
+		];
 
-		$argLists[] = array(
-			array( 1, 2, 3 ),
-			array(),
-			array(),
-			array( 1, 2, 3 ),
-		);
+		$argLists[] = [
+			[ 1, 2, 3 ],
+			[],
+			[],
+			[ 1, 2, 3 ],
+		];
 
-		$argLists[] = array(
-			array(),
-			array( 1, 2, 3 ),
-			array( 1, 2, 3 ),
-			array( 1, 2, 3 ),
-		);
+		$argLists[] = [
+			[],
+			[ 1, 2, 3 ],
+			[ 1, 2, 3 ],
+			[ 1, 2, 3 ],
+		];
 
-		$argLists[] = array(
-			array( 1, 2, 3 ),
-			array( 1, 2, 3 ),
-			array(),
-			array( 1, 2, 3 ),
-		);
+		$argLists[] = [
+			[ 1, 2, 3 ],
+			[ 1, 2, 3 ],
+			[],
+			[ 1, 2, 3 ],
+		];
 
-		$argLists[] = array(
-			array( 1, 2, 3 ),
-			array( 4, 5 ),
-			array( 4, 5 ),
-			array( 1, 2, 3, 4, 5 ),
-		);
+		$argLists[] = [
+			[ 1, 2, 3 ],
+			[ 4, 5 ],
+			[ 4, 5 ],
+			[ 1, 2, 3, 4, 5 ],
+		];
 
-		$argLists[] = array(
-			array( 1, 2, 3 ),
-			array( 4, 5, 1, 2 ),
-			array( 4, 5 ),
-			array( 1, 2, 3, 4, 5 ),
-		);
+		$argLists[] = [
+			[ 1, 2, 3 ],
+			[ 4, 5, 1, 2 ],
+			[ 4, 5 ],
+			[ 1, 2, 3, 4, 5 ],
+		];
 
-		$argLists[] = array(
-			array( 1, 2, 3 ),
-			array( 1, 2, 5, 1, 2 ),
-			array( 5 ),
-			array( 1, 2, 3, 5 ),
-		);
+		$argLists[] = [
+			[ 1, 2, 3 ],
+			[ 1, 2, 5, 1, 2 ],
+			[ 5 ],
+			[ 1, 2, 3, 5 ],
+		];
 
-		$argLists[] = array(
-			array(),
-			array( 1, 1, 1 ),
-			array( 1 ),
-			array( 1 ),
-		);
+		$argLists[] = [
+			[],
+			[ 1, 1, 1 ],
+			[ 1 ],
+			[ 1 ],
+		];
 
 		return $argLists;
 	}
@@ -185,63 +185,63 @@ class EPArticleTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function removeReviewerProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array(
-			array(),
-			array(),
-			array(),
-			array(),
-		);
+		$argLists[] = [
+			[],
+			[],
+			[],
+			[],
+		];
 
-		$argLists[] = array(
-			array( 1, 2, 3 ),
-			array(),
-			array(),
-			array( 1, 2, 3 ),
-		);
+		$argLists[] = [
+			[ 1, 2, 3 ],
+			[],
+			[],
+			[ 1, 2, 3 ],
+		];
 
-		$argLists[] = array(
-			array(),
-			array( 1, 2, 3 ),
-			array(),
-			array(),
-		);
+		$argLists[] = [
+			[],
+			[ 1, 2, 3 ],
+			[],
+			[],
+		];
 
-		$argLists[] = array(
-			array( 1, 2 , 3 ),
-			array( 1 ),
-			array( 1 ),
-			array( 2, 3 ),
-		);
+		$argLists[] = [
+			[ 1, 2 , 3 ],
+			[ 1 ],
+			[ 1 ],
+			[ 2, 3 ],
+		];
 
-		$argLists[] = array(
-			array( 1, 2 , 3 ),
-			array( 1, 3 ),
-			array( 1, 3 ),
-			array( 2 ),
-		);
+		$argLists[] = [
+			[ 1, 2 , 3 ],
+			[ 1, 3 ],
+			[ 1, 3 ],
+			[ 2 ],
+		];
 
-		$argLists[] = array(
-			array( 1, 2 , 3 ),
-			array( 1, 3, 2 ),
-			array( 1, 3, 2 ),
-			array(),
-		);
+		$argLists[] = [
+			[ 1, 2 , 3 ],
+			[ 1, 3, 2 ],
+			[ 1, 3, 2 ],
+			[],
+		];
 
-		$argLists[] = array(
-			array( 1, 2 , 3 ),
-			array( 4, 2, 5, 3, 42 ),
-			array( 2, 3 ),
-			array( 1 ),
-		);
+		$argLists[] = [
+			[ 1, 2 , 3 ],
+			[ 4, 2, 5, 3, 42 ],
+			[ 2, 3 ],
+			[ 1 ],
+		];
 
-		$argLists[] = array(
-			array( 1, 2 , 3 ),
-			array( 1, 1, 1 ),
-			array( 1 ),
-			array( 2, 3 ),
-		);
+		$argLists[] = [
+			[ 1, 2 , 3 ],
+			[ 1, 1, 1 ],
+			[ 1 ],
+			[ 2, 3 ],
+		];
 
 		return $argLists;
 	}
@@ -282,8 +282,8 @@ class EPArticleTest extends \PHPUnit_Framework_TestCase {
 
 		$article = $this->getMock(
 			'EducationProgram\EPArticle',
-			array( 'getCourse', 'getUser' ),
-			array( 1, 2, 3, 0, 'sdncjsdhbfkdhbgsfxdfg', array() )
+			[ 'getCourse', 'getUser' ],
+			[ 1, 2, 3, 0, 'sdncjsdhbfkdhbgsfxdfg', [] ]
 		);
 
 		$article->expects( $this->any() )

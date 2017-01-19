@@ -31,22 +31,21 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-
 // This is the version number for the Education Program extension. Bump it up after significant software changes.
 define( 'EP_VERSION', '0.5.0 alpha' );
 
 // This adds an entry to the extension credits that get displayed at Special:Version
-$wgExtensionCredits['other'][] = array(
+$wgExtensionCredits['other'][] = [
 	'path' => __FILE__,
 	'name' => 'Education Program',
 	'version' => EP_VERSION,
-	'author' => array(
+	'author' => [
 		'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
-	),
+	],
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Education_Program',
 	'descriptionmsg' => 'educationprogram-desc',
 	'license-name' => 'GPL-2.0+'
-);
+];
 
 // i18n: This tells MediaWiki where to look for all the message strings for the extension, which are kept in the standard i18n files.
 $dir = __DIR__;
@@ -56,7 +55,7 @@ $wgExtensionMessagesFiles['EducationProgramAlias']	= $dir . '/EducationProgram.i
 $wgExtensionMessagesFiles['EPNamespaces'] 			= $dir . '/EducationProgram.i18n.ns.php';
 
 // Autoloading: This tells MediaWiki where to look for the hooks that get loaded to integrate the features of the extension into the rest of the wiki, such as new entries in Special:MyPreferences
-$wgAutoloadClasses['EducationProgram\Hooks'] 						= $dir . '/EducationProgram.hooks.php';
+$wgAutoloadClasses['EducationProgram\Hooks'] = $dir . '/EducationProgram.hooks.php';
 
 // includes/actions (deriving from Action)
 // These tell Mediawiki where to look for the new actions used by the extension for interacting with course pages and the like.
@@ -104,7 +103,7 @@ $wgAutoloadClasses['EducationProgram\Events\UnknownGroup'] 			= $dir . '/include
 $wgAutoloadClasses['EducationProgram\Events\EditGroup'] 			= $dir . '/includes/Events/TimelineGroup.php';
 $wgAutoloadClasses['EducationProgram\Events\EnlistGroup'] 			= $dir . '/includes/Events/TimelineGroup.php';
 
-$wgAutoloadClasses['EducationProgram\Store\CourseStore'] 			= $dir . '/includes/Store/CourseStore.php';
+$wgAutoloadClasses['EducationProgram\Store\CourseStore'] = $dir . '/includes/Store/CourseStore.php';
 
 // includes/pagers (implementing Pager)
 // These are the Pager classes, which are used for displaying page-by-page results of long lists of info related to the extension, such as the tables of students and their articles on course pages.
@@ -338,7 +337,6 @@ $wgAvailableRights[] = 'ep-bulkdelcourses';	        // Bulk delete courses
 $wgAvailableRights[] = 'ep-remarticle';		// Remove a student's associated article(s)
 $wgAvailableRights[] = 'ep-addstudent';		// Enroll users as student
 
-
 // User group rights
 // These set the defaults for which users can perform which actions, beginning with the '*' defaults that apply to all users unless specifically set in a subsequent block of permissions. These can be overridden locally if a wiki wishes to use a different permissions setup.
 $wgGroupPermissions['*']['ep-enroll'] = false;
@@ -418,20 +416,20 @@ $wgGroupPermissions['epinstructor']['ep-remarticle'] = true;
 $wgGroupPermissions['epcoordinator']['userrights'] = false;
 
 // These permissions let those with the epcoordinator (Course coordinator) user right to assign the other extension rights to other users.
-$wgAddGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
-$wgRemoveGroups['epcoordinator'] = array( 'eponline', 'epcampus', 'epinstructor' );
+$wgAddGroups['epcoordinator'] = [ 'eponline', 'epcampus', 'epinstructor' ];
+$wgRemoveGroups['epcoordinator'] = [ 'eponline', 'epcampus', 'epinstructor' ];
 
 if ( !array_key_exists( 'sysop', $wgAddGroups ) ) {
-	$wgAddGroups['sysop'] = array();
+	$wgAddGroups['sysop'] = [];
 }
 
 if ( !array_key_exists( 'sysop', $wgRemoveGroups ) ) {
-	$wgRemoveGroups['sysop'] = array();
+	$wgRemoveGroups['sysop'] = [];
 }
 
 // Sysops can assign any of the extension user rights, including the epcoordinator user right.
-$wgAddGroups['sysop'] = array_merge( $wgAddGroups['sysop'], array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ) );
-$wgRemoveGroups['sysop'] = array_merge( $wgRemoveGroups['sysop'], array( 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ) );
+$wgAddGroups['sysop'] = array_merge( $wgAddGroups['sysop'], [ 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ] );
+$wgRemoveGroups['sysop'] = array_merge( $wgRemoveGroups['sysop'], [ 'eponline', 'epcampus', 'epinstructor', 'epcoordinator' ] );
 
 // Namespaces
 // See https://www.mediawiki.org/wiki/Extension_default_namespaces
@@ -442,54 +440,54 @@ define( 'EP_NS_TALK', 				442 + 5 );
 $wgNamespacesWithSubpages[EP_NS_TALK] = true;
 
 // Resource loader modules
-$moduleTemplate = array(
+$moduleTemplate = [
 	'localBasePath' => $dir . '/resources',
 	'remoteExtPath' => 'EducationProgram/resources'
-);
+];
 
-$wgResourceModules['ep.core'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.core'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.js',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'mediawiki.jqueryMsg',
 		'mediawiki.language',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.api'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.api'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.api.js',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'mediawiki.user',
 		'ep.core',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.pager'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.pager'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.pager.js',
-	),
-	'styles' => array(
+	],
+	'styles' => [
 		'ep.pager.css',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'ep.api',
 		'mediawiki.jqueryMsg',
 		'jquery.ui.dialog',
-	),
-	'messages' => array(
+	],
+	'messages' => [
 		'ep-pager-confirm-delete',
 		'ep-pager-delete-fail',
 		'ep-pager-confirm-delete-selected',
 		'ep-pager-delete-selected-fail',
 		'ep-delete-org-has-courses-close-dialog'
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.pager.course'] = $moduleTemplate + array(
-	'messages' => array(
+$wgResourceModules['ep.pager.course'] = $moduleTemplate + [
+	'messages' => [
 		'ep-pager-cancel-button-course',
 		'ep-pager-delete-button-course',
 		'ep-pager-confirm-delete-course',
@@ -497,14 +495,14 @@ $wgResourceModules['ep.pager.course'] = $moduleTemplate + array(
 		'ep-pager-confirm-message-course-many',
 		'ep-pager-retry-button-course',
 		'ep-pager-summary-message-course',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'ep.pager',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.pager.org'] = $moduleTemplate + array(
-	'messages' => array(
+$wgResourceModules['ep.pager.org'] = $moduleTemplate + [
+	'messages' => [
 		'ep-pager-cancel-button-org',
 		'ep-pager-delete-button-org',
 		'ep-pager-confirm-delete-org',
@@ -512,96 +510,96 @@ $wgResourceModules['ep.pager.org'] = $moduleTemplate + array(
 		'ep-pager-confirm-message-org-many',
 		'ep-pager-retry-button-org',
 		'ep-pager-summary-message-org',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'ep.pager',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.datepicker'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.datepicker'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.datepicker.js',
-	),
-	'styles' => array(
+	],
+	'styles' => [
 		'ep.datepicker.css',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'jquery.ui.datepicker',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.combobox'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.combobox'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.combobox.js',
-	),
-	'styles' => array(
+	],
+	'styles' => [
 		'ep.combobox.css',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'jquery.ui.core',
 		'jquery.ui.widget',
 		'jquery.ui.autocomplete',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.formpage'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.formpage'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.formpage.js',
-	),
-	'styles' => array(
+	],
+	'styles' => [
 		'ep.formpage.css',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'jquery.ui.button',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.disenroll'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.disenroll'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.disenroll.js',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'jquery.ui.button',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.ambprofile'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.ambprofile'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.ambprofile.js',
-	),
-	'styles' => array(
+	],
+	'styles' => [
 		'ep.ambprofile.css',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'jquery.ui.button',
 		'ep.imageinput',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.imageinput'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.imageinput'] = $moduleTemplate + [
+	'scripts' => [
 		'jquery.imageinput.js',
 		'ep.imageinput.js',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'jquery.ui.autocomplete',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.articletable'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.articletable'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.articletable.js',
-	),
-	'styles' => array(
+	],
+	'styles' => [
 		'ep.articletable.css'
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'jquery.ui.button',
 		'jquery.ui.dialog',
 		'jquery.ui.autocomplete',
 		'ep.core',
-	),
-	'messages' => array(
+	],
+	'messages' => [
 		'ep-articletable-addreviwer-title',
 		'ep-articletable-addreviwer-button',
 		'ep-articletable-addreviwer-cancel',
@@ -625,50 +623,50 @@ $wgResourceModules['ep.articletable'] = $moduleTemplate + array(
 		'ep-articletable-remarticle-cancel',
 		'ep-articletable-remarticle-text',
 		'ep-articletable-remarticle-text-self',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.addorg'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.addorg'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.addorg.js',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.addcourse'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.addcourse'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.addcourse.js',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.timeline'] = $moduleTemplate + array(
-	'styles' => array(
+$wgResourceModules['ep.timeline'] = $moduleTemplate + [
+	'styles' => [
 		'ep.timeline.css',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.studentactivity'] = $moduleTemplate + array(
-	'styles' => array(
+$wgResourceModules['ep.studentactivity'] = $moduleTemplate + [
+	'styles' => [
 		'ep.studentactivity.css',
-	),
-);
+	],
+];
 
 if ( array_key_exists( 'WikiEditorHooks', $GLOBALS['wgAutoloadClasses'] ) ) {
 	$wgResourceModules['ep.formpage']['dependencies'][] = 'ext.wikiEditor.toolbar';
 	$wgResourceModules['ep.ambprofile']['dependencies'][] = 'ext.wikiEditor.toolbar';
 }
 
-$wgResourceModules['ep.enlist'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.enlist'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.enlist.js',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'mediawiki.user',
 		'jquery.ui.dialog',
 		'ep.core',
 		'ep.api',
 		'jquery.ui.autocomplete',
-	),
-	'messages' => array(
+	],
+	'messages' => [
 		'ep-instructor-remove-title',
 		'ep-online-remove-title',
 		'ep-campus-remove-title',
@@ -753,35 +751,35 @@ $wgResourceModules['ep.enlist'] = $moduleTemplate + array(
 		'ep-instructor-summary',
 		'ep-online-summary',
 		'ep-campus-summary',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.dyk'] = $moduleTemplate + array(
-	'styles' => array(
+$wgResourceModules['ep.dyk'] = $moduleTemplate + [
+	'styles' => [
 		'ep.dyk.css',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.userrolesmessage'] = $moduleTemplate + array(
-		'styles' => array(
+$wgResourceModules['ep.userrolesmessage'] = $moduleTemplate + [
+		'styles' => [
 				'ep.userrolesmessage.css',
-		),
-);
+		],
+];
 
-$wgResourceModules['ep.addstudents'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.addstudents'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.addstudents.js',
-	),
-	'styles' => array(
+	],
+	'styles' => [
 		'ep.addstudents.css',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'jquery.ui.core',
 		'ep.tagsinput',
 		'mediawiki.user',	// for obtaining edit token in js
 		'mediawiki.Uri',	// for building URI for page reload
-	),
-	'messages' => array(
+	],
+	'messages' => [
 		'collapsible-expand',
 		'collapsible-collapse',
 		'ep-addstudents-invalid-users',
@@ -789,21 +787,21 @@ $wgResourceModules['ep.addstudents'] = $moduleTemplate + array(
 		'ep-addstudents-alreadyenrolled',
 		'ep-addstudents-servercallerror',
 		'comma-separator',
-	),
-);
+	],
+];
 
-$wgResourceModules['ep.tagsinput'] = $moduleTemplate + array(
-	'scripts' => array(
+$wgResourceModules['ep.tagsinput'] = $moduleTemplate + [
+	'scripts' => [
 		'ep.tagsinput/ep.tagsinput.js',
 		'ep.tagsinput/ep.typeahead.js',
-	),
-	'styles' => array(
+	],
+	'styles' => [
 		'ep.tagsinput/ep.tagsinput.css',
-	),
-	'dependencies' => array(
+	],
+	'dependencies' => [
 		'jquery.ui.core',
-	),
-);
+	],
+];
 
 unset( $moduleTemplate );
 

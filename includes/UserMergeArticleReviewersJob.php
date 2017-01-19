@@ -60,8 +60,8 @@ class UserMergeArticleReviewersJob extends Job {
 
 		$articleRows = $dbw->select(
 				'ep_articles',
-				array( 'article_id', 'article_reviewers' ),
-				array(),
+				[ 'article_id', 'article_reviewers' ],
+				[],
 				__METHOD__
 		);
 
@@ -72,8 +72,8 @@ class UserMergeArticleReviewersJob extends Job {
 			if ( $this->mergeIds( $reviewerIds, $oldId, $newId ) ) {
 				$dbw->update(
 						'ep_articles',
-						array( 'article_reviewers' => serialize( $reviewerIds ) ),
-						array( 'article_id' => $articleRow->article_id ),
+						[ 'article_reviewers' => serialize( $reviewerIds ) ],
+						[ 'article_id' => $articleRow->article_id ],
 						__METHOD__
 				);
 			}

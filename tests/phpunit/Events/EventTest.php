@@ -35,11 +35,11 @@ use EducationProgram\Events\Event;
 class EventTest extends \PHPUnit_Framework_TestCase {
 
 	public function constructorProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array( 1, 2, 3, '20010115123456', 'type-foobar', array() );
-		$argLists[] = array( 42, 9001, 7201010, '20010115123456', 'baz', array( 'o' => 'noez' ) );
-		$argLists[] = array( null, 1, 1, '20010115123456', 'spam', array( 'o' => 'noez', 42 ) );
+		$argLists[] = [ 1, 2, 3, '20010115123456', 'type-foobar', [] ];
+		$argLists[] = [ 42, 9001, 7201010, '20010115123456', 'baz', [ 'o' => 'noez' ] ];
+		$argLists[] = [ null, 1, 1, '20010115123456', 'spam', [ 'o' => 'noez', 42 ] ];
 
 		return $argLists;
 	}

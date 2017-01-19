@@ -31,7 +31,7 @@ class RemoveStudentAction extends \FormlessAction {
 
 		$api = new \ApiMain( new \DerivativeRequest(
 			$req,
-			array(
+			[
 				'action' => 'enlist',
 				'subaction' => 'remove',
 				'format' => 'json',
@@ -40,10 +40,12 @@ class RemoveStudentAction extends \FormlessAction {
 				'token' => $this->getUser()->getEditToken(),
 				'reason' => '', // TODO high
 				'role' => 'student'
-			),
-			true ), true);
+			],
+			true ), true );
 
-		try { $api->execute(); } catch ( \Exception $exception ) {}
+		try { $api->execute();
+	 } catch ( \Exception $exception ) {
+	 }
 
 		$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 		return '';

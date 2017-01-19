@@ -1,7 +1,12 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Linker, Html, SpecialPage, Title;
+
+use IContextSource;
+use Linker;
+use Html;
+use SpecialPage;
+use Title;
 
 /**
  * Education Program menu.
@@ -54,16 +59,15 @@ class Menu extends \ContextSource {
 	 * @return string
 	 */
 	public function getHTML() {
-		$links = array();
+		$links = [];
 
 		foreach ( $this->getMenuItems() as $label => $data ) {
 			if ( is_array( $data ) ) {
 				$target = array_shift( $data );
 				$attribs = $data;
-			}
-			else {
+			} else {
 				$target = $data;
-				$attribs = array();
+				$attribs = [];
 			}
 
 			$links[] = Linker::link(
@@ -73,7 +77,7 @@ class Menu extends \ContextSource {
 			);
 		}
 
-		return Html::rawElement( 'p', array(), $this->getLanguage()->pipeList( $links ) );
+		return Html::rawElement( 'p', [], $this->getLanguage()->pipeList( $links ) );
 	}
 
 	/**
@@ -93,10 +97,10 @@ class Menu extends \ContextSource {
 	 * @return Title[]
 	 */
 	protected function getMenuItems() {
-		$items = array(
+		$items = [
 			'ep-nav-orgs' => SpecialPage::getTitleFor( 'Institutions' ),
 			'ep-nav-courses' => SpecialPage::getTitleFor( 'Courses' ),
-		);
+		];
 
 		$items['ep-nav-students'] = SpecialPage::getTitleFor( 'Students' );
 
@@ -106,7 +110,7 @@ class Menu extends \ContextSource {
 
 		$user = $this->getUser();
 
-		if ( Students::singleton()->has( array( 'user_id' => $user->getId() ) ) ) {
+		if ( Students::singleton()->has( [ 'user_id' => $user->getId() ] ) ) {
 			$items['ep-nav-mycourses'] = SpecialPage::getTitleFor( 'MyCourses' );
 		}
 
@@ -122,7 +126,7 @@ class Menu extends \ContextSource {
 			$items = call_user_func( $this->itemFunction, $items );
 		}
 
-		$menuItems = array();
+		$menuItems = [];
 
 		foreach ( $items as $messageKey => $title ) {
 			$menuItems[$this->msg( $messageKey )->text()] = $title;

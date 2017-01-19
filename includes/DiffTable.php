@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Exception;
+
+use IContextSource;
+use Exception;
 
 /**
  * Utility for visualizing diffs between two revisions.
@@ -20,7 +22,6 @@ class DiffTable extends \ContextSource {
 	 * @var RevisionDiff
 	 */
 	protected $diff;
-
 
 	/**
 	 * First revision type, used to construct the message key for the column
@@ -67,9 +68,9 @@ class DiffTable extends \ContextSource {
 
 		$out->addHTML( '<table class="wikitable sortable"><tr>' );
 
-		$out->addElement( 'th', array(), '' );
-		$out->addElement( 'th', array(), $this->msg( 'ep-diff-' . $this->firstRevisionType )->plain() );
-		$out->addElement( 'th', array(), $this->msg( 'ep-diff-' . $this->secondRevisionType )->plain() );
+		$out->addElement( 'th', [], '' );
+		$out->addElement( 'th', [], $this->msg( 'ep-diff-' . $this->firstRevisionType )->plain() );
+		$out->addElement( 'th', [], $this->msg( 'ep-diff-' . $this->secondRevisionType )->plain() );
 
 		$out->addHTML( '</tr>' );
 
@@ -79,9 +80,9 @@ class DiffTable extends \ContextSource {
 			$source = array_key_exists( 'source', $values ) ? $this->formatValue( $values['source'], $field ) : '';
 			$target = array_key_exists( 'target', $values ) ? $this->formatValue( $values['target'], $field ) : '';
 
-			$out->addElement( 'th', array(), $field );
-			$out->addElement( 'td', array(), $source );
-			$out->addElement( 'td', array(), $target );
+			$out->addElement( 'th', [], $field );
+			$out->addElement( 'td', [], $source );
+			$out->addElement( 'td', [], $target );
 
 			$out->addHtml( '</tr>' );
 		}
@@ -101,7 +102,7 @@ class DiffTable extends \ContextSource {
 	 * @return string
 	 */
 	protected function formatValue( $value, $name ) {
-		if ( in_array( $name, array( 'start', 'end' ) ) ) {
+		if ( in_array( $name, [ 'start', 'end' ] ) ) {
 			$value = $this->getLanguage()->timeanddate( $value );
 		}
 

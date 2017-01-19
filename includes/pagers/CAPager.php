@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use IContextSource;
 
 /**
@@ -21,7 +22,7 @@ class CAPager extends OAPager {
 	 * @param IContextSource $context
 	 * @param array $conds
 	 */
-	public function __construct( IContextSource $context, array $conds = array() ) {
+	public function __construct( IContextSource $context, array $conds = [] ) {
 		parent::__construct( $context, $conds, CAs::singleton() );
 	}
 

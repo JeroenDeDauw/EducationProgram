@@ -39,7 +39,7 @@ class RecentPageEventGrouperTest extends \PHPUnit_Framework_TestCase {
 	public function testGroupEventsWithEmptyArray() {
 		$grouper = new RecentPageEventGrouper();
 
-		$groupedEvents = $grouper->groupEvents( array() );
+		$groupedEvents = $grouper->groupEvents( [] );
 
 		$this->assertInternalType( 'array', $groupedEvents );
 		$this->assertCount( 0, $groupedEvents );
@@ -59,28 +59,28 @@ class RecentPageEventGrouperTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function eventsWithDifferentPagesProvider() {
-		return array(
-			array( array(
-				new Event( 1, 2, 3, 1337, 'Nyan!', array( 'page' => 'Nyan' ) ),
-			) ),
+		return [
+			[ [
+				new Event( 1, 2, 3, 1337, 'Nyan!', [ 'page' => 'Nyan' ] ),
+			] ],
 
-			array( array(
-				new Event( 1, 2, 3, 1337, 'Nyan!', array( 'page' => 'Foo' ) ),
-				new Event( 4, 5, 6, 31337, 'Nyan!', array( 'page' => 'Bar' ) ),
-				new Event( 7, 8, 9, 7201010, 'Nyan!', array( 'page' => 'Baz' ) ),
-			) ),
+			[ [
+				new Event( 1, 2, 3, 1337, 'Nyan!', [ 'page' => 'Foo' ] ),
+				new Event( 4, 5, 6, 31337, 'Nyan!', [ 'page' => 'Bar' ] ),
+				new Event( 7, 8, 9, 7201010, 'Nyan!', [ 'page' => 'Baz' ] ),
+			] ],
 
-			array( array(
-				new Event( 1, 2, 3, 1337, 'Nyan!', array( 'page' => 'Foo' ) ),
-				new Event( 4, 5, 6, 31337, 'Nyan!', array() ),
-				new Event( 7, 8, 9, 7201010, 'Nyan!', array() ),
-			) ),
+			[ [
+				new Event( 1, 2, 3, 1337, 'Nyan!', [ 'page' => 'Foo' ] ),
+				new Event( 4, 5, 6, 31337, 'Nyan!', [] ),
+				new Event( 7, 8, 9, 7201010, 'Nyan!', [] ),
+			] ],
 
-			array( array(
-				new Event( 1, 2, 3, 1337, 'Nyan!', array( 'page' => 'Foo' ) ),
-				new Event( 4, 5, 6, 31337, 'Nyan!', array( 'page' => 'Foo', 'parent' => null ) ),
-			) ),
-		);
+			[ [
+				new Event( 1, 2, 3, 1337, 'Nyan!', [ 'page' => 'Foo' ] ),
+				new Event( 4, 5, 6, 31337, 'Nyan!', [ 'page' => 'Foo', 'parent' => null ] ),
+			] ],
+		];
 	}
 
 	/**
@@ -97,37 +97,37 @@ class RecentPageEventGrouperTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function eventsWithTheSamePagesProvider() {
-		return array(
-			array( array(
-				new Event( 1, 2, 3, 1337, 'Nyan!', array( 'page' => 'Nyan' ) ),
-			) ),
+		return [
+			[ [
+				new Event( 1, 2, 3, 1337, 'Nyan!', [ 'page' => 'Nyan' ] ),
+			] ],
 
-			array( array(
-				new Event( 1, 2, 3, 1337, 'Nyan!', array( 'page' => 'Nyan' ) ),
-				new Event( 4, 5, 6, 31337, 'Nyan!', array( 'page' => 'Nyan' ) ),
-				new Event( 7, 8, 9, 7201010, 'Nyan!', array( 'page' => 'Nyan' ) ),
-			) ),
+			[ [
+				new Event( 1, 2, 3, 1337, 'Nyan!', [ 'page' => 'Nyan' ] ),
+				new Event( 4, 5, 6, 31337, 'Nyan!', [ 'page' => 'Nyan' ] ),
+				new Event( 7, 8, 9, 7201010, 'Nyan!', [ 'page' => 'Nyan' ] ),
+			] ],
 
-			array( array(
-				new Event( 1, 2, 3, 1337, 'Nyan!', array( 'page' => 'Nyan' ) ),
-				new Event( 4, 5, 6, 31337, 'Nyan!', array( 'page' => 'Nyan', 'parent' => 42 ) ),
-				new Event( 7, 8, 9, 7201010, 'Nyan!', array( 'page' => 'Nyan', 'parent' => 1 ) ),
-			) ),
-		);
+			[ [
+				new Event( 1, 2, 3, 1337, 'Nyan!', [ 'page' => 'Nyan' ] ),
+				new Event( 4, 5, 6, 31337, 'Nyan!', [ 'page' => 'Nyan', 'parent' => 42 ] ),
+				new Event( 7, 8, 9, 7201010, 'Nyan!', [ 'page' => 'Nyan', 'parent' => 1 ] ),
+			] ],
+		];
 	}
 
 	public function testGroupEventsGroupSorting() {
 		$grouper = new RecentPageEventGrouper();
 
-		$events = array(
-			new Event( 1, 2, 3, 1337, 'Nyan!', array( 'page' => 'Nyan' ) ),
-			new Event( 2, 8, 9, 7201010, 'Nyan!', array( 'page' => 'Nyan' ) ),
-			new Event( 3, 5, 6, 31337, 'Nyan!', array( 'page' => 'Nyan' ) ),
+		$events = [
+			new Event( 1, 2, 3, 1337, 'Nyan!', [ 'page' => 'Nyan' ] ),
+			new Event( 2, 8, 9, 7201010, 'Nyan!', [ 'page' => 'Nyan' ] ),
+			new Event( 3, 5, 6, 31337, 'Nyan!', [ 'page' => 'Nyan' ] ),
 
-			new Event( 4, 2, 3, 10003, 'Onoez!', array( 'page' => 'Onoez' ) ),
-			new Event( 5, 8, 9, 10001, 'Onoez!', array( 'page' => 'Onoez' ) ),
-			new Event( 6, 5, 6, 10002, 'Onoez!', array( 'page' => 'Onoez' ) ),
-		);
+			new Event( 4, 2, 3, 10003, 'Onoez!', [ 'page' => 'Onoez' ] ),
+			new Event( 5, 8, 9, 10001, 'Onoez!', [ 'page' => 'Onoez' ] ),
+			new Event( 6, 5, 6, 10002, 'Onoez!', [ 'page' => 'Onoez' ] ),
+		];
 
 		$groupedEvents = $grouper->groupEvents( $events );
 
@@ -135,20 +135,20 @@ class RecentPageEventGrouperTest extends \PHPUnit_Framework_TestCase {
 		$onoezGroup = $groupedEvents[1];
 
 		$this->assertEquals(
-			array(
+			[
 				2,
 				3,
 				1
-			),
+			],
 			$this->eventsToIds( $nyanGroup->getEvents() )
 		);
 
 		$this->assertEquals(
-			array(
+			[
 				4,
 				6,
 				5
-			),
+			],
 			$this->eventsToIds( $onoezGroup->getEvents() )
 		);
 	}

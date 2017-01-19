@@ -95,7 +95,7 @@ class EventStore {
 	public function query( EventQuery $query ) {
 		$db = $this->getReadConnection();
 
-		$conditions = array();
+		$conditions = [];
 
 		if ( $query->getCourseIds() !== null ) {
 			$conditions['event_course_id'] = $query->getCourseIds();
@@ -106,7 +106,7 @@ class EventStore {
 			$conditions[] = 'event_time  ' . $comparator . ' ' . $db->addQuotes( $query->getTimeLimit() );
 		}
 
-		$options = array();
+		$options = [];
 
 		if ( $query->getRowLimit() !== null ) {
 			$options['LIMIT'] = $query->getRowLimit();
@@ -118,7 +118,7 @@ class EventStore {
 
 		$queryResult = $db->select( $this->tableName, '*', $conditions, __METHOD__, $options );
 
-		$events = array();
+		$events = [];
 
 		foreach ( $queryResult as $resultRow ) {
 			$events[] = $this->eventFromDbResult( $resultRow );
@@ -139,7 +139,7 @@ class EventStore {
 	private function eventFromDbResult( $resultRow ) {
 		$info = unserialize( $resultRow->event_info );
 		if ( !is_array( $info ) ) {
-			$info = array();
+			$info = [];
 		}
 		return new Event(
 			(int)$resultRow->event_id,
@@ -168,13 +168,13 @@ class EventStore {
 
 		$db = $this->getWriteConnection();
 
-		$fields = array(
+		$fields = [
 			'event_course_id' => $event->getCourseId(),
 			'event_user_id' => $event->getUserId(),
 			'event_time' => $event->getTime(),
 			'event_type' => $event->getType(),
 			'event_info' => serialize( $event->getInfo() )
-		);
+		];
 
 		return $db->insert(
 			$this->tableName,

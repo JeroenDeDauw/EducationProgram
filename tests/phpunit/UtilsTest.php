@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram\Tests;
+
 use EducationProgram\Utils;
 
 /**
@@ -18,11 +19,11 @@ use EducationProgram\Utils;
 class UtilsTest extends \MediaWikiTestCase {
 
 	public function keyPrefixProvider() {
-		return array(
-			array( 'key', 'value', 'key - value' ),
-			array( ' key   ', ' value ', ' key    -  value ' ),
-			array( '- key 2 -', '- value 2 -', '- key 2 - - - value 2 -' ),
-		);
+		return [
+			[ 'key', 'value', 'key - value' ],
+			[ ' key   ', ' value ', ' key    -  value ' ],
+			[ '- key 2 -', '- value 2 -', '- key 2 - - - value 2 -' ],
+		];
 	}
 
 	/**
@@ -31,16 +32,16 @@ class UtilsTest extends \MediaWikiTestCase {
 	 */
 	public function testGetKeyPrefixedValues( $key, $value, $expected ) {
 		$this->assertEquals(
-			array( $expected => $key ),
-			Utils::getValuesAppendedKeys( array( $key => $value ) )
+			[ $expected => $key ],
+			Utils::getValuesAppendedKeys( [ $key => $value ] )
 		);
 	}
 
 	public function articleContentProvider() {
-		return array(
-			array( 'Foo bar', 'baz bah' ),
-			array( 'Foobar', false ),
-		);
+		return [
+			[ 'Foo bar', 'baz bah' ],
+			[ 'Foobar', false ],
+		];
 	}
 
 	/**

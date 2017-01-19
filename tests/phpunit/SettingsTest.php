@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram\Test;
+
 use EducationProgram\Settings;
 
 /**
@@ -34,12 +35,12 @@ use EducationProgram\Settings;
 class SettingsTest extends \MediaWikiTestCase {
 
 	public function constructorProvider() {
-		$settingArrays = array(
-			array(),
-			array( 'foo' => 'bar' ),
-			array( 'foo' => 'bar', 'baz' => 'BAH' ),
-			array( '~[,,_,,]:3' => array( 9001, 4.2 ) ),
-		);
+		$settingArrays = [
+			[],
+			[ 'foo' => 'bar' ],
+			[ 'foo' => 'bar', 'baz' => 'BAH' ],
+			[ '~[,,_,,]:3' => [ 9001, 4.2 ] ],
+		];
 
 		return $this->arrayWrap( $settingArrays );
 	}

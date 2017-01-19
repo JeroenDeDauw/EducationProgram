@@ -27,7 +27,7 @@ namespace EducationProgram;
 
 $basePath = getenv( 'MW_INSTALL_PATH' ) !== false ?
 	getenv( 'MW_INSTALL_PATH' ) :
-	dirname( __FILE__ ) . '/../../..';
+	__DIR__ . '/../../..';
 
 require_once $basePath . '/maintenance/Maintenance.php';
 
@@ -45,7 +45,7 @@ class FixInvalidStudent extends \Maintenance {
 
 	public function execute() {
 
-		if ( $this->getOption( 'dryRun') ) {
+		if ( $this->getOption( 'dryRun' ) ) {
 			$this->dryRun = true;
 			$this->output( "Dry run. No changes will be made to the DB.\n" );
 		}
@@ -62,7 +62,7 @@ class FixInvalidStudent extends \Maintenance {
 		$results = $dbr->select(
 			'ep_users_per_course',
 			'upc_course_id',
-			array( 'upc_user_id' => 0 ),
+			[ 'upc_user_id' => 0 ],
 			__METHOD__
 		);
 
@@ -85,7 +85,7 @@ class FixInvalidStudent extends \Maintenance {
 
 		if ( !$this->dryRun ) {
 			$dbw = wfGetDB( DB_MASTER );
-			$dbw->delete( 'ep_students', array( 'student_user_id' => 0 ) );
+			$dbw->delete( 'ep_students', [ 'student_user_id' => 0 ] );
 		}
 	}
 
@@ -95,8 +95,8 @@ class FixInvalidStudent extends \Maintenance {
 
 		$students = $course->getField( 'students' );
 
-		if ( ($key = array_search('', $students) ) !== false) {
-			unset($students[$key]);
+		if ( ( $key = array_search( '', $students ) ) !== false ) {
+			unset( $students[$key] );
 		}
 
 		if ( !$this->dryRun ) {

@@ -43,7 +43,7 @@ class AddReviewerAction extends \FormlessAction {
 			);
 
 			if ( $article !== false && $article->canBecomeReviewer( $user ) ) {
-				$addedReviewers = $article->addReviewers( array( $user->getId() ) );
+				$addedReviewers = $article->addReviewers( [ $user->getId() ] );
 
 				if ( !empty( $addedReviewers ) ) {
 					if ( $articleStore->updateArticle( $article ) ) {

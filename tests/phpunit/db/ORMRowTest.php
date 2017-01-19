@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram\Tests;
+
 use EducationProgram\IORMRow;
 use EducationProgram\IORMTable;
 
@@ -88,15 +89,15 @@ abstract class ORMRowTest extends \MediaWikiTestCase {
 	 * @return array
 	 */
 	protected function getMockValues() {
-		return array(
+		return [
 			'id' => 1,
 			'str' => 'foobar4645645',
 			'int' => 42,
 			'float' => 4.2,
 			'bool' => true,
-			'array' => array( 42, 'foobar' ),
+			'array' => [ 42, 'foobar' ],
 			'blob' => new \stdClass()
-		);
+		];
 	}
 
 	/**
@@ -105,7 +106,7 @@ abstract class ORMRowTest extends \MediaWikiTestCase {
 	 */
 	protected function getMockFields() {
 		$mockValues = $this->getMockValues();
-		$mockFields = array();
+		$mockFields = [];
 
 		foreach ( $this->getTableInstance()->getFields() as $name => $type ) {
 			if ( $name !== 'id' ) {
@@ -121,10 +122,10 @@ abstract class ORMRowTest extends \MediaWikiTestCase {
 	 * @return array Array of IORMRow
 	 */
 	public function instanceProvider() {
-		$instances = array();
+		$instances = [];
 
 		foreach ( $this->constructorTestProvider() as $arguments ) {
-			$instances[] = array( call_user_func_array( array( $this, 'getRowInstance' ), $arguments ) );
+			$instances[] = [ call_user_func_array( [ $this, 'getRowInstance' ], $arguments ) ];
 		}
 
 		return $instances;
@@ -200,7 +201,7 @@ abstract class ORMRowTest extends \MediaWikiTestCase {
 	public function testSetFields( IORMRow $item ) {
 		$originalValues = $item->getFields();
 
-		$item->setFields( array(), false );
+		$item->setFields( [], false );
 
 		foreach ( $item->getTable()->getFields() as $name => $type ) {
 			$originalHas = array_key_exists( $name, $originalValues );

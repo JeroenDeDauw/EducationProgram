@@ -5,6 +5,7 @@ require_once __DIR__ . '/PageObjectTest.php';
 
 use EducationProgram\Orgs;
 use EducationProgram\Org;
+
 /**
  * Tests for the EducationProgram\Org class.
  *
@@ -50,8 +51,8 @@ class OrgTest extends PageObjectTest {
 	 * @return array
 	 */
 	public function constructorTestProvider() {
-		return array ( array (
-			array(
+		return [ [
+			[
 				'name' => 'Test Org',
 				'city' => 'Test City',
 				'country' => 'Test Country',
@@ -61,11 +62,11 @@ class OrgTest extends PageObjectTest {
 				'instructor_count' => 0,
 				'ca_count' => 0,
 				'oa_count' => 0,
-				'courses' => array(),
+				'courses' => [],
 				'last_active_date' => '20140127070312',
-			),
+			],
 			false
-		) );
+		] ];
 	}
 
 	/**
@@ -79,13 +80,13 @@ class OrgTest extends PageObjectTest {
 	 * @return array
 	 */
 	protected function getMockValues() {
-		return array(
+		return [
 				'id' => 1,
 				'str' => 'Foobar4645645', // Must start with capital
 				'int' => 42,
 				'bool' => true,
-				'array' => array( 42, 'foobar' ),
-		);
+				'array' => [ 42, 'foobar' ],
+		];
 	}
 
 	/**

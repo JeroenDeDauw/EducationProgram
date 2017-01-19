@@ -1,7 +1,10 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Linker, SpecialPage;
+
+use IContextSource;
+use Linker;
+use SpecialPage;
 
 /**
  * Org pager, primarily for Special:Institutions.
@@ -34,7 +37,7 @@ class OrgPager extends EPPager {
 	 *
 	 * @return string
 	 */
-	public static function getPager( IContextSource $context, array $conditions = array() ) {
+	public static function getPager( IContextSource $context, array $conditions = [] ) {
 		$pager = new OrgPager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
@@ -44,8 +47,7 @@ class OrgPager extends EPPager {
 				$pager->getBody() .
 				$pager->getNavigationBar() .
 				$pager->getMultipleItemControl();
-		}
-		else {
+		} else {
 			return $pager->getFilterControl( true ) .
 				$context->msg( 'ep-institutions-noresults' )->escaped();
 		}
@@ -59,7 +61,7 @@ class OrgPager extends EPPager {
 	 * @return array
 	 */
 	public static function getModules() {
-		return array_merge( parent::getModules(), array( 'ep.pager.org' ) );
+		return array_merge( parent::getModules(), [ 'ep.pager.org' ] );
 	}
 
 	/**
@@ -68,7 +70,7 @@ class OrgPager extends EPPager {
 	 * @param IContextSource $context
 	 * @param array $conds
 	 */
-	public function __construct( IContextSource $context, array $conds = array() ) {
+	public function __construct( IContextSource $context, array $conds = [] ) {
 		parent::__construct( $context, $conds, Orgs::singleton() );
 	}
 
@@ -76,14 +78,14 @@ class OrgPager extends EPPager {
 	 * @see Pager::getFields()
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'name',
 			'city',
 			'country',
 			'course_count',
 			'student_count',
 			'active',
-		);
+		];
 	}
 
 	/**
@@ -120,8 +122,8 @@ class OrgPager extends EPPager {
 					$value = Linker::linkKnown(
 						SpecialPage::getTitleFor( 'Courses' ),
 						$value,
-						array(),
-						array( 'org_id' => $this->currentObject->getId() )
+						[],
+						[ 'org_id' => $this->currentObject->getId() ]
 					);
 				}
 
@@ -154,14 +156,14 @@ class OrgPager extends EPPager {
 	 * @see Pager::getSortableFields()
 	 */
 	protected function getSortableFields() {
-		return array(
+		return [
 			'name',
 			'city',
 			'country',
 			'course_count',
 			'student_count',
 			'active',
-		);
+		];
 	}
 
 	function getDefaultSort() {
@@ -172,22 +174,22 @@ class OrgPager extends EPPager {
 	 * @see EPPager::getFilterOptions()
 	 */
 	protected function getFilterOptions() {
-		return array(
-			'country' => array(
+		return [
+			'country' => [
 				'type' => 'select',
 				'options' => Utils::getCountryOptions( $this->getLanguage()->getCode() ),
 				'value' => ''
-			),
-			'active' => array(
+			],
+			'active' => [
 				'type' => 'select',
-				'options' => array(
+				'options' => [
 					'' => '',
 					$this->msg( 'eporgpager-yes' )->text() => '1',
 					$this->msg( 'eporgpager-no' )->text() => '0',
-				),
+				],
 				'value' => '',
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -202,8 +204,8 @@ class OrgPager extends EPPager {
 			$links[] = $item->getLink(
 				'edit',
 				$this->msg( 'edit' )->escaped(),
-				array(),
-				array( 'wpreturnto' => $this->getTitle()->getFullText() )
+				[],
+				[ 'wpreturnto' => $this->getTitle()->getFullText() ]
 			);
 
 			// Check restrictions before adding deletion link
@@ -230,10 +232,10 @@ class OrgPager extends EPPager {
 			&& $this->getUser()->isAllowed( 'ep-bulkdelorgs' )
 			&& $this->getUser()->getOption( 'ep_bulkdelorgs' ) ) {
 
-			$actions[$this->msg( 'ep-pager-delete-selected' )->text()] = array(
+			$actions[$this->msg( 'ep-pager-delete-selected' )->text()] = [
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) )
-			);
+			];
 		}
 
 		return $actions;
@@ -275,10 +277,10 @@ class OrgPager extends EPPager {
 		// this one.
 		if ( !$this->currentDelHelper->checkRestrictions() ) {
 			$attrs = array_merge( $attrs,
-				array(
+				[
 					'data-no-del-text' =>
 					$this->currentDelHelper->getCantDeleteMsgPlain()
-				)
+				]
 			);
 		}
 

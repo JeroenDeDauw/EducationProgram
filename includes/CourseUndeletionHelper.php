@@ -18,7 +18,7 @@ namespace EducationProgram;
  * @licence GNU GPL v2+
  * @author Andrew Green < agreen@wikimedia.org >
  */
- class CourseUndeletionHelper {
+	class CourseUndeletionHelper {
 
 	/**
 	 * @since 0.4 alpha
@@ -91,7 +91,7 @@ namespace EducationProgram;
 		$this->deletedOrgId = $deletedCourse->getField( 'org_id' );
 
 		$org = Orgs::singleton()->selectRow( null,
-			array( 'id' => $this->deletedOrgId ) );
+			[ 'id' => $this->deletedOrgId ] );
 
 		if ( $org === false ) {
 			$this->undeletionCheck = CourseUndelCheck::ORG_DELETED;
@@ -132,10 +132,10 @@ namespace EducationProgram;
 				// First get the latest revision of the deleted org.
 				// If we're here, we can assume that deletedOrgId has been set.
 				$deletedOrgRev = Revisions::singleton()->getLatestRevision(
-					array(
+					[
 						'object_id' => $this->deletedOrgId,
 						'type' => Orgs::singleton()->getRevisionedObjectTypeId(),
-					)
+					]
 				);
 
 				// Check that we actually got a revision.
@@ -151,7 +151,7 @@ namespace EducationProgram;
 					// css class.
 					$html = \Html::openElement(
 						'span',
-						array( 'class' => 'plainlinks' ) );
+						[ 'class' => 'plainlinks' ] );
 
 					$html .= $this->context->msg(
 						'ep-undelete-course-org-deleted',
@@ -174,7 +174,7 @@ namespace EducationProgram;
 				break;
 		}
 	}
-}
+	}
 
 /**
  * Constants for possible results of check for restrictions.

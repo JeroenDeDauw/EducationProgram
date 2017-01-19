@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use IContextSource;
 
 /**
@@ -25,7 +26,7 @@ class CA extends RoleObject implements IRole {
 	 *
 	 * @return string
 	 */
-	public static function getPager( IContextSource $context, array $conditions = array() ) {
+	public static function getPager( IContextSource $context, array $conditions = [] ) {
 		$pager = new CAPager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
@@ -35,8 +36,7 @@ class CA extends RoleObject implements IRole {
 				$pager->getBody() .
 				$pager->getNavigationBar() .
 				$pager->getMultipleItemControl();
-		}
-		else {
+		} else {
 			return $pager->getFilterControl( true ) .
 				$context->msg( 'ep-ca-noresults' )->escaped();
 		}

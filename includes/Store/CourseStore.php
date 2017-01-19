@@ -61,9 +61,9 @@ class CourseStore {
 		$result = $this->readDatabase->selectRow(
 			$this->tableName,
 			$this->getReadFields(),
-			array(
+			[
 				'course_id' => $courseId
-			),
+			],
 			__METHOD__
 		);
 
@@ -86,9 +86,9 @@ class CourseStore {
 		$result = $this->readDatabase->selectRow(
 			$this->tableName,
 			$this->getReadFields(),
-			array(
+			[
 				'course_title' => $courseTitle
-			),
+			],
 			__METHOD__
 		);
 
@@ -105,7 +105,7 @@ class CourseStore {
 	 * @return string[]
 	 */
 	protected function getReadFields() {
-		return array(
+		return [
 			'course_id',
 
 			'course_org_id',
@@ -130,7 +130,7 @@ class CourseStore {
 			'course_ca_count',
 
 			'course_touched',
-		);
+		];
 	}
 
 	/**
@@ -143,7 +143,7 @@ class CourseStore {
 	 * @return Course
 	 */
 	protected function newCourseFromRow( $row ) {
-		$fields = array();
+		$fields = [];
 
 		foreach ( (array)$row as $fieldName => $fieldValue ) {
 			$fields[substr( $fieldName, 7 )] = $fieldValue;

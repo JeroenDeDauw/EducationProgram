@@ -49,7 +49,7 @@ class Courses extends PageTable {
 	 * @return array
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id' => 'id',
 
 			'org_id' => 'int',
@@ -74,7 +74,7 @@ class Courses extends PageTable {
 			'ca_count' => 'int',
 
 			'touched' => 'str', // TS_MW
-		);
+		];
 	}
 
 	/**
@@ -83,17 +83,17 @@ class Courses extends PageTable {
 	 * @return array
 	 */
 	public function getDefaults() {
-		return array(
+		return [
 			'name' => '',
 			'title' => '',
 			'start' => wfTimestamp( TS_MW ),
 			'end' => wfTimestamp( TS_MW, strtotime( self::DEFAULT_COURSE_DURATION ) ),
 			'description' => '',
 			'token' => '',
-			'students' => array(),
-			'instructors' => array(),
-			'online_ambs' => array(),
-			'campus_ambs' => array(),
+			'students' => [],
+			'instructors' => [],
+			'online_ambs' => [],
+			'campus_ambs' => [],
 			'field' => '',
 			'level' => '',
 			'term' => '',
@@ -103,7 +103,7 @@ class Courses extends PageTable {
 			'instructor_count' => 0,
 			'oa_count' => 0,
 			'ca_count' => 0,
-		);
+		];
 	}
 
 	/**
@@ -112,19 +112,19 @@ class Courses extends PageTable {
 	 * @return array
 	 */
 	public function getSummaryFields() {
-		return array(
+		return [
 			'student_count',
 			'instructor_count',
 			'oa_count',
 			'ca_count',
-		);
+		];
 	}
 
 	/**
 	 * @see PageTable::getRevertibleFields()
 	 */
 	public function getRevertibleFields() {
-		return array(
+		return [
 			'org_id',
 			'name',
 			'title',
@@ -135,7 +135,7 @@ class Courses extends PageTable {
 			'field',
 			'level',
 			'term'
-		);
+		];
 	}
 
 	/**
@@ -154,11 +154,11 @@ class Courses extends PageTable {
 		// with the current timestamp minus one day.
 		$oneDayAgo = wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, strtotime( "-1 day" ) ) );
 
-		return $this->has( array(
+		return $this->has( [
 			'title' => $courseTitle,
 			'end >= ' . $oneDayAgo,
 			'start <= ' . $now,
-		) );
+		] );
 	}
 
 	/**
@@ -227,7 +227,7 @@ class Courses extends PageTable {
 		// with the current timestamp minus one day.
 		$oneDayAgo = wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, strtotime( "-1 day" ) ) );
 
-		$conditions = array();
+		$conditions = [];
 
 		switch ( $state ) {
 			case 'current':
@@ -262,29 +262,29 @@ class Courses extends PageTable {
 	 *
 	 * @return ORMResult
 	 */
-	public function getCoursesForUsers( $userIds = array(), $roleIds = array(),
-										array $conditions = array(), $fields = null, array $options = array() ) {
+	public function getCoursesForUsers( $userIds = [], $roleIds = [],
+										array $conditions = [], $fields = null, array $options = [] ) {
 		$conditions = $this->getPrefixedValues( $conditions );
 
-		if ( $userIds !== array() ) {
+		if ( $userIds !== [] ) {
 			$conditions['upc_user_id'] = (array)$userIds;
 		}
 
-		if ( $roleIds !== array() ) {
+		if ( $roleIds !== [] ) {
 			$conditions['upc_role'] = (array)$roleIds;
 		}
 
 		$options[] = 'DISTINCT';
 
 		$courses = wfGetDB( DB_SLAVE )->select(
-			array( 'ep_courses', 'ep_users_per_course' ),
+			[ 'ep_courses', 'ep_users_per_course' ],
 			$this->getPrefixedFields( is_null( $fields ) ? $this->getFieldNames() : (array)$fields ),
 			$conditions,
 			__METHOD__,
 			$options,
-			array(
-				'ep_users_per_course' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
-			)
+			[
+				'ep_users_per_course' => [ 'INNER JOIN', [ 'upc_course_id=course_id' ] ],
+			]
 		);
 
 		return new ORMResult( $this, $courses );

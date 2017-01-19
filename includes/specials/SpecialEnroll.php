@@ -1,7 +1,12 @@
 <?php
 
 namespace EducationProgram;
-use UserBlockedError, Html, Linker, Xml, SpecialPage;
+
+use UserBlockedError;
+use Html;
+use Linker;
+use Xml;
+use SpecialPage;
 
 /**
  * Enrollment page for students.
@@ -59,9 +64,8 @@ class SpecialEnroll extends VerySpecialPage {
 		$token = count( $args ) > 2 ? $args[2] : false;
 
 		if ( $courseTitle === '' ) {
-			$this->showWarning( $this->msg(  'ep-enroll-no-id' ) );
-		}
-		else {
+			$this->showWarning( $this->msg( 'ep-enroll-no-id' ) );
+		} else {
 			/**
 			 * @var Course $course
 			 */
@@ -69,8 +73,7 @@ class SpecialEnroll extends VerySpecialPage {
 
 			if ( $course === false ) {
 				$this->showWarning( $this->msg( 'ep-enroll-invalid-id' ) );
-			}
-			elseif ( in_array( $course->getStatus(), array( 'current', 'planned' ) ) ) {
+			} elseif ( in_array( $course->getStatus(), [ 'current', 'planned' ] ) ) {
 				$this->setPageTitle( $course );
 
 				$tokenIsValid = $course->getField( 'token' ) === '';
@@ -86,16 +89,14 @@ class SpecialEnroll extends VerySpecialPage {
 
 				if ( $tokenIsValid ) {
 					$this->showEnrollmentView( $course );
-				}
-				else {
+				} else {
 					if ( $token !== false ) {
 						$this->showWarning( $this->msg( 'ep-enroll-invalid-token' ) );
 					}
 
 					$this->showTokenInput();
 				}
-			}
-			else {
+			} else {
 				$this->setPageTitle( $course );
 
 				// Give grep a chance to find the usages:
@@ -129,16 +130,13 @@ class SpecialEnroll extends VerySpecialPage {
 						$this->doEnroll( $course );
 					} );
 					$this->onSuccess();
-				}
-				else {
+				} else {
 					$this->showEnrollmentForm( $formFields );
 				}
-			}
-			else {
+			} else {
 				$this->showWarning( $this->msg( 'ep-enroll-not-allowed' ) );
 			}
-		}
-		else {
+		} else {
 			$this->showSignupLink();
 		}
 	}
@@ -153,17 +151,17 @@ class SpecialEnroll extends VerySpecialPage {
 
 		$out->addHTML( Html::openElement(
 			'form',
-			array(
+			[
 				'method' => 'get',
 				'action' => $this->getPageTitle( $this->subPage )->getLocalURL(),
-			)
+			]
 		) );
 
 		$out->addHTML( '<fieldset>' );
 
 		$out->addHTML( '<legend>' . $this->msg( 'ep-enroll-add-token' )->escaped() . '</legend>' );
 
-		$out->addHTML( Html::element( 'p', array(), $this->msg( 'ep-enroll-add-token-doc' )->text() ) );
+		$out->addHTML( Html::element( 'p', [], $this->msg( 'ep-enroll-add-token-doc' )->text() ) );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel( $this->msg( 'ep-enroll-token' )->text(), 'wptoken', 'wptoken' ) );
 
@@ -212,10 +210,10 @@ class SpecialEnroll extends VerySpecialPage {
 		$out->addHTML( Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Userlogin' ),
 			$this->msg( 'ep-enroll-login-and-enroll' )->escaped(),
-			array(),
-			array(
+			[],
+			[
 				'returnto' => $this->getPageTitle( $subPage )->getFullText()
-			)
+			]
 		) );
 
 		$out->addHTML( '</li><li>' );
@@ -223,11 +221,11 @@ class SpecialEnroll extends VerySpecialPage {
 		$out->addHTML( Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Userlogin' ),
 			$this->msg( 'ep-enroll-signup-and-enroll' )->escaped(),
-			array(),
-			array(
+			[],
+			[
 				'returnto' => $this->getPageTitle( $subPage )->getFullText(),
 				'type' => 'signup'
-			)
+			]
 		) );
 
 		$out->addHTML( '</li></ul>' );
@@ -248,7 +246,7 @@ class SpecialEnroll extends VerySpecialPage {
 		$revAction->setComment( '' ); // TODO?
 
 		$success = $course->enlistUsers(
-			array( $this->getUser()->getId() ),
+			[ $this->getUser()->getId() ],
 			'student',
 			true,
 			$revAction
@@ -269,7 +267,7 @@ class SpecialEnroll extends VerySpecialPage {
 
 		$form = new \HTMLForm( $formFields, $this->getContext() );
 
-		$form->setSubmitCallback( array( $this, 'handleSubmission' ) );
+		$form->setSubmitCallback( [ $this, 'handleSubmission' ] );
 		$form->setSubmitText( $this->msg( 'educationprogram-org-submit' )->text() );
 		$form->setWrapperLegend( $this->msg( 'ep-enroll-legend' ) );
 
@@ -286,17 +284,17 @@ class SpecialEnroll extends VerySpecialPage {
 	 * @return array
 	 */
 	protected function getFormFields() {
-		$fields = array();
+		$fields = [];
 
 		$user = $this->getUser();
 
-		$fields['enroll'] = array(
+		$fields['enroll'] = [
 			'type' => 'hidden',
 			'default' => 1
-		);
+		];
 
 		if ( Settings::get( 'collectRealName' ) && trim( $user->getRealName() ) === '' ) {
-			$fields['realname'] = array(
+			$fields['realname'] = [
 				'type' => 'text',
 				'default' => '',
 				'label-message' => 'ep-enroll-realname' . ( Settings::get( 'requireRealName' ) ? '' : '-optional' ),
@@ -307,7 +305,7 @@ class SpecialEnroll extends VerySpecialPage {
 
 					return true;
 				}
-			);
+			];
 
 			if ( Settings::get( 'requireRealName' ) ) {
 				$fields['realname'] = true;
@@ -315,26 +313,26 @@ class SpecialEnroll extends VerySpecialPage {
 		}
 
 		if ( $user->getOption( 'gender' ) === 'unknown' ) {
-			$fields['gender'] = array(
+			$fields['gender'] = [
 				'type' => 'select',
 				'default' => 'unknown',
 				'label-message' => 'ep-enroll-gender',
 				'validation-callback' => function( $value, array $alldata = null ) {
-					return in_array( $value, array( 'male', 'female', 'unknown' ) ) ? true : wfMessage( 'ep-enroll-invalid-gender' )->text();
+					return in_array( $value, [ 'male', 'female', 'unknown' ] ) ? true : wfMessage( 'ep-enroll-invalid-gender' )->text();
 				} ,
-				'options' => array(
+				'options' => [
 					$this->msg( 'gender-male' )->text() => 'male',
 					$this->msg( 'gender-female' )->text() => 'female',
 					$this->msg( 'gender-unknown' )->text() => 'unknown',
-				)
-			);
+				]
+			];
 		}
 
 		if ( $this->getRequest()->getCheck( 'wptoken' ) ) {
-			$fields['token'] = array(
+			$fields['token'] = [
 				'type' => 'hidden',
 				'default' => $this->getRequest()->getText( 'wptoken' )
-			);
+			];
 		}
 
 		return $fields;
@@ -361,9 +359,8 @@ class SpecialEnroll extends VerySpecialPage {
 
 		if ( $this->doEnroll( $this->course ) ) {
 			return true;
-		}
-		else {
-			return array(); // TODO
+		} else {
+			return []; // TODO
 		}
 	}
 
@@ -374,9 +371,9 @@ class SpecialEnroll extends VerySpecialPage {
 	 */
 	public function onSuccess() {
 		$this->getOutput()->redirect(
-			SpecialPage::getTitleFor( 'MyCourses' )->getLocalURL( array(
+			SpecialPage::getTitleFor( 'MyCourses' )->getLocalURL( [
 				'enrolled' => $this->course->getId()
-			) )
+			] )
 		);
 	}
 

@@ -55,18 +55,17 @@ class RecentPageEventGrouper implements EventGrouper {
 	 * @return EventGroup[]
 	 */
 	private function getEventsGroupedByPage( array $events ) {
-		$groups = array();
+		$groups = [];
 
 		foreach ( $events as $event ) {
 			if ( array_key_exists( 'page', $event->getInfo() ) ) {
 				$this->addPageEventToGroups( $groups, $event );
-			}
-			else {
-				$groups[] = array( $event );
+			} else {
+				$groups[] = [ $event ];
 			}
 		}
 
-		$groupObjects = array();
+		$groupObjects = [];
 
 		foreach ( $groups as $events ) {
 			$events = $this->getEventsSortedByTime( $events );
@@ -83,7 +82,7 @@ class RecentPageEventGrouper implements EventGrouper {
 		$groupId .= array_key_exists( 'parent', $eventInfo ) && is_null( $eventInfo['parent'] ) ? 'create' : 'edit';
 
 		if ( !array_key_exists( $groupId, $groups ) ) {
-			$groups[$groupId] = array();
+			$groups[$groupId] = [];
 		}
 
 		$groups[$groupId][] = $event;
@@ -95,7 +94,7 @@ class RecentPageEventGrouper implements EventGrouper {
 	 * @return EventGroup[]
 	 */
 	private function getGroupsSortedByTime( array $groups ) {
-		$groupTimes = array();
+		$groupTimes = [];
 
 		foreach ( $groups as $index => $group ) {
 			$groupTimes[$index] = $group->getLatestEventTime();
@@ -103,7 +102,7 @@ class RecentPageEventGrouper implements EventGrouper {
 
 		arsort( $groupTimes );
 
-		$sortedGroups = array();
+		$sortedGroups = [];
 
 		foreach ( $groupTimes as $groupIndex => $time ) {
 			$sortedGroups[] = $groups[$groupIndex];
@@ -118,7 +117,7 @@ class RecentPageEventGrouper implements EventGrouper {
 	 * @return Event[]
 	 */
 	private function getEventsSortedByTime( array $events ) {
-		$eventTimes = array();
+		$eventTimes = [];
 
 		foreach ( $events as $index => $event ) {
 			$eventTimes[$index] = $event->getTime();
@@ -126,7 +125,7 @@ class RecentPageEventGrouper implements EventGrouper {
 
 		arsort( $eventTimes );
 
-		$sortedEvents = array();
+		$sortedEvents = [];
 
 		foreach ( $eventTimes as $groupIndex => $time ) {
 			$sortedEvents[] = $events[$groupIndex];

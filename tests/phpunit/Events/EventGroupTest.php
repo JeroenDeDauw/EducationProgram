@@ -37,17 +37,17 @@ use EducationProgram\Events\EventGroup;
 class EventGroupTest extends \PHPUnit_Framework_TestCase {
 
 	public function eventsProvider() {
-		return array(
-			array( array(
-				new Event( 1, 2, 3, 1337, 'Nyan!', array() ),
-			) ),
+		return [
+			[ [
+				new Event( 1, 2, 3, 1337, 'Nyan!', [] ),
+			] ],
 
-			array( array(
-				new Event( 1, 2, 3, 1337, 'Nyan!', array() ),
-				new Event( 4, 5, 6, 31337, 'Nyan!', array() ),
-				new Event( 7, 8, 9, 7201010, 'Nyan!', array() ),
-			) ),
-		);
+			[ [
+				new Event( 1, 2, 3, 1337, 'Nyan!', [] ),
+				new Event( 4, 5, 6, 31337, 'Nyan!', [] ),
+				new Event( 7, 8, 9, 7201010, 'Nyan!', [] ),
+			] ],
+		];
 	}
 
 	/**
@@ -64,12 +64,12 @@ class EventGroupTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLastEventTime() {
-		$events = array(
-			new Event( 1, 2, 3, 1337, 'Nyan!', array() ),
-			new Event( 4, 5, 6, 31337, 'Nyan!', array() ),
-			new Event( 7, 8, 9, 7201010, 'Nyan!', array() ),
-			new Event( 4, 5, 6, 123, 'Nyan!', array() ),
-		);
+		$events = [
+			new Event( 1, 2, 3, 1337, 'Nyan!', [] ),
+			new Event( 4, 5, 6, 31337, 'Nyan!', [] ),
+			new Event( 7, 8, 9, 7201010, 'Nyan!', [] ),
+			new Event( 4, 5, 6, 123, 'Nyan!', [] ),
+		];
 
 		$eventGroup = new EventGroup( $events );
 
@@ -81,7 +81,7 @@ class EventGroupTest extends \PHPUnit_Framework_TestCase {
 
 	public function testConstructorWithEmptyArray() {
 		$this->setExpectedException( 'InvalidArgumentException' );
-		new EventGroup( array() );
+		new EventGroup( [] );
 	}
 
 }

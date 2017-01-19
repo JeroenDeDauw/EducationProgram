@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use Html;
 
 /**
@@ -37,9 +38,9 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 		$this->displayNavigation();
 
-		$this->addCachedHTML( array( $this, 'displaySummaryTable' ) );
+		$this->addCachedHTML( [ $this, 'displaySummaryTable' ] );
 
-		$this->addCachedHTML( array( $this, 'displayByTerm' ) );
+		$this->addCachedHTML( [ $this, 'displayByTerm' ] );
 	}
 
 	/**
@@ -50,11 +51,11 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return string
 	 */
 	public function displaySummaryTable() {
-		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-summary' ) );
+		$html = Html::openElement( 'table', [ 'class' => 'wikitable ep-summary' ] );
 
 		$html .= '<tr>' . Html::element(
 			'th',
-			array( 'colspan' => 2 ),
+			[ 'colspan' => 2 ],
 			$this->msg( 'ep-summary-table-header' )->text()
 		) . '</tr>';
 
@@ -65,13 +66,13 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 			$html .=  Html::rawElement(
 				'th',
-				array( 'class' => 'ep-summary-name' ),
+				[ 'class' => 'ep-summary-name' ],
 				$this->msg( str_replace( 'educationprogram\\', 'ep-', strtolower( get_called_class() ) ) . '-summary-' . $stat )->parse()
 			);
 
 			$html .=  Html::rawElement(
 				'td',
-				array( 'class' => 'ep-summary-value' ),
+				[ 'class' => 'ep-summary-value' ],
 				$value
 			);
 
@@ -84,7 +85,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	}
 
 	protected function getSummaryInfo() {
-		$data = array();
+		$data = [];
 
 		$data['org-count'] = Orgs::singleton()->count();
 		$data['course-count'] = Courses::singleton()->count();
@@ -126,10 +127,10 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 		return $dbr->selectRow(
 			'ep_users_per_course',
-			array( 'COUNT(upc_user_id) AS rowcount' ),
-			array( 'upc_role' => $roleId ),
+			[ 'COUNT(upc_user_id) AS rowcount' ],
+			[ 'upc_role' => $roleId ],
 			__METHOD__,
-			array( 'DISTINCT' )
+			[ 'DISTINCT' ]
 		)->rowcount;
 	}
 
@@ -138,13 +139,12 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 		if ( empty( $termsData['terms'] ) ) {
 			$html = $this->msgTxt( 'nodata' );
-		}
-		else {
-			$html = Html::element( 'h2', array(), $this->msgTxt( 'by-term' ) );
+		} else {
+			$html = Html::element( 'h2', [], $this->msgTxt( 'by-term' ) );
 
 			$html .= $this->getByTermTable( $termsData['terms'] );
 
-			$html .= Html::element( 'h2', array(), $this->msgTxt( 'genders' ) );
+			$html .= Html::element( 'h2', [], $this->msgTxt( 'genders' ) );
 
 			$html .= $this->getByGenderTable( $termsData['bygender'] );
 		}
@@ -153,19 +153,19 @@ class SpecialEducationProgram extends VerySpecialPage {
 	}
 
 	protected function getByGenderTable( $terms ) {
-		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-termbreakdown' ) );
+		$html = Html::openElement( 'table', [ 'class' => 'wikitable ep-termbreakdown' ] );
 
 		reset( $terms );
 		$rows = array_keys( $terms[key( $terms )] );
 
 		$html .= '<tr>';
 
-		$html .= Html::element( 'th', array( 'colspan' => 2 ), '' );
+		$html .= Html::element( 'th', [ 'colspan' => 2 ], '' );
 
 		foreach ( $terms as $termName => $term ) {
 			$html .= Html::element(
 				'th',
-				array(),
+				[],
 				$termName
 			);
 		}
@@ -175,19 +175,19 @@ class SpecialEducationProgram extends VerySpecialPage {
 		foreach ( $rows as $row ) {
 			$html .= '<tr>';
 
-			$html .= Html::element( 'th', array( 'rowspan' => 3 ), $this->msgTxt( 'gender-' . $row ) );
+			$html .= Html::element( 'th', [ 'rowspan' => 3 ], $this->msgTxt( 'gender-' . $row ) );
 
-			foreach ( array( 'male', 'female', 'unknown' ) as $gender ) {
+			foreach ( [ 'male', 'female', 'unknown' ] as $gender ) {
 				if ( $gender !== 'male' ) {
 					$html .= '</tr><tr>';
 				}
 
-				$html .= Html::element( 'th', array(), $this->msgTxt( $gender ) );
+				$html .= Html::element( 'th', [], $this->msgTxt( $gender ) );
 
 				foreach ( $terms as $term ) {
 					$html .= Html::element(
 						'td',
-						array(),
+						[],
 						$this->getLanguage()->formatNum( round( $term[$row][$gender], 2 ) * 100 ) . '%'
 					);
 				}
@@ -211,7 +211,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return string
 	 */
 	protected function getByTermTable( array $terms ) {
-		$html = Html::openElement( 'table', array( 'class' => 'wikitable ep-termbreakdown' ) );
+		$html = Html::openElement( 'table', [ 'class' => 'wikitable ep-termbreakdown' ] );
 
 		reset( $terms );
 		$rows = array_keys( $terms[key( $terms )] );
@@ -222,12 +222,12 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 			$html .= '<tr>';
 
-			$html .= Html::element( 'th', array(), $isHeader ? '' : $this->msgTxt( $row ) );
+			$html .= Html::element( 'th', [], $isHeader ? '' : $this->msgTxt( $row ) );
 
 			foreach ( $terms as $termName => $term ) {
 				$html .= Html::element(
 					$isHeader ? 'th' : 'td',
-					array(),
+					[],
 					$isHeader ? $termName : $this->getLanguage()->formatNum( $term[$row] )
 				);
 			}
@@ -250,19 +250,19 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return array
 	 */
 	protected function getTermData() {
-		$termNames = Courses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ) );
-		$terms = array();
-		$byGender = array();
+		$termNames = Courses::singleton()->selectFields( 'term', [], [ 'DISTINCT' ] );
+		$terms = [];
+		$byGender = [];
 
 		foreach ( $termNames as $termName ) {
-			$courses = Courses::singleton()->select( null, array( 'term' => $termName ) );
+			$courses = Courses::singleton()->select( null, [ 'term' => $termName ] );
 
-			$students = array();
-			$oas = array();
-			$cas = array();
-			$instructors = array();
-			$orgs = array();
-			$courseIds = array();
+			$students = [];
+			$oas = [];
+			$cas = [];
+			$instructors = [];
+			$orgs = [];
+			$courseIds = [];
 
 			// FIXME: use new EPCourse object getters
 			foreach ( $courses as $course ) {
@@ -275,7 +275,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 			}
 
 			// FIXME: use new ArticleStore
-			$pageIds = Extension::globalInstance()->newArticleTable()->selectFields( 'page_id', array( 'course_id' => $courseIds ), array( 'DISTINCT' ) );
+			$pageIds = Extension::globalInstance()->newArticleTable()->selectFields( 'page_id', [ 'course_id' => $courseIds ], [ 'DISTINCT' ] );
 			$pageIds = array_unique( $pageIds );
 
 			$students = array_unique( $students );
@@ -284,7 +284,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 			$instructors = array_unique( $instructors );
 			$orgs = array_unique( $orgs );
 
-			$term = array(
+			$term = [
 				'courses' => $courses->count(),
 				'students' => count( $students ),
 				'instructors' => count( $instructors ),
@@ -292,13 +292,13 @@ class SpecialEducationProgram extends VerySpecialPage {
 				'cas' => count( $cas ),
 				'orgs' => count( $orgs ),
 				'articles' => count( $pageIds ),
-			);
+			];
 
 			$terms[$termName] = $term;
 			$byGender[$termName] = $this->getByGender( $students, $oas, $cas, $instructors );
 		}
 
-		return array( 'terms' => $terms, 'bygender' => $byGender );
+		return [ 'terms' => $terms, 'bygender' => $byGender ];
 	}
 
 	/**
@@ -316,12 +316,12 @@ class SpecialEducationProgram extends VerySpecialPage {
 	protected function getByGender( array $students, array $oas, array $cas, array $instructors ) {
 		$genders = $this->getGenders( array_unique( array_merge( $students, $oas, $cas, $instructors ) ) );
 
-		$result = array(
+		$result = [
 			'students' => $this->getGenderDistribution( $students, $genders ),
 			'oas' => $this->getGenderDistribution( $oas, $genders ),
 			'cas' => $this->getGenderDistribution( $cas, $genders ),
 			'instructors' => $this->getGenderDistribution( $instructors, $genders ),
-		);
+		];
 
 		return $result;
 	}
@@ -337,7 +337,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return array
 	 */
 	protected function getGenderDistribution( array $users, array $genders ) {
-		$distribution = array( 'unknown' => 0, 'male' => 0, 'female' => 0 );
+		$distribution = [ 'unknown' => 0, 'male' => 0, 'female' => 0 ];
 
 		foreach ( $users as $userId ) {
 			$distribution[$genders[$userId]]++;
@@ -366,8 +366,8 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 		$users = $dbr->select(
 			'user_properties',
-			array( 'up_user', 'up_value' ),
-			array( 'up_property' => 'gender' ),
+			[ 'up_user', 'up_value' ],
+			[ 'up_property' => 'gender' ],
 			__METHOD__
 		);
 
@@ -390,7 +390,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	protected function msgTxt() {
 		$args = func_get_args();
 		array_unshift( $args, $this->prefixKey( array_shift( $args ) ) );
-		return call_user_func_array( array( $this, 'msg' ), $args )->text();
+		return call_user_func_array( [ $this, 'msg' ], $args )->text();
 	}
 
 	/**
@@ -403,7 +403,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return string
 	 */
 	protected function prefixKey( $key ) {
-		return  'ep-' . strtolower( $this->mName ) . '-' . $key;
+		return 'ep-' . strtolower( $this->mName ) . '-' . $key;
 	}
 
 	protected function getGroupName() {

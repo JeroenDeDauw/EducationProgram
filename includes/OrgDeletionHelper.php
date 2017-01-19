@@ -66,7 +66,7 @@ class OrgDeletionHelper {
 				$this->deletionCheck = OrgDelCheck::NO_RIGHTS;
 
 			// Does the org have courses?
-			} else if ( $this->org->getField( 'course_count' ) > 0 ) {
+			} elseif ( $this->org->getField( 'course_count' ) > 0 ) {
 				$this->deletionCheck = OrgDelCheck::HAS_COURSES;
 
 			} else {
@@ -126,30 +126,30 @@ class OrgDeletionHelper {
 				break;
 
 			case OrgDelCheck::NO_RIGHTS:
-				return array(
+				return [
 					'key' => 'ep-delete-org-no-rights',
-					'params' => array()
-				);
+					'params' => []
+				];
 
 			case OrgDelCheck::HAS_COURSES:
 				if ( $plain ) {
 
-					return array(
+					return [
 						'key' => 'ep-delete-org-has-courses-plain',
-						'params' => array(
+						'params' => [
 							$this->org->getField( 'name' )
-						)
-					);
+						]
+					];
 
 				} else {
 
-					return array(
+					return [
 						'key' => 'ep-delete-org-has-courses',
-						'params' => array(
+						'params' => [
 							$this->org->getTitle()->getFullText(),
 							$this->org->getField( 'name' )
-						)
-					);
+						]
+					];
 				}
 		}
 	}

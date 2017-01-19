@@ -38,8 +38,7 @@ class SpecialOAs extends VerySpecialPage {
 
 			$this->startCache( 3600 );
 			$this->addCachedHTML( 'EducationProgram\OA::getPager', $this->getContext() );
-		}
-		else {
+		} else {
 			$this->getOutput()->redirect( \SpecialPage::getTitleFor( 'OnlineAmbassador', $this->subPage )->getLocalURL() );
 		}
 	}

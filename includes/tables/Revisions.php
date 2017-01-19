@@ -42,7 +42,7 @@ class Revisions extends ORMTable {
 	 * @return array
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id' => 'id',
 
 			'object_id' => 'int',
@@ -55,7 +55,7 @@ class Revisions extends ORMTable {
 			'time' => 'str', // TS_MW
 			'deleted' => 'bool',
 			'data' => 'blob',
-		);
+		];
 	}
 
 	/**
@@ -70,7 +70,7 @@ class Revisions extends ORMTable {
 	 * @return EPRevision
 	 */
 	public function newFromObject( RevisionedObject $object, RevisionAction $revAction ) {
-		$fields = array_merge( $object->getRevisionIdentifiers(), array(
+		$fields = array_merge( $object->getRevisionIdentifiers(), [
 			'user_id' => $revAction->getUser()->getID(),
 			'user_text' => $revAction->getUser()->getName(),
 			'comment' => $revAction->getComment(),
@@ -78,7 +78,7 @@ class Revisions extends ORMTable {
 			'time' => $revAction->getTime(),
 			'deleted' => $revAction->isDelete(),
 			'data' => $object->toArray()
-		) );
+		] );
 
 		$identifier = $object->getIdentifier();
 
@@ -102,9 +102,9 @@ class Revisions extends ORMTable {
 		return $this->selectRow(
 			null,
 			$conds,
-			array(
+			[
 				'ORDER BY' => $this->getPrefixedField( 'id' ) . ' DESC',
-			)
+			]
 		);
 	}
 

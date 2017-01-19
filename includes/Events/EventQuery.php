@@ -42,7 +42,7 @@ class EventQuery {
 	/**
 	 * @var int[]
 	 */
-	private $courseIds = array();
+	private $courseIds = [];
 
 	/**
 	 * @var string|null
@@ -126,7 +126,7 @@ class EventQuery {
 			throw new InvalidArgumentException( '$limit needs to be bigger than 0' );
 		}
 
-		$this->limit = $limit ;
+		$this->limit = $limit;
 	}
 
 	/**

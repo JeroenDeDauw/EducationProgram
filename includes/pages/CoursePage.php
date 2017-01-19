@@ -15,24 +15,24 @@ namespace EducationProgram;
  */
 class CoursePage extends EducationPage {
 
-	protected static $info = array(
+	protected static $info = [
 		'edit-right' => 'ep-course',
 		'limited-edit-right' => 'edit',
 		'list' => 'Courses',
 		'log-type' => 'course',
-	);
+	];
 
 	/**
 	 * @see Page::getActions()
 	 */
 	public function getActions() {
-		return array(
+		return [
 			'view' => 'EducationProgram\ViewCourseAction',
 			'edit' => 'EducationProgram\EditCourseAction',
 			'history' => 'EducationProgram\HistoryAction',
 			'delete' => 'EducationProgram\DeleteAction',
 			'purge' => 'EducationProgram\ViewCourseAction',
-		);
+		];
 	}
 
 	/**

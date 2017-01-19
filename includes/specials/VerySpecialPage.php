@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use Message, Html;
+
+use Message;
+use Html;
 
 /**
  * Base special page for special pages in the Education Program extension,
@@ -160,9 +162,9 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 			$class .= ' mw-collapsed';
 		}
 
-		$html .= Html::openElement( 'table', array( 'class' => $class ) );
+		$html .= Html::openElement( 'table', [ 'class' => $class ] );
 
-		$html .= '<tr>' . Html::element( 'th', array( 'colspan' => 2 ), $this->msg( 'ep-item-summary' )->text() ) . '</tr>';
+		$html .= '<tr>' . Html::element( 'th', [ 'colspan' => 2 ], $this->msg( 'ep-item-summary' )->text() ) . '</tr>';
 
 		$summaryData = is_null( $summaryData ) ? $this->getSummaryData( $item ) : $summaryData;
 
@@ -171,13 +173,13 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 
 			$html .= Html::element(
 				'th',
-				array( 'class' => 'ep-summary-name' ),
+				[ 'class' => 'ep-summary-name' ],
 				$this->msg( str_replace( 'educationprogram\\', '', strtolower( get_called_class() ) ) . '-summary-' . $stat )->text()
 			);
 
 			$html .= Html::rawElement(
 				'td',
-				array( 'class' => 'ep-summary-value' ),
+				[ 'class' => 'ep-summary-value' ],
 				$value
 			);
 
@@ -200,7 +202,7 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	 * @return array
 	 */
 	protected function getSummaryData( IORMRow $item ) {
-		return array();
+		return [];
 	}
 
 }

@@ -59,7 +59,7 @@ class EPArticle {
 	 * @deprecated since 0.3
 	 * @var array
 	 */
-	protected $canBecomeReviwer = array();
+	protected $canBecomeReviwer = [];
 
 	/**
 	 * @since 0.3
@@ -152,7 +152,7 @@ class EPArticle {
 	 */
 	public function getCourse( $fields = null ) {
 		if ( $this->course === false ) {
-			$course = Courses::singleton()->selectRow( $fields, array( 'id' => $this->courseId ) );
+			$course = Courses::singleton()->selectRow( $fields, [ 'id' => $this->courseId ] );
 
 			if ( is_null( $fields ) ) {
 				$this->course = $course;
@@ -305,16 +305,16 @@ class EPArticle {
 		$title = Title::newFromID( $this->pageId );
 		$title = $title === null ? Title::newFromText( $this->pageTitle ) : $title;
 
-		$logData = array(
+		$logData = [
 			'user' => $actionUser,
 			'title' => $title,
 			'type' => 'eparticle',
 			'subtype' => $subType,
-			'parameters' => array(
+			'parameters' => [
 				'4::coursename' => $this->getCourse()->getTitle()->getFullText(),
-				'5::owner' => array( $articleOwner->getId(), $articleOwner->getName() ),
-			),
-		);
+				'5::owner' => [ $articleOwner->getId(), $articleOwner->getName() ],
+			],
+		];
 
 		if ( $comment !== false ) {
 			$logData['comment'] = $comment;

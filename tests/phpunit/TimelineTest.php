@@ -37,13 +37,13 @@ use OutputPage;
 class TimelineTest extends \MediaWikiTestCase {
 
 	public function constructorProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array(
+		$argLists[] = [
 			\RequestContext::getMain()->getOutput(),
 			\RequestContext::getMain()->getLanguage(),
-			array()
-		);
+			[]
+		];
 
 		return $argLists;
 	}

@@ -35,7 +35,7 @@ class NotificationsManager {
 	 *
 	 * @var array
 	 */
-	private $typesByKey = array();
+	private $typesByKey = [];
 
 	/**
 	 * Get the string key for the EP notifications category.
@@ -77,9 +77,9 @@ class NotificationsManager {
 			array &$notificationCategories, array &$icons ) {
 
 		// register the category
-		$notificationCategories[NotificationsManager::CATEGORY] = array(
+		$notificationCategories[NotificationsManager::CATEGORY] = [
 			'tooltip' => 'ep-echo-pref-tooltip',
-		);
+		];
 
 		foreach ( $this->typesByKey as $typeKey => $type ) {
 
@@ -88,9 +88,9 @@ class NotificationsManager {
 			// tell Echo about the notification type
 			$notifications[$typeKey] = array_merge(
 				$params,
-				array(
+				[
 					'category' => NotificationsManager::CATEGORY,
-				)
+				]
 			);
 
 			// Set the icon data if required.

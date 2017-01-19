@@ -30,8 +30,6 @@ class SpecialOAProfile extends SpecialAmbassadorProfile {
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-
-
 		return $fields;
 	}
 
@@ -58,7 +56,7 @@ class SpecialOAProfile extends SpecialAmbassadorProfile {
 		return 'epoa-';
 	}
 
-
 	protected function getGroupName() {
 		return 'education';
-	}}
+	}
+}

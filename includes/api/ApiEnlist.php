@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use ApiBase, User;
+
+use ApiBase;
+use User;
 
 /**
  * API module to associate/disassociate users as instructor or ambassador with/from a course.
@@ -18,8 +20,8 @@ class ApiEnlist extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		if ( !( isset( $params['username'] ) XOR isset( $params['userid'] ) ) ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+		if ( !( isset( $params['username'] ) xor isset( $params['userid'] ) ) ) {
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( 'ep-enlist-invalid-user-args', 'username-xor-userid' );
 			} else {
 				$this->dieUsage( $this->msg( 'ep-enlist-invalid-user-args' )->text(), 'username-xor-userid' );
@@ -29,13 +31,12 @@ class ApiEnlist extends ApiBase {
 		if ( isset( $params['username'] ) ) {
 			$user = User::newFromName( $params['username'] );
 			$userId = $user === false ? 0 : $user->getId();
-		}
-		else {
+		} else {
 			$userId = $params['userid'];
 		}
 
 		if ( $userId < 1 ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( 'ep-enlist-invalid-user', 'invalid-user' );
 			} else {
 				$this->dieUsage( $this->msg( 'ep-enlist-invalid-user' )->text(), 'invalid-user' );
@@ -43,29 +44,29 @@ class ApiEnlist extends ApiBase {
 		}
 
 		if ( !$this->userIsAllowed( $userId, $params['role'], $params['subaction'] ) ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( 'apierror-permissiondenied-generic', 'permissiondenied' );
 			} else {
-				$this->dieUsageMsg( array( 'badaccess-groups' ) );
+				$this->dieUsageMsg( [ 'badaccess-groups' ] );
 			}
 		}
 
-		$roleMap = array(
+		$roleMap = [
 			'student' => 'students',
 			'campus' => 'campus_ambs',
 			'online' => 'online_ambs',
 			'instructor' => 'instructors',
-		);
+		];
 
 		$field = $roleMap[$params['role']];
 
 		/**
 		 * @var Course $course
 		 */
-		$course = Courses::singleton()->selectRow( array( 'id', 'name', 'title', $field ), array( 'id' => $params['courseid'] ) );
+		$course = Courses::singleton()->selectRow( [ 'id', 'name', 'title', $field ], [ 'id' => $params['courseid'] ] );
 
 		if ( $course === false ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( 'ep-enlist-invalid-course', 'invalid-course' );
 			} else {
 				$this->dieUsage( $this->msg( 'ep-enlist-invalid-course' )->text(), 'invalid-course' );
@@ -78,10 +79,10 @@ class ApiEnlist extends ApiBase {
 
 		switch ( $params['subaction'] ) {
 			case 'add':
-				$enlistmentResult = $course->enlistUsers( array( $userId ), $params['role'], true, $revAction );
+				$enlistmentResult = $course->enlistUsers( [ $userId ], $params['role'], true, $revAction );
 				break;
 			case 'remove':
-				$enlistmentResult = $course->unenlistUsers( array( $userId ), $params['role'], true, $revAction );
+				$enlistmentResult = $course->unenlistUsers( [ $userId ], $params['role'], true, $revAction );
 				break;
 		}
 
@@ -151,41 +152,41 @@ class ApiEnlist extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'subaction' => array(
-				ApiBase::PARAM_TYPE => array( 'add', 'remove' ),
+		return [
+			'subaction' => [
+				ApiBase::PARAM_TYPE => [ 'add', 'remove' ],
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'role' => array(
-				ApiBase::PARAM_TYPE => array( 'instructor', 'online', 'campus', 'student' ),
+			],
+			'role' => [
+				ApiBase::PARAM_TYPE => [ 'instructor', 'online', 'campus', 'student' ],
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'username' => array(
+			],
+			'username' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => false,
-			),
-			'userid' => array(
+			],
+			'userid' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => false,
-			),
-			'courseid' => array(
+			],
+			'courseid' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'reason' => array(
+			],
+			'reason' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => false,
 				ApiBase::PARAM_DFLT => '',
-			),
+			],
 			'token' => null,
-		);
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getParamDescription() {
-		return array(
+		return [
 			'subaction' => 'Specifies what you want to do with the instructor or ambassador',
 			'role' => 'The role to affect. "instructor" for instructor, "online" for online ambassadors and "campus" for campus ambassadors',
 			'courseid' => 'The ID of the course to/from which the instructor or ambassador should be added/removed',
@@ -193,36 +194,36 @@ class ApiEnlist extends ApiBase {
 			'userid' => 'Id of the user to associate as instructor or ambassador',
 			'reason' => 'Message with the reason for this change for the log',
 			'token' => 'Edit token. You can get one of these through prop=info.',
-		);
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getDescription() {
-		return array(
+		return [
 			'API module for associating/disassociating a user as instructor or ambassador with/from a course.'
-		);
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	protected function getExamples() {
-		return array(
+		return [
 			'api.php?action=instructor&subaction=add&courseid=42&userid=9001',
 			'api.php?action=instructor&subaction=add&courseid=42&username=Jeroen%20De%20Dauw',
 			'api.php?action=instructor&subaction=remove&courseid=42&userid=9001',
 			'api.php?action=instructor&subaction=remove&courseid=42&username=Jeroen%20De%20Dauw',
 			'api.php?action=instructor&subaction=remove&courseid=42&username=Jeroen%20De%20Dauw&reason=Removed%20from%20program%20because%20of%20evil%20plans%20to%20take%20over%20the%20world',
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=enlist&role=instructor&subaction=add&courseid=42&userid=9001'
 				=> 'apihelp-enlist-example-1',
 			'action=enlist&role=instructor&subaction=add&courseid=42&username=Example'
@@ -233,6 +234,6 @@ class ApiEnlist extends ApiBase {
 				=> 'apihelp-enlist-example-4',
 			'action=enlist&role=instructor&subaction=remove&courseid=42&username=Example&reason=Removed%20from%20program%20because%20of%20evil%20plans%20to%20take%20over%20the%20world'
 				=> 'apihelp-enlist-example-5',
-		);
+		];
 	}
 }

@@ -36,28 +36,28 @@ class UserRolesMessage {
 	 * @since 0.4 alpha
 	 * @var array
 	 */
-	protected $messageKeysForRoles = array(
-		'student' => array(
+	protected $messageKeysForRoles = [
+		'student' => [
 			'main' => 'ep-user-roles-message-main-student',
 			'main-many' => 'ep-user-roles-message-main-many-student-alt',
 			'rolename' => 'ep-user-roles-message-rolename-student',
-		),
-		'instructor' => array(
+		],
+		'instructor' => [
 			'main' => 'ep-user-roles-message-main-instructor',
 			'main-many' => 'ep-user-roles-message-main-many-instructor',
 			'rolename' => 'ep-user-roles-message-rolename-instructor',
-		),
-		'online' => array(
+		],
+		'online' => [
 			'main' => 'ep-user-roles-message-main-online',
 			'main-many' => 'ep-user-roles-message-main-many-online',
 			'rolename' => 'ep-user-roles-message-rolename-online',
-		),
-		'campus' => array(
+		],
+		'campus' => [
 			'main' => 'ep-user-roles-message-main-campus',
 			'main-many' => 'ep-user-roles-message-main-many-campus',
 			'rolename' => 'ep-user-roles-message-rolename-campus',
-		),
-	);
+		],
+	];
 
 	/**
 	 * The id of the user about whom we'll display a message
@@ -96,36 +96,36 @@ class UserRolesMessage {
 
 		// classes of table objects, ordered by priority, for describing
 		// a user's partcipation in the corrsponding roles
-		$orderedTableClasses = array(
+		$orderedTableClasses = [
 			'EducationProgram\CAs',
 			'EducationProgram\OAs',
 			'EducationProgram\Instructors',
 			'EducationProgram\Students'
-		);
+		];
 
 		// create an array that contains role objects or false (for roles the
 		// user doesn't have)
-		$orderedRoleObjs = array();
+		$orderedRoleObjs = [];
 
 		foreach ( $orderedTableClasses as $tableClass ) {
 			$orderedRoleObjs[] = $tableClass::singleton()
-				->selectRow( null, array( 'user_id' => $this->userid ) );
+				->selectRow( null, [ 'user_id' => $this->userid ] );
 		}
 
 		// Create an array of arrays. Each inner array will contain a rolename
 		// and an array of courses that the user participates in in that role.
-		$this->rolesAndCourses = array();
+		$this->rolesAndCourses = [];
 
 		foreach ( $orderedRoleObjs as $roleObj ) {
 			if ( $roleObj ) {
 				$courses = $roleObj->getCourses(
-						array( 'name', 'title', 'term'),
+						[ 'name', 'title', 'term' ],
 						Courses::getStatusConds( 'current' ) );
 
-				if ( count ( $courses ) > 0) {
-					$this->rolesAndCourses[] = array(
+				if ( count( $courses ) > 0 ) {
+					$this->rolesAndCourses[] = [
 						'role' => $roleObj->getRoleName(),
-						'courses' => $courses );
+						'courses' => $courses ];
 				}
 			}
 		}
@@ -176,7 +176,7 @@ class UserRolesMessage {
 
 		// open enclosing div
 		$this->out->addHTML( Html::openElement( 'div',
-			array( 'class' => 'userrolesmessage' ) ) );
+			[ 'class' => 'userrolesmessage' ] ) );
 
 		// Choose the message to display depending on the number of courses for
 		// the first role. No matter, the following chunk of code should give us
@@ -192,7 +192,7 @@ class UserRolesMessage {
 			// create the main message with the list of courses
 
 			// make an array of wikitext links to courses and their talk pages
-			$courseLinks = array();
+			$courseLinks = [];
 
 			foreach ( $mainRoleCourses as $course ) {
 
@@ -220,11 +220,11 @@ class UserRolesMessage {
 
 			// create the main message with only the number of courses
 
-			$mainMessageParams = array(
+			$mainMessageParams = [
 				$user->getUserPage()->getFullText(),
 				$userName,
 				$mainRoleCoursesCount
-			);
+			];
 
 			$mainMessageHTML = $this->out->msg(
 				$this->messageKeysForRoles[$mainRole]['main-many'],
@@ -246,7 +246,7 @@ class UserRolesMessage {
 			$out = $this->out;
 
 			$remainingRolenames = array_map(
-				function( $roleAndCourse ) use ($messageKeysForRoles, $out) {
+				function( $roleAndCourse ) use ( $messageKeysForRoles, $out ) {
 
 					$msgKey =
 						$messageKeysForRoles[$roleAndCourse['role']]['rolename'];

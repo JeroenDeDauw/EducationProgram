@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use User;
 
 /**

@@ -46,8 +46,7 @@ class SpecialInstitutions extends VerySpecialPage {
 
 			$this->addCachedHTML( 'EducationProgram\OrgPager::getPager', $this->getContext() );
 			$this->getOutput()->addModules( OrgPager::getModules() );
-		}
-		else {
+		} else {
 			$this->getOutput()->redirect( Orgs::singleton()->getTitleFor( $this->subPage )->getLocalURL() );
 		}
 	}

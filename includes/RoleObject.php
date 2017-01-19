@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use User, IContextSource;
+
+use User;
+use IContextSource;
 
 /**
  * Object representing a user in a certain role linked to courses.
@@ -43,14 +45,14 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 * @return RoleObject
 	 */
 	public static function newFromUserId( $userId, $load = false, $fields = null ) {
-		$data = array( 'user_id' => $userId );
+		$data = [ 'user_id' => $userId ];
 
-		$map = array(
+		$map = [
 			'EducationProgram\OA' => 'EducationProgram\OAs',
 			'EducationProgram\CA' => 'EducationProgram\CAs',
 			'EducationProgram\Student' => 'EducationProgram\Students',
 			'EducationProgram\Instructor' => 'EducationProgram\Instructors',
-		); // TODO: this is lame
+		]; // TODO: this is lame
 
 		$class = $map[get_called_class()];
 		$table = $class::singleton();
@@ -59,8 +61,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 
 		if ( $userRole === false ) {
 			return new static( $table, $data, true );
-		}
-		else {
+		} else {
 			$userRole->setFields( $data );
 			return $userRole;
 		}
@@ -150,7 +151,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	public function associateWithCourses( array /* of Course */ $courses, RevisionAction $revAction = null ) {
 		$success = true;
 
-		$courseIds = array();
+		$courseIds = [];
 
 		/**
 		 * @var Course $course
@@ -169,17 +170,17 @@ abstract class RoleObject extends ORMRow implements IRole {
 			$course->setUpdateSummaries( true );
 		}
 
-		$fieldMap = array(
+		$fieldMap = [
 			'student' => 'student_count',
 			'online' => 'oa_count',
 			'campus' => 'ca_count',
-		);
+		];
 
 		$field = $fieldMap[$this->getRoleName()];
 
 		if ( !empty( $courseIds ) ) {
-			Orgs::singleton()->updateSummaryFields( $field, array( 'id' => array_unique( $courseIds ) ) );
-			Courses::singleton()->updateSummaryFields( $field, array( 'id' => $courseIds ) );
+			Orgs::singleton()->updateSummaryFields( $field, [ 'id' => array_unique( $courseIds ) ] );
+			Courses::singleton()->updateSummaryFields( $field, [ 'id' => $courseIds ] );
 		}
 
 		return $success;
@@ -196,7 +197,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 *
 	 * @return Course[]
 	 */
-	public function getCourses( $fields = null, array $conditions = array() ) {
+	public function getCourses( $fields = null, array $conditions = [] ) {
 		if ( count( $conditions ) !== 0 ) {
 			return $this->doGetCourses( $fields, $conditions );
 		}
@@ -209,8 +210,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 			}
 
 			return $courses;
-		}
-		else {
+		} else {
 			return $this->courses;
 		}
 	}
@@ -224,23 +224,23 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 *
 	 * @return boolean
 	 */
-	public function hasCourse( array $conditions = array() ) {
+	public function hasCourse( array $conditions = [] ) {
 		$courseTable = Courses::singleton();
 
 		return wfGetDB( DB_SLAVE )->select(
-			array( 'ep_courses', 'ep_users_per_course' ),
+			[ 'ep_courses', 'ep_users_per_course' ],
 			$courseTable->getPrefixedField( 'id' ),
-			array_merge( array(
+			array_merge( [
 				'upc_role' => $this->getRoleId(),
 				'upc_user_id' => $this->getField( 'user_id' ),
-			), $courseTable->getPrefixedValues( $conditions ) ),
+			], $courseTable->getPrefixedValues( $conditions ) ),
 			__METHOD__,
-			array(
+			[
 				'LIMIT' => 1
-			),
-			array(
-				'ep_users_per_course' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
-			)
+			],
+			[
+				'ep_users_per_course' => [ 'INNER JOIN', [ 'upc_course_id=course_id' ] ],
+			]
 		)->numRows() > 0;
 	}
 
@@ -272,12 +272,12 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 * @return integer, part of EP_ enum.
 	 */
 	protected function getRoleId() {
-		$map = array(
+		$map = [
 			'campus' => EP_CA,
 			'online' => EP_OA,
 			'instructor' => EP_INSTRUCTOR,
 			'student' => EP_STUDENT,
-		);
+		];
 
 		return $map[$this->getRoleName()];
 	}
@@ -335,7 +335,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 * @param RoleObject $roleObjectArray
 	 * @return boolean
 	 */
-	public static function isInRoleObjArray ( $userId, $roleObjectArray ) {
+	public static function isInRoleObjArray( $userId, $roleObjectArray ) {
 		foreach ( $roleObjectArray as $roleObject ) {
 			if ( $userId === $roleObject->getUser()->getId() ) {
 				return true;

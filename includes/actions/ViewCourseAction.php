@@ -1,7 +1,12 @@
 <?php
 
 namespace EducationProgram;
-use Page, IContextSource, Html, Linker, SpecialPage;
+
+use Page;
+use IContextSource;
+use Html;
+use Linker;
+use SpecialPage;
 
 /**
  * Action for viewing a course.
@@ -46,7 +51,7 @@ class ViewCourseAction extends ViewAction {
 		$wikiText = null;
 
 		if ( $this->object !== null ) {
-			$countryName = Orgs::singleton()->selectFieldsRow( 'country', array( 'id' => $this->object->getField( 'org_id' ) ) );
+			$countryName = Orgs::singleton()->selectFieldsRow( 'country', [ 'id' => $this->object->getField( 'org_id' ) ] );
 
 			$specificHeaderPage = Settings::get( 'courseHeaderPageCountry' );
 
@@ -56,7 +61,7 @@ class ViewCourseAction extends ViewAction {
 				$countryName = $languages[$countryName];
 			}
 
-			$specificHeaderPage = str_replace( array( '$2', '$1' ), array( $headerPage, $countryName ), $specificHeaderPage );
+			$specificHeaderPage = str_replace( [ '$2', '$1' ], [ $headerPage, $countryName ], $specificHeaderPage );
 
 			$wikiText = $this->getArticleContent( $specificHeaderPage );
 		}
@@ -123,12 +128,12 @@ class ViewCourseAction extends ViewAction {
 
 		$html .= parent::getPageHTML( $course );
 
-		$html .= Html::element('a', array( 'name' => 'studentstable' ) );
+		$html .= Html::element( 'a', [ 'name' => 'studentstable' ] );
 
 		if ( !empty( $studentIds ) ) {
 			$pager = new ArticleTable(
 				$this->getContext(),
-				array( 'user_id' => $studentIds ),
+				[ 'user_id' => $studentIds ],
 				$course->getId(),
 				null,
 				$course
@@ -152,7 +157,7 @@ class ViewCourseAction extends ViewAction {
 			$user->getId(),
 			$course->getAllNonStudentRoleObjs() ) ) {
 
-			$html .= $this->getAddStudentsControls($course);
+			$html .= $this->getAddStudentsControls( $course );
 		}
 
 		return $html;
@@ -168,9 +173,9 @@ class ViewCourseAction extends ViewAction {
 	 * @return array
 	 */
 	protected function getSummaryData( IORMRow $course ) {
-		$stats = array();
+		$stats = [];
 
-		$orgName = Orgs::singleton()->selectFieldsRow( 'name', array( 'id' => $course->getField( 'org_id' ) ) );
+		$orgName = Orgs::singleton()->selectFieldsRow( 'name', [ 'id' => $course->getField( 'org_id' ) ] );
 		$stats['org'] = Orgs::singleton()->getLinkFor( $orgName );
 
 		$lang = $this->getLanguage();
@@ -215,9 +220,8 @@ class ViewCourseAction extends ViewAction {
 			// Give grep a chance to find the usages:
 			// ep-course-no-instructor, ep-course-no-online, ep-course-no-campus
 			$html = $this->msg( 'ep-course-no-' . $roleName )->escaped();
-		}
-		else {
-			$instList = array();
+		} else {
+			$instList = [];
 
 			foreach ( $users as /* IRole */ $user ) {
 				$instList[] = $user->getUserLink() . $user->getToolLinks( $this->getContext(), $course );
@@ -225,15 +229,14 @@ class ViewCourseAction extends ViewAction {
 
 			if ( false ) { // count( $instructors ) == 1
 				$html = $instList[0];
-			}
-			else {
+			} else {
 				$html = '<ul><li>' . implode( '</li><li>', $instList ) . '</li></ul>';
 			}
 		}
 
 		return Html::rawElement(
 			'div',
-			array( 'id' => 'ep-course-' . $roleName ),
+			[ 'id' => 'ep-course-' . $roleName ],
 			$html
 		);
 	}
@@ -251,7 +254,7 @@ class ViewCourseAction extends ViewAction {
 	 */
 	protected function getRoleControls( Course $course, $roleName ) {
 		$user = $this->getUser();
-		$links = array();
+		$links = [];
 
 		$field = $roleName === 'instructor' ? 'instructors' : $roleName . '_ambs';
 
@@ -262,14 +265,14 @@ class ViewCourseAction extends ViewAction {
 			// ep-course-become-instructor, ep-course-become-online, ep-course-become-campus
 			$links[] = Html::element(
 				'a',
-				array(
+				[
 					'href' => '#',
 					'class' => 'ep-add-role',
 					'data-role' => $roleName,
 					'data-courseid' => $course->getId(),
 					'data-coursename' => $course->getField( 'name' ),
 					'data-mode' => 'self',
-				),
+				],
 				$this->msg( 'ep-course-become-' . $roleName )->text()
 			);
 		}
@@ -279,21 +282,20 @@ class ViewCourseAction extends ViewAction {
 			// ep-course-add-instructor, ep-course-add-online, ep-course-add-campus
 			$links[] = Html::element(
 				'a',
-				array(
+				[
 					'href' => '#',
 					'class' => 'ep-add-role',
 					'data-role' => $roleName,
 					'data-courseid' => $course->getId(),
 					'data-coursename' => $course->getField( 'name' ),
-				),
+				],
 				$this->msg( 'ep-course-add-' . $roleName )->text()
 			);
 		}
 
 		if ( empty( $links ) ) {
 			return '';
-		}
-		else {
+		} else {
 			$this->getOutput()->addModules( 'ep.enlist' );
 			return '<br />' . $this->getLanguage()->pipeList( $links );
 		}
@@ -309,7 +311,7 @@ class ViewCourseAction extends ViewAction {
 		// expanded. Otherwise, they start out collapsed.
 		$queryVals = $this->getContext()->getRequest()->getQueryValues();
 
-		if ( isset ( $queryVals['studentsadded'] )  ||
+		if ( isset ( $queryVals['studentsadded'] ) ||
 			isset ( $queryVals['alreadyenrolled'] ) ) {
 
 			$collapsedClassStr = '';
@@ -324,13 +326,13 @@ class ViewCourseAction extends ViewAction {
 		// open outer div
 		$html = Html::openElement(
 			'div',
-			array( 'class' => 'ep-addstudents-area' )
+			[ 'class' => 'ep-addstudents-area' ]
 		);
 
 		// open div for headline and expand/collapse link
 		$html .= Html::openElement(
 			'div',
-			array( 'class' => 'ep-addstudents-headline-area' )
+			[ 'class' => 'ep-addstudents-headline-area' ]
 		);
 
 		// headline (looks like a wiki page "section")
@@ -338,7 +340,7 @@ class ViewCourseAction extends ViewAction {
 
 		$html .= Html::element(
 			'span',
-			array( 'class' => 'mw-headline' ),
+			[ 'class' => 'mw-headline' ],
 			$this->msg( 'ep-addstudents-section' )->text()
 		);
 
@@ -348,10 +350,10 @@ class ViewCourseAction extends ViewAction {
 		$html .= ' ['
 			. Html::element(
 				'a',
-				array(
+				[
 					'class' => 'mw-customtoggle-addstudents',
 					'href' => '#'
-				),
+				],
 				$expandMsg
 			)
 			.']';
@@ -362,16 +364,16 @@ class ViewCourseAction extends ViewAction {
 		// open div with collapsible contents
 		$html .= Html::openElement(
 			'div',
-			array(
+			[
 				'id' => 'mw-customcollapsible-addstudents',
 				'class' => 'mw-collapsible ep-addstudents-controls' . $collapsedClassStr
-			)
+			]
 		);
 
 		// general instructions
 		$html .= Html::openElement(
 			'div',
-			array( 'id' => 'ep-addstudents-instructions' )
+			[ 'id' => 'ep-addstudents-instructions' ]
 		);
 
 		$html .= $this->msg( 'ep-addstudents-instructions' )->parseAsBlock();
@@ -381,41 +383,41 @@ class ViewCourseAction extends ViewAction {
 		// input for hooking up tagsinput
 		$html .= Html::element(
 			'input',
-			array(
+			[
 				'id' => 'ep-addstudents-input',
 				'data-courseid' => $course->getId()
-			)
+			]
 		);
 
 		// hidden empty div for error messages
 		$html .= Html::element(
 			'div',
-			array(
+			[
 				'id' => 'ep-addstudents-error',
 				'style' => 'display: none;'
-			)
+			]
 		);
 
 		// "Add" button
 		$html .= Html::element(
 			'button',
-			array(
+			[
 				'id' => 'ep-addstudents-btn',
 				'disabled' => 'true'
-			),
+			],
 			$this->msg( 'ep-addstudents-btn' )->text()
 		);
 
 		// open div for instructions on enroll link
 		$html .= Html::openElement(
 			'div',
-			array( 'id' => 'ep-addstudents-link-instructions' )
+			[ 'id' => 'ep-addstudents-link-instructions' ]
 		);
 
 		// instructions for enroll link
 		$html .= Html::element(
 			'p',
-			array(),
+			[],
 			$this->msg( 'ep-addstudents-url-instructions' )->text()
 		);
 
@@ -430,7 +432,7 @@ class ViewCourseAction extends ViewAction {
 
 		$html .= Html::element(
 			'p',
-			array( 'id' => 'ep-addstudents-link' ),
+			[ 'id' => 'ep-addstudents-link' ],
 			$enrollLink
 		);
 
@@ -453,10 +455,10 @@ class ViewCourseAction extends ViewAction {
 	protected function getCacheKey() {
 		$user = $this->getUser();
 
-		return array_merge( array(
+		return array_merge( [
 			$user->isAllowed( 'ep-course' ),
 			$user->isAllowed( 'ep-bulkdelcourses' ) && $user->getOption( 'ep_bulkdelcourses' ),
-		), parent::getCacheKey() );
+		], parent::getCacheKey() );
 	}
 
 }

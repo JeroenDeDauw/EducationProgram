@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use ApiBase, User;
+
+use ApiBase;
+use User;
 
 /**
  * API module for gathering the usernames of students in one or more courses.
@@ -26,7 +28,7 @@ class ApiListStudents extends ApiBase {
 		$results = $this->getResult();
 
 		// Create an empty list for student usernames or user IDs.
-		$allStudents = array();
+		$allStudents = [];
 
 		// Determine which property to return: usernames or user IDs.
 		$propName = $params['prop'];
@@ -45,10 +47,10 @@ class ApiListStudents extends ApiBase {
 
 			// Get the course, or die if the course id is invalid.
 			$course = Courses::singleton()->selectRow(
-				null, array( 'id' => $courseId ) );
+				null, [ 'id' => $courseId ] );
 			if ( $course === false ) {
-				if ( is_callable( array( $this, 'dieWithError' ) ) ) {
-					$this->dieWithError( array( 'apierror-badparameter', 'courseids' ), 'invalid-course' );
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+					$this->dieWithError( [ 'apierror-badparameter', 'courseids' ], 'invalid-course' );
 				} else {
 					$this->dieUsage( 'Invalid course id', 'invalid-course' );
 				}
@@ -56,12 +58,12 @@ class ApiListStudents extends ApiBase {
 
 			// Get the user objects for students in this course,
 			// and add them to the list of all students.
-			$courseStudents = $this->getParticipantsAsUsers( $course , 'student' );
+			$courseStudents = $this->getParticipantsAsUsers( $course, 'student' );
 			$allStudents = array_merge( $allStudents, $courseStudents );
 
 			// Check that we're not building too large of a query.
 			if ( count( $allStudents ) > ApiBase::LIMIT_BIG2 ) {
-				if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 					$this->dieWithError(
 						[ 'apierror-educationprogram-overlimit', $courseId ], 'over-query-limit'
 					);
@@ -195,16 +197,16 @@ class ApiListStudents extends ApiBase {
 
 		if ( $courseRole == 'instructor' ) {
 			$participants = $course->getInstructors();
-		} else if ( $courseRole == 'online_volunteer' ) {
+		} elseif ( $courseRole == 'online_volunteer' ) {
 			$participants = $course->getOnlineAmbassadors();
-		} else if ( $courseRole == 'campus_volunteer' ) {
+		} elseif ( $courseRole == 'campus_volunteer' ) {
 			$participants = $course->getCampusAmbassadors();
-		} else if ( $courseRole == 'student' ) {
+		} elseif ( $courseRole == 'student' ) {
 			$participants = $course->getStudents();
 		}
 
-		$participantsInCourse = array();
-		foreach ( $participants as $participant) {
+		$participantsInCourse = [];
+		foreach ( $participants as $participant ) {
 			$participantsInCourse[] = $participant->getUser();
 		}
 
@@ -248,14 +250,14 @@ class ApiListStudents extends ApiBase {
 		$articleStore
 	) {
 
-		$studentProps = array();
+		$studentProps = [];
 
 		foreach ( $studentsList as $student ) {
 			$studentProps[] = $this->getUserProperty( $student, $propName );
 		}
 
 		if ( $studentProps ) {
-			$csv = PHP_EOL . implode( PHP_EOL, $studentProps ) . PHP_EOL ;
+			$csv = PHP_EOL . implode( PHP_EOL, $studentProps ) . PHP_EOL;
 		} else {
 			$csv = '';
 		}
@@ -263,7 +265,7 @@ class ApiListStudents extends ApiBase {
 		$results->addValue(
 			$this->usersPath( $courseIndex ),
 			$propName . 's',
-			array( '*'  => $csv )
+			[ '*'  => $csv ]
 		);
 
 		if ( $studentsList ) {
@@ -378,18 +380,18 @@ class ApiListStudents extends ApiBase {
 			);
 
 			// If output is grouped by course, get the assigned articles for each student.
-			if ($courseId ) {
+			if ( $courseId ) {
 				$studentEPArticles =  $this->getEPArticles( $courseId, $student, $articleStore );
 
 				$articleIndex = 0;
 				foreach ( $studentEPArticles as $studentEPArticle ) {
 					$studentArticle = $studentEPArticle->getPageTitle();
-					$articlePath = array (
+					$articlePath = [
 						$courseIndex,
 						'students',
 						$studentIndex,
 						$articleIndex
-					);
+					];
 					$results->addValue(
 						$articlePath,
 						'title',
@@ -400,13 +402,13 @@ class ApiListStudents extends ApiBase {
 					$articleReviewers = $this->getArticleReviewerIds( $studentEPArticle );
 					$reviewerIndex = 0;
 					foreach ( $articleReviewers as $articleReviewer ) {
-						$reviewerPath = array (
+						$reviewerPath = [
 							$courseIndex,
 							'students',
 							$studentIndex,
 							$articleIndex,
 							$reviewerIndex
-						);
+						];
 
 						$results->addValue(
 							$reviewerPath,
@@ -422,7 +424,7 @@ class ApiListStudents extends ApiBase {
 
 					}
 
-					//Index the reviewers for the article.
+					// Index the reviewers for the article.
 					if ( defined( 'ApiResult::META_CONTENT' ) ) {
 						$results->addIndexedTagName( $articlePath, 'reviewer' );
 					} else {
@@ -477,7 +479,7 @@ class ApiListStudents extends ApiBase {
 	 * @param int $courseIndex
 	 * @param $articleStore articleStore object
 	 */
-	protected function outputCSVListofArticles (
+	protected function outputCSVListofArticles(
 		$courseIds,
 		$studentsList,
 		$results,
@@ -534,7 +536,7 @@ class ApiListStudents extends ApiBase {
 		$results->addValue(
 			$courseIndex,
 			'name',
-			$course->getField('title')
+			$course->getField( 'title' )
 		);
 
 		// Add course start date.
@@ -623,7 +625,7 @@ class ApiListStudents extends ApiBase {
 	 * @param int $timestamp in MediaWiki timestamp format
 	 * @return string
 	 */
-	protected function formatTimestamp ( $timestamp ) {
+	protected function formatTimestamp( $timestamp ) {
 		$timestamp = wfTimestamp( TS_UNIX, $timestamp );
 		$timestamp = date( 'Y-m-d', $timestamp );
 		return $timestamp;
@@ -639,8 +641,8 @@ class ApiListStudents extends ApiBase {
 	 * @param string $userLabel
 	 */
 	protected function usersPath( $courseIndex, $userLabel = 'students' ) {
-		if ( !is_null ( $courseIndex ) ) {
-			return array ( $courseIndex, $userLabel );
+		if ( !is_null( $courseIndex ) ) {
+			return [ $courseIndex, $userLabel ];
 		} else {
 			return $userLabel;
 		}
@@ -655,13 +657,12 @@ class ApiListStudents extends ApiBase {
 	 * @param int $userIndex
 	 */
 	protected function userPath( $courseIndex, $userLabel, $userIndex = null ) {
-		if ( !is_null ( $courseIndex ) ) {
-			return array ( $courseIndex , $userLabel, $userIndex);
+		if ( !is_null( $courseIndex ) ) {
+			return [ $courseIndex , $userLabel, $userIndex ];
 		} else {
-			return array ( $userLabel, $userIndex );
+			return [ $userLabel, $userIndex ];
 		}
 	}
-
 
 	/**
 	 * Construct the results path for the <articles> element,
@@ -671,82 +672,82 @@ class ApiListStudents extends ApiBase {
 	 * @param int $courseIndex
 	 */
 	protected function articlesPath( $courseIndex ) {
-		if ( !is_null ( $courseIndex ) ) {
-			return array ( $courseIndex );
+		if ( !is_null( $courseIndex ) ) {
+			return [ $courseIndex ];
 		} else {
 			return null;
 		}
 	}
 
 	public function getAllowedParams() {
-		return array(
+		return [
 
-			'courseids'=> array(
+			'courseids'=> [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
 				// This allows multiple pipe-separated values in courseids parameter.
 				ApiBase::PARAM_ISMULTI => true,
-			),
+			],
 
-			'prop' => array(
+			'prop' => [
 				ApiBase::PARAM_DFLT => 'username',
-				ApiBase::PARAM_TYPE => array(
+				ApiBase::PARAM_TYPE => [
 					'username',
 					'id',
-				)
-			),
+				]
+			],
 			'group'=> false,
 			'csv'=> false,
-		);
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getParamDescription() {
-		return array(
+		return [
 			'courseids' => 'The IDs of courses, each separated by a |',
-			'prop' => array(
+			'prop' => [
 				'Which property to get for each student if using csv format:',
 				' username       - The username of the student',
 				' id             - The user ID of the student',
-			),
+			],
 			'group' => 'If group parameter is given, the query will group students by course.',
 			'csv' => 'If csv parameter is given, the query will return usernames in CSV format, and it will return the articles assigned to those students.',
-		);
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getDescription() {
-		return array(
+		return [
 				'Get the usernames and other information for students enrolled in one or more courses.'
-		);
+		];
 	}
 
 	/**
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	protected function getExamples() {
-		return array(
+		return [
 			'api.php?action=liststudents&courseids=3',
 			'api.php?action=liststudents&courseids=3|4|5|6&group=',
 			'api.php?action=liststudents&courseids=3|4|5|6&group=&csv=&prop=id'
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=liststudents&courseids=3'
 				=> 'apihelp-liststudents-example-1',
 			'action=liststudents&courseids=3|4|5|6&group='
 				=> 'apihelp-liststudents-example-2',
 			'action=liststudents&courseids=3|4|5|6&group=&csv=&prop=id'
 				=> 'apihelp-liststudents-example-3',
-		);
+		];
 	}
 }

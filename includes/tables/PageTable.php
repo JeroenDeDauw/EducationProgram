@@ -24,7 +24,7 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @return string
 	 */
-	public abstract function getIdentifierField();
+	abstract public function getIdentifierField();
 
 	/**
 	 * Returns the namespace in which objects of this type reside.
@@ -33,7 +33,7 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @return integer
 	 */
-	public abstract function getNamespace();
+	abstract public function getNamespace();
 
 	/**
 	 * Returns the name of the fields that can be changed
@@ -43,7 +43,7 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @return array
 	 */
-	public abstract function getRevertibleFields();
+	abstract public function getRevertibleFields();
 
 	/**
 	 * Get a string for use in the 'type' field of the Revisions table for
@@ -58,7 +58,7 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @return string|null
 	 */
-	public abstract function getRevisionedObjectTypeId();
+	abstract public function getRevisionedObjectTypeId();
 
 	/**
 	 * Returns the right needed to edit items in this table.
@@ -67,7 +67,7 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @return string
 	 */
-	public abstract function getEditRight();
+	abstract public function getEditRight();
 
 	/**
 	 * @since 0.1
@@ -77,7 +77,7 @@ abstract class PageTable extends ORMTable {
 	 * @return boolean
 	 */
 	public function hasIdentifier( $identifier ) {
-		return $this->has( array( $this->getIdentifierField() => $identifier ) );
+		return $this->has( [ $this->getIdentifierField() => $identifier ] );
 	}
 
 	/**
@@ -91,7 +91,7 @@ abstract class PageTable extends ORMTable {
 	 * @return bool|PageObject
 	 */
 	public function get( $identifier, $fields = null ) {
-		return $this->selectRow( $fields, array( $this->getIdentifierField() => $identifier ) );
+		return $this->selectRow( $fields, [ $this->getIdentifierField() => $identifier ] );
 	}
 
 	/**
@@ -173,7 +173,7 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @return string
 	 */
-	public function getLinkFor( $identifierValue, $action = 'view', $html = null, array $customAttribs = array(), array $query = array() ) {
+	public function getLinkFor( $identifierValue, $action = 'view', $html = null, array $customAttribs = [], array $query = [] ) {
 		if ( $action !== 'view' ) {
 			$query['action'] = $action;
 		}

@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use Xml, Html;
+
+use Xml;
+use Html;
 
 /**
  * Action for viewing the history of PageObject items.
@@ -33,8 +35,7 @@ class HistoryAction extends Action {
 
 		if ( $object === false ) {
 			$this->displayNoRevisions();
-		}
-		else {
+		} else {
 			$this->displayRevisions( $object );
 		}
 
@@ -99,7 +100,7 @@ class HistoryAction extends Action {
 				Xml::fieldset(
 					$this->msg( 'history-fieldset-title' )->text(),
 					false,
-					array( 'id' => 'mw-history-search' )
+					[ 'id' => 'mw-history-search' ]
 				) .
 				Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n" .
 				Html::hidden( 'action', 'history' ) . "\n" .
@@ -118,8 +119,7 @@ class HistoryAction extends Action {
 				$pager->getBody() .
 				$pager->getNavigationBar()
 			);
-		}
-		else {
+		} else {
 			// TODO
 		}
 	}
@@ -131,8 +131,8 @@ class HistoryAction extends Action {
 		return \Linker::linkKnown(
 			\SpecialPage::getTitleFor( 'Log' ),
 			$this->msg( $this->prefixMsg( 'description' ) )->escaped(),
-			array(),
-			array( 'page' => $this->getTitle()->getPrefixedText() )
+			[],
+			[ 'page' => $this->getTitle()->getPrefixedText() ]
 		);
 	}
 

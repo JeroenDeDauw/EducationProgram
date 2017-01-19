@@ -23,7 +23,7 @@ namespace EducationProgram;
 
 $basePath = getenv( 'MW_INSTALL_PATH' ) !== false ?
 	getenv( 'MW_INSTALL_PATH' ) :
-	dirname( __FILE__ ) . '/../../..';
+	__DIR__ . '/../../..';
 
 require_once $basePath . '/maintenance/Maintenance.php';
 

@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use Linker, Html;
+
+use Linker;
+use Html;
 
 /**
  * Action for deleting PageObject items.
@@ -51,8 +53,7 @@ class DeleteAction extends Action {
 		if ( $object === false ) {
 			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ), $this->getTitle()->getText() );
 			$this->getOutput()->setSubtitle( '' );
-		}
-		else {
+		} else {
 			$req = $this->getRequest();
 
 			// This will check that we can delete, and will output an
@@ -71,8 +72,7 @@ class DeleteAction extends Action {
 							'epsuccess',
 							$this->msg( $this->prefixMsg( 'deleted' ), $this->getTitle()->getText() )->text()
 						);
-					}
-					else {
+					} else {
 						$title = $this->getTitle();
 						$this->getRequest()->setSessionData(
 							'epfail',
@@ -85,8 +85,7 @@ class DeleteAction extends Action {
 					}
 
 					$this->getOutput()->redirect( $title->getLocalURL() );
-				}
-				else {
+				} else {
 					$this->displayForm( $object );
 				}
 			}
@@ -147,7 +146,7 @@ class DeleteAction extends Action {
 
 		$out->addHTML( Html::openElement(
 			'div',
-			array( 'class' => 'formpageDeleteWarning' )
+			[ 'class' => 'formpageDeleteWarning' ]
 		) );
 
 		$out->addWikiMsg( $this->prefixMsg( 'text' ), $object->getField( 'name' ) );
@@ -156,10 +155,10 @@ class DeleteAction extends Action {
 
 		$out->addHTML( Html::openElement(
 			'form',
-			array(
+			[
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'delete' ) ),
-			)
+				'action' => $this->getTitle()->getLocalURL( [ 'action' => 'delete' ] ),
+			]
 		) );
 
 		$out->addHTML( '&#160;' . \Xml::inputLabel(
@@ -168,10 +167,10 @@ class DeleteAction extends Action {
 			'summary',
 			65,
 			false,
-			array(
+			[
 				'maxlength' => 250,
 				'spellcheck' => true,
-			)
+			]
 		) );
 
 		$out->addHTML( '<br />' );
@@ -180,18 +179,18 @@ class DeleteAction extends Action {
 			'delete',
 			$this->msg( $this->prefixMsg( 'delete-button' ) )->text(),
 			'submit',
-			array(
+			[
 				'class' => 'ep-delete',
-			)
+			]
 		) );
 
 		$out->addElement(
 			'button',
-			array(
+			[
 				'id' => 'cancelDelete',
 				'class' => 'ep-delete-cancel ep-cancel',
 				'data-target-url' => $this->getTitle()->getLocalURL(),
-			),
+			],
 			$this->msg( $this->prefixMsg( 'cancel-button' ) )->text()
 		);
 

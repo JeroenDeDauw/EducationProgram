@@ -6,6 +6,7 @@ require_once __DIR__ . '/PageObjectTest.php';
 
 use EducationProgram\Courses;
 use EducationProgram\Course;
+
 /**
  * Tests for the EducationProgram\Course class.
  *
@@ -51,8 +52,8 @@ class CourseTest extends PageObjectTest {
 	 * @return array
 	 */
 	public function constructorTestProvider() {
-		return array ( array (
-			array(
+		return [ [
+			[
 				'org_id' => 1,
 				'name' => 'Test Course',
 				'title' => 'Test Org/Test Course (Test term)',
@@ -60,10 +61,10 @@ class CourseTest extends PageObjectTest {
 				'end' => '20501008000000',
 				'description' => 'Test course description',
 				'token' => 'testtoken',
-				'students' => array(),
-				'instructors' => array(),
-				'online_ambs' => array(),
-				'campus_ambs' => array(),
+				'students' => [],
+				'instructors' => [],
+				'online_ambs' => [],
+				'campus_ambs' => [],
 				'field' => 'Test Feild',
 				'level' => 'Test level',
 				'term' => 'Test term',
@@ -72,9 +73,9 @@ class CourseTest extends PageObjectTest {
 				'instructor_count' => 0,
 				'oa_count' => 0,
 				'ca_count' => 0,
-			),
+			],
 			false
-		) );
+		] ];
 	}
 
 	/**

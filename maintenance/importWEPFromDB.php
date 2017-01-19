@@ -13,6 +13,7 @@
  */
 
 namespace EducationProgram;
+
 use ResultWrapper;
 
 $basePath = getenv( 'MW_INSTALL_PATH' ) !== false ? getenv( 'MW_INSTALL_PATH' ) : __DIR__ . '/../../..';
@@ -37,10 +38,10 @@ class ImportWEPFromDB extends \Maintenance {
 		return $table;
 	}
 
-	protected $orgIds = array();
-	protected $courseIds = array();
+	protected $orgIds = [];
+	protected $courseIds = [];
 
-	protected $errors = array();
+	protected $errors = [];
 
 	protected $override = true;
 
@@ -52,37 +53,37 @@ class ImportWEPFromDB extends \Maintenance {
 		global $basePath;
 		require_once $basePath . '/extensions/EducationProgram/EducationProgram.php';
 
-		$conds = array(
-			'orgs' => array( 'university_country <> "India"' ),
-			'courses' => array(),
-			'students' => array(),
-		);
+		$conds = [
+			'orgs' => [ 'university_country <> "India"' ],
+			'courses' => [],
+			'students' => [],
+		];
 
-		$tables = array(
+		$tables = [
 			'orgs' => 'imp_universities',
 			'courses' => 'imp_courses',
 			'students' => 'imp_students',
-		);
+		];
 
 		$dbr = wfGetDB( DB_SLAVE );
 
 		foreach ( $conds as $name => $cond ) {
 			$nr = $dbr->select(
 				$tables[$name],
-				array( 'COUNT(*) AS rowcount' ),
+				[ 'COUNT(*) AS rowcount' ],
 				$cond,
 				__METHOD__,
-				array() //array( 'LIMIT' => 200 )
+				[] // array( 'LIMIT' => 200 )
 			)->fetchObject()->rowcount;
 
 			$this->msg( "Found $nr $name...", 0 );
 		}
 
-		$functions = array(
+		$functions = [
 			'orgs' => 'insertOrgs',
 			'courses' => 'insertCourses',
 			'students' => 'insertStudents',
-		);
+		];
 
 		foreach ( $functions as $stuff => $function ) {
 			$this->msg( "Inseting $stuff...", 0 );
@@ -93,7 +94,7 @@ class ImportWEPFromDB extends \Maintenance {
 				$conds[$stuff]
 			);
 
-			call_user_func( array( $this, $function ), $stuff );
+			call_user_func( [ $this, $function ], $stuff );
 		}
 
 		$this->msg( 'Import done!', 0 );
@@ -148,16 +149,16 @@ class ImportWEPFromDB extends \Maintenance {
 		foreach ( $orgs as $org ) {
 			$this->msg( 'Importing org ' . $org->university_name );
 
-			$currentId = $orgTable->selectFieldsRow( 'id', array( 'name' => $org->university_name ) );
+			$currentId = $orgTable->selectFieldsRow( 'id', [ 'name' => $org->university_name ] );
 
 			$this->msg( "\t" . ( $currentId === false ? 'is new, inserting...' : ( $this->override ? 'exists, updating...' : 'exists, skipping...' ) ), 2 );
 
 			if ( $currentId === false || $this->override ) {
-				$data = array(
+				$data = [
 					'name' => $org->university_name,
 					'city' => $org->university_city,
 					'country' => array_key_exists( $org->university_country, $countries ) ? $countries[$org->university_country] : '',
-				);
+				];
 
 				if ( $currentId !== false ) {
 					$data['id'] = $currentId;
@@ -197,7 +198,7 @@ class ImportWEPFromDB extends \Maintenance {
 
 			$this->msg( 'Importing course ' . $title );
 
-			$currentId = $courseTable->selectFieldsRow( 'id', array( 'title' => $title ) );
+			$currentId = $courseTable->selectFieldsRow( 'id', [ 'title' => $title ] );
 
 			$this->msg( "\t" . ( $currentId === false ? 'is new, inserting...' : ( $this->override ? 'exists, updating...' : 'exists, skipping...' ) ), 2 );
 
@@ -208,8 +209,7 @@ class ImportWEPFromDB extends \Maintenance {
 				if ( $currentId === false || $this->override ) {
 					$this->insertCourse( $currentId, $course, $title, $term, $revAction );
 				}
-			}
-			else {
+			} else {
 				$this->err( "Failed to insert course '$title'. Linked org ($course->course_university_id) does not exist!" );
 			}
 		}
@@ -225,7 +225,7 @@ class ImportWEPFromDB extends \Maintenance {
 	 * @param RevisionAction $revAction
 	 */
 	protected function insertCourse( $currentId, $course, $title, $term, RevisionAction $revAction ) {
-		$data = array(
+		$data = [
 			'org_id' => $this->orgIds[$course->course_university_id],
 			'title' => $title,
 			'name' => $course->course_coursename,
@@ -233,7 +233,7 @@ class ImportWEPFromDB extends \Maintenance {
 			'end' => ( $course->course_enddate === '' ? $course->course_startdate : $course->course_enddate ) . '000000',
 			'lang' => $course->course_language,
 			'term' => $term,
-		);
+		];
 
 		if ( $currentId !== false ) {
 			$data['id'] = $currentId;
@@ -268,7 +268,7 @@ class ImportWEPFromDB extends \Maintenance {
 	 */
 	public function insertStudents( ResultWrapper $students ) {
 		foreach ( $students as $student ) {
-			$name  = $student->student_username;
+			$name = $student->student_username;
 
 			$this->msg( 'Importing student ' . $name );
 
@@ -276,8 +276,7 @@ class ImportWEPFromDB extends \Maintenance {
 
 			if ( $user === false ) {
 				$this->err( "Failed to insert student '$name'. (invalid user name)" );
-			}
-			else {
+			} else {
 				if ( $user->getId() === 0 ) {
 					if ( $student->student_lastname !== '' && $student->student_firstname !== '' ) {
 						$user->setRealName( $student->student_firstname . ' ' . $student->student_lastname );
@@ -304,7 +303,7 @@ class ImportWEPFromDB extends \Maintenance {
 					}
 				}
 
-				foreach ( array( $student->student_course_id ) as $courseId ) {
+				foreach ( [ $student->student_course_id ] as $courseId ) {
 					$success = false;
 
 					if ( array_key_exists( $courseId, $this->courseIds ) ) {
@@ -315,14 +314,13 @@ class ImportWEPFromDB extends \Maintenance {
 						/**
 						 * @var Course $course
 						 */
-						$course = Courses::singleton()->selectRow( null, array( 'id' => $this->courseIds[$courseId] ) );
-						$success = $course->enlistUsers( array( $user->getId() ), 'student', true, $revAction );
+						$course = Courses::singleton()->selectRow( null, [ 'id' => $this->courseIds[$courseId] ] );
+						$success = $course->enlistUsers( [ $user->getId() ], 'student', true, $revAction );
 					}
 
 					if ( $success !== false ) {
 						$this->msg( "\tAssociated student '$name' with course '$courseId'.", 2 );
-					}
-					else {
+					} else {
 						$this->msg( "\tFailed to associate student '$name' with course '$courseId'." );
 					}
 				}

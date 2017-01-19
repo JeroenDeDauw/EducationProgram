@@ -39,7 +39,7 @@ class HTMLDateField extends \HTMLTextField {
 			return $p;
 		}
 
-		//$value = trim( $value );
+		// $value = trim( $value );
 
 		// TODO: further validation
 

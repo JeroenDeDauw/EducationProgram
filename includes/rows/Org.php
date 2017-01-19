@@ -1,7 +1,10 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Html, Xml;
+
+use IContextSource;
+use Html;
+use Xml;
 
 /**
  * Class representing a single organization/institution.
@@ -27,13 +30,12 @@ class Org extends PageObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'course_count', 'student_count', 'instructor_count', 'oa_count', 'ca_count', 'courses', 'last_active_date' );
-		}
-		else {
+			$summaryFields = [ 'course_count', 'student_count', 'instructor_count', 'oa_count', 'ca_count', 'courses', 'last_active_date' ];
+		} else {
 			$summaryFields = (array)$summaryFields;
 		}
 
-		$fields = array();
+		$fields = [];
 
 		// load all these fields at once
 		if ( in_array( 'course_count', $summaryFields ) ||
@@ -41,12 +43,12 @@ class Org extends PageObject {
 			in_array( 'last_active_date', $summaryFields ) ) {
 
 			$courseInfo = Courses::singleton()->selectFields(
-				array( 'id', 'end'),
-				array( 'org_id' => $this->getId() ),
-				array(), false );
+				[ 'id', 'end' ],
+				[ 'org_id' => $this->getId() ],
+				[], false );
 
 			// find last active date, create list of course ids
-			$courses = array();
+			$courses = [];
 			$lastActiveDate = '19700101000000'; // typical MW timestamp default
 
 			foreach ( $courseInfo as $courseFields ) {
@@ -63,12 +65,12 @@ class Org extends PageObject {
 			$fields['last_active_date'] = $lastActiveDate;
 		}
 
-		foreach ( array( 'student_count', 'instructor_count', 'oa_count', 'ca_count' ) as $field ) {
+		foreach ( [ 'student_count', 'instructor_count', 'oa_count', 'ca_count' ] as $field ) {
 			$fields[$field] = Courses::singleton()->rawSelectRow(
-				array( 'SUM(' . Courses::singleton()->getPrefixedField( $field ) . ') AS sum' ),
-				Courses::singleton()->getPrefixedValues( array(
+				[ 'SUM(' . Courses::singleton()->getPrefixedField( $field ) . ') AS sum' ],
+				Courses::singleton()->getPrefixedValues( [
 					'org_id' => $this->getId()
-				) )
+				] )
 			)->sum;
 		}
 
@@ -82,7 +84,7 @@ class Org extends PageObject {
 		/**
 		 * @var Course $course
 		 */
-		foreach ( Courses::singleton()->select( null, array( 'org_id' => $this->getId() ) ) as $course ) {
+		foreach ( Courses::singleton()->select( null, [ 'org_id' => $this->getId() ] ) as $course ) {
 			$revAction = clone $this->revAction;
 
 			if ( trim( $revAction->getComment() ) === '' ) {
@@ -90,8 +92,7 @@ class Org extends PageObject {
 					'ep-org-course-delete',
 					$this->getField( 'name' )
 				)->text() );
-			}
-			else {
+			} else {
 				$revAction->setComment( wfMessage(
 					'ep-org-course-delete-comment',
 					$this->getField( 'name' ),
@@ -132,10 +133,10 @@ class Org extends PageObject {
 				/**
 				 * @var EPRevision $courseRevision
 				 */
-				$courseRevision = Revisions::singleton()->getLatestRevision( array(
+				$courseRevision = Revisions::singleton()->getLatestRevision( [
 					'object_id' => $courseId,
 					'type' => 'Courses',
-				) );
+				] );
 
 				if ( $courseRevision !== false ) {
 					$courseRevision->getObject()->undelete( $courseRevAction );
@@ -164,7 +165,7 @@ class Org extends PageObject {
 		if ( !$this->hasIdField() ) {
 			$name = $this->getField( 'name' );
 
-			if ( $this->table->has( array( 'name' => $name ) ) ) {
+			if ( $this->table->has( [ 'name' => $name ] ) ) {
 
 				$pageTitle = $this->getTitle(); // title of the Wiki page
 				throw new ErrorPageErrorWithSelflink( 'ep-err-org-exists-title',
@@ -178,7 +179,7 @@ class Org extends PageObject {
 			$coursesTable = Courses::singleton();
 
 			$coursesTable->setReadDb( DB_MASTER );
-			$courses = $coursesTable->select( array( 'id', 'title' ), array( 'org_id' => $this->getId() ) );
+			$courses = $coursesTable->select( [ 'id', 'title' ], [ 'org_id' => $this->getId() ] );
 			$coursesTable->setReadDb( DB_SLAVE );
 
 			/**
@@ -212,22 +213,22 @@ class Org extends PageObject {
 	 *
 	 * @return string
 	 */
-	public static function getAddNewControl( IContextSource $context, array $args = array() ) {
+	public static function getAddNewControl( IContextSource $context, array $args = [] ) {
 		$html = '';
 
 		$html .= Html::openElement(
 			'form',
-			array(
+			[
 				'method' => 'post',
-				'action' => Orgs::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( array( 'action' => 'edit' ) ),
-			)
+				'action' => Orgs::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( [ 'action' => 'edit' ] ),
+			]
 		);
 
 		$html .= '<fieldset>';
 
 		$html .= '<legend>' . $context->msg( 'ep-institutions-addnew' )->escaped() . '</legend>';
 
-		$html .= Html::element( 'p', array(), $context->msg( 'ep-institutions-namedoc' )->text() );
+		$html .= Html::element( 'p', [], $context->msg( 'ep-institutions-namedoc' )->text() );
 
 		$html .= Xml::inputLabel(
 			$context->msg( 'ep-institutions-newname' )->text(),
@@ -241,10 +242,10 @@ class Org extends PageObject {
 			'addneworg',
 			$context->msg( 'ep-institutions-add' )->text(),
 			'submit',
-			array(
+			[
 				'disabled' => 'disabled',
 				'class' => 'ep-org-add',
-			)
+			]
 		);
 
 		$html .= Html::hidden( 'isnew', 1 );
@@ -265,7 +266,7 @@ class Org extends PageObject {
 	 */
 	public function getCourses( array $fields = null ) {
 		if ( $this->courses === false ) {
-			$courses = Courses::singleton()->selectObjects( $fields, array( 'org_id' => $this->getId() ) );
+			$courses = Courses::singleton()->selectObjects( $fields, [ 'org_id' => $this->getId() ] );
 
 			if ( is_null( $fields ) ) {
 				$this->courses = $courses;

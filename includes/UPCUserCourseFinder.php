@@ -64,11 +64,11 @@ class UPCUserCourseFinder implements UserCourseFinder {
 	 *
 	 * @return int[]
 	 */
-	public function getCoursesForUsers( $userIds, $roles = array() ) {
+	public function getCoursesForUsers( $userIds, $roles = [] ) {
 		$userIds = (array)$userIds;
 		$roles = (array)$roles;
 
-		$conditions = array();
+		$conditions = [];
 
 		if ( !empty( $userIds ) ) {
 			$conditions['upc_user_id'] = $userIds;
@@ -79,20 +79,20 @@ class UPCUserCourseFinder implements UserCourseFinder {
 		}
 
 		$upcRows = $this->db->select(
-			array( 'ep_users_per_course', 'ep_courses' ),
-			array( 'upc_course_id' ),
+			[ 'ep_users_per_course', 'ep_courses' ],
+			[ 'upc_course_id' ],
 			array_merge(
 				$conditions,
 				Courses::getStatusConds( 'current', true ) // TODO: get as argument
 			),
 			__METHOD__,
-			array( 'DISTINCT' ),
-			array(
-				'ep_courses' => array( 'INNER JOIN', array( 'upc_course_id=course_id' ) ),
-			)
+			[ 'DISTINCT' ],
+			[
+				'ep_courses' => [ 'INNER JOIN', [ 'upc_course_id=course_id' ] ],
+			]
 		);
 
-		$courseIds = array();
+		$courseIds = [];
 
 		foreach ( $upcRows as $upcRow ) {
 			$courseIds[] = (int)$upcRow->upc_course_id;

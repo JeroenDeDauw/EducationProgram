@@ -33,14 +33,14 @@ class ErrorPageErrorWithSelflink extends \ErrorPageError {
 	 *
 	 * @param string $linkText (optional) Text for internal link to be set as a parameter for $msg.
 	 */
-	function __construct( $title, $msg, $articleTitle = null, $linkText = null) {
+	function __construct( $title, $msg, $articleTitle = null, $linkText = null ) {
 		$this->articleTitle = $articleTitle;
 		$this->linkText = $linkText;
 
 		if ( is_null( $articleTitle ) ) {
 			parent::__construct( $title, $msg );
 		} else {
-			parent::__construct( $title, $msg, array ( $articleTitle ) );
+			parent::__construct( $title, $msg, [ $articleTitle ] );
 		}
 	}
 
@@ -56,10 +56,10 @@ class ErrorPageErrorWithSelflink extends \ErrorPageError {
 
 		// get actual message objects
 		$titleAsMessageObj = $this->getAsMessageObj( $this->title );
-		$msgAsMessageObj = $this->getAsMessageObj($this->msg);
+		$msgAsMessageObj = $this->getAsMessageObj( $this->msg );
 
 		// create an internal link and set it as a message param
-		if (!is_null( $this->articleTitle ) ) {
+		if ( !is_null( $this->articleTitle ) ) {
 			$internalLink = Linker::linkKnown( $this->articleTitle, $this->linkText );
 			$msgAsMessageObj->rawParams( $internalLink );
 		}

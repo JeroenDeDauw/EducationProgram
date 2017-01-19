@@ -15,10 +15,10 @@ abstract class PageObjectTest extends ORMRowTest {
 	public function provideSameRaisesExceptionInstances() {
 		$instances1 = $this->instanceProvider();
 		$instances2 = $this->instanceProvider();
-		$pairsOfDupes = array();
+		$pairsOfDupes = [];
 
 		for ( $i = 0; $i < count( $instances1 ); $i++ ) {
-			$pairsOfDupes[] = array ( $instances1[$i][0], $instances2[$i][0] );
+			$pairsOfDupes[] = [ $instances1[$i][0], $instances2[$i][0] ];
 		}
 
 		return $pairsOfDupes;
@@ -28,7 +28,7 @@ abstract class PageObjectTest extends ORMRowTest {
 	 * Clears out test data for subsequent tests.
 	 */
 	protected function tearDown() {
-		$this->getTableInstance()->delete( array() );
+		$this->getTableInstance()->delete( [] );
 		parent::tearDown();
 	}
 }

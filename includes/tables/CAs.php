@@ -42,7 +42,7 @@ class CAs extends ORMTable {
 	 * @return array
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id' => 'id',
 
 			'user_id' => 'int',
@@ -50,7 +50,7 @@ class CAs extends ORMTable {
 			'visible' => 'bool',
 			'bio' => 'str',
 			'photo' => 'str',
-		);
+		];
 	}
 
 	/**
@@ -59,11 +59,11 @@ class CAs extends ORMTable {
 	 * @return array
 	 */
 	public function getDefaults() {
-		return array(
+		return [
 			'bio' => '',
 			'photo' => '',
 			'visible' => true,
-		);
+		];
 	}
 
 }

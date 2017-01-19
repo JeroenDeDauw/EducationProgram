@@ -44,21 +44,21 @@ use WikiPage;
 class EditEventCreatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function getEventsForEditProvider() {
-		$argLists = array();
+		$argLists = [];
 
 		$mainPage = new WikiPage( Title::newMainPage() );
 
-		$argLists[] = array(
+		$argLists[] = [
 			$mainPage,
 			$mainPage->getRevision(),
 			new MockSuperUser()
-		);
+		];
 
-		$argLists[] = array(
+		$argLists[] = [
 			new CoursePage( Title::newFromText( 'Foo/Bar', EP_NS ) ),
 			$mainPage->getRevision(),
 			new MockSuperUser()
-		);
+		];
 
 		return $argLists;
 	}
@@ -89,8 +89,8 @@ class MockUserCourseFinder implements \EducationProgram\UserCourseFinder {
 	 *
 	 * @return int[]
 	 */
-	public function getCoursesForUsers( $userIds, $roles = array() ) {
-		return array( 1, 2, 42, 9001 );
+	public function getCoursesForUsers( $userIds, $roles = [] ) {
+		return [ 1, 2, 42, 9001 ];
 	}
 
 }

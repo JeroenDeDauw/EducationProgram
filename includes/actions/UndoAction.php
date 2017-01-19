@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use Html, Xml;
+
+use Html;
+use Xml;
 
 /**
  * Action for undoing a change to an PageObject.
@@ -52,20 +54,18 @@ class UndoAction extends Action {
 		if ( $object === false ) {
 			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ), $this->getTitle()->getText() );
 			$this->getOutput()->setSubtitle( '' );
-		}
-		else {
+		} else {
 			$req = $this->getRequest();
 
 			$success = false;
 
 			if ( $req->getCheck( 'revid' ) ) {
-				$revision = Revisions::singleton()->selectRow( null, array( 'id' => $req->getInt( 'revid' ) ) );
+				$revision = Revisions::singleton()->selectRow( null, [ 'id' => $req->getInt( 'revid' ) ] );
 
 				if ( $revision !== false ) {
 					if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undoToken' ), $this->getSalt() ) ) {
 						$success = $this->doUndo( $object, $revision );
-					}
-					else {
+					} else {
 						$diff = $object->getUndoDiff( $revision );
 
 						if ( $diff->isValid() ) {
@@ -74,8 +74,7 @@ class UndoAction extends Action {
 								$diffTable->display();
 
 								$this->displayForm( $object, $revision );
-							}
-							else {
+							} else {
 								// TODO
 							}
 
@@ -91,8 +90,7 @@ class UndoAction extends Action {
 						'epsuccess',
 						$this->msg( $this->prefixMsg( 'undid' ), $this->getTitle()->getText() )->text()
 					);
-				}
-				else {
+				} else {
 					$this->getRequest()->setSessionData(
 						'epfail',
 						$this->msg( $this->prefixMsg( 'undo-failed' ), $this->getTitle()->getText() )->text()
@@ -148,10 +146,10 @@ class UndoAction extends Action {
 
 		$out->addHTML( Html::openElement(
 			'form',
-			array(
+			[
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epundo' ) ),
-			)
+				'action' => $this->getTitle()->getLocalURL( [ 'action' => 'epundo' ] ),
+			]
 		) );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel(
@@ -165,10 +163,10 @@ class UndoAction extends Action {
 				$revision->getUser()->getName(),
 				$this->getLanguage()->time( $revision->getField( 'time' ) )
 			)->text(),
-			array(
+			[
 				'maxlength' => 250,
 				'spellcheck' => true,
-			)
+			]
 		) );
 
 		$out->addHTML( '<br />' );
@@ -177,18 +175,18 @@ class UndoAction extends Action {
 			'undo',
 			$this->msg( $this->prefixMsg( 'undo-button' ) )->text(),
 			'submit',
-			array(
+			[
 				'class' => 'ep-undo',
-			)
+			]
 		) );
 
 		$out->addElement(
 			'button',
-			array(
+			[
 				'id' => 'cancelRestore',
 				'class' => 'ep-undo-cancel ep-cancel',
 				'data-target-url' => $this->getTitle()->getLocalURL(),
-			),
+			],
 			$this->msg( $this->prefixMsg( 'cancel-button' ) )->text()
 		);
 

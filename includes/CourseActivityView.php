@@ -85,7 +85,7 @@ class CourseActivityView {
 			wfTimestamp( TS_MW, time() - $maxAgeInSeconds ),
 			EventQuery::COMP_BIGGER
 		);
-		$eventQuery->setCourses( array( $courseId ) );
+		$eventQuery->setCourses( [ $courseId ] );
 
 		return $eventQuery;
 	}

@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use User;
 
 /**
@@ -40,10 +41,10 @@ class EPRevision extends ORMRow {
 	public function getObject() {
 		$tableClass = $this->getField( 'type' );
 
-		$map = array(
+		$map = [
 			'EPCourses' => 'EducationProgram\Courses',
 			'EPOrgs' => 'EducationProgram\Orgs',
-		);
+		];
 
 		$tableClass = $map[$tableClass];
 
@@ -69,20 +70,19 @@ class EPRevision extends ORMRow {
 	 * @return RevisionedObject|bool false
 	 */
 	public static function getObjectFromRevId( $revId, $objectId = null ) {
-		$conditions = array(
+		$conditions = [
 			'id' => $revId
-		);
+		];
 
 		if ( !is_null( $objectId ) ) {
 			$conditions['object_id'] = $objectId;
 		}
 
-		$rev = Revisions::singleton()->selectRow( array( 'type', 'data' ), $conditions );
+		$rev = Revisions::singleton()->selectRow( [ 'type', 'data' ], $conditions );
 
 		if ( $rev === false ) {
 			return false;
-		}
-		else {
+		} else {
 			return $rev->getObject();
 		}
 	}
@@ -116,9 +116,9 @@ class EPRevision extends ORMRow {
 	 * @return EPRevision|bool false
 	 */
 	public function getPreviousRevision() {
-		return $this->getObject()->getLatestRevision( array(
+		return $this->getObject()->getLatestRevision( [
 			'id < ' . wfGetDB( DB_SLAVE )->addQuotes( $this->getId() )
-		) );
+		] );
 	}
 
 	/**
@@ -129,11 +129,11 @@ class EPRevision extends ORMRow {
 	 * @return boolean
 	 */
 	public function isLatest() {
-		return !$this->table->has( array(
+		return !$this->table->has( [
 			'type' => $this->getField( 'type' ),
 			'object_id' => $this->getField( 'object_id' ),
 			'id > ' . wfGetDB( DB_SLAVE )->addQuotes( $this->getId() )
-		) );
+		] );
 	}
 
 }

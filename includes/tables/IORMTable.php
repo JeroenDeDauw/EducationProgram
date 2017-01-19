@@ -111,8 +111,8 @@ interface IORMTable {
 	 * @return ORMResult The result set
 	 * @throws \DBQueryError If the query failed (even if the database was in ignoreErrors mode)
 	 */
-	public function select( $fields = null, array $conditions = array(),
-		array $options = array(), $functionName = null );
+	public function select( $fields = null, array $conditions = [],
+		array $options = [], $functionName = null );
 
 	/**
 	 * Selects the specified fields of the records matching the provided
@@ -127,8 +127,8 @@ interface IORMTable {
 	 *
 	 * @return array Array of self
 	 */
-	public function selectObjects( $fields = null, array $conditions = array(),
-		array $options = array(), $functionName = null );
+	public function selectObjects( $fields = null, array $conditions = [],
+		array $options = [], $functionName = null );
 
 	/**
 	 * Do the actual select.
@@ -143,8 +143,8 @@ interface IORMTable {
 	 * @return \ResultWrapper
 	 * @throws \DBQueryError If the query failed (even if the database was in ignoreErrors mode)
 	 */
-	public function rawSelect( $fields = null, array $conditions = array(),
-		array $options = array(), $functionName = null );
+	public function rawSelect( $fields = null, array $conditions = [],
+		array $options = [], $functionName = null );
 
 	/**
 	 * Selects the specified fields of the records matching the provided
@@ -168,8 +168,8 @@ interface IORMTable {
 	 *
 	 * @return array Array of array
 	 */
-	public function selectFields( $fields = null, array $conditions = array(),
-		array $options = array(), $collapse = true, $functionName = null );
+	public function selectFields( $fields = null, array $conditions = [],
+		array $options = [], $collapse = true, $functionName = null );
 
 	/**
 	 * Selects the specified fields of the first matching record.
@@ -184,8 +184,8 @@ interface IORMTable {
 	 *
 	 * @return IORMRow|bool False on failure
 	 */
-	public function selectRow( $fields = null, array $conditions = array(),
-		array $options = array(), $functionName = null );
+	public function selectRow( $fields = null, array $conditions = [],
+		array $options = [], $functionName = null );
 
 	/**
 	 * Selects the specified fields of the records matching the provided
@@ -200,8 +200,8 @@ interface IORMTable {
 	 *
 	 * @return \ResultWrapper
 	 */
-	public function rawSelectRow( array $fields, array $conditions = array(),
-		array $options = array(), $functionName = null );
+	public function rawSelectRow( array $fields, array $conditions = [],
+		array $options = [], $functionName = null );
 
 	/**
 	 * Selects the specified fields of the first record matching the provided
@@ -220,8 +220,8 @@ interface IORMTable {
 	 *
 	 * @return mixed|array|bool False on failure
 	 */
-	public function selectFieldsRow( $fields = null, array $conditions = array(),
-		array $options = array(), $collapse = true, $functionName = null );
+	public function selectFieldsRow( $fields = null, array $conditions = [],
+		array $options = [], $collapse = true, $functionName = null );
 
 	/**
 	 * Returns if there is at least one record matching the provided conditions.
@@ -233,7 +233,7 @@ interface IORMTable {
 	 *
 	 * @return bool
 	 */
-	public function has( array $conditions = array() );
+	public function has( array $conditions = [] );
 
 	/**
 	 * Checks if the table exists
@@ -258,7 +258,7 @@ interface IORMTable {
 	 *
 	 * @return int
 	 */
-	public function count( array $conditions = array(), array $options = array() );
+	public function count( array $conditions = [], array $options = [] );
 
 	/**
 	 * Removes the object from the database.
@@ -392,7 +392,7 @@ interface IORMTable {
 	 *
 	 * @return bool Success indicator
 	 */
-	public function update( array $values, array $conditions = array() );
+	public function update( array $values, array $conditions = [] );
 
 	/**
 	 * Computes the values of the summary fields of the objects matching the provided conditions.
@@ -402,7 +402,7 @@ interface IORMTable {
 	 * @param array|string|null $summaryFields
 	 * @param array $conditions
 	 */
-	public function updateSummaryFields( $summaryFields = null, array $conditions = array() );
+	public function updateSummaryFields( $summaryFields = null, array $conditions = [] );
 
 	/**
 	 * Takes in an associative array with field names as keys and

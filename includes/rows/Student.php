@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use IContextSource;
 
 /**
@@ -25,7 +26,7 @@ class Student extends RoleObject {
 	 *
 	 * @return string
 	 */
-	public static function getPager( IContextSource $context, array $conditions = array() ) {
+	public static function getPager( IContextSource $context, array $conditions = [] ) {
 		$pager = new StudentPager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
@@ -35,8 +36,7 @@ class Student extends RoleObject {
 				$pager->getBody() .
 				$pager->getNavigationBar() .
 				$pager->getMultipleItemControl();
-		}
-		else {
+		} else {
 			return $pager->getFilterControl( true ) .
 				$context->msg( 'ep-students-noresults' )->escaped();
 		}
@@ -55,13 +55,12 @@ class Student extends RoleObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = array( 'last_active', 'active_enroll' );
-		}
-		else {
+			$summaryFields = [ 'last_active', 'active_enroll' ];
+		} else {
 			$summaryFields = (array)$summaryFields;
 		}
 
-		$fields = array();
+		$fields = [];
 
 		if ( in_array( 'active_enroll', $summaryFields ) ) {
 			$fields['active_enroll'] = $this->hasCourse( Courses::getStatusConds( 'current' ) );

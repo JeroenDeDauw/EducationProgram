@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use IContextSource, Linker;
+
+use IContextSource;
+use Linker;
 
 /**
  * Online ambassador pager.
@@ -29,11 +31,11 @@ class OAPager extends EPPager {
 	 * @param array $conds
 	 * @param IORMTable|null $table
 	 */
-	public function __construct( IContextSource $context, array $conds = array(), IORMTable $table = null ) {
+	public function __construct( IContextSource $context, array $conds = [], IORMTable $table = null ) {
 		$this->mDefaultDirection = true;
 
 		$conds = array_merge(
-			array( 'visible' => true ),
+			[ 'visible' => true ],
 			$conds
 		);
 
@@ -48,11 +50,11 @@ class OAPager extends EPPager {
 	 * @see EPPager::getFields()
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'photo',
 			'user_id',
 			'bio',
-		);
+		];
 	}
 
 	/**
@@ -72,7 +74,7 @@ class OAPager extends EPPager {
 	function getCellAttrs( $field, $value ) {
 		$attr = parent::getCellAttrs( $field, $value );
 
-		if ( in_array( $field, array( 'user_id', '_courses' ) ) ) {
+		if ( in_array( $field, [ 'user_id', '_courses' ] ) ) {
 			$attr['style'] = 'min-width: 200px';
 		}
 
@@ -92,10 +94,10 @@ class OAPager extends EPPager {
 				$value = '';
 
 				if ( $file !== false ) {
-					$thumb = $file->transform( array(
+					$thumb = $file->transform( [
 						'width' => Settings::get( 'ambassadorImgWidth' ),
 						'height' => Settings::get( 'ambassadorImgHeight' ),
-					) );
+					] );
 
 					if ( $thumb && !$thumb->isError() ) {
 						$value = $thumb->toHtml();
@@ -112,12 +114,12 @@ class OAPager extends EPPager {
 			case '_courses':
 				$oa = $this->currentObject;
 
-				$courses = array();
+				$courses = [];
 
 				/**
 				 * @var Course $course
 				 */
-				foreach ( $oa->getCourses( array( 'title', 'name' ), Courses::getStatusConds( 'current' ) ) as $course ) {
+				foreach ( $oa->getCourses( [ 'title', 'name' ], Courses::getStatusConds( 'current' ) ) as $course ) {
 					$courses[] = $course->getLink();
 				}
 
@@ -132,8 +134,8 @@ class OAPager extends EPPager {
 	 * @see Pager::getSortableFields()
 	 */
 	protected function getSortableFields() {
-		return array(
-		);
+		return [
+		];
 	}
 
 	/**

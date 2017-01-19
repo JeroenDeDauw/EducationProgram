@@ -1,7 +1,9 @@
 <?php
 
 namespace EducationProgram;
-use Html, Xml;
+
+use Html;
+use Xml;
 
 /**
  * Action for undoing a change to an PageObject.
@@ -50,10 +52,10 @@ class UndeleteAction extends Action {
 		$object = $this->page->getTable()->getFromTitle( $this->getTitle() );
 
 		if ( $object === false ) {
-			$revision = Revisions::singleton()->getLatestRevision( array(
+			$revision = Revisions::singleton()->getLatestRevision( [
 				'object_identifier' => $this->getTitle()->getText(),
 				'type' => $this->page->getTable()->getRevisionedObjectTypeId(),
-			) );
+			] );
 
 			if ( $revision === false ) {
 				$this->getRequest()->setSessionData(
@@ -61,8 +63,7 @@ class UndeleteAction extends Action {
 					$this->msg( $this->prefixMsg( 'failed-norevs' ), $this->getTitle()->getText() )->text()
 				);
 				$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
-			}
-			else {
+			} else {
 
 				// This will check that we can undelete, and will output an
 				// appropriate message if we can't.
@@ -81,8 +82,7 @@ class UndeleteAction extends Action {
 								'epsuccess',
 								$this->msg( $this->prefixMsg( 'undeleted' ), $this->getTitle()->getText() )->text()
 							);
-						}
-						else {
+						} else {
 							$this->getRequest()->setSessionData(
 								'epfail',
 								$this->msg( $this->prefixMsg( 'undelete-failed' ), $this->getTitle()->getText() )->text()
@@ -90,14 +90,12 @@ class UndeleteAction extends Action {
 						}
 
 						$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
-					}
-					else {
+					} else {
 						$this->displayForm( $revision );
 					}
 				}
 			}
-		}
-		else {
+		} else {
 			$this->getRequest()->setSessionData(
 				'epfail',
 				$this->msg( $this->prefixMsg( 'failed-exists' ), $this->getTitle()->getText() )->text()
@@ -178,10 +176,10 @@ class UndeleteAction extends Action {
 
 		$out->addHTML( Html::openElement(
 			'form',
-			array(
+			[
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'epundelete' ) ),
-			)
+				'action' => $this->getTitle()->getLocalURL( [ 'action' => 'epundelete' ] ),
+			]
 		) );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel(
@@ -190,10 +188,10 @@ class UndeleteAction extends Action {
 			'summary',
 			65,
 			false,
-			array(
+			[
 				'maxlength' => 250,
 				'spellcheck' => true,
-			)
+			]
 		) );
 
 		$out->addHTML( '<br />' );
@@ -202,18 +200,18 @@ class UndeleteAction extends Action {
 			'undelete',
 			$this->msg( $this->prefixMsg( 'undelete-button' ) )->text(),
 			'submit',
-			array(
+			[
 				'class' => 'ep-undelete',
-			)
+			]
 		) );
 
 		$out->addElement(
 			'button',
-			array(
+			[
 				'id' => 'cancelUndeletion',
 				'class' => 'ep-undelete-cancel ep-cancel',
 				'data-target-url' => $this->getTitle()->getLocalURL(),
-			),
+			],
 			$this->msg( $this->prefixMsg( 'cancel-button' ) )->text()
 		);
 

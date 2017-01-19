@@ -21,17 +21,17 @@ class RoleAdd extends \EchoEventPresentationModel {
 	 * {@inheritdoc}
 	 */
 	public function getPrimaryLink() {
-		return array(
+		return [
 			'url' => $this->event->getTitle()->getFullURL(),
 			'label' => $this->msg( 'ep-role-add-link-text-view-course' )->text(),
-		);
+		];
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
 	public function getSecondaryLinks() {
-		return array( $this->getAgentLink() );
+		return [ $this->getAgentLink() ];
 	}
 
 	/**

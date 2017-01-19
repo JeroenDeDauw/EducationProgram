@@ -1,7 +1,11 @@
 <?php
 
 namespace EducationProgram;
-use Linker, Html, SpecialPage, Xml;
+
+use Linker;
+use Html;
+use SpecialPage;
+use Xml;
 
 /**
  * Disenrollment page for students.
@@ -35,21 +39,18 @@ class SpecialDisenroll extends VerySpecialPage {
 
 		$courseName = str_replace( '_', ' ', $this->subPage );
 
-		if ( $courseName === ''  ) {
+		if ( $courseName === '' ) {
 			$this->showWarning( $this->msg( 'ep-disenroll-no-name' ) );
-		}
-		else {
+		} else {
 			$course = Courses::singleton()->getFromTitle( $courseName );
 
 			if ( $course === false ) {
 				$this->showWarning( $this->msg( 'ep-disenroll-invalid-name', $courseName ) );
-			}
-			else {
-				if ( Student::newFromUser( $this->getUser() )->hasCourse( array( 'id' => $course->getId() ) ) ) {
+			} else {
+				if ( Student::newFromUser( $this->getUser() )->hasCourse( [ 'id' => $course->getId() ] ) ) {
 					$this->executeEnrolled( $course );
 
-				}
-				else {
+				} else {
 					$this->showWarning( $this->msg( 'ep-disenroll-not-enrolled' ) );
 				}
 			}
@@ -73,8 +74,7 @@ class SpecialDisenroll extends VerySpecialPage {
 
 				if ( $req->wasPosted() && $editTokenMatches ) {
 					$this->doDisenroll( $course );
-				}
-				else {
+				} else {
 					$this->getOutput()->setPageTitle(
 						$this->msg(
 							'ep-disenroll-title',
@@ -83,12 +83,10 @@ class SpecialDisenroll extends VerySpecialPage {
 					);
 					$this->showDisenrollForm( $course );
 				}
-			}
-			else {
+			} else {
 				$this->showLoginLink();
 			}
-		}
-		else {
+		} else {
 			$this->showWarning( $this->msg( 'ep-disenroll-course-passed' ) );
 		}
 	}
@@ -103,10 +101,10 @@ class SpecialDisenroll extends VerySpecialPage {
 		$this->getOutput()->addHTML( Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Userlogin' ),
 			$this->msg( 'ep-enroll-login-and-enroll' )->escaped(),
-			array(),
-			array(
+			[],
+			[
 				'returnto' => $this->getPageTitle( $this->subPage )->getFullText()
-			)
+			]
 		) );
 	}
 
@@ -128,10 +126,10 @@ class SpecialDisenroll extends VerySpecialPage {
 
 		$out->addHTML( Html::openElement(
 			'form',
-			array(
+			[
 				'method' => 'post',
 				'action' => $target,
-			)
+			]
 		) );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel(
@@ -140,10 +138,10 @@ class SpecialDisenroll extends VerySpecialPage {
 			'summary',
 			65,
 			false,
-			array(
+			[
 				'maxlength' => 250,
 				'spellcheck' => true,
-			)
+			]
 		) );
 
 		$out->addHTML( '<br />' );
@@ -152,17 +150,17 @@ class SpecialDisenroll extends VerySpecialPage {
 			'disenroll',
 			$this->msg( 'ep-disenroll-button' )->text(),
 			'submit',
-			array(
+			[
 				'class' => 'ep-disenroll',
-			)
+			]
 		) );
 
 		$out->addElement(
 			'button',
-			array(
+			[
 				'class' => 'ep-disenroll-cancel ep-cancel',
 				'data-target-url' => $course->getTitle()->getLocalURL(),
-			),
+			],
 			$this->msg( 'ep-disenroll-cancel' )->text()
 		);
 
@@ -192,8 +190,7 @@ class SpecialDisenroll extends VerySpecialPage {
 
 		if ( $success ) {
 			$this->showSuccess( $this->msg( 'ep-disenroll-success', $this->getUser() )->text() );
-		}
-		else {
+		} else {
 			$this->showError( $this->msg( 'ep-disenroll-fail' ) );
 		}
 

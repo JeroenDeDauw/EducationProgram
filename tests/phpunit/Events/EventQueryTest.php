@@ -35,13 +35,13 @@ use EducationProgram\Events\EventQuery;
 class EventQueryTest extends \PHPUnit_Framework_TestCase {
 
 	public function setCoursesProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array( 1 );
-		$argLists[] = array( 42 );
-		$argLists[] = array( array( 1 ) );
-		$argLists[] = array( array( 42 ) );
-		$argLists[] = array( array( 1, 2, 3, 9001 ) );
+		$argLists[] = [ 1 ];
+		$argLists[] = [ 42 ];
+		$argLists[] = [ [ 1 ] ];
+		$argLists[] = [ [ 42 ] ];
+		$argLists[] = [ [ 1, 2, 3, 9001 ] ];
 
 		return $argLists;
 	}
@@ -58,10 +58,10 @@ class EventQueryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function timeLimitProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array( '20010115123456', EventQuery::COMP_BIGGER );
-		$argLists[] = array( '20010115123456', EventQuery::COMP_SMALLER );
+		$argLists[] = [ '20010115123456', EventQuery::COMP_BIGGER ];
+		$argLists[] = [ '20010115123456', EventQuery::COMP_SMALLER ];
 
 		return $argLists;
 	}
@@ -81,12 +81,12 @@ class EventQueryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function rowLimitProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array( 1 );
-		$argLists[] = array( 42 );
-		$argLists[] = array( 9001 );
-		$argLists[] = array( 7201010 );
+		$argLists[] = [ 1 ];
+		$argLists[] = [ 42 ];
+		$argLists[] = [ 9001 ];
+		$argLists[] = [ 7201010 ];
 
 		return $argLists;
 	}
@@ -103,11 +103,11 @@ class EventQueryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function sortOrderProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$argLists[] = array( EventQuery::ORDER_NONE );
-		$argLists[] = array( EventQuery::ORDER_TIME_ASC );
-		$argLists[] = array( EventQuery::ORDER_TIME_DESC );
+		$argLists[] = [ EventQuery::ORDER_NONE ];
+		$argLists[] = [ EventQuery::ORDER_TIME_ASC ];
+		$argLists[] = [ EventQuery::ORDER_TIME_DESC ];
 
 		return $argLists;
 	}

@@ -113,20 +113,20 @@ class TestORMRowTest extends ORMRowTest {
 
 	public function constructorTestProvider() {
 		$dbw = wfGetDB( DB_MASTER );
-		return array(
-			array(
-				array(
+		return [
+			[
+				[
 					'name' => 'Foobar',
 					'time' => $dbw->timestamp( '20120101020202' ),
 					'age' => 42,
 					'height' => 9000.1,
 					'awesome' => true,
-					'stuff' => array( 13, 11, 7, 5, 3, 2 ),
-					'moarstuff' => (object)array( 'foo' => 'bar', 'bar' => array( 4, 2 ), 'baz' => true )
-				),
+					'stuff' => [ 13, 11, 7, 5, 3, 2 ],
+					'moarstuff' => (object)[ 'foo' => 'bar', 'bar' => [ 4, 2 ], 'baz' => true ]
+				],
 				true
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -134,15 +134,15 @@ class TestORMRowTest extends ORMRowTest {
 	 * @return array
 	 */
 	protected function getMockValues() {
-		return array(
+		return [
 			'id' => 1,
 			'str' => 'foobar4645645',
 			'int' => 42,
 			'float' => 4.2,
 			'bool' => '',
-			'array' => array( 42, 'foobar' ),
+			'array' => [ 42, 'foobar' ],
 			'blob' => new \stdClass()
-		);
+		];
 	}
 }
 
@@ -198,7 +198,7 @@ class TestORMTable extends ORMTable {
 	 * @return array
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'id' => 'id',
 			'name' => 'str',
 			'age' => 'int',
@@ -207,6 +207,6 @@ class TestORMTable extends ORMTable {
 			'stuff' => 'array',
 			'moarstuff' => 'blob',
 			'time' => 'str', // TS_MW
-		);
+		];
 	}
 }

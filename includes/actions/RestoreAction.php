@@ -1,7 +1,10 @@
 <?php
 
 namespace EducationProgram;
-use Linker, Html, Xml;
+
+use Linker;
+use Html;
+use Xml;
 
 /**
  * Abstract action for restoring an PageObject to a previous revision.
@@ -52,20 +55,18 @@ class RestoreAction extends Action {
 		if ( $object === false ) {
 			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ), $this->getTitle()->getText() );
 			$this->getOutput()->setSubtitle( '' );
-		}
-		else {
+		} else {
 			$req = $this->getRequest();
 
 			$success = false;
 
 			if ( $req->getCheck( 'revid' ) ) {
-				$revision = Revisions::singleton()->selectRow( null, array( 'id' => $req->getInt( 'revid' ) ) );
+				$revision = Revisions::singleton()->selectRow( null, [ 'id' => $req->getInt( 'revid' ) ] );
 
 				if ( $revision !== false ) {
 					if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'restoreToken' ), $this->getSalt() ) ) {
 						$success = $this->doRestore( $object, $revision );
-					}
-					else {
+					} else {
 						$diff = $object->getRestoreDiff( $revision );
 
 						if ( $diff->isValid() ) {
@@ -74,8 +75,7 @@ class RestoreAction extends Action {
 								$diffTable->display();
 
 								$this->displayForm( $object, $revision );
-							}
-							else {
+							} else {
 								// TODO
 							}
 
@@ -91,8 +91,7 @@ class RestoreAction extends Action {
 						'epsuccess',
 						$this->msg( $this->prefixMsg( 'restored' ), $this->getTitle()->getText() )->text()
 					);
-				}
-				else {
+				} else {
 					$this->getRequest()->setSessionData(
 						'epfail',
 						$this->msg( $this->prefixMsg( 'restore-failed' ), $this->getTitle()->getText() )->text()
@@ -148,10 +147,10 @@ class RestoreAction extends Action {
 
 		$out->addHTML( Html::openElement(
 			'form',
-			array(
+			[
 				'method' => 'post',
-				'action' => $this->getTitle()->getLocalURL( array( 'action' => 'eprestore' ) ),
-			)
+				'action' => $this->getTitle()->getLocalURL( [ 'action' => 'eprestore' ] ),
+			]
 		) );
 
 		$out->addHTML( '&#160;' . Xml::inputLabel(
@@ -165,10 +164,10 @@ class RestoreAction extends Action {
 				$revision->getUser()->getName(),
 				$this->getLanguage()->time( $revision->getField( 'time' ) )
 			)->text(),
-			array(
+			[
 				'maxlength' => 250,
 				'spellcheck' => true,
-			)
+			]
 		) );
 
 		$out->addHTML( '<br />' );
@@ -177,18 +176,18 @@ class RestoreAction extends Action {
 			'restore',
 			$this->msg( $this->prefixMsg( 'restore-button' ) )->text(),
 			'submit',
-			array(
+			[
 				'class' => 'ep-restore',
-			)
+			]
 		) );
 
 		$out->addElement(
 			'button',
-			array(
+			[
 				'id' => 'cancelRestore',
 				'class' => 'ep-restore-cancel ep-cancel',
 				'data-target-url' => $this->getTitle()->getLocalURL(),
-			),
+			],
 			$this->msg( $this->prefixMsg( 'cancel-button' ) )->text()
 		);
 

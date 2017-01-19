@@ -33,19 +33,19 @@ namespace EducationProgram\Tests;
 class ActionsTest extends \MediaWikiTestCase {
 
 	public function actionProvider() {
-		$argLists = array();
+		$argLists = [];
 
-		$actions = array(
+		$actions = [
 			'edit',
 			'view',
 			'purge',
 			'history',
 			'delete',
-		);
+		];
 
 		foreach ( $actions as $action ) {
-			$argLists[] = array( $action, new \EducationProgram\OrgPage( \Title::newFromText( 'University of foo' ) ) );
-			$argLists[] = array( $action, new \EducationProgram\CoursePage( \Title::newFromText( 'University of foo/bar baz' ) ) );
+			$argLists[] = [ $action, new \EducationProgram\OrgPage( \Title::newFromText( 'University of foo' ) ) ];
+			$argLists[] = [ $action, new \EducationProgram\CoursePage( \Title::newFromText( 'University of foo/bar baz' ) ) ];
 		}
 
 		return $argLists;

@@ -44,7 +44,7 @@ class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 		$eventStore = $this->getMockBuilder( 'EducationProgram\Events\EventStore' )
 			->disableOriginalConstructor()->getMock();
 
-		$eventStore->expects( $this->once() )->method( 'query' )->will( $this->returnValue( array() ) );
+		$eventStore->expects( $this->once() )->method( 'query' )->will( $this->returnValue( [] ) );
 
 		$courseStore = $this->getMockBuilder( 'EducationProgram\Store\CourseStore' )
 			->disableOriginalConstructor()->getMock();
@@ -64,7 +64,7 @@ class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 	protected function getMockCourse() {
 		return new Course(
 			Courses::singleton(),
-			array(
+			[
 				'id' => 42,
 
 				'org_id' => 9001,
@@ -74,10 +74,10 @@ class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 				'end' => '20130423135536',
 				'description' => 'In ur courses',
 				'token' => 'abc',
-				'students' => array( 1, 2, 3 ),
-				'instructors' => array( 4, 5, 6 ),
-				'online_ambs' => array( 7, 8 ),
-				'campus_ambs' => array(),
+				'students' => [ 1, 2, 3 ],
+				'instructors' => [ 4, 5, 6 ],
+				'online_ambs' => [ 7, 8 ],
+				'campus_ambs' => [],
 				'field' => 'Leetness',
 				'level' => 'Over 9000',
 				'term' => 'Teh future',
@@ -89,7 +89,7 @@ class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 				'ca_count' => 0,
 
 				'touched' => 20130423135537,
-			)
+			]
 		);
 	}
 

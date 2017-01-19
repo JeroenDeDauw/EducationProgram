@@ -1,7 +1,10 @@
 <?php
 
 namespace EducationProgram;
-use Linker, Html, Xml;
+
+use Linker;
+use Html;
+use Xml;
 
 /**
  * Action for comparing two revisions of a PageObject.
@@ -39,9 +42,9 @@ class CompareAction extends Action {
 		$object = $this->page->getTable()->getFromTitle( $this->getTitle() );
 		$req = $this->getRequest();
 
-		if ( $object !== false && $req->getCheck( 'revid') ){
+		if ( $object !== false && $req->getCheck( 'revid' ) ){
 
-			$revision = Revisions::singleton()->selectRow( null, array( 'id' => $req->getInt( 'revid' ) ) );
+			$revision = Revisions::singleton()->selectRow( null, [ 'id' => $req->getInt( 'revid' ) ] );
 
 			if ( $revision !== false ) {
 

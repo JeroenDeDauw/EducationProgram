@@ -1,6 +1,7 @@
 <?php
 
 namespace EducationProgram;
+
 use IContextSource;
 
 /**
@@ -38,7 +39,7 @@ class CoursePager extends EPPager {
 	 * @param array $conds
 	 * @param boolean $readOnlyMode
 	 */
-	public function __construct( IContextSource $context, array $conds = array(), $readOnlyMode = false ) {
+	public function __construct( IContextSource $context, array $conds = [], $readOnlyMode = false ) {
 		$this->readOnlyMode = $readOnlyMode;
 		parent::__construct( $context, $conds, Courses::singleton() );
 	}
@@ -51,7 +52,7 @@ class CoursePager extends EPPager {
 	 * @return array
 	 */
 	public static function getModules() {
-		return array_merge( parent::getModules(), array( 'ep.pager.course' ) );
+		return array_merge( parent::getModules(), [ 'ep.pager.course' ] );
 	}
 
 	/**
@@ -66,7 +67,7 @@ class CoursePager extends EPPager {
 	 *
 	 * @return string
 	 */
-	public static function getPager( IContextSource $context, array $conditions = array(), $readOnlyMode = false, $filterPrefix = false ) {
+	public static function getPager( IContextSource $context, array $conditions = [], $readOnlyMode = false, $filterPrefix = false ) {
 		$pager = new static( $context, $conditions, $readOnlyMode );
 
 		if ( $filterPrefix !== false ) {
@@ -82,8 +83,7 @@ class CoursePager extends EPPager {
 					$pager->getBody() .
 					$pager->getNavigationBar() .
 					$pager->getMultipleItemControl();
-		}
-		else {
+		} else {
 			$html .= $pager->getFilterControl( true );
 			$html .= $context->msg( 'ep-courses-noresults' )->escaped();
 		}
@@ -95,14 +95,14 @@ class CoursePager extends EPPager {
 	 * @see Pager::getFields()
 	 */
 	public function getFields() {
-		return array(
+		return [
 			'name',
 			'org_id',
 			'term',
 			'id',
 			'lang',
 			'student_count',
-		);
+		];
 	}
 
 	/**
@@ -138,8 +138,7 @@ class CoursePager extends EPPager {
 			case 'org_id':
 				if ( array_key_exists( $value, $this->orgNames ) ) {
 					$value = Orgs::singleton()->getLinkFor( $this->orgNames[$value] );
-				}
-				else {
+				} else {
 					wfWarn( 'Org id not in $this->orgNames in ' . __METHOD__ );
 				}
 				break;
@@ -150,8 +149,7 @@ class CoursePager extends EPPager {
 				$langs = \Language::fetchLanguageNames( $this->getLanguage()->getCode() );
 				if ( array_key_exists( $value, $langs ) ) {
 					$value = htmlspecialchars( $langs[$value] );
-				}
-				else {
+				} else {
 					$value = '<i>' . htmlspecialchars( $this->getMsg( 'invalid-lang' ) ) . '</i>';
 				}
 
@@ -174,12 +172,12 @@ class CoursePager extends EPPager {
 	 * @see Pager::getSortableFields()
 	 */
 	protected function getSortableFields() {
-		return array(
+		return [
 			'name',
 			'term',
 			'lang',
 			'student_count',
-		);
+		];
 	}
 
 	/**
@@ -188,7 +186,7 @@ class CoursePager extends EPPager {
 	public function getFieldNames() {
 		$fields = parent::getFieldNames();
 
-		$fields = wfArrayInsertAfter( $fields, array( '_status' => 'status' ), 'student_count' );
+		$fields = wfArrayInsertAfter( $fields, [ '_status' => 'status' ], 'student_count' );
 
 		return $fields;
 	}
@@ -197,40 +195,40 @@ class CoursePager extends EPPager {
 	 * @see EPPager::getFilterOptions()
 	 */
 	protected function getFilterOptions() {
-		$options = array();
+		$options = [];
 
 		$orgs = Orgs::singleton();
 
-		$options['org_id'] = array(
+		$options['org_id'] = [
 			'type' => 'select',
 			'options' => array_merge(
-				array( '' => '' ),
-				$orgs->selectFields( array( 'name', 'id' ) )
+				[ '' => '' ],
+				$orgs->selectFields( [ 'name', 'id' ] )
 			),
 			'value' => '',
-		);
+		];
 
-		$terms = Courses::singleton()->selectFields( 'term', array(), array( 'DISTINCT' ), true );
+		$terms = Courses::singleton()->selectFields( 'term', [], [ 'DISTINCT' ], true );
 
 		natcasesort( $terms );
-		$terms = array_merge( array( '' ), $terms );
+		$terms = array_merge( [ '' ], $terms );
 		$terms = array_combine( $terms, $terms );
 
-		$options['term'] = array(
+		$options['term'] = [
 			'type' => 'select',
 			'options' => $terms,
 			'value' => '',
-		);
+		];
 
-		$options['status'] = array(
+		$options['status'] = [
 			'type' => 'select',
 			'options' => array_merge(
-				array( '' => '' ),
+				[ '' => '' ],
 				Course::getStatuses(),
-				array( $this->msg( 'ep-course-status-current-planned' )->text() => 'current-planned' )
+				[ $this->msg( 'ep-course-status-current-planned' )->text() => 'current-planned' ]
 			),
 			'value' => 'current-planned',
-		);
+		];
 
 		return $options;
 	}
@@ -247,8 +245,8 @@ class CoursePager extends EPPager {
 			$links[] = $item->getLink(
 				'edit',
 				$this->msg( 'edit' )->escaped(),
-				array(),
-				array( 'wpreturnto' => $this->getTitle()->getFullText() )
+				[],
+				[ 'wpreturnto' => $this->getTitle()->getFullText() ]
 			);
 
 			$links[] = $this->getDeletionLink(
@@ -272,10 +270,10 @@ class CoursePager extends EPPager {
 			&& $this->getUser()->isAllowed( 'ep-bulkdelcourses' )
 			&& $this->getUser()->getOption( 'ep_bulkdelcourses' ) ) {
 
-			$actions[$this->msg( 'ep-pager-delete-selected' )->text()] = array(
+			$actions[$this->msg( 'ep-pager-delete-selected' )->text()] = [
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) )
-			);
+			];
 		}
 
 		return $actions;
@@ -323,7 +321,7 @@ class CoursePager extends EPPager {
 	 * @see IndexPager::doBatchLookups()
 	 */
 	protected function doBatchLookups() {
-		$orgIds = array();
+		$orgIds = [];
 		$field = $this->table->getPrefixedField( 'org_id' );
 
 		foreach ( $this->mResult as $course ) {
@@ -331,8 +329,8 @@ class CoursePager extends EPPager {
 		}
 
 		$this->orgNames = Orgs::singleton()->selectFields(
-			array( 'id', 'name' ),
-			array( 'id' => $orgIds )
+			[ 'id', 'name' ],
+			[ 'id' => $orgIds ]
 		);
 	}
 }
