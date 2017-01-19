@@ -1,16 +1,10 @@
 {
-	"name": "mediawiki/education-program",
-		"type": "mediawiki-extension",
-		"description": "Facilitates educational programs by adding various interfaces to manage courses, students, institutions, mentors",
-		"homepage": "https://www.mediawiki.org/wiki/Extension:EducationProgram",
-		"license" : "GPL-2.0+",
-
-		"require": {
-			"composer/installers" : "*",
-			"mediawiki/cldr" : "dev-master"
-		},
-
-		"suggest": {
-			"mediawiki/wiki-editor" : "dev-master"
-		}
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "0.9.2"
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor"
+		]
+	}
 }
