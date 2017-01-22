@@ -9,7 +9,8 @@
 			"Ricordisamoa",
 			"The Polish",
 			"Alexmar983",
-			"J. 'mach' wust"
+			"J. 'mach' wust",
+			"Samuele2002"
 		]
 	},
 	"educationprogram-desc": "Facilita i programmi di istruzione con l'aggiunta di varie interfacce per la gestione di corsi, istituti e i vari ruoli utente per la formazione",
@@ -706,22 +707,7 @@
 	"ep-echo-pref-tooltip": "Notificami su eventi relativi ai corsi del programma di istruzione in cui sono coinvolto",
 	"ep-course-talk-link-text-view-message": "Vedi messaggio",
 	"ep-course-talk-link-text-view-changes": "Vedi modifiche",
-	"ep-course-talk-notification-title": "La [[$2|pagina di discussione del corso di $3]] è stata {{GENDER:$1|modificata}} da [[User:$1|$1]].",
-	"ep-course-talk-notification-title-email-subject": "La pagina di discussione del corso di $2 è stata {{GENDER:$1|modificata}} da $1.",
-	"ep-course-talk-notification-title-email-body": "La pagina di discussione del corso di $2 è stata {{GENDER:$1|modificata}} da $1.",
 	"ep-role-add-link-text-view-course": "Vedi corso",
-	"ep-student-add-notification-title": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} a [[$2|$3]] da [[User:$1|$1]].",
-	"ep-student-add-notification-title-email-subject": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} a $2 da $1.",
-	"ep-student-add-notification-title-email-body": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} a $2 da $1.",
-	"ep-instructor-add-notification-title": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come insegnante a [[$2|$3]] da [[User:$1|$1]].",
-	"ep-instructor-add-notification-title-email-subject": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come insegnante a $2 da $1.",
-	"ep-instructor-add-notification-title-email-body": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come insegnante a $2 da $1.",
-	"ep-campus-add-notification-title": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario del campus a [[$2|$3]] da [[User:$1|$1]].",
-	"ep-campus-add-notification-title-email-subject": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario del campus a $2 da $1.",
-	"ep-campus-add-notification-title-email-body": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario del campus a $2 da $1.",
-	"ep-online-add-notification-title": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario online a [[$2|$3]] da [[User:$1|$1]].",
-	"ep-online-add-notification-title-email-subject": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario online a $2 da $1.",
-	"ep-online-add-notification-title-email-body": "Sei stato {{GENDER:$1|aggiunto|aggiunta|aggiunto/a}} come volontario online a $2 da $1.",
 	"notification-header-ep-campus-add-notification": "Sei stato {{GENDER:$2|aggiunto|aggiunta|aggiunto/a}} come volontario del campus a '''$3'''.",
 	"notification-header-ep-course-talk-notification": "La pagina di discussione del corso '''$3''' è stata {{GENDER:$2|modificata}}.",
 	"notification-header-ep-instructor-add-notification": "Sei stato {{GENDER:$2|aggiunto|aggiunta|aggiunto/a}} come insegnante a '''$3'''.",
@@ -761,5 +747,6 @@
 	"apihelp-refresheducation-param-ids": "Gli ID degli oggetti da aggiornare.",
 	"apihelp-refresheducation-param-type": "Tipo di oggetto da aggiornare.",
 	"apihelp-refresheducation-example-1": "Aggiorna corso 42",
-	"apihelp-refresheducation-example-2": "Aggiorna studenti 2 e 4"
+	"apihelp-refresheducation-example-2": "Aggiorna studenti 2 e 4",
+	"apierror-educationprogram-overlimit": "La Query ha superato il limite con $1. Provare di nuovo con un minor numero di corsi."
 }
