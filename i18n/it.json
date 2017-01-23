@@ -748,5 +748,5 @@
 	"apihelp-refresheducation-param-type": "Tipo di oggetto da aggiornare.",
 	"apihelp-refresheducation-example-1": "Aggiorna corso 42",
 	"apihelp-refresheducation-example-2": "Aggiorna studenti 2 e 4",
-	"apierror-educationprogram-overlimit": "La Query ha superato il limite con $1. Provare di nuovo con un minor numero di corsi."
+	"apierror-educationprogram-overlimit": "La query ha superato il limite con il corso $1. Prova di nuovo con un minor numero di corsi."
 }

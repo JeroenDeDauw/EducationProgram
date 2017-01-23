@@ -612,6 +612,7 @@
 	"notification-header-ep-instructor-add-notification": "{{GENDER:$2|Zostałeś dodany jako instruktor|Zostałaś dodana jako instruktorka}} do '''$3'''.",
 	"notification-header-ep-student-add-notification": "{{GENDER:$2|Zostałeś dodany|Zostałaś dodana}} do '''$3'''.",
 	"apihelp-addstudents-description": "Dodaj wielu studentów do kursu.",
+	"apihelp-deleteeducation-param-type": "Typ obiektu do usunięcia.",
 	"apihelp-deleteeducation-example-1": "Usuń kurs 42",
 	"apihelp-deleteeducation-example-2": "Usuń organizacje 2. i 4.",
 	"apihelp-enlist-param-courseid": "Identyfikator kursu.",
