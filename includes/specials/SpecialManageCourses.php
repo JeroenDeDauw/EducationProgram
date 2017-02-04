@@ -52,9 +52,9 @@ class SpecialManageCourses extends VerySpecialPage {
 				}
 			}
 		} else {
-			$this->getOutput()->addHTML( \Linker::linkKnown(
+			$this->getOutput()->addHTML( $this->getLinkRenderer()->makeKnownLink(
 				\SpecialPage::getTitleFor( 'Userlogin' ),
-				$this->msg( 'ep-mycourses-login-first' )->escaped(),
+				$this->msg( 'ep-mycourses-login-first' )->text(),
 				[],
 				[
 					'returnto' => $this->getPageTitle( $this->subPage )->getFullText()

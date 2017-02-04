@@ -2,7 +2,6 @@
 
 namespace EducationProgram;
 
-use Linker;
 use Html;
 use SpecialPage;
 use Xml;
@@ -98,9 +97,9 @@ class SpecialDisenroll extends VerySpecialPage {
 	 * @since 0.1
 	 */
 	protected function showLoginLink() {
-		$this->getOutput()->addHTML( Linker::linkKnown(
+		$this->getOutput()->addHTML( $this->getLinkRenderer()->makeKnownLink(
 			SpecialPage::getTitleFor( 'Userlogin' ),
-			$this->msg( 'ep-enroll-login-and-enroll' )->escaped(),
+			$this->msg( 'ep-enroll-login-and-enroll' )->text(),
 			[],
 			[
 				'returnto' => $this->getPageTitle( $this->subPage )->getFullText()

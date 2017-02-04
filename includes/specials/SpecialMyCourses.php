@@ -2,14 +2,15 @@
 
 namespace EducationProgram;
 
-use EducationProgram\Events\Timeline;
+use Html;
+use HtmlArmor;
 use IContextSource;
-use Linker;
 use EducationProgram\Events\EventQuery;
 use EducationProgram\Events\EventStore;
+use EducationProgram\Events\Timeline;
 
 /**
- * Page listing the recent actibvity of the users classmates.
+ * Page listing the recent activity of the users classmates.
  * It works both as a timeline and a dashboard.
  *
  * @since 0.1
@@ -62,9 +63,9 @@ class SpecialMyCourses extends VerySpecialPage {
 				$this->displayTimelines();
 			}
 		} else {
-			$this->getOutput()->addHTML( Linker::linkKnown(
+			$this->getOutput()->addHTML( $this->getLinkRenderer()->makeKnownLink(
 				\SpecialPage::getTitleFor( 'Userlogin' ),
-				$this->msg( 'ep-dashboard-login-first' )->escaped(),
+				$this->msg( 'ep-dashboard-login-first' )->text(),
 				[],
 				[ 'returnto' => $this->getPageTitle( $this->subPage )->getFullText() ]
 			) );
@@ -197,13 +198,13 @@ class SpecialMyCourses extends VerySpecialPage {
 
 				$events = $eventStore->query( $query );
 
-				$html = Linker::link(
+				$html = $this->getLinkRenderer()->makeLink(
 					$course->getTitle(),
-					\Html::element(
+					new HtmlArmor( Html::element(
 						'h2',
 						[ 'class' => 'ep-course-title' ],
 						$course->getField( 'name' )
-					)
+					) )
 				);
 
 				if ( $events === [] ) {
