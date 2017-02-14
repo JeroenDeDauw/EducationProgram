@@ -304,7 +304,7 @@
 	"ep-articletable-remstudent-title": "从课程中移除{{GENDER:$1|学生}}",
 	"ep-articletable-remstudent-button": "移除{{GENDER:$1|学生}}",
 	"ep-articletable-remstudent-cancel": "取消",
-	"ep-articletable-remstudent-text": "您正要撤销$3在课程$2中的学生身份。\n\n这将永久地移除与{{GENDER:$1|他|她|他们}}有关的文章和复审员！",
+	"ep-articletable-remstudent-text": "您正要撤销$3在课程$2中的学生身份。\n\n这将永久地移除与{{GENDER:$1|他|她|其}}有关的文章和复审员！",
 	"ep-articletable-remarticle-title": "删除文章$1",
 	"ep-articletable-remarticle-button": "移除条目",
 	"ep-articletable-remarticle-cancel": "取消",
