@@ -192,7 +192,7 @@
 	"ep-educationprogram-female": "여성",
 	"ep-educationprogram-unknown": "알 수 없음",
 	"ep-educationprogram-genders": "성별 분석",
-	"ep-educationprogram-nodata": "아직 보여줄 데이터가 없습니다!",
+	"ep-educationprogram-nodata": "표시할 데이터가 아직 없습니다!",
 	"ep-institutions-noresults": "목록에 기관이 없습니다.",
 	"ep-institutions-addnew": "새 기관 추가",
 	"ep-institutions-namedoc": "새 기관에 대한 (고유해야 하는) 이름을 입력하고 버튼을 누르세요.",
