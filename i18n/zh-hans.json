@@ -574,7 +574,7 @@
 	"ep-mycourses-nocourses-epinstructor": "在您当{{GENDER:$1|教师}}的地方没有课程。",
 	"ep-mycourses-enrolledin": "您已经在机构$2的课程$1登记。",
 	"ep-mycourses-course-org-links": "课程$1位于机构$2。",
-	"ep-mycourses-articletable": "这些是你和它们的复核者工作的文章：",
+	"ep-mycourses-articletable": "这些是您和它们的复核者工作的文章：",
 	"ep-instructor-remove-title": "从课程中删除讲师",
 	"ep-instructor-remove-button": "移除讲师",
 	"ep-instructor-removing": "正在刪除...",
