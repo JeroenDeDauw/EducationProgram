@@ -4,7 +4,6 @@ namespace EducationProgram;
 
 use UserBlockedError;
 use Html;
-use Linker;
 use Xml;
 use SpecialPage;
 
@@ -207,9 +206,10 @@ class SpecialEnroll extends VerySpecialPage {
 			$subPage .= '/' . $this->token;
 		}
 
-		$out->addHTML( Linker::linkKnown(
+		$linkRenderer = $this->getLinkRenderer();
+		$out->addHTML( $linkRenderer->makeKnownLink(
 			SpecialPage::getTitleFor( 'Userlogin' ),
-			$this->msg( 'ep-enroll-login-and-enroll' )->escaped(),
+			$this->msg( 'ep-enroll-login-and-enroll' )->text(),
 			[],
 			[
 				'returnto' => $this->getPageTitle( $subPage )->getFullText()
@@ -218,9 +218,9 @@ class SpecialEnroll extends VerySpecialPage {
 
 		$out->addHTML( '</li><li>' );
 
-		$out->addHTML( Linker::linkKnown(
+		$out->addHTML( $linkRenderer->makeKnownLink(
 			SpecialPage::getTitleFor( 'Userlogin' ),
-			$this->msg( 'ep-enroll-signup-and-enroll' )->escaped(),
+			$this->msg( 'ep-enroll-signup-and-enroll' )->text(),
 			[],
 			[
 				'returnto' => $this->getPageTitle( $subPage )->getFullText(),
