@@ -19,7 +19,9 @@
 	"ep-tab-activity": "Veire l’activitat",
 	"tooltip-ep-form-save": "Enregistrar",
 	"prefs-education": "Educacion",
+	"right-ep-addstudent": "Inscriure d'utilizaires coma estudiants",
 	"action-ep-org": "gerir las institucions",
+	"action-ep-addstudent": "inscriure d'utilizaires coma estudiants",
 	"specialpages-group-education": "Educacion",
 	"special-mycourses": "Vòstres corses",
 	"special-managecourses": "Gerir vòstres corses",
@@ -103,6 +105,8 @@
 	"ep-articles-addarticle-button": "Apondre l’article",
 	"ep-articletable-addreviwer-cancel": "Anullar",
 	"ep-articletable-addreviwer-text": "Sètz a mand de vos engatjar vos-meteis coma {{GENDER:$1|relector|relectritz}} per l’article $2 creat per $3.",
+	"ep-articletable-remreviwer-text-self": "Sètz a mand de vos suprimir vos-meteis en tant que {{GENDER:$1|relector|relectritz}} per l’article $2 creat per $3.",
+	"ep-articletable-remreviwer-text": "Sètz a mand de suprimir $4 coma {{GENDER:$1|relector|relectritz}} per l’article $2 creat per $3.",
 	"ep-articletable-remarticle-cancel": "Anullar",
 	"epcapager-header-photo": "Fòto",
 	"epcapager-header-user-id": "Nom d'utilizaire",
@@ -224,5 +228,6 @@
 	"ep-campus-add-text": "Sètz a apondre un benevòl de campus al cors $1. Picatz lo nom d’utilizaire del benevòl e una brèva descripcion de la rason de l’apondon d'aquesta persona.",
 	"ep-campus-add-cancel-button": "Anullar",
 	"ep-campus-summary-input": "Resumit :",
-	"ep-campus-name-input": "Nom d'utilizaire :"
+	"ep-campus-name-input": "Nom d'utilizaire :",
+	"ep-instructor-remove": "suprimir en tant qu’instructor"
 }

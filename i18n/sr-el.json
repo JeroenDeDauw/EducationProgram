@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Milicevic01"
+			"Milicevic01",
+			"Srdjan m",
+			"Сербијана"
 		]
 	},
 	"educationprogram-desc": "Olakšava obrazovne programe dodavanjem raznih interfejsa za upravljanje kursevima, institucijama i različitim obrazovnim ulogama korisnika.",
@@ -87,7 +89,8 @@
 	"logentry-eparticle-selfremove": "$1 je {{GENDER:$2|uklonio|uklonila}} članak $3 sa svog spiska članaka na kursu $4",
 	"logentry-eparticle-add": "$1 je {{GENDER:$2|dodao|dodala}} članak $3 na spiska {{GENDER:$6|korisnika|korisnice}} $5 za kurs $4",
 	"logentry-eparticle-remove": "$1 je {{GENDER:$2|uklonio|uklonila}} članak $3 sa spiska {{GENDER:$6|korisnika|korisnice}} $5 za kurs $4",
-	"ep-prefs-showtoplink": "Prikazuje vezu ka [[Special:MyCourses|vašim kursevima]] na vrhu svake stranice.",
+	"prefs-education": "Obrazovanje",
+	"ep-prefs-showtoplink": "Prikaži vezu ka [[Special:MyCourses|mojim kursevima]] na vrhu svake stranice.",
 	"ep-prefs-bulkdelorgs": "Prikaži dugme za masovno brisanje [[Special:Institutions|ustanova]].",
 	"ep-prefs-bulkdelcourses": "Prikaži dugme za masovno brisanje [[Special:Courses|kurseva]].",
 	"right-ep-org": "upravljanje ustanovama obrazovnog programa",
@@ -204,7 +207,7 @@
 	"epoa-profile-photo": "Profilna slika",
 	"epoa-profile-photo-help": "Vaša fotografija biće prikazana pored biografije. Unesite ime datoteke na Vikimedijinoj ostavi i prikazaće se predpregled. Možete da unesete prvih nekoliko slova imena datoteke i onda izaberete svoju fotografiju sa liste predloga. Ukoliko nemate fotografiju na Vikimedijinoj ostavi, [$1 pošaljite jednu].",
 	"epca-profile-photo": "Profilna slika",
-	"epca-profile-photo-help": "Vaša fotografija biće prikazana pored biografije. Unesite ime datoteke na Vikimedijinoj ostavi i prikazaće se predpregled. Možete da unesete prvih nekoliko slova imena datoteke i onda izaberete svoju fotografiju sa liste predloga. Ukoliko nemate fotografiju na Vikimedijinoj ostavi, [$1 pošaljite jednu].",
+	"epca-profile-photo-help": "Vaša slika biće prikazana pored biografije. Unesite ime datoteke na Vikimedijinoj ostavi i prikazaće se pretpregled. Možete da unesete prvih nekoliko slova imena slike i onda izaberete svoju sliku sa spiska predloga. Ukoliko nemate sliku na Ostavi, [$1 otpremite jednu]!",
 	"ep-timeline-ago": "pre $1",
 	"ep-timeline-cutoff": "$1…",
 	"ep-timeline-no-summary": "''Opis nije dostupan''",
@@ -217,11 +220,6 @@
 	"echo-category-title-education-program": "Obrazovni program",
 	"ep-echo-pref-tooltip": "Obaveštenja o kursevima obrazovnog programa u kojima učestvujete.",
 	"ep-course-talk-link-text-view-changes": "Pogledaj izmene",
-	"ep-course-talk-notification-title": "[[User:$1|$1]] je {{GENDER:$1|uredio|uredila}} [[$2|stranicu za razgovor kursa $3]].",
-	"ep-course-talk-notification-title-email-subject": "$1 je {{GENDER:$1|uredio|uredila}} stranicu za razgovor kursa $2.",
-	"ep-course-talk-notification-title-email-body": "$1 je {{GENDER:$1|uredio|uredila}} stranicu za razgovor kursa $2.",
-	"ep-student-add-notification-title": "Dodati ste na [[$2|$3]] od strane [[User:$1|$1]].",
-	"ep-student-add-notification-title-email-subject": "Dodati ste na $2 od {{GENDER:$1|strane}} $1.",
 	"notification-header-ep-campus-add-notification": "Dodati ste kao {{GENDER:$2|univerzitetski}} volonter na $3 od strane $1.",
 	"notification-header-ep-course-talk-notification": "$1 je {{GENDER:$2|uredio|uredila}} stranicu za razgovor kursa $3.",
 	"notification-header-ep-online-add-notification": "Dodati ste kao {{GENDER:$2|onlajn}} volonter na $3 od strane $1.",
