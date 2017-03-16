@@ -4,6 +4,16 @@
 			"Benoit Rochon"
 		]
 	},
+	"ep-item-summary": "Nosem",
+	"ep-form-summary": "Nosem:",
+	"ep-pager-summary-message-org": "Nosem:",
+	"ep-pager-summary-message-course": "Nosem:",
 	"epstudentpager-header-articles": "Ka atisokateki",
-	"ep-course-articles": "Ka atisokateki"
+	"ep-course-articles": "Ka atisokateki",
+	"ep-course-description": "E witcikemakak",
+	"ep-instructor-summary": "Nosem:",
+	"ep-campus-summary": "Nosem:",
+	"ep-instructor-summary-input": "Nosem:",
+	"ep-online-summary-input": "Nosem:",
+	"ep-campus-summary-input": "Nosem:"
 }
