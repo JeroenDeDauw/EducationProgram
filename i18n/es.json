@@ -22,7 +22,8 @@
 			"Themasterriot",
 			"Ryo567",
 			"Matiia",
-			"Dgstranz"
+			"Dgstranz",
+			"AlvaroMolina"
 		]
 	},
 	"educationprogram-desc": "Facilita programas educativos mediante la adición de varias interfaces para administrar los cursos, las instituciones y los diversos roles de los usuario educativos",
@@ -93,7 +94,7 @@
 	"logentry-instructor-remove": "$1 {{GENDER:$2|ha eliminado}} {{PLURAL:$4|{{GENDER:$5|al instructor|a la instructora}}|a los instructores}} $5 del curso $3",
 	"logentry-instructor-selfadd": "$1 se ha agregado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|instructor|instructora}} del curso $3",
 	"logentry-instructor-selfremove": "$1 se ha eliminado como {{GENDER:$2|instructor|instructora}} del curso $3",
-	"logentry-online-add": "$1 {{GENERO:$2|ha añadido}} {{PLURAL:$4|{{GENDER:$5|al voluntario|a la voluntaria}} en línea|a los voluntarios en línea}} $5 al curso $3",
+	"logentry-online-add": "$1 {{GENDER:$2|ha añadido}} {{PLURAL:$4|{{GENDER:$5|al voluntario|a la voluntaria}} en línea|a los voluntarios en línea}} $5 al curso $3",
 	"logentry-online-remove": "$1 {{GENDER:$2|ha eliminado}} {{PLURAL:$4|{{GENDER:$5|al voluntario|a la voluntaria}} en línea|a los voluntarios en línea}} $5 del curso $3",
 	"logentry-online-selfadd": "$1 se ha agregado {{GENDER:$2|a sí mismo|a sí misma}} como {{GENDER:$2|voluntario en línea|voluntaria en línea}} del curso $3",
 	"logentry-online-selfremove": "$1 se ha eliminado como {{GENDER:$2|voluntario|voluntaria}} en línea del curso $3",
