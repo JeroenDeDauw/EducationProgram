@@ -1,0 +1,799 @@
+{
+	"name": "Education Program",
+	"version": "0.5.0 alpha",
+	"author": [
+		"[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:Education_Program",
+	"descriptionmsg": "educationprogram-desc",
+	"license-name": "GPL-2.0+",
+	"type": "other",
+	"callback": "EducationProgram\\Hooks::registerExtension",
+	"namespaces": [
+		{
+			"id": 446,
+			"constant": "EP_NS",
+			"name": "Education_Program"
+		},
+		{
+			"id": 447,
+			"constant": "EP_NS_TALK",
+			"name": "Educaton_Program_talk"
+		}
+	],
+	"Actions": {
+		"epremarticle": "EducationProgram\\RemoveArticleAction",
+		"epremstudent": "EducationProgram\\RemoveStudentAction",
+		"epremreviewer": "EducationProgram\\RemoveReviewerAction",
+		"epaddarticle": "EducationProgram\\AddArticleAction",
+		"epaddreviewer": "EducationProgram\\AddReviewerAction",
+		"epundo": "EducationProgram\\UndoAction",
+		"eprestore": "EducationProgram\\RestoreAction",
+		"epcompare": "EducationProgram\\CompareAction",
+		"epundelete": "EducationProgram\\UndeleteAction",
+		"epcourseactivity": "EducationProgram\\ViewCourseActivityAction"
+	},
+	"AddGroups": {
+		"epcoordinator": [
+			"eponline",
+			"epcampus",
+			"epinstructor"
+		],
+		"sysop": [
+			"eponline",
+			"epcampus",
+			"epinstructor",
+			"epcoordinator"
+		]
+	},
+	"APIModules": {
+		"deleteeducation": "EducationProgram\\ApiDeleteEducation",
+		"enlist": "EducationProgram\\ApiEnlist",
+		"refresheducation": "EducationProgram\\ApiRefreshEducation",
+		"addstudents": "EducationProgram\\ApiAddStudents",
+		"liststudents": "EducationProgram\\ApiListStudents"
+	},
+	"AvailableRights": [
+		"ep-org",
+		"ep-course",
+		"ep-token",
+		"ep-enroll",
+		"ep-remstudent",
+		"ep-online",
+		"ep-campus",
+		"ep-instructor",
+		"ep-beonline",
+		"ep-becampus",
+		"ep-beinstructor",
+		"ep-bereviewer",
+		"ep-remreviewer",
+		"ep-bulkdelorgs",
+		"ep-bulkdelcourses",
+		"ep-remarticle",
+		"ep-addstudent"
+	],
+	"DefaultUserOptions": {
+		"ep_showtoplink": false,
+		"ep_bulkdelorgs": false,
+		"ep_bulkdelcourses": true,
+		"ep_showdyk": true,
+		"echo-subscriptions-web-education-program": true,
+		"echo-subscriptions-email-education-program": false
+	},
+	"GroupPermissions": {
+		"*": {
+			"ep-enroll": false,
+			"ep-org": false,
+			"ep-course": false,
+			"ep-token": false,
+			"ep-remstudent": false,
+			"ep-online": false,
+			"ep-campus": false,
+			"ep-instructor": false,
+			"ep-beonline": false,
+			"ep-becampus": false,
+			"ep-beinstructor": false,
+			"ep-bereviewer": true,
+			"ep-remreviewer": false,
+			"ep-bulkdelorgs": false,
+			"ep-bulkdelcourses": false,
+			"ep-remarticle": false,
+			"ep-addstudent": false
+		},
+		"user": {
+			"ep-enroll": true
+		},
+		"sysop": {
+			"ep-org": true,
+			"ep-course": true,
+			"ep-token": true,
+			"ep-enroll": true,
+			"ep-remstudent": true,
+			"ep-online": true,
+			"ep-campus": true,
+			"ep-instructor": true,
+			"ep-beonline": true,
+			"ep-becampus": true,
+			"ep-beinstructor": true,
+			"ep-bereviewer": true,
+			"ep-remreviewer": true,
+			"ep-bulkdelorgs": true,
+			"ep-bulkdelcourses": true,
+			"ep-remarticle": true,
+			"ep-addstudent": true
+		},
+		"epcoordinator": {
+			"ep-org": true,
+			"ep-course": true,
+			"ep-token": true,
+			"ep-enroll": true,
+			"ep-remstudent": true,
+			"ep-campus": true,
+			"ep-online": true,
+			"ep-instructor": true,
+			"ep-beonline": true,
+			"ep-becampus": true,
+			"ep-beinstructor": true,
+			"ep-bereviewer": true,
+			"ep-remreviewer": true,
+			"ep-bulkdelcourses": true,
+			"ep-remarticle": true,
+			"ep-addstudent": true,
+			"userrights": false
+		},
+		"eponline": {
+			"ep-org": true,
+			"ep-course": true,
+			"ep-token": true,
+			"ep-beonline": true,
+			"ep-remarticle": true
+		},
+		"epcampus": {
+			"ep-org": true,
+			"ep-course": true,
+			"ep-token": true,
+			"ep-becampus": true,
+			"ep-remarticle": true
+		},
+		"epinstructor": {
+			"ep-org": true,
+			"ep-course": true,
+			"ep-token": true,
+			"ep-beinstructor": true,
+			"ep-remstudent": true,
+			"ep-remarticle": true
+		}
+	},
+	"JobClasses": {
+		"educationProgramUserMergeArticleReviewers": "EducationProgram\\UserMergeArticleReviewersJob"
+	},
+	"LogActionsHandlers": {
+		"institution/*": "EducationProgram\\LogFormatter",
+		"course/*": "EducationProgram\\LogFormatter",
+		"student/*": "EducationProgram\\LogFormatter",
+		"student/add": "EducationProgram\\RoleChangeFormatter",
+		"student/remove": "EducationProgram\\RoleChangeFormatter",
+		"online/*": "EducationProgram\\LogFormatter",
+		"online/add": "EducationProgram\\RoleChangeFormatter",
+		"online/remove": "EducationProgram\\RoleChangeFormatter",
+		"campus/*": "EducationProgram\\LogFormatter",
+		"campus/add": "EducationProgram\\RoleChangeFormatter",
+		"campus/remove": "EducationProgram\\RoleChangeFormatter",
+		"instructor/*": "EducationProgram\\LogFormatter",
+		"instructor/add": "EducationProgram\\RoleChangeFormatter",
+		"instructor/remove": "EducationProgram\\RoleChangeFormatter",
+		"eparticle/*": "EducationProgram\\ArticleFormatter"
+	},
+	"LogTypes": [
+		"institution",
+		"course",
+		"student",
+		"online",
+		"campus",
+		"instructor"
+	],
+	"RemoveGroups": {
+		"epcoordinator": [
+			"eponline",
+			"epcampus",
+			"epinstructor"
+		],
+		"sysop": [
+			"eponline",
+			"epcampus",
+			"epinstructor",
+			"epcoordinator"
+		]
+	},
+	"SpecialPages": {
+		"CampusAmbassadorProfile": "EducationProgram\\SpecialCAProfile",
+		"CampusAmbassadors": "EducationProgram\\SpecialCAs",
+		"CourseActivity": "EducationProgram\\SpecialCourseActivity",
+		"Courses": "EducationProgram\\SpecialCourses",
+		"Enroll": "EducationProgram\\SpecialEnroll",
+		"Disenroll": "EducationProgram\\SpecialDisenroll",
+		"MyCourses": "EducationProgram\\SpecialMyCourses",
+		"Institutions": "EducationProgram\\SpecialInstitutions",
+		"OnlineAmbassadors": "EducationProgram\\SpecialOAs",
+		"OnlineAmbassadorProfile": "EducationProgram\\SpecialOAProfile",
+		"StudentActivity": "EducationProgram\\SpecialStudentActivity",
+		"Students": "EducationProgram\\SpecialStudents",
+		"ManageCourses": "EducationProgram\\SpecialManageCourses"
+	},
+	"MessagesDirs": {
+		"EducationProgram": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"EducationProgramAlias": "EducationProgram.i18n.alias.php",
+		"EPNamespaces": "EducationProgram.i18n.ns.php"
+	},
+	"AutoloadClasses": {
+		"EducationProgram\\Hooks": "EducationProgram.hooks.php",
+		"EducationProgram\\EditCourseAction": "includes/actions/EditCourseAction.php",
+		"EducationProgram\\EditOrgAction": "includes/actions/EditOrgAction.php",
+		"EducationProgram\\Action": "includes/actions/Action.php",
+		"EducationProgram\\AddArticleAction": "includes/actions/AddArticleAction.php",
+		"EducationProgram\\AddReviewerAction": "includes/actions/AddReviewerAction.php",
+		"EducationProgram\\DeleteAction": "includes/actions/DeleteAction.php",
+		"EducationProgram\\DeleteOrgAction": "includes/actions/DeleteOrgAction.php",
+		"EducationProgram\\EditAction": "includes/actions/EditAction.php",
+		"EducationProgram\\HistoryAction": "includes/actions/HistoryAction.php",
+		"EducationProgram\\RemoveArticleAction": "includes/actions/RemoveArticleAction.php",
+		"EducationProgram\\RemoveReviewerAction": "includes/actions/RemoveReviewerAction.php",
+		"EducationProgram\\RemoveStudentAction": "includes/actions/RemoveStudentAction.php",
+		"EducationProgram\\RestoreAction": "includes/actions/RestoreAction.php",
+		"EducationProgram\\CompareAction": "includes/actions/CompareAction.php",
+		"EducationProgram\\UndeleteAction": "includes/actions/UndeleteAction.php",
+		"EducationProgram\\UndoAction": "includes/actions/UndoAction.php",
+		"EducationProgram\\ViewAction": "includes/actions/ViewAction.php",
+		"EducationProgram\\ViewCourseAction": "includes/actions/ViewCourseAction.php",
+		"EducationProgram\\ViewCourseActivityAction": "includes/actions/ViewCourseActivityAction.php",
+		"EducationProgram\\ViewOrgAction": "includes/actions/ViewOrgAction.php",
+		"EducationProgram\\CourseUndeletionHelper": "includes/CourseUndeletionHelper.php",
+		"EducationProgram\\CourseUndelCheck": "includes/CourseUndeletionHelper.php",
+		"EducationProgram\\ApiDeleteEducation": "includes/api/ApiDeleteEducation.php",
+		"EducationProgram\\ApiEnlist": "includes/api/ApiEnlist.php",
+		"EducationProgram\\ApiRefreshEducation": "includes/api/ApiRefreshEducation.php",
+		"EducationProgram\\ApiAddStudents": "includes/api/ApiAddStudents.php",
+		"EducationProgram\\ApiListStudents": "includes/api/ApiListStudents.php",
+		"EducationProgram\\Events\\EditEventCreator": "includes/Events/EditEventCreator.php",
+		"EducationProgram\\Events\\Event": "includes/Events/Event.php",
+		"EducationProgram\\Events\\EventGroup": "includes/Events/EventGroup.php",
+		"EducationProgram\\Events\\EventGrouper": "includes/Events/EventGrouper.php",
+		"EducationProgram\\Events\\EventQuery": "includes/Events/EventQuery.php",
+		"EducationProgram\\Events\\EventStore": "includes/Events/EventStore.php",
+		"EducationProgram\\Events\\RecentPageEventGrouper": "includes/Events/RecentPageEventGrouper.php",
+		"EducationProgram\\Events\\Timeline": "includes/Events/Timeline.php",
+		"EducationProgram\\Events\\TimelineGroup": "includes/Events/TimelineGroup.php",
+		"EducationProgram\\Events\\UnknownGroup": "includes/Events/TimelineGroup.php",
+		"EducationProgram\\Events\\EditGroup": "includes/Events/TimelineGroup.php",
+		"EducationProgram\\Events\\EnlistGroup": "includes/Events/TimelineGroup.php",
+		"EducationProgram\\Store\\CourseStore": "includes/Store/CourseStore.php",
+		"EducationProgram\\ArticleTable": "includes/pagers/ArticleTable.php",
+		"EducationProgram\\CAPager": "includes/pagers/CAPager.php",
+		"EducationProgram\\CoursePager": "includes/pagers/CoursePager.php",
+		"EducationProgram\\EPPager": "includes/pagers/EPPager.php",
+		"EducationProgram\\OAPager": "includes/pagers/OAPager.php",
+		"EducationProgram\\OrgPager": "includes/pagers/OrgPager.php",
+		"EducationProgram\\RevisionPager": "includes/pagers/RevisionPager.php",
+		"EducationProgram\\StudentPager": "includes/pagers/StudentPager.php",
+		"EducationProgram\\StudentActivityPager": "includes/pagers/StudentActivityPager.php",
+		"EducationProgram\\CoursePage": "includes/pages/CoursePage.php",
+		"EducationProgram\\EducationPage": "includes/pages/EducationPage.php",
+		"EducationProgram\\OrgPage": "includes/pages/OrgPage.php",
+		"EducationProgram\\CA": "includes/rows/CA.php",
+		"EducationProgram\\Course": "includes/rows/Course.php",
+		"EducationProgram\\EPArticle": "includes/rows/EPArticle.php",
+		"EducationProgram\\EPRevision": "includes/rows/EPRevision.php",
+		"EducationProgram\\Instructor": "includes/rows/Instructor.php",
+		"EducationProgram\\IORMRow": "includes/rows/IORMRow.php",
+		"EducationProgram\\OA": "includes/rows/OA.php",
+		"EducationProgram\\ORMRow": "includes/rows/ORMRow.php",
+		"EducationProgram\\Org": "includes/rows/Org.php",
+		"EducationProgram\\PageObject": "includes/rows/PageObject.php",
+		"EducationProgram\\RevisionedObject": "includes/rows/RevisionedObject.php",
+		"EducationProgram\\Student": "includes/rows/Student.php",
+		"EducationProgram\\SpecialAmbassadorProfile": "includes/specials/SpecialAmbassadorProfile.php",
+		"EducationProgram\\SpecialCAProfile": "includes/specials/SpecialCAProfile.php",
+		"EducationProgram\\SpecialCAs": "includes/specials/SpecialCAs.php",
+		"EducationProgram\\SpecialCourses": "includes/specials/SpecialCourses.php",
+		"EducationProgram\\SpecialDisenroll": "includes/specials/SpecialDisenroll.php",
+		"EducationProgram\\SpecialEducationProgram": "includes/specials/SpecialEducationProgram.php",
+		"EducationProgram\\SpecialEnroll": "includes/specials/SpecialEnroll.php",
+		"EducationProgram\\SpecialCourseActivity": "includes/specials/SpecialCourseActivity.php",
+		"EducationProgram\\SpecialInstitutions": "includes/specials/SpecialInstitutions.php",
+		"EducationProgram\\SpecialMyCourses": "includes/specials/SpecialMyCourses.php",
+		"EducationProgram\\SpecialManageCourses": "includes/specials/SpecialManageCourses.php",
+		"EducationProgram\\SpecialOAProfile": "includes/specials/SpecialOAProfile.php",
+		"EducationProgram\\SpecialOAs": "includes/specials/SpecialOAs.php",
+		"EducationProgram\\SpecialStudentActivity": "includes/specials/SpecialStudentActivity.php",
+		"EducationProgram\\SpecialStudents": "includes/specials/SpecialStudents.php",
+		"EducationProgram\\VerySpecialPage": "includes/specials/VerySpecialPage.php",
+		"EducationProgram\\CAs": "includes/tables/CAs.php",
+		"EducationProgram\\Courses": "includes/tables/Courses.php",
+		"EducationProgram\\Events": "includes/tables/Events.php",
+		"EducationProgram\\Instructors": "includes/tables/Instructors.php",
+		"EducationProgram\\IORMTable": "includes/tables/IORMTable.php",
+		"EducationProgram\\OAs": "includes/tables/OAs.php",
+		"EducationProgram\\ORMTable": "includes/tables/ORMTable.php",
+		"EducationProgram\\Orgs": "includes/tables/Orgs.php",
+		"EducationProgram\\PageTable": "includes/tables/PageTable.php",
+		"EducationProgram\\Revisions": "includes/tables/Revisions.php",
+		"EducationProgram\\Students": "includes/tables/Students.php",
+		"EducationProgram\\NotificationsManager": "includes/notifications/NotificationsManager.php",
+		"EducationProgram\\INotificationType": "includes/notifications/INotificationType.php",
+		"EducationProgram\\CourseTalkNotification": "includes/notifications/CourseTalkNotification.php",
+		"EducationProgram\\RoleAddNotification": "includes/notifications/RoleAddNotification.php",
+		"EducationProgram\\StudentAddNotification": "includes/notifications/StudentAddNotification.php",
+		"EducationProgram\\InstructorAddNotification": "includes/notifications/InstructorAddNotification.php",
+		"EducationProgram\\CampusAddNotification": "includes/notifications/CampusAddNotification.php",
+		"EducationProgram\\OnlineAddNotification": "includes/notifications/OnlineAddNotification.php",
+		"EducationProgram\\PresentationModel\\CourseTalk": "includes/notifications/PresentationModel/CourseTalk.php",
+		"EducationProgram\\PresentationModel\\RoleAdd": "includes/notifications/PresentationModel/RoleAdd.php",
+		"EducationProgram\\ArticleAdder": "includes/ArticleAdder.php",
+		"EducationProgram\\ArticleStore": "includes/ArticleStore.php",
+		"EducationProgram\\CourseActivityView": "includes/CourseActivityView.php",
+		"EducationProgram\\CourseNotFoundException": "includes/CourseNotFoundException.php",
+		"EducationProgram\\CourseTitleNotFoundException": "includes/CourseTitleNotFoundException.php",
+		"EducationProgram\\DiffTable": "includes/DiffTable.php",
+		"EducationProgram\\DYKBox": "includes/DYKBox.php",
+		"EducationProgram\\ErrorPageErrorWithSelflink": "includes/ErrorPageErrorWithSelflink.php",
+		"EducationProgram\\Extension": "includes/Extension.php",
+		"EducationProgram\\FailForm": "includes/FailForm.php",
+		"EducationProgram\\HTMLCombobox": "includes/HTMLCombobox.php",
+		"EducationProgram\\HTMLDateField": "includes/HTMLDateField.php",
+		"EducationProgram\\IRole": "includes/IRole.php",
+		"EducationProgram\\LogFormatter": "includes/LogFormatter.php",
+		"EducationProgram\\RoleChangeFormatter": "includes/LogFormatter.php",
+		"EducationProgram\\ArticleFormatter": "includes/LogFormatter.php",
+		"EducationProgram\\Menu": "includes/Menu.php",
+		"EducationProgram\\RevisionAction": "includes/RevisionAction.php",
+		"EducationProgram\\RevisionDiff": "includes/RevisionDiff.php",
+		"EducationProgram\\RoleObject": "includes/RoleObject.php",
+		"EducationProgram\\Settings": "includes/Settings.php",
+		"EducationProgram\\UPCUserCourseFinder": "includes/UPCUserCourseFinder.php",
+		"EducationProgram\\UserCourseFinder": "includes/UserCourseFinder.php",
+		"EducationProgram\\UserRolesMessage": "includes/UserRolesMessage.php",
+		"EducationProgram\\ORMIterator": "includes/ORMIterator.php",
+		"EducationProgram\\ORMResult": "includes/ORMResult.php",
+		"EducationProgram\\OrgDeletionHelper": "includes/OrgDeletionHelper.php",
+		"EducationProgram\\OrgDelCheck": "includes/OrgDeletionHelper.php",
+		"EducationProgram\\Utils": "includes/Utils.php",
+		"EducationProgram\\UserMergeArticleReviewersJob": "includes/UserMergeArticleReviewersJob.php",
+		"EducationProgram\\Tests\\ORMRowTest": "tests/phpunit/db/ORMRowTest.php",
+		"EducationProgram\\Tests\\ORMTableTest": "tests/phpunit/db/ORMTableTest.php",
+		"EducationProgram\\Tests\\PageORMTableForTesting": "tests/phpunit/db/ORMTableTest.php",
+		"EducationProgram\\Tests\\TestORMRow": "tests/phpunit/db/TestORMRowTest.php",
+		"EducationProgram\\Tests\\TestORMRowTest": "tests/phpunit/db/TestORMRowTest.php",
+		"EducationProgram\\Tests\\TestORMTable": "tests/phpunit/db/TestORMRowTest.php",
+		"EducationProgram\\Tests\\MockSuperUser": "tests/phpunit/MockSuperUser.php",
+		"EducationProgram\\Tests\\UserCourseFinderTest": "tests/phpunit/UserCourseFinderTest.php"
+	},
+	"ResourceModules": {
+		"ep.core": {
+			"scripts": [
+				"ep.js"
+			],
+			"dependencies": [
+				"mediawiki.jqueryMsg",
+				"mediawiki.language"
+			]
+		},
+		"ep.api": {
+			"scripts": [
+				"ep.api.js"
+			],
+			"dependencies": [
+				"mediawiki.user",
+				"ep.core"
+			]
+		},
+		"ep.pager": {
+			"scripts": [
+				"ep.pager.js"
+			],
+			"styles": [
+				"ep.pager.css"
+			],
+			"dependencies": [
+				"ep.api",
+				"mediawiki.jqueryMsg",
+				"jquery.ui.dialog"
+			],
+			"messages": [
+				"ep-pager-confirm-delete",
+				"ep-pager-delete-fail",
+				"ep-pager-confirm-delete-selected",
+				"ep-pager-delete-selected-fail",
+				"ep-delete-org-has-courses-close-dialog"
+			]
+		},
+		"ep.pager.course": {
+			"messages": [
+				"ep-pager-cancel-button-course",
+				"ep-pager-delete-button-course",
+				"ep-pager-confirm-delete-course",
+				"ep-pager-confirm-message-course",
+				"ep-pager-confirm-message-course-many",
+				"ep-pager-retry-button-course",
+				"ep-pager-summary-message-course"
+			],
+			"dependencies": [
+				"ep.pager"
+			]
+		},
+		"ep.pager.org": {
+			"messages": [
+				"ep-pager-cancel-button-org",
+				"ep-pager-delete-button-org",
+				"ep-pager-confirm-delete-org",
+				"ep-pager-confirm-message-org",
+				"ep-pager-confirm-message-org-many",
+				"ep-pager-retry-button-org",
+				"ep-pager-summary-message-org"
+			],
+			"dependencies": [
+				"ep.pager"
+			]
+		},
+		"ep.datepicker": {
+			"scripts": [
+				"ep.datepicker.js"
+			],
+			"styles": [
+				"ep.datepicker.css"
+			],
+			"dependencies": [
+				"jquery.ui.datepicker"
+			]
+		},
+		"ep.combobox": {
+			"scripts": [
+				"ep.combobox.js"
+			],
+			"styles": [
+				"ep.combobox.css"
+			],
+			"dependencies": [
+				"jquery.ui.core",
+				"jquery.ui.widget",
+				"jquery.ui.autocomplete"
+			]
+		},
+		"ep.disenroll": {
+			"scripts": [
+				"ep.disenroll.js"
+			],
+			"dependencies": [
+				"jquery.ui.button"
+			]
+		},
+		"ep.imageinput": {
+			"scripts": [
+				"jquery.imageinput.js",
+				"ep.imageinput.js"
+			],
+			"dependencies": [
+				"jquery.ui.autocomplete"
+			]
+		},
+		"ep.articletable": {
+			"scripts": [
+				"ep.articletable.js"
+			],
+			"styles": [
+				"ep.articletable.css"
+			],
+			"dependencies": [
+				"jquery.ui.button",
+				"jquery.ui.dialog",
+				"jquery.ui.autocomplete",
+				"ep.core"
+			],
+			"messages": [
+				"ep-articletable-addreviwer-title",
+				"ep-articletable-addreviwer-button",
+				"ep-articletable-addreviwer-cancel",
+				"ep-articletable-addreviwer-text",
+				"ep-articletable-remreviwer-title",
+				"ep-articletable-remreviwer-button",
+				"ep-articletable-remreviwer-cancel",
+				"ep-articletable-remreviwer-text",
+				"ep-articletable-remreviwer-title-self",
+				"ep-articletable-remreviwer-button-self",
+				"ep-articletable-remreviwer-text-self",
+				"ep-articletable-remstudent-title",
+				"ep-articletable-remstudent-button",
+				"ep-articletable-remstudent-cancel",
+				"ep-articletable-remstudent-text",
+				"ep-articletable-remarticle-title",
+				"ep-articletable-remarticle-button",
+				"ep-articletable-remarticle-cancel",
+				"ep-articletable-remarticle-text",
+				"ep-articletable-remarticle-text-self"
+			]
+		},
+		"ep.addorg": {
+			"scripts": [
+				"ep.addorg.js"
+			]
+		},
+		"ep.addcourse": {
+			"scripts": [
+				"ep.addcourse.js"
+			]
+		},
+		"ep.timeline": {
+			"styles": [
+				"ep.timeline.css"
+			]
+		},
+		"ep.studentactivity": {
+			"styles": [
+				"ep.studentactivity.css"
+			]
+		},
+		"ep.enlist": {
+			"scripts": [
+				"ep.enlist.js"
+			],
+			"dependencies": [
+				"mediawiki.user",
+				"jquery.ui.dialog",
+				"ep.core",
+				"ep.api",
+				"jquery.ui.autocomplete"
+			],
+			"messages": [
+				"ep-instructor-remove-title",
+				"ep-online-remove-title",
+				"ep-campus-remove-title",
+				"ep-instructor-remove-button",
+				"ep-online-remove-button",
+				"ep-campus-remove-button",
+				"ep-instructor-removing",
+				"ep-online-removing",
+				"ep-campus-removing",
+				"ep-instructor-removal-success",
+				"ep-online-removal-success",
+				"ep-campus-removal-success",
+				"ep-instructor-close-button",
+				"ep-online-close-button",
+				"ep-campus-close-button",
+				"ep-instructor-remove-retry",
+				"ep-online-remove-retry",
+				"ep-campus-remove-retry",
+				"ep-instructor-remove-failed",
+				"ep-online-remove-failed",
+				"ep-campus-remove-failed",
+				"ep-instructor-cancel-button",
+				"ep-online-cancel-button",
+				"ep-campus-cancel-button",
+				"ep-instructor-remove-text",
+				"ep-online-remove-text",
+				"ep-campus-remove-text",
+				"ep-instructor-adding",
+				"ep-online-adding",
+				"ep-campus-adding",
+				"ep-instructor-addition-success",
+				"ep-online-addition-success",
+				"ep-campus-addition-success",
+				"ep-instructor-addition-self-success",
+				"ep-online-addition-self-success",
+				"ep-campus-addition-self-success",
+				"ep-instructor-addition-null",
+				"ep-online-addition-null",
+				"ep-campus-addition-null",
+				"ep-instructor-addition-invalid-user",
+				"ep-online-addition-invalid-user",
+				"ep-campus-addition-invalid-user",
+				"ep-instructor-add-close-button",
+				"ep-online-add-close-button",
+				"ep-campus-add-close-button",
+				"ep-instructor-add-retry",
+				"ep-online-add-retry",
+				"ep-campus-add-retry",
+				"ep-instructor-addition-failed",
+				"ep-online-addition-failed",
+				"ep-campus-addition-failed",
+				"ep-instructor-add-title",
+				"ep-online-add-title",
+				"ep-campus-add-title",
+				"ep-instructor-add-button",
+				"ep-online-add-button",
+				"ep-campus-add-button",
+				"ep-instructor-add-self-button",
+				"ep-online-add-self-button",
+				"ep-campus-add-self-button",
+				"ep-instructor-add-text",
+				"ep-online-add-text",
+				"ep-campus-add-text",
+				"ep-instructor-add-self-text",
+				"ep-online-add-self-text",
+				"ep-campus-add-self-text",
+				"ep-instructor-add-self-title",
+				"ep-online-add-self-title",
+				"ep-campus-add-self-title",
+				"ep-instructor-add-cancel-button",
+				"ep-online-add-cancel-button",
+				"ep-campus-add-cancel-button",
+				"ep-instructor-summary-input",
+				"ep-online-summary-input",
+				"ep-campus-summary-input",
+				"ep-instructor-name-input",
+				"ep-online-name-input",
+				"ep-campus-name-input",
+				"ep-course-no-instructor",
+				"ep-course-no-online",
+				"ep-course-no-campus",
+				"ep-instructor-summary",
+				"ep-online-summary",
+				"ep-campus-summary"
+			]
+		},
+		"ep.dyk": {
+			"styles": [
+				"ep.dyk.css"
+			]
+		},
+		"ep.userrolesmessage": {
+			"styles": [
+				"ep.userrolesmessage.css"
+			]
+		},
+		"ep.addstudents": {
+			"scripts": [
+				"ep.addstudents.js"
+			],
+			"styles": [
+				"ep.addstudents.css"
+			],
+			"dependencies": [
+				"jquery.ui.core",
+				"ep.tagsinput",
+				"mediawiki.user",
+				"mediawiki.Uri"
+			],
+			"messages": [
+				"collapsible-expand",
+				"collapsible-collapse",
+				"ep-addstudents-invalid-users",
+				"ep-addstudents-success",
+				"ep-addstudents-alreadyenrolled",
+				"ep-addstudents-servercallerror",
+				"comma-separator"
+			]
+		},
+		"ep.tagsinput": {
+			"scripts": [
+				"ep.tagsinput/ep.tagsinput.js",
+				"ep.tagsinput/ep.typeahead.js"
+			],
+			"styles": [
+				"ep.tagsinput/ep.tagsinput.css"
+			],
+			"dependencies": [
+				"jquery.ui.core"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "EducationProgram/resources"
+	},
+	"Hooks": {
+		"LoadExtensionSchemaUpdates": "EducationProgram\\Hooks::onSchemaUpdate",
+		"PersonalUrls": "EducationProgram\\Hooks::onPersonalUrls",
+		"GetPreferences": "EducationProgram\\Hooks::onGetPreferences",
+		"SkinTemplateNavigation": "EducationProgram\\Hooks::onPageTabs",
+		"SkinTemplateNavigation::SpecialPage": "EducationProgram\\Hooks::onSpecialPageTabs",
+		"ArticleFromTitle": "EducationProgram\\Hooks::onArticleFromTitle",
+		"CanonicalNamespaces": "EducationProgram\\Hooks::onCanonicalNamespaces",
+		"TitleIsAlwaysKnown": "EducationProgram\\Hooks::onTitleIsAlwaysKnown",
+		"MovePageIsValidMove": "EducationProgram\\Hooks::onMovePageIsValidMove",
+		"AbortMove": "EducationProgram\\Hooks::onAbortMove",
+		"NewRevisionFromEditComplete": "EducationProgram\\Hooks::onNewRevisionFromEditComplete",
+		"NamespaceIsMovable": "EducationProgram\\Hooks::onNamespaceIsMovable",
+		"SpecialContributionsBeforeMainOutput": "EducationProgram\\Hooks::onSpecialContributionsBeforeMainOutput",
+		"BeforeCreateEchoEvent": "EducationProgram\\Hooks::onBeforeCreateEchoEvent",
+		"EchoGetDefaultNotifiedUsers": "EducationProgram\\Hooks::onEchoGetDefaultNotifiedUsers",
+		"PageContentSaveComplete": "EducationProgram\\Hooks::onPageContentSaveComplete",
+		"SetupAfterCache": "EducationProgram\\Hooks::onSetupAfterCache",
+		"UserMergeAccountFields": "EducationProgram\\Hooks::onUserMergeAccountFields",
+		"UserMergeAccountDeleteTables": "EducationProgram\\Hooks::onUserMergeAccountDeleteTables",
+		"MergeAccountFromTo": "EducationProgram\\Hooks::onMergeAccountFromTo",
+		"ResourceLoaderRegisterModules": "EducationProgram\\Hooks::onResourceLoaderRegisterModules"
+	},
+	"config": {
+		"NamespacesWithSubpages": {
+			"value": {
+				"447": true
+			}
+		},
+		"EPSettings": {
+			"value": {
+				"enableTopLink": true,
+				"ambassadorPictureDomains": [
+					"wikimedia.org"
+				],
+				"ambassadorCommonsUrl": "https://commons.wikimedia.org/wiki/Special:UploadWizard",
+				"citylessCountries": [
+					"BT",
+					"BV",
+					"IO",
+					"VG",
+					"TD",
+					"CX",
+					"CC",
+					"KM",
+					"DJ",
+					"GQ",
+					"FK",
+					"FX",
+					"TF",
+					"GW",
+					"HM",
+					"KI",
+					"YT",
+					"MS",
+					"NR",
+					"NU",
+					"NF",
+					"PN",
+					"SH",
+					"PM",
+					"WS",
+					"SC",
+					"GS",
+					"SJ",
+					"TK",
+					"TP",
+					"TV",
+					"UM",
+					"VU",
+					"EH"
+				],
+				"ambassadorImgWidth": 140,
+				"ambassadorImgHeight": 140,
+				"recentActivityLimit": 86400,
+				"flagWidth": 25,
+				"flagHeight": 25,
+				"countryFlags": {
+					"US": "Flag of the United States.svg",
+					"BR": "Flag of Brazil.svg",
+					"CA": "Flag of Canada.svg",
+					"IN": "Flag of India.svg",
+					"EG": "Flag of Egypt.svg",
+					"IT": "Flag of Italy.svg",
+					"MK": "Flag of Macedonia.svg",
+					"MX": "Flag of Mexico.svg",
+					"RU": "Flag of Russia.svg",
+					"UK": "Flag of the United Kingdom.svg",
+					"DE": "Flag of Germany.svg",
+					"NZ": "Flag of New Zealand.svg",
+					"CZ": "Flag of the Czech Republic.svg"
+				},
+				"fallbackFlag": "Nuvola unknown flag.svg",
+				"courseDescPage": "MediaWiki:Course description",
+				"courseOrgDescPage": "$2/$1",
+				"useStudentRealNames": false,
+				"timelineDurationLimit": 432000,
+				"timelineCountLimit": 200,
+				"timelineUserLimit": 3,
+				"dykCategory": "MyCourses Did You Know",
+				"dykOrgCategory": "$2/$1",
+				"timelineMessageLengthLimit": 250,
+				"requireRealName": false,
+				"collectRealName": false,
+				"enablePageCache": true,
+				"courseHeaderPage": "MediaWiki:Course header",
+				"courseHeaderPageCountry": "$2/$1",
+				"activityTabMaxAgeInSeconds": 604800,
+				"maxCoursesInUserRolesMessage": 3
+			}
+		}
+	},
+	"manifest_version": 2
+}

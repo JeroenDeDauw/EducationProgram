@@ -26,6 +26,62 @@ use JobQueueGroup;
  */
 final class Hooks {
 
+	public static function registerExtension() {
+		// Define named constants corresponding to the user roles introduced by the extension.
+		define( 'EP_STUDENT', 0 );      // Students
+		define( 'EP_INSTRUCTOR', 1 );   // Instructors
+		define( 'EP_OA', 2 );           // Online volunteers
+		define( 'EP_CA', 3 );           // Campus volunteers
+
+		global $wgEPSettings, $wgExtensionAssetsPath, $wgScriptPath;
+
+		$epResourceDir = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions' : $wgExtensionAssetsPath;
+
+		$wgEPSettings['resourceDir'] = $epResourceDir;
+		$wgEPSettings['imageDir'] = $epResourceDir . 'images/';
+	}
+
+	/**
+	 * @param \ResourceLoader $resourceLoader
+	 */
+	public static function onResourceLoaderRegisterModules( \ResourceLoader &$resourceLoader ) {
+		$extraDependancies = [];
+		if ( \ExtensionRegistry::getInstance()->isLoaded( 'WikiEditor' ) ) {
+			$extraDependancies[] = 'ext.wikiEditor.toolbar';
+		}
+		$moduleTemplate = [
+			'localBasePath' => __DIR__ . '/resources',
+			'remoteExtPath' => 'EducationProgram/resources'
+		];
+		$resourceLoader->register( [
+			'ep.formpage' => $moduleTemplate + [
+				'scripts' => [
+					'ep.formpage.js',
+				],
+				'styles' => [
+					'ep.formpage.css',
+				],
+				'dependencies' => [
+						'jquery.ui.button',
+					] + $extraDependancies
+			],
+			'ep.ambprofile' => $moduleTemplate + [
+				'scripts' => [
+					'ep.ambprofile.js',
+				],
+				'styles' => [
+					'ep.ambprofile.css',
+				],
+				'dependencies' => [
+						'jquery.ui.button',
+						'ep.imageinput',
+					] + $extraDependancies
+			]
+		] );
+
+		return true;
+	}
+
 	/**
 	 * Schema update to set up the needed database tables.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LoadExtensionSchemaUpdates
@@ -68,33 +124,6 @@ final class Hooks {
 		);
 
 		return true;
-	}
-
-	/**
-	 * Hook to add PHPUnit test cases.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
-	 *
-	 * @since 0.1
-	 *
-	 * @param array $files
-	 *
-	 * @return bool
-	 */
-	public static function registerUnitTests( array &$files ) {
-		// @codeCoverageIgnoreStart
-		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/phpunit/' );
-
-		/**
-		 * @var SplFileInfo $fileInfo
-		 */
-		foreach ( new RecursiveIteratorIterator( $directoryIterator ) as $fileInfo ) {
-			if ( substr( $fileInfo->getFilename(), -8 ) === 'Test.php' ) {
-				$files[] = $fileInfo->getPathname();
-			}
-		}
-
-		return true;
-		// @codeCoverageIgnoreEnd
 	}
 
 	/**
