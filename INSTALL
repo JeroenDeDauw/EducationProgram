@@ -42,7 +42,7 @@ require_once( "$IP/extensions/EducationProgram/EducationProgram.php" );
 
 == Configuration ==
 
-Configuration of Reviews is done by assigning to $egSettings in your
+Configuration of Reviews is done by assigning to $wgEPSettings in your
 [[Manual:LocalSettings.php|LocalSettings.php]] file, AFTER the inclusion of the
 extension. The options are listed below and their default is set in the Education Program settings file:
 https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/EducationProgram.git;a=blob;f=EducationProgram.settings.php
