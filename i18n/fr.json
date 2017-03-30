@@ -29,7 +29,8 @@
 			"TomT0m",
 			"Wladek92",
 			"J. 'mach' wust",
-			"Orlodrim"
+			"Orlodrim",
+			"AntonierCH"
 		]
 	},
 	"educationprogram-desc": "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles des acteurs d'un programme éducatif.",
@@ -491,7 +492,7 @@
 	"orgpage-epundo-summary": "Motif :",
 	"orgpage-epundo-undo-button": "Annuler la révision",
 	"orgpage-epundo-cancel-button": "Annuler",
-	"orgpage-epundo-summary-value": "Annuler la version faite sur le $1 à $3 par $2",
+	"orgpage-epundo-summary-value": "Annuler la révision du $1 à $3 par $2",
 	"orgpage-epundo-undid": "Révision de l’institution $1 annulée.",
 	"orgpage-epundo-undo-failed": "Échec de l’annulation de la version de l’institution $1.",
 	"orgpage-epcompare-title": "Comparer les révisions de l’institution « $1 »",
@@ -501,7 +502,7 @@
 	"coursepage-epundo-summary": "Motif :",
 	"coursepage-epundo-undo-button": "Annuler la révision",
 	"coursepage-epundo-cancel-button": "Annuler",
-	"coursepage-epundo-summary-value": "Annulation de la version faite le $1 à $3 par $2",
+	"coursepage-epundo-summary-value": "Annulation de la révision du $1 à $3 par $2",
 	"coursepage-epundo-undid": "Révision du cours $1 annulée.",
 	"coursepage-epundo-undo-failed": "Échec de l’annulation de la version du cours $1.",
 	"coursepage-epundelete-title": "Annuler la suppression du cours \"$1\"",
