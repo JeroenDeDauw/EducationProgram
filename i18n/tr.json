@@ -8,7 +8,8 @@
 			"Marmase",
 			"Mirzali",
 			"Sayginer",
-			"KorkmazO"
+			"KorkmazO",
+			"Vito Genovese"
 		]
 	},
 	"educationprogram-desc": "Çeşitli eğitim rolü bulunan kullanıcılar ve kurumlar için, kurslar yönetim arayüzünü ekleyerek eğitim programlarının uygulanmasını kolaylaştırır.",
@@ -23,7 +24,7 @@
 	"ep-err-failed-to-save": "Bir şeyler ters gitti - değişiklikleriniz kaydedilmedi.",
 	"ep-didyouknow-header": "Biliyor muydunuz...?",
 	"ep-tab-view": "Oku",
-	"ep-tab-edit": "Değiştir",
+	"ep-tab-edit": "Düzenle",
 	"ep-tab-create": "Oluştur",
 	"ep-tab-history": "Geçmişi gör",
 	"ep-tab-enroll": "Kayıt",
