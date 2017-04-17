@@ -32,7 +32,7 @@
 	"ep-err-course-exists-text": "Você está tentando criar o curso $1, mas ele já existe.",
 	"ep-err-org-exists-title": "Erro: Instituição já existente",
 	"ep-err-org-exists-text": "Você está tentando criar a instituição $1, mas ela já existe.",
-	"ep-didyouknow-header": "Você sabia?",
+	"ep-didyouknow-header": "Você sabia ... ?",
 	"ep-tab-view": "Ler",
 	"ep-tab-edit": "Editar",
 	"ep-tab-create": "Criar",
