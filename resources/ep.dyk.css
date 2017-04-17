@@ -7,8 +7,8 @@
  */
 
 div.didyouknow {
-	background-color: #EDEFF5;
-	border-bottom: 1px solid #D2D9E6;
+	background-color: #edeff5;
+	border-bottom: 1px solid #d2d9e6;
 	width: 300px;
 	position: static;
 	float: right;
@@ -16,8 +16,8 @@ div.didyouknow {
 
 h4.didyouknow-header {
 	padding: 5px 15px 4px;
-	border-bottom: 1px solid #A2A9B6;
-	border-top: 1px solid #A2A9B6;
+	border-bottom: 1px solid #a2a9b6;
+	border-top: 1px solid #a2a9b6;
 }
 
 div.didyouknow > p {
