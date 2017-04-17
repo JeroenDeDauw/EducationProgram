@@ -1,11 +1,11 @@
 /**
  * CSS for the Education Program MediaWiki extension.
  * @see https://www.mediawiki.org/wiki/Extension:Education_Program
- * 
+ *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw <jeroendedauw at gmail dot com>
  */
- 
+
 td.TablePager_col__select {
 	text-align: center;
 }
@@ -13,6 +13,6 @@ td.TablePager_col__select {
 /* see similar class in ep.formpage.css */
 .pagerDeleteWarning {
 	font-size: 1.2em;
-	color: #aa2222;
+	color: #a22;
 	margin-bottom: 0.8em;
 }

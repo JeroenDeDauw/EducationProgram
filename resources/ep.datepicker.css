@@ -8,7 +8,6 @@
 
 input.mwe-date {
 	/* @embed */
-	background: #ffffff url('images/calendar.gif') no-repeat right center;
-
+	background: #fff url( images/calendar.gif ) no-repeat right center;
 	direction: ltr;
 }

@@ -6,7 +6,9 @@
  * @author Jeroen De Dauw <jeroendedauw at gmail dot com>
  */
 
-img.studentometer, table.ep-studentactivity, div.studentactivity {
+img.studentometer,
+table.ep-studentactivity,
+div.studentactivity {
 	margin-left: auto;
 	margin-right: auto;
 }

@@ -18,19 +18,19 @@
 
 /* The heading is in an h2 element. Use some global h2 styles, but not all. */
 .ep-addstudents-headline-area h2 {
-	border: none;
+	border: 0;
 	display: inline;
 	line-height: 2.3em;
 }
 
 /* prevent toggle-link outline when you click it */
 .mw-customtoggle-addstudents {
-	outline: none;
+	outline: 0;
 }
 
-#mw-customcollapsible-addstudents {
-/* 	width: 50em; */
-}
+/*#mw-customcollapsible-addstudents {
+ 	width: 50em;
+}*/
 #ep-addstudents-instructions,
 #ep-addstudents-link-instructions,
 #ep-addstudents-error,
@@ -67,8 +67,8 @@
 .ep-addstudents-area .tt-suggestions {
 	border: 1px solid #ccc;
 	border-radius: 0; /* symmetry avoids issues for dropup/dropdown */
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
 	background-color: #fff;
 }
 
@@ -78,7 +78,7 @@
 
 .ep-addstudents-area .tt-is-under-cursor {
 	color: #fff;
-	background-color: #5588cc;
+	background-color: #58c;
 }
 
 .ep-addstudents-area .ep-tagsinput-tag {
@@ -88,7 +88,7 @@
 }
 
 .ep-invalid-user-tag {
-	background-color: #cc4466;
+	background-color: #c46;
 }
 
 #ep-addstudents-instructions {
@@ -100,7 +100,7 @@
 
 #ep-addstudents-error {
 	width: 100%;
-	color: #cc4466;
+	color: #c46;
 	clear: both;
 }
 
@@ -125,14 +125,14 @@
 	padding: 0.4em;
 }
 
-#ep-addstudent-msg [data-role="remove"] {
+#ep-addstudent-msg [data-role='remove'] {
 	margin-left: 8px;
 	cursor: pointer;
-	float:right;
+	float: right;
 	font-size: 1.3em;
 }
 
-#ep-addstudent-msg [data-role="remove"]:hover {
+#ep-addstudent-msg [data-role='remove']:hover {
 	text-decoration: underline;
 }
 
