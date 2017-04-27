@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Uchup19"
+		]
+	},
+	"ep-pager-cancel-button-org": "Bolay",
+	"ep-pager-cancel-button-course": "Bolay",
+	"ep-articletable-addreviwer-cancel": "Bolay",
+	"ep-articletable-remreviwer-cancel": "Bolay",
+	"ep-articletable-remstudent-cancel": "Bolay",
+	"ep-articletable-remarticle-cancel": "Bolay",
+	"coursepage-delete-cancel-button": "Bolay",
+	"orgpage-delete-cancel-button": "Bolay",
+	"orgpage-eprestore-cancel-button": "Bolay",
+	"coursepage-eprestore-cancel-button": "Bolay",
+	"orgpage-epundo-cancel-button": "Bolay",
+	"coursepage-epundo-cancel-button": "Bolay",
+	"coursepage-epundelete-cancel-button": "Bolay",
+	"orgpage-epundelete-cancel-button": "Bolay",
+	"ep-disenroll-cancel": "Bolay",
+	"ep-instructor-cancel-button": "Bolay",
+	"ep-instructor-add-cancel-button": "Bolay",
+	"ep-online-cancel-button": "Bolay",
+	"ep-online-add-cancel-button": "Bolay",
+	"ep-campus-cancel-button": "Bolay",
+	"ep-campus-add-cancel-button": "Bolay"
+}
