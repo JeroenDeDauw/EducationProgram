@@ -103,7 +103,7 @@
 	"logentry-eparticle-review": "$1 se {{GENDER:$2|přidal|přidala|přidal(a)}} jako dozor nad článkem $3, na kterém {{GENDER:$6|pracuje}} $5 v rámci kurzu $4",
 	"logentry-eparticle-unreview": "$1 se {{GENDER:$2|odebral|odebrala|odebral(a)}} jako dozor nad článkem $3, na kterém {{GENDER:$6|pracuje}} $5 v rámci kurzu $4",
 	"prefs-education": "Vzdělání",
-	"ep-prefs-showtoplink": "Zobrazit odkaz na [[Special:MyCourses|moje kurzy]] nad každou stránkou.",
+	"ep-prefs-showtoplink": "Zobrazit odkaz na [[Special:MyCourses|moje kurzy]] nad každou stránkou",
 	"ep-prefs-bulkdelorgs": "Zobrazit ovládací prvek hromadného odstranění pro [[Special:Institutions|instituce]].",
 	"ep-prefs-bulkdelcourses": "Zobrazit ovládací prvek hromadného odstranění pro [[Special:Courses|kurzy]].",
 	"right-ep-org": "Spravovat instituce",
