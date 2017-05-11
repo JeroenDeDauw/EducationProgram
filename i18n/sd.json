@@ -5,5 +5,13 @@
 		]
 	},
 	"eporgpager-header-active": "سرگرم",
-	"ep-institution-active": "سرگرم"
+	"ep-institution-active": "سرگرم",
+	"ep-delete-org-has-courses-close-dialog": "بند ڪريو",
+	"ep-instructor-close-button": "بند ڪريو",
+	"ep-instructor-add-close-button": "بند ڪريو",
+	"ep-online-close-button": "بند ڪريو",
+	"ep-online-add-close-button": "بند ڪريو",
+	"ep-campus-close-button": "بند ڪريو",
+	"ep-campus-add-close-button": "بند ڪريو",
+	"ep-course-talk-link-text-view-changes": "تبديليون ڏيکاريو"
 }
