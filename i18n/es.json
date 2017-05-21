@@ -163,7 +163,7 @@
 	"group-epcampus-member": "{{GENDER:$1|voluntario en campus de cursos|voluntaria en campus de cursos}}",
 	"grouppage-epcampus": "{{ns:project}}:Voluntarios en campus de cursos",
 	"group-epinstructor": "Instructores de cursos",
-	"group-epinstructor-member": "{{GENDER:$1|instructor del curso|instructora del curso}}",
+	"group-epinstructor-member": "{{GENDER:$1|instructor de cursos|instructora de cursos}}",
 	"grouppage-epinstructor": "{{ns:project}}:Instructores del curso",
 	"specialpages-group-education": "Educación",
 	"special-mycourses": "Mis cursos",
