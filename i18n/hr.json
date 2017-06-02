@@ -1,8 +1,34 @@
 {
 	"@metadata": {
 		"authors": [
-			"MaGa"
+			"MaGa",
+			"Bugoslav"
 		]
 	},
+	"ep-nav-orgs": "Popis ustanova",
+	"ep-nav-courses": "Popis tečajeva",
+	"ep-nav-students": "Popis tèčājācā i tèčājkī",
+	"ep-nav-cas": "Kampusni dobrovoljci",
+	"ep-nav-oas": "Mrežni dobrovoljci",
+	"group-epcoordinator": "Tečajni usklađivatelji",
+	"group-epcoordinator-member": "{{GENDER:$1|tečajni usklađivatelj|tečajna usklađivateljica}}",
+	"grouppage-epcoordinator": "{{ns:project}}:Tečajni_usklađivatelji",
+	"group-eponline": "Tečajni mrežni dobrovoljci",
+	"group-eponline-member": "{{GENDER:$1|tečajni mrežni dobrovoljac|tečajna mrežna dobrovoljka}}",
+	"grouppage-eponline": "{{ns:project}}:Tečajni_mrežni_dobrovoljci",
+	"group-epcampus": "Tečajni kampusni dobrovoljci",
+	"group-epcampus-member": "{{GENDER:$1|tečajni kampusni dobrovoljac|tečajna kampusna dobrovoljka}}",
+	"grouppage-epcampus": "{{ns:project}}:Tečajni_kampusni_dobrovoljci",
+	"group-epinstructor": "Tečajni poučavatelji",
+	"group-epinstructor-member": "{{GENDER:$1|tečajni poučavatelj|tečajna poučavateljica}}",
+	"grouppage-epinstructor": "{{ns:project}}:Tečajni_poučavatelji",
+	"special-institutions": "Ustanove",
+	"special-students": "Tečajci i tečajke",
+	"eporgpager-header-name": "Naziv",
+	"eporgpager-header-city": "Mjesto (grad)",
+	"eporgpager-header-country": "Država",
+	"eporgpager-header-course-count": "Tečajevi",
+	"eporgpager-header-student-count": "Tečajci",
+	"eporgpager-header-active": "Djelovnost",
 	"ep-course-talk-link-text-view-changes": "Prikaži promjene"
 }

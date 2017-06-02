@@ -59,7 +59,7 @@
 	"ep-campus-name-input": "באַניצער נאָמען:",
 	"ep-diff-previous": "אלטע ווערסיע",
 	"ep-diff-current": "איצטיגע ווערסיע",
+	"ep-timeline-remaining": "$1 {{PLURAL:$1|אַנדער|אַנדערע}}",
 	"ep-timeline-ago": "זייט $1",
-	"ep-timeline-cutoff": "$1 ...",
-	"ep-course-talk-notification-title": "דער [[$2|רעדן־בלאט פונעם קורס $3]] איז געווארן {{GENDER:$1|רעדאקטירט}} דורך  [[User:$1|$1]]."
+	"ep-timeline-cutoff": "$1 ..."
 }

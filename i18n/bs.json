@@ -6,5 +6,21 @@
 	},
 	"ep-tab-view": "Čitaj",
 	"ep-tab-history": "Historija",
-	"ep-revision-undo": "poništi"
+	"ep-nav-orgs": "Spisak ustanova",
+	"ep-nav-courses": "Spisak kurseva",
+	"ep-nav-students": "Spisak studenata",
+	"ep-nav-cas": "Univerzitetski volonteri",
+	"ep-nav-oas": "Mrežni volonteri",
+	"group-epcoordinator": "Koordinatori kurseva",
+	"group-epcoordinator-member": "{{GENDER:$1|koordinator|koordinatorica}} kursa",
+	"grouppage-epcoordinator": "{{ns:project}}:Koordinatori_kurseva",
+	"group-epinstructor": "Nastavnici na kursevima",
+	"group-epinstructor-member": "{{GENDER:$1|nastavnik|nastavnica}} na kursevima",
+	"grouppage-epinstructor": "{{ns:project}}:Nastavnici_na_kursevima",
+	"special-students": "Studenti",
+	"ep-revision-undo": "poništi",
+	"eporgpager-header-city": "Grad",
+	"eporgpager-header-country": "Zemlja",
+	"eporgpager-header-course-count": "Kursevi",
+	"eporgpager-header-student-count": "Studenti"
 }
