@@ -5,11 +5,24 @@
 			"Bugoslav"
 		]
 	},
+	"ep-toplink": "Tečajevi",
 	"ep-nav-orgs": "Popis ustanova",
 	"ep-nav-courses": "Popis tečajeva",
 	"ep-nav-students": "Popis tèčājācā i tèčājkī",
 	"ep-nav-cas": "Kampusni dobrovoljci",
 	"ep-nav-oas": "Mrežni dobrovoljci",
+	"log-name-institution": "Evidencija ustanova u naobrazbenim rasporedima",
+	"log-name-course": "Evidencija tečajeva u naobrazbenim rasporedima",
+	"log-name-student": "Evidencija tečajaca na naobrazbenim rasporedima",
+	"log-name-campus": "Evidencija kampusnih dobrovoljaca na naobrazbenim rasporedima",
+	"log-name-instructor": "Evidencija tečajnih poučavatelja na naobrazbenim rasporedima",
+	"logentry-campus-add": "$1 {{GENDER:$2|dodao|dodala}} je {{PLURAL:$4|{{GENDER:$5|kampusnoga dobrovoljca|kampusnu dobrovoljku}}|kampusne dobrovoljce i dobrovoljke}} $5 na tečaj $3",
+	"logentry-campus-remove": "$1 {{GENDER:$2|uklonio|uklonila}} je {{PLURAL:$4|{{GENDER:$5|kampusnoga dobrovoljca|kampusnu dobrovoljku}}|kampusne dobrovoljce i dobrovoljke}} $5 s tečaja $3",
+	"logentry-campus-selfadd": "$1 {{GENDER:$2|dodao|dodala}} je sebe kao {{GENDER:$2|kampusnoga dobrovoljca|kampusnu dobrovoljku}} na tečaju $3",
+	"logentry-campus-selfremove": "$1 {{GENDER:$2|uklonio|uklonila}} je sebe kao {{GENDER:$2|kampusnoga dobrovoljca|kampusnu dobrovoljku}} s tečaja $3",
+	"logentry-campus-profilesave": "$1 {{GENDER:$2|osvježio|osvježila}} je podatcima svoj profil {{GENDER:$2|kampusnoga dobrovoljca|kampusne dobrovoljke}}",
+	"logentry-student-selfadd": "$1 {{GENDER:$2|upisao|upisala}} se na tečaj $3",
+	"logentry-student-selfremove": "$1 {{GENDER:$2|ispisao|ispisala}} se s tečaja $3",
 	"group-epcoordinator": "Tečajni usklađivatelji",
 	"group-epcoordinator-member": "{{GENDER:$1|tečajni usklađivatelj|tečajna usklađivateljica}}",
 	"grouppage-epcoordinator": "{{ns:project}}:Tečajni_usklađivatelji",
@@ -30,5 +43,6 @@
 	"eporgpager-header-course-count": "Tečajevi",
 	"eporgpager-header-student-count": "Tečajci",
 	"eporgpager-header-active": "Djelovnost",
+	"ep-articles-sandboxes": "pješčanici",
 	"ep-course-talk-link-text-view-changes": "Prikaži promjene"
 }
