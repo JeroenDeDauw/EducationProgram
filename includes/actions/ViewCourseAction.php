@@ -352,7 +352,6 @@ class ViewCourseAction extends ViewAction {
 				'a',
 				[
 					'class' => 'mw-customtoggle-addstudents',
-					'href' => '#'
 				],
 				$expandMsg
 			)
