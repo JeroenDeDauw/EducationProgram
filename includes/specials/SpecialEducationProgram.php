@@ -373,7 +373,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 		$genders = array_fill_keys( $userIds, 'unknown' );
 
-		while ( $user = $users->fetchObject() ) {
+		foreach ( $users as $user ) {
 			$genders[$user->up_user] = $user->up_value;
 		}
 

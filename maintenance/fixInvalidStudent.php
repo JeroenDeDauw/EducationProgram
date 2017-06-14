@@ -95,7 +95,8 @@ class FixInvalidStudent extends \Maintenance {
 
 		$students = $course->getField( 'students' );
 
-		if ( ( $key = array_search( '', $students ) ) !== false ) {
+		$key = array_search( '', $students );
+		if ( $key !== false ) {
 			unset( $students[$key] );
 		}
 

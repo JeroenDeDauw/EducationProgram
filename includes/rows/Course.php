@@ -871,7 +871,8 @@ class Course extends PageObject {
 		// Check whether to hide 'token' field, which is the only info in
 		// course or org diffs that should be hidden from unprivileged users.
 		if ( $hidePriviledgedFields ) {
-			if ( ( $key = array_search( 'token', $fields ) ) !== false ) {
+			$key = array_search( 'token', $fields );
+			if ( $key !== false ) {
 				unset( $fields[$key] );
 			}
 		}
