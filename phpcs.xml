@@ -11,9 +11,6 @@
 	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall.NotAllowed">
 		<severity>0</severity>
 	</rule>
-	<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement.Found">
-		<severity>0</severity>
-	</rule>
 	<rule ref="MediaWiki.NamingConventions.ValidGlobalName.wgPrefix">
 		<severity>0</severity>
 	</rule>

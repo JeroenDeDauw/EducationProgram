@@ -227,11 +227,7 @@ class ViewCourseAction extends ViewAction {
 				$instList[] = $user->getUserLink() . $user->getToolLinks( $this->getContext(), $course );
 			}
 
-			if ( false ) { // count( $instructors ) == 1
-				$html = $instList[0];
-			} else {
-				$html = '<ul><li>' . implode( '</li><li>', $instList ) . '</li></ul>';
-			}
+			$html = '<ul><li>' . implode( '</li><li>', $instList ) . '</li></ul>';
 		}
 
 		return Html::rawElement(
