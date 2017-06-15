@@ -744,6 +744,7 @@
 	"apihelp-liststudents-example-2": "Elenca gli studenti nei corsi 3, 4, 5 e 6, raggruppati per corso, in formato CSV",
 	"apihelp-liststudents-example-3": "Elenca gli studenti per ID utente nei corsi 3, 4, 5 e 6, raggruppati per corso, in formato CSV",
 	"apihelp-refresheducation-description": "Ricostruisce dati riepilogativi degli oggetti del programma di istruzione.",
+	"apihelp-refresheducation-summary": "Ricostruisce dati riepilogativi degli oggetti del programma di istruzione.",
 	"apihelp-refresheducation-param-ids": "Gli ID degli oggetti da aggiornare.",
 	"apihelp-refresheducation-param-type": "Tipo di oggetto da aggiornare.",
 	"apihelp-refresheducation-example-1": "Aggiorna corso 42",

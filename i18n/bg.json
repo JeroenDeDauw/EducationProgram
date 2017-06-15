@@ -4,7 +4,8 @@
 			"DCLXVI",
 			"පසිඳු කාවින්ද",
 			"Borislav",
-			"Spiritia"
+			"Spiritia",
+			"StanProg"
 		]
 	},
 	"ep-item-summary": "Резюме",
@@ -579,7 +580,8 @@
 	"ep-dashboard-login-first": "Трябва да влезете в системата преди да можете да прегледате вашите курсове.",
 	"ep-dashboard-timeline-empty": "Няма скорошна активност за този курс.",
 	"ep-dashboard-enroll-first": "В момента не сте записани за нито един текущо активен курс. Можете да прегледате [[Special:Courses|списъка на курсовете]].",
-	"ep-echo-pref-tooltip": "Известяване за събития, свързани с мои курсове от обучителната програма.",
+	"echo-category-title-education-program": "Образователна програма",
+	"ep-echo-pref-tooltip": "Известяване за събития, свързани с мои курсове от образователната програма.",
 	"ep-course-talk-link-text-view-message": "Преглед на съобщението",
 	"ep-course-talk-link-text-view-changes": "Преглед на промените",
 	"ep-role-add-link-text-view-course": "Преглед на курса",
