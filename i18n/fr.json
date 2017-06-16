@@ -759,6 +759,7 @@
 	"apihelp-enlist-example-4": "Retirer l’utilisateur Exemple comme instructeur du cours 42",
 	"apihelp-enlist-example-5": "Retirer l’utilisateur Exemple comme instructeur du cours 42 avec un motif",
 	"apihelp-liststudents-description": "Obtenir les noms d’utilisateur et d’autres informations pour les étudiants inscrits à un ou plusieurs cours",
+	"apihelp-liststudents-summary": "Obtenir les noms d’utilisateur et d’autres informations pour les étudiants inscrits à un ou plusieurs cours.",
 	"apihelp-liststudents-param-courseids": "IDs des cours.",
 	"apihelp-liststudents-param-prop": "Quelle propriété obtenir pour chaque étudiant :\n;username:Le nom d’utilisateur de l’étudiant.\n;id:L’id utilisateur de l’étudiant.",
 	"apihelp-liststudents-param-group": "Si c’est indiqué, la demande regroupera les étudiants par cours.",
