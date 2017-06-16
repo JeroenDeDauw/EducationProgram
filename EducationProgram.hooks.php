@@ -3,6 +3,7 @@
 namespace EducationProgram;
 
 use DatabaseUpdater;
+use EchoEvent;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
@@ -265,8 +266,8 @@ final class Hooks {
 		$textParts = \SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
 
 		if ( in_array( $textParts[0], [ 'Enroll', 'Disenroll' ] )
-			&& !is_null( $textParts[1] ) && trim( $textParts[1] ) !== '' ) {
-
+			&& !is_null( $textParts[1] ) && trim( $textParts[1] ) !== ''
+		) {
 			// Remove the token from the title if needed.
 			if ( !$sktemplate->getRequest()->getCheck( 'wptoken' ) ) {
 				$textParts[1] = explode( '/', $textParts[1] );
@@ -319,7 +320,6 @@ final class Hooks {
 			$page = EducationPage::factory( $title );
 
 			if ( $user->isAllowed( $page->getLimitedEditRight() ) ) {
-
 				$links['views']['edit'] = [
 					'class' => $type === 'edit' ? 'selected' : false,
 					'text' => $sktemplate->msg( $exists ? 'ep-tab-edit' : 'ep-tab-create' )->text(),
@@ -529,9 +529,11 @@ final class Hooks {
 	 *
 	 * @return boolean
 	 */
-	public static function onBeforeCreateEchoEvent( array &$notifications,
-			array &$notificationCategories, array &$icons ) {
-
+	public static function onBeforeCreateEchoEvent(
+		array &$notifications,
+		array &$notificationCategories,
+		array &$icons
+	) {
 		Extension::globalInstance()->getNotificationsManager()->
 			setUpTypesAndCategories(
 			$notifications, $notificationCategories, $icons );
@@ -547,14 +549,15 @@ final class Hooks {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param $event \EchoEvent
+	 * @param $event EchoEvent
 	 * @param $users array
 	 *
 	 * @return boolean
 	 */
 	public static function onEchoGetDefaultNotifiedUsers(
-			\EchoEvent $event, array &$users ) {
-
+		EchoEvent $event,
+		array &$users
+	) {
 		Extension::globalInstance()->getNotificationsManager()->
 			getUsersNotified( $event, $users );
 
@@ -565,16 +568,25 @@ final class Hooks {
 	 * Check for changes to course talk pages, possibly trigger a notification.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
 	 */
-	public static function onPageContentSaveComplete( $article, $user, $content,
-			$summary, $isMinor, $isWatch, $section, $flags, $revision, $status,
-			$baseRevId ) {
-
+	public static function onPageContentSaveComplete(
+		$article,
+		$user,
+		$content,
+		$summary,
+		$isMinor,
+		$isWatch,
+		$section,
+		$flags,
+		$revision,
+		$status,
+		$baseRevId
+	) {
 		$title = $article->getTitle();
 
 		// check if the page saved was a course in the EP talk namespace
-		if ( ( $title->getNamespace() === EP_NS_TALK ) &&
-			( Utils::isCourse( $title ) ) ) {
-
+		if ( $title->getNamespace() === EP_NS_TALK
+			&& Utils::isCourse( $title )
+		) {
 			// Send an event to the notifications manager. Note that there are
 			// additional checks that will be peformed further along before a
 			// notification is actually sent.
@@ -599,8 +611,8 @@ final class Hooks {
 	 * @since 0.5 alpha
 	 */
 	public static function onSetupAfterCache() {
-
 		global $wgAutoloadClasses;
+
 		if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version constant to check against :/
 			   die( '<strong>Error:</strong> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
 		}
@@ -617,7 +629,6 @@ final class Hooks {
 	 * @since 0.5.0 alpha
 	 */
 	public static function onUserMergeAccountFields( array &$fields ) {
-
 		// Omitting the ep_users_per_course table, since that will be updated
 		// automatically by Course::save(), called from onMergeAccountFromTo().
 
@@ -663,7 +674,6 @@ final class Hooks {
 	 * @since 0.5.0 alpha
 	 */
 	public static function onMergeAccountFromTo( &$oldUser, $newUser ) {
-
 		$oldId = $oldUser->getId();
 		$newId = $newUser->getId();
 
@@ -687,7 +697,6 @@ final class Hooks {
 		// A function to usermerge in an array of ids. Returns true if there
 		// were changes.
 		$mergeUserIds = function( &$ids ) use ( $oldId, $newId ) {
-
 			$i = array_search( $oldId, $ids );
 
 			if ( $i !== false ) {
@@ -700,7 +709,6 @@ final class Hooks {
 		};
 
 		foreach ( $courseIds as $courseId ) {
-
 			// Fetch the course
 			$course = Courses::singleton()->selectRow(
 					null, [ 'id' => $courseId ] );
@@ -712,7 +720,6 @@ final class Hooks {
 
 			// Go through the role fields, update the user id, de-dupe and save
 			foreach ( $roleFields as $roleField ) {
-
 				$ids = $course->getField( $roleField );
 
 				if ( $mergeUserIds( $ids ) ) {

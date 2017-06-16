@@ -33,8 +33,6 @@ abstract class ViewAction extends Action {
 	protected $object = null;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 *
 	 * @param Page $page

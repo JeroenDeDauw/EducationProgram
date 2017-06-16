@@ -38,8 +38,6 @@ class Settings {
 	protected $settings;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.3
 	 *
 	 * @param array $settings

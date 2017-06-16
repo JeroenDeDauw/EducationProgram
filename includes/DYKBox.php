@@ -25,8 +25,6 @@ class DYKBox extends \ContextSource {
 	protected $specificCategory;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.3
 	 *
 	 * @param string $mainCategory

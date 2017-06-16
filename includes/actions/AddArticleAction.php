@@ -44,7 +44,6 @@ class AddArticleAction extends \FormlessAction {
 		// If no article was found, test whether the user inputted a URL instead
 		// of an article name, and ensure the URL is from this domain.
 		if ( is_null( $title ) || !$title->isKnown() ) {
-
 			if ( strpos( $wgServer, "http://" ) !== false ) {
 				$serverWithoutProtocol = substr( $wgServer, strlen( "http://" ) );
 			} elseif ( strpos( $wgServer, "https://" ) !== false ) {
@@ -66,7 +65,6 @@ class AddArticleAction extends \FormlessAction {
 
 		// TODO: some kind of warning when entering invalid title
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) && !is_null( $title ) ) {
-
 			// TODO: migrate into ArticleAdder
 			$course = Courses::singleton()->selectRow(
 				[ 'students', 'name' ],

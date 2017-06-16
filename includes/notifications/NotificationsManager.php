@@ -33,7 +33,7 @@ class NotificationsManager {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @var array
+	 * @var INotificationType[]
 	 */
 	private $typesByKey = [];
 
@@ -57,6 +57,7 @@ class NotificationsManager {
 	 *   EducationProgram/INotificationType
 	 */
 	public function registerType( $typeName ) {
+		/** @var INotificationType $type */
 		$type = new $typeName();
 		$this->typesByKey[$type->getKey()] = $type;
 	}
@@ -73,16 +74,17 @@ class NotificationsManager {
 	 * @param array $notificationCategories
 	 * @param array $icons
 	 */
-	public function setUpTypesAndCategories( array &$notifications,
-			array &$notificationCategories, array &$icons ) {
-
+	public function setUpTypesAndCategories(
+		array &$notifications,
+		array &$notificationCategories,
+		array &$icons
+	) {
 		// register the category
 		$notificationCategories[NotificationsManager::CATEGORY] = [
 			'tooltip' => 'ep-echo-pref-tooltip',
 		];
 
 		foreach ( $this->typesByKey as $typeKey => $type ) {
-
 			$params = $type->getParameters();
 
 			// tell Echo about the notification type
@@ -114,7 +116,6 @@ class NotificationsManager {
 	 * @param $users array
 	 */
 	public function getUsersNotified( \EchoEvent $event, array &$users ) {
-
 		$key = $event->getType();
 
 		if ( isset( $this->typesByKey[$key] ) ) {
@@ -131,7 +132,6 @@ class NotificationsManager {
 	 *   (not the same as the parameters for EchoEvent::create()).
 	 */
 	public function trigger( $key, array $parameters ) {
-
 		if ( !isset( $this->typesByKey[$key] ) ) {
 			throw new \InvalidArgumentException(
 				'No notification type for key ' . $key );

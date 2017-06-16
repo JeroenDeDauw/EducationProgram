@@ -1,4 +1,5 @@
 <?php
+
 namespace EducationProgram\Tests\Rows;
 
 require_once __DIR__ . '/PageObjectTest.php';
@@ -102,8 +103,9 @@ class OrgTest extends PageObjectTest {
 	 * @expectedException \EducationProgram\ErrorPageErrorWithSelflink
 	 */
 	public function testSameNameRaisesException(
-			Org $org, Org $duplicateOrg ) {
-
+		Org $org,
+		Org $duplicateOrg
+	) {
 		// Verify that the orgs have the same name.
 		$this->assertEquals( $org->getField( 'name' ),
 			$duplicateOrg->getField( 'name' ) );
@@ -114,4 +116,5 @@ class OrgTest extends PageObjectTest {
 		// Save the duplicate org. This should throw the exception.
 		$duplicateOrg->save();
 	}
+
 }

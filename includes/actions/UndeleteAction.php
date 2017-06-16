@@ -116,28 +116,25 @@ class UndeleteAction extends Action {
 	 * @param EPRevision $revision The latest revision of the object to undelete
 	 *
 	 * @return boolean
-	 *
 	 */
 	protected function checkAndHandleRestrictions( $revision ) {
-
 		// only worrying about restrictions for courses, specifically
 		// checking that the associated institution is not also deleted
-		if ( get_class( $this->page ) === 'EducationProgram\CoursePage' ) {
-
+		if ( $this->page instanceof CoursePage ) {
 			$undeletionHelper = new CourseUndeletionHelper(
-					$revision, $this->context, $this->page );
+				$revision,
+				$this->context,
+				$this->page
+			);
 
-			if ( $undeletionHelper->checkRestrictions() ) {
-				return true;
-			} else {
+			if ( !$undeletionHelper->checkRestrictions() ) {
 				$undeletionHelper->outputCantUndeleteMsg();
 				return false;
 			}
+		}
 
 		// institutions are always good
-		} else {
-			return true;
-		}
+		return true;
 	}
 
 	/**
@@ -233,4 +230,5 @@ class UndeleteAction extends Action {
 			$this->getTitle()->getText()
 		)->text();
 	}
+
 }

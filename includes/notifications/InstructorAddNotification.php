@@ -15,6 +15,7 @@ namespace EducationProgram;
  */
 
 class InstructorAddNotification extends RoleAddNotification {
+
 	const KEY = 'ep-instructor-add-notification';
 
 	/**
@@ -24,4 +25,5 @@ class InstructorAddNotification extends RoleAddNotification {
 	public function getKey() {
 		return InstructorAddNotification::KEY;
 	}
+
 }

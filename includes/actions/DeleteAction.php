@@ -17,6 +17,7 @@ use Html;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class DeleteAction extends Action {
+
 	/**
 	 * @see Action::getName()
 	 */
@@ -62,8 +63,9 @@ class DeleteAction extends Action {
 
 			// If there are no problems, proceed to delete or show the form
 			if ( $canDelete ) {
-
-				if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'deleteToken' ), $this->getSalt() ) ) {
+				if ( $req->wasPosted()
+					&& $this->getUser()->matchEditToken( $req->getText( 'deleteToken' ), $this->getSalt() )
+				) {
 					$success = $this->doDelete( $object );
 
 					if ( $success ) {
@@ -107,7 +109,6 @@ class DeleteAction extends Action {
 	 *   deleted.
 	 *
 	 * @return boolean
-	 *
 	 */
 	protected function checkAndHandleRestrictions( $pageObj ) {
 		return true;

@@ -66,7 +66,6 @@ class OrgsTest extends \MediaWikiTestCase {
 
 			$this->assertEquals( $data[$field], $change->getField( $field ) );
 		}
-
 	}
 
 	/**

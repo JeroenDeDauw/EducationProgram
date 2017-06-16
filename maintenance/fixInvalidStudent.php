@@ -37,14 +37,13 @@ class FixInvalidStudent extends \Maintenance {
 	private $dryRun = false;
 
 	public function __construct() {
-
 		parent::__construct();
+
 		$this->addOption( 'courseId', 'ID of the course to repair', false, true );
 		$this->addOption( 'dryRun', 'Go through the moves but don\'t really do anything', false );
 	}
 
 	public function execute() {
-
 		if ( $this->getOption( 'dryRun' ) ) {
 			$this->dryRun = true;
 			$this->output( "Dry run. No changes will be made to the DB.\n" );
@@ -101,7 +100,6 @@ class FixInvalidStudent extends \Maintenance {
 		}
 
 		if ( !$this->dryRun ) {
-
 			$course->setField( 'students', $students );
 			$course->disableLogging();
 

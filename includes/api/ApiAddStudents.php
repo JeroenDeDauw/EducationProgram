@@ -37,10 +37,9 @@ class ApiAddStudents extends ApiBase {
 		$user = $this->getUser();
 
 		// check that the user can do this
-		if ( !$user->isAllowed( 'ep-addstudent' ) && !RoleObject::isInRoleObjArray(
-				$user->getId(),
-				$course->getAllNonStudentRoleObjs() ) ) {
-
+		if ( !$user->isAllowed( 'ep-addstudent' )
+			&& !RoleObject::isInRoleObjArray( $user->getId(), $course->getAllNonStudentRoleObjs() )
+		) {
 			if ( is_callable( [ $this, 'checkUserRightsAny' ] ) ) {
 				$this->checkUserRightsAny( 'ep-addstudent' );
 			} else {
@@ -81,8 +80,7 @@ class ApiAddStudents extends ApiBase {
 
 		// if there are invalid user names, don't add any users, but do send a
 		// result with these validation results
-		if ( count( $invalidUserNames ) > 0 ) {
-
+		if ( $invalidUserNames !== [] ) {
 			$r->addValue( null, 'success', false );
 			$r->addValue( null, 'usersAddedCount', 0 );
 
@@ -92,7 +90,6 @@ class ApiAddStudents extends ApiBase {
 
 		// otherwise add the users
 		} else {
-
 			$revAction = new RevisionAction();
 			$revAction->setUser( $user );
 			$addedUserIds = [];
@@ -103,17 +100,13 @@ class ApiAddStudents extends ApiBase {
 			// We have to test for actual faleshood, not falsiness, since
 			// we might get 0 if no users were added due to all of them
 			// already being enrolled.
-			if ( $enlistmentResult === false ||
-				$enlistmentResult != count( $addedUserIds ) ) {
-
+			if ( $enlistmentResult === false || $enlistmentResult != count( $addedUserIds ) ) {
 				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 					$this->dieWithError( 'apierror-unknownerror-nocode', 'internal-error' );
 				} else {
 					$this->dieUsage( 'Somthing bad happened.', 'internal-error' );
 				}
-
 			} else {
-
 				$r->addValue( null, 'success', true );
 
 				// Don't worry about not sending the following data if
@@ -147,7 +140,6 @@ class ApiAddStudents extends ApiBase {
 						User::newFromId( $alreadyEnrolledIds[0] )
 						->getOption( 'gender' ) );
 				}
-
 			}
 		}
 	}
@@ -220,4 +212,5 @@ class ApiAddStudents extends ApiBase {
 				=> 'apihelp-addstudents-example-1',
 		];
 	}
+
 }

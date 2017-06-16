@@ -48,7 +48,6 @@ class UserMergeArticleReviewersJob extends Job {
 	 * @see Job::run()
 	 */
 	public function run() {
-
 		$dbw = wfGetDB( DB_MASTER );
 		$oldId = $this->params['oldUserId'];
 		$newId = $this->params['newUserId'];
@@ -66,7 +65,6 @@ class UserMergeArticleReviewersJob extends Job {
 		);
 
 		foreach ( $articleRows as $articleRow ) {
-
 			$reviewerIds = unserialize( $articleRow->article_reviewers );
 
 			if ( $this->mergeIds( $reviewerIds, $oldId, $newId ) ) {

@@ -33,7 +33,6 @@ class AddReviewerAction extends \FormlessAction {
 		$salt = 'addreviewer' . $req->getInt( 'article-id' );
 
 		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) ) {
-
 			// TODO: create dedicated ReviewerAdder use case
 
 			$articleStore = Extension::globalInstance()->newArticleStore();

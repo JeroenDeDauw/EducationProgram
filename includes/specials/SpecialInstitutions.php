@@ -16,8 +16,6 @@ namespace EducationProgram;
 class SpecialInstitutions extends VerySpecialPage {
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 */
 	public function __construct() {

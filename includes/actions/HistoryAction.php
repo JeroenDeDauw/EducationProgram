@@ -102,7 +102,7 @@ class HistoryAction extends Action {
 					false,
 					[ 'id' => 'mw-history-search' ]
 				) .
-				Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n" .
+				Html::hidden( 'title', $this->getTitle()->getPrefixedDBkey() ) . "\n" .
 				Html::hidden( 'action', 'history' ) . "\n" .
 				Xml::dateMenu( $year, $month ) . '&#160;' .
 				( $tagSelector ? ( implode( '&#160;', $tagSelector ) . '&#160;' ) : '' ) .

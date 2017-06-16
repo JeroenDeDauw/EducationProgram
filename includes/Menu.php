@@ -30,8 +30,6 @@ class Menu extends \ContextSource {
 	protected $itemFunction = null;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 *
 	 * @param IContextSource $context

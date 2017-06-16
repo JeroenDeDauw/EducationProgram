@@ -17,6 +17,7 @@ use Xml;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class Org extends PageObject {
+
 	/**
 	 * Cached array of the linked Course objects.
 	 *
@@ -38,10 +39,10 @@ class Org extends PageObject {
 		$fields = [];
 
 		// load all these fields at once
-		if ( in_array( 'course_count', $summaryFields ) ||
-			in_array( 'courses', $summaryFields ) ||
-			in_array( 'last_active_date', $summaryFields ) ) {
-
+		if ( in_array( 'course_count', $summaryFields )
+			|| in_array( 'courses', $summaryFields )
+			|| in_array( 'last_active_date', $summaryFields )
+		) {
 			$courseInfo = Courses::singleton()->selectFields(
 				[ 'id', 'end' ],
 				[ 'org_id' => $this->getId() ],
@@ -52,7 +53,6 @@ class Org extends PageObject {
 			$lastActiveDate = '19700101000000'; // typical MW timestamp default
 
 			foreach ( $courseInfo as $courseFields ) {
-
 				$courses[] = $courseFields['id'];
 
 				if ( $courseFields['end'] > $lastActiveDate ) {
@@ -166,7 +166,6 @@ class Org extends PageObject {
 			$name = $this->getField( 'name' );
 
 			if ( $this->table->has( [ 'name' => $name ] ) ) {
-
 				$pageTitle = $this->getTitle(); // title of the Wiki page
 				throw new ErrorPageErrorWithSelflink( 'ep-err-org-exists-title',
 						'ep-err-org-exists-text', $pageTitle, $name );

@@ -17,9 +17,8 @@ use Xml;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialDisenroll extends VerySpecialPage {
+
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 */
 	public function __construct() {
@@ -48,7 +47,6 @@ class SpecialDisenroll extends VerySpecialPage {
 			} else {
 				if ( Student::newFromUser( $this->getUser() )->hasCourse( [ 'id' => $course->getId() ] ) ) {
 					$this->executeEnrolled( $course );
-
 				} else {
 					$this->showWarning( $this->msg( 'ep-disenroll-not-enrolled' ) );
 				}
@@ -203,4 +201,5 @@ class SpecialDisenroll extends VerySpecialPage {
 	protected function getGroupName() {
 		return 'education';
 	}
+
 }

@@ -50,7 +50,6 @@ class CourseTalkNotification implements INotificationType {
 	 * @see EducationProgram.INotificationType::getUsersNotified()
 	 */
 	public function getUsersNotified( \EchoEvent $event, array &$users ) {
-
 		// We assume that title is an EP course talk page title.
 		$course = Extension::globalInstance()->newCourseStore()
 			->getCourseByTitle( $event->getTitle()->getText() );
@@ -78,7 +77,6 @@ class CourseTalkNotification implements INotificationType {
 	 * @see EducationProgram.INotificationType::trigger()
 	 */
 	public function trigger( $params ) {
-
 		$title = $params['course-talk-title'];
 
 		// Don't send notifications for sub-talk-pages or if if the course

@@ -18,6 +18,7 @@ use SpecialPage;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialEnroll extends VerySpecialPage {
+
 	/**
 	 * @since 0.1
 	 * @var Course
@@ -31,8 +32,6 @@ class SpecialEnroll extends VerySpecialPage {
 	protected $token = false;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 */
 	public function __construct() {

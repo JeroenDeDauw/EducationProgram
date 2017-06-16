@@ -19,7 +19,6 @@ use User;
 class ApiListStudents extends ApiBase {
 
 	public function execute() {
-
 		// This creates an array of all the submitted parameters of the API call.
 		$params = $this->extractRequestParams();
 
@@ -44,7 +43,6 @@ class ApiListStudents extends ApiBase {
 		// Now go through each of the submitted course IDs,
 		// and add all the student users from that course.
 		foreach ( $courseIds as $courseId ) {
-
 			// Get the course, or die if the course id is invalid.
 			$course = Courses::singleton()->selectRow(
 				null, [ 'id' => $courseId ] );
@@ -77,7 +75,6 @@ class ApiListStudents extends ApiBase {
 			// If the 'group' parameter is given, get details for
 			// students from this course to the list and display them.
 			if ( $params['group'] ) {
-
 				$this->outputCourseProperties(
 					$courseId,
 					$course,
@@ -88,7 +85,6 @@ class ApiListStudents extends ApiBase {
 				// If 'csv' parameter is given,
 				// format and display the results as CSV for each course.
 				if ( $params['csv'] ) {
-
 					$this->outputCSVofStudentProperties(
 						$courseStudents,
 						$propName,
@@ -135,12 +131,10 @@ class ApiListStudents extends ApiBase {
 						$courseIndex,
 						$articleStore
 					);
-
 				}
 
-			$courseIndex++;
+				$courseIndex++;
 			}
-
 		}
 
 		// If not grouping by course, format and display the results after students
@@ -160,7 +154,6 @@ class ApiListStudents extends ApiBase {
 					null,
 					$articleStore
 				);
-
 			} else {
 				$this->outputListOfStudentProperties(
 					$allStudents,
@@ -171,7 +164,6 @@ class ApiListStudents extends ApiBase {
 					$articleStore
 				);
 			}
-
 		} else {
 			// Replace all the instances of $courseIndex in the results.
 			if ( defined( 'ApiResult::META_CONTENT' ) ) {
@@ -194,7 +186,6 @@ class ApiListStudents extends ApiBase {
 	 * @return array of user objects
 	 */
 	protected function getParticipantsAsUsers( Course $course, $courseRole ) {
-
 		if ( $courseRole == 'instructor' ) {
 			$participants = $course->getInstructors();
 		} elseif ( $courseRole == 'online_volunteer' ) {
@@ -249,7 +240,6 @@ class ApiListStudents extends ApiBase {
 		$courseIndex = null,
 		$articleStore
 	) {
-
 		$studentProps = [];
 
 		foreach ( $studentsList as $student ) {
@@ -277,7 +267,6 @@ class ApiListStudents extends ApiBase {
 				$articleStore
 			);
 		}
-
 	}
 
 	/**
@@ -296,7 +285,6 @@ class ApiListStudents extends ApiBase {
 		$courseIndex,
 		$courseRole
 	) {
-
 		// Determine the plural of the role name.
 		$courseRolePlural = $courseRole . 's';
 
@@ -307,7 +295,6 @@ class ApiListStudents extends ApiBase {
 		$participantIndex = 0;
 
 		foreach ( $participantList as $participant ) {
-
 			// Add username to the result.
 			$results->addValue(
 				$this->userPath( $courseIndex, $courseRolePlural, $participantIndex ),
@@ -360,11 +347,10 @@ class ApiListStudents extends ApiBase {
 		$courseIndex = null,
 		$articleStore
 	) {
-
 		// Add the properties for each student to the result.
 		$studentIndex = 0;
-		foreach ( $studentsList as $student ) {
 
+		foreach ( $studentsList as $student ) {
 			// Add username to the result.
 			$results->addValue(
 				$this->userPath( $courseIndex, 'students', $studentIndex ),
@@ -421,7 +407,6 @@ class ApiListStudents extends ApiBase {
 							$articleReviewer
 						);
 						$reviewerIndex++;
-
 					}
 
 					// Index the reviewers for the article.
@@ -433,8 +418,8 @@ class ApiListStudents extends ApiBase {
 							'reviewer'
 						);
 					}
-					$articleIndex++;
 
+					$articleIndex++;
 				}
 
 				// Index the articles for the student.
@@ -452,7 +437,6 @@ class ApiListStudents extends ApiBase {
 			}
 
 			$studentIndex++;
-
 		}
 
 		// Index the students.
@@ -486,7 +470,6 @@ class ApiListStudents extends ApiBase {
 		$courseIndex = null,
 		$articleStore
 	) {
-
 		$articleNames = $this->getArticleNames( $courseIds, $studentsList, $articleStore );
 
 		if ( $articleNames ) {
@@ -510,7 +493,6 @@ class ApiListStudents extends ApiBase {
 				'articles'
 			);
 		}
-
 	}
 
 	/**
@@ -522,8 +504,11 @@ class ApiListStudents extends ApiBase {
 	 * @param \ApiResult $results
 	 */
 	protected function outputCourseProperties(
-		$courseId, $course, $courseIndex, $results ) {
-
+		$courseId,
+		$course,
+		$courseIndex,
+		$results
+	) {
 		// Use an unambiguous name for the course that
 		// includes the institution, title, term and ID.
 
@@ -556,7 +541,6 @@ class ApiListStudents extends ApiBase {
 			'end',
 			$enddate
 		);
-
 	}
 
 	/**
@@ -569,7 +553,6 @@ class ApiListStudents extends ApiBase {
 	 * @return array
 	 */
 	protected function getArticleNames( $courseIds, $students, $articleStore ) {
-
 		// Turn array of student objects into array of corresponding user IDs.
 		foreach ( $students as $student ) {
 			$studentIds[] = $student->getId();
@@ -596,7 +579,6 @@ class ApiListStudents extends ApiBase {
 	 * @return array
 	 */
 	protected function getEPArticles( $courseId, $student, $articleStore ) {
-
 		$studentId = $student->getId();
 
 		// These are EPArticle objects, not conventional articles.
@@ -612,7 +594,6 @@ class ApiListStudents extends ApiBase {
 	 * @return array
 	 */
 	protected function getArticleReviewerIds( EPArticle $epArticle ) {
-
 		$reviewerIds = $epArticle->getReviewers();
 
 		return $reviewerIds;
@@ -750,4 +731,5 @@ class ApiListStudents extends ApiBase {
 				=> 'apihelp-liststudents-example-3',
 		];
 	}
+
 }

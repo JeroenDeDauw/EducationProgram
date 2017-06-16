@@ -39,8 +39,6 @@ class Event {
 	private $info;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.3
 	 *
 	 * @param int|null $eventId

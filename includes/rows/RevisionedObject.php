@@ -13,6 +13,7 @@ namespace EducationProgram;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class RevisionedObject extends ORMRow {
+
 	/**
 	 * If the object should log changes.
 	 * Can be changed via disableLogging and enableLogging.
@@ -436,9 +437,11 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @return RevisionDiff
 	 */
-	public function getCompareDiff( EPRevision $revision, array $fields = null,
-		$hidePriviledgedFields = false ) {
-
+	public function getCompareDiff(
+		EPRevision $revision,
+		array $fields = null,
+		$hidePriviledgedFields = false
+	) {
 		$fields = is_null( $fields ) ? $this->table->getRevertibleFields() : $fields;
 
 		return RevisionDiff::newFromCompareRevision( $this, $revision, $fields );

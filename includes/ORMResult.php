@@ -33,6 +33,7 @@ namespace EducationProgram;
  */
 
 class ORMResult implements ORMIterator {
+
 	/**
 	 * @var \ResultWrapper
 	 */

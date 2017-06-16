@@ -104,8 +104,6 @@ class EPArticle {
 	protected $reviewers;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.3
 	 *
 	 * @param int|null $id

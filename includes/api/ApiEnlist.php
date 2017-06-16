@@ -17,6 +17,7 @@ use User;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ApiEnlist extends ApiBase {
+
 	public function execute() {
 		$params = $this->extractRequestParams();
 

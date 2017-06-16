@@ -45,7 +45,6 @@ class FailForm extends \HTMLForm {
 	 * @return String wrapped HTML.
 	 */
 	function wrapForm( $html ) {
-
 		// Include a <fieldset> wrapper for style, if requested.
 		if ( $this->mWrapperLegend !== false ) {
 			$html = Xml::fieldset( $this->mWrapperLegend, $html );

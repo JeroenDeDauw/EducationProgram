@@ -73,8 +73,6 @@ class ArticleTable extends EPPager {
 	protected $showStudents = true;
 
 	/**
-	 * Constructor.
-	 *
 	 * @param IContextSource $context
 	 * @param array $conds
 	 * @param int[]|int $courseIds
@@ -82,8 +80,13 @@ class ArticleTable extends EPPager {
 	 * @param Course $course The course object or these articles. Should be sent
 	 *   when the table is for only one course.
 	 */
-	public function __construct( IContextSource $context, array $conds = [],
-			$courseIds, array $userIds = null, $course = null ) {
+	public function __construct(
+		IContextSource $context,
+		array $conds = [],
+		$courseIds,
+		array $userIds = null,
+		$course = null
+	) {
 		$this->mDefaultDirection = true;
 		$this->courseIds = (array)$courseIds;
 		$this->userIds = $userIds;
@@ -169,16 +172,15 @@ class ArticleTable extends EPPager {
 			// an instructor, an online ambassador or a campus ambassador
 			// for this course.
 			( !is_null( $this->course ) && ( RoleObject::isInRoleObjArray(
-				$userId, $this->course->getAllNonStudentRoleObjs() ) ) ) ) ) {
-
-				$showArticleAddition = true;
+				$userId, $this->course->getAllNonStudentRoleObjs() ) ) ) )
+		) {
+			$showArticleAddition = true;
 		}
 
 		// initial calculation for row count
 		$rowCount = array_reduce(
 			$articles,
 			function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
-
 				// At least one row per article the student has to review;
 				// for articles that have more than one reviewer, provide extra rows for them.
 				$reviewersCount = count( $article->getReviewers() );
@@ -308,9 +310,7 @@ class ArticleTable extends EPPager {
 
 		$html = Linker::userLink( $userId, $user->getName(), $realName );
 
-		if ( $this->getUser()->isAllowed( 'ep-remstudent' )
-			&& $this->isForOneCourse() ) {
-
+		if ( $this->getUser()->isAllowed( 'ep-remstudent' ) && $this->isForOneCourse() ) {
 			$html .= Utils::getToolLinks(
 				$userId,
 				$user->getName(),

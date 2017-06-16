@@ -33,15 +33,16 @@ class RevisionDiff {
 	public static function newFromCompareRevision(
 		RevisionedObject $targetObject,
 		EPRevision $revision,
-		array $fields = null ) {
-
+		array $fields = null
+	) {
 		$sourceObject = $revision->getObject();
 		$fields = is_null( $fields ) ? $sourceObject->getFieldNames() : $fields;
 
 		$changedFields = RevisionDiff::compareFields(
 			$sourceObject,
 			$targetObject,
-			$fields );
+			$fields
+		);
 
 		return new self( $changedFields );
 	}
@@ -49,8 +50,8 @@ class RevisionDiff {
 	public static function newFromRestoreRevision(
 		RevisionedObject $sourceObject,
 		EPRevision $revision,
-		array $fields = null ) {
-
+		array $fields = null
+	) {
 		$targetObject = $revision->getObject();
 		$fields = is_null( $fields ) ? $targetObject->getFieldNames() : $fields;
 
@@ -65,8 +66,8 @@ class RevisionDiff {
 	public static function newFromUndoRevision(
 		RevisionedObject $currentObject,
 		EPRevision $revision,
-		array $fields = null ) {
-
+		array $fields = null
+	) {
 		$changedFields = [];
 
 		$targetObject = $revision->getPreviousRevision()->getObject();
@@ -80,15 +81,15 @@ class RevisionDiff {
 				$sourceHasField = $sourceObject->hasField( $fieldName );
 				$targetHasField = $targetObject->hasField( $fieldName );
 
-				if ( $currentObject->getField( $fieldName, null ) ===
-					$sourceObject->getField( $fieldName, null )
+				if ( $currentObject->getField( $fieldName ) ===
+					$sourceObject->getField( $fieldName )
 					&&
 					( ( $sourceHasField xor $targetHasField )
 						||
-						$sourceObject->getField( $fieldName, null ) !==
-						$targetObject->getField( $fieldName, null )
-					) ) {
-
+						$sourceObject->getField( $fieldName ) !==
+						$targetObject->getField( $fieldName )
+					)
+				) {
 					$changedFields[$fieldName] = [];
 
 					if ( $sourceHasField ) {
@@ -147,8 +148,8 @@ class RevisionDiff {
 	protected static function compareFields(
 		RevisionedObject $sourceObject,
 		RevisionedObject $targetObject,
-		$fields ) {
-
+		$fields
+	) {
 		$changedFields = [];
 
 		foreach ( $fields as $fieldName ) {
@@ -156,9 +157,8 @@ class RevisionDiff {
 			$targetHasField = $targetObject->hasField( $fieldName );
 
 			if ( ( $sourceHasField xor $targetHasField )
-				|| $sourceObject->getField( $fieldName, null ) !==
-				$targetObject->getField( $fieldName, null ) ) {
-
+				|| $sourceObject->getField( $fieldName ) !== $targetObject->getField( $fieldName )
+			) {
 				$changedFields[$fieldName] = [];
 
 				if ( $sourceHasField ) {

@@ -88,8 +88,6 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	protected $readDb = DB_SLAVE;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 1.21
 	 *
 	 * @param string $tableName
@@ -419,8 +417,12 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 *
 	 * @return mixed|array|bool False on failure
 	 */
-	public function selectFieldsRow( $fields = null, array $conditions = [],
-		array $options = [], $collapse = true, $functionName = null
+	public function selectFieldsRow(
+		$fields = null,
+		array $conditions = [],
+		array $options = [],
+		$collapse = true,
+		$functionName = null
 	) {
 		$options['LIMIT'] = 1;
 

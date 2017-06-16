@@ -60,8 +60,6 @@ class EditEventCreator {
 	private $userCourseFinder;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.3
 	 *
 	 * @param DatabaseBase $db

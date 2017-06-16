@@ -43,7 +43,6 @@ abstract class RoleAddNotification implements INotificationType {
 	 * @see EducationProgram.INotificationType::getUsersNotified()
 	 */
 	public function getUsersNotified( \EchoEvent $event, array &$users ) {
-
 		// Notify the user(s) added to a course
 		$usersToAddIds = $event->getExtraParam( 'users' );
 
