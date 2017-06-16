@@ -11,7 +11,9 @@
 	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall.NotAllowed">
 		<severity>0</severity>
 	</rule>
-	<rule ref="MediaWiki.NamingConventions.ValidGlobalName.wgPrefix">
-		<severity>0</severity>
+	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
+		<properties>
+			<property name="ignoreList" type="array" value="$basePath" />
+		</properties>
 	</rule>
 </ruleset>
