@@ -485,6 +485,7 @@
 	"ep-course-talk-link-text-view-changes": "Ännerunge weisen",
 	"ep-role-add-link-text-view-course": "Cours weisen",
 	"apihelp-addstudents-description": "Méi Studenten an e Cours dobäisetzen.",
+	"apihelp-addstudents-summary": "Méi Studenten an e Cours dobäisetzen.",
 	"apihelp-addstudents-param-studentusernames": "D'Benotzernimm vun de Studente fir bei de Cours derbäizesetzen.",
 	"apihelp-addstudents-example-1": "Dräi Studenten an e Cours dobäisetzen",
 	"apihelp-deleteeducation-param-type": "Typ vun Objet fir ze läschen.",
