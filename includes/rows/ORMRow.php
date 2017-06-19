@@ -1,4 +1,5 @@
 <?php
+
 namespace EducationProgram;
 
 /**
@@ -34,6 +35,7 @@ namespace EducationProgram;
  */
 
 class ORMRow implements IORMRow {
+
 	/**
 	 * The fields of the object.
 	 * field name (w/o prefix) => value
@@ -74,8 +76,6 @@ class ORMRow implements IORMRow {
 	protected $table;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 1.20
 	 *
 	 * @param IORMTable|null $table Deprecated since 1.22

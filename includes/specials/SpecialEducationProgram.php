@@ -15,9 +15,8 @@ use Html;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialEducationProgram extends VerySpecialPage {
+
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 */
 	public function __construct() {

@@ -17,9 +17,8 @@ use IContextSource;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EditOrgAction extends EditAction {
+
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 *
 	 * @param Page $page

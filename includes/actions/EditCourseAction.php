@@ -17,9 +17,8 @@ use IContextSource;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EditCourseAction extends EditAction {
+
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 *
 	 * @param Page $page
@@ -79,7 +78,6 @@ class EditCourseAction extends EditAction {
 		$identifier = Courses::normalizeTitle( $this->getTitle()->getText() );
 
 		if ( !$this->isNewPost() && !$this->table->hasIdentifier( $identifier ) ) {
-
 			// Get the most recent revision here, so we can check that the
 			// institution hasn't been deleted before displaying undelete
 			// info.
@@ -92,7 +90,6 @@ class EditCourseAction extends EditAction {
 
 			// Make sure there are indeed previous revisions to undelete
 			if ( $latestRevision !== false ) {
-
 				// use CourseUndeletionHelper to check restrictions on
 				// undeletion and display a message if we can't undelete.
 				$undeletionHelper = new CourseUndeletionHelper(
@@ -193,9 +190,7 @@ class EditCourseAction extends EditAction {
 		];
 
 		// Only show remaining controls if the user has sufficient rights.
-		if ( $this->getUser()->isAllowed(
-			$this->getManagementRestriction() ) ) {
-
+		if ( $this->getUser()->isAllowed( $this->getManagementRestriction() ) ) {
 			$fields['token'] = [
 				'type' => 'text',
 				'label-message' => 'ep-course-edit-token',
@@ -384,7 +379,6 @@ class EditCourseAction extends EditAction {
 	 * @param array $fields
 	 */
 	protected function handleKnownFields( array &$fields ) {
-
 		// Set fields that are needed, but immutable
 		$title = $this->getTitle();
 		$fields['title'] = $title;
@@ -399,9 +393,7 @@ class EditCourseAction extends EditAction {
 		unset ( $fields['field'], $fields['level'] );
 
 		// Prevent unauthorized users from changing certain fields
-		if ( !$this->getUser()->isAllowed(
-			$this->getManagementRestriction() ) ) {
-
+		if ( !$this->getUser()->isAllowed( $this->getManagementRestriction() ) ) {
 			unset( $fields['token'], $fields['start'], $fields['end'],
 				$fields['lang'] );
 		}

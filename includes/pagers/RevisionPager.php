@@ -33,8 +33,6 @@ class RevisionPager extends \ReverseChronologicalPager {
 	protected $rowNr = 0;
 
 	/**
-	 * Constructor.
-	 *
 	 * @param IContextSource $context
 	 * @param PageTable $table
 	 * @param array $conds
@@ -135,7 +133,6 @@ class RevisionPager extends \ReverseChronologicalPager {
 					[ 'revid' => $revision->getId() ]
 				);
 			}
-
 		}
 
 		// Any user can do the compare action.
@@ -204,4 +201,5 @@ class RevisionPager extends \ReverseChronologicalPager {
 	function getIndexField() {
 		return Revisions::singleton()->getPrefixedField( 'time' );
 	}
+
 }

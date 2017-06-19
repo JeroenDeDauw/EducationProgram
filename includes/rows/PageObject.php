@@ -16,6 +16,7 @@ use Exception;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class PageObject extends RevisionedObject {
+
 	/**
 	 * @see ORMRow::$table
 	 * @var PageTable

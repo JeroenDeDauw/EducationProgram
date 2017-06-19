@@ -53,8 +53,6 @@ class EventStore {
 	private $readConnectionId;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.3
 	 *
 	 * @param string $tableName

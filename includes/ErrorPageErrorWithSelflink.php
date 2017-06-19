@@ -12,7 +12,6 @@ use Linker;
  *
  * @licence GNU GPL v2+
  * @author Andrew Green andrew.green.df@gmail.com
- *
  */
 class ErrorPageErrorWithSelflink extends \ErrorPageError {
 

@@ -75,7 +75,6 @@ abstract class EducationPage extends ContextSource implements \Page {
 	}
 
 	public function view() {
-
 	}
 
 	public function getPage() {

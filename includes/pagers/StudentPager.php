@@ -36,8 +36,6 @@ class StudentPager extends EPPager {
 	protected $courseTitles = [];
 
 	/**
-	 * Constructor.
-	 *
 	 * @param IContextSource $context
 	 * @param array $conds
 	 */

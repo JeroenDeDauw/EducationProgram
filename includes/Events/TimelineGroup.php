@@ -11,7 +11,6 @@ use Message;
 use OutputPage;
 use User;
 use Title;
-use EducationProgram\Events\Event;
 
 /**
  * Class for displaying a group of Education Program events in a timeline.
@@ -296,6 +295,7 @@ class UnknownGroup extends TimelineGroup {
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EditGroup extends TimelineGroup {
+
 	/**
 	 * Builds and returns the HTML for a single of the event segments.
 	 *

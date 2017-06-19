@@ -39,8 +39,6 @@ class ArticleAdder {
 	protected $articleStore;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.3
 	 *
 	 * @param ArticleStore $articleStore

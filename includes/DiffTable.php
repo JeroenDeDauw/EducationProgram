@@ -40,8 +40,6 @@ class DiffTable extends \ContextSource {
 	protected $secondRevisionType = 'new';
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 *
 	 * @param IContextSource $context
@@ -120,10 +118,8 @@ class DiffTable extends \ContextSource {
 	 * @param string $secondRevisionType
 	 */
 	public function setRevisionTypes( $firstRevisionType, $secondRevisionType ) {
-
 		$this->firstRevisionType = $firstRevisionType;
 		$this->secondRevisionType = $secondRevisionType;
-
 	}
 
 }

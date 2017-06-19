@@ -61,9 +61,7 @@ class ApiDeleteEducation extends ApiBase {
 
 		// If we're deleting institutions, we'll do some extra checks
 		if ( $params['type'] === 'org' ) {
-
 			foreach ( $params['ids'] as $id ) {
-
 				$org = Orgs::singleton()
 					->selectRow( null, [ 'id' => $id ] );
 

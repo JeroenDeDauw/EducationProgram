@@ -18,6 +18,7 @@ use Exception;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class Course extends PageObject {
+
 	/**
 	 * Field for caching the linked org.
 	 *
@@ -141,7 +142,6 @@ class Course extends PageObject {
 		$success = parent::insert( $functionName, $options );
 
 		if ( $success && $this->updateSummaries ) {
-
 			// these are the only org summary fields that could need updating
 			$this->updateOrgSummaryFields( null,
 					[ 'course_count', 'last_active_date' ] );
@@ -168,7 +168,6 @@ class Course extends PageObject {
 	 * @see RevisionedObject::onUpdated()
 	 */
 	protected function onUpdated( RevisionedObject $originalCourse ) {
-
 		// add and remove rows from ep_users_per_course as needed
 		$newUserIdsAndRoles = [];
 		$dbm = wfGetDB( DB_MASTER );
@@ -204,13 +203,11 @@ class Course extends PageObject {
 
 		// update summary data for this course's institution
 		if ( $this->updateSummaries ) {
-
 			$this->updateOrgSummaryFields( $originalCourse->getField( 'org_id' ) );
 
-			if ( $this->hasField( 'org_id' ) &&
-				$originalCourse->getField( 'org_id' ) !==
-				$this->getField( 'org_id' ) ) {
-
+			if ( $this->hasField( 'org_id' )
+				&& $originalCourse->getField( 'org_id' ) !== $this->getField( 'org_id' )
+			) {
 				$this->updateOrgSummaryFields();
 			}
 		}
@@ -222,7 +219,6 @@ class Course extends PageObject {
 	 * @see EducationProgram\RevisionedObject::onUndeleted()
 	 */
 	protected function onUndeleted() {
-
 		// re-create rows to ep_users_per_course table
 		$this->upcAdd();
 
@@ -277,15 +273,16 @@ class Course extends PageObject {
 	 *   role.
 	 */
 	protected function upcAdd( $userIdsAndRoles=null ) {
-
 		// if no param, build the data from this course's user fields
 		if ( is_null( $userIdsAndRoles ) ) {
-
 			$userIdsAndRoles = [];
 
-			foreach ( [ 'online_ambs', 'campus_ambs', 'students',
-				 'instructors' ] as $usersField ) {
-
+			foreach ( [
+				'online_ambs',
+				'campus_ambs',
+				'students',
+				'instructors',
+			] as $usersField ) {
 				$addedIds = $this->getField( $usersField );
 
 				foreach ( $addedIds as $addedId ) {
@@ -337,7 +334,6 @@ class Course extends PageObject {
 	 * @see ORMRow::save()
 	 */
 	public function save( $functionName = null ) {
-
 		// Check if we're attempting to create a course that already exists.
 		// This can happen if the user clicks the "Submit" button of the
 		// second form for course creation more than once.
@@ -345,7 +341,6 @@ class Course extends PageObject {
 			$title = $this->getField( 'title' );
 
 			if ( $this->table->has( [ 'title' => $title ] ) ) {
-
 				$pageTitle = $this->getTitle(); // title of the Wiki page
 				throw new ErrorPageErrorWithSelflink( 'ep-err-course-exists-title',
 						'ep-err-course-exists-text', $pageTitle, $title );
@@ -726,8 +721,13 @@ class Course extends PageObject {
 	 *
 	 * @return integer|bool false The amount of enlisted users or false on failiure
 	 */
-	public function enlistUsers( $newUserIds, $role, $save = true,
-			RevisionAction $revAction = null, &$addedUserIds = null ) {
+	public function enlistUsers(
+		$newUserIds,
+		$role,
+		$save = true,
+		RevisionAction $revAction = null,
+		&$addedUserIds = null
+	) {
 		$roleMap = [
 			'student' => 'students',
 			'campus' => 'campus_ambs',
@@ -753,13 +753,11 @@ class Course extends PageObject {
 			}
 
 			if ( $success ) {
-
 				// If we are enrolling students, then add them to the Students
 				// table. There are tables for other roles, but of them, only
 				// the tables for volunteers are used, and it's not necessary
 				// for those tables to be filled automatically.
 				if ( $role === 'student' ) {
-
 					foreach ( $usersToAddIds as $userId ) {
 						$student = Student::newFromUserId( $userId, true, 'id' );
 						$student->onEnrolled( $this->getId(), $role );
@@ -863,9 +861,11 @@ class Course extends PageObject {
 	/**
 	 * @see RevisionedObject::getCompareDiff()
 	 */
-	public function getCompareDiff( EPRevision $revision, array $fields = null,
-		$hidePriviledgedFields = false ) {
-
+	public function getCompareDiff(
+		EPRevision $revision,
+		array $fields = null,
+		$hidePriviledgedFields = false
+	) {
 		$fields = is_null( $fields ) ? $this->table->getRevertibleFields() : $fields;
 
 		// Check whether to hide 'token' field, which is the only info in
@@ -983,4 +983,5 @@ class Course extends PageObject {
 	protected function getTypeId() {
 		return $this->table->getRevisionedObjectTypeId();
 	}
+
 }

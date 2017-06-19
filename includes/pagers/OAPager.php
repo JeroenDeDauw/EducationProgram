@@ -25,8 +25,6 @@ class OAPager extends EPPager {
 	protected $currentObject;
 
 	/**
-	 * Constructor.
-	 *
 	 * @param IContextSource $context
 	 * @param array $conds
 	 * @param IORMTable|null $table

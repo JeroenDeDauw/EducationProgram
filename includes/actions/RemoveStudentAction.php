@@ -26,7 +26,6 @@ class RemoveStudentAction extends \FormlessAction {
 	 * @see FormlessAction::onView()
 	 */
 	public function onView() {
-
 		$req = $this->getRequest();
 
 		$api = new \ApiMain( new \DerivativeRequest(

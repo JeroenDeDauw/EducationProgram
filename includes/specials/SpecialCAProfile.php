@@ -15,8 +15,6 @@ namespace EducationProgram;
 class SpecialCAProfile extends SpecialAmbassadorProfile {
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 */
 	public function __construct() {

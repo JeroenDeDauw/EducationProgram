@@ -114,7 +114,6 @@ class Extension {
 	 */
 	public function getNotificationsManager() {
 		if ( $this->notificationsMgr === null ) {
-
 			$this->notificationsMgr = new NotificationsManager();
 
 			$this->notificationsMgr->registerType( 'EducationProgram\CourseTalkNotification' );

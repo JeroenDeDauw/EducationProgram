@@ -45,9 +45,9 @@ class LogFormatter extends \LogFormatter {
 		if ( !$this->plaintext ) {
 			$link = Linker::link( $title, htmlspecialchars( $text ), [], $parameters );
 		} else {
-
 			$link = '[[' . $title->getPrefixedText() . '|' . $text . ']]';
 		}
+
 		return $link;
 	}
 

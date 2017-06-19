@@ -15,6 +15,7 @@ use IContextSource;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class CoursePager extends EPPager {
+
 	/**
 	 * When in read only mode, the pager should not show any course editing controls.
 	 *
@@ -33,8 +34,6 @@ class CoursePager extends EPPager {
 	protected $orgNames;
 
 	/**
-	 * Constructor.
-	 *
 	 * @param IContextSource $context
 	 * @param array $conds
 	 * @param boolean $readOnlyMode
@@ -268,8 +267,8 @@ class CoursePager extends EPPager {
 		if ( !$this->readOnlyMode
 			&& $this->getUser()->isAllowed( 'ep-course' )
 			&& $this->getUser()->isAllowed( 'ep-bulkdelcourses' )
-			&& $this->getUser()->getOption( 'ep_bulkdelcourses' ) ) {
-
+			&& $this->getUser()->getOption( 'ep_bulkdelcourses' )
+		) {
 			$actions[$this->msg( 'ep-pager-delete-selected' )->text()] = [
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) )

@@ -53,8 +53,6 @@ class Timeline {
 	protected $language;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 *
 	 * @param OutputPage $outputPage

@@ -44,8 +44,6 @@ abstract class EditAction extends Action {
 	protected $table;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 *
 	 * @param Page $page
@@ -125,14 +123,11 @@ abstract class EditAction extends Action {
 			$out->redirect( $this->getTitle()->getLocalURL() );
 		} else {
 			if ( $object === false ) {
-
 				// Note: this fragment of code is only executed by
 				// EditOrgAction, that is, when the user tries to edit an
 				// institution. The conditions for displaying an undeletion
 				// link for courses are checked in EditCourseAction::onView().
-				if ( $this->getUser()
-					->isAllowed( $this->page->getEditRight() ) ) {
-
+				if ( $this->getUser()->isAllowed( $this->page->getEditRight() ) ) {
 					$this->displayUndeletionLink();
 				}
 
@@ -490,7 +485,6 @@ abstract class EditAction extends Action {
 	 * @param array $fields
 	 */
 	protected function handleKnownFields( array &$fields ) {
-
 	}
 
 	/**

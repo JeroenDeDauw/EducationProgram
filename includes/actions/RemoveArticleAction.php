@@ -27,10 +27,10 @@ class RemoveArticleAction extends \FormlessAction {
 	 */
 	public function onView() {
 		$req = $this->getRequest();
+		$salt = 'remarticle' . $req->getInt( 'article-id' );
 		$user = $this->getUser();
 
-		if ( $user->matchEditToken( $req->getText( 'token' ), 'remarticle' . $req->getInt( 'article-id' ) ) ) {
-
+		if ( $user->matchEditToken( $req->getText( 'token' ), $salt ) ) {
 			// TODO: create dedicated ArticleRemover use case
 
 			$articleStore = Extension::globalInstance()->newArticleStore();
@@ -39,8 +39,8 @@ class RemoveArticleAction extends \FormlessAction {
 
 			if ( $article !== false
 				&& $article->userCanRemove( $this->getUser() )
-				&& $articleStore->deleteArticle( $article->getId() ) ) {
-
+				&& $articleStore->deleteArticle( $article->getId() )
+			) {
 				$article->logRemoval( $this->getUser() );
 			}
 		}

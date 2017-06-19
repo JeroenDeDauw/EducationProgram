@@ -262,8 +262,13 @@ class Courses extends PageTable {
 	 *
 	 * @return ORMResult
 	 */
-	public function getCoursesForUsers( $userIds = [], $roleIds = [],
-										array $conditions = [], $fields = null, array $options = [] ) {
+	public function getCoursesForUsers(
+		$userIds = [],
+		$roleIds = [],
+		array $conditions = [],
+		$fields = null,
+		array $options = []
+	) {
 		$conditions = $this->getPrefixedValues( $conditions );
 
 		if ( $userIds !== [] ) {

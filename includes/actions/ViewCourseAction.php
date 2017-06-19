@@ -22,8 +22,6 @@ use SpecialPage;
 class ViewCourseAction extends ViewAction {
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 *
 	 * @param Page $page
@@ -153,10 +151,9 @@ class ViewCourseAction extends ViewAction {
 
 		$user = $this->getUser();
 
-		if ( $user->isAllowed( 'ep-addstudent' ) || RoleObject::isInRoleObjArray(
-			$user->getId(),
-			$course->getAllNonStudentRoleObjs() ) ) {
-
+		if ( $user->isAllowed( 'ep-addstudent' )
+			|| RoleObject::isInRoleObjArray( $user->getId(), $course->getAllNonStudentRoleObjs() )
+		) {
 			$html .= $this->getAddStudentsControls( $course );
 		}
 
@@ -298,7 +295,6 @@ class ViewCourseAction extends ViewAction {
 	}
 
 	protected function getAddStudentsControls( $course ) {
-
 		// add the required client-side module
 		$this->getOutput()->addModules( 'ep.addstudents' );
 
@@ -307,14 +303,12 @@ class ViewCourseAction extends ViewAction {
 		// expanded. Otherwise, they start out collapsed.
 		$queryVals = $this->getContext()->getRequest()->getQueryValues();
 
-		if ( isset ( $queryVals['studentsadded'] ) ||
-			isset ( $queryVals['alreadyenrolled'] ) ) {
-
+		if ( isset( $queryVals['studentsadded'] )
+			|| isset( $queryVals['alreadyenrolled'] )
+		) {
 			$collapsedClassStr = '';
 			$expandMsg = $this->msg( 'collapsible-collapse' )->text();
-
 		} else {
-
 			$collapsedClassStr = ' mw-collapsed';
 			$expandMsg = $this->msg( 'collapsible-expand' )->text();
 		}

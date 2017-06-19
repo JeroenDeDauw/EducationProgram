@@ -44,8 +44,6 @@ class UPCUserCourseFinder implements UserCourseFinder {
 	private $db;
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.3
 	 *
 	 * @param DatabaseBase $db

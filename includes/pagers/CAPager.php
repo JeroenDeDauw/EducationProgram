@@ -17,8 +17,6 @@ use IContextSource;
 class CAPager extends OAPager {
 
 	/**
-	 * Constructor.
-	 *
 	 * @param IContextSource $context
 	 * @param array $conds
 	 */

@@ -3,6 +3,7 @@
 namespace EducationProgram\PresentationModel;
 
 class CourseTalk extends RoleAdd {
+
 	/**
 	 * {@inheritdoc}
 	 */

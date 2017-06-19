@@ -91,8 +91,9 @@ class CourseTest extends PageObjectTest {
 	 * @expectedException \EducationProgram\ErrorPageErrorWithSelflink
 	 */
 	public function testSameTitleRaisesException(
-			Course $course, Course $duplicateCourse ) {
-
+		Course $course,
+		Course $duplicateCourse
+	) {
 		// Verify that the courses have the same title.
 		$this->assertEquals( $course->getField( 'title' ),
 			$duplicateCourse->getField( 'title' ) );
@@ -103,4 +104,5 @@ class CourseTest extends PageObjectTest {
 		// Save the duplicate course. This should throw the exception.
 		$duplicateCourse->save();
 	}
+
 }

@@ -15,6 +15,7 @@ namespace EducationProgram;
  */
 
 class OnlineAddNotification extends RoleAddNotification {
+
 	const KEY = 'ep-online-add-notification';
 
 	/**
@@ -24,4 +25,5 @@ class OnlineAddNotification extends RoleAddNotification {
 	public function getKey() {
 		return OnlineAddNotification::KEY;
 	}
+
 }

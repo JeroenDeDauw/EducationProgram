@@ -15,8 +15,6 @@ namespace EducationProgram;
 class SpecialOAProfile extends SpecialAmbassadorProfile {
 
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 */
 	public function __construct() {

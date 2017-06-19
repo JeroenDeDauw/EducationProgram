@@ -60,7 +60,6 @@ class OrgDeletionHelper {
 	 */
 	public function checkRestrictions() {
 		if ( $this->deletionCheck === OrgDelCheck::NOT_CHECKED ) {
-
 			// Is the user allowed to edit this page?
 			if ( !$this->context->getUser()->isAllowed( 'ep-org' ) ) {
 				$this->deletionCheck = OrgDelCheck::NO_RIGHTS;
@@ -68,7 +67,6 @@ class OrgDeletionHelper {
 			// Does the org have courses?
 			} elseif ( $this->org->getField( 'course_count' ) > 0 ) {
 				$this->deletionCheck = OrgDelCheck::HAS_COURSES;
-
 			} else {
 				$this->deletionCheck = OrgDelCheck::CAN_DELETE;
 			}
@@ -94,7 +92,6 @@ class OrgDeletionHelper {
 	 * deleted.
 	 */
 	public function getCantDeleteMsg() {
-
 		$msgInfo = $this->getCantDeleteMsgKeyAndParams( true );
 
 		return $this->context->msg( $msgInfo['key'], $msgInfo['params'] );
@@ -133,16 +130,13 @@ class OrgDeletionHelper {
 
 			case OrgDelCheck::HAS_COURSES:
 				if ( $plain ) {
-
 					return [
 						'key' => 'ep-delete-org-has-courses-plain',
 						'params' => [
 							$this->org->getField( 'name' )
 						]
 					];
-
 				} else {
-
 					return [
 						'key' => 'ep-delete-org-has-courses',
 						'params' => [

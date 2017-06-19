@@ -54,8 +54,6 @@ abstract class EPPager extends \TablePager {
 	protected $enableFilter = true;
 
 	/**
-	 * Constructor.
-	 *
 	 * @param IContextSource $context
 	 * @param array $conds
 	 * @param IORMTable $table

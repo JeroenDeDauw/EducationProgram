@@ -65,8 +65,6 @@ class OrgPager extends EPPager {
 	}
 
 	/**
-	 * Constructor.
-	 *
 	 * @param IContextSource $context
 	 * @param array $conds
 	 */
@@ -210,7 +208,6 @@ class OrgPager extends EPPager {
 
 			// Check restrictions before adding deletion link
 			if ( $this->currentDelHelper->checkRestrictions() ) {
-
 				$links[] = $this->getDeletionLink(
 					ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) ),
 					$item->getId(),
@@ -230,8 +227,8 @@ class OrgPager extends EPPager {
 
 		if ( $this->getUser()->isAllowed( 'ep-org' )
 			&& $this->getUser()->isAllowed( 'ep-bulkdelorgs' )
-			&& $this->getUser()->getOption( 'ep_bulkdelorgs' ) ) {
-
+			&& $this->getUser()->getOption( 'ep_bulkdelorgs' )
+		) {
 			$actions[$this->msg( 'ep-pager-delete-selected' )->text()] = [
 				'class' => 'ep-pager-delete-selected',
 				'data-type' => ApiDeleteEducation::getTypeForClassName( get_class( $this->table ) )

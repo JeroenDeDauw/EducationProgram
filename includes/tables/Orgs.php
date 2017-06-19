@@ -176,7 +176,6 @@ class Orgs extends PageTable {
 	 * @see ORMTable::updateSummaryFields()
 	 */
 	public function updateSummaryFields( $summaryFields = null, array $conditions = [] ) {
-
 		// We know that updating summary fields will involve reading data about
 		// courses. If $read_master_for_summraies is set, make sure that
 		// the Courses table is reading from master. (The superclass will
@@ -184,7 +183,6 @@ class Orgs extends PageTable {
 		// summaries.)
 
 		if ( $this->read_master_for_summaries ) {
-
 			$courses = Courses::singleton();
 			$origReadDB = $courses->getReadDb();
 			$courses->setReadDb( DB_MASTER );
@@ -192,9 +190,9 @@ class Orgs extends PageTable {
 			parent::updateSummaryFields( $summaryFields, $conditions );
 
 			$courses->setReadDb( $origReadDB );
-
 		} else {
 			parent::updateSummaryFields( $summaryFields, $conditions );
 		}
 	}
+
 }

@@ -18,9 +18,8 @@ use Html;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ViewOrgAction extends ViewAction {
+
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 *
 	 * @param Page $page

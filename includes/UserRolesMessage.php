@@ -93,7 +93,6 @@ class UserRolesMessage {
 	 * userHasRoles() or output().
 	 */
 	public function prepare() {
-
 		// classes of table objects, ordered by priority, for describing
 		// a user's partcipation in the corrsponding roles
 		$orderedTableClasses = [
@@ -188,14 +187,12 @@ class UserRolesMessage {
 		$mainRoleCoursesCount = count( $mainRoleCourses );
 
 		if ( $mainRoleCoursesCount <= $maxCourses ) {
-
 			// create the main message with the list of courses
 
 			// make an array of wikitext links to courses and their talk pages
 			$courseLinks = [];
 
 			foreach ( $mainRoleCourses as $course ) {
-
 				$title = $course->getTitle();
 
 				$msg = $this->out->msg(
@@ -215,9 +212,7 @@ class UserRolesMessage {
 				$this->out->getLanguage()->listToText( $courseLinks ),
 				$mainRoleCoursesCount
 			)->parse();
-
 		} else {
-
 			// create the main message with only the number of courses
 
 			$mainMessageParams = [
@@ -237,7 +232,6 @@ class UserRolesMessage {
 		// If there were any additional roles, we'll summarize them with
 		// a phrase like, "She is also an instructor."
 		if ( count( $this->rolesAndCourses ) > 1 ) {
-
 			// Make an array of remaining rolenames.
 
 			// Set up some local vars to use in the following closure, since
@@ -247,13 +241,11 @@ class UserRolesMessage {
 
 			$remainingRolenames = array_map(
 				function( $roleAndCourse ) use ( $messageKeysForRoles, $out ) {
-
-					$msgKey =
-						$messageKeysForRoles[$roleAndCourse['role']]['rolename'];
-
+					$msgKey = $messageKeysForRoles[$roleAndCourse['role']]['rolename'];
 					return $out->msg( $msgKey )->plain();
 				},
-				array_slice( $this->rolesAndCourses, 1 ) );
+				array_slice( $this->rolesAndCourses, 1 )
+			);
 
 			$remainingRolenamesList =
 				$this->out->getLanguage()->listToText( $remainingRolenames );

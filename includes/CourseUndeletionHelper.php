@@ -2,6 +2,8 @@
 
 namespace EducationProgram;
 
+use IContextSource;
+
 /**
  * Helps to check that a course can be undeleted, and to create an appropriate
  * message if it can't be.
@@ -18,7 +20,7 @@ namespace EducationProgram;
  * @licence GNU GPL v2+
  * @author Andrew Green < agreen@wikimedia.org >
  */
-	class CourseUndeletionHelper {
+class CourseUndeletionHelper {
 
 	/**
 	 * @since 0.4 alpha
@@ -59,14 +61,16 @@ namespace EducationProgram;
 	 * @param EPRevision $revision the latest revision of the course that may or
 	 *   may not be undeleted
 	 *
-	 * @param \IContextSource $context the current context
+	 * @param IContextSource $context the current context
 	 *
 	 * @param EducationPage $educationPage the EducationPage object for the
 	 *   course that may or may not be undeleted
 	 */
-	public function __construct( EPRevision $revision,
-		\IContextSource $context, EducationPage $educationPage ) {
-
+	public function __construct(
+		EPRevision $revision,
+		IContextSource $context,
+		EducationPage $educationPage
+	) {
 		$this->revision = $revision;
 		$this->context = $context;
 		$this->educationPage = $educationPage;
@@ -78,11 +82,8 @@ namespace EducationProgram;
 	 * @return boolean
 	 */
 	public function checkRestrictions() {
-
 		// Is the user allowed to edit this page?
-		if ( !$this->context->getUser()->isAllowed(
-			$this->educationPage->getEditRight() ) ) {
-
+		if ( !$this->context->getUser()->isAllowed( $this->educationPage->getEditRight() ) ) {
 			$this->undeletionCheck = CourseUndelCheck::NO_RIGHTS;
 			return false;
 		}
@@ -140,7 +141,6 @@ namespace EducationProgram;
 
 				// Check that we actually got a revision.
 				if ( $deletedOrgRev !== false ) {
-
 					// Get an object for the deleted org and get some info.
 					$deletedOrg = $deletedOrgRev->getObject();
 					$deletedOrgTitle = $deletedOrg->getTitle();
@@ -174,7 +174,8 @@ namespace EducationProgram;
 				break;
 		}
 	}
-	}
+
+}
 
 /**
  * Constants for possible results of check for restrictions.

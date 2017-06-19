@@ -15,6 +15,7 @@ namespace EducationProgram;
  */
 
 class CampusAddNotification extends RoleAddNotification {
+
 	const KEY = 'ep-campus-add-notification';
 
 	/**
@@ -24,4 +25,5 @@ class CampusAddNotification extends RoleAddNotification {
 	public function getKey() {
 		return CampusAddNotification::KEY;
 	}
+
 }

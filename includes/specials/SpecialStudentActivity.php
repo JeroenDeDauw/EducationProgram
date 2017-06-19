@@ -13,9 +13,8 @@ namespace EducationProgram;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class SpecialStudentActivity extends VerySpecialPage {
+
 	/**
-	 * Constructor.
-	 *
 	 * @since 0.1
 	 */
 	public function __construct() {
