@@ -50,5 +50,6 @@
 	"specialstudent-summary-user": "Korisničko ime",
 	"epoa-profile-photo": "Profilna slika",
 	"epca-profile-photo": "Profilna slika",
-	"ep-timeline-users-edit-article": "{{PLURAL:$5|{{GENDER:$6|$1 izmijenio je|$1 izmijenila je}}|$1 izmijenili su}} članak '''[[$2]]'''."
+	"ep-timeline-users-edit-article": "{{PLURAL:$5|{{GENDER:$6|$1 izmijenio je|$1 izmijenila je}}|$1 izmijenili su}} članak '''[[$2]]'''.",
+	"ep-dashboard-timeline-empty": "Nema nedavne aktivnosti na ovom kursu."
 }

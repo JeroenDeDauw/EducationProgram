@@ -149,6 +149,7 @@
 	"ep-timeline-users-create-article": "{{GENDER:$6|$1}} {{GENDER:$6|stvorio|stvorila}} je članak '''[[$2]]'''.",
 	"ep-timeline-users-create-user": "{{GENDER:$6|$1}} {{GENDER:$6|stvorio|stvorila}} je suradničku stranicu na '''[[$2|$3]]'''.",
 	"ep-timeline-users-create-usertalk": "'''[[User:$3|$3]]''' {{GENDER:$3|primio|primila}} je {{PLURAL:$4|poruku|poruke}} na svojoj novostvorenoj '''[[$2|razgovornoj stranici]]'''.",
+	"ep-dashboard-timeline-empty": "Nema nedavne aktivnosti na ovom tečaju.",
 	"ep-user-roles-message-main-student": "[[$1|$2]] {{GENDER:$2|tečajac|tečajka}} je na {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|razgovor o tečaju]])",
 	"ep-course-talk-link-text-view-changes": "Prikaži promjene"
