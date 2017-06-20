@@ -737,7 +737,7 @@ class Course extends PageObject {
 
 		$field = $roleMap[$role];
 		$userIds = $this->getField( $field );
-		$usersToAddIds = array_diff( (array) $newUserIds, $userIds );
+		$usersToAddIds = array_diff( (array)$newUserIds, $userIds );
 
 		if ( empty( $usersToAddIds ) ) {
 			return 0;

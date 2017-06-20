@@ -97,7 +97,7 @@ class SpecialMyCourses extends VerySpecialPage {
 	 */
 	protected function displayDidYouKnow() {
 		$this->addCachedHTML(
-			function( IContextSource $context, array $courses ) {
+			function ( IContextSource $context, array $courses ) {
 				$specificCategory = false;
 
 				/**
@@ -160,7 +160,7 @@ class SpecialMyCourses extends VerySpecialPage {
 		return array_merge(
 			parent::getCacheKey(),
 			array_map(
-				function( Course $course ) {
+				function ( Course $course ) {
 					return $course->getId();
 				},
 				$this->courses
@@ -178,7 +178,7 @@ class SpecialMyCourses extends VerySpecialPage {
 	 */
 	protected function displayTimeline( Course $course ) {
 		$this->addCachedHTML(
-			function( Course $course, IContextSource $context ) {
+			function ( Course $course, IContextSource $context ) {
 				// TODO: inject dependency
 				$eventStore = new \EducationProgram\Events\EventStore( 'ep_events' );
 
@@ -253,7 +253,7 @@ class SpecialMyCourses extends VerySpecialPage {
 	 */
 	protected function displayNavigation() {
 		$menu = new Menu( $this->getContext() );
-		$menu->setItemFunction( function( array $items ) {
+		$menu->setItemFunction( function ( array $items ) {
 			unset( $items['ep-nav-mycourses'] );
 			return $items;
 		} );

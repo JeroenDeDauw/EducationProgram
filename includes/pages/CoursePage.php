@@ -50,4 +50,3 @@ class CoursePage extends EducationPage {
 		return static::$info['limited-edit-right'];
 	}
 }
-

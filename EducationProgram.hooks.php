@@ -469,7 +469,7 @@ final class Hooks {
 	 * @return bool
 	 */
 	public static function onNewRevisionFromEditComplete( Page $article, Revision $rev, $baseID, User $user ) {
-		\DeferredUpdates::addCallableUpdate( function() use ( $article, $rev, $user ) {
+		\DeferredUpdates::addCallableUpdate( function () use ( $article, $rev, $user ) {
 			$dbw = wfGetDB( DB_MASTER );
 
 			// TODO: properly inject dependencies
@@ -696,7 +696,7 @@ final class Hooks {
 
 		// A function to usermerge in an array of ids. Returns true if there
 		// were changes.
-		$mergeUserIds = function( &$ids ) use ( $oldId, $newId ) {
+		$mergeUserIds = function ( &$ids ) use ( $oldId, $newId ) {
 			$i = array_search( $oldId, $ids );
 
 			if ( $i !== false ) {

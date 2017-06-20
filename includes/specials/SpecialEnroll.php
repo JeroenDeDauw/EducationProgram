@@ -297,7 +297,7 @@ class SpecialEnroll extends VerySpecialPage {
 				'type' => 'text',
 				'default' => '',
 				'label-message' => 'ep-enroll-realname' . ( Settings::get( 'requireRealName' ) ? '' : '-optional' ),
-				'validation-callback' => function( $value, array $alldata = null ) {
+				'validation-callback' => function ( $value, array $alldata = null ) {
 					if ( Settings::get( 'requireRealName' ) && strlen( $value ) < 2 ) {
 						return wfMessage( 'ep-enroll-invalid-name' )->numParams( 2 )->text();
 					}
@@ -316,7 +316,7 @@ class SpecialEnroll extends VerySpecialPage {
 				'type' => 'select',
 				'default' => 'unknown',
 				'label-message' => 'ep-enroll-gender',
-				'validation-callback' => function( $value, array $alldata = null ) {
+				'validation-callback' => function ( $value, array $alldata = null ) {
 					return in_array( $value, [ 'male', 'female', 'unknown' ] ) ? true : wfMessage( 'ep-enroll-invalid-gender' )->text();
 				} ,
 				'options' => [

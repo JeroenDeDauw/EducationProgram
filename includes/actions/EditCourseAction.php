@@ -177,7 +177,7 @@ class EditCourseAction extends EditAction {
 			'type' => 'textarea',
 			'label-message' => 'ep-course-edit-description',
 			'required' => true,
-			'validation-callback' => function( $value, array $alldata = null ) use ( $messageMethod ) {
+			'validation-callback' => function ( $value, array $alldata = null ) use ( $messageMethod ) {
 				if ( strlen( $value ) < 10 ) {
 					return call_user_func( $messageMethod, 'ep-course-invalid-description', 10 )->text();
 				}
@@ -197,7 +197,7 @@ class EditCourseAction extends EditAction {
 				'help-message' => 'ep-course-help-token',
 				'maxlength' => 255,
 				'size' => 20,
-				'validation-callback' => function( $value, array $alldata = null ) use ( $messageMethod ) {
+				'validation-callback' => function ( $value, array $alldata = null ) use ( $messageMethod ) {
 					$strLen = strlen( $value );
 
 					if ( $strLen !== 0 && $strLen < 2 ) {
@@ -227,7 +227,7 @@ class EditCourseAction extends EditAction {
 				'maxlength' => 255,
 				'required' => true,
 				'options' => $langOptions,
-				'validation-callback' => function( $value, array $allData = null ) use ( $langOptions, $messageMethod ) {
+				'validation-callback' => function ( $value, array $allData = null ) use ( $langOptions, $messageMethod ) {
 					if ( in_array( $value, $langOptions ) ) {
 						return true;
 					}
@@ -331,7 +331,7 @@ class EditCourseAction extends EditAction {
 			}
 
 			$content = str_replace(
-				array_map( function( $name ) {
+				array_map( function ( $name ) {
 					return '{{{' . $name . '}}}';
 				}, array_keys( $data ) ),
 				$data,

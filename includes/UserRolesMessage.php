@@ -240,7 +240,7 @@ class UserRolesMessage {
 			$out = $this->out;
 
 			$remainingRolenames = array_map(
-				function( $roleAndCourse ) use ( $messageKeysForRoles, $out ) {
+				function ( $roleAndCourse ) use ( $messageKeysForRoles, $out ) {
 					$msgKey = $messageKeysForRoles[$roleAndCourse['role']]['rolename'];
 					return $out->msg( $msgKey )->plain();
 				},

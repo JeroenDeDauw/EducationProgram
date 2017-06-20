@@ -180,7 +180,7 @@ class ArticleTable extends EPPager {
 		// initial calculation for row count
 		$rowCount = array_reduce(
 			$articles,
-			function( /* integer */ $sum, EPArticle $article ) use ( $user ) {
+			function ( /* integer */ $sum, EPArticle $article ) use ( $user ) {
 				// At least one row per article the student has to review;
 				// for articles that have more than one reviewer, provide extra rows for them.
 				$reviewersCount = count( $article->getReviewers() );

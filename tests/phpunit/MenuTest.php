@@ -42,7 +42,7 @@ class MenuTest extends \MediaWikiTestCase {
 	public function testSetItemFunction() {
 		$menu = new Menu( \RequestContext::getMain() );
 
-		$menu->setItemFunction( function( array $items ) {
+		$menu->setItemFunction( function ( array $items ) {
 			unset( $items['ep-nav-mycourses'] );
 			return $items;
 		} );

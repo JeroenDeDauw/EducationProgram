@@ -155,7 +155,7 @@ class RecentPageEventGrouperTest extends \PHPUnit_Framework_TestCase {
 
 	private function eventsToIds( array $events ) {
 		return array_map(
-			function( Event $event ) {
+			function ( Event $event ) {
 				return $event->getId();
 			},
 			$events

@@ -100,7 +100,7 @@ class StudentPager extends EPPager {
 
 				if ( array_key_exists( $userId, $this->courseTitles ) ) {
 					$value = $this->getLanguage()->pipeList( array_map(
-						function( $courseTitle ) {
+						function ( $courseTitle ) {
 							$titleParts = explode( '/', $courseTitle, 2 );
 							return Courses::singleton()->getLinkFor(
 								$courseTitle,

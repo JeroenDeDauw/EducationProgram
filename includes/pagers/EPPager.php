@@ -367,7 +367,7 @@ abstract class EPPager extends \TablePager {
 		}
 
 		if ( $hideWhenNoResults && $this->getNumRows() < 1 ) {
-			$noFiltersSet = array_reduce( $filterOptions, function( $current, array $data ) {
+			$noFiltersSet = array_reduce( $filterOptions, function ( $current, array $data ) {
 				return $current && ( $data['value'] === '' || is_null( $data['value'] ) );
 			}, true );
 

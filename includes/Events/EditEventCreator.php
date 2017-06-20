@@ -147,12 +147,12 @@ class EditEventCreator {
 			// Only an order of magnitude more lines then the python equivalent, but oh well... >_>
 			// lines = [ diffOp->closing for diffOp in diff->edits if diffOp->type == 'add' ]
 			$lines = array_map(
-				function( DiffOp $diffOp ) {
+				function ( DiffOp $diffOp ) {
 					return $diffOp->closing;
 				},
 				array_filter(
 					$diff->edits,
-					function( DiffOp $diffOp ) {
+					function ( DiffOp $diffOp ) {
 						return $diffOp->type == 'add';
 					}
 				)

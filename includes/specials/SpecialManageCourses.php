@@ -69,7 +69,7 @@ class SpecialManageCourses extends VerySpecialPage {
 	 */
 	protected function displayNavigation() {
 		$menu = new Menu( $this->getContext() );
-		$menu->setItemFunction( function( array $items ) {
+		$menu->setItemFunction( function ( array $items ) {
 			unset( $items['ep-nav-mycourses'] );
 			return $items;
 		} );
@@ -140,7 +140,7 @@ class SpecialManageCourses extends VerySpecialPage {
 
 		if ( !empty( $courses ) ) {
 			// @todo FIXME: Add full text of all used message keys here for grepping
-			//              and transparancy purposes.
+			// and transparancy purposes.
 			// Give grep a chance to find the usages:
 			// ep-mycourses-courses-epoa, ep-mycourses-courses-epca,
 			// ep-mycourses-courses-epinstructor, ep-mycourses-courses-epstudent
@@ -277,7 +277,7 @@ class SpecialManageCourses extends VerySpecialPage {
 		$out = $this->getOutput();
 
 		$courseIds = array_map(
-			function( Course $course ) {
+			function ( Course $course ) {
 				return $course->getId();
 			},
 			$courses

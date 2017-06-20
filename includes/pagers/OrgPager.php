@@ -128,7 +128,7 @@ class OrgPager extends EPPager {
 				break;
 			case 'active':
 				// @todo FIXME: Add full text of all used message keys here for grepping
-				//              and transparancy purposes.
+				// and transparancy purposes.
 				// Give grep a chance to find the usages: eporgpager-yes, eporgpager-no
 
 				// NOTE: Here we're *not* formatting the value, we're calling a

@@ -81,7 +81,7 @@ class Timeline {
 		return implode(
 			'<br />',
 			array_map(
-				function( EventGroup $group ) use ( $outputPage, $language ) {
+				function ( EventGroup $group ) use ( $outputPage, $language ) {
 					return TimelineGroup::newFromEventGroup( $group, $outputPage, $language )->getHTML();
 				},
 				$grouper->groupEvents( $this->events )

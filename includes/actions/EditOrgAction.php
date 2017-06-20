@@ -66,7 +66,7 @@ class EditOrgAction extends EditAction {
 			'label-message' => 'educationprogram-org-edit-name',
 			'maxlength' => 255,
 			'required' => true,
-			'validation-callback' => function( $value, array $alldata = null ) {
+			'validation-callback' => function ( $value, array $alldata = null ) {
 				if ( strlen( $value ) < 2 ) {
 					return wfMessage( 'educationprogram-org-invalid-name', 2 )->text();
 				}
@@ -82,7 +82,7 @@ class EditOrgAction extends EditAction {
 		$fields['city'] = [
 			'type' => 'text',
 			'label-message' => 'educationprogram-org-edit-city',
-			'validation-callback' => function( $value, array $alldata = null ) {
+			'validation-callback' => function ( $value, array $alldata = null ) {
 				return $value !== '' && strlen( $value ) < 2 ? wfMessage( 'educationprogram-org-invalid-city', 2 )->text() : true;
 			},
 		];

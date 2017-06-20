@@ -93,7 +93,7 @@ class Utils {
 	public static function getValuesAppendedKeys( array $list ) {
 		return array_combine(
 			array_map(
-				function( $value, $key ) {
+				function ( $value, $key ) {
 					return $key . ' - ' . $value;
 				},
 				array_values( $list ),
