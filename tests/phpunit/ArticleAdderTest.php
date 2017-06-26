@@ -4,6 +4,7 @@ namespace EducationProgram\Tests;
 
 use EducationProgram\ArticleAdder;
 use EducationProgram\ArticleStore;
+use User;
 
 /**
  * Tests for the EducationProgram\ArticleAdder class.
@@ -78,7 +79,12 @@ class ArticleAdderTest extends \MediaWikiTestCase {
 	 * @param int[] $reviewers
 	 */
 	public function testAddArticle(
-		$actionUser, $courseId, $userId, $pageId, $pageTitle, array $reviewers
+		User $actionUser,
+		$courseId,
+		$userId,
+		$pageId,
+		$pageTitle,
+		array $reviewers
 	) {
 		$adder = $this->newAdder();
 

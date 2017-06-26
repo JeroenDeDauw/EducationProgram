@@ -180,7 +180,7 @@ class SpecialMyCourses extends VerySpecialPage {
 		$this->addCachedHTML(
 			function ( Course $course, IContextSource $context ) {
 				// TODO: inject dependency
-				$eventStore = new \EducationProgram\Events\EventStore( 'ep_events' );
+				$eventStore = new EventStore( 'ep_events' );
 
 				$query = new EventQuery();
 

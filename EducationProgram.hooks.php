@@ -4,9 +4,8 @@ namespace EducationProgram;
 
 use DatabaseUpdater;
 use EchoEvent;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
-use SplFileInfo;
+use EducationProgram\Events\EditEventCreator;
+use EducationProgram\Events\EventStore;
 use Title;
 use User;
 use SkinTemplate;
@@ -454,11 +453,11 @@ final class Hooks {
 
 			// TODO: properly inject dependencies
 			$courseFinder = new UPCUserCourseFinder( $dbw );
-			$eventCreator = new \EducationProgram\Events\EditEventCreator( $dbw, $courseFinder );
+			$eventCreator = new EditEventCreator( $courseFinder );
 
 			$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
 			if ( $events ) {
-				$eventStore = new \EducationProgram\Events\EventStore( 'ep_events' );
+				$eventStore = new EventStore( 'ep_events' );
 
 				$dbw->startAtomic( __METHOD__ );
 				foreach ( $events as $event ) {

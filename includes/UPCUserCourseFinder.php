@@ -2,7 +2,7 @@
 
 namespace EducationProgram;
 
-use DatabaseBase;
+use Wikimedia\Rdbms\Database;
 
 /**
  * Implementation of the UserCourseFinder interface that works by doing
@@ -39,16 +39,16 @@ class UPCUserCourseFinder implements UserCourseFinder {
 	/**
 	 * @since 0.3
 	 *
-	 * @var DatabaseBase
+	 * @var Database
 	 */
 	private $db;
 
 	/**
 	 * @since 0.3
 	 *
-	 * @param DatabaseBase $db
+	 * @param Database $db
 	 */
-	public function __construct( DatabaseBase $db ) {
+	public function __construct( Database $db ) {
 		$this->db = $db;
 	}
 

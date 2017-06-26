@@ -3,6 +3,7 @@
 namespace EducationProgram;
 
 use ApiBase;
+use ApiResult;
 use User;
 
 /**
@@ -232,15 +233,15 @@ class ApiListStudents extends ApiBase {
 	 * @param ApiResult $results
 	 * @param int[]|int $courseIds A list of one or more course IDs
 	 * @param int $courseIndex
-	 * @param $articleStore articleStore object
+	 * @param ArticleStore $articleStore
 	 */
 	protected function outputCSVofStudentProperties(
 		$studentsList,
 		$propName,
-		$results,
+		ApiResult $results,
 		$courseIds,
 		$courseIndex = null,
-		$articleStore
+		ArticleStore $articleStore
 	) {
 		$studentProps = [];
 
@@ -281,8 +282,8 @@ class ApiListStudents extends ApiBase {
 	 * @param string $courseRole
 	 */
 	protected function outputListOfNonStudentParticipantsProperties(
-		$course,
-		$results,
+		Course $course,
+		ApiResult $results,
 		$courseIndex,
 		$courseRole
 	) {
@@ -338,15 +339,15 @@ class ApiListStudents extends ApiBase {
 	 * @param \ApiResult $results
 	 * @param int $courseId
 	 * @param int $courseIndex
-	 * @param $articleStore articleStore object
+	 * @param ArticleStore $articleStore
 	 */
 	protected function outputListOfStudentProperties(
 		$studentsList,
 		$propName,
-		$results,
+		ApiResult $results,
 		$courseId = null,
 		$courseIndex = null,
-		$articleStore
+		ArticleStore $articleStore
 	) {
 		// Add the properties for each student to the result.
 		$studentIndex = 0;
@@ -462,14 +463,14 @@ class ApiListStudents extends ApiBase {
 	 * @param array $studentsList A set of student users
 	 * @param \ApiResult $results
 	 * @param int $courseIndex
-	 * @param $articleStore articleStore object
+	 * @param ArticleStore $articleStore
 	 */
 	protected function outputCSVListofArticles(
 		$courseIds,
 		$studentsList,
-		$results,
+		ApiResult $results,
 		$courseIndex = null,
-		$articleStore
+		ArticleStore $articleStore
 	) {
 		$articleNames = $this->getArticleNames( $courseIds, $studentsList, $articleStore );
 
@@ -507,9 +508,9 @@ class ApiListStudents extends ApiBase {
 	 */
 	protected function outputCourseProperties(
 		$courseId,
-		$course,
+		Course $course,
 		$courseIndex,
-		$results
+		ApiResult $results
 	) {
 		// Use an unambiguous name for the course that
 		// includes the institution, title, term and ID.
@@ -551,10 +552,10 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param int[]|int $courseIds
 	 * @param array $students Student objects
-	 * @param $articleStore articleStore object
+	 * @param ArticleStore $articleStore
 	 * @return array
 	 */
-	protected function getArticleNames( $courseIds, $students, $articleStore ) {
+	protected function getArticleNames( $courseIds, $students, ArticleStore $articleStore ) {
 		// Turn array of student objects into array of corresponding user IDs.
 		foreach ( $students as $student ) {
 			$studentIds[] = $student->getId();
@@ -577,10 +578,10 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param int $courseId
 	 * @param $student Student object
-	 * @param $articleStore articleStore object
+	 * @param ArticleStore $articleStore
 	 * @return array
 	 */
-	protected function getEPArticles( $courseId, $student, $articleStore ) {
+	protected function getEPArticles( $courseId, $student, ArticleStore $articleStore ) {
 		$studentId = $student->getId();
 
 		// These are EPArticle objects, not conventional articles.

@@ -3,8 +3,6 @@
 namespace EducationProgram;
 
 use Linker;
-use Html;
-use Xml;
 
 /**
  * Action for comparing two revisions of a PageObject.

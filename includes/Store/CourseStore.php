@@ -2,11 +2,11 @@
 
 namespace EducationProgram\Store;
 
-use DatabaseBase;
 use EducationProgram\Course;
 use EducationProgram\CourseNotFoundException;
 use EducationProgram\CourseTitleNotFoundException;
 use EducationProgram\Courses;
+use Wikimedia\Rdbms\Database;
 
 /**
  * This program is free software; you can redistribute it and/or modify
@@ -40,11 +40,11 @@ class CourseStore {
 	private $tableName;
 
 	/**
-	 * @var DatabaseBase
+	 * @var Database
 	 */
 	private $readDatabase;
 
-	public function __construct( $tableName, DatabaseBase $readDatabase ) {
+	public function __construct( $tableName, Database $readDatabase ) {
 		$this->readDatabase = $readDatabase;
 		$this->tableName = $tableName;
 	}

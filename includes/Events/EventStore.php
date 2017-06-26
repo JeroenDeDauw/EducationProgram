@@ -2,15 +2,15 @@
 
 namespace EducationProgram\Events;
 
-use DatabaseBase;
 use InvalidArgumentException;
+use Wikimedia\Rdbms\Database;
 
 /**
  * Service via which EducationProgram events can be saved and queried.
  *
  * Side note:
  * This MySQL implementation of the interface pulls in some global
- * DatabaseBase object. Injecting a connection provider would be better,
+ * Database object. Injecting a connection provider would be better,
  * though sadly enough we do not have such an interface yet.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -66,7 +66,7 @@ class EventStore {
 	/**
 	 * @since 0.3
 	 *
-	 * @return DatabaseBase
+	 * @return Database
 	 */
 	private function getReadConnection() {
 		return wfGetDB( $this->readConnectionId );
@@ -75,7 +75,7 @@ class EventStore {
 	/**
 	 * @since 0.3
 	 *
-	 * @return DatabaseBase
+	 * @return Database
 	 */
 	private function getWriteConnection() {
 		return wfGetDB( DB_MASTER );

@@ -2,6 +2,10 @@
 
 namespace EducationProgram;
 
+use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\DBQueryError;
+use Wikimedia\Rdbms\ResultWrapper;
+
 /**
  * Abstract base class for representing a single database table.
  * Documentation inline and at https://www.mediawiki.org/wiki/Manual:ORMTable
@@ -223,7 +227,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 * @param string|null $functionName
 	 *
 	 * @return array Array of row objects
-	 * @throws \DBQueryError If the query failed (even if the database was in ignoreErrors mode).
+	 * @throws DBQueryError If the query failed (even if the database was in ignoreErrors mode).
 	 */
 	public function selectObjects( $fields = null, array $conditions = [],
 		array $options = [], $functionName = null
@@ -248,7 +252,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 * @param array $conditions
 	 * @param array $options
 	 * @param null|string $functionName
-	 * @return \ResultWrapper
+	 * @return ResultWrapper
 	 * @throws \Exception
 	 * @throws \MWException
 	 */
@@ -276,7 +280,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 		if ( $result === false ) {
 			// Database connection was in "ignoreErrors" mode. We don't like that.
 			// So, we emulate the DBQueryError that should have been thrown.
-			$error = new \DBQueryError(
+			$error = new DBQueryError(
 				$dbr,
 				$dbr->lastError(),
 				$dbr->lastErrno(),
@@ -465,7 +469,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 * Condition field names get prefixed.
 	 *
 	 * Note that this can be expensive on large tables.
-	 * In such cases you might want to use DatabaseBase::estimateRowCount instead.
+	 * In such cases you might want to use Database::estimateRowCount instead.
 	 *
 	 * @since 1.20
 	 *
@@ -502,7 +506,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			$this->getName(),
 			$conditions === [] ? '*' : $this->getPrefixedValues( $conditions ),
 			is_null( $functionName ) ? __METHOD__ : $functionName
-		) !== false; // DatabaseBase::delete does not always return true for success as documented...
+		) !== false; // Database::delete does not always return true for success as documented...
 
 		$this->releaseConnection( $dbw );
 
@@ -628,7 +632,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return \DatabaseBase The database object
+	 * @return Database The database object
 	 */
 	public function getReadDbConnection() {
 		return $this->getConnection( $this->getReadDb(), [] );
@@ -642,7 +646,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return \DatabaseBase The database object
+	 * @return Database The database object
 	 */
 	public function getWriteDbConnection() {
 		return $this->getConnection( DB_MASTER, [] );
@@ -654,12 +658,12 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 *
 	 * @see LoadBalancer::reuseConnection
 	 *
-	 * @param \DatabaseBase $db
+	 * @param Database $db
 	 *
 	 * @since 1.20
 	 */
 	// @codingStandardsIgnoreStart Suppress "useless method overriding" sniffer warning
-	public function releaseConnection( \DatabaseBase $db ) {
+	public function releaseConnection( Database $db ) {
 		parent::releaseConnection( $db ); // just make it public
 	}
 	// @codingStandardsIgnoreEnd
@@ -684,7 +688,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			$this->getPrefixedValues( $values ),
 			$this->getPrefixedValues( $conditions ),
 			__METHOD__
-		) !== false; // DatabaseBase::update does not always return true for success as documented...
+		) !== false; // Database::update does not always return true for success as documented...
 
 		$this->releaseConnection( $dbw );
 
@@ -1016,7 +1020,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 
 		$this->releaseConnection( $dbw );
 
-		// DatabaseBase::update does not always return true for success as documented...
+		// Database::update does not always return true for success as documented...
 		return $success !== false;
 	}
 
@@ -1041,7 +1045,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			$options
 		);
 
-		// DatabaseBase::insert does not always return true for success as documented...
+		// Database::insert does not always return true for success as documented...
 		$success = $success !== false;
 
 		if ( $success ) {
@@ -1103,7 +1107,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			is_null( $functionName ) ? __METHOD__ : $functionName
 		);
 
-		// DatabaseBase::delete does not always return true for success as documented...
+		// Database::delete does not always return true for success as documented...
 		return $success !== false;
 	}
 
@@ -1140,7 +1144,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			[ "$fullField=$fullField" . ( $isNegative ? '-' : '+' ) . $absoluteAmount ],
 			$this->getPrefixedValues( $conditions ),
 			__METHOD__
-		) !== false; // DatabaseBase::update does not always return true for success as documented...
+		) !== false; // Database::update does not always return true for success as documented...
 
 		$this->releaseConnection( $dbw );
 

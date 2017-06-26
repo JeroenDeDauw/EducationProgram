@@ -2,8 +2,6 @@
 
 namespace EducationProgram\Events;
 
-use User;
-
 /**
  * Class representing a single Education Program event.
  *

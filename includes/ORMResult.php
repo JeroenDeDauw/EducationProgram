@@ -2,6 +2,8 @@
 
 namespace EducationProgram;
 
+use Wikimedia\Rdbms\ResultWrapper;
+
 /**
  * ORMIterator that takes a ResultWrapper object returned from
  * a select operation returning IORMRow objects (ie IORMTable::select).
@@ -34,7 +36,7 @@ namespace EducationProgram;
 class ORMResult implements ORMIterator {
 
 	/**
-	 * @var \ResultWrapper
+	 * @var ResultWrapper
 	 */
 	protected $res;
 
@@ -55,9 +57,9 @@ class ORMResult implements ORMIterator {
 
 	/**
 	 * @param IORMTable $table
-	 * @param \ResultWrapper $res
+	 * @param ResultWrapper $res
 	 */
-	public function __construct( IORMTable $table, \ResultWrapper $res ) {
+	public function __construct( IORMTable $table, ResultWrapper $res ) {
 		$this->table = $table;
 		$this->res = $res;
 		$this->key = 0;

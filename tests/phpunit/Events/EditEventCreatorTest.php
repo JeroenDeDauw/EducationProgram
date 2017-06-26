@@ -67,7 +67,7 @@ class EditEventCreatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider getEventsForEditProvider
 	 */
 	public function testGetEventsForEdit( Page $article, Revision $rev, User $user ) {
-		$eventCreator = new EditEventCreator( wfGetDB( DB_MASTER ), new MockUserCourseFinder() );
+		$eventCreator = new EditEventCreator( new MockUserCourseFinder() );
 
 		$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
 

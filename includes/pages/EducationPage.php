@@ -6,7 +6,6 @@ use ContextSource;
 use Title;
 use WikiPage;
 use Exception;
-use Language;
 
 /**
  * Abstract Page for interacting with a PageObject.

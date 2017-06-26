@@ -3,6 +3,7 @@
 namespace EducationProgram;
 
 use Job;
+use Title;
 
 /**
  * Job class for merging users in the article_reviewers column of the
@@ -36,7 +37,7 @@ class UserMergeArticleReviewersJob extends Job {
 	/**
 	 * @see Job::__construct() for info on the parameters passed through.
 	 */
-	public function __construct( $title, $params ) {
+	public function __construct( Title $title, $params ) {
 		parent::__construct(
 			'educationProgramUserMergeArticleReviewers',
 			$title,

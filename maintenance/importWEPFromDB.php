@@ -15,7 +15,7 @@
 
 namespace EducationProgram;
 
-use ResultWrapper;
+use Wikimedia\Rdbms\ResultWrapper;
 
 $basePath = getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' )

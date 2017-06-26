@@ -2,6 +2,11 @@
 
 namespace EducationProgram;
 
+use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\DBQueryError;
+use Wikimedia\Rdbms\LoadBalancer;
+use Wikimedia\Rdbms\ResultWrapper;
+
 /**
  * Interface for objects representing a single database table.
  * Documentation inline and at https://www.mediawiki.org/wiki/Manual:ORMTable
@@ -100,7 +105,7 @@ interface IORMTable {
 	 * Selects the specified fields of the records matching the provided
 	 * conditions and returns them as DBDataObject. Field names get prefixed.
 	 *
-	 * @see DatabaseBase::select()
+	 * @see Database::select
 	 *
 	 * @since 1.20
 	 *
@@ -110,7 +115,7 @@ interface IORMTable {
 	 * @param string|null $functionName
 	 *
 	 * @return ORMResult The result set
-	 * @throws \DBQueryError If the query failed (even if the database was in ignoreErrors mode)
+	 * @throws DBQueryError If the query failed (even if the database was in ignoreErrors mode)
 	 */
 	public function select( $fields = null, array $conditions = [],
 		array $options = [], $functionName = null );
@@ -141,8 +146,8 @@ interface IORMTable {
 	 * @param array $options
 	 * @param null|string $functionName
 	 *
-	 * @return \ResultWrapper
-	 * @throws \DBQueryError If the query failed (even if the database was in ignoreErrors mode)
+	 * @return ResultWrapper
+	 * @throws DBQueryError If the query failed (even if the database was in ignoreErrors mode)
 	 */
 	public function rawSelect( $fields = null, array $conditions = [],
 		array $options = [], $functionName = null );
@@ -199,7 +204,7 @@ interface IORMTable {
 	 * @param array $options
 	 * @param string|null $functionName
 	 *
-	 * @return \ResultWrapper
+	 * @return ResultWrapper
 	 */
 	public function rawSelectRow( array $fields, array $conditions = [],
 		array $options = [], $functionName = null );
@@ -250,7 +255,7 @@ interface IORMTable {
 	 * Condition field names get prefixed.
 	 *
 	 * Note that this can be expensive on large tables.
-	 * In such cases you might want to use DatabaseBase::estimateRowCount instead.
+	 * In such cases you might want to use Database::estimateRowCount instead.
 	 *
 	 * @since 1.20
 	 *
@@ -342,7 +347,7 @@ interface IORMTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return \DatabaseBase The database object
+	 * @return Database The database object
 	 */
 	public function getReadDbConnection();
 
@@ -354,7 +359,7 @@ interface IORMTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return \DatabaseBase The database object
+	 * @return Database The database object
 	 */
 	public function getWriteDbConnection();
 
@@ -365,7 +370,7 @@ interface IORMTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return \LoadBalancer The database load balancer object
+	 * @return LoadBalancer The database load balancer object
 	 */
 	public function getLoadBalancer();
 
@@ -375,11 +380,11 @@ interface IORMTable {
 	 *
 	 * @see LoadBalancer::reuseConnection
 	 *
-	 * @param \DatabaseBase $db The database
+	 * @param Database $db The database
 	 *
 	 * @since 1.20
 	 */
-	public function releaseConnection( \DatabaseBase $db );
+	public function releaseConnection( Database $db );
 
 	/**
 	 * Update the records matching the provided conditions by

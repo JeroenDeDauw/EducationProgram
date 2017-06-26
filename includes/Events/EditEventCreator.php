@@ -7,7 +7,6 @@ use EducationProgram\UserCourseFinder;
 use Revision;
 use User;
 use Page;
-use DatabaseBase;
 use MWNamespace;
 use Diff;
 use DiffOp;
@@ -45,27 +44,14 @@ use ContentHandler;
 class EditEventCreator {
 
 	/**
-	 * @since 0.3
-	 *
-	 * @var DatabaseBase
-	 */
-	private $db;
-
-	/**
-	 * @since 0.3
-	 *
 	 * @var UserCourseFinder
 	 */
 	private $userCourseFinder;
 
 	/**
-	 * @since 0.3
-	 *
-	 * @param DatabaseBase $db
 	 * @param UserCourseFinder $userCourseFinder
 	 */
-	public function __construct( DatabaseBase $db, UserCourseFinder $userCourseFinder ) {
-		$this->db = $db;
+	public function __construct( UserCourseFinder $userCourseFinder ) {
 		$this->userCourseFinder = $userCourseFinder;
 	}
 

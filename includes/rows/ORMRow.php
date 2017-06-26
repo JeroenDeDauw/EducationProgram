@@ -376,7 +376,7 @@ class ORMRow implements IORMRow {
 
 		$this->table->releaseConnection( $dbw );
 
-		// DatabaseBase::update does not always return true for success as documented...
+		// Database::update does not always return true for success as documented...
 		return $success !== false;
 	}
 
@@ -413,7 +413,7 @@ class ORMRow implements IORMRow {
 			$options
 		);
 
-		// DatabaseBase::insert does not always return true for success as documented...
+		// Database::insert does not always return true for success as documented...
 		$success = $success !== false;
 
 		if ( $success ) {

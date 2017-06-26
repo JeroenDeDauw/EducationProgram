@@ -2,9 +2,9 @@
 
 namespace EducationProgram\Tests;
 
-use EducationProgram\IORMRow;
 use EducationProgram\IORMTable;
 use EducationProgram\ORMTable;
+use Title;
 
 /**
  * Abstract class to construct tests for ORMTable deriving classes.
@@ -103,7 +103,7 @@ class PageORMTableForTesting extends ORMTable {
 	 * @return string
 	 */
 	public function getRowClass() {
-		return 'Title';
+		return Title::class;
 	}
 
 	/**
@@ -114,7 +114,7 @@ class PageORMTableForTesting extends ORMTable {
 	 * @return Title
 	 */
 	public function newRow( array $data, $loadDefaults = false ) {
-		return \Title::makeTitle( $data['namespace'], $data['title'] );
+		return Title::makeTitle( $data['namespace'], $data['title'] );
 	}
 
 	/**

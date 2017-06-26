@@ -2,8 +2,8 @@
 
 namespace EducationProgram;
 
-use DatabaseBase;
 use InvalidArgumentException;
+use Wikimedia\Rdbms\Database;
 
 /**
  * Store for EPArticle objects.
@@ -84,7 +84,7 @@ class ArticleStore {
 	 *
 	 * @since 0.3
 	 *
-	 * @return DatabaseBase
+	 * @return Database
 	 */
 	protected function getReadConnection() {
 		return wfGetDB( $this->readConnectionId );
@@ -96,7 +96,7 @@ class ArticleStore {
 	 *
 	 * @since 0.3
 	 *
-	 * @return DatabaseBase
+	 * @return Database
 	 */
 	protected function getWriteConnection() {
 		return wfGetDB( DB_MASTER );
