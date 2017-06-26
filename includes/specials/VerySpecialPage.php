@@ -54,8 +54,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	 * @since 0.1
 	 *
 	 * @param string|null $subPage
-	 *
-	 * @return bool
 	 */
 	public function execute( $subPage ) {
 		$this->cacheEnabled = Settings::get( 'enablePageCache' );
@@ -69,12 +67,10 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 		// If the user is authorized, display the page, if not, show an error.
 		if ( !$this->userCanExecute( $this->getUser() ) ) {
 			$this->displayRestrictionError();
-			return false;
+			return;
 		}
 
 		Utils::displayResult( $this->getContext() );
-
-		return true;
 	}
 
 	/**
@@ -127,21 +123,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	protected function displayNavigation() {
 		$menu = new Menu( $this->getContext() );
 		$menu->display();
-	}
-
-	/**
-	 * Display the summary data.
-	 *
-	 * @since 0.1
-	 *
-	 * @param IORMRow $item
-	 * @param boolean $collapsed
-	 * @param array $summaryData
-	 */
-	protected function displaySummary(
-		IORMRow $item, $collapsed = false, array $summaryData = null
-	) {
-		$this->getOutput()->addHTML( $item, $collapsed, $summaryData );
 	}
 
 	/**

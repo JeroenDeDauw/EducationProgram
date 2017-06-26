@@ -646,8 +646,7 @@ final class Hooks {
 		// This will return only unique values.
 		$userCourseFinder = new UPCUserCourseFinder( $dbw );
 
-		$courseIds =
-			$userCourseFinder->getCoursesForUsers( $oldId, [], false );
+		$courseIds = $userCourseFinder->getCoursesForUsers( $oldId );
 
 		// Fields with arrays of the ids of users that have a role in a course
 		$roleFields = [

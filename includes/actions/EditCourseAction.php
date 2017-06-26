@@ -168,8 +168,6 @@ class EditCourseAction extends EditAction {
 	protected function getFormFields() {
 		$fields = parent::getFormFields();
 
-		$orgOptions = Orgs::singleton()->selectFields( [ 'name', 'id' ] );
-
 		$messageMethod = [ $this, 'msg' ];
 
 		// Show description ("page text") field to all users

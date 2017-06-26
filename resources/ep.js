@@ -50,10 +50,6 @@
 			else {
 				return mw.msg.apply( this, arguments );
 			}
-		},
-
-		msge: function () {
-			return mw.html.escape( this.msg.apply( this, arguments ) );
 		}
 	};
 

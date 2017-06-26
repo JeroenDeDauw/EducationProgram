@@ -272,7 +272,7 @@ abstract class EPPager extends \TablePager {
 
 		if ( $this->enableFilter ) {
 			$filterOptions = $this->getFilterOptions();
-			$this->addFilterValues( $filterOptions, false );
+			$this->addFilterValues( $filterOptions );
 
 			foreach ( $filterOptions as $optionName => $optionData ) {
 				if ( array_key_exists( 'value', $optionData ) && $optionData['value'] !== '' ) {

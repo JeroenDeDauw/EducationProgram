@@ -187,7 +187,7 @@ abstract class PageTable extends ORMTable {
 		// Linker has no hook that allows us to figure out if the page actually exists :(
 		// FIXME: now it does
 		return Linker::linkKnown(
-			$this->getTitleFor( $identifierValue, $action ),
+			$this->getTitleFor( $identifierValue ),
 			is_null( $html ) ? htmlspecialchars( $identifierValue ) : $html,
 			$customAttribs,
 			$query
