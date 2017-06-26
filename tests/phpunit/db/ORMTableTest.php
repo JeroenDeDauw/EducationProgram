@@ -110,7 +110,9 @@ class PageORMTableForTesting extends ORMTable {
 	/**
 	 * @see ORMTable::newRow
 	 *
-	 * @return IORMRow
+	 * @param array $data
+	 * @param bool $loadDefaults
+	 * @return Title
 	 */
 	public function newRow( array $data, $loadDefaults = false ) {
 		return \Title::makeTitle( $data['namespace'], $data['title'] );

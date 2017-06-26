@@ -47,7 +47,7 @@ class CourseActivityView {
 	}
 
 	/**
-	 * @param int $courseId
+	 * @param string $courseTitle
 	 * @param int $maxAgeInSeconds
 	 */
 	public function displayActivity( $courseTitle, $maxAgeInSeconds ) {

@@ -77,14 +77,23 @@ abstract class EducationPage extends ContextSource implements \Page {
 	public function view() {
 	}
 
+	/**
+	 * @return WikiPage
+	 */
 	public function getPage() {
 		return $this->page;
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function isRedirect() {
 		return false;
 	}
 
+	/**
+	 * @return Title
+	 */
 	public function getTitle() {
 		return $this->page->getTitle();
 	}
@@ -101,10 +110,16 @@ abstract class EducationPage extends ContextSource implements \Page {
 		return $actions;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getTouched() {
 		return '19700101000000';
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getEditRight() {
 		return static::$info['edit-right'];
 	}
@@ -113,15 +128,23 @@ abstract class EducationPage extends ContextSource implements \Page {
 	 * Override if some degree if editing is available for some users.
 	 *
 	 * @since 0.4 alpha
+	 *
+	 * @return string
 	 */
 	public function getLimitedEditRight() {
 		return static::$info['edit-right'];
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getListPage() {
 		return static::$info['list'];
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getLogType() {
 		return static::$info['log-type'];
 	}
@@ -129,6 +152,9 @@ abstract class EducationPage extends ContextSource implements \Page {
 	public function loadPageData( $from = 'fromdb' ) {
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function exists() {
 		return $this->getTitle()->exists();
 	}

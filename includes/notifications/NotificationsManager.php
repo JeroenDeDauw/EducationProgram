@@ -130,6 +130,7 @@ class NotificationsManager {
 	 * @param string $key The string key of the notification type to trigger
 	 * @param array $parameters The parameters for INotificationType::trigger()
 	 *   (not the same as the parameters for EchoEvent::create()).
+	 * @throws InvalidArgumentException
 	 */
 	public function trigger( $key, array $parameters ) {
 		if ( !isset( $this->typesByKey[$key] ) ) {
