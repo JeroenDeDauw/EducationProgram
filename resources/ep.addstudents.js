@@ -674,14 +674,14 @@
 						'&auprefix=',
 
 					replace: function(url, uriEncodedQuery) {
-						return url + userChecker.prepareURLEncoded( uriEncodedQuery, true );
+						return url + userChecker.prepareURLEncoded( uriEncodedQuery );
 					},
 
 					filter: function( data ) {
 						return $.map( data.query.allusers, function( u ) {
 							return u.name;
 						} );
-					},
+					}
 				},
 
 				limit: TYPEAHEAD_MAX_SUGGESTIONS,
