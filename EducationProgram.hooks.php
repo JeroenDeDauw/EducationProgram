@@ -136,11 +136,11 @@ final class Hooks {
 
 			// Find the watchlist item and replace it by the my contests link and itself.
 			if ( $wgUser->isLoggedIn() && $wgUser->getOption( 'ep_showtoplink' ) ) {
-				$url = \SpecialPage::getTitleFor( 'MyCourses' )->getLinkUrl();
+				$url = \SpecialPage::getTitleFor( 'MyCourses' )->getLinkURL();
 				$myCourses = [
 					'text' => wfMessage( 'ep-toplink' )->text(),
 					'href' => $url,
-					'active' => ( $url == $title->getLinkUrl() )
+					'active' => ( $url == $title->getLinkURL() )
 				];
 
 				$insertUrls = [ 'mycourses' => $myCourses ];
@@ -284,7 +284,7 @@ final class Hooks {
 				$links['views']['view'] = [
 					'class' => ( !$isSpecial && $type === '' ) ? 'selected' : false,
 					'text' => $sktemplate->msg( 'ep-tab-view' )->text(),
-					'href' => $title->getLocalUrl()
+					'href' => $title->getLocalURL()
 				];
 			}
 
@@ -294,7 +294,7 @@ final class Hooks {
 				$links['views']['edit'] = [
 					'class' => $type === 'edit' ? 'selected' : false,
 					'text' => $sktemplate->msg( $exists ? 'ep-tab-edit' : 'ep-tab-create' )->text(),
-					'href' => $title->getLocalUrl( [ 'action' => 'edit' ] )
+					'href' => $title->getLocalURL( [ 'action' => 'edit' ] )
 				];
 			}
 
@@ -302,7 +302,7 @@ final class Hooks {
 				$links['actions']['delete'] = [
 					'class' => $type === 'delete' ? 'selected' : false,
 					'text' => $sktemplate->msg( 'ep-tab-delete' )->text(),
-					'href' => $title->getLocalUrl( [ 'action' => 'delete' ] )
+					'href' => $title->getLocalURL( [ 'action' => 'delete' ] )
 				];
 			}
 
@@ -310,14 +310,14 @@ final class Hooks {
 				$links['views']['history'] = [
 					'class' => $type === 'history' ? 'selected' : false,
 					'text' => $sktemplate->msg( 'ep-tab-history' )->text(),
-					'href' => $title->getLocalUrl( [ 'action' => 'history' ] )
+					'href' => $title->getLocalURL( [ 'action' => 'history' ] )
 				];
 
 				if ( Utils::isCourse( $title ) ) {
 					$links['views']['activity'] = [
 						'class' => $type === 'epcourseactivity' ? 'selected' : false,
 						'text' => $sktemplate->msg( 'ep-tab-activity' )->text(),
-						'href' => $title->getLocalUrl( [ 'action' => 'epcourseactivity' ] )
+						'href' => $title->getLocalURL( [ 'action' => 'epcourseactivity' ] )
 					];
 
 					$student = Student::newFromUser( $user );

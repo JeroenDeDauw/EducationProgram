@@ -399,7 +399,7 @@ class ApiListStudents extends ApiBase {
 						$results->addValue(
 							$reviewerPath,
 							'username',
-							User::newfromId( $articleReviewer )->getName()
+							User::newFromId( $articleReviewer )->getName()
 						);
 						$results->addValue(
 							$reviewerPath,

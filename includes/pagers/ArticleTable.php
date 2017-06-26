@@ -333,7 +333,7 @@ class ArticleTable extends EPPager {
 			$html .= Utils::getToolLinks( $userId, $user->getName(), $this->getContext() );
 		}
 
-		return html::rawElement(
+		return Html::rawElement(
 			'td',
 			array_merge(
 				$this->getCellAttrs( 'user_id', $userId ),

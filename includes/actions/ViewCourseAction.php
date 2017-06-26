@@ -417,7 +417,7 @@ class ViewCourseAction extends ViewAction {
 
 		$enrollLink = SpecialPage::getTitleFor(
 			'Enroll', $course->getField( 'title' ) . $tokenSuffix )
-			->getFullUrl( '', false, PROTO_CANONICAL );
+			->getFullURL( '', false, PROTO_CANONICAL );
 
 		$html .= Html::element(
 			'p',

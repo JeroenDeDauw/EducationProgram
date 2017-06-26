@@ -71,7 +71,7 @@ class Revisions extends ORMTable {
 	 */
 	public function newFromObject( RevisionedObject $object, RevisionAction $revAction ) {
 		$fields = array_merge( $object->getRevisionIdentifiers(), [
-			'user_id' => $revAction->getUser()->getID(),
+			'user_id' => $revAction->getUser()->getId(),
 			'user_text' => $revAction->getUser()->getName(),
 			'comment' => $revAction->getComment(),
 			'minor_edit' => $revAction->isMinor(),

@@ -73,7 +73,7 @@ class DiffTable extends \ContextSource {
 		$out->addHTML( '</tr>' );
 
 		foreach ( $this->diff->getChangedFields() as $field => $values ) {
-			$out->addHtml( '<tr>' );
+			$out->addHTML( '<tr>' );
 
 			$source = array_key_exists( 'source', $values ) ? $this->formatValue( $values['source'], $field ) : '';
 			$target = array_key_exists( 'target', $values ) ? $this->formatValue( $values['target'], $field ) : '';
@@ -82,7 +82,7 @@ class DiffTable extends \ContextSource {
 			$out->addElement( 'td', [], $source );
 			$out->addElement( 'td', [], $target );
 
-			$out->addHtml( '</tr>' );
+			$out->addHTML( '</tr>' );
 		}
 
 		$out->addHTML( '</table>' );
