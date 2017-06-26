@@ -2,6 +2,8 @@
 
 namespace EducationProgram;
 
+use InvalidArgumentException;
+
 /**
  * This class manages setup and generation of Echo notifications for this
  * extension.
@@ -133,8 +135,7 @@ class NotificationsManager {
 	 */
 	public function trigger( $key, array $parameters ) {
 		if ( !isset( $this->typesByKey[$key] ) ) {
-			throw new \InvalidArgumentException(
-				'No notification type for key ' . $key );
+			throw new InvalidArgumentException( 'No notification type for key ' . $key );
 		}
 
 		$type = $this->typesByKey[$key];

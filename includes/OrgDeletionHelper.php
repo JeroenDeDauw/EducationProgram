@@ -2,6 +2,8 @@
 
 namespace EducationProgram;
 
+use LogicException;
+
 /**
  * Helps to check that an institution can be deleted, and to create an
  * appropriate message if it can't be.
@@ -20,25 +22,19 @@ namespace EducationProgram;
 class OrgDeletionHelper {
 
 	/**
-	 * @since 0.4 alpha
-	 *
 	 * @var Org
 	 */
-	protected $org;
+	private $org;
 
 	/**
-	 * @since 0.4 alpha
-	 *
 	 * @var \IContextSource
 	 */
-	protected $context;
+	private $context;
 
 	/**
-	 * @since 0.4 alpha
-	 *
-	 * @var OrgDelCheck
+	 * @var int
 	 */
-	protected $deletionCheck = OrgDelCheck::NOT_CHECKED;
+	private $deletionCheck = OrgDelCheck::NOT_CHECKED;
 
 	/**
 	 * @param Org $org The institution that may or may not be deleted
@@ -146,6 +142,8 @@ class OrgDeletionHelper {
 					];
 				}
 		}
+
+		throw new LogicException( 'Unexpected deletionCheck value ' . $this->deletionCheck );
 	}
 }
 

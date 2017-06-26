@@ -30,6 +30,11 @@ class RevisionPager extends \ReverseChronologicalPager {
 	 */
 	protected $table;
 
+	/**
+	 * @var array
+	 */
+	private $conds;
+
 	protected $rowNr = 0;
 
 	/**
