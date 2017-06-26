@@ -37,7 +37,6 @@ use EducationProgram\ORMTable;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author Daniel Kinzler
  */
-
 class ORMTableTest extends \MediaWikiTestCase {
 
 	/**
@@ -75,6 +74,7 @@ class ORMTableTest extends \MediaWikiTestCase {
 		$this->assertInstanceOf( $class, $class::singleton() );
 		$this->assertTrue( $class::singleton() === $class::singleton() );
 	}
+
 }
 
 /**
@@ -82,7 +82,6 @@ class ORMTableTest extends \MediaWikiTestCase {
  *
  * @since 1.21
  */
-
 class PageORMTableForTesting extends ORMTable {
 
 	public function __construct() {
@@ -128,4 +127,5 @@ class PageORMTableForTesting extends ORMTable {
 			'title' => 'str',
 		];
 	}
+
 }

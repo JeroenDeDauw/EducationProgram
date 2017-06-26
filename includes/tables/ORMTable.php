@@ -30,8 +30,8 @@ namespace EducationProgram;
  * @license GNU GPL v2 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-
 class ORMTable extends \DBAccessBase implements IORMTable {
+
 	/**
 	 * Cache for instances, used by the singleton method.
 	 *
@@ -1146,4 +1146,5 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 
 		return $success;
 	}
+
 }

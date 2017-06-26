@@ -3,6 +3,7 @@
 namespace EducationProgram\PresentationModel;
 
 class RoleAdd extends \EchoEventPresentationModel {
+
 	/**
 	 * {@inheritdoc}
 	 */
@@ -61,4 +62,5 @@ class RoleAdd extends \EchoEventPresentationModel {
 		$titleParts = explode( '/', $fullTitle, 2 );
 		return $titleParts[1];
 	}
+
 }

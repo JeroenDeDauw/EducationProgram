@@ -13,7 +13,6 @@ namespace EducationProgram;
  * @license GNU GPL v2+
  * @author JJ Liu < jie dot squared at gmail dot com >
  */
-
 class CampusAddNotification extends RoleAddNotification {
 
 	const KEY = 'ep-campus-add-notification';

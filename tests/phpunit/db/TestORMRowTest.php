@@ -144,6 +144,7 @@ class TestORMRowTest extends ORMRowTest {
 			'blob' => new \stdClass()
 		];
 	}
+
 }
 
 class TestORMRow extends ORMRow {
@@ -209,4 +210,5 @@ class TestORMTable extends ORMTable {
 			'time' => 'str', // TS_MW
 		];
 	}
+
 }

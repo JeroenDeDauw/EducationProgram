@@ -107,6 +107,7 @@ class FixInvalidStudent extends \Maintenance {
 			$course->save();
 		}
 	}
+
 }
 
 $maintClass = '\EducationProgram\FixInvalidStudent';

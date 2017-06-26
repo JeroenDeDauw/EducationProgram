@@ -44,4 +44,5 @@ class CourseTalk extends RoleAdd {
 		];
 		return [ $this->getAgentLink(), $viewChangesLink ];
 	}
+
 }

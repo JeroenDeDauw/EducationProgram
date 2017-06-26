@@ -4,7 +4,6 @@ namespace EducationProgram\Events;
 
 use EducationProgram\Student;
 use EducationProgram\UserCourseFinder;
-
 use Revision;
 use User;
 use Page;
