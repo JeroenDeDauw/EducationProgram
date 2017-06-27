@@ -79,8 +79,6 @@ final class Hooks {
 					] + $extraDependancies
 			]
 		] );
-
-		return true;
 	}
 
 	/**
@@ -90,8 +88,6 @@ final class Hooks {
 	 * @since 0.1
 	 *
 	 * @param DatabaseUpdater $updater
-	 *
-	 * @return bool
 	 */
 	public static function onSchemaUpdate( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable(
@@ -123,8 +119,6 @@ final class Hooks {
 			'org_last_active_date',
 			__DIR__ . '/sql/AddOrgLastActiveDate.sql'
 		);
-
-		return true;
 	}
 
 	/**
@@ -135,8 +129,6 @@ final class Hooks {
 	 *
 	 * @param array $personal_urls
 	 * @param Title $title
-	 *
-	 * @return bool
 	 */
 	public static function onPersonalUrls( array &$personal_urls, Title &$title ) {
 		if ( Settings::get( 'enableTopLink' ) ) {
@@ -156,8 +148,6 @@ final class Hooks {
 				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -168,8 +158,6 @@ final class Hooks {
 	 *
 	 * @param User $user
 	 * @param array $preferences
-	 *
-	 * @return bool
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		if ( Settings::get( 'enableTopLink' ) ) {
@@ -195,8 +183,6 @@ final class Hooks {
 				'section' => 'rendering/education',
 			];
 		}
-
-		return true;
 	}
 
 	/**
@@ -207,15 +193,11 @@ final class Hooks {
 	 *
 	 * @param Title $title
 	 * @param \Article|null $article
-	 *
-	 * @return bool
 	 */
 	public static function onArticleFromTitle( Title &$title, &$article ) {
 		if ( $title->getNamespace() == EP_NS ) {
 			$article = EducationPage::factory( $title );
 		}
-
-		return true;
 	}
 
 	/**
@@ -225,13 +207,10 @@ final class Hooks {
 	 * @since 0.1
 	 *
 	 * @param array $list
-	 *
-	 * @return bool
 	 */
 	public static function onCanonicalNamespaces( array &$list ) {
 		$list[EP_NS] = 'Education_Program';
 		$list[EP_NS_TALK] = 'Education_Program_talk';
-		return true;
 	}
 
 	/**
@@ -242,13 +221,9 @@ final class Hooks {
 	 *
 	 * @param SkinTemplate $sktemplate
 	 * @param array $links
-	 *
-	 * @return bool
 	 */
 	public static function onPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		self::displayTabs( $sktemplate, $links, $sktemplate->getTitle() );
-
-		return true;
 	}
 
 	/**
@@ -259,8 +234,6 @@ final class Hooks {
 	 *
 	 * @param SkinTemplate $sktemplate
 	 * @param array $links
-	 *
-	 * @return bool
 	 */
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		$textParts = \SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
@@ -285,8 +258,6 @@ final class Hooks {
 				self::displayTabs( $sktemplate, $links, $title );
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -382,8 +353,6 @@ final class Hooks {
 	 *
 	 * @param Title $title
 	 * @param boolean|null $isKnown
-	 *
-	 * @return bool
 	 */
 	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
 		if ( $title->getNamespace() == EP_NS ) {
@@ -397,8 +366,6 @@ final class Hooks {
 
 			$isKnown = $class::singleton()->hasIdentifier( $identifier );
 		}
-
-		return true;
 	}
 
 	public static function onMovePageIsValidMove( Title $oldTitle, Title $newTitle, \Status $status ) {
@@ -444,15 +411,11 @@ final class Hooks {
 	 *
 	 * @param integer $index
 	 * @param boolean $movable
-	 *
-	 * @return boolean
 	 */
 	public static function onNamespaceIsMovable( $index, &$movable ) {
 		if ( in_array( $index, [ EP_NS, EP_NS_TALK ] ) ) {
 			$movable = false;
 		}
-
-		return true;
 	}
 
 	/**
@@ -465,8 +428,6 @@ final class Hooks {
 	 * @param Revision $rev
 	 * @param integer $baseID
 	 * @param User $user
-	 *
-	 * @return bool
 	 */
 	public static function onNewRevisionFromEditComplete( Page $article, Revision $rev, $baseID, User $user ) {
 		\DeferredUpdates::addCallableUpdate( function () use ( $article, $rev, $user ) {
@@ -487,8 +448,6 @@ final class Hooks {
 				$dbw->endAtomic( __METHOD__ );
 			}
 		} );
-
-		return true;
 	}
 
 	/**
@@ -526,8 +485,6 @@ final class Hooks {
 	 * @param array $notifications
 	 * @param array $notificationCategories
 	 * @param array $icons
-	 *
-	 * @return boolean
 	 */
 	public static function onBeforeCreateEchoEvent(
 		array &$notifications,
@@ -537,8 +494,6 @@ final class Hooks {
 		Extension::globalInstance()->getNotificationsManager()->
 			setUpTypesAndCategories(
 			$notifications, $notificationCategories, $icons );
-
-		return true;
 	}
 
 	/**
@@ -551,8 +506,6 @@ final class Hooks {
 	 *
 	 * @param $event EchoEvent
 	 * @param $users array
-	 *
-	 * @return boolean
 	 */
 	public static function onEchoGetDefaultNotifiedUsers(
 		EchoEvent $event,
@@ -560,8 +513,6 @@ final class Hooks {
 	) {
 		Extension::globalInstance()->getNotificationsManager()->
 			getUsersNotified( $event, $users );
-
-		return true;
 	}
 
 	/**
@@ -599,8 +550,6 @@ final class Hooks {
 				]
 			);
 		}
-
-		return true;
 	}
 
 	/**
@@ -616,15 +565,12 @@ final class Hooks {
 		if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version constant to check against :/
 			   die( '<strong>Error:</strong> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
 		}
-
-		return true;
 	}
 
 	/**
 	 * Let UserMerge know which of our tables need updating
 	 *
 	 * @param array $fields
-	 * @return bool
 	 *
 	 * @since 0.5.0 alpha
 	 */
@@ -640,8 +586,6 @@ final class Hooks {
 		$fields[] = [ 'ep_oas', 'oa_user_id', 'options' => [ 'IGNORE' ] ];
 		$fields[] = [ 'ep_events', 'event_user_id' ];
 		$fields[] = [ 'ep_revisions', 'rev_user_id', 'rev_user_text' ];
-
-		return true;
 	}
 
 	/**
@@ -649,7 +593,6 @@ final class Hooks {
 	 * rows.
 	 *
 	 * @param array $tables
-	 * @return bool
 	 *
 	 * @since 0.5.0 alpha
 	 */
@@ -662,8 +605,6 @@ final class Hooks {
 			'ep_cas' => 'ca_user_id',
 			'ep_oas' => 'oa_user_id',
 		];
-
-		return true;
 	}
 
 	/**
