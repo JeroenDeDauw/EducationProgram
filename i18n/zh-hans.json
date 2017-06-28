@@ -380,7 +380,7 @@
 	"ep-course-invalid-description": "说明需要含有至少$1个{{PLURAL:$1|字符}}。",
 	"ep-course-invalid-lang": "该语言无效。",
 	"ep-course-no-slashes": "课程名称不应包含任何斜杠！",
-	"coursepage-edit-undelete-revisions": "此课程已被删除。你可以 $1 。",
+	"coursepage-edit-undelete-revisions": "此课程已被删除。您可以$1。",
 	"coursepage-edit-undelete-link": "还原$1个{{PLURAL:$1|版本}}",
 	"ep-undelete-course-no-rights": "此课程已被删除。您没有权限还原它。",
 	"ep-undelete-course-org-deleted": "此课程及机构[[$1|$2]]已被删除。要还原它，请先[$3 恢复$2]。",

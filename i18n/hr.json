@@ -11,6 +11,7 @@
 	"ep-tab-view": "Čitaj",
 	"ep-tab-edit": "Uredi",
 	"ep-tab-history": "Vidi povijest",
+	"ep-tab-enroll": "Upiši se",
 	"ep-tab-disenroll": "Ispisivanje s tečaja",
 	"ep-tab-activity": "Vidi aktivnosti",
 	"ep-nav-orgs": "Popis ustanova",
@@ -32,6 +33,8 @@
 	"logentry-campus-profilesave": "$1 {{GENDER:$2|osvježio|osvježila}} je podatcima svoj profil {{GENDER:$2|kampusnoga dobrovoljca|kampusne dobrovoljke}}",
 	"logentry-student-selfadd": "$1 {{GENDER:$2|upisao|upisala}} se na tečaj $3",
 	"logentry-student-selfremove": "$1 {{GENDER:$2|ispisao|ispisala}} se s tečaja $3",
+	"logentry-eparticle-selfadd": "$1 {{GENDER:$2|dodao je|dodala je|dodali ste}} članak $3 na svoj popis članaka na tečaju $4",
+	"logentry-eparticle-selfremove": "$1 {{GENDER:$2|uklonio je|uklonila je|uklonili ste}} članak $3 sa svog popisa članaka na tečaju $4",
 	"logentry-eparticle-review": "$1 {{GENDER:$2|dodao|dodala}} je sebe kao {{GENDER:$2|ocjenjivatelja|ocjenjivateljicu}} za članak $3 na kome je {{GENDER:$6|surađivao|surađivala}} $5, kao dijelu tečaja $4",
 	"logentry-eparticle-unreview": "$1 {{GENDER:$2|smijenio|smijenila}} je sebe kao {{GENDER:$2|ocjenjivatelja|ocjenjivateljicu}} za članak $3 na kome je {{GENDER:$6|surađivao|surađivala}} $5, kao dijelu tečaja $4",
 	"prefs-education": "Izobrazba",
@@ -140,6 +143,8 @@
 	"ep-course-no-campus": "Trenutačno nema tečajnih kampusnih dobrovoljaca za ovaj tečaj.",
 	"coursepage-history-description": "Vidi evidencije za ovaj tečaj",
 	"coursepage-history-title": "Povijest izmjena tečaja »$1«",
+	"ep-viewcourseactivityaction-title": "Aktivnosti na tečaju »$1«",
+	"ep-enroll-title": "Upiši se na $1 pri $2",
 	"ep-mycourses-enrolled": "{{GENDER:|Upisali}} ste se na $1 pri $2.",
 	"ep-mycourses-nocourses-epstudent": "Niste se {{GENDER:|upisali}} na ijedan [[Special:Courses|tečaj]].",
 	"ep-timeline-ago": "prije $1",
@@ -153,5 +158,6 @@
 	"ep-dashboard-timeline-empty": "Nema nedavne aktivnosti na ovom tečaju.",
 	"ep-user-roles-message-main-student": "[[$1|$2]] {{GENDER:$2|tečajac|tečajka}} je na {{PLURAL:$4|$3}}.",
 	"ep-user-roles-message-course-link-for-list": "[[$1|$2]] ([[$3|razgovor o tečaju]])",
+	"echo-category-title-education-program": "Naobrazbeni raspored",
 	"ep-course-talk-link-text-view-changes": "Prikaži promjene"
 }

@@ -63,6 +63,8 @@
 	"logentry-student-remove": "$1 {{GENDER:$2|uklonio|uklonila}} je {{PLURAL:$4|{{GENDER:$5|studenta|studentkinju}}|studente}} $5 s kursa $3",
 	"logentry-student-selfadd": "$1 {{GENDER:$2|upisao|upisala}} se na kurs $3",
 	"logentry-student-selfremove": "$1 {{GENDER:$2|ispisao|ispisala}} se s kursa $3",
+	"logentry-eparticle-selfadd": "$1 {{GENDER:$2|dodao|dodala}} je članak $3 na svoj spisak članaka na kursu $4",
+	"logentry-eparticle-selfremove": "$1 {{GENDER:$2|uklonio|uklonila}} je članak $3 sa svog spiska članaka na kursu $4",
 	"prefs-education": "Obrazovanje",
 	"ep-prefs-showtoplink": "Prikaži link ka [[Special:MyCourses|mojim kursevima]] na vrhu svake stranice.",
 	"ep-prefs-bulkdelcourses": "Prikaži dugme za masovno brisanje [[Special:Courses|kurseva]].",
