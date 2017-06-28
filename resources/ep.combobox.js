@@ -50,7 +50,8 @@
 								valid = false;
 							select.children( "option" ).each(function() {
 								if ( $( this ).text().match( matcher ) ) {
-									this.selected = valid = true;
+									this.selected = true;
+									valid = true;
 									return false;
 								}
 							});

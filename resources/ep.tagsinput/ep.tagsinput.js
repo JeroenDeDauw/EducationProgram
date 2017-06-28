@@ -564,7 +564,7 @@
 
         self.$input.width( newWidth );
       }, 1);
-    },
+    }
   };
 
   /**

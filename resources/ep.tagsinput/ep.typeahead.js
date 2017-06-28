@@ -556,7 +556,9 @@
                 }
                 this.transport = this.remote ? new Transport(this.remote) : null;
                 deferred = this.prefetch ? this._loadPrefetchData(this.prefetch) : $.Deferred().resolve();
-                this.local = this.prefetch = this.remote = null;
+                this.local = null;
+                this.prefetch = null;
+                this.remote = null;
                 this.initialize = function() {
                     return deferred;
                 };
@@ -667,7 +669,9 @@
             destroy: function() {
                 this.$hint.off(".tt");
                 this.$input.off(".tt");
-                this.$hint = this.$input = this.$overflowHelper = null;
+                this.$hint = null;
+                this.$input = null;
+                this.$overflowHelper = null;
             },
             focus: function() {
                 this.$input.focus();
