@@ -112,7 +112,7 @@ class RecentPageEventGrouper implements EventGrouper {
 	}
 
 	/**
-	 * @param Event[] $groups
+	 * @param Event[] $events
 	 *
 	 * @return Event[]
 	 */

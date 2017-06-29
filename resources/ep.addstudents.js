@@ -81,7 +81,7 @@
 			 * the user of the results of his or her attempt to add students.)
 			 *
 			 * @param {String} mainText The main text to display
-			 * @param {String} subText (optional) Text to display below the
+			 * @param {String} [subText] Text to display below the
 			 *   main text, in a smaller font
 			 */
 			showResultsMsg: function ( mainText, subText ) {

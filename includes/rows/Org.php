@@ -154,6 +154,7 @@ class Org extends PageObject {
 	 *
 	 * @param string|null $functionName
 	 *
+	 * @throws ErrorPageErrorWithSelflink
 	 * @return boolean Success indicator
 	 */
 	public function save( $functionName = null ) {

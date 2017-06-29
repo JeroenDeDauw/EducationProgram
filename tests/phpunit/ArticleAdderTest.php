@@ -70,6 +70,7 @@ class ArticleAdderTest extends \MediaWikiTestCase {
 	/**
 	 * @dataProvider addArticleProvider
 	 *
+	 * @param User $actionUser
 	 * @param int $courseId
 	 * @param int $userId
 	 * @param int $pageId

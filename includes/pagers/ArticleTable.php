@@ -229,16 +229,14 @@ class ArticleTable extends EPPager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param string $html
-	 * @param array $articles
+	 * @param string &$html
+	 * @param EPArticle[] $articles
 	 * @param boolean $showArticleAddition
+	 * @param int $studentUserId
 	 */
 	protected function addNonStudentHTML( &$html, array $articles, $showArticleAddition, $studentUserId ) {
 		$isFirst = true;
 
-		/**
-		 * @var EPArticle $article
-		 */
 		foreach ( $articles as $article ) {
 			if ( !$isFirst ) {
 				$html .= '</tr><tr>';
@@ -512,6 +510,7 @@ class ArticleTable extends EPPager {
 	 * @since 0.1
 	 *
 	 * @param integer $courseId
+	 * @param int $studentUserId
 	 *
 	 * @return string
 	 */

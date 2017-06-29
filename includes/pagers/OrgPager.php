@@ -264,6 +264,7 @@ class OrgPager extends EPPager {
 	 * @since 0.4 alpha
 	 *
 	 * @param Object $row
+	 * @return array
 	 */
 	public function getRowAttrs( $row ) {
 		$attrs = parent::getRowAttrs( $row );

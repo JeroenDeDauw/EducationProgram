@@ -94,7 +94,7 @@ class EventQueryTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider rowLimitProvider
 	 *
-	 * @param $courseIds
+	 * @param int $limit
 	 */
 	public function testSetRowLimit( $limit ) {
 		$query = new EventQuery();

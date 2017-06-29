@@ -273,11 +273,10 @@ class ApiListStudents extends ApiBase {
 	 * For an array of user objects of instructors or course
 	 * volunteers, output their usernames or user IDs as query results.
 	 *
-	 * @param array $participantsList
-	 * @param string $propName
-	 * @param \ApiResult $results
-	 * @param int $courseId
+	 * @param Course $course
+	 * @param ApiResult $results
 	 * @param int $courseIndex
+	 * @param string $courseRole
 	 */
 	protected function outputListOfNonStudentParticipantsProperties(
 		$course,
@@ -501,7 +500,8 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param int $courseId
 	 * @param Course $course
-	 * @param \ApiResult $results
+	 * @param int $courseIndex
+	 * @param ApiResult $results
 	 */
 	protected function outputCourseProperties(
 		$courseId,
@@ -620,6 +620,7 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param int $courseIndex
 	 * @param string $userLabel
+	 * @return array|string
 	 */
 	protected function usersPath( $courseIndex, $userLabel = 'students' ) {
 		if ( !is_null( $courseIndex ) ) {
@@ -636,6 +637,7 @@ class ApiListStudents extends ApiBase {
 	 * @param int $courseIndex
 	 * @param string $userLabel
 	 * @param int $userIndex
+	 * @return array
 	 */
 	protected function userPath( $courseIndex, $userLabel, $userIndex = null ) {
 		if ( !is_null( $courseIndex ) ) {
@@ -651,6 +653,7 @@ class ApiListStudents extends ApiBase {
 	 * or as a top-level element.
 	 *
 	 * @param int $courseIndex
+	 * @return int[]|null
 	 */
 	protected function articlesPath( $courseIndex ) {
 		if ( !is_null( $courseIndex ) ) {
