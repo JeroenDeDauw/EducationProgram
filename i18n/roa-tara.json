@@ -326,19 +326,7 @@
 	"ep-course-talk-link-text-view-message": "'Ndruche 'u messàgge",
 	"ep-course-talk-link-text-view-changes": "'Ndruche le cangiaminde",
 	"ep-role-add-link-text-view-course": "'Ndruche 'u corse",
-	"ep-student-add-notification-title": "E' state {{GENDER:$1|aggiunde}} a [[$2|$3]] da [[User:$1|$1]].",
-	"ep-student-add-notification-title-email-subject": "E' state {{GENDER:$1|aggiunde}} a $2 da $1.",
-	"ep-student-add-notification-title-email-body": "E' state {{GENDER:$1|aggiunde}} a $2 da $1.",
-	"ep-instructor-add-notification-title": "E' state {{GENDER:$1|aggiunde}} cumme n'istruttore a [[$2|$3]] da [[User:$1|$1]].",
-	"ep-instructor-add-notification-title-email-subject": "E' state {{GENDER:$1|aggiunde}} cumme 'n'instruttore a $2 da $1.",
-	"ep-instructor-add-notification-title-email-body": "E' state {{GENDER:$1|aggiunde}} cumme 'n'instruttore a $2 da $1.",
-	"ep-campus-add-notification-title": "E' state {{GENDER:$1|aggiunde}} cumme 'nu volondarije d'u campus a [[$2|$3]] da [[User:$1|$1]].",
-	"ep-campus-add-notification-title-email-subject": "E' state {{GENDER:$1|aggiunde}} cumme 'nu volondarije d'u campus a $2 da $1.",
-	"ep-campus-add-notification-title-email-body": "E' state {{GENDER:$1|aggiunde}} cumme 'nu volondarije d'u campus a $2 da $1.",
-	"ep-online-add-notification-title": "E' state {{GENDER:$1|aggiunde}} cumme 'nu volondarije in linèe a [[$2|$3]] da [[User:$1|$1]].",
-	"ep-online-add-notification-title-email-subject": "E' state {{GENDER:$1|aggiunde}} cumme 'nu volondarije in linèe a $2 da $1.",
-	"ep-online-add-notification-title-email-body": "E' state {{GENDER:$1|aggiunde}} cumme 'nu volondarije in linèe a $2 da $1.",
 	"apihelp-addstudents-description": "Aggiunge cchiù studinde jndr'à 'nu corse.",
 	"apihelp-deleteeducation-example-1": "Scangìlle 'u corse 42",
-	"apihelp-deleteeducation-example-2": "Scangìlle org 2 e 4"
+	"apihelp-deleteeducation-example-2": "Scangìlle istitute 2 e 4"
 }
