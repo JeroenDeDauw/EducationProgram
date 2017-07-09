@@ -12,7 +12,9 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 
-$basePath = getenv( 'MW_INSTALL_PATH' ) !== false ? getenv( 'MW_INSTALL_PATH' ) : __DIR__ . '/../../..';
+$basePath = getenv( 'MW_INSTALL_PATH' ) !== false
+	? getenv( 'MW_INSTALL_PATH' )
+	: __DIR__ . '/../../..';
 
 require_once $basePath . '/maintenance/Maintenance.php';
 

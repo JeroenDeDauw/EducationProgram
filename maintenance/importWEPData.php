@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Maintenance script for importing Wikipedia Education Program data from before this extension was used.
+ * Maintenance script for importing Wikipedia Education Program data
+ * from before this extension was used.
  *
  * @since 0.1
  *
@@ -14,7 +15,9 @@
 
 namespace EducationProgram;
 
-$basePath = getenv( 'MW_INSTALL_PATH' ) !== false ? getenv( 'MW_INSTALL_PATH' ) : __DIR__ . '/../../..';
+$basePath = getenv( 'MW_INSTALL_PATH' ) !== false
+	? getenv( 'MW_INSTALL_PATH' )
+	: __DIR__ . '/../../..';
 
 require_once $basePath . '/maintenance/Maintenance.php';
 
@@ -72,7 +75,8 @@ class ImportWEPData extends \Maintenance {
 			}
 		}
 
-		echo "\nFound " . count( $orgs ) . ' orgs, ' . count( $courses ) . ' courses and ' . count( $students ) . " students.\n\n";
+		echo "\nFound " . count( $orgs ) . ' orgs, ' . count( $courses ) . ' courses and ' .
+			count( $students ) . " students.\n\n";
 
 		echo "Inserting orgs ...";
 		$this->insertOrgs( $orgs );
@@ -221,7 +225,9 @@ class ImportWEPData extends \Maintenance {
 						/**
 						 * @var Course $course
 						 */
-						$course = Courses::singleton()->selectRow( null, [ 'id' => $courseIds[$courseName] ] );
+						$course = Courses::singleton()->selectRow(
+							null, [ 'id' => $courseIds[$courseName] ]
+						);
 						$course->enlistUsers( [ $user->getId() ], 'student', true, $revAction );
 					} else {
 						echo "Failed to associate student '$name' with course '$courseName'.\n";
@@ -229,7 +235,8 @@ class ImportWEPData extends \Maintenance {
 				}
 
 				if ( $student->associateWithCourses( $courses ) ) {
-					echo "Inserted student '$name'\t\t and associated with courses: " . str_replace( '_', ' ', implode( ', ', $courseNames ) ) . "\n";
+					echo "Inserted student '$name'\t\t and associated with courses: " .
+						str_replace( '_', ' ', implode( ', ', $courseNames ) ) . "\n";
 				} else {
 					echo "Failed to insert student '$name'. (failed to associate courses)\n";
 				}

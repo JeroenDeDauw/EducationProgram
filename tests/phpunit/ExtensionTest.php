@@ -40,7 +40,9 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase {
 	public function testGetCourseStore() {
 		$educationProgram = $this->newInstanceFromGlobalSettings();
 
-		$this->assertInstanceOf( 'EducationProgram\Store\CourseStore', $educationProgram->newCourseStore() );
+		$this->assertInstanceOf(
+			'EducationProgram\Store\CourseStore', $educationProgram->newCourseStore()
+		);
 	}
 
 	protected function newInstanceFromGlobalSettings() {

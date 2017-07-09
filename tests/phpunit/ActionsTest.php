@@ -44,8 +44,16 @@ class ActionsTest extends \MediaWikiTestCase {
 		];
 
 		foreach ( $actions as $action ) {
-			$argLists[] = [ $action, new \EducationProgram\OrgPage( \Title::newFromText( 'University of foo' ) ) ];
-			$argLists[] = [ $action, new \EducationProgram\CoursePage( \Title::newFromText( 'University of foo/bar baz' ) ) ];
+			$argLists[] = [
+				$action,
+				new \EducationProgram\OrgPage( \Title::newFromText( 'University of foo' ) )
+			];
+			$argLists[] = [
+				$action,
+				new \EducationProgram\CoursePage(
+					\Title::newFromText( 'University of foo/bar baz' )
+				)
+			];
 		}
 
 		return $argLists;

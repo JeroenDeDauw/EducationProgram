@@ -59,10 +59,13 @@ class EPArticleTest extends \PHPUnit_Framework_TestCase {
 	 * @param string $pageTitle
 	 * @param int[] $reviewers
 	 */
-	public function testConstructor( $id, $courseId, $userId, $pageId, $pageTitle, array $reviewers ) {
+	public function testConstructor(
+		$id, $courseId, $userId, $pageId, $pageTitle, array $reviewers
+	) {
 		$article = new EPArticle( $id, $courseId, $userId, $pageId, $pageTitle, $reviewers );
 
-		$this->assertTrue( is_null( $article->getId() ) || is_int( $id ), '$id needs to be null or int' );
+		$this->assertTrue( is_null( $article->getId() ) || is_int( $id ),
+			'$id needs to be null or int' );
 		$this->assertEquals( $id, $article->getId() );
 
 		$this->assertInternalType( 'int', $article->getCourseId() );
@@ -152,7 +155,9 @@ class EPArticleTest extends \PHPUnit_Framework_TestCase {
 	 * @param array $expectedAdded
 	 * @param array $expected
 	 */
-	public function testAddReviewers( array $original, array $new, array $expectedAdded, array $expected ) {
+	public function testAddReviewers(
+		array $original, array $new, array $expectedAdded, array $expected
+	) {
 		$article = new EPArticle( 1, 2, 3, 4, 'Nyan', $original );
 
 		$added = $article->addReviewers( $new );
@@ -254,7 +259,9 @@ class EPArticleTest extends \PHPUnit_Framework_TestCase {
 	 * @param array $expectedRemoved
 	 * @param array $expected
 	 */
-	public function testRemoveReviewers( array $original, array $new, array $expectedRemoved, array $expected ) {
+	public function testRemoveReviewers(
+		array $original, array $new, array $expectedRemoved, array $expected
+	) {
 		$article = new EPArticle( 1, 2, 3, 4, 'Nyan', $original );
 
 		$removed = $article->removeReviewers( $new );

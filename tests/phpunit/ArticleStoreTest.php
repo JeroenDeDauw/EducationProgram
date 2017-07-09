@@ -394,7 +394,9 @@ class ArticleStoreTest extends \MediaWikiTestCase {
 		);
 	}
 
-	protected function assertHasArticlesMatchingConditions( array $expectedIds, array $courseIds, array $userIds ) {
+	protected function assertHasArticlesMatchingConditions(
+		array $expectedIds, array $courseIds, array $userIds
+	) {
 		$articles = $this->newStore()->getArticlesByCourseAndUsers( $courseIds, $userIds );
 
 		$this->assertInternalType( 'array', $articles );

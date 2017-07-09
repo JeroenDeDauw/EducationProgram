@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Maintenance script for importing Wikipedia Education Program data from before this extension was used.
+ * Maintenance script for importing Wikipedia Education Program data
+ * from before this extension was used.
  *
  * @since 0.1
  *
@@ -16,7 +17,9 @@ namespace EducationProgram;
 
 use ResultWrapper;
 
-$basePath = getenv( 'MW_INSTALL_PATH' ) !== false ? getenv( 'MW_INSTALL_PATH' ) : __DIR__ . '/../../..';
+$basePath = getenv( 'MW_INSTALL_PATH' ) !== false
+	? getenv( 'MW_INSTALL_PATH' )
+	: __DIR__ . '/../../..';
 
 require_once $basePath . '/maintenance/Maintenance.php';
 
@@ -151,13 +154,25 @@ class ImportWEPFromDB extends \Maintenance {
 
 			$currentId = $orgTable->selectFieldsRow( 'id', [ 'name' => $org->university_name ] );
 
-			$this->msg( "\t" . ( $currentId === false ? 'is new, inserting...' : ( $this->override ? 'exists, updating...' : 'exists, skipping...' ) ), 2 );
+			$this->msg(
+				"\t" .
+				( $currentId === false
+					? 'is new, inserting...'
+					: ( $this->override
+						? 'exists, updating...'
+						: 'exists, skipping...'
+					)
+				),
+				2
+			);
 
 			if ( $currentId === false || $this->override ) {
 				$data = [
 					'name' => $org->university_name,
 					'city' => $org->university_city,
-					'country' => array_key_exists( $org->university_country, $countries ) ? $countries[$org->university_country] : '',
+					'country' => array_key_exists( $org->university_country, $countries )
+						? $countries[$org->university_country]
+						: '',
 				];
 
 				if ( $currentId !== false ) {
@@ -200,7 +215,17 @@ class ImportWEPFromDB extends \Maintenance {
 
 			$currentId = $courseTable->selectFieldsRow( 'id', [ 'title' => $title ] );
 
-			$this->msg( "\t" . ( $currentId === false ? 'is new, inserting...' : ( $this->override ? 'exists, updating...' : 'exists, skipping...' ) ), 2 );
+			$this->msg(
+				"\t" .
+				( $currentId === false
+					? 'is new, inserting...'
+					: ( $this->override
+						? 'exists, updating...'
+						: 'exists, skipping...'
+					)
+				),
+				2
+			);
 
 			$course->course_startdate = str_replace( '-', '', $course->course_startdate );
 			$course->course_enddate = str_replace( '-', '', $course->course_enddate );
@@ -210,7 +235,8 @@ class ImportWEPFromDB extends \Maintenance {
 					$this->insertCourse( $currentId, $course, $title, $term, $revAction );
 				}
 			} else {
-				$this->err( "Failed to insert course '$title'. Linked org ($course->course_university_id) does not exist!" );
+				$this->err( "Failed to insert course '$title'. " .
+					"Linked org ($course->course_university_id) does not exist!" );
 			}
 		}
 	}
@@ -224,13 +250,18 @@ class ImportWEPFromDB extends \Maintenance {
 	 * @param string $term
 	 * @param RevisionAction $revAction
 	 */
-	protected function insertCourse( $currentId, $course, $title, $term, RevisionAction $revAction ) {
+	protected function insertCourse(
+		$currentId, $course, $title, $term, RevisionAction $revAction
+	) {
 		$data = [
 			'org_id' => $this->orgIds[$course->course_university_id],
 			'title' => $title,
 			'name' => $course->course_coursename,
 			'start' => $course->course_startdate . '000000',
-			'end' => ( $course->course_enddate === '' ? $course->course_startdate : $course->course_enddate ) . '000000',
+			'end' => ( $course->course_enddate === ''
+				? $course->course_startdate
+				: $course->course_enddate
+			) . '000000',
 			'lang' => $course->course_language,
 			'term' => $term,
 		];
@@ -279,7 +310,9 @@ class ImportWEPFromDB extends \Maintenance {
 			} else {
 				if ( $user->getId() === 0 ) {
 					if ( $student->student_lastname !== '' && $student->student_firstname !== '' ) {
-						$user->setRealName( $student->student_firstname . ' ' . $student->student_lastname );
+						$user->setRealName(
+							$student->student_firstname . ' ' . $student->student_lastname
+						);
 					}
 
 					if ( $student->student_email !== '' ) {
@@ -298,7 +331,9 @@ class ImportWEPFromDB extends \Maintenance {
 
 				if ( is_null( $studentObject->getId() ) ) {
 					if ( !$studentObject->save() ) {
-						$this->err( "Failed to insert student '$name'. (failed create student profile)" );
+						$this->err(
+							"Failed to insert student '$name'. (failed create student profile)"
+						);
 						continue;
 					}
 				}
@@ -314,14 +349,20 @@ class ImportWEPFromDB extends \Maintenance {
 						/**
 						 * @var Course $course
 						 */
-						$course = Courses::singleton()->selectRow( null, [ 'id' => $this->courseIds[$courseId] ] );
-						$success = $course->enlistUsers( [ $user->getId() ], 'student', true, $revAction );
+						$course = Courses::singleton()->selectRow(
+							null, [ 'id' => $this->courseIds[$courseId] ]
+						);
+						$success = $course->enlistUsers(
+							[ $user->getId() ], 'student', true, $revAction
+						);
 					}
 
 					if ( $success !== false ) {
 						$this->msg( "\tAssociated student '$name' with course '$courseId'.", 2 );
 					} else {
-						$this->msg( "\tFailed to associate student '$name' with course '$courseId'." );
+						$this->msg(
+							"\tFailed to associate student '$name' with course '$courseId'."
+						);
 					}
 				}
 			}

@@ -36,7 +36,9 @@ final class Hooks {
 
 		global $wgEPSettings, $wgExtensionAssetsPath, $wgScriptPath;
 
-		$epResourceDir = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions' : $wgExtensionAssetsPath;
+		$epResourceDir = $wgExtensionAssetsPath === false
+			? $wgScriptPath . '/extensions'
+			: $wgExtensionAssetsPath;
 
 		$wgEPSettings['resourceDir'] = $epResourceDir;
 		$wgEPSettings['imageDir'] = $epResourceDir . 'images/';
@@ -269,13 +271,17 @@ final class Hooks {
 	 * @param array $links
 	 * @param Title $title
 	 */
-	protected static function displayTabs( SkinTemplate &$sktemplate, array &$links, Title $title ) {
+	protected static function displayTabs(
+		SkinTemplate &$sktemplate, array &$links, Title $title
+	) {
 		if ( $title->getNamespace() == EP_NS ) {
 			$links['views'] = [];
 			$links['actions'] = [];
 
 			$user = $sktemplate->getUser();
-			$class = Utils::isCourse( $title ) ? 'EducationProgram\Courses' : 'EducationProgram\Orgs';
+			$class = Utils::isCourse( $title )
+				? 'EducationProgram\Courses'
+				: 'EducationProgram\Orgs';
 			$exists = $class::singleton()->hasIdentifier( $title->getText() );
 			$type = $sktemplate->getRequest()->getText( 'action' );
 			$isSpecial = $sktemplate->getTitle()->isSpecialPage();
@@ -321,14 +327,18 @@ final class Hooks {
 					];
 
 					$student = Student::newFromUser( $user );
-					$hasCourse = $student !== false && $student->hasCourse( [ 'title' => $title->getText() ] );
+					$hasCourse = $student !== false &&
+						$student->hasCourse( [ 'title' => $title->getText() ] );
 
 					if ( $user->isAllowed( 'ep-enroll' ) && !$user->isBlocked() ) {
-						if ( !$hasCourse && Courses::singleton()->hasActiveTitle( $title->getText() ) ) {
+						if ( !$hasCourse &&
+							Courses::singleton()->hasActiveTitle( $title->getText() )
+						) {
 							$links['views']['enroll'] = [
 								'class' => $isSpecial ? 'selected' : false,
 								'text' => $sktemplate->msg( 'ep-tab-enroll' )->text(),
-								'href' => \SpecialPage::getTitleFor( 'Enroll', $title->getText() )->getLocalURL()
+								'href' => \SpecialPage::getTitleFor( 'Enroll', $title->getText() )
+									->getLocalURL()
 							];
 						}
 					}
@@ -337,7 +347,8 @@ final class Hooks {
 						$links[$isSpecial ? 'views' : 'actions']['disenroll'] = [
 							'class' => $isSpecial ? 'selected' : false,
 							'text' => $sktemplate->msg( 'ep-tab-disenroll' )->text(),
-							'href' => \SpecialPage::getTitleFor( 'Disenroll', $title->getText() )->getLocalURL()
+							'href' => \SpecialPage::getTitleFor( 'Disenroll', $title->getText() )
+								->getLocalURL()
 						];
 					}
 				}
@@ -346,7 +357,8 @@ final class Hooks {
 	}
 
 	/**
-	 * Override the isKnown check for course and institution pages, so they don't all show up as redlinks.
+	 * Override the isKnown check for course and institution pages,
+	 * so they don't all show up as redlinks.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/TitleIsAlwaysKnown
 	 *
 	 * @since 0.1
@@ -368,9 +380,12 @@ final class Hooks {
 		}
 	}
 
-	public static function onMovePageIsValidMove( Title $oldTitle, Title $newTitle, \Status $status ) {
+	public static function onMovePageIsValidMove(
+		Title $oldTitle, Title $newTitle, \Status $status
+	) {
 		$nss = [ EP_NS, EP_NS_TALK ];
-		$allowed = !in_array( $oldTitle->getNamespace(), $nss ) && !in_array( $newTitle->getNamespace(), $nss );
+		$allowed = !in_array( $oldTitle->getNamespace(), $nss ) &&
+			!in_array( $newTitle->getNamespace(), $nss );
 
 		if ( !$allowed ) {
 			$status->fatal( 'ep-move-error' );
@@ -393,7 +408,9 @@ final class Hooks {
 	 *
 	 * @return boolean
 	 */
-	public static function onAbortMove( Title $oldTitle, Title $newTitle, User $user, &$error, $reason ) {
+	public static function onAbortMove(
+		Title $oldTitle, Title $newTitle, User $user, &$error, $reason
+	) {
 		$status = new \Status();
 		self::onMovePageIsValidMove( $oldTitle, $newTitle, $status );
 		if ( !$status->isOK() ) {
@@ -429,7 +446,9 @@ final class Hooks {
 	 * @param integer $baseID
 	 * @param User $user
 	 */
-	public static function onNewRevisionFromEditComplete( Page $article, Revision $rev, $baseID, User $user ) {
+	public static function onNewRevisionFromEditComplete(
+		Page $article, Revision $rev, $baseID, User $user
+	) {
 		\DeferredUpdates::addCallableUpdate( function () use ( $article, $rev, $user ) {
 			$dbw = wfGetDB( DB_MASTER );
 
@@ -460,7 +479,9 @@ final class Hooks {
 	 * @param User $user
 	 * @param \SpecialPage $sp
 	 */
-	public static function onSpecialContributionsBeforeMainOutput( $id, User $user, \SpecialPage $sp ) {
+	public static function onSpecialContributionsBeforeMainOutput(
+		$id, User $user, \SpecialPage $sp
+	) {
 		if ( $user->isAnon() ) {
 			// bug 66624, db schema can't handle anon users
 			return;
@@ -562,8 +583,10 @@ final class Hooks {
 	public static function onSetupAfterCache() {
 		global $wgAutoloadClasses;
 
-		if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) { // No version constant to check against :/
-			   die( '<strong>Error:</strong> Education Program depends on the <a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
+		// No version constant to check against :/
+		if ( !array_key_exists( 'CountryNames', $wgAutoloadClasses ) ) {
+			die( '<strong>Error:</strong> Education Program depends on the ' .
+				'<a href="https://www.mediawiki.org/wiki/Extension:CLDR">CLDR</a> extension.' );
 		}
 	}
 
