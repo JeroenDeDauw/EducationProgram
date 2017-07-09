@@ -52,7 +52,9 @@ class UndoAction extends Action {
 		$object = $this->page->getTable()->getFromTitle( $this->getTitle() );
 
 		if ( $object === false ) {
-			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ), $this->getTitle()->getText() );
+			$this->getOutput()->addWikiMsg(
+				$this->prefixMsg( 'none' ), $this->getTitle()->getText()
+			);
 			$this->getOutput()->setSubtitle( '' );
 		} else {
 			$req = $this->getRequest();
@@ -60,10 +62,14 @@ class UndoAction extends Action {
 			$success = false;
 
 			if ( $req->getCheck( 'revid' ) ) {
-				$revision = Revisions::singleton()->selectRow( null, [ 'id' => $req->getInt( 'revid' ) ] );
+				$revision = Revisions::singleton()->selectRow(
+					null, [ 'id' => $req->getInt( 'revid' ) ]
+				);
 
 				if ( $revision !== false ) {
-					if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undoToken' ), $this->getSalt() ) ) {
+					if ( $req->wasPosted() && $this->getUser()->matchEditToken(
+						$req->getText( 'undoToken' ), $this->getSalt() )
+					) {
 						$success = $this->doUndo( $object, $revision );
 					} else {
 						$diff = $object->getUndoDiff( $revision );
@@ -88,12 +94,14 @@ class UndoAction extends Action {
 				if ( $success ) {
 					$this->getRequest()->setSessionData(
 						'epsuccess',
-						$this->msg( $this->prefixMsg( 'undid' ), $this->getTitle()->getText() )->text()
+						$this->msg( $this->prefixMsg( 'undid' ),
+							$this->getTitle()->getText() )->text()
 					);
 				} else {
 					$this->getRequest()->setSessionData(
 						'epfail',
-						$this->msg( $this->prefixMsg( 'undo-failed' ), $this->getTitle()->getText() )->text()
+						$this->msg( $this->prefixMsg( 'undo-failed' ),
+							$this->getTitle()->getText() )->text()
 					);
 				}
 
@@ -191,7 +199,8 @@ class UndoAction extends Action {
 		);
 
 		$out->addHTML( Html::hidden( 'revid', $this->getRequest()->getInt( 'revid' ) ) );
-		$out->addHTML( Html::hidden( 'undoToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
+		$out->addHTML( Html::hidden( 'undoToken',
+			$this->getUser()->getEditToken( $this->getSalt() ) ) );
 
 		$out->addHTML( '</form>' );
 	}

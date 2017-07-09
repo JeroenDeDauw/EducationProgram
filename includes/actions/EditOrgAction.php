@@ -83,11 +83,15 @@ class EditOrgAction extends EditAction {
 			'type' => 'text',
 			'label-message' => 'educationprogram-org-edit-city',
 			'validation-callback' => function ( $value, array $alldata = null ) {
-				return $value !== '' && strlen( $value ) < 2 ? wfMessage( 'educationprogram-org-invalid-city', 2 )->text() : true;
+				return $value !== '' && strlen( $value ) < 2
+					? wfMessage( 'educationprogram-org-invalid-city', 2 )->text()
+					: true;
 			},
 		];
 
-		if ( !in_array( $this->getRequest()->getText( 'wpitem-country', '' ), Settings::get( 'citylessCountries' ) ) ) {
+		if ( !in_array( $this->getRequest()->getText( 'wpitem-country', '' ),
+			Settings::get( 'citylessCountries' ) )
+		) {
 			$fields['city']['required'] = true;
 		}
 
@@ -116,7 +120,9 @@ class EditOrgAction extends EditAction {
 	public function countryIsValid( $value, array $alldata = null ) {
 		$countries = array_keys( \CountryNames::getNames( $this->getLanguage()->getCode() ) );
 
-		return in_array( $value, $countries ) ? true : $this->msg( 'educationprogram-org-invalid-country' )->text();
+		return in_array( $value, $countries )
+			? true
+			: $this->msg( 'educationprogram-org-invalid-country' )->text();
 	}
 
 	/**

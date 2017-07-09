@@ -8,7 +8,8 @@ class CourseTalk extends RoleAdd {
 	 * {@inheritdoc}
 	 */
 	public function canRender() {
-		return $this->event->getTitle() instanceof \Title && $this->event->getExtraParam( 'revid' ) !== null;
+		return $this->event->getTitle() instanceof \Title &&
+			$this->event->getExtraParam( 'revid' ) !== null;
 	}
 
 	/**

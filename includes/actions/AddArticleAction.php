@@ -54,7 +54,8 @@ class AddArticleAction extends \FormlessAction {
 
 			// $wgArticlePath is something like "/wiki/$1", so strip off the $1
 			$articlePathDelimiter = substr( $wgArticlePath, 0, strlen( $wgArticlePath ) - 2 );
-			$serverRegex = "#^(?:http(?:s)?://)?" . $serverWithoutProtocol . $articlePathDelimiter . "(.+)#";
+			$serverRegex = "#^(?:http(?:s)?://)?" . $serverWithoutProtocol . $articlePathDelimiter .
+				"(.+)#";
 			preg_match( $serverRegex, $reqArticleName, $matches );
 
 			// If the URL regex matched, update the $title

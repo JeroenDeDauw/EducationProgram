@@ -77,7 +77,9 @@ abstract class TimelineGroup {
 	 * @return mixed
 	 * @throws Exception
 	 */
-	public static function newFromEventGroup( EventGroup $group, OutputPage $outputPage, Language $language ) {
+	public static function newFromEventGroup(
+		EventGroup $group, OutputPage $outputPage, Language $language
+	) {
 		$type = null;
 
 		/**
@@ -87,7 +89,9 @@ abstract class TimelineGroup {
 			if ( is_null( $type ) ) {
 				$type = $event->getType();
 			} elseif ( $type !== $event->getType() ) {
-				throw new Exception( 'Got events of different types when trying to build a ' . __CLASS__ );
+				throw new Exception(
+					'Got events of different types when trying to build a ' . __CLASS__
+				);
 			}
 		}
 
@@ -98,7 +102,9 @@ abstract class TimelineGroup {
 			'edit-' . NS_USER_TALK => '\EducationProgram\Events\EditGroup',
 		];
 
-		$class = array_key_exists( $type, $typeMap ) ? $typeMap[$type] : '\EducationProgram\Events\UnknownGroup';
+		$class = array_key_exists( $type, $typeMap )
+			? $typeMap[$type]
+			: '\EducationProgram\Events\UnknownGroup';
 
 		return new $class( $group->getEvents(), $outputPage, $language );
 	}
@@ -323,7 +329,9 @@ class EditGroup extends TimelineGroup {
 				$text = $this->newMessage( 'ep-timeline-cutoff', $text )->plain();
 			}
 		} else {
-			$text = trim( $info['comment'] ) === '' ? $this->newMessage( 'ep-timeline-no-summary' )->plain() : $info['comment'];
+			$text = trim( $info['comment'] ) === ''
+				? $this->newMessage( 'ep-timeline-no-summary' )->plain()
+				: $info['comment'];
 		}
 
 		$html .= strip_tags(
@@ -390,9 +398,11 @@ class EditGroup extends TimelineGroup {
 
 		// Give grep a chance to find the usages:
 		// ep-timeline-users-edit-article, ep-timeline-users-edit-talk, ep-timeline-users-edit-user,
-		// ep-timeline-users-edit-usertalk, ep-timeline-users-edit-user-self, ep-timeline-users-edit-usertalk-self,
-		// ep-timeline-users-create-article, ep-timeline-users-create-talk, ep-timeline-users-create-user,
-		// ep-timeline-users-create-usertalk, ep-timeline-users-create-user-self, ep-timeline-users-create-usertalk-self
+		// ep-timeline-users-edit-usertalk, ep-timeline-users-edit-user-self,
+		// ep-timeline-users-edit-usertalk-self, ep-timeline-users-create-article,
+		// ep-timeline-users-create-talk, ep-timeline-users-create-user,
+		// ep-timeline-users-create-usertalk, ep-timeline-users-create-user-self,
+		// ep-timeline-users-create-usertalk-self
 		$isNew = array_key_exists( 'parent', $info ) && is_null( $info['parent'] );
 		$messageKey = 'ep-timeline-users-' . ( $isNew ? 'create' : 'edit' ) . '-' . $keys[$type];
 
@@ -422,7 +432,8 @@ class EditGroup extends TimelineGroup {
 
 /**
  * Represents a group of enlistment events.
- * Enlistment events are people becoming associated as $role with a course, or losing this association.
+ * Enlistment events are people becoming associated as $role with a course,
+ * or losing this association.
  *
  * @since 0.1
  *

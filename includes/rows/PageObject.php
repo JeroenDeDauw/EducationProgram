@@ -53,7 +53,9 @@ abstract class PageObject extends RevisionedObject {
 	 *
 	 * @return string
 	 */
-	public function getLink( $action = 'view', $html = null, array $customAttribs = [], array $query = [] ) {
+	public function getLink(
+		$action = 'view', $html = null, array $customAttribs = [], array $query = []
+	) {
 		return $this->table->getLinkFor(
 			$this->getIdentifier(),
 			$action,
@@ -67,7 +69,9 @@ abstract class PageObject extends RevisionedObject {
 	 * @see ORMRow::save()
 	 */
 	public function save( $functionName = null ) {
-		if ( $this->hasField( $this->table->getIdentifierField() ) && is_null( $this->getTitle() ) ) {
+		if ( $this->hasField( $this->table->getIdentifierField() ) &&
+			is_null( $this->getTitle() )
+		) {
 			throw new Exception( 'The title for a PageObject needs to be valid when saving.' );
 		}
 

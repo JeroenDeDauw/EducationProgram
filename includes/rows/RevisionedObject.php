@@ -182,7 +182,9 @@ abstract class RevisionedObject extends ORMRow {
 		$exclusionFields = [];
 
 		if ( $excludeSummaryFields !== false ) {
-			$exclusionFields = is_array( $excludeSummaryFields ) ? $excludeSummaryFields : $this->table->getSummaryFields();
+			$exclusionFields = is_array( $excludeSummaryFields )
+				? $excludeSummaryFields
+				: $this->table->getSummaryFields();
 		}
 
 		foreach ( $this->fields as $name => $value ) {

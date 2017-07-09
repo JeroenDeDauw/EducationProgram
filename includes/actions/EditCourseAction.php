@@ -177,9 +177,12 @@ class EditCourseAction extends EditAction {
 			'type' => 'textarea',
 			'label-message' => 'ep-course-edit-description',
 			'required' => true,
-			'validation-callback' => function ( $value, array $alldata = null ) use ( $messageMethod ) {
+			'validation-callback' => function ( $value, array $alldata = null ) use (
+				$messageMethod
+			) {
 				if ( strlen( $value ) < 10 ) {
-					return call_user_func( $messageMethod, 'ep-course-invalid-description', 10 )->text();
+					return call_user_func( $messageMethod,
+						'ep-course-invalid-description', 10 )->text();
 				}
 
 				return true;
@@ -197,11 +200,14 @@ class EditCourseAction extends EditAction {
 				'help-message' => 'ep-course-help-token',
 				'maxlength' => 255,
 				'size' => 20,
-				'validation-callback' => function ( $value, array $alldata = null ) use ( $messageMethod ) {
+				'validation-callback' => function ( $value, array $alldata = null ) use (
+					$messageMethod
+				) {
 					$strLen = strlen( $value );
 
 					if ( $strLen !== 0 && $strLen < 2 ) {
-						return call_user_func( $messageMethod, 'ep-course-invalid-token', 2 )->text();
+						return call_user_func( $messageMethod,
+							'ep-course-invalid-token', 2 )->text();
 					}
 
 					return true;
@@ -227,7 +233,9 @@ class EditCourseAction extends EditAction {
 				'maxlength' => 255,
 				'required' => true,
 				'options' => $langOptions,
-				'validation-callback' => function ( $value, array $allData = null ) use ( $langOptions, $messageMethod ) {
+				'validation-callback' => function ( $value, array $allData = null ) use (
+					$langOptions, $messageMethod
+				) {
 					if ( in_array( $value, $langOptions ) ) {
 						return true;
 					}
@@ -305,7 +313,9 @@ class EditCourseAction extends EditAction {
 		$primaryPage = Settings::get( 'courseDescPage' );
 		$orgPage = Settings::get( 'courseOrgDescPage' );
 
-		$orgTitle = Orgs::singleton()->selectFieldsRow( 'name', [ 'id' => $data['institutionid'] ] );
+		$orgTitle = Orgs::singleton()->selectFieldsRow(
+			'name', [ 'id' => $data['institutionid'] ]
+		);
 
 		$content = false;
 

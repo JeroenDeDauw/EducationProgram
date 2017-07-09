@@ -52,7 +52,8 @@ class DeleteAction extends Action {
 		$object = $this->page->getTable()->getFromTitle( $this->getTitle() );
 
 		if ( $object === false ) {
-			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ), $this->getTitle()->getText() );
+			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ),
+				$this->getTitle()->getText() );
 			$this->getOutput()->setSubtitle( '' );
 		} else {
 			$req = $this->getRequest();
@@ -64,7 +65,8 @@ class DeleteAction extends Action {
 			// If there are no problems, proceed to delete or show the form
 			if ( $canDelete ) {
 				if ( $req->wasPosted()
-					&& $this->getUser()->matchEditToken( $req->getText( 'deleteToken' ), $this->getSalt() )
+					&& $this->getUser()->matchEditToken(
+						$req->getText( 'deleteToken' ), $this->getSalt() )
 				) {
 					$success = $this->doDelete( $object );
 
@@ -72,7 +74,8 @@ class DeleteAction extends Action {
 						$title = \SpecialPage::getTitleFor( $this->page->getListPage() );
 						$this->getRequest()->setSessionData(
 							'epsuccess',
-							$this->msg( $this->prefixMsg( 'deleted' ), $this->getTitle()->getText() )->text()
+							$this->msg( $this->prefixMsg( 'deleted' ),
+								$this->getTitle()->getText() )->text()
 						);
 					} else {
 						$title = $this->getTitle();
@@ -195,7 +198,8 @@ class DeleteAction extends Action {
 			$this->msg( $this->prefixMsg( 'cancel-button' ) )->text()
 		);
 
-		$out->addHTML( Html::hidden( 'deleteToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
+		$out->addHTML( Html::hidden( 'deleteToken',
+			$this->getUser()->getEditToken( $this->getSalt() ) ) );
 
 		$out->addHTML( '</form>' );
 	}

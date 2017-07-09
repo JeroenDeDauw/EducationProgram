@@ -91,7 +91,8 @@ class ApiRefreshEducation extends ApiBase {
 	 */
 	public function getDescription() {
 		return [
-			'API module for refreshing (rebuilding) summary data of objects parts of the Education Program extension.'
+			'API module for refreshing (rebuilding) summary data of objects parts of the ' .
+			'Education Program extension.'
 		];
 	}
 

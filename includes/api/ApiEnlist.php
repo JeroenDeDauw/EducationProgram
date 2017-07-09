@@ -25,7 +25,9 @@ class ApiEnlist extends ApiBase {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( 'ep-enlist-invalid-user-args', 'username-xor-userid' );
 			} else {
-				$this->dieUsage( $this->msg( 'ep-enlist-invalid-user-args' )->text(), 'username-xor-userid' );
+				$this->dieUsage(
+					$this->msg( 'ep-enlist-invalid-user-args' )->text(), 'username-xor-userid'
+				);
 			}
 		}
 
@@ -64,13 +66,17 @@ class ApiEnlist extends ApiBase {
 		/**
 		 * @var Course $course
 		 */
-		$course = Courses::singleton()->selectRow( [ 'id', 'name', 'title', $field ], [ 'id' => $params['courseid'] ] );
+		$course = Courses::singleton()->selectRow(
+			[ 'id', 'name', 'title', $field ], [ 'id' => $params['courseid'] ]
+		);
 
 		if ( $course === false ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( 'ep-enlist-invalid-course', 'invalid-course' );
 			} else {
-				$this->dieUsage( $this->msg( 'ep-enlist-invalid-course' )->text(), 'invalid-course' );
+				$this->dieUsage(
+					$this->msg( 'ep-enlist-invalid-course' )->text(), 'invalid-course'
+				);
 			}
 		}
 
@@ -80,10 +86,14 @@ class ApiEnlist extends ApiBase {
 
 		switch ( $params['subaction'] ) {
 			case 'add':
-				$enlistmentResult = $course->enlistUsers( [ $userId ], $params['role'], true, $revAction );
+				$enlistmentResult = $course->enlistUsers(
+					[ $userId ], $params['role'], true, $revAction
+				);
 				break;
 			case 'remove':
-				$enlistmentResult = $course->unenlistUsers( [ $userId ], $params['role'], true, $revAction );
+				$enlistmentResult = $course->unenlistUsers(
+					[ $userId ], $params['role'], true, $revAction
+				);
 				break;
 		}
 
@@ -125,7 +135,8 @@ class ApiEnlist extends ApiBase {
 		switch ( $role ) {
 			case 'student':
 				return ( $isRemove && $user->isAllowed( 'ep-remstudent' ) )
-					|| ( ( $user->isAllowed( 'ep-enroll' ) && $isSelf ) || $user->isAllowed( 'ep-addstudent' ) );
+					|| ( ( $user->isAllowed( 'ep-enroll' ) && $isSelf )
+					|| $user->isAllowed( 'ep-addstudent' ) );
 				break;
 			case 'instructor':
 				return $user->isAllowed( 'ep-instructor' )
@@ -189,8 +200,10 @@ class ApiEnlist extends ApiBase {
 	public function getParamDescription() {
 		return [
 			'subaction' => 'Specifies what you want to do with the instructor or ambassador',
-			'role' => 'The role to affect. "instructor" for instructor, "online" for online ambassadors and "campus" for campus ambassadors',
-			'courseid' => 'The ID of the course to/from which the instructor or ambassador should be added/removed',
+			'role' => 'The role to affect. "instructor" for instructor, "online" for online ' .
+				'ambassadors and "campus" for campus ambassadors',
+			'courseid' => 'The ID of the course to/from which the instructor or ambassador ' .
+				'should be added/removed',
 			'username' => 'Name of the user to associate as instructor or ambassador',
 			'userid' => 'Id of the user to associate as instructor or ambassador',
 			'reason' => 'Message with the reason for this change for the log',
@@ -203,7 +216,8 @@ class ApiEnlist extends ApiBase {
 	 */
 	public function getDescription() {
 		return [
-			'API module for associating/disassociating a user as instructor or ambassador with/from a course.'
+			'API module for associating/disassociating a user as instructor or ambassador ' .
+				'with/from a course.'
 		];
 	}
 
@@ -216,7 +230,9 @@ class ApiEnlist extends ApiBase {
 			'api.php?action=instructor&subaction=add&courseid=42&username=Jeroen%20De%20Dauw',
 			'api.php?action=instructor&subaction=remove&courseid=42&userid=9001',
 			'api.php?action=instructor&subaction=remove&courseid=42&username=Jeroen%20De%20Dauw',
-			'api.php?action=instructor&subaction=remove&courseid=42&username=Jeroen%20De%20Dauw&reason=Removed%20from%20program%20because%20of%20evil%20plans%20to%20take%20over%20the%20world',
+			'api.php?action=instructor&subaction=remove&courseid=42&username=Jeroen%20De%20Dauw' .
+				'&reason=Removed%20from%20program%20because%20of%20evil%20plans%20to%20take%20' .
+				'over%20the%20world',
 		];
 	}
 
@@ -233,7 +249,9 @@ class ApiEnlist extends ApiBase {
 				=> 'apihelp-enlist-example-3',
 			'action=enlist&role=instructor&subaction=remove&courseid=42&username=Example'
 				=> 'apihelp-enlist-example-4',
-			'action=enlist&role=instructor&subaction=remove&courseid=42&username=Example&reason=Removed%20from%20program%20because%20of%20evil%20plans%20to%20take%20over%20the%20world'
+			'action=enlist&role=instructor&subaction=remove&courseid=42&username=Example' .
+				'&reason=Removed%20from%20program%20because%20of%20evil%20plans%20to%20take%20' .
+				'over%20the%20world'
 				=> 'apihelp-enlist-example-5',
 		];
 	}

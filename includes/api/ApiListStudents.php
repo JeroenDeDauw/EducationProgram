@@ -48,7 +48,9 @@ class ApiListStudents extends ApiBase {
 				null, [ 'id' => $courseId ] );
 			if ( $course === false ) {
 				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( [ 'apierror-badparameter', 'courseids' ], 'invalid-course' );
+					$this->dieWithError(
+						[ 'apierror-badparameter', 'courseids' ], 'invalid-course'
+					);
 				} else {
 					$this->dieUsage( 'Invalid course id', 'invalid-course' );
 				}
@@ -697,7 +699,8 @@ class ApiListStudents extends ApiBase {
 				' id             - The user ID of the student',
 			],
 			'group' => 'If group parameter is given, the query will group students by course.',
-			'csv' => 'If csv parameter is given, the query will return usernames in CSV format, and it will return the articles assigned to those students.',
+			'csv' => 'If csv parameter is given, the query will return usernames in CSV format, ' .
+				'and it will return the articles assigned to those students.',
 		];
 	}
 
@@ -706,7 +709,7 @@ class ApiListStudents extends ApiBase {
 	 */
 	public function getDescription() {
 		return [
-				'Get the usernames and other information for students enrolled in one or more courses.'
+			'Get the usernames and other information for students enrolled in one or more courses.'
 		];
 	}
 

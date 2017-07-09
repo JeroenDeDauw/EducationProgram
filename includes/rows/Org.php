@@ -31,7 +31,8 @@ class Org extends PageObject {
 	 */
 	public function loadSummaryFields( $summaryFields = null ) {
 		if ( is_null( $summaryFields ) ) {
-			$summaryFields = [ 'course_count', 'student_count', 'instructor_count', 'oa_count', 'ca_count', 'courses', 'last_active_date' ];
+			$summaryFields = [ 'course_count', 'student_count', 'instructor_count', 'oa_count',
+				'ca_count', 'courses', 'last_active_date' ];
 		} else {
 			$summaryFields = (array)$summaryFields;
 		}
@@ -220,7 +221,9 @@ class Org extends PageObject {
 			'form',
 			[
 				'method' => 'post',
-				'action' => Orgs::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( [ 'action' => 'edit' ] ),
+				'action' => Orgs::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL(
+					[ 'action' => 'edit' ]
+				),
 			]
 		);
 
@@ -266,7 +269,9 @@ class Org extends PageObject {
 	 */
 	public function getCourses( array $fields = null ) {
 		if ( $this->courses === false ) {
-			$courses = Courses::singleton()->selectObjects( $fields, [ 'org_id' => $this->getId() ] );
+			$courses = Courses::singleton()->selectObjects(
+				$fields, [ 'org_id' => $this->getId() ]
+			);
 
 			if ( is_null( $fields ) ) {
 				$this->courses = $courses;

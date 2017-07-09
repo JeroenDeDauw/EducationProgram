@@ -49,7 +49,9 @@ class ViewCourseAction extends ViewAction {
 		$wikiText = null;
 
 		if ( $this->object !== null ) {
-			$countryName = Orgs::singleton()->selectFieldsRow( 'country', [ 'id' => $this->object->getField( 'org_id' ) ] );
+			$countryName = Orgs::singleton()->selectFieldsRow(
+				'country', [ 'id' => $this->object->getField( 'org_id' ) ]
+			);
 
 			$specificHeaderPage = Settings::get( 'courseHeaderPageCountry' );
 
@@ -59,7 +61,9 @@ class ViewCourseAction extends ViewAction {
 				$countryName = $languages[$countryName];
 			}
 
-			$specificHeaderPage = str_replace( [ '$2', '$1' ], [ $headerPage, $countryName ], $specificHeaderPage );
+			$specificHeaderPage = str_replace(
+				[ '$2', '$1' ], [ $headerPage, $countryName ], $specificHeaderPage
+			);
 
 			$wikiText = $this->getArticleContent( $specificHeaderPage );
 		}
@@ -172,7 +176,9 @@ class ViewCourseAction extends ViewAction {
 	protected function getSummaryData( IORMRow $course ) {
 		$stats = [];
 
-		$orgName = Orgs::singleton()->selectFieldsRow( 'name', [ 'id' => $course->getField( 'org_id' ) ] );
+		$orgName = Orgs::singleton()->selectFieldsRow(
+			'name', [ 'id' => $course->getField( 'org_id' ) ]
+		);
 		$stats['org'] = Orgs::singleton()->getLinkFor( $orgName );
 
 		$lang = $this->getLanguage();
@@ -181,20 +187,25 @@ class ViewCourseAction extends ViewAction {
 		$stats['start'] = htmlspecialchars( $lang->date( $course->getField( 'start' ), true ) );
 		$stats['end'] = htmlspecialchars( $lang->date( $course->getField( 'end' ), true ) );
 
-		$stats['students'] = htmlspecialchars( $lang->formatNum( $course->getField( 'student_count' ) ) );
+		$stats['students'] = htmlspecialchars( $lang->formatNum(
+			$course->getField( 'student_count' ) ) );
 
 		$stats['status'] = htmlspecialchars( Course::getStatusMessage( $course->getStatus() ) );
 
 		if ( $this->getUser()->isAllowed( 'ep-token' ) ) {
 			$stats['token'] = Linker::linkKnown(
-				SpecialPage::getTitleFor( 'Enroll', $course->getField( 'title' ) . '/' . $course->getField( 'token' ) ),
+				SpecialPage::getTitleFor( 'Enroll', $course->getField( 'title' ) . '/' .
+				$course->getField( 'token' ) ),
 				htmlspecialchars( $course->getField( 'token' ) )
 			);
 		}
 
-		$stats['instructors'] = $this->getRoleList( $course, 'instructor' ) . $this->getRoleControls( $course, 'instructor' );
-		$stats['online'] = $this->getRoleList( $course, 'online' ) . $this->getRoleControls( $course, 'online' );
-		$stats['campus'] = $this->getRoleList( $course, 'campus' ) . $this->getRoleControls( $course, 'campus' );
+		$stats['instructors'] = $this->getRoleList( $course, 'instructor' ) .
+			$this->getRoleControls( $course, 'instructor' );
+		$stats['online'] = $this->getRoleList( $course, 'online' ) .
+			$this->getRoleControls( $course, 'online' );
+		$stats['campus'] = $this->getRoleList( $course, 'campus' ) .
+			$this->getRoleControls( $course, 'campus' );
 
 		return $stats;
 	}
@@ -221,7 +232,8 @@ class ViewCourseAction extends ViewAction {
 			$instList = [];
 
 			foreach ( $users as /* IRole */ $user ) {
-				$instList[] = $user->getUserLink() . $user->getToolLinks( $this->getContext(), $course );
+				$instList[] = $user->getUserLink() .
+					$user->getToolLinks( $this->getContext(), $course );
 			}
 
 			$html = '<ul><li>' . implode( '</li><li>', $instList ) . '</li></ul>';

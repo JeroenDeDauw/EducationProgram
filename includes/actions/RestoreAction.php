@@ -53,7 +53,8 @@ class RestoreAction extends Action {
 		$object = $this->page->getTable()->getFromTitle( $this->getTitle() );
 
 		if ( $object === false ) {
-			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ), $this->getTitle()->getText() );
+			$this->getOutput()->addWikiMsg( $this->prefixMsg( 'none' ),
+				$this->getTitle()->getText() );
 			$this->getOutput()->setSubtitle( '' );
 		} else {
 			$req = $this->getRequest();
@@ -61,10 +62,14 @@ class RestoreAction extends Action {
 			$success = false;
 
 			if ( $req->getCheck( 'revid' ) ) {
-				$revision = Revisions::singleton()->selectRow( null, [ 'id' => $req->getInt( 'revid' ) ] );
+				$revision = Revisions::singleton()->selectRow(
+					null, [ 'id' => $req->getInt( 'revid' ) ]
+				);
 
 				if ( $revision !== false ) {
-					if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'restoreToken' ), $this->getSalt() ) ) {
+					if ( $req->wasPosted() && $this->getUser()->matchEditToken(
+						$req->getText( 'restoreToken' ), $this->getSalt() )
+					) {
 						$success = $this->doRestore( $object, $revision );
 					} else {
 						$diff = $object->getRestoreDiff( $revision );
@@ -89,12 +94,14 @@ class RestoreAction extends Action {
 				if ( $success ) {
 					$this->getRequest()->setSessionData(
 						'epsuccess',
-						$this->msg( $this->prefixMsg( 'restored' ), $this->getTitle()->getText() )->text()
+						$this->msg( $this->prefixMsg( 'restored' ),
+							$this->getTitle()->getText() )->text()
 					);
 				} else {
 					$this->getRequest()->setSessionData(
 						'epfail',
-						$this->msg( $this->prefixMsg( 'restore-failed' ), $this->getTitle()->getText() )->text()
+						$this->msg( $this->prefixMsg( 'restore-failed' ),
+							$this->getTitle()->getText() )->text()
 					);
 				}
 
@@ -192,7 +199,8 @@ class RestoreAction extends Action {
 		);
 
 		$out->addHTML( Html::hidden( 'revid', $this->getRequest()->getInt( 'revid' ) ) );
-		$out->addHTML( Html::hidden( 'restoreToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
+		$out->addHTML( Html::hidden( 'restoreToken',
+			$this->getUser()->getEditToken( $this->getSalt() ) ) );
 
 		$out->addHTML( '</form>' );
 	}

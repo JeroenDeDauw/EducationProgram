@@ -64,7 +64,8 @@ abstract class Action extends \CachedAction {
 				$this->prefixMsg( 'undelete-revisions' ),
 				\Message::rawParam( \Linker::linkKnown(
 					$this->getTitle(),
-					$this->msg( $this->prefixMsg( 'undelete-link' ) )->numParams( $revisionCount )->escaped(),
+					$this->msg( $this->prefixMsg( 'undelete-link' ) )
+						->numParams( $revisionCount )->escaped(),
 					[],
 					[ 'action' => 'epundelete' ]
 				) )

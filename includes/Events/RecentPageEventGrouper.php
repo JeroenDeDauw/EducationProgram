@@ -79,7 +79,8 @@ class RecentPageEventGrouper implements EventGrouper {
 		$eventInfo = $event->getInfo();
 
 		$groupId = $eventInfo['page'] . '|';
-		$groupId .= array_key_exists( 'parent', $eventInfo ) && is_null( $eventInfo['parent'] ) ? 'create' : 'edit';
+		$groupId .= array_key_exists( 'parent', $eventInfo ) && is_null( $eventInfo['parent'] )
+			? 'create' : 'edit';
 
 		if ( !array_key_exists( $groupId, $groups ) ) {
 			$groups[$groupId] = [];

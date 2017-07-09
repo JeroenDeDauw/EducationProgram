@@ -67,7 +67,9 @@ abstract class EditAction extends Action {
 
 		$this->getOutput()->addModules( 'ep.formpage' );
 
-		if ( $this->getRequest()->wasPosted() && $this->getUser()->matchEditToken( $this->getRequest()->getVal( 'wpEditToken' ) ) ) {
+		if ( $this->getRequest()->wasPosted() && $this->getUser()->matchEditToken(
+			$this->getRequest()->getVal( 'wpEditToken' ) )
+		) {
 			$this->showForm();
 		} else {
 			$this->showContent();
@@ -180,7 +182,8 @@ abstract class EditAction extends Action {
 
 	protected function isNewPost() {
 		return $this->getRequest()->wasPosted() &&
-			( $this->getRequest()->getCheck( 'isnew' ) || $this->getRequest()->getCheck( 'wpisnew' ) );
+			( $this->getRequest()->getCheck( 'isnew' ) ||
+				$this->getRequest()->getCheck( 'wpisnew' ) );
 	}
 
 	/**
@@ -407,7 +410,9 @@ abstract class EditAction extends Action {
 		$title = null;
 
 		if ( $req->getCheck( $fieldName ) ) {
-			$title = $this->table->selectFieldsRow( $this->getTitleField(), [ 'id' => $req->getInt( $fieldName ) ] );
+			$title = $this->table->selectFieldsRow(
+				$this->getTitleField(), [ 'id' => $req->getInt( $fieldName ) ]
+			);
 			if ( $title ) {
 				$title = $this->table->getTitleFor( $title );
 			}
@@ -494,7 +499,8 @@ abstract class EditAction extends Action {
 	 *
 	 * @param IORMRow $item
 	 * @param string $name
-	 * @param string $value This is a string, since it comes from request data, but might be a number or other type.
+	 * @param string $value This is a string, since it comes from request data, but might be a
+	 *   number or other type.
 	 */
 	protected function handleUnknownField( IORMRow $item, $name, $value ) {
 		// Override to use.
@@ -506,7 +512,8 @@ abstract class EditAction extends Action {
 	 * @since 0.1
 	 *
 	 * @param string $name
-	 * @param string $value This is a string, since it comes from request data, but might be a number or other type.
+	 * @param string $value This is a string, since it comes from request data, but might be a
+	 *   number or other type.
 	 *
 	 * @return mixed The new value
 	 */

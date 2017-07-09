@@ -173,9 +173,13 @@ class Course extends PageObject {
 		$dbm = wfGetDB( DB_MASTER );
 
 		foreach ( [ 'online_ambs', 'campus_ambs', 'students', 'instructors' ] as $usersField ) {
-			if ( $this->hasField( $usersField ) && $originalCourse->getField( $usersField ) !== $this->getField( $usersField ) ) {
-				$removedIds = array_diff( $originalCourse->getField( $usersField ), $this->getField( $usersField ) );
-				$addedIds = array_diff( $this->getField( $usersField ), $originalCourse->getField( $usersField ) );
+			if ( $this->hasField( $usersField ) &&
+				$originalCourse->getField( $usersField ) !== $this->getField( $usersField )
+			) {
+				$removedIds = array_diff( $originalCourse->getField( $usersField ),
+					$this->getField( $usersField ) );
+				$addedIds = array_diff( $this->getField( $usersField ),
+					$originalCourse->getField( $usersField ) );
 
 				// prepare data for rows to add
 				foreach ( $addedIds as $addedId ) {
@@ -372,7 +376,9 @@ class Course extends PageObject {
 	 */
 	public function getOrg( $fields = null ) {
 		if ( $this->org === false ) {
-			$this->org = Orgs::singleton()->selectRow( $fields, [ 'id' => $this->loadAndGetField( 'org_id' ) ] );
+			$this->org = Orgs::singleton()->selectRow(
+				$fields, [ 'id' => $this->loadAndGetField( 'org_id' ) ]
+			);
 		}
 
 		return $this->org;
@@ -400,7 +406,9 @@ class Course extends PageObject {
 			'form',
 			[
 				'method' => 'post',
-				'action' => Courses::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL( [ 'action' => 'edit' ] ),
+				'action' => Courses::singleton()->getTitleFor( 'NAME_PLACEHOLDER' )->getLocalURL(
+					[ 'action' => 'edit' ]
+				),
 			]
 		);
 
@@ -410,7 +418,9 @@ class Course extends PageObject {
 
 		$html .= '<p>' . $context->msg( 'ep-courses-namedoc' )->escaped() . '</p>';
 
-		$html .= Html::element( 'label', [ 'for' => 'neworg' ], $context->msg( 'ep-courses-neworg' )->plain() );
+		$html .= Html::element(
+			'label', [ 'for' => 'neworg' ], $context->msg( 'ep-courses-neworg' )->plain()
+		);
 
 		$select = new \XmlSelect(
 			'neworg',
@@ -773,7 +783,8 @@ class Course extends PageObject {
 			}
 
 			if ( $success && !is_null( $revAction ) ) {
-				$action = count( $usersToAddIds ) == 1 && $revAction->getUser()->getId() === $usersToAddIds[0] ? 'selfadd' : 'add';
+				$action = count( $usersToAddIds ) == 1 &&
+					$revAction->getUser()->getId() === $usersToAddIds[0] ? 'selfadd' : 'add';
 
 				// trigger notification(s) if a user added someone
 				// other than him/herself to a course
@@ -811,7 +822,9 @@ class Course extends PageObject {
 	 *
 	 * @return integer|bool false The amount of unenlisted users or false on failiure
 	 */
-	public function unenlistUsers( $sadUsers, $role, $save = true, RevisionAction $revAction = null ) {
+	public function unenlistUsers(
+		$sadUsers, $role, $save = true, RevisionAction $revAction = null
+	) {
 		$sadUsers = (array)$sadUsers;
 
 		$roleMap = [
@@ -850,7 +863,8 @@ class Course extends PageObject {
 			}
 
 			if ( $success && !is_null( $revAction ) ) {
-				$action = count( $removedUsers ) == 1 && $revAction->getUser()->getId() === $removedUsers[0] ? 'selfremove' : 'remove';
+				$action = count( $removedUsers ) == 1 &&
+					$revAction->getUser()->getId() === $removedUsers[0] ? 'selfremove' : 'remove';
 				$this->logRoleChange( $action, $role, $removedUsers, $revAction->getComment() );
 			}
 
@@ -949,7 +963,9 @@ class Course extends PageObject {
 	 *
 	 * @return string
 	 */
-	public function getLink( $action = 'view', $html = null, array $customAttribs = [], array $query = [] ) {
+	public function getLink(
+		$action = 'view', $html = null, array $customAttribs = [], array $query = []
+	) {
 		return parent::getLink(
 			$action,
 			is_null( $html ) ? htmlspecialchars( $this->getField( 'name' ) ) : $html,

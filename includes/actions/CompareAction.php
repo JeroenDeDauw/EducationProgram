@@ -43,7 +43,9 @@ class CompareAction extends Action {
 		$req = $this->getRequest();
 
 		if ( $object !== false && $req->getCheck( 'revid' ) ) {
-			$revision = Revisions::singleton()->selectRow( null, [ 'id' => $req->getInt( 'revid' ) ] );
+			$revision = Revisions::singleton()->selectRow(
+				null, [ 'id' => $req->getInt( 'revid' ) ]
+			);
 
 			if ( $revision !== false ) {
 				// Check whether user has full course edit rights.

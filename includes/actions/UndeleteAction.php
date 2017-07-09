@@ -60,7 +60,8 @@ class UndeleteAction extends Action {
 			if ( $revision === false ) {
 				$this->getRequest()->setSessionData(
 					'epfail',
-					$this->msg( $this->prefixMsg( 'failed-norevs' ), $this->getTitle()->getText() )->text()
+					$this->msg( $this->prefixMsg( 'failed-norevs' ),
+						$this->getTitle()->getText() )->text()
 				);
 				$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 			} else {
@@ -74,18 +75,22 @@ class UndeleteAction extends Action {
 				if ( $canUndelete ) {
 					$req = $this->getRequest();
 
-					if ( $req->wasPosted() && $this->getUser()->matchEditToken( $req->getText( 'undeleteToken' ), $this->getSalt() ) ) {
+					if ( $req->wasPosted() && $this->getUser()->matchEditToken(
+						$req->getText( 'undeleteToken' ), $this->getSalt() )
+					) {
 						$success = $this->doUndelete( $revision );
 
 						if ( $success ) {
 							$this->getRequest()->setSessionData(
 								'epsuccess',
-								$this->msg( $this->prefixMsg( 'undeleted' ), $this->getTitle()->getText() )->text()
+								$this->msg( $this->prefixMsg( 'undeleted' ),
+									$this->getTitle()->getText() )->text()
 							);
 						} else {
 							$this->getRequest()->setSessionData(
 								'epfail',
-								$this->msg( $this->prefixMsg( 'undelete-failed' ), $this->getTitle()->getText() )->text()
+								$this->msg( $this->prefixMsg( 'undelete-failed' ),
+									$this->getTitle()->getText() )->text()
 							);
 						}
 
@@ -98,7 +103,8 @@ class UndeleteAction extends Action {
 		} else {
 			$this->getRequest()->setSessionData(
 				'epfail',
-				$this->msg( $this->prefixMsg( 'failed-exists' ), $this->getTitle()->getText() )->text()
+				$this->msg( $this->prefixMsg( 'failed-exists' ),
+					$this->getTitle()->getText() )->text()
 			);
 			$this->getOutput()->redirect( $this->getTitle()->getLocalURL() );
 		}
@@ -212,7 +218,8 @@ class UndeleteAction extends Action {
 			$this->msg( $this->prefixMsg( 'cancel-button' ) )->text()
 		);
 
-		$out->addHTML( Html::hidden( 'undeleteToken', $this->getUser()->getEditToken( $this->getSalt() ) ) );
+		$out->addHTML( Html::hidden( 'undeleteToken',
+			$this->getUser()->getEditToken( $this->getSalt() ) ) );
 
 		$out->addHTML( '</form>' );
 	}

@@ -108,7 +108,8 @@ abstract class ViewAction extends Action {
 			} else {
 				Utils::displayResult( $this->getContext() );
 
-				$out->addWikiMsg( str_replace( 'educationprogram\\', '', strtolower( get_called_class() ) ) . '-none', $name );
+				$out->addWikiMsg( str_replace(
+					'educationprogram\\', '', strtolower( get_called_class() ) ) . '-none', $name );
 
 				$this->displayDeletionLog();
 			}
@@ -215,7 +216,9 @@ abstract class ViewAction extends Action {
 
 		$html .= Html::openElement( 'table', [ 'class' => $class ] );
 
-		$html .= '<tr>' . Html::element( 'th', [ 'colspan' => 2 ], $this->msg( 'ep-item-summary' )->text() ) . '</tr>';
+		$html .= '<tr>' .
+			Html::element( 'th', [ 'colspan' => 2 ], $this->msg( 'ep-item-summary' )->text() ) .
+			'</tr>';
 
 		$summaryData = is_null( $summaryData ) ? $this->getSummaryData( $item ) : $summaryData;
 
@@ -225,7 +228,8 @@ abstract class ViewAction extends Action {
 			$html .= Html::element(
 				'th',
 				[ 'class' => 'ep-summary-name' ],
-				$this->msg( str_replace( 'educationprogram\\', '', strtolower( get_called_class() ) ) . '-summary-' . $stat )->text()
+				$this->msg( str_replace( 'educationprogram\\', '', strtolower( get_called_class() ) )
+					. '-summary-' . $stat )->text()
 			);
 
 			$html .= Html::rawElement(
