@@ -82,7 +82,8 @@ class Utils {
 	}
 
 	/**
-	 * Returns the array but with each key postfixed by the value and the value replaced by the original key.
+	 * Returns the array but with each key postfixed by the value and the value replaced by
+	 * the original key.
 	 *
 	 * @since 0.1
 	 *
@@ -114,14 +115,18 @@ class Utils {
 	 *
 	 * @return string
 	 */
-	public static function getRoleToolLinks( IRole $role, IContextSource $context, Course $course = null ) {
+	public static function getRoleToolLinks(
+		IRole $role, IContextSource $context, Course $course = null
+	) {
 		$roleName = $role->getRoleName();
 		$links = [];
 
 		$user = $role->getUser();
 
 		if ( !is_null( $course ) &&
-			( $context->getUser()->isAllowed( 'ep-' . $roleName ) || $user->getId() == $context->getUser()->getId() ) ) {
+			( $context->getUser()->isAllowed( 'ep-' . $roleName ) ||
+			$user->getId() == $context->getUser()->getId() )
+		) {
 			$links[] = Html::element(
 				'a',
 				[
@@ -157,7 +162,9 @@ class Utils {
 	 *
 	 * @return string
 	 */
-	public static function getToolLinks( $userId, $userName, IContextSource $context, array $extraLinks = [] ) {
+	public static function getToolLinks(
+		$userId, $userName, IContextSource $context, array $extraLinks = []
+	) {
 		$links = [];
 
 		$links[] = Linker::userTalkLink( $userId, $userName );
@@ -174,12 +181,13 @@ class Utils {
 		);
 
 		// @todo FIXME: Hard coded parentheses.
-		return ' <span class="mw-usertoollinks">(' . $context->getLanguage()->pipeList( array_merge( $links, $extraLinks ) ) . ')</span>';
+		return ' <span class="mw-usertoollinks">(' .
+			$context->getLanguage()->pipeList( array_merge( $links, $extraLinks ) ) . ')</span>';
 	}
 
 	/**
-	 * Displays any epsuccess or epfail message and then clears the session value so it does not get displayed again.
-	 * Should typically be called before anything else is outputted.
+	 * Displays any epsuccess or epfail message and then clears the session value so it does not
+	 * get displayed again. Should typically be called before anything else is outputted.
 	 *
 	 * @since 0.1
 	 *
@@ -191,8 +199,9 @@ class Utils {
 
 		if ( $req->getSessionData( 'epsuccess' ) ) {
 			$out->addHTML(
-				'<div class="successbox"><strong><p>' . $req->getSessionData( 'epsuccess' ) . '</p></strong></div>'
-					. '<hr style="display: block; clear: both; visibility: hidden;" />'
+				'<div class="successbox"><strong><p>' . $req->getSessionData( 'epsuccess' ) .
+					'</p></strong></div>' .
+					'<hr style="display: block; clear: both; visibility: hidden;" />'
 			);
 			$req->setSessionData( 'epsuccess', false );
 		}

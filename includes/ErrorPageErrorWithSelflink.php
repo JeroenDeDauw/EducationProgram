@@ -27,8 +27,8 @@ class ErrorPageErrorWithSelflink extends \ErrorPageError {
 	 *
 	 * @param \Message|string $msg Message key (string) for error text, or a Message object
 	 *
-	 * @param string $articleTitle (optional) Wiki page title for creating an internal link and setting it
-	 *   as a parameter for $msg.
+	 * @param string $articleTitle (optional) Wiki page title for creating an internal link and
+	 *   setting it as a parameter for $msg.
 	 *
 	 * @param string $linkText (optional) Text for internal link to be set as a parameter for $msg.
 	 */

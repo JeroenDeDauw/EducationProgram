@@ -270,6 +270,7 @@ class StudentActivityPager extends EPPager {
 	 * @see Pager::getMsg()
 	 */
 	protected function getMsg( $messageKey ) {
-		return $this->msg( str_replace( 'educationprogram\\', 'ep', strtolower( get_called_class() ) ) . '-' . str_replace( '_', '-', $messageKey ) )->text();
+		return $this->msg( str_replace( 'educationprogram\\', 'ep', strtolower( get_called_class() ) )
+			. '-' . str_replace( '_', '-', $messageKey ) )->text();
 	}
 }

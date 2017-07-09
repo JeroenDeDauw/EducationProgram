@@ -37,7 +37,9 @@ class SpecialStudents extends VerySpecialPage {
 			$this->startCache( 3600 );
 			$this->addCachedHTML( 'EducationProgram\Student::getPager', $this->getContext() );
 		} else {
-			$this->getOutput()->redirect( \SpecialPage::getTitleFor( 'Student', $this->subPage )->getLocalURL() );
+			$this->getOutput()->redirect(
+				\SpecialPage::getTitleFor( 'Student', $this->subPage )->getLocalURL()
+			);
 		}
 	}
 

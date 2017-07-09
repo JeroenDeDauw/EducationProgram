@@ -235,9 +235,13 @@ class SpecialMyCourses extends VerySpecialPage {
 			/**
 			 * @var Course $course
 			 */
-			$course = Courses::singleton()->selectRow( null, [ 'id' => $this->getRequest()->getInt( 'enrolled' ) ] );
+			$course = Courses::singleton()->selectRow(
+				null, [ 'id' => $this->getRequest()->getInt( 'enrolled' ) ]
+			);
 
-			if ( $course !== false && in_array( $this->getUser()->getId(), $course->getField( 'students' ) ) ) {
+			if ( $course !== false &&
+				in_array( $this->getUser()->getId(), $course->getField( 'students' ) )
+			) {
 				$this->showSuccess( $this->msg( 'ep-mycourses-enrolled' )->rawParams(
 					$course->getLink(),
 					$course->getOrg()->getLink()

@@ -39,7 +39,9 @@ class CourseActivityView {
 	protected $eventStore;
 	protected $courseStore;
 
-	public function __construct( OutputPage $outputPage, Language $language, EventStore $eventStore, CourseStore $courseStore ) {
+	public function __construct(
+		OutputPage $outputPage, Language $language, EventStore $eventStore, CourseStore $courseStore
+	) {
 		$this->outputPage = $outputPage;
 		$this->language = $language;
 		$this->eventStore = $eventStore;

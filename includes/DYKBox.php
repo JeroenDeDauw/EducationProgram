@@ -31,7 +31,9 @@ class DYKBox extends \ContextSource {
 	 * @param string|bool $specificCategory
 	 * @param IContextSource|null $context
 	 */
-	public function __construct( $mainCategory, $specificCategory = false, IContextSource $context = null ) {
+	public function __construct(
+		$mainCategory, $specificCategory = false, IContextSource $context = null
+	) {
 		if ( !is_null( $context ) ) {
 			$this->setContext( $context );
 		}

@@ -160,8 +160,8 @@ abstract class PageTable extends ORMTable {
 	}
 
 	/**
-	 * Returns a link to the page representing the object of this type with the provided identifier value.
-	 * The returned string is escaped.
+	 * Returns a link to the page representing the object of this type with the provided
+	 * identifier value. The returned string is escaped.
 	 *
 	 * @since 0.1
 	 *
@@ -173,7 +173,13 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @return string
 	 */
-	public function getLinkFor( $identifierValue, $action = 'view', $html = null, array $customAttribs = [], array $query = [] ) {
+	public function getLinkFor(
+		$identifierValue,
+		$action = 'view',
+		$html = null,
+		array $customAttribs = [],
+		array $query = []
+	) {
 		if ( $action !== 'view' ) {
 			$query['action'] = $action;
 		}

@@ -148,7 +148,9 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 *
 	 * @return bool Success indicator
 	 */
-	public function associateWithCourses( array /* of Course */ $courses, RevisionAction $revAction = null ) {
+	public function associateWithCourses(
+		array /* of Course */ $courses, RevisionAction $revAction = null
+	) {
 		$success = true;
 
 		$courseIds = [];

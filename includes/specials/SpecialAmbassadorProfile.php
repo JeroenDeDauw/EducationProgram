@@ -69,8 +69,9 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 		if ( $this->getRequest()->getSessionData( 'epprofilesaved' ) ) {
 			$messageKey = $this->getMsgPrefix() . 'profile-saved';
 			$this->getOutput()->addHTML(
-				'<div class="successbox"><strong><p>' . $this->msg( $messageKey )->escaped() . '</p></strong></div>'
-					. '<hr style="display: block; clear: both; visibility: hidden;" />'
+				'<div class="successbox"><strong><p>' . $this->msg( $messageKey )->escaped() .
+					'</p></strong></div>' .
+					'<hr style="display: block; clear: both; visibility: hidden;" />'
 			);
 			$this->getRequest()->setSessionData( 'epprofilesaved', false );
 		}
@@ -119,7 +120,9 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 			'label-message' => $this->getMsgPrefix() . 'profile-bio',
 			'required' => true,
 			'validation-callback' => function ( $value, array $alldata = null ) use( $msgPrefix ) {
-				return strlen( $value ) < 10 ? wfMessage( $msgPrefix . 'profile-invalid-bio', 10 )->text() : true;
+				return strlen( $value ) < 10
+					? wfMessage( $msgPrefix . 'profile-invalid-bio', 10 )->text()
+					: true;
 			},
 			'rows' => 10,
 			'id' => 'wpTextbox1',
@@ -134,7 +137,10 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 		$fields['photo'] = [
 			'type' => 'text',
 			'label-message' => $this->getMsgPrefix() . 'profile-photo',
-			'help-message' => [ $this->getMsgPrefix() . 'profile-photo-help', Settings::get( 'ambassadorCommonsUrl' ) ],
+			'help-message' => [
+				$this->getMsgPrefix() . 'profile-photo-help',
+				Settings::get( 'ambassadorCommonsUrl' )
+			],
 			'default' => $ambassador->getField( 'photo' ),
 			'cssclass' => 'commons-input',
 		];

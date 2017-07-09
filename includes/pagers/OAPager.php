@@ -29,7 +29,9 @@ class OAPager extends EPPager {
 	 * @param array $conds
 	 * @param IORMTable|null $table
 	 */
-	public function __construct( IContextSource $context, array $conds = [], IORMTable $table = null ) {
+	public function __construct(
+		IContextSource $context, array $conds = [], IORMTable $table = null
+	) {
 		$this->mDefaultDirection = true;
 
 		$conds = array_merge(
@@ -104,7 +106,8 @@ class OAPager extends EPPager {
 				break;
 			case 'user_id':
 				$oa = $this->currentObject;
-				$value = Linker::userLink( $value, $oa->getName() ) . Linker::userToolLinks( $value, $oa->getName() );
+				$value = Linker::userLink( $value, $oa->getName() ) .
+					Linker::userToolLinks( $value, $oa->getName() );
 				break;
 			case 'bio':
 				$value = $this->getOutput()->parseInline( $value );
@@ -117,7 +120,9 @@ class OAPager extends EPPager {
 				/**
 				 * @var Course $course
 				 */
-				foreach ( $oa->getCourses( [ 'title', 'name' ], Courses::getStatusConds( 'current' ) ) as $course ) {
+				foreach ( $oa->getCourses(
+					[ 'title', 'name' ], Courses::getStatusConds( 'current' )
+				) as $course ) {
 					$courses[] = $course->getLink();
 				}
 

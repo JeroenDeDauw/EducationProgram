@@ -234,7 +234,9 @@ class ArticleTable extends EPPager {
 	 * @param boolean $showArticleAddition
 	 * @param int $studentUserId
 	 */
-	protected function addNonStudentHTML( &$html, array $articles, $showArticleAddition, $studentUserId ) {
+	protected function addNonStudentHTML(
+		&$html, array $articles, $showArticleAddition, $studentUserId
+	) {
 		$isFirst = true;
 
 		foreach ( $articles as $article ) {
@@ -304,7 +306,9 @@ class ArticleTable extends EPPager {
 	 */
 	protected function getUserCell( $userId, $rowSpan ) {
 		$user = User::newFromId( $userId );
-		$realName = !Settings::get( 'useStudentRealNames' ) || $user->getRealName() === '' ? false : $user->getRealName();
+		$realName = !Settings::get( 'useStudentRealNames' ) || $user->getRealName() === ''
+			? false
+			: $user->getRealName();
 
 		$html = Linker::userLink( $userId, $user->getName(), $realName );
 
@@ -321,7 +325,8 @@ class ArticleTable extends EPPager {
 						'data-course-id' => reset( $this->courseIds ),
 						'data-user-name' => $user->getName(),
 						'data-course-name' => $this->getCourseName(),
-						'data-token' => $this->getUser()->getEditToken( reset( $this->courseIds ) . 'remstudent' . $userId ),
+						'data-token' => $this->getUser()->getEditToken(
+							reset( $this->courseIds ) . 'remstudent' . $userId ),
 						'class' => 'ep-rem-student',
 					],
 					$this->msg( 'ep-articles-remstudent' )->text()
@@ -450,7 +455,9 @@ class ArticleTable extends EPPager {
 	 */
 	protected function getReviewerCell( EPArticle $article, $userId ) {
 		$user = User::newFromId( $userId );
-		$name = !Settings::get( 'useStudentRealNames' ) || $user->getRealName() === '' ? $user->getName() : $user->getRealName();
+		$name = !Settings::get( 'useStudentRealNames' ) || $user->getRealName() === ''
+			? $user->getName()
+			: $user->getRealName();
 
 		$html = Linker::userLink( $userId, $name );
 
@@ -472,7 +479,8 @@ class ArticleTable extends EPPager {
 						'data-student-name' => $article->getUser()->getName(),
 						'data-reviewer-name' => $user->getName(),
 						'data-reviewer-id' => $user->getId(),
-						'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
+						'data-token' => $this->getUser()->getEditToken(
+							$userId . 'remreviewer' . $article->getId() ),
 						'class' => 'ep-rem-reviewer',
 					],
 					$this->msg( 'ep-articles-remreviewer' )->text()
@@ -489,7 +497,8 @@ class ArticleTable extends EPPager {
 					'data-article-id' => $article->getId(),
 					'data-article-name' => $titleText,
 					'data-student-name' => $article->getUser()->getName(),
-					'data-token' => $this->getUser()->getEditToken( $userId . 'remreviewer' . $article->getId() ),
+					'data-token' => $this->getUser()->getEditToken(
+						$userId . 'remreviewer' . $article->getId() ),
 				],
 				$this->msg( 'ep-articles-remreviewer-self' )->text()
 			);
@@ -518,7 +527,9 @@ class ArticleTable extends EPPager {
 		$courseTitle = Courses::singleton()->selectFieldsRow( 'title', [ 'id' => $courseId ] );
 		$query = [ 'action' => 'epaddarticle' ];
 
-		if ( $this->getTitle()->getNamespace() !== EP_NS && !Utils::isCourse( $this->getTitle() ) ) {
+		if ( $this->getTitle()->getNamespace() !== EP_NS &&
+			!Utils::isCourse( $this->getTitle() )
+		) {
 			$query['returnto'] = $this->getTitle()->getFullText();
 		}
 
@@ -549,7 +560,8 @@ class ArticleTable extends EPPager {
 		);
 
 		$html .= Html::hidden( 'course-id', $courseId );
-		$html .= Html::hidden( 'token', $this->getUser()->getEditToken( 'addarticle' . $courseId . $studentUserId ) );
+		$html .= Html::hidden( 'token', $this->getUser()->getEditToken(
+			'addarticle' . $courseId . $studentUserId ) );
 		$html .= Html::hidden( 'student-user-id', $studentUserId );
 
 		$html .= '</form>';

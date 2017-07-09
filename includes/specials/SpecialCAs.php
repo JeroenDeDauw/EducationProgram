@@ -39,7 +39,9 @@ class SpecialCAs extends VerySpecialPage {
 			$this->startCache( 3600 );
 			$this->addCachedHTML( 'EducationProgram\CA::getPager', $this->getContext() );
 		} else {
-			$this->getOutput()->redirect( SpecialPage::getTitleFor( 'CampusAmbassador', $this->subPage )->getLocalURL() );
+			$this->getOutput()->redirect(
+				SpecialPage::getTitleFor( 'CampusAmbassador', $this->subPage )->getLocalURL()
+			);
 		}
 	}
 

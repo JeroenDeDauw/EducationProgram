@@ -118,7 +118,8 @@ class SpecialEnroll extends VerySpecialPage {
 		if ( $this->getUser()->isLoggedIn() ) {
 			if ( $this->getUser()->isAllowed( 'ep-enroll' ) ) {
 				$user = $this->getUser();
-				$hasFields = trim( $user->getRealName() ) !== '' && $user->getOption( 'gender' ) !== 'unknown';
+				$hasFields = trim( $user->getRealName() ) !== '' &&
+					$user->getOption( 'gender' ) !== 'unknown';
 
 				$formFields = $this->getFormFields();
 
@@ -161,7 +162,8 @@ class SpecialEnroll extends VerySpecialPage {
 
 		$out->addHTML( Html::element( 'p', [], $this->msg( 'ep-enroll-add-token-doc' )->text() ) );
 
-		$out->addHTML( '&#160;' . Xml::inputLabel( $this->msg( 'ep-enroll-token' )->text(), 'wptoken', 'wptoken' ) );
+		$out->addHTML( '&#160;' .
+			Xml::inputLabel( $this->msg( 'ep-enroll-token' )->text(), 'wptoken', 'wptoken' ) );
 
 		$out->addHTML( '&#160;' . Html::input(
 			'submittoken',
@@ -296,7 +298,11 @@ class SpecialEnroll extends VerySpecialPage {
 			$fields['realname'] = [
 				'type' => 'text',
 				'default' => '',
-				'label-message' => 'ep-enroll-realname' . ( Settings::get( 'requireRealName' ) ? '' : '-optional' ),
+				'label-message' => 'ep-enroll-realname' .
+					( Settings::get( 'requireRealName' )
+						? ''
+						: '-optional'
+					),
 				'validation-callback' => function ( $value, array $alldata = null ) {
 					if ( Settings::get( 'requireRealName' ) && strlen( $value ) < 2 ) {
 						return wfMessage( 'ep-enroll-invalid-name' )->numParams( 2 )->text();
@@ -317,7 +323,9 @@ class SpecialEnroll extends VerySpecialPage {
 				'default' => 'unknown',
 				'label-message' => 'ep-enroll-gender',
 				'validation-callback' => function ( $value, array $alldata = null ) {
-					return in_array( $value, [ 'male', 'female', 'unknown' ] ) ? true : wfMessage( 'ep-enroll-invalid-gender' )->text();
+					return in_array( $value, [ 'male', 'female', 'unknown' ] )
+						? true
+						: wfMessage( 'ep-enroll-invalid-gender' )->text();
 				} ,
 				'options' => [
 					$this->msg( 'gender-male' )->text() => 'male',

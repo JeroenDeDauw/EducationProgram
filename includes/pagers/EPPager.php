@@ -98,14 +98,17 @@ abstract class EPPager extends \TablePager {
 					[
 						'type' => 'checkbox',
 						'value' => $this->currentObject->getId(),
-						'id' => 'select-' . $this->getInstanceNumber() . '-' . $this->currentObject->getId(),
+						'id' => 'select-' . $this->getInstanceNumber() . '-' .
+							$this->currentObject->getId(),
 						'name' => 'epitemsselected',
 						'class' => 'ep-select-item',
 						'data-pager-id' => $this->getInstanceNumber(),
 					]
 				);
 			} elseif ( $field === '_controls' ) {
-				$value = $this->getLanguage()->pipeList( $this->getControlLinks( $this->currentObject ) );
+				$value = $this->getLanguage()->pipeList(
+					$this->getControlLinks( $this->currentObject )
+				);
 			} else {
 				$prefixedField = $this->table->getPrefixedField( $field );
 				$value = isset( $row->$prefixedField ) ? $row->$prefixedField : null;
@@ -212,7 +215,8 @@ abstract class EPPager extends \TablePager {
 	}
 
 	/**
-	 * Returns whether the pager has multiple item actions and therefore should show the multiple items control.
+	 * Returns whether the pager has multiple item actions and therefore should show
+	 * the multiple items control.
 	 *
 	 * @since 0.1
 	 *
@@ -330,7 +334,8 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param boolean $hideWhenNoResults When true, there are no results, and no filters are applied, an empty string is returned.
+	 * @param boolean $hideWhenNoResults When true, there are no results,
+	 *  and no filters are applied, an empty string is returned.
 	 *
 	 * @return string
 	 */
@@ -407,11 +412,15 @@ abstract class EPPager extends \TablePager {
 		return
 				'<fieldset>' .
 				'<legend>' . $this->msg( 'ep-pager-showonly' )->escaped() . '</legend>' .
-				'<form method="post" action="' . htmlspecialchars( wfAppendQuery( $GLOBALS['wgScript'], [ 'title' => $title ] ) ) . '">' .
+				'<form method="post" action="' .
+					htmlspecialchars( wfAppendQuery( $GLOBALS['wgScript'], [ 'title' => $title ] ) )
+					. '">' .
 					Html::hidden( 'title', $title ) .
 					implode( '', $controls ) .
-					'&#160;<input type="submit" class="ep-pager-go" value="' . $this->msg( 'ep-pager-go' )->escaped() . '">' .
-					'&#160;<button class="ep-pager-clear">' . $this->msg( 'ep-pager-clear' )->escaped() . '</button>' .
+					'&#160;<input type="submit" class="ep-pager-go" value="' .
+					$this->msg( 'ep-pager-go' )->escaped() . '">' .
+					'&#160;<button class="ep-pager-clear">' .
+					$this->msg( 'ep-pager-clear' )->escaped() . '</button>' .
 				'</form>' .
 			'</fieldset>';
 	}
@@ -435,12 +444,18 @@ abstract class EPPager extends \TablePager {
 				$optionData['value'] = $req->getVal( $this->filterPrefix . $optionName );
 
 				if ( array_key_exists( $optionName, $_POST ) ) {
-					$req->setSessionData( $this->getNameForSession( $optionName ), $optionData['value'] );
+					$req->setSessionData(
+						$this->getNameForSession( $optionName ), $optionData['value']
+					);
 				}
 
 				$changed = true;
-			} elseif ( !is_null( $req->getSessionData( $this->getNameForSession( $optionName ) ) ) ) {
-				$optionData['value'] = $req->getSessionData( $this->getNameForSession( $optionName ) );
+			} elseif (
+				!is_null( $req->getSessionData( $this->getNameForSession( $optionName ) ) )
+			) {
+				$optionData['value'] = $req->getSessionData(
+					$this->getNameForSession( $optionName )
+				);
 				$changed = true;
 			}
 		}
@@ -469,7 +484,9 @@ abstract class EPPager extends \TablePager {
 	 * @return string
 	 */
 	protected function getMsg( $messageKey ) {
-		return $this->msg( str_replace( 'educationprogram\\', 'ep', strtolower( $this->table->getRowClass() ) ) . 'pager-' . str_replace( '_', '-', $messageKey ) )->text();
+		return $this->msg(
+			str_replace( 'educationprogram\\', 'ep', strtolower( $this->table->getRowClass() )
+		) . 'pager-' . str_replace( '_', '-', $messageKey ) )->text();
 	}
 
 	/**
@@ -580,10 +597,11 @@ abstract class EPPager extends \TablePager {
 						$alt = $this->msg( 'ascending_abbrev' )->escaped();
 					}
 
-					$image = htmlspecialchars( "$wgExtensionAssetsPath/EducationProgram/images/$image" );
+					$image = htmlspecialchars(
+						"$wgExtensionAssetsPath/EducationProgram/images/$image" );
 					$link = $this->makeLink(
-								"<img width=\"12\" height=\"12\" alt=\"$alt\" src=\"$image\" />" .
-					htmlspecialchars( $name ), $query );
+						"<img width=\"12\" height=\"12\" alt=\"$alt\" src=\"$image\" />" .
+						htmlspecialchars( $name ), $query );
 					$s .= "<th class=\"$sortClass\">$link</th>\n";
 				} else {
 					$s .= '<th>' . $this->makeLink( htmlspecialchars( $name ), $query ) . "</th>\n";

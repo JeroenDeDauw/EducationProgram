@@ -138,7 +138,9 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	 * @param boolean $collapsed
 	 * @param array $summaryData
 	 */
-	protected function displaySummary( IORMRow $item, $collapsed = false, array $summaryData = null ) {
+	protected function displaySummary(
+		IORMRow $item, $collapsed = false, array $summaryData = null
+	) {
 		$this->getOutput()->addHTML( $item, $collapsed, $summaryData );
 	}
 
@@ -164,7 +166,9 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 
 		$html .= Html::openElement( 'table', [ 'class' => $class ] );
 
-		$html .= '<tr>' . Html::element( 'th', [ 'colspan' => 2 ], $this->msg( 'ep-item-summary' )->text() ) . '</tr>';
+		$html .= '<tr>' .
+			Html::element( 'th', [ 'colspan' => 2 ], $this->msg( 'ep-item-summary' )->text() ) .
+			'</tr>';
 
 		$summaryData = is_null( $summaryData ) ? $this->getSummaryData( $item ) : $summaryData;
 
@@ -174,7 +178,8 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 			$html .= Html::element(
 				'th',
 				[ 'class' => 'ep-summary-name' ],
-				$this->msg( str_replace( 'educationprogram\\', '', strtolower( get_called_class() ) ) . '-summary-' . $stat )->text()
+				$this->msg( str_replace( 'educationprogram\\', '', strtolower( get_called_class() ) )
+					. '-summary-' . $stat )->text()
 			);
 
 			$html .= Html::rawElement(

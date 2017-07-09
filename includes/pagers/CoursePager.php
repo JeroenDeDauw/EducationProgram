@@ -38,7 +38,9 @@ class CoursePager extends EPPager {
 	 * @param array $conds
 	 * @param boolean $readOnlyMode
 	 */
-	public function __construct( IContextSource $context, array $conds = [], $readOnlyMode = false ) {
+	public function __construct(
+		IContextSource $context, array $conds = [], $readOnlyMode = false
+	) {
 		$this->readOnlyMode = $readOnlyMode;
 		parent::__construct( $context, $conds, Courses::singleton() );
 	}
@@ -66,7 +68,12 @@ class CoursePager extends EPPager {
 	 *
 	 * @return string
 	 */
-	public static function getPager( IContextSource $context, array $conditions = [], $readOnlyMode = false, $filterPrefix = false ) {
+	public static function getPager(
+		IContextSource $context,
+		array $conditions = [],
+		$readOnlyMode = false,
+		$filterPrefix = false
+	) {
 		$pager = new static( $context, $conditions, $readOnlyMode );
 
 		if ( $filterPrefix !== false ) {
@@ -157,7 +164,8 @@ class CoursePager extends EPPager {
 				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
 				break;
 			case '_status':
-				$value = htmlspecialchars( Course::getStatusMessage( $this->currentObject->getStatus() ) );
+				$value = htmlspecialchars( Course::getStatusMessage(
+					$this->currentObject->getStatus() ) );
 				break;
 			case 'student_count':
 				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );

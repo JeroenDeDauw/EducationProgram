@@ -126,7 +126,8 @@ class SpecialManageCourses extends VerySpecialPage {
 				$isAllowed = true;
 				break;
 			case 'EducationProgram\Instructor':
-				$isAllowed = $user->isAllowed( 'ep-beinstructor' ) || $user->isAllowed( 'ep-instructor' );
+				$isAllowed = $user->isAllowed( 'ep-beinstructor' ) ||
+					$user->isAllowed( 'ep-instructor' );
 				break;
 			case 'EducationProgram\OA':
 				$isAllowed = $user->isAllowed( 'ep-beonline' ) || $user->isAllowed( 'ep-online' );
@@ -159,7 +160,8 @@ class SpecialManageCourses extends VerySpecialPage {
 			// Give grep a chance to find the usages:
 			// ep-mycourses-nocourses-epstudent, ep-mycourses-nocourses-epca,
 			// ep-mycourses-nocourses-epoa, ep-mycourses-nocourses-epinstructor
-			$this->getOutput()->addWikiMsg( 'ep-mycourses-nocourses-' . $classNameForMessage, $this->getUser()->getName() );
+			$this->getOutput()->addWikiMsg( 'ep-mycourses-nocourses-' . $classNameForMessage,
+				$this->getUser()->getName() );
 		}
 	}
 

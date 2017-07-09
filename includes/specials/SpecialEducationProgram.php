@@ -66,7 +66,8 @@ class SpecialEducationProgram extends VerySpecialPage {
 			$html .=  Html::rawElement(
 				'th',
 				[ 'class' => 'ep-summary-name' ],
-				$this->msg( str_replace( 'educationprogram\\', 'ep-', strtolower( get_called_class() ) ) . '-summary-' . $stat )->parse()
+				$this->msg( str_replace( 'educationprogram\\', 'ep-', strtolower( get_called_class() ) )
+					. '-summary-' . $stat )->parse()
 			);
 
 			$html .=  Html::rawElement(
@@ -88,15 +89,20 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 		$data['org-count'] = Orgs::singleton()->count();
 		$data['course-count'] = Courses::singleton()->count();
-		$data['active-course-count'] = Courses::singleton()->count( Courses::getStatusConds( 'current' ) );
+		$data['active-course-count'] =
+			Courses::singleton()->count( Courses::getStatusConds( 'current' ) );
 
 		$data['student-count'] = $this->getRoleCount( EP_STUDENT );
 
-		$studentLists = array_map( 'unserialize', Courses::singleton()->selectFields( 'students', Courses::getStatusConds( 'current' ) ) );
-		$data['current-student-count'] = empty( $studentLists ) ? 0 : count( array_unique( call_user_func_array(
-			'array_merge',
-			$studentLists
-		) ) );
+		$studentLists = array_map( 'unserialize',
+			Courses::singleton()->selectFields( 'students', Courses::getStatusConds( 'current' ) )
+		);
+		$data['current-student-count'] = empty( $studentLists )
+			? 0
+			: count( array_unique( call_user_func_array(
+				'array_merge',
+				$studentLists
+			) ) );
 
 		$data['instructor-count'] = $this->getRoleCount( EP_INSTRUCTOR );
 		$data['oa-count'] = $this->getRoleCount( EP_OA );
@@ -274,7 +280,9 @@ class SpecialEducationProgram extends VerySpecialPage {
 			}
 
 			// FIXME: use new ArticleStore
-			$pageIds = Extension::globalInstance()->newArticleTable()->selectFields( 'page_id', [ 'course_id' => $courseIds ], [ 'DISTINCT' ] );
+			$pageIds = Extension::globalInstance()->newArticleTable()->selectFields(
+				'page_id', [ 'course_id' => $courseIds ], [ 'DISTINCT' ]
+			);
 			$pageIds = array_unique( $pageIds );
 
 			$students = array_unique( $students );
@@ -313,7 +321,9 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return array
 	 */
 	protected function getByGender( array $students, array $oas, array $cas, array $instructors ) {
-		$genders = $this->getGenders( array_unique( array_merge( $students, $oas, $cas, $instructors ) ) );
+		$genders = $this->getGenders(
+			array_unique( array_merge( $students, $oas, $cas, $instructors ) )
+		);
 
 		$result = [
 			'students' => $this->getGenderDistribution( $students, $genders ),

@@ -61,7 +61,9 @@ class ArticleAdder {
 	 *
 	 * @return boolean Indicates if the article was actually added. False means it already existed.
 	 */
-	public function addArticle( $actionUser, $courseId, $userId, $pageId, $pageTitle, $reviewers = [] ) {
+	public function addArticle(
+		$actionUser, $courseId, $userId, $pageId, $pageTitle, $reviewers = []
+	) {
 		$articleExists = $this->articleStore->hasArticleWith(
 			$courseId,
 			$userId,
