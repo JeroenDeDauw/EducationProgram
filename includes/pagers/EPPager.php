@@ -88,7 +88,7 @@ abstract class EPPager extends \TablePager {
 		// Check the specific pager type for whether
 		// to hide this particular row.
 		if ( $this->hideRowCheck() ) {
-			return;
+			return '';
 		}
 
 		foreach ( $this->getFieldNames() as $field => $name ) {

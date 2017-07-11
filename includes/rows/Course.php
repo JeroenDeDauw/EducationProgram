@@ -3,6 +3,7 @@
 namespace EducationProgram;
 
 use IContextSource;
+use InvalidArgumentException;
 use Xml;
 use Html;
 use Exception;
@@ -695,6 +696,7 @@ class Course extends PageObject {
 	 *
 	 * @param string $role
 	 *
+	 * @throws InvalidArgumentException
 	 * @return string
 	 */
 	public function getAddNotificationKey( $role ) {
@@ -712,6 +714,8 @@ class Course extends PageObject {
 				return 'ep-student-add-notification';
 				break;
 		}
+
+		throw new InvalidArgumentException( "Unknown role \"$role\"" );
 	}
 
 	/**

@@ -25,6 +25,11 @@ use Exception;
 abstract class EducationPage extends ContextSource implements \Page {
 
 	/**
+	 * @var string[]
+	 */
+	protected static $info = [];
+
+	/**
 	 * Returns a list of actions this page can handle.
 	 * Array keys are action names, their values are the names of the handling Action classes.
 	 *
