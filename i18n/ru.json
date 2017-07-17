@@ -23,7 +23,8 @@
 			"Iniquity",
 			"Gamliel Fishkin",
 			"Facenapalm",
-			"Av6"
+			"Av6",
+			"ToJack"
 		]
 	},
 	"educationprogram-desc": "Способствует образовательным программам путем добавления различных интерфейсов управления курсами, учреждениями и различными ролями пользователей.",
@@ -179,7 +180,7 @@
 	"special-campusambassador": "Доброволец кампуса",
 	"special-disenroll": "Выйти",
 	"special-studentactivity": "Деятельность студентов",
-	"special-articles": "Статьи (образовательная программа)",
+	"special-articles": "Мақолаҳо (барномаи таълимӣ)",
 	"ep-course-status-passed": "Завершено",
 	"ep-course-status-current": "Текущее",
 	"ep-course-status-planned": "Запланированные",
