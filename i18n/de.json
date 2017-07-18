@@ -714,6 +714,7 @@
 	"apihelp-addstudents-param-courseid": "Die Kennung des Kurses, zu dem die Studenten hinzugefügt/entfernt werden sollen.",
 	"apihelp-addstudents-example-1": "Drei Studenten zu einem Kurs hinzufügen",
 	"apihelp-deleteeducation-description": "Bildungsprogrammobjekte löschen.",
+	"apihelp-deleteeducation-summary": "Löscht Objekte des Bildungsprogramms.",
 	"apihelp-deleteeducation-param-ids": "Die Kennungen der zu löschender Objekte.",
 	"apihelp-deleteeducation-param-type": "Zu löschender Objekttyp.",
 	"apihelp-deleteeducation-param-comment": "Grund für diese Löschung, für das Logbuch.",
