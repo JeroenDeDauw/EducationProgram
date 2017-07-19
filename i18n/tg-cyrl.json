@@ -5,5 +5,12 @@
 		]
 	},
 	"special-educationprogram": "Барномаи таълимӣ",
+	"epstudentpager-header-user-id": "Номи корбар",
+	"epcapager-header-user-id": "Номи корбар",
+	"epoapager-header-user-id": "Номи корбарӣ",
+	"specialstudent-summary-user": "Номи корбар",
+	"ep-instructor-name-input": "Номи корбарӣ:",
+	"ep-online-name-input": "Номи корбарӣ:",
+	"ep-campus-name-input": "Номи корбар:",
 	"echo-category-title-education-program": "Барномаи таълимӣ"
 }
