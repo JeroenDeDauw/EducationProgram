@@ -14,7 +14,8 @@
 			"محمد أحمد عبد الفتاح",
 			"Hiba Alshawi",
 			"Maroen1990",
-			"ديفيد"
+			"ديفيد",
+			"علاء"
 		]
 	},
 	"educationprogram-desc": "وتساعد البرامج التعليمية عن طريق إضافات واجهات عديدة لإدارة المناهج والمؤسسات وأدوار المستفيدين من العملية التعليمية.",
@@ -139,7 +140,7 @@
 	"action-ep-bulkdelcourses": "إزالة مقررات بالجملة",
 	"action-ep-remarticle": "سحب مقالات من طلاب",
 	"action-ep-addstudent": "ضم مستخدمين بصفة طالب مشارك",
-	"group-epcoordinator": "منسقي المناهج",
+	"group-epcoordinator": "منسقو المناهج",
 	"group-epcoordinator-member": "{{GENDER:$1|منسق المقرر|منسقة المقرر|منسق المقرر}}",
 	"grouppage-epcoordinator": "{{ns:project}}:منسقو المقرر",
 	"group-eponline": "سفراء وب لمنهج دراسي",
