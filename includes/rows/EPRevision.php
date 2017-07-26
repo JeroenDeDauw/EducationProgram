@@ -126,7 +126,7 @@ class EPRevision extends ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isLatest() {
 		return !$this->table->has( [

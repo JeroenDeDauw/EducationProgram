@@ -52,7 +52,7 @@ class OrgDeletionHelper {
 	 * Note: queries performed here should be optimized/use only summary data,
 	 * as this method may be called by OrgPager once per row displayed.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function checkRestrictions() {
 		if ( $this->deletionCheck === OrgDelCheck::NOT_CHECKED ) {

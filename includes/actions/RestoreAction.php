@@ -120,7 +120,7 @@ class RestoreAction extends Action {
 	 * @param PageObject $object
 	 * @param EPRevision $revision
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	protected function doRestore( PageObject $object, EPRevision $revision ) {
 		$success = $object->restoreToRevision( $revision );

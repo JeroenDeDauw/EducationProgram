@@ -98,7 +98,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @param RevisionedObject $object
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	protected function storeRevision( RevisionedObject $object ) {
 		if ( $this->storeRevisions && $this->revAction !== false ) {
@@ -176,7 +176,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *  When set to true, summary field changes are ignored.
 	 *  Can also be an array of fields to ignore.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function fieldsChanged( IORMRow $object, $excludeSummaryFields = false ) {
 		$exclusionFields = [];
@@ -258,7 +258,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @param RevisionAction $revAction
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	public function revisionedSave( RevisionAction $revAction ) {
 		$this->setRevisionAction( $revAction );
@@ -275,7 +275,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @param RevisionAction $revAction
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	public function revisionedRemove( RevisionAction $revAction ) {
 		$this->setRevisionAction( $revAction );
@@ -376,7 +376,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @param RevisionAction $revAction
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	public function undelete( RevisionAction $revAction ) {
 		$this->setRevisionAction( $revAction );
@@ -402,7 +402,7 @@ abstract class RevisionedObject extends ORMRow {
 	 * @param EPRevision $revision
 	 * @param array|null $fields
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	public function restoreToRevision( EPRevision $revision, array $fields = null ) {
 		$diff = $this->getRestoreDiff( $revision, $fields );
@@ -463,7 +463,7 @@ abstract class RevisionedObject extends ORMRow {
 	 * @param EPRevision $revision
 	 * @param array|null $fields
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	public function undoRevision( EPRevision $revision, array $fields = null ) {
 		$diff = $this->getUndoDiff( $revision, $fields );
@@ -516,7 +516,7 @@ abstract class RevisionedObject extends ORMRow {
 	 * @param integer $revId
 	 * @param array|null $fields
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	public function restoreToRevisionId( $revId, array $fields = null ) {
 		$revision = $this->getRevisionById( $revId );
@@ -531,7 +531,7 @@ abstract class RevisionedObject extends ORMRow {
 	 * @param integer $revId
 	 * @param array|null $fields
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	public function undoRevisionId( $revId, array $fields = null ) {
 		$revision = $this->getRevisionById( $revId );

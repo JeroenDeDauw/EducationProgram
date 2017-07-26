@@ -21,7 +21,7 @@ class CourseTalkNotification implements INotificationType {
 	 * @see EducationProgram.INotificationType::getKey()
 	 */
 	public function getKey() {
-		return CourseTalkNotification::KEY;
+		return self::KEY;
 	}
 
 	/**
@@ -87,7 +87,7 @@ class CourseTalkNotification implements INotificationType {
 		}
 
 		$eventParams = [
-			'type' => CourseTalkNotification::KEY,
+			'type' => self::KEY,
 			'title' => $title,
 			'agent' => $params['agent'],
 		];

@@ -127,7 +127,7 @@ class Event {
 	 *
 	 * @since 0.3
 	 *
-	 * @return integer
+	 * @return int
 	 */
 	public function getAge() {
 		return time() - (int)wfTimestamp( TS_UNIX, $this->time );

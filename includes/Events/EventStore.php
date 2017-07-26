@@ -156,7 +156,7 @@ class EventStore {
 	 *
 	 * @param Event $event
 	 *
-	 * @return boolean SuccessIndicator
+	 * @return bool SuccessIndicator
 	 * @throws InvalidArgumentException
 	 */
 	public function insertEvent( Event $event ) {

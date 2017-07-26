@@ -79,7 +79,7 @@ class CourseUndeletionHelper {
 	/**
 	 * Determine whether or not the course can be undeleted.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function checkRestrictions() {
 		// Is the user allowed to edit this page?

@@ -107,7 +107,7 @@ class ApiDeleteEducation extends ApiBase {
 	 * @param string $type
 	 * @param array $params
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function userIsAllowed( $type, array $params ) {
 		return $this->getUser()->isAllowed( 'ep-' . $type );

@@ -136,7 +136,7 @@ class UserRolesMessage {
 	 * Note: you must call prepare() before calling this method. Unless you know
 	 * that the user has roles, call this method before calling output().
 	 *
-	 * @return boolean true if the user has roles, false if not
+	 * @return bool true if the user has roles, false if not
 	 */
 	public function userHasRoles() {
 		return ( count( $this->rolesAndCourses ) > 0 );

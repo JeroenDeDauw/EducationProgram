@@ -121,7 +121,7 @@ class UndeleteAction extends Action {
 	 *
 	 * @param EPRevision $revision The latest revision of the object to undelete
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function checkAndHandleRestrictions( $revision ) {
 		// only worrying about restrictions for courses, specifically
@@ -150,7 +150,7 @@ class UndeleteAction extends Action {
 	 *
 	 * @param EPRevision $revision
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	protected function doUndelete( EPRevision $revision ) {
 		$revAction = new RevisionAction();

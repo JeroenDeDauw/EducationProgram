@@ -239,7 +239,7 @@ class SpecialEnroll extends VerySpecialPage {
 	 *
 	 * @param Course $course
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	protected function doEnroll( Course $course ) {
 		$revAction = new RevisionAction();

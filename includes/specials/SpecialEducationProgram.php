@@ -125,7 +125,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 *
 	 * @param integer $roleId
 	 *
-	 * @return integer
+	 * @return int
 	 */
 	protected function getRoleCount( $roleId ) {
 		$dbr = wfGetDB( DB_SLAVE );

@@ -47,7 +47,7 @@ class NotificationsManager {
 	 * @return string
 	 */
 	public function getCategoryKey() {
-		return NotificationsManager::CATEGORY;
+		return self::CATEGORY;
 	}
 
 	/**
@@ -82,7 +82,7 @@ class NotificationsManager {
 		array &$icons
 	) {
 		// register the category
-		$notificationCategories[NotificationsManager::CATEGORY] = [
+		$notificationCategories[self::CATEGORY] = [
 			'tooltip' => 'ep-echo-pref-tooltip',
 		];
 
@@ -93,7 +93,7 @@ class NotificationsManager {
 			$notifications[$typeKey] = array_merge(
 				$params,
 				[
-					'category' => NotificationsManager::CATEGORY,
+					'category' => self::CATEGORY,
 				]
 			);
 

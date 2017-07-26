@@ -121,7 +121,7 @@ class ApiEnlist extends ApiBase {
 	 * @param string $role
 	 * @param string $subAction
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function userIsAllowed( $userId, $role, $subAction ) {
 		$user = $this->getUser();

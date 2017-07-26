@@ -63,7 +63,7 @@ class ArticleStore {
 	 *
 	 * @param int|null $articleId
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasArticle( $articleId ) {
 		if ( is_null( $articleId ) ) {
@@ -135,7 +135,7 @@ class ArticleStore {
 	 *
 	 * @param EPArticle $article
 	 *
-	 * @return boolean
+	 * @return bool
 	 * @throws InvalidArgumentException
 	 */
 	public function updateArticle( EPArticle $article ) {
@@ -237,7 +237,7 @@ class ArticleStore {
 	 *
 	 * @param int $articleId
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	public function deleteArticle( $articleId ) {
 		return $this->getWriteConnection()->delete(
@@ -258,7 +258,7 @@ class ArticleStore {
 	 * @param int $userId
 	 * @param int $pageId
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasArticleWith( $courseId, $userId, $pageId ) {
 		return $this->getReadConnection()->selectRow(
@@ -281,7 +281,7 @@ class ArticleStore {
 	 * @param int[]|int $courseIds
 	 * @param int[]|int $userIds
 	 *
-	 * @return boolean
+	 * @return bool
 	 * @throws InvalidArgumentException
 	 */
 	public function deleteArticleByCourseAndUsers( $courseIds, $userIds ) {

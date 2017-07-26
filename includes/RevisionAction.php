@@ -26,7 +26,7 @@ class RevisionAction {
 
 	/**
 	 * @since 0.1
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isMinor() {
 		return $this->isMinor;
@@ -34,7 +34,7 @@ class RevisionAction {
 
 	/**
 	 * @since 0.1
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isDelete() {
 		return $this->isDelete;

@@ -220,7 +220,7 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @since 0.1
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function hasMultipleItemControl() {
 		return count( $this->getMultipleItemActions() ) > 0;
@@ -231,7 +231,7 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @since 0.1
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function hasActionsColumn() {
 		return true;
@@ -433,7 +433,7 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @param array $filterOptions
 	 *
-	 * @return boolean If anything was changed from the default
+	 * @return bool If anything was changed from the default
 	 */
 	protected function addFilterValues( array &$filterOptions ) {
 		$req = $this->getRequest();

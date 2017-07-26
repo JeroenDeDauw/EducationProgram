@@ -120,7 +120,7 @@ class UndoAction extends Action {
 	 * @param PageObject $object
 	 * @param EPRevision $revision
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	protected function doUndo( PageObject $object, EPRevision $revision ) {
 		$success = $object->undoRevision( $revision );
