@@ -714,6 +714,11 @@
 	"ep-course-talk-link-text-view-message": "Ver mensagem",
 	"ep-course-talk-link-text-view-changes": "Ver mudanças",
 	"ep-role-add-link-text-view-course": "Ver curso",
+	"notification-header-ep-campus-add-notification": "Você foi {{GENDER: $2|adicionado como voluntário|adicionada como voluntária}} do campus para '''$3'''.",
+	"notification-header-ep-course-talk-notification": "A página de discussão do curso '''$3''' foi {{GENDER: $2|editada}}.",
+	"notification-header-ep-instructor-add-notification": "Você foi {{GENDER: $2|adicionado como instrutor|adicionada como instrutora}} para '''$3'''.",
+	"notification-header-ep-online-add-notification": "Você foi {{GENDER: $2|adicionado como voluntário|adicionada como voluntária}} online para '''$3'''.",
+	"notification-header-ep-student-add-notification": "Você foi {{GENDER: $2|adicionado|adicionada}} para '''$3'''.",
 	"apihelp-addstudents-description": "Adicionar vários alunos para um curso.",
 	"apihelp-addstudents-summary": "Adicionar vários alunos para um curso.",
 	"apihelp-addstudents-param-studentusernames": "Os nomes de usuários dos alunos para adicionar ao curso.",
@@ -753,5 +758,6 @@
 	"apihelp-refresheducation-param-ids": "Os IDs dos objetos para atualizar.",
 	"apihelp-refresheducation-param-type": "Tipo de objeto a ser atualizado.",
 	"apihelp-refresheducation-example-1": "Atualizar curso 42",
-	"apihelp-refresheducation-example-2": "Atualizar alunos 2 e 4"
+	"apihelp-refresheducation-example-2": "Atualizar alunos 2 e 4",
+	"apierror-educationprogram-overlimit": "A consulta excedeu o limite com o curso $1. Tente novamente com menos cursos."
 }

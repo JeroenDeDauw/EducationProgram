@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Anakmalaysia"
+			"Anakmalaysia",
+			"Jeluang Terluang"
 		]
 	},
 	"educationprogram-desc": "Memudahkan program-program pendidikan dengan menyediakan pelbagai antaramuka untuk mengurus kursus, institusi serta pelbagai peranan pengguna dalam pendidikan.",
@@ -527,7 +528,7 @@
 	"ep-mycourses-nocourses-epinstructor": "Anda belum menjadi {{GENDER:$1|pengajar}} untuk sebarang kursus.",
 	"ep-mycourses-enrolledin": "Anda kini berdaftar dalam kursus $1 di institusi $2.",
 	"ep-mycourses-course-org-links": "Kursus $1 di institusi $2.",
-	"ep-mycourses-articletable": "Yang berikut adalah rencana-rencana yang sedang anda usahakan serta pengulas-pengulasnya:",
+	"ep-mycourses-articletable": "Yang berikut ialah rencana-rencana yang sedang anda usahakan serta pengulas-pengulasnya:",
 	"ep-instructor-remove-title": "Gugurkan pengajar dari kursus",
 	"ep-instructor-remove-button": "Gugurkan pengajar",
 	"ep-instructor-removing": "Sedang menggugurkan...",
