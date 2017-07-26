@@ -253,10 +253,10 @@ class Utils {
 	 *
 	 * @param string|Title $title
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public static function isCourse( $title ) {
-		return strpos( Utils::getStrFromTitleOrStr( $title ), '/' )
+		return strpos( self::getStrFromTitleOrStr( $title ), '/' )
 			!== false;
 	}
 
@@ -273,7 +273,7 @@ class Utils {
 	 */
 	public static function parseCourseTitle( $title ) {
 		preg_match( '/^.*:(.*)\/(.*) \((.*)\)$/',
-			Utils::getStrFromTitleOrStr( $title ),
+			self::getStrFromTitleOrStr( $title ),
 			$matches );
 
 		return [
@@ -291,10 +291,10 @@ class Utils {
 	 * @since 0.4 alpha
 	 *
 	 * @param string|Title $title
-	 * @return boolean
+	 * @return bool
 	 */
 	public static function isCourseSubPage( $title ) {
-		return substr_count( Utils::getStrFromTitleOrStr( $title ), '/' )
+		return substr_count( self::getStrFromTitleOrStr( $title ), '/' )
 			> 1;
 	}
 

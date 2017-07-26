@@ -38,7 +38,7 @@ class RevisionDiff {
 		$sourceObject = $revision->getObject();
 		$fields = is_null( $fields ) ? $sourceObject->getFieldNames() : $fields;
 
-		$changedFields = RevisionDiff::compareFields(
+		$changedFields = self::compareFields(
 			$sourceObject,
 			$targetObject,
 			$fields
@@ -55,7 +55,7 @@ class RevisionDiff {
 		$targetObject = $revision->getObject();
 		$fields = is_null( $fields ) ? $targetObject->getFieldNames() : $fields;
 
-		$changedFields = RevisionDiff::compareFields(
+		$changedFields = self::compareFields(
 			$sourceObject,
 			$targetObject,
 			$fields );

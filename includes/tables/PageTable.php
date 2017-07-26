@@ -74,7 +74,7 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @param string $identifier
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasIdentifier( $identifier ) {
 		return $this->has( [ $this->getIdentifierField() => $identifier ] );
@@ -119,7 +119,7 @@ abstract class PageTable extends ORMTable {
 	 * @param RevisionAction $revAction
 	 * @param array $conditions
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function deleteAndLog( RevisionAction $revAction, array $conditions ) {
 		$objects = $this->select(

@@ -166,7 +166,7 @@ class Orgs extends PageTable {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function getReadMasterForSummaries() {
 		return $this->read_master_for_summaries;

@@ -111,7 +111,7 @@ class DeleteAction extends Action {
 	 * @param PageObject $pageObj The object (so far, Org or Course) to be
 	 *   deleted.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function checkAndHandleRestrictions( $pageObj ) {
 		return true;
@@ -124,7 +124,7 @@ class DeleteAction extends Action {
 	 *
 	 * @param PageObject $object
 	 *
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	protected function doDelete( PageObject $object ) {
 		$revAction = new RevisionAction();

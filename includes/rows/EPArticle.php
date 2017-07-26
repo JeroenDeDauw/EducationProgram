@@ -168,7 +168,7 @@ class EPArticle {
 	 *
 	 * @param User $user
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function canBecomeReviewer( User $user ) {
 		if ( !array_key_exists( $user->getId(), $this->canBecomeReviwer ) ) {
@@ -329,7 +329,7 @@ class EPArticle {
 	 *
 	 * @param User $user
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function userCanRemove( User $user ) {
 		return $user->isAllowed( 'ep-remarticle' ) || $user->getId() === $this->getUserId();

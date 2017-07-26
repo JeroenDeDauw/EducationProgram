@@ -224,7 +224,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 *
 	 * @param array $conditions
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasCourse( array $conditions = [] ) {
 		$courseTable = Courses::singleton();
@@ -335,7 +335,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 *
 	 * @param int $userId
 	 * @param RoleObject $roleObjectArray
-	 * @return boolean
+	 * @return bool
 	 */
 	public static function isInRoleObjArray( $userId, $roleObjectArray ) {
 		foreach ( $roleObjectArray as $roleObject ) {

@@ -55,7 +55,7 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	 *
 	 * @param string|null $subPage
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function execute( $subPage ) {
 		$this->cacheEnabled = Settings::get( 'enablePageCache' );

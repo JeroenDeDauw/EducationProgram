@@ -170,7 +170,7 @@ abstract class EditAction extends Action {
 	 *
 	 * @since 0.1
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function isNew() {
 		if ( is_null( $this->isNew ) ) {

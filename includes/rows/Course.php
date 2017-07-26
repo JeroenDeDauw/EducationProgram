@@ -482,7 +482,7 @@ class Course extends PageObject {
 	 */
 	public static function getAddNewRegion( IContextSource $context, array $args = [] ) {
 		if ( Orgs::singleton()->has() ) {
-			return Course::getAddNewControl( $context, $args );
+			return self::getAddNewControl( $context, $args );
 		} else {
 			return $context->msg( 'ep-courses-addorgfirst' )->parse();
 		}
@@ -493,7 +493,7 @@ class Course extends PageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @return integer
+	 * @return int
 	 */
 	public function getDaysLeft() {
 		$timeLeft = (int)wfTimestamp( TS_UNIX, $this->getField( 'end' ) ) - time();
@@ -507,7 +507,7 @@ class Course extends PageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @return integer
+	 * @return int
 	 */
 	public function getDaysPassed() {
 		$daysPassed = time() - (int)wfTimestamp( TS_UNIX, $this->getField( 'start' ) );

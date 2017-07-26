@@ -26,7 +26,7 @@ class DeleteOrgAction extends DeleteAction {
 	 *
 	 * @param Org $org The Org to be deleted.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function checkAndHandleRestrictions( $org ) {
 		$deletionHelper = new OrgDeletionHelper( $org, $this->context );

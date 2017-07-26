@@ -22,7 +22,7 @@ class InstructorAddNotification extends RoleAddNotification {
 	 * @see EducationProgram.INotificationType::getKey()
 	 */
 	public function getKey() {
-		return InstructorAddNotification::KEY;
+		return self::KEY;
 	}
 
 }

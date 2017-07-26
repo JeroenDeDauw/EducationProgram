@@ -156,7 +156,7 @@ class Org extends PageObject {
 	 * @param string|null $functionName
 	 *
 	 * @throws ErrorPageErrorWithSelflink
-	 * @return boolean Success indicator
+	 * @return bool Success indicator
 	 */
 	public function save( $functionName = null ) {
 		wfGetDB( DB_MASTER )->startAtomic( __METHOD__ );
@@ -298,7 +298,7 @@ class Org extends PageObject {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isActive() {
 		return $this->getField( 'last_active_date' ) > wfTimestampNow();

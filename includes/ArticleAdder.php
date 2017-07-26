@@ -59,7 +59,7 @@ class ArticleAdder {
 	 * @param string $pageTitle
 	 * @param int[] $reviewers Ids of the users that are reviewers for this article
 	 *
-	 * @return boolean Indicates if the article was actually added. False means it already existed.
+	 * @return bool Indicates if the article was actually added. False means it already existed.
 	 */
 	public function addArticle(
 		$actionUser, $courseId, $userId, $pageId, $pageTitle, $reviewers = []

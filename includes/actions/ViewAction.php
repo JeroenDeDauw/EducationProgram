@@ -60,7 +60,7 @@ abstract class ViewAction extends Action {
 	 *
 	 * @since 0.2
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function requiresUnblock() {
 		return false;

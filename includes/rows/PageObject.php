@@ -110,7 +110,7 @@ abstract class PageObject extends RevisionedObject {
 	/**
 	 * @since 0.2
 	 *
-	 * @return integer
+	 * @return int
 	 */
 	public function getTouched() {
 		return $this->getField( 'touched' );

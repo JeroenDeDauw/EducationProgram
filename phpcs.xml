@@ -10,6 +10,7 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
 		<exclude name="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals" />
+		<exclude name="MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 		<exclude name="Generic.CodeAnalysis.ForLoopWithTestFunctionCall.NotAllowed" />
 	</rule>
@@ -19,11 +20,9 @@
 		</properties>
 	</rule>
 	<rule ref="Generic.Files.LineLength">
-		<exclude-pattern>EducationProgram.i18n.*.php</exclude-pattern>
+		<exclude-pattern>EducationProgram\.i18n\.*\.php</exclude-pattern>
 	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc" />
 	<arg name="encoding" value="UTF-8" />
-	<exclude-pattern>vendor</exclude-pattern>
-	<exclude-pattern>node_modules</exclude-pattern>
 </ruleset>

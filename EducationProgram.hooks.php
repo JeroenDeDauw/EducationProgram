@@ -405,7 +405,7 @@ final class Hooks {
 	 * @param string $error
 	 * @param string $reason
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public static function onAbortMove(
 		Title $oldTitle, Title $newTitle, User $user, &$error, $reason
