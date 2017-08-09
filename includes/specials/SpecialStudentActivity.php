@@ -66,7 +66,7 @@ class SpecialStudentActivity extends VerySpecialPage {
 	 *
 	 * @param array $conds
 	 *
-	 * @param integer $duration
+	 * @param int $duration
 	 *
 	 * @return string
 	 */
@@ -98,7 +98,7 @@ class SpecialStudentActivity extends VerySpecialPage {
 	 * @since 0.1
 	 *
 	 * @param array $conds
-	 * @param integer $duration
+	 * @param int $duration
 	 *
 	 * @return string
 	 */

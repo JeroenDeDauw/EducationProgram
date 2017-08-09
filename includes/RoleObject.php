@@ -38,8 +38,8 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $userId
-	 * @param boolean $load If the object should be loaded from the db if it already exists
+	 * @param int $userId
+	 * @param bool $load If the object should be loaded from the db if it already exists
 	 * @param null|array|string $fields Fields to load
 	 *
 	 * @return RoleObject
@@ -73,7 +73,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 * @since 0.1
 	 *
 	 * @param User $user
-	 * @param boolean $load If the object should be loaded from the db if it already exists
+	 * @param bool $load If the object should be loaded from the db if it already exists
 	 * @param null|array|string $fields Fields to load
 	 *
 	 * @return RoleObject
@@ -271,7 +271,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 *
 	 * @since 0.1
 	 *
-	 * @return integer, part of EP_ enum.
+	 * @return int Part of EP_ enum.
 	 */
 	protected function getRoleId() {
 		$map = [
@@ -309,7 +309,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 *
 	 * @since 0.3
 	 *
-	 * @param integer $courseId
+	 * @param int $courseId
 	 * @param string $role
 	 */
 	public function onEnrolled( $courseId, $role ) {

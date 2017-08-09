@@ -44,7 +44,7 @@ final class Hooks {
 	}
 
 	/**
-	 * @param \ResourceLoader $resourceLoader
+	 * @param \ResourceLoader &$resourceLoader
 	 */
 	public static function onResourceLoaderRegisterModules( \ResourceLoader &$resourceLoader ) {
 		$extraDependancies = [];
@@ -128,8 +128,8 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $personal_urls
-	 * @param Title $title
+	 * @param array &$personal_urls
+	 * @param Title &$title
 	 */
 	public static function onPersonalUrls( array &$personal_urls, Title &$title ) {
 		if ( Settings::get( 'enableTopLink' ) ) {
@@ -158,7 +158,7 @@ final class Hooks {
 	 * @since 0.1
 	 *
 	 * @param User $user
-	 * @param array $preferences
+	 * @param array &$preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		if ( Settings::get( 'enableTopLink' ) ) {
@@ -192,8 +192,8 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Title $title
-	 * @param \Article|null $article
+	 * @param Title &$title
+	 * @param \Article|null &$article
 	 */
 	public static function onArticleFromTitle( Title &$title, &$article ) {
 		if ( $title->getNamespace() == EP_NS ) {
@@ -207,7 +207,7 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $list
+	 * @param array &$list
 	 */
 	public static function onCanonicalNamespaces( array &$list ) {
 		$list[EP_NS] = 'Education_Program';
@@ -220,8 +220,8 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SkinTemplate $sktemplate
-	 * @param array $links
+	 * @param SkinTemplate &$sktemplate
+	 * @param array &$links
 	 */
 	public static function onPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		self::displayTabs( $sktemplate, $links, $sktemplate->getTitle() );
@@ -233,8 +233,8 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SkinTemplate $sktemplate
-	 * @param array $links
+	 * @param SkinTemplate &$sktemplate
+	 * @param array &$links
 	 */
 	public static function onSpecialPageTabs( SkinTemplate &$sktemplate, array &$links ) {
 		$textParts = \SpecialPageFactory::resolveAlias( $sktemplate->getTitle()->getText() );
@@ -266,8 +266,8 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SkinTemplate $sktemplate
-	 * @param array $links
+	 * @param SkinTemplate &$sktemplate
+	 * @param array &$links
 	 * @param Title $title
 	 */
 	protected static function displayTabs(
@@ -363,7 +363,7 @@ final class Hooks {
 	 * @since 0.1
 	 *
 	 * @param Title $title
-	 * @param boolean|null $isKnown
+	 * @param bool|null &$isKnown
 	 */
 	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
 		if ( $title->getNamespace() == EP_NS ) {
@@ -402,7 +402,7 @@ final class Hooks {
 	 * @param Title $oldTitle
 	 * @param Title $newTitle
 	 * @param User $user
-	 * @param string $error
+	 * @param string &$error
 	 * @param string $reason
 	 *
 	 * @return bool
@@ -425,8 +425,8 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $index
-	 * @param boolean $movable
+	 * @param int $index
+	 * @param bool &$movable
 	 */
 	public static function onNamespaceIsMovable( $index, &$movable ) {
 		if ( in_array( $index, [ EP_NS, EP_NS_TALK ] ) ) {
@@ -442,7 +442,7 @@ final class Hooks {
 	 *
 	 * @param Page $article
 	 * @param Revision $rev
-	 * @param integer $baseID
+	 * @param int $baseID
 	 * @param User $user
 	 */
 	public static function onNewRevisionFromEditComplete(
@@ -502,9 +502,9 @@ final class Hooks {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param array $notifications
-	 * @param array $notificationCategories
-	 * @param array $icons
+	 * @param array &$notifications
+	 * @param array &$notificationCategories
+	 * @param array &$icons
 	 */
 	public static function onBeforeCreateEchoEvent(
 		array &$notifications,
@@ -524,8 +524,8 @@ final class Hooks {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param $event EchoEvent
-	 * @param $users array
+	 * @param EchoEvent $event
+	 * @param array &$users
 	 */
 	public static function onEchoGetDefaultNotifiedUsers(
 		EchoEvent $event,
@@ -592,7 +592,7 @@ final class Hooks {
 	/**
 	 * Let UserMerge know which of our tables need updating
 	 *
-	 * @param array $fields
+	 * @param array &$fields
 	 *
 	 * @since 0.5.0 alpha
 	 */
@@ -614,7 +614,7 @@ final class Hooks {
 	 * If the above tables had unique key conflicts, just delete the conflicting
 	 * rows.
 	 *
-	 * @param array $tables
+	 * @param array &$tables
 	 *
 	 * @since 0.5.0 alpha
 	 */
@@ -630,7 +630,7 @@ final class Hooks {
 	}
 
 	/**
-	 * @param User $oldUser
+	 * @param User &$oldUser
 	 * @param User $newUser
 	 * @return bool
 	 *

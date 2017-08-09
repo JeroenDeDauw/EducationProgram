@@ -98,7 +98,7 @@ class ImportWEPData extends \Maintenance {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $orgs Org names as keys. Values get set to the id after insertion.
+	 * @param array &$orgs Org names as keys. Values get set to the id after insertion.
 	 */
 	protected function insertOrgs( array &$orgs ) {
 		$revAction = new RevisionAction();

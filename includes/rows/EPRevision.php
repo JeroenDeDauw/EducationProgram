@@ -64,8 +64,8 @@ class EPRevision extends ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $revId
-	 * @param integer|null $objectId
+	 * @param int $revId
+	 * @param int|null $objectId
 	 *
 	 * @return RevisionedObject|bool false
 	 */

@@ -105,7 +105,7 @@ class OrgDeletionHelper {
 	 * Create an associative array with info (message key and params) for
 	 * a message explaining why an institution can't be deleted.
 	 *
-	 * @param boolean $plain
+	 * @param bool $plain
 	 *
 	 * @return array
 	 *

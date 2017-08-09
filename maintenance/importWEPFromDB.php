@@ -109,7 +109,7 @@ class ImportWEPFromDB extends \Maintenance {
 	 * Show a message.
 	 *
 	 * @param string $msg
-	 * @param integer $level
+	 * @param int $level
 	 */
 	protected function msg( $msg, $level = 1 ) {
 		if ( $level <= $this->msgLevel ) {
@@ -122,7 +122,7 @@ class ImportWEPFromDB extends \Maintenance {
 	 * Show an error.
 	 *
 	 * @param string $msg
-	 * @param integer $level
+	 * @param int $level
 	 */
 	protected function err( $msg, $level = 1 ) {
 		$this->errors[] = $msg;
@@ -244,7 +244,7 @@ class ImportWEPFromDB extends \Maintenance {
 	/**
 	 * Inset the provided course.
 	 *
-	 * @param integer $currentId
+	 * @param int $currentId
 	 * @param \stdClass $course
 	 * @param string $title
 	 * @param string $term

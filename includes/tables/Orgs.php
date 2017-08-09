@@ -17,7 +17,7 @@ class Orgs extends PageTable {
 	/**
 	 * @since 0.4 alpha
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $read_master_for_summaries = false;
 
@@ -154,7 +154,7 @@ class Orgs extends PageTable {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param boolean $read_master_for_summaries
+	 * @param bool $read_master_for_summaries
 	 */
 	public function setReadMasterForSummaries( $read_master_for_summaries ) {
 		$this->read_master_for_summaries = $read_master_for_summaries;

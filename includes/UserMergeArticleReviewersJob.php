@@ -84,7 +84,7 @@ class UserMergeArticleReviewersJob extends Job {
 	/**
 	 * Usermerge in an array of ids. Returns true if there were changes.
 	 *
-	 * @param int[] $ids
+	 * @param int[] &$ids
 	 * @param int $oldId
 	 * @param int $newId
 	 *

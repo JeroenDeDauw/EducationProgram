@@ -20,7 +20,7 @@ class CoursePager extends EPPager {
 	 * When in read only mode, the pager should not show any course editing controls.
 	 *
 	 * @since 0.1
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $readOnlyMode;
 
@@ -36,7 +36,7 @@ class CoursePager extends EPPager {
 	/**
 	 * @param IContextSource $context
 	 * @param array $conds
-	 * @param boolean $readOnlyMode
+	 * @param bool $readOnlyMode
 	 */
 	public function __construct(
 		IContextSource $context, array $conds = [], $readOnlyMode = false
@@ -63,7 +63,7 @@ class CoursePager extends EPPager {
 	 *
 	 * @param IContextSource $context
 	 * @param array $conditions
-	 * @param boolean $readOnlyMode
+	 * @param bool $readOnlyMode
 	 * @param bool|string $filterPrefix false
 	 *
 	 * @return string

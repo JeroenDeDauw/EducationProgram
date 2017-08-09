@@ -72,9 +72,9 @@ class NotificationsManager {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param array $notifications
-	 * @param array $notificationCategories
-	 * @param array $icons
+	 * @param array &$notifications
+	 * @param array &$notificationCategories
+	 * @param array &$icons
 	 */
 	public function setUpTypesAndCategories(
 		array &$notifications,
@@ -114,8 +114,8 @@ class NotificationsManager {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param $event \EchoEvent
-	 * @param $users array
+	 * @param \EchoEvent $event
+	 * @param array &$users
 	 */
 	public function getUsersNotified( \EchoEvent $event, array &$users ) {
 		$key = $event->getType();

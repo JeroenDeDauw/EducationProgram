@@ -27,7 +27,7 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	abstract protected function userCanAccess();
 

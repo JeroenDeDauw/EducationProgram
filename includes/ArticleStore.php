@@ -109,7 +109,7 @@ class ArticleStore {
 	 *
 	 * @param EPArticle $article
 	 *
-	 * @return int|boolean The id for the inserted article or false on failure
+	 * @return int|bool The id for the inserted article or false on failure
 	 * @throws InvalidArgumentException
 	 */
 	public function insertArticle( EPArticle $article ) {

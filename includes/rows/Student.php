@@ -94,7 +94,7 @@ class Student extends RoleObject {
 	 * @since 0.1
 	 *
 	 * @param IContextSource $context
-	 * @param integer $userId
+	 * @param int $userId
 	 * @param string $userName
 	 *
 	 * @return string

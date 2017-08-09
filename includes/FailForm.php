@@ -28,20 +28,20 @@ class FailForm extends \HTMLForm {
 	/**
 	 * Should the summary field be shown or not?
 	 * @since 0.1
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $showSummary = true;
 
 	/**
 	 * Should the minor edit checkbox be shown or not?
 	 * @since 0.1
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $showMinorEdit = true;
 
 	/**
 	 * Wrap the form innards in an actual <form> element
-	 * @param $html String HTML contents to wrap.
+	 * @param string $html HTML contents to wrap.
 	 * @return String wrapped HTML.
 	 */
 	function wrapForm( $html ) {
@@ -83,7 +83,7 @@ class FailForm extends \HTMLForm {
 	 *
 	 * @since 0.1
 	 *
-	 * @param boolean $showSummary
+	 * @param bool $showSummary
 	 */
 	public function setShowSummary( $showSummary ) {
 		$this->showSummary = $showSummary;
@@ -94,7 +94,7 @@ class FailForm extends \HTMLForm {
 	 *
 	 * @since 0.1
 	 *
-	 * @param boolean $showMinorEdit
+	 * @param bool $showMinorEdit
 	 */
 	public function setShowMinorEdit( $showMinorEdit ) {
 		$this->showMinorEdit = $showMinorEdit;

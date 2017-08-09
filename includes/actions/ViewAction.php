@@ -200,7 +200,7 @@ abstract class ViewAction extends Action {
 	 * @since 0.1
 	 *
 	 * @param IORMRow $item
-	 * @param boolean $collapsed
+	 * @param bool $collapsed
 	 * @param array $summaryData
 	 *
 	 * @return string

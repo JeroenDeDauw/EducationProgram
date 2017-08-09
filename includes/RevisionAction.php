@@ -82,7 +82,7 @@ class RevisionAction {
 
 	/**
 	 * @since 0.1
-	 * @param boolean $isDelete
+	 * @param bool $isDelete
 	 */
 	public function setDelete( $isDelete ) {
 		$this->isDelete = $isDelete;
@@ -90,7 +90,7 @@ class RevisionAction {
 
 	/**
 	 * @since 0.1
-	 * @param boolean $isMinor
+	 * @param bool $isMinor
 	 */
 	public function setMinor( $isMinor ) {
 		$this->isMinor = $isMinor;

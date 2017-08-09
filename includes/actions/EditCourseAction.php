@@ -365,7 +365,7 @@ class EditCourseAction extends EditAction {
 	 * @since 0.2
 	 *
 	 * @param string $courseName
-	 * @param string|integer $orgId
+	 * @param string|int $orgId
 	 *
 	 * @return string
 	 */
@@ -384,7 +384,7 @@ class EditCourseAction extends EditAction {
 	 *
 	 * @since 0.2
 	 *
-	 * @param array $fields
+	 * @param array &$fields
 	 */
 	protected function handleKnownFields( array &$fields ) {
 		// Set fields that are needed, but immutable

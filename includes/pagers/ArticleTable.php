@@ -68,7 +68,7 @@ class ArticleTable extends EPPager {
 	 * Show the students column or not.
 	 *
 	 * @since 0.1
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $showStudents = true;
 
@@ -100,7 +100,7 @@ class ArticleTable extends EPPager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param boolean $showStudents
+	 * @param bool $showStudents
 	 */
 	public function setShowStudents( $showStudents ) {
 		$this->showStudents = $showStudents;
@@ -231,7 +231,7 @@ class ArticleTable extends EPPager {
 	 *
 	 * @param string &$html
 	 * @param EPArticle[] $articles
-	 * @param boolean $showArticleAddition
+	 * @param bool $showArticleAddition
 	 * @param int $studentUserId
 	 */
 	protected function addNonStudentHTML(
@@ -299,8 +299,8 @@ class ArticleTable extends EPPager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $userId
-	 * @param integer $rowSpan
+	 * @param int $userId
+	 * @param int $rowSpan
 	 *
 	 * @return string
 	 */
@@ -373,7 +373,7 @@ class ArticleTable extends EPPager {
 	 * @since 0.1
 	 *
 	 * @param EPArticle $article
-	 * @param integer $rowSpan
+	 * @param int $rowSpan
 	 *
 	 * @return string
 	 */
@@ -449,7 +449,7 @@ class ArticleTable extends EPPager {
 	 * @since 0.1
 	 *
 	 * @param EPArticle $article
-	 * @param integer $userId User id of the reviewer
+	 * @param int $userId User id of the reviewer
 	 *
 	 * @return string
 	 */
@@ -518,7 +518,7 @@ class ArticleTable extends EPPager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $courseId
+	 * @param int $courseId
 	 * @param int $studentUserId
 	 *
 	 * @return string

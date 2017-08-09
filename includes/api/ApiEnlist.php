@@ -117,7 +117,7 @@ class ApiEnlist extends ApiBase {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $userId User id of the mentor affected
+	 * @param int $userId User id of the mentor affected
 	 * @param string $role
 	 * @param string $subAction
 	 *

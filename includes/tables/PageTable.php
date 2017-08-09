@@ -31,7 +31,7 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @since 0.1
 	 *
-	 * @return integer
+	 * @return int
 	 */
 	abstract public function getNamespace();
 

@@ -123,7 +123,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $roleId
+	 * @param int $roleId
 	 *
 	 * @return int
 	 */

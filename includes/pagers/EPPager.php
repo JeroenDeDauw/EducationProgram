@@ -49,7 +49,7 @@ abstract class EPPager extends \TablePager {
 	/**
 	 * Enable filtering on the conditions of the filter control.
 	 * @since 0.1
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $enableFilter = true;
 
@@ -323,7 +323,7 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param $enableFilter
+	 * @param bool $enableFilter
 	 */
 	public function setEnableFilter( $enableFilter ) {
 		$this->enableFilter = $enableFilter;
@@ -334,7 +334,7 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param boolean $hideWhenNoResults When true, there are no results,
+	 * @param bool $hideWhenNoResults When true, there are no results,
 	 *  and no filters are applied, an empty string is returned.
 	 *
 	 * @return string
@@ -431,7 +431,7 @@ abstract class EPPager extends \TablePager {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $filterOptions
+	 * @param array &$filterOptions
 	 *
 	 * @return bool If anything was changed from the default
 	 */
@@ -528,9 +528,8 @@ abstract class EPPager extends \TablePager {
 	 * @since 0.1
 	 *
 	 * @param string $type
-	 * @param integer $id
-	 *
-	 * @param $name
+	 * @param int $id
+	 * @param string $name
 	 * @return string
 	 */
 	protected function getDeletionLink( $type, $id, $name ) {

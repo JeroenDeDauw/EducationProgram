@@ -242,8 +242,8 @@ class Course extends PageObject {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param array $fields
 	 * @param int $org_id
+	 * @param array $fields
 	 */
 	protected function updateOrgSummaryFields( $org_id=null, $fields=null ) {
 		if ( is_null( $org_id ) ) {
@@ -725,15 +725,15 @@ class Course extends PageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array|integer $newUserIds
+	 * @param array|int $newUserIds
 	 * @param string $role
-	 * @param boolean $save
+	 * @param bool $save
 	 * @param RevisionAction|null $revAction
 	 * @param array &$addedUserIds Reference to an array, for info sending
 	 *    a list of the ids of users that were actually enlisted. (That is,
 	 *    $newUserIds minus any that were already enlisted in this role.)
 	 *
-	 * @return integer|bool false The amount of enlisted users or false on failiure
+	 * @return int|bool false The amount of enlisted users or false on failiure
 	 */
 	public function enlistUsers(
 		$newUserIds,
@@ -819,12 +819,12 @@ class Course extends PageObject {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array|integer $sadUsers
+	 * @param array|int $sadUsers
 	 * @param string $role
-	 * @param boolean $save
+	 * @param bool $save
 	 * @param RevisionAction|null $revAction
 	 *
-	 * @return integer|bool false The amount of unenlisted users or false on failiure
+	 * @return int|bool false The amount of unenlisted users or false on failiure
 	 */
 	public function unenlistUsers(
 		$sadUsers, $role, $save = true, RevisionAction $revAction = null

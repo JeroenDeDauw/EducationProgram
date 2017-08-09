@@ -54,7 +54,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param boolean $store
+	 * @param bool $store
 	 */
 	public function setStoreRevisions( $store ) {
 		$this->storeRevisions = $store;
@@ -172,7 +172,7 @@ abstract class RevisionedObject extends ORMRow {
 	 * @since 1.20
 	 *
 	 * @param IORMRow $object
-	 * @param boolean|array $excludeSummaryFields
+	 * @param bool|array $excludeSummaryFields
 	 *  When set to true, summary field changes are ignored.
 	 *  Can also be an array of fields to ignore.
 	 *
@@ -297,7 +297,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $id
+	 * @param int $id
 	 *
 	 * @return EPRevision|bool false
 	 */
@@ -433,7 +433,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @param EPRevision $revision
 	 * @param array|null $fields
-	 * @param boolean|null $hidePriviledgedFields If true, hide fields that
+	 * @param bool|null $hidePriviledgedFields If true, hide fields that
 	 *   only users with education program rights should see. (This is used in
 	 *   Course::getCompareDiff().)
 	 *
@@ -513,7 +513,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $revId
+	 * @param int $revId
 	 * @param array|null $fields
 	 *
 	 * @return bool Success indicator
@@ -528,7 +528,7 @@ abstract class RevisionedObject extends ORMRow {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $revId
+	 * @param int $revId
 	 * @param array|null $fields
 	 *
 	 * @return bool Success indicator

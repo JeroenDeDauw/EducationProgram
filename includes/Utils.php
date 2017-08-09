@@ -155,7 +155,7 @@ class Utils {
 	 *
 	 * @since 0.1
 	 *
-	 * @param integer $userId
+	 * @param int $userId
 	 * @param string $userName
 	 * @param IContextSource $context
 	 * @param array $extraLinks

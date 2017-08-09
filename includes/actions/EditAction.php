@@ -33,7 +33,7 @@ abstract class EditAction extends Action {
 	 * If the action is in insert mode rather then edit mode.
 	 *
 	 * @since 0.1
-	 * @var boolean|null
+	 * @var bool|null
 	 */
 	protected $isNew = null;
 
@@ -382,7 +382,7 @@ abstract class EditAction extends Action {
 	 *
 	 * @since 0.1
 	 *
-	 * @param boolean $addedItem
+	 * @param bool $addedItem
 	 *
 	 * @return Title
 	 */
@@ -487,7 +487,7 @@ abstract class EditAction extends Action {
 	/**
 	 * @since 0.2
 	 *
-	 * @param array $fields
+	 * @param array &$fields
 	 */
 	protected function handleKnownFields( array &$fields ) {
 	}

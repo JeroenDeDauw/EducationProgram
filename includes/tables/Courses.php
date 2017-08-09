@@ -216,7 +216,7 @@ class Courses extends PageTable {
 	 * @since 0.1
 	 *
 	 * @param string $state
-	 * @param boolean $prefix
+	 * @param bool $prefix
 	 *
 	 * @return array
 	 */
@@ -254,8 +254,8 @@ class Courses extends PageTable {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array|integer $userIds
-	 * @param array|integer $roleIds
+	 * @param array|int $userIds
+	 * @param array|int $roleIds
 	 * @param array $conditions
 	 * @param array|string|null $fields
 	 * @param array $options
