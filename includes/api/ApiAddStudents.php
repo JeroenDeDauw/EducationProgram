@@ -69,7 +69,7 @@ class ApiAddStudents extends ApiBase {
 		$invalidUserNames = []; // just names, indexed numerically
 
 		foreach ( $usersData['query']['users'] as $key => $userData ) {
-			if ( isset ( $userData['userid'] ) ) {
+			if ( isset( $userData['userid'] ) ) {
 				$validUsersMap[$userData['userid']] = $userData['name'];
 			} else {
 				$invalidUserNames[] = $userData['name'];

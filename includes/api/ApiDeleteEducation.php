@@ -89,7 +89,7 @@ class ApiDeleteEducation extends ApiBase {
 			$revAction->setUser( $this->getUser() );
 			$revAction->setComment( $params['comment'] );
 
-			$class::singleton()->deleteAndLog( $revAction, [ 'id' =>  $params['ids'] ] );
+			$class::singleton()->deleteAndLog( $revAction, [ 'id' => $params['ids'] ] );
 		}
 
 		$this->getResult()->addValue(

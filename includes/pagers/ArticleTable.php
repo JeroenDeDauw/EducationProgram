@@ -541,7 +541,7 @@ class ArticleTable extends EPPager {
 			]
 		);
 
-		$html .=  Xml::inputLabel(
+		$html .= Xml::inputLabel(
 			$this->msg( 'ep-articles-addarticle-text' )->text(),
 			'addarticlename',
 			'addarticlename',

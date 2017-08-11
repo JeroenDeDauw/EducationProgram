@@ -398,7 +398,7 @@ class EditCourseAction extends EditAction {
 
 		// These fields are deprecated, so make sure they can't be
 		// set. (Already removed from the UI.)
-		unset ( $fields['field'], $fields['level'] );
+		unset( $fields['field'], $fields['level'] );
 
 		// Prevent unauthorized users from changing certain fields
 		if ( !$this->getUser()->isAllowed( $this->getManagementRestriction() ) ) {

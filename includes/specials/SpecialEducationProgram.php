@@ -63,14 +63,14 @@ class SpecialEducationProgram extends VerySpecialPage {
 		foreach ( $summaryData as $stat => $value ) {
 			$html .= '<tr>';
 
-			$html .=  Html::rawElement(
+			$html .= Html::rawElement(
 				'th',
 				[ 'class' => 'ep-summary-name' ],
 				$this->msg( str_replace( 'educationprogram\\', 'ep-', strtolower( get_called_class() ) )
 					. '-summary-' . $stat )->parse()
 			);
 
-			$html .=  Html::rawElement(
+			$html .= Html::rawElement(
 				'td',
 				[ 'class' => 'ep-summary-value' ],
 				$value

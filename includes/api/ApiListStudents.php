@@ -369,7 +369,7 @@ class ApiListStudents extends ApiBase {
 
 			// If output is grouped by course, get the assigned articles for each student.
 			if ( $courseId ) {
-				$studentEPArticles =  $this->getEPArticles( $courseId, $student, $articleStore );
+				$studentEPArticles = $this->getEPArticles( $courseId, $student, $articleStore );
 
 				$articleIndex = 0;
 				foreach ( $studentEPArticles as $studentEPArticle ) {
@@ -669,7 +669,7 @@ class ApiListStudents extends ApiBase {
 	public function getAllowedParams() {
 		return [
 
-			'courseids'=> [
+			'courseids' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
 				// This allows multiple pipe-separated values in courseids parameter.
@@ -683,8 +683,8 @@ class ApiListStudents extends ApiBase {
 					'id',
 				]
 			],
-			'group'=> false,
-			'csv'=> false,
+			'group' => false,
+			'csv' => false,
 		];
 	}
 
