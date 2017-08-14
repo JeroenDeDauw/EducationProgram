@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sahran"
+			"Sahran",
+			"Uzdil"
 		]
 	},
 	"ep-item-summary": "ئۈزۈندە",
 	"ep-form-summary": "ئۈزۈندە",
 	"ep-form-minor": "بۇ ئازراقلا تەھرىرلەش",
 	"ep-tab-view": "ئوقۇ",
-	"ep-tab-edit": "تەھرىر",
+	"ep-tab-edit": "تەھرىرلەش",
 	"ep-tab-create": "قۇر",
 	"ep-tab-history": "تارىخ كۆرسەت",
 	"ep-tab-delete": "ئۆچۈر",
@@ -22,7 +23,7 @@
 	"ep-educationprogram-female": "ئايال",
 	"ep-educationprogram-unknown": "يوچۇن",
 	"ep-pager-clear": "سۈزگۈچلەرنى تازىلا",
-	"ep-pager-go": "يۆتكەل",
+	"ep-pager-go": "يوللاش",
 	"ep-pager-delete-selected": "ئۆچۈر",
 	"ep-revision-undo": "يېنىۋال",
 	"ep-revision-restore": "ئەسلىگە كەلتۈر",
