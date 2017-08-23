@@ -19,7 +19,7 @@
 	"ep-err-course-exists-text": "Intentasti crear el cursu $1, pero yá esiste.",
 	"ep-err-org-exists-title": "Error: la institución esiste",
 	"ep-err-org-exists-text": "Tas intentando crear la institución $1, pero yá esiste.",
-	"ep-didyouknow-header": "¿Sabía que... ?",
+	"ep-didyouknow-header": "¿Sabíes que... ?",
 	"ep-tab-view": "Lleer",
 	"ep-tab-edit": "Editar",
 	"ep-tab-create": "Crear",
