@@ -4,7 +4,8 @@
 			"M hamlet",
 			"Vadgt",
 			"Դավիթ Սարոյան",
-			"Armenoid"
+			"Armenoid",
+			"Aram1985"
 		]
 	},
 	"educationprogram-desc": "Օժանդակում է կրթական ծրագրերին, ավելացնելով դասընթացները, ուսումնական հաստատությունները և մասնակիցների կրթական դերերը կարգավորող միջերես:",
@@ -60,7 +61,7 @@
 	"log-description-institution": "[[Special:Institutions|Հաստատություններ]]ին առընչվող փոփոխությունների մատյանը",
 	"log-description-course": "[[Special:Courses|Դասընթացներ]]ին առընչվող փոփոխությունների մատյանը",
 	"log-description-instructor": "Դասընթացավարների փոփոխությունների մատյանը",
-	"log-description-online": "[[Special:OnlineVolunteers|Առցանց կամավորներ]]ին առընչվող փոփոխությունների մատյանը",
+	"log-description-online": "[[Special:OnlineVolunteers|Առցանց կամավորներ]]ին առնչվող փոփոխությունների մատյանը",
 	"log-description-campus": "[[Special:CampusVolunteers|Ուսումնական հաստատության կամավորներ]]ին առընչվող փոփոխությունների մատյանը",
 	"log-description-student": "[[Special:Students|Ուսանողներ]]ին առընչվող փոփոխությունների մատյանը",
 	"logentry-institution-add": "$1 մասնակիցը {{GENDER:$2|ստեղծեց}} $3 ուսումնական հաստատությունը",
