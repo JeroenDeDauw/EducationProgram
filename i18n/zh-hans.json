@@ -33,7 +33,7 @@
 	"ep-org-course-delete": "删除$1及其所有课程",
 	"ep-form-summary": "摘要：",
 	"ep-form-minor": "这是一个小编辑",
-	"ep-move-error": "不允许将文章移动出入教育命名空间。",
+	"ep-move-error": "不允许将文章移动出入教育名字空间。",
 	"ep-student-view-profile": "学生个人资料",
 	"ep-err-failed-to-save": "问题出现了，您的更改未保存。",
 	"ep-err-course-exists-title": "错误: 课程已存在",
