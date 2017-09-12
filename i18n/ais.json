@@ -1,11 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Benel"
+			"Benel",
+			"Tokoabibi"
 		]
 	},
 	"ep-didyouknow-header": "matineng kisu haw ... ?",
 	"eporgpager-yes": "hang",
 	"epstudentpager-yes": "hang",
-	"ep-addstudents-btn": "cunus"
+	"ep-addstudents-btn": "cunus",
+	"ep-delete-org-has-courses-close-dialog": "edeben",
+	"ep-instructor-close-button": "edeben",
+	"ep-instructor-add-close-button": "edeben",
+	"ep-online-close-button": "edeben",
+	"ep-online-add-close-button": "edeben",
+	"ep-campus-close-button": "edeben",
+	"ep-campus-add-close-button": "edeben"
 }
