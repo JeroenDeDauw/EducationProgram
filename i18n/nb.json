@@ -1,8 +1,33 @@
 {
 	"@metadata": {
 		"authors": [
-			"Danmichaelo"
+			"Danmichaelo",
+			"Jon Harald Søby"
 		]
 	},
-	"ep-form-summary": "Sammendrag:"
+	"ep-item-summary": "Oppsummering",
+	"ep-toplink": "Kurs",
+	"ep-form-summary": "Sammendrag:",
+	"ep-form-minor": "Dette er en mindre endring",
+	"ep-student-view-profile": "studentprofil",
+	"ep-err-failed-to-save": "Noe gikk galt – endringene dine ble ikke lagret.",
+	"ep-err-course-exists-title": "Feil: Kurset finnes",
+	"ep-err-course-exists-text": "Du prøver å opprette kurset $1, men det finnes allerede.",
+	"ep-err-org-exists-title": "Feil: Institusjonen finnes",
+	"ep-err-org-exists-text": "Du prøver å opprette institusjonen $1, men den finnes allerede.",
+	"ep-didyouknow-header": "Visste du at …?",
+	"ep-tab-view": "Les",
+	"ep-tab-edit": "Rediger",
+	"ep-tab-create": "Opprett",
+	"ep-tab-history": "Vis historikk",
+	"ep-tab-activity": "Vis aktivitet",
+	"tooltip-ep-form-save": "Lagre",
+	"tooltip-ep-edit-institution": "Rediger denne institusjonen",
+	"tooltip-ep-edit-course": "Rediger dette kurset",
+	"tooltip-ep-summary": "Skriv inn et kort sammendrag",
+	"tooltip-ep-minor": "Merk dette som en mindre endring",
+	"ep-nav-orgs": "Institusjonsliste",
+	"ep-nav-courses": "Kursliste",
+	"ep-nav-mycourses": "Dine kurs",
+	"ep-nav-students": "Studentliste"
 }
