@@ -158,7 +158,7 @@ class DYKBox extends \ContextSource {
 	protected function getPageFromCategory( $categoryName ) {
 		global $wgContLang;
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$randomFunction = $dbr->getType() === 'sqlite' ? 'RANDOM()' : 'RAND()';
 

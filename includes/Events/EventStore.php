@@ -58,7 +58,7 @@ class EventStore {
 	 * @param string $tableName
 	 * @param int $readConnectionId
 	 */
-	public function __construct( $tableName, $readConnectionId = DB_SLAVE ) {
+	public function __construct( $tableName, $readConnectionId = DB_REPLICA ) {
 		$this->tableName = $tableName;
 		$this->readConnectionId = $readConnectionId;
 	}

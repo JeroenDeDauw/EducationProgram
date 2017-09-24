@@ -161,7 +161,7 @@ class StudentPager extends EPPager {
 		}
 
 		if ( !empty( $userIds ) ) {
-			$result = wfGetDB( DB_SLAVE )->select(
+			$result = wfGetDB( DB_REPLICA )->select(
 				'user',
 				[ 'user_id', 'user_name', 'user_real_name' ],
 				[ 'user_id' => $userIds ],
@@ -175,7 +175,7 @@ class StudentPager extends EPPager {
 
 			$courseNameField = Courses::singleton()->getPrefixedField( 'title' );
 
-			$result = wfGetDB( DB_SLAVE )->select(
+			$result = wfGetDB( DB_REPLICA )->select(
 				[ 'ep_courses', 'ep_users_per_course' ],
 				[ $courseNameField, 'upc_user_id' ],
 				array_merge( [

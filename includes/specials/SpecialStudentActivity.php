@@ -50,7 +50,7 @@ class SpecialStudentActivity extends VerySpecialPage {
 	public function displayCachedContent() {
 		$duration = Settings::get( 'recentActivityLimit' );
 
-		$conds = [ 'last_active > ' . wfGetDB( DB_SLAVE )->addQuotes(
+		$conds = [ 'last_active > ' . wfGetDB( DB_REPLICA )->addQuotes(
 			wfTimestamp( TS_MW, time() - $duration )
 		) ];
 

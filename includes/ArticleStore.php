@@ -53,7 +53,7 @@ class ArticleStore {
 	 * @param string $tableName
 	 * @param int $readConnectionId
 	 */
-	public function __construct( $tableName, $readConnectionId = DB_SLAVE ) {
+	public function __construct( $tableName, $readConnectionId = DB_REPLICA ) {
 		$this->readConnectionId = $readConnectionId;
 		$this->tableName = $tableName;
 	}

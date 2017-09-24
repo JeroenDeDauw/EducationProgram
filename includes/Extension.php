@@ -91,7 +91,7 @@ class Extension {
 	 * @return CourseStore
 	 */
 	public function newCourseStore() {
-		return new CourseStore( 'ep_courses', wfGetDB( DB_SLAVE ) );
+		return new CourseStore( 'ep_courses', wfGetDB( DB_REPLICA ) );
 	}
 
 	/**

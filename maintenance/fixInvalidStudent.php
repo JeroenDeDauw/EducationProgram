@@ -57,7 +57,7 @@ class FixInvalidStudent extends \Maintenance {
 			return;
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$results = $dbr->select(
 			'ep_users_per_course',
 			'upc_course_id',

@@ -229,7 +229,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	public function hasCourse( array $conditions = [] ) {
 		$courseTable = Courses::singleton();
 
-		return wfGetDB( DB_SLAVE )->select(
+		return wfGetDB( DB_REPLICA )->select(
 			[ 'ep_courses', 'ep_users_per_course' ],
 			$courseTable->getPrefixedField( 'id' ),
 			array_merge( [

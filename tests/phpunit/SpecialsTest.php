@@ -2,8 +2,6 @@
 
 namespace EducationProgram\Tests;
 
-use SpecialPage;
-
 /**
  * Runs the Education Program special pages to make sure they do not contain fatal errors.
  *

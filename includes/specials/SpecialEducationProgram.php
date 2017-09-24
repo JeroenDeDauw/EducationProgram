@@ -128,7 +128,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return int
 	 */
 	protected function getRoleCount( $roleId ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		return $dbr->selectRow(
 			'ep_users_per_course',
@@ -371,7 +371,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * @return array
 	 */
 	protected function getGenders( array $userIds ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$users = $dbr->select(
 			'user_properties',

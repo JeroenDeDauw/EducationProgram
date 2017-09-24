@@ -181,7 +181,7 @@ class Org extends PageObject {
 
 			$coursesTable->setReadDb( DB_MASTER );
 			$courses = $coursesTable->select( [ 'id', 'title' ], [ 'org_id' => $this->getId() ] );
-			$coursesTable->setReadDb( DB_SLAVE );
+			$coursesTable->setReadDb( DB_REPLICA );
 
 			/**
 			 * @var Course $course

@@ -35,7 +35,7 @@ class ImportWEPFromDB extends \Maintenance {
 		$table = "imp_$table";
 
 		if ( $incMw ) {
-			$table = wfGetDB( DB_SLAVE )->tableName( $table );
+			$table = wfGetDB( DB_REPLICA )->tableName( $table );
 		}
 
 		return $table;
@@ -68,7 +68,7 @@ class ImportWEPFromDB extends \Maintenance {
 			'students' => 'imp_students',
 		];
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		foreach ( $conds as $name => $cond ) {
 			$nr = $dbr->select(

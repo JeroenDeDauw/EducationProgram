@@ -117,7 +117,7 @@ class EPRevision extends ORMRow {
 	 */
 	public function getPreviousRevision() {
 		return $this->getObject()->getLatestRevision( [
-			'id < ' . wfGetDB( DB_SLAVE )->addQuotes( $this->getId() )
+			'id < ' . wfGetDB( DB_REPLICA )->addQuotes( $this->getId() )
 		] );
 	}
 
@@ -132,7 +132,7 @@ class EPRevision extends ORMRow {
 		return !$this->table->has( [
 			'type' => $this->getField( 'type' ),
 			'object_id' => $this->getField( 'object_id' ),
-			'id > ' . wfGetDB( DB_SLAVE )->addQuotes( $this->getId() )
+			'id > ' . wfGetDB( DB_REPLICA )->addQuotes( $this->getId() )
 		] );
 	}
 

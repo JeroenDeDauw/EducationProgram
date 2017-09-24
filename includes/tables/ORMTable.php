@@ -89,7 +89,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 *
 	 * @var int DB_ enum
 	 */
-	protected $readDb = DB_SLAVE;
+	protected $readDb = DB_REPLICA;
 
 	/**
 	 * @since 1.21

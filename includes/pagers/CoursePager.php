@@ -293,7 +293,7 @@ class CoursePager extends EPPager {
 		$conds = parent::getConditions();
 
 		if ( array_key_exists( 'status', $conds ) ) {
-			$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+			$now = wfGetDB( DB_REPLICA )->addQuotes( wfTimestampNow() );
 
 			switch ( $conds['status'] ) {
 				case 'current-planned':

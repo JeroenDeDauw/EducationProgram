@@ -77,7 +77,7 @@ class SpecialMyCourses extends VerySpecialPage {
 	 * @since 0.1
 	 */
 	protected function fetchCourses() {
-		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+		$now = wfGetDB( DB_REPLICA )->addQuotes( wfTimestampNow() );
 
 		$courses = Courses::singleton()->getCoursesForUsers(
 			$this->getUser()->getId(),

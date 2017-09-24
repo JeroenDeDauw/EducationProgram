@@ -146,7 +146,7 @@ abstract class RevisionedObject extends ORMRow {
 		if ( !$this->inSummaryMode ) {
 			$this->table->setReadDb( DB_MASTER );
 			$originalObject = $this->table->selectRow( null, [ 'id' => $this->getId() ] );
-			$this->table->setReadDb( DB_SLAVE );
+			$this->table->setReadDb( DB_REPLICA );
 
 			if ( $originalObject === false ) {
 				return false;

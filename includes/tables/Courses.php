@@ -148,11 +148,11 @@ class Courses extends PageTable {
 	}
 
 	public function hasActiveTitle( $courseTitle ) {
-		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+		$now = wfGetDB( DB_REPLICA )->addQuotes( wfTimestampNow() );
 		// Course start and end dates are stored as the begin of the day in UTC.
 		// To make sure courses end at the end of that day, compare the end time
 		// with the current timestamp minus one day.
-		$oneDayAgo = wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, strtotime( "-1 day" ) ) );
+		$oneDayAgo = wfGetDB( DB_REPLICA )->addQuotes( wfTimestamp( TS_MW, strtotime( "-1 day" ) ) );
 
 		return $this->has( [
 			'title' => $courseTitle,
@@ -221,11 +221,11 @@ class Courses extends PageTable {
 	 * @return array
 	 */
 	public static function getStatusConds( $state, $prefix = false ) {
-		$now = wfGetDB( DB_SLAVE )->addQuotes( wfTimestampNow() );
+		$now = wfGetDB( DB_REPLICA )->addQuotes( wfTimestampNow() );
 		// Course start and end dates are stored as the begin of the day in UTC.
 		// To make sure courses end at the end of that day, compare the end time
 		// with the current timestamp minus one day.
-		$oneDayAgo = wfGetDB( DB_SLAVE )->addQuotes( wfTimestamp( TS_MW, strtotime( "-1 day" ) ) );
+		$oneDayAgo = wfGetDB( DB_REPLICA )->addQuotes( wfTimestamp( TS_MW, strtotime( "-1 day" ) ) );
 
 		$conditions = [];
 
@@ -281,7 +281,7 @@ class Courses extends PageTable {
 
 		$options[] = 'DISTINCT';
 
-		$courses = wfGetDB( DB_SLAVE )->select(
+		$courses = wfGetDB( DB_REPLICA )->select(
 			[ 'ep_courses', 'ep_users_per_course' ],
 			$this->getPrefixedFields( is_null( $fields ) ? $this->getFieldNames() : (array)$fields ),
 			$conditions,
