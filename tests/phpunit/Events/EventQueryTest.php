@@ -49,7 +49,7 @@ class EventQueryTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider setCoursesProvider
 	 *
-	 * @param $courseIds
+	 * @param array $courseIds
 	 */
 	public function testSetCourses( $courseIds ) {
 		$query = new EventQuery();
@@ -69,8 +69,8 @@ class EventQueryTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider timeLimitProvider
 	 *
-	 * @param $timeLimit
-	 * @param $comparator
+	 * @param string $timeLimit
+	 * @param int $comparator
 	 */
 	public function testSetTimeLimit( $timeLimit, $comparator ) {
 		$query = new EventQuery();
@@ -115,7 +115,7 @@ class EventQueryTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider sortOrderProvider
 	 *
-	 * @param $order
+	 * @param int $order
 	 */
 	public function testSetSortOrder( $order ) {
 		$query = new EventQuery();

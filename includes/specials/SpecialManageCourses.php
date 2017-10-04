@@ -112,7 +112,7 @@ class SpecialManageCourses extends VerySpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param $class string The name of the IRole implementing class
+	 * @param string $class The name of the IRole implementing class
 	 */
 	protected function displayRoleAssociation( $class ) {
 		$user = $this->getUser();

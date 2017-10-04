@@ -5,21 +5,21 @@ namespace EducationProgram\PresentationModel;
 class RoleAdd extends \EchoEventPresentationModel {
 
 	/**
-	 * {@inheritdoc}
+	 * @inheritDoc
 	 */
 	public function canRender() {
 		return $this->event->getTitle() instanceof \Title;
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @inheritDoc
 	 */
 	public function getIconType() {
 		return 'ep-added-to-course-icon';
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @inheritDoc
 	 */
 	public function getPrimaryLink() {
 		return [
@@ -29,14 +29,14 @@ class RoleAdd extends \EchoEventPresentationModel {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @inheritDoc
 	 */
 	public function getSecondaryLinks() {
 		return [ $this->getAgentLink() ];
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @inheritDoc
 	 */
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();

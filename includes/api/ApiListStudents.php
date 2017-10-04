@@ -577,7 +577,7 @@ class ApiListStudents extends ApiBase {
 	 * by a student in a course.
 	 *
 	 * @param int $courseId
-	 * @param $student Student object
+	 * @param Student $student Student object
 	 * @param ArticleStore $articleStore
 	 * @return array
 	 */
@@ -593,7 +593,7 @@ class ApiListStudents extends ApiBase {
 	/**
 	 * Given an EPArticle, list the reviewers for that article.
 	 *
-	 * @param $epArticle EPArticle object
+	 * @param EPArticle $epArticle EPArticle object
 	 * @return array
 	 */
 	protected function getArticleReviewerIds( EPArticle $epArticle ) {

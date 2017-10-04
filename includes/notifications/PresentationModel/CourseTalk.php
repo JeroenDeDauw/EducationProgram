@@ -5,7 +5,7 @@ namespace EducationProgram\PresentationModel;
 class CourseTalk extends RoleAdd {
 
 	/**
-	 * {@inheritdoc}
+	 * @inheritDoc
 	 */
 	public function canRender() {
 		return $this->event->getTitle() instanceof \Title &&
@@ -13,14 +13,14 @@ class CourseTalk extends RoleAdd {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @inheritDoc
 	 */
 	public function getIconType() {
 		return 'ep-course-talk-icon';
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @inheritDoc
 	 */
 	public function getPrimaryLink() {
 		return [
@@ -30,7 +30,7 @@ class CourseTalk extends RoleAdd {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @inheritDoc
 	 */
 	public function getSecondaryLinks() {
 		$viewChangesLink = [

@@ -88,7 +88,7 @@ class Event {
 		return $this->userId;
 	}
 
-	/**c
+	/**
 	 * Returns the time at which the event occurred.
 	 * The time is a string formatted as TS_MW.
 	 *

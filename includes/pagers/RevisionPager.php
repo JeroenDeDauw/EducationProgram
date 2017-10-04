@@ -73,7 +73,7 @@ class RevisionPager extends \ReverseChronologicalPager {
 	 * representing the result row $row. Rows will be concatenated and
 	 * returned by getBody()
 	 *
-	 * @param $row Object: database row
+	 * @param stdClass $row database row
 	 *
 	 * @return String
 	 */
