@@ -710,6 +710,7 @@
 	"notification-header-ep-online-add-notification": "Du wurdest als Online-Volontär zu '''$3''' {{GENDER:$2|hinzugefügt}}.",
 	"notification-header-ep-student-add-notification": "Du wurdest zu '''$3''' {{GENDER:$2|hinzugefügt}}.",
 	"apihelp-addstudents-description": "Mehrere Studenten zu einem Kurs hinzufügen.",
+	"apihelp-addstudents-summary": "Fügt mehrere Studenten zu einem Kurs hinzu.",
 	"apihelp-addstudents-param-studentusernames": "Die Benutzernamen der Studenten, die zum Kurs hinzugefügt werden sollen.",
 	"apihelp-addstudents-param-courseid": "Die Kennung des Kurses, zu dem die Studenten hinzugefügt/entfernt werden sollen.",
 	"apihelp-addstudents-example-1": "Drei Studenten zu einem Kurs hinzufügen",
