@@ -14,7 +14,8 @@
 			"ZxxZxxZ",
 			"جواد",
 			"Alirezaaa",
-			"درفش کاویانی"
+			"درفش کاویانی",
+			"Huji"
 		]
 	},
 	"educationprogram-desc": "امکانات برنامه‌های آموزشی برای افزودن رابط‌های کاربری متنوع برای مدیریت دوره‌ها و عملکردهای آموزشی دیگر",
@@ -389,7 +390,7 @@
 	"vieworgaction-summary-courses": "تعداد دوره‌ها",
 	"vieworgaction-summary-students": "تعداد دانشجویان",
 	"ep-institution-add-course": "افزودن دوره",
-	"ep-institution-inactive": "غیر فعال",
+	"ep-institution-inactive": "غیرفعال",
 	"ep-institution-active": "فعال",
 	"ep-institution-courses": "دوره‌ها",
 	"ep-vieworg-deleted": "این نهاد پاک‌شده‌است. سیاههٔ حذف برای نهاد در زیر به عنوان مرجع فراهم شده‌است.",
