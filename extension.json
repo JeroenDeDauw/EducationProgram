@@ -18,7 +18,8 @@
 		{
 			"id": 447,
 			"constant": "EP_NS_TALK",
-			"name": "Educaton_Program_talk"
+			"name": "Educaton_Program_talk",
+			"subpages": true
 		}
 	],
 	"Actions": {
@@ -707,11 +708,6 @@
 		"ResourceLoaderRegisterModules": "EducationProgram\\Hooks::onResourceLoaderRegisterModules"
 	},
 	"config": {
-		"NamespacesWithSubpages": {
-			"value": {
-				"447": true
-			}
-		},
 		"EPSettings": {
 			"value": {
 				"enableTopLink": true,
