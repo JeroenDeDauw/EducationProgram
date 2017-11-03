@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Nmacu"
 		]
 	},
 	"ep-item-summary": "Achoimriú",
@@ -26,6 +27,7 @@
 	"ep-pager-cancel-button-course": "Cealaigh",
 	"ep-pager-summary-message-course": "Achoimre:",
 	"epstudentpager-no": "Ní",
+	"ep-articles-sandboxes": "boscaí gaineamh",
 	"ep-articletable-addreviwer-cancel": "Cealaigh",
 	"ep-articletable-remreviwer-cancel": "Cealaigh",
 	"ep-articletable-remstudent-cancel": "Cealaigh",
