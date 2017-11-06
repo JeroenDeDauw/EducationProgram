@@ -243,7 +243,7 @@
 	"epcoursepager-filter-lang": "Lingua",
 	"epcoursepager-filter-org-id": "Institución",
 	"epcoursepager-filter-status": "Estado",
-	"epcoursepager-invalid-lang": "Inválida",
+	"epcoursepager-invalid-lang": "Non válido",
 	"ep-pager-cancel-button-course": "Cancelar",
 	"ep-pager-delete-button-course": "Eliminar {{PLURAL:$1|o curso|os cursos}}",
 	"ep-pager-confirm-delete-course": "{{PLURAL:$1|Confirmar a eliminación do curso|Confirmar a eliminación de varios cursos}}",
