@@ -94,7 +94,6 @@ CREATE TABLE IF NOT EXISTS /*_*/ep_articles (
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/ep_articles_user_id ON /*_*/ep_articles (article_user_id);
-CREATE INDEX /*i*/ep_articles_course_id ON /*_*/ep_articles (article_course_id);
 CREATE INDEX /*i*/ep_articles_page_id ON /*_*/ep_articles (article_page_id);
 CREATE INDEX /*i*/ep_articles_page_title ON /*_*/ep_articles (article_page_title);
 CREATE UNIQUE INDEX /*i*/ep_articles_course_page ON /*_*/ep_articles (article_course_id, article_user_id, article_page_title);

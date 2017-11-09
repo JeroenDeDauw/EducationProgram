@@ -1,0 +1,1 @@
+ALTER TABLE /*_*/ep_articles DROP INDEX /*i*/ep_articles_course_id;

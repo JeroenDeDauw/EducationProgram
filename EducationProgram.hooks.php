@@ -120,6 +120,12 @@ final class Hooks {
 			'org_last_active_date',
 			__DIR__ . '/sql/AddOrgLastActiveDate.sql'
 		);
+
+		$updater->dropExtensionIndex(
+			'ep_articles',
+			'ep_articles_course_id',
+			__DIR__ . '/sql/Drop-ep_articles_course_id.sql'
+		);
 	}
 
 	/**
