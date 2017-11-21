@@ -63,6 +63,11 @@ $namespaceNames['mk'] = [
 	EP_NS_TALK => 'Разговор_за_Образовен_програм',
 ];
 
+$namespaceNames['mwl'] = [
+	EP_NS      => 'Ansino',
+	EP_NS_TALK => 'Cumbersa_ansino',
+];
+
 $namespaceNames['nl'] = [
 	EP_NS      => 'Onderwijsprogramma',
 	EP_NS_TALK => 'Overleg_onderwijsprogramma',
