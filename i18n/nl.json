@@ -14,7 +14,8 @@
 			"TBloemink",
 			"Wiki13",
 			"Esketti",
-			"Mainframe98"
+			"Mainframe98",
+			"Mar(c)"
 		]
 	},
 	"educationprogram-desc": "Faciliteert onderwijsprogramma's door verschillende interfaces toe te voegen om cursussen, organisaties en verschillende onderwijsrollen te kunnen beheren",
@@ -714,7 +715,7 @@
 	"ep-role-add-link-text-view-course": "Cursus weergeven",
 	"apihelp-addstudents-description": "Meerdere studenten toevoegen aan een cursus.",
 	"apihelp-addstudents-param-studentusernames": "De gebruikersnamen van de studenten om toe te voegen aan de cursus.",
-	"apihelp-addstudents-param-courseid": "De ID van de cursus die de leerlingen moeten worden toegevoegd/verwijderd.",
+	"apihelp-addstudents-param-courseid": "Het ID van de cursus waaraan de leerlingen moeten worden toegevoegd/verwijderd.",
 	"apihelp-addstudents-example-1": "Voeg drie studenten aan een cursus",
 	"apihelp-deleteeducation-description": "Verwijder Onderwijs Programma-objecten.",
 	"apihelp-deleteeducation-param-ids": "De Id's van de te verwijderen objecten.",
