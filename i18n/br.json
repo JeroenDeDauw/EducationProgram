@@ -414,7 +414,5 @@
 	"echo-category-title-education-program": "Programm deskadurezh",
 	"ep-course-talk-link-text-view-message": "Gwelet ar gemennadenn",
 	"ep-course-talk-link-text-view-changes": "Gwelet ar c'hemmoù",
-	"ep-role-add-link-text-view-course": "Gwelet ar gentel",
-	"ep-student-add-notification-title-email-subject": "{{GENDER:$1|ouzhpennet}} oc'h bet da $2 gant $1.",
-	"ep-student-add-notification-title-email-body": "Ouzhpennet oc'h {{GENDER:$1|bet}} da $2 gant $1."
+	"ep-role-add-link-text-view-course": "Gwelet ar gentel"
 }

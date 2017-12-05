@@ -690,20 +690,5 @@
 	"ep-echo-pref-tooltip": "నాకు సంబంధం ఉన్న విద్యా కార్యక్రమ కోర్సులలో జరిగే ఘటనల గురించి నాకు తెలియజెయ్యి.",
 	"ep-course-talk-link-text-view-message": "సందేశాన్ని చూపించు",
 	"ep-course-talk-link-text-view-changes": "మార్పులు చూపించు",
-	"ep-course-talk-notification-title": "[[User:$1|$1]], [[$2|కోర్సు $3 యొక్క చర్చాపేజీని]] {{GENDER:$1|మార్చారు}}.",
-	"ep-course-talk-notification-title-email-subject": "కోర్సు $2 యొక్క చర్చాపేజీని $1 {{GENDER:$1|సవరించారు}}.",
-	"ep-course-talk-notification-title-email-body": "కోర్సు $2 యొక్క చర్చాపేజీని $1 {{GENDER:$1|సవరించారు}}.",
-	"ep-role-add-link-text-view-course": "కోర్సును చూపించు",
-	"ep-student-add-notification-title": "[[User:$1|$1]] మిమ్మల్ని [[$2|$3]] కు {{GENDER:$1|చేర్చారు}}.",
-	"ep-student-add-notification-title-email-subject": "$1 మిమ్మల్ని $2 కు {{GENDER:$1|చేర్చారు}}.",
-	"ep-student-add-notification-title-email-body": "$1 మిమ్మల్ని $2 కు {{GENDER:$1|చేర్చారు}}.",
-	"ep-instructor-add-notification-title": "[[User:$1|$1]] మిమ్మల్ని [[$2|$3]]లో బోధకులుగా {{GENDER:$1|చేర్చారు}}.",
-	"ep-instructor-add-notification-title-email-subject": "$1 మిమ్మల్ని $2లో బోధకులుగా {{GENDER:$1|చేర్చారు}}.",
-	"ep-instructor-add-notification-title-email-body": "$1 మిమ్మల్ని $2లో బోధకులుగా {{GENDER:$1|చేర్చారు}}.",
-	"ep-campus-add-notification-title": "[[User:$1|$1]] మిమ్మల్ని [[$2|$3]]లో క్యాంపస్ ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.",
-	"ep-campus-add-notification-title-email-subject": "$1 మిమ్మల్ని $2లో క్యాంపస్ ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.",
-	"ep-campus-add-notification-title-email-body": "$1 మిమ్మల్ని $2లో క్యాంపస్ ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.",
-	"ep-online-add-notification-title": "[[User:$1|$1]] మిమ్మల్ని [[$2|$3]]లో ఆన్‍లైను ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.",
-	"ep-online-add-notification-title-email-subject": "$1 మిమ్మల్ని $2లో ఆన్‍లైను ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}.",
-	"ep-online-add-notification-title-email-body": "$1 మిమ్మల్ని $2లో ఆన్‍లైను ఔత్సాహికులుగా {{GENDER:$1|చేర్చారు}}."
+	"ep-role-add-link-text-view-course": "కోర్సును చూపించు"
 }

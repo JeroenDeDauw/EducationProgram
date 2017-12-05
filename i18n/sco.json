@@ -14,17 +14,5 @@
 	"ep-delete-org-has-courses": "Ye canna delyte [[$1|$2]] cause thaur ar coorses associated wi it. Please delyte the coorses first.",
 	"ep-delete-org-has-courses-plain": "Ye canna delyte $1 cause thaur's coorses associatit wi it. Please delyte the coorses first.",
 	"ep-delete-org-has-courses-close-dialog": "Claise",
-	"ep-role-add-link-text-view-course": "See coorse",
-	"ep-student-add-notification-title": "Ye'v been {{GENDER:$1|added}} til [[$2|$3]] bi [[User:$1|$1]].",
-	"ep-student-add-notification-title-email-subject": "Ye'v been {{GENDER:$1|eikit}} til $2 bi $1.",
-	"ep-student-add-notification-title-email-body": "Ye'v been {{GENDER:$1|added}} til $2 bi $1.",
-	"ep-instructor-add-notification-title": "Ye'v been {{GENDER:$1|added}} aes aen instructer til [[$2|$3]] bi [[User:$1|$1]].",
-	"ep-instructor-add-notification-title-email-subject": "Ye'v been {{GENDER:$1|added}} aes aen instructer til $2 bi $1.",
-	"ep-instructor-add-notification-title-email-body": "Ye'v been {{GENDER:$1|added}} aes aen instructer til $2 bi $1.",
-	"ep-campus-add-notification-title": "Ye'v been {{GENDER:$1|added}} aes ae campus volunteer til [[$2|$3]] bi [[User:$1|$1]].",
-	"ep-campus-add-notification-title-email-subject": "Ye'v been {{GENDER:$1|added}} aes ae campus volunteer til $2 bi $1.",
-	"ep-campus-add-notification-title-email-body": "Ye'v been {{GENDER:$1|added}} aes ae campus volunteer til $2 bi $1.",
-	"ep-online-add-notification-title": "Ye'v been {{GENDER:$1|added}} aes aen online volunteer til [[$2|$3]] bi [[User:$1|$1]].",
-	"ep-online-add-notification-title-email-subject": "Ye'v been {{GENDER:$1|added}} aes aen online volunteer til $2 bi $1.",
-	"ep-online-add-notification-title-email-body": "Ye'v been {{GENDER:$1|added}} aes aen online volunteer til $2 bi $1."
+	"ep-role-add-link-text-view-course": "See coorse"
 }
