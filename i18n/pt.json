@@ -15,7 +15,8 @@
 			"!Silent",
 			"OTAVIO1981",
 			"J. 'mach' wust",
-			"Opraco"
+			"Opraco",
+			"MokaAkashiyaPT"
 		]
 	},
 	"educationprogram-desc": "Viabiliza programas educativos disponibilizando várias interfaces para administrar cursos, instituições e os vários tipos de utilizador relacionados.",
@@ -200,7 +201,7 @@
 	"ep-educationprogram-male": "Masculino",
 	"ep-educationprogram-female": "Feminino",
 	"ep-educationprogram-unknown": "Por determinar",
-	"ep-educationprogram-genders": "Distrubuição por género",
+	"ep-educationprogram-genders": "Distribuição por género",
 	"ep-educationprogram-nodata": "Ainda não há dados para mostrar!",
 	"ep-institutions-noresults": "Não há instituições para listar.",
 	"ep-institutions-addnew": "Acrescentar uma nova instituição",
