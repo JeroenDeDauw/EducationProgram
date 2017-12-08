@@ -10,8 +10,8 @@ use Title;
 use User;
 use SkinTemplate;
 use Revision;
-use Page;
 use JobQueueGroup;
+use WikiPage;
 
 /**
  * Static class for hooks handled by the Education Program extension.
@@ -440,22 +440,22 @@ final class Hooks {
 	 *
 	 * @since 0.1
 	 *
-	 * @param Page $article
+	 * @param WikiPage $wikiPage
 	 * @param Revision $rev
 	 * @param int $baseID
 	 * @param User $user
 	 */
 	public static function onNewRevisionFromEditComplete(
-		Page $article, Revision $rev, $baseID, User $user
+		WikiPage $wikiPage, Revision $rev, $baseID, User $user
 	) {
-		\DeferredUpdates::addCallableUpdate( function () use ( $article, $rev, $user ) {
+		\DeferredUpdates::addCallableUpdate( function () use ( $wikiPage, $rev, $user ) {
 			$dbw = wfGetDB( DB_MASTER );
 
 			// TODO: properly inject dependencies
 			$courseFinder = new UPCUserCourseFinder( $dbw );
 			$eventCreator = new EditEventCreator( $courseFinder );
 
-			$events = $eventCreator->getEventsForEdit( $article, $rev, $user );
+			$events = $eventCreator->getEventsForEdit( $wikiPage, $rev, $user );
 			if ( $events ) {
 				$eventStore = new EventStore( 'ep_events' );
 
