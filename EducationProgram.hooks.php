@@ -540,7 +540,7 @@ final class Hooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
 	 */
 	public static function onPageContentSaveComplete(
-		$article,
+		\WikiPage $wikiPage,
 		$user,
 		$content,
 		$summary,
@@ -552,7 +552,7 @@ final class Hooks {
 		$status,
 		$baseRevId
 	) {
-		$title = $article->getTitle();
+		$title = $wikiPage->getTitle();
 
 		// check if the page saved was a course in the EP talk namespace
 		if ( $title->getNamespace() === EP_NS_TALK
