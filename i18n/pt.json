@@ -743,7 +743,7 @@
 	"apihelp-enlist-example-2": "Adicionar o utilizador Exemplo como professor do curso 42",
 	"apihelp-enlist-example-3": "Remover o identificador de utilizador 9001 como professor do curso 42",
 	"apihelp-enlist-example-4": "Remover o utilizador Exemplo como professor do curso 42",
-	"apihelp-enlist-example-5": "Adicionar o utilizador Exemplo como professor do curso 42 com um motivo",
+	"apihelp-enlist-example-5": "Remover o utilizador Exemplo como professor do curso 42 com um motivo",
 	"apihelp-liststudents-description": "Obter os nomes de utilizador e outras informações para os alunos matriculados num ou mais cursos.",
 	"apihelp-liststudents-summary": "Obter os nomes de utilizador e outras informações para os alunos matriculados num ou mais cursos.",
 	"apihelp-liststudents-param-courseids": "Identificadores dos cursos.",

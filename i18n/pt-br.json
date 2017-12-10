@@ -15,7 +15,8 @@
 			"He7d3r",
 			"Opraco",
 			"Araceletorres",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"MokaAkashiyaPT"
 		]
 	},
 	"educationprogram-desc": "Facilita programas educacionais ao adicionar várias interfaces para gestão de cursos, instituições e os diferentes papeis que assumem os participantes de um projeto educacional",
@@ -743,7 +744,7 @@
 	"apihelp-enlist-example-2": "Adicionar usuário Exemplo como instrutor para o curso 42",
 	"apihelp-enlist-example-3": "Remover ID do usuário 9001 como instrutor para o curso 42",
 	"apihelp-enlist-example-4": "Remover usuário Exemplo como instrutor para o curso 42",
-	"apihelp-enlist-example-5": "Remover usuário Exemplo como instrutor para o curso 42 com uma motivo",
+	"apihelp-enlist-example-5": "Remover o usuário Exemplo como instrutor do curso 42 com um motivo",
 	"apihelp-liststudents-description": "Obter os nomes de usuário e outras informações para os alunos matriculados em um ou mais cursos.",
 	"apihelp-liststudents-summary": "Obter os nomes de usuário e outras informações para os alunos matriculados em um ou mais cursos.",
 	"apihelp-liststudents-param-courseids": "IDs dos cursos.",
