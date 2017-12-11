@@ -69,7 +69,7 @@
 	"logentry-course-update": "$1 {{GENDER:$2|atualizou}} l curso $3",
 	"logentry-course-undelete": "$1 {{GENDER:$2|recuperou}} l curso $3",
 	"logentry-instructor-add": "$1 {{GENDER:$2|acrecentou}} {{PLURAL:$4|{{GENDER:$5|l porsor|la porsora|l(a) porsor(a)}}|ls(las) porsores(as)}} $5 al curso $3",
-	"logentry-instructor-remove": "$1 {{GENDER:$2|botou fuora}} {{PLURAL:$4|{{GENDER:$5|l porsor|la porsora}}|ls porsores}} $5 de l curso $3",
+	"logentry-instructor-remove": "$1 {{GENDER:$2|zarredou}} {{PLURAL:$4|{{GENDER:$5|l porsor|la porsora}}|ls porsores}} $5 de l curso $3",
 	"logentry-instructor-selfadd": "$1 acrecentou-se cumo {{GENDER:$2|porsor|porsora|porsor(a)}} al curso $3",
 	"logentry-instructor-selfremove": "$1 zarredou-se cumo {{GENDER:$2|porsor|porsora}} de l curso $3",
 	"logentry-online-add": "$1 {{GENDER:$2|acrecentou}} {{PLURAL:$4|{{GENDER:$5|l beluntairo çponible|la beluntaira çponible}}|ls beluntairos çponibles}} $5 al curso $3",
