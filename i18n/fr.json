@@ -697,7 +697,7 @@
 	"ep-timeline-users-edit-article": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} a modifié l’article '''[[$2]]'''.",
 	"ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1}}|$1}} a laissé {{PLURAL:$4|un message|des messages}} sur la '''[[$2|page de discussion]]''' de '''[[$3]]'''.",
 	"ep-timeline-users-edit-user": "{{GENDER:$6|{{$1}}}} {{PLURAL:$5|a|ont}} modifié la page d’{{GENDER:$3|utilisateur|utilisatrice}} de '''[[$2|$3]]'''.",
-	"ep-timeline-users-edit-usertalk": "'''[[User:$3|$3]]''' a reçu {{PLURAL:$4|un message|des messages}} sur sa '''[[$2|page de discussion]]'''.",
+	"ep-timeline-users-edit-usertalk": "'''[[User:$3|$3]]''' a reçu {{PLURAL:$4|un message|$4 messages}} sur sa '''[[$2|page de discussion]]'''.",
 	"ep-timeline-users-edit-user-self": "$1 a modifié sa '''[[$2|page d’utilisat{{GENDER:$6|eur|rice}}]]'''.",
 	"ep-timeline-users-edit-usertalk-self": "'''[[User:$3|$3]]''' a publié {{PLURAL:$4|un message|$4 messages}} sur sa '''[[$2|page de discussion]]'''.",
 	"ep-timeline-users-create-article": "{{GENDER:$6|$1}} a créé l’article '''[[$2]]'''.",
