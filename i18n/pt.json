@@ -359,7 +359,7 @@
 	"ep-editcourse-exists-already": "Este curso já existe. Encontra-se a editá-lo.",
 	"ep-addstudents-section": "Acrescentar alunos a este curso.",
 	"ep-addstudents-instructions": "Escreva os nomes de utilizador dos alunos que pretende acrescentar. Pressione Enter depois de cada um, ou clique o menu que aparece. Também pode inserir uma lista de nomes de utilizador.\n\nClique \"{{int:ep-addstudents-btn}}\" quando terminar.",
-	"ep-addstudents-url-instructions": "Lembre-se que os alunos também se podem acrescentar a eles próprios abrindo este link nos seus navegadores.",
+	"ep-addstudents-url-instructions": "Lembre-se que os alunos também se podem acrescentar a eles próprios abrindo esta hiperligação nos seus navegadores:",
 	"ep-addstudents-invalid-users": "{{PLURAL:$1|{{GENDER:$2|Este utilizador|Esta utilizadora|Este(a) utilizador(a)}} não existe|Estes utilizadores não existem}}: $2.",
 	"ep-addstudents-btn": "Acrescentar",
 	"ep-addstudents-success": "Acrescentou $1 {{PLURAL:$1|{{GENDER:$2|aluno|aluna}}|{{GENDER:$2|alunos|alunas}}}} a este curso.",
