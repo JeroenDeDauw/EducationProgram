@@ -104,7 +104,6 @@ class Extension {
 	}
 
 	/**
-	 *
 	 * Get the singleton NotificationsManager. If it doesn't exist yet, we
 	 * create it and set it up.
 	 *

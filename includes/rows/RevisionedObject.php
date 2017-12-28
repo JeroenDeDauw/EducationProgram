@@ -32,7 +32,6 @@ abstract class RevisionedObject extends ORMRow {
 	protected $storeRevisions = true;
 
 	/**
-	 *
 	 * @since 0.1
 	 * @var RevisionAction|bool false
 	 */
@@ -498,7 +497,6 @@ abstract class RevisionedObject extends ORMRow {
 
 	/**
 	 * Set a field to the value of the corresponding field in the provided object.
-	 *
 	 *
 	 * @since 0.1
 	 * @param string $fieldName

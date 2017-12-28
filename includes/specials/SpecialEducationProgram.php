@@ -211,7 +211,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $terms
+	 * @param array[] $terms
 	 *
 	 * @return string
 	 */
@@ -252,7 +252,7 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @return array
+	 * @return array[]
 	 */
 	protected function getTermData() {
 		$termNames = Courses::singleton()->selectFields( 'term', [], [ 'DISTINCT' ] );
@@ -313,12 +313,12 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $students
-	 * @param array $oas
-	 * @param array $cas
-	 * @param array $instructors
+	 * @param int[] $students
+	 * @param int[] $oas
+	 * @param int[] $cas
+	 * @param int[] $instructors
 	 *
-	 * @return array
+	 * @return float[]
 	 */
 	protected function getByGender( array $students, array $oas, array $cas, array $instructors ) {
 		$genders = $this->getGenders(
@@ -340,10 +340,10 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $users The users
-	 * @param array $genders An array mapping user id to gender
+	 * @param int[] $users User IDs
+	 * @param string[] $genders An array mapping user id to gender
 	 *
-	 * @return array
+	 * @return float[]
 	 */
 	protected function getGenderDistribution( array $users, array $genders ) {
 		$distribution = [ 'unknown' => 0, 'male' => 0, 'female' => 0 ];
@@ -366,9 +366,9 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $userIds
+	 * @param int[] $userIds
 	 *
-	 * @return array
+	 * @return string[]
 	 */
 	protected function getGenders( array $userIds ) {
 		$dbr = wfGetDB( DB_REPLICA );

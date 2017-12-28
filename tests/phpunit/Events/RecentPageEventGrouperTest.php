@@ -42,7 +42,7 @@ class RecentPageEventGrouperTest extends \PHPUnit_Framework_TestCase {
 		$groupedEvents = $grouper->groupEvents( [] );
 
 		$this->assertInternalType( 'array', $groupedEvents );
-		$this->assertCount( 0, $groupedEvents );
+		$this->assertEmpty( $groupedEvents );
 	}
 
 	/**
