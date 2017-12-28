@@ -109,7 +109,7 @@
 	"logentry-eparticle-review": "$1 adicionou-se como {{GENDER:$2|revisor|revisora}} do artigo $3, no qual {{GENDER:$6|trabalhou}} $5 como parte do curso $4",
 	"logentry-eparticle-unreview": "$1 removeu-se {{GENDER:$2|a si mesmo como revisor|a si mesma como revisora}} do artigo $3, desenvolvido {{GENDER:$6|pelo|pela}} $5 como parte do curso $4",
 	"prefs-education": "Educação",
-	"ep-prefs-showtoplink": "Mostrar ligação para os [[Special:MyCourses|seus cursos]] no topo de cada página",
+	"ep-prefs-showtoplink": "Mostrar hiperligação para os [[Special:MyCourses|seus cursos]] no topo de cada página",
 	"ep-prefs-bulkdelorgs": "Mostrar um controlo de eliminação em bloco das [[Special:Institutions|instituições]]",
 	"ep-prefs-bulkdelcourses": "Mostrar um controlo de eliminação em bloco para os [[Special:Courses|cursos]]",
 	"right-ep-org": "Gerir instituições do Programa Educativo",
