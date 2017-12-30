@@ -32,7 +32,7 @@ use Title;
  * @group ORM
  * @group Database
  *
- * @covers PageORMTableForTesting
+ * @covers \EducationProgram\ORMTable
  *
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author Daniel Kinzler

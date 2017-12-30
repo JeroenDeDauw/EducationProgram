@@ -42,7 +42,7 @@ use EducationProgram\ORMTable;
  * @group ORM
  * @group Database
  * @group medium
- * @covers TestORMRow
+ * @covers \EducationProgram\ORMRow
  */
 class TestORMRowTest extends ORMRowTest {
 
