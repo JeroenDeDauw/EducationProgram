@@ -380,7 +380,7 @@ interface IORMTable {
 	 *
 	 * @see LoadBalancer::reuseConnection
 	 *
-	 * @param Database $db The database
+	 * @param Database $db
 	 *
 	 * @since 1.20
 	 */
