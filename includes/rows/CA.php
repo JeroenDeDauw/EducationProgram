@@ -30,8 +30,7 @@ class CA extends RoleObject implements IRole {
 		$pager = new CAPager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
-			return
-				$pager->getFilterControl() .
+			return $pager->getFilterControl() .
 				$pager->getNavigationBar() .
 				$pager->getBody() .
 				$pager->getNavigationBar() .

@@ -30,8 +30,7 @@ class Student extends RoleObject {
 		$pager = new StudentPager( $context, $conditions );
 
 		if ( $pager->getNumRows() ) {
-			return
-				$pager->getFilterControl() .
+			return $pager->getFilterControl() .
 				$pager->getNavigationBar() .
 				$pager->getBody() .
 				$pager->getNavigationBar() .

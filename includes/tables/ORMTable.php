@@ -734,7 +734,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 		$prefixedValues = [];
 
 		foreach ( $values as $field => $value ) {
-			if ( is_integer( $field ) ) {
+			if ( is_int( $field ) ) {
 				if ( is_array( $value ) ) {
 					$field = $value[0];
 					$value = $value[1];

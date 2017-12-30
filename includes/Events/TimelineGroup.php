@@ -141,8 +141,7 @@ abstract class TimelineGroup {
 	 * @return string
 	 */
 	public function getHTML() {
-		return
-			Html::rawElement(
+		return Html::rawElement(
 				'span',
 				$this->getHeaderAttributes(),
 				$this->getHeaderHTML()

@@ -147,7 +147,7 @@ abstract class ORMRowTest extends \MediaWikiTestCase {
 		$this->assertTrue( $item->save() );
 
 		$this->assertTrue( $item->hasIdField() );
-		$this->assertTrue( is_integer( $item->getId() ) );
+		$this->assertTrue( is_int( $item->getId() ) );
 
 		$id = $item->getId();
 

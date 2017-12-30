@@ -194,8 +194,7 @@ abstract class EPPager extends \TablePager {
 			);
 		}
 
-		return
-			'<fieldset>' .
+		return '<fieldset>' .
 				'<legend>' . $this->msg( 'ep-pager-withselected' )->escaped() . '</legend>' .
 				implode( '', $controls ) .
 			'</fieldset>';
@@ -409,8 +408,7 @@ abstract class EPPager extends \TablePager {
 
 		$title = $this->getTitle()->getFullText();
 
-		return
-				'<fieldset>' .
+		return '<fieldset>' .
 				'<legend>' . $this->msg( 'ep-pager-showonly' )->escaped() . '</legend>' .
 				'<form method="post" action="' .
 					htmlspecialchars( wfAppendQuery( $GLOBALS['wgScript'], [ 'title' => $title ] ) )
