@@ -705,7 +705,8 @@
 		"UserMergeAccountFields": "EducationProgram\\Hooks::onUserMergeAccountFields",
 		"UserMergeAccountDeleteTables": "EducationProgram\\Hooks::onUserMergeAccountDeleteTables",
 		"MergeAccountFromTo": "EducationProgram\\Hooks::onMergeAccountFromTo",
-		"ResourceLoaderRegisterModules": "EducationProgram\\Hooks::onResourceLoaderRegisterModules"
+		"ResourceLoaderRegisterModules": "EducationProgram\\Hooks::onResourceLoaderRegisterModules",
+		"TitleExists": "EducationProgram\\Hooks::onTitleExists"
 	},
 	"config": {
 		"EPSettings": {

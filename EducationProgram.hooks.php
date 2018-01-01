@@ -366,17 +366,7 @@ final class Hooks {
 	 * @param bool|null &$isKnown
 	 */
 	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
-		if ( $title->getNamespace() == EP_NS ) {
-			if ( Utils::isCourse( $title ) ) {
-				$class = 'EducationProgram\Courses';
-			} else {
-				$class = 'EducationProgram\Orgs';
-			}
-
-			$identifier = $title->getText();
-
-			$isKnown = $class::singleton()->hasIdentifier( $identifier );
-		}
+		self::doesOrgOrCourseExists( $title, $isKnown );
 	}
 
 	public static function onMovePageIsValidMove(
@@ -708,5 +698,37 @@ final class Hooks {
 		JobQueueGroup::singleton()->push( $job );
 
 		return true;
+	}
+
+	/**
+	 * Title::exists() returns false for all actions across EducationProgram, fix that here.
+	 *
+	 * @param Title $title
+	 * @param bool &$exists
+	 */
+	public static function onTitleExists( Title $title, &$exists ) {
+		self::doesOrgOrCourseExists( $title, $exists );
+	}
+
+	/**
+	 * Note: This isn't a hook, it's a helper function that is called
+	 * from self::onTitleIsAlwaysKnown and self::onTitleExists.
+	 *
+	 * @param Title $title
+	 * @param boolean $exists
+	 */
+	private static function doesOrgOrCourseExists( Title $title, &$exists ) {
+		if ( $title->getNamespace() == EP_NS ) {
+			if ( Utils::isCourse( $title ) ) {
+				$class = Courses::class;
+			} else {
+				$class = Orgs::class;
+			}
+
+			$identifier = $title->getText();
+
+			/** @var Courses|Orgs $class */
+			$exists = $class::singleton()->hasIdentifier( $identifier );
+		}
 	}
 }
