@@ -21,34 +21,33 @@ use Html;
 abstract class EPPager extends \TablePager {
 	/**
 	 * Query conditions, full field names (inc prefix).
-	 * @since 0.1
+	 *
 	 * @var array
 	 */
 	protected $conds;
 
 	/**
-	 * @since 0.1
 	 * @var ORMTable
 	 */
 	protected $table;
 
 	/**
 	 * ORMRow object constructed from $this->currentRow.
-	 * @since 0.1
+	 *
 	 * @var ORMRow
 	 */
 	protected $currentObject;
 
 	/**
 	 * Context in which this pager is being shown.
-	 * @since 0.1
+	 *
 	 * @var IContextSource
 	 */
 	protected $context;
 
 	/**
 	 * Enable filtering on the conditions of the filter control.
-	 * @since 0.1
+	 *
 	 * @var bool
 	 */
 	protected $enableFilter = true;
@@ -68,8 +67,6 @@ abstract class EPPager extends \TablePager {
 
 	/**
 	 * Returns the resource loader modules used by the pager.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -139,8 +136,6 @@ abstract class EPPager extends \TablePager {
 	/**
 	 * Returns the relevant field names.
 	 *
-	 * @since 0.1
-	 *
 	 * @return array
 	 */
 	public function getFieldNames() {
@@ -166,8 +161,6 @@ abstract class EPPager extends \TablePager {
 	/**
 	 * Returns HTML for the multiple item control.
 	 * With actions coming from @see getMultipleItemActions.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */
@@ -204,8 +197,6 @@ abstract class EPPager extends \TablePager {
 	 * Return the multiple item actions the current user can do.
 	 * Override in deriving classes to add actions.
 	 *
-	 * @since 0.1
-	 *
 	 * @return array
 	 */
 	protected function getMultipleItemActions() {
@@ -217,8 +208,6 @@ abstract class EPPager extends \TablePager {
 	 * Returns whether the pager has multiple item actions and therefore should show
 	 * the multiple items control.
 	 *
-	 * @since 0.1
-	 *
 	 * @return bool
 	 */
 	protected function hasMultipleItemControl() {
@@ -227,8 +216,6 @@ abstract class EPPager extends \TablePager {
 
 	/**
 	 * Returns whether the pager should show an extra column for item actions.
-	 *
-	 * @since 0.1
 	 *
 	 * @return bool
 	 */
@@ -240,8 +227,6 @@ abstract class EPPager extends \TablePager {
 	 * Returns the fields to display.
 	 * Similar to @see getFieldNames, but fields should not be prefixed, and
 	 * non-relevant fields will be removed.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -261,8 +246,6 @@ abstract class EPPager extends \TablePager {
 	/**
 	 * Get the conditions to use in the query.
 	 * This is done by merging the filter controls conditions with those provided to the constructor.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -300,16 +283,12 @@ abstract class EPPager extends \TablePager {
 	/**
 	 * Should return an array with the names of the fields that are sortable.
 	 *
-	 * @since 0.1
-	 *
 	 * @return array of string
 	 */
 	abstract protected function getSortableFields();
 
 	/**
 	 * Returns a list with the filter options.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -320,8 +299,6 @@ abstract class EPPager extends \TablePager {
 	/**
 	 * Sets if the filter control should be enabled.
 	 *
-	 * @since 0.1
-	 *
 	 * @param bool $enableFilter
 	 */
 	public function setEnableFilter( $enableFilter ) {
@@ -330,8 +307,6 @@ abstract class EPPager extends \TablePager {
 
 	/**
 	 * Gets the HTML for a filter control.
-	 *
-	 * @since 0.1
 	 *
 	 * @param bool $hideWhenNoResults When true, there are no results,
 	 *  and no filters are applied, an empty string is returned.
@@ -427,8 +402,6 @@ abstract class EPPager extends \TablePager {
 	 * Changes the provided filter options list by replacing the values by what's set
 	 * in the request, or as fallback, what's set in the session.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array &$filterOptions
 	 *
 	 * @return bool If anything was changed from the default
@@ -475,8 +448,6 @@ abstract class EPPager extends \TablePager {
 	 * Takes a message key and prefixes it with the extension name and name of the pager,
 	 * feeds it to wfMessage, and returns it.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string $messageKey
 	 *
 	 * @return string
@@ -498,8 +469,6 @@ abstract class EPPager extends \TablePager {
 	 * Similar to TablePager::formatValue, but passes along the name of the field without prefix.
 	 * Returned values need to be escaped!
 	 *
-	 * @since 0.1
-	 *
 	 * @param string $name
 	 * @param string $value
 	 *
@@ -509,8 +478,6 @@ abstract class EPPager extends \TablePager {
 
 	/**
 	 * Returns a list of (escaped, html) links to add in an additional column.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IORMRow $item
 	 *
@@ -522,8 +489,6 @@ abstract class EPPager extends \TablePager {
 
 	/**
 	 * Returns a deletion link.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $type
 	 * @param int $id

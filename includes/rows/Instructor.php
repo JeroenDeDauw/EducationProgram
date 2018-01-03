@@ -15,7 +15,6 @@ namespace EducationProgram;
 class Instructor extends RoleObject implements IRole {
 
 	/**
-	 * @since 0.1
 	 * @see IRole::getRoleName
 	 */
 	public function getRoleName() {

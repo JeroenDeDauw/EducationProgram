@@ -26,7 +26,6 @@ class ArticleTable extends EPPager {
 	 * and stores them in this field.
 	 * int userId => array( Article $article0, ... )
 	 *
-	 * @since 0.1
 	 * @var array
 	 */
 	protected $articles = [];
@@ -59,7 +58,6 @@ class ArticleTable extends EPPager {
 	/**
 	 * Cached name of the course for which students are shown (if any).
 	 *
-	 * @since 0.1
 	 * @var string|bool false
 	 */
 	protected $courseName = false;
@@ -67,7 +65,6 @@ class ArticleTable extends EPPager {
 	/**
 	 * Show the students column or not.
 	 *
-	 * @since 0.1
 	 * @var bool
 	 */
 	protected $showStudents = true;
@@ -97,8 +94,6 @@ class ArticleTable extends EPPager {
 
 	/**
 	 * Set if the student column should be shown or not.
-	 *
-	 * @since 0.1
 	 *
 	 * @param bool $showStudents
 	 */
@@ -227,8 +222,6 @@ class ArticleTable extends EPPager {
 	/**
 	 * Adds the HTML for the article and reviewers to the table row.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string &$html
 	 * @param EPArticle[] $articles
 	 * @param bool $showArticleAddition
@@ -297,8 +290,6 @@ class ArticleTable extends EPPager {
 	/**
 	 * Returns the HTML for a user cell.
 	 *
-	 * @since 0.1
-	 *
 	 * @param int $userId
 	 * @param int $rowSpan
 	 *
@@ -350,8 +341,6 @@ class ArticleTable extends EPPager {
 	 * Returns title of the course for which students are shown.
 	 * Only call if there is a single course_id filter condition.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	protected function getCourseName() {
@@ -369,8 +358,6 @@ class ArticleTable extends EPPager {
 
 	/**
 	 * Returns the HTML for an article cell.
-	 *
-	 * @since 0.1
 	 *
 	 * @param EPArticle $article
 	 * @param int $rowSpan
@@ -446,8 +433,6 @@ class ArticleTable extends EPPager {
 	/**
 	 * Returns the HTML for a reviewer cell.
 	 *
-	 * @since 0.1
-	 *
 	 * @param EPArticle $article
 	 * @param int $userId User id of the reviewer
 	 *
@@ -516,8 +501,6 @@ class ArticleTable extends EPPager {
 	/**
 	 * Returns the HTML for the article addition control.
 	 *
-	 * @since 0.1
-	 *
 	 * @param int $courseId
 	 * @param int $studentUserId
 	 *
@@ -571,8 +554,6 @@ class ArticleTable extends EPPager {
 
 	/**
 	 * Returns the HTML for the reviewer addition control.
-	 *
-	 * @since 0.1
 	 *
 	 * @param EPArticle $article
 	 *

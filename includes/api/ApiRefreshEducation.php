@@ -20,8 +20,6 @@ class ApiRefreshEducation extends ApiBase {
 	/**
 	 * Maps class names to values for the type parameter.
 	 *
-	 * @since 0.1
-	 *
 	 * @var array
 	 */
 	protected static $typeMap = [

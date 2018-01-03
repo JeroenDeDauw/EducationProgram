@@ -20,16 +20,12 @@ interface IRole {
 	/**
 	 * Returns the user.
 	 *
-	 * @since 0.1
-	 *
 	 * @return User
 	 */
 	public function getUser();
 
 	/**
 	 * Returns name of the user.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */
@@ -38,16 +34,12 @@ interface IRole {
 	/**
 	 * Retruns the user link.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	public function getUserLink();
 
 	/**
 	 * Returns the tool links for this user.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IContextSource $context
 	 * @param Course|null $course
@@ -58,8 +50,6 @@ interface IRole {
 
 	/**
 	 * Returns a short name for the role.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */

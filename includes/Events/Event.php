@@ -37,8 +37,6 @@ class Event {
 	private $info;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param int|null $eventId
 	 * @param int $courseId
 	 * @param int $userId
@@ -58,8 +56,6 @@ class Event {
 	/**
 	 * Returns the id of the event.
 	 *
-	 * @since 0.3
-	 *
 	 * @return int|null
 	 */
 	public function getId() {
@@ -69,8 +65,6 @@ class Event {
 	/**
 	 * Returns the id of the course for which the event is relevant.
 	 *
-	 * @since 0.3
-	 *
 	 * @return int
 	 */
 	public function getCourseId() {
@@ -79,8 +73,6 @@ class Event {
 
 	/**
 	 * Returns the id of the User that made the event.
-	 *
-	 * @since 0.3
 	 *
 	 * @return int
 	 */
@@ -92,8 +84,6 @@ class Event {
 	 * Returns the time at which the event occurred.
 	 * The time is a string formatted as TS_MW.
 	 *
-	 * @since 0.3
-	 *
 	 * @return string TS_MW
 	 */
 	public function getTime() {
@@ -102,8 +92,6 @@ class Event {
 
 	/**
 	 * Returns the string identifier for the events type.
-	 *
-	 * @since 0.3
 	 *
 	 * @return string
 	 */
@@ -114,8 +102,6 @@ class Event {
 	/**
 	 * Returns the events type specific info.
 	 *
-	 * @since 0.3
-	 *
 	 * @return string
 	 */
 	public function getInfo() {
@@ -124,8 +110,6 @@ class Event {
 
 	/**
 	 * Returns the age of the event in seconds.
-	 *
-	 * @since 0.3
 	 *
 	 * @return int
 	 */

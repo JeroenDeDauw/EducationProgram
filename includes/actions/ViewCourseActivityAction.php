@@ -60,8 +60,6 @@ class ViewCourseActivityAction extends \FormlessAction {
 	/**
 	 * Returns the page title.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	protected function getPageTitle() {

@@ -49,8 +49,6 @@ class EventStore {
 	private $readConnectionId;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param string $tableName
 	 * @param int $readConnectionId
 	 */
@@ -75,8 +73,6 @@ class EventStore {
 
 	/**
 	 * Runs the provided event query and returns the matching events.
-	 *
-	 * @since 0.3
 	 *
 	 * @param EventQuery $query
 	 *
@@ -141,8 +137,6 @@ class EventStore {
 
 	/**
 	 * Inserts a new event into the event store.
-	 *
-	 * @since 0.3
 	 *
 	 * @param Event $event
 	 *

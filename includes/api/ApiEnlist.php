@@ -115,8 +115,6 @@ class ApiEnlist extends ApiBase {
 	/**
 	 * Returns if the user is allowed to do the requested action.
 	 *
-	 * @since 0.1
-	 *
 	 * @param int $userId User id of the mentor affected
 	 * @param string $role
 	 * @param string $subAction

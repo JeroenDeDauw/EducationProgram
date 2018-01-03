@@ -36,7 +36,6 @@ class EPArticle {
 	/**
 	 * Cached user object for this article.
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3
 	 * @var User|bool false
 	 */
@@ -45,7 +44,6 @@ class EPArticle {
 	/**
 	 * Cached course object for this article.
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3
 	 * @var Course|bool false
 	 */
@@ -55,7 +53,6 @@ class EPArticle {
 	 * Cached list of user allowances to become reviewer.
 	 * int userId => bool canBecomereviewer
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3
 	 * @var array
 	 */
@@ -125,7 +122,6 @@ class EPArticle {
 	/**
 	 * Returns the user that is working on this article.
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3
 	 *
 	 * @return User
@@ -140,8 +136,6 @@ class EPArticle {
 
 	/**
 	 * Returns the course this article is linked to.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array|string|null $fields
 	 * @deprecated since 0.3
@@ -163,7 +157,6 @@ class EPArticle {
 	/**
 	 * Returns if the provided User can become a reviwers for this article.
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3
 	 *
 	 * @param User $user
@@ -187,8 +180,6 @@ class EPArticle {
 	 * Users already a reviewer will be ignored. An array with actually added user ids
 	 * is returned.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array $userIds
 	 *
 	 * @return array
@@ -209,8 +200,6 @@ class EPArticle {
 	 * Users that are not a reviewer will just be ignored. An array with actually removed
 	 * user ids is returned.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array $userIds
 	 *
 	 * @return array
@@ -228,7 +217,6 @@ class EPArticle {
 	/**
 	 * Logs the addition of the users matching the provided ids as reviewers to this article.
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3
 	 *
 	 * @param array $userIds
@@ -243,7 +231,6 @@ class EPArticle {
 	/**
 	 * Logs the removal of the users matching the provided ids as reviewers for this article.
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3
 	 *
 	 * @param array $userIds
@@ -290,7 +277,6 @@ class EPArticle {
 	/**
 	 * Logging helper method.
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3
 	 *
 	 * @param User $actionUser
@@ -324,7 +310,6 @@ class EPArticle {
 	/**
 	 * Returns if the provided user can remove the article.
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3
 	 *
 	 * @param User $user

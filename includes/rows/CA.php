@@ -19,8 +19,6 @@ class CA extends RoleObject implements IRole {
 	/**
 	 * Display a pager with campus ambassadors.
 	 *
-	 * @since 0.1
-	 *
 	 * @param IContextSource $context
 	 * @param array $conditions
 	 *
@@ -42,7 +40,6 @@ class CA extends RoleObject implements IRole {
 	}
 
 	/**
-	 * @since 0.1
 	 * @see IRole::getRoleName
 	 */
 	public function getRoleName() {

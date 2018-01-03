@@ -27,7 +27,7 @@ class Courses extends PageTable {
 
 	/**
 	 * @see ORMTable::getName()
-	 * @since 0.1
+	 *
 	 * @return string
 	 */
 	public function getName() {
@@ -36,7 +36,7 @@ class Courses extends PageTable {
 
 	/**
 	 * @see ORMTable::getRowClass()
-	 * @since 0.1
+	 *
 	 * @return string
 	 */
 	public function getRowClass() {
@@ -45,7 +45,7 @@ class Courses extends PageTable {
 
 	/**
 	 * @see ORMTable::getFields()
-	 * @since 0.1
+	 *
 	 * @return array
 	 */
 	public function getFields() {
@@ -79,7 +79,7 @@ class Courses extends PageTable {
 
 	/**
 	 * @see ORMTable::getDefaults()
-	 * @since 0.1
+	 *
 	 * @return array
 	 */
 	public function getDefaults() {
@@ -108,7 +108,7 @@ class Courses extends PageTable {
 
 	/**
 	 * @see ORMTable::getSummaryFields()
-	 * @since 0.1
+	 *
 	 * @return array
 	 */
 	public function getSummaryFields() {
@@ -213,8 +213,6 @@ class Courses extends PageTable {
 	 * Courses begin at the 00:00:00 UTC of their start date, and end at
 	 * 24:00:00 UTC of their end date.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string $state
 	 * @param bool $prefix
 	 *
@@ -251,8 +249,6 @@ class Courses extends PageTable {
 
 	/**
 	 * Returns a set of courses for the specified users or roles.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array|int $userIds
 	 * @param array|int $roleIds
@@ -297,8 +293,6 @@ class Courses extends PageTable {
 
 	/**
 	 * @see PageTable::getEditRight
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */

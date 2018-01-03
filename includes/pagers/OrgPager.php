@@ -30,8 +30,6 @@ class OrgPager extends EPPager {
 	/**
 	 * Returns the HTML for a pager with institutions.
 	 *
-	 * @since 0.1
-	 *
 	 * @param IContextSource $context
 	 * @param array $conditions
 	 *

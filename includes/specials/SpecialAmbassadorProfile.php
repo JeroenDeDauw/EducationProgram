@@ -16,8 +16,6 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	/**
 	 * Returns the name of the ambassador class.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	abstract protected function getClassName();
@@ -25,23 +23,17 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 	/**
 	 * Returns if the user can access the page or not.
 	 *
-	 * @since 0.1
-	 *
 	 * @return bool
 	 */
 	abstract protected function userCanAccess();
 
 	/**
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	abstract protected function getMsgPrefix();
 
 	/**
 	 * Returns if the special page should be listed on Special:SpecialPages and similar interfaces.
-	 *
-	 * @since 0.1
 	 *
 	 * @return bool
 	 */
@@ -51,8 +43,6 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $subPage
 	 *
@@ -157,8 +147,6 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 
 	/**
 	 * Gets called after the form is saved.
-	 *
-	 * @since 0.1
 	 */
 	public function onSuccess() {
 		$class = $this->getClassName();
@@ -193,8 +181,6 @@ abstract class SpecialAmbassadorProfile extends \FormSpecialPage {
 
 	/**
 	 * Displays the navigation menu.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayNavigation() {
 		$menu = new Menu( $this->getContext() );

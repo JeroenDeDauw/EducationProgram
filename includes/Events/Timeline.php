@@ -35,7 +35,6 @@ class Timeline {
 	/**
 	 * List of events to display in this timeline.
 	 *
-	 * @since 0.1
 	 * @var Event[]
 	 */
 	protected $events;
@@ -53,8 +52,6 @@ class Timeline {
 	protected $language;
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param OutputPage $outputPage
 	 * @param Language $language
 	 * @param Event[] $events
@@ -67,8 +64,6 @@ class Timeline {
 
 	/**
 	 * Builds and returns the HTML for the timeline.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */
@@ -91,8 +86,6 @@ class Timeline {
 
 	/**
 	 * Displays the timeline.
-	 *
-	 * @since 0.1
 	 */
 	public function display() {
 		$this->outputPage->addModules( self::getModules() );
@@ -101,8 +94,6 @@ class Timeline {
 
 	/**
 	 * Returns the modules needed for display.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */

@@ -20,7 +20,7 @@ class Revisions extends ORMTable {
 
 	/**
 	 * @see ORMTable::getName()
-	 * @since 0.1
+	 *
 	 * @return string
 	 */
 	public function getName() {
@@ -29,7 +29,7 @@ class Revisions extends ORMTable {
 
 	/**
 	 * @see ORMTable::getRowClass()
-	 * @since 0.1
+	 *
 	 * @return string
 	 */
 	public function getRowClass() {
@@ -38,7 +38,7 @@ class Revisions extends ORMTable {
 
 	/**
 	 * @see ORMTable::getFields()
-	 * @since 0.1
+	 *
 	 * @return array
 	 */
 	public function getFields() {
@@ -61,8 +61,6 @@ class Revisions extends ORMTable {
 	/**
 	 * Create a new revision object for the provided RevisionedObject.
 	 * The RevisionedObject should have all it's fields loaded.
-	 *
-	 * @since 0.1
 	 *
 	 * @param RevisionedObject $object
 	 * @param RevisionAction $revAction
@@ -91,8 +89,6 @@ class Revisions extends ORMTable {
 
 	/**
 	 * Returns the most recent revision matching the provided conditions.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $conds
 	 *

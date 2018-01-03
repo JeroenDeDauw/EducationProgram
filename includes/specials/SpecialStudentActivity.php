@@ -14,17 +14,12 @@ namespace EducationProgram;
  */
 class SpecialStudentActivity extends VerySpecialPage {
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'StudentActivity' );
 	}
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $subPage
 	 */
@@ -43,8 +38,6 @@ class SpecialStudentActivity extends VerySpecialPage {
 	/**
 	 * Displays the content of the page that should be cached.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	public function displayCachedContent() {
@@ -61,8 +54,6 @@ class SpecialStudentActivity extends VerySpecialPage {
 
 	/**
 	 * Returns the HTML for the pager.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $conds
 	 *
@@ -94,8 +85,6 @@ class SpecialStudentActivity extends VerySpecialPage {
 
 	/**
 	 * Returns the HTML for the student activity meter.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $conds
 	 * @param int $duration

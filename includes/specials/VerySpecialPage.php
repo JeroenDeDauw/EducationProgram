@@ -22,7 +22,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	 * The subpage, ie the part after Special:PageName/
 	 * Empty string if none is provided.
 	 *
-	 * @since 0.1
 	 * @var string
 	 */
 	public $subPage;
@@ -30,7 +29,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	/**
 	 * @see SpecialPage::getDescription
 	 *
-	 * @since 0.1
 	 * @return String
 	 */
 	public function getDescription() {
@@ -39,8 +37,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 
 	/**
 	 * Sets headers - this should be called from the execute() method of all derived classes!
-	 *
-	 * @since 0.1
 	 */
 	public function setHeaders() {
 		$out = $this->getOutput();
@@ -50,8 +46,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string|null $subPage
 	 */
@@ -76,8 +70,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	/**
 	 * Show a message in an error box.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Message $message
 	 */
 	protected function showError( Message $message ) {
@@ -89,8 +81,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 
 	/**
 	 * Show a message in a warning box.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Message $message
 	 */
@@ -104,8 +94,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	/**
 	 * Show a message in a success box.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Message $message
 	 */
 	protected function showSuccess( Message $message ) {
@@ -117,8 +105,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 
 	/**
 	 * Displays the navigation menu.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayNavigation() {
 		$menu = new Menu( $this->getContext() );
@@ -127,8 +113,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 
 	/**
 	 * Display the summary data.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IORMRow $item
 	 * @param bool $collapsed
@@ -180,8 +164,6 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	/**
 	 * Gets the summary data.
 	 * Returned values must be escaped.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IORMRow $item
 	 *

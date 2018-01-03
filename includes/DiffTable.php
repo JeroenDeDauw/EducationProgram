@@ -18,7 +18,6 @@ use Exception;
 class DiffTable extends \ContextSource {
 
 	/**
-	 * @since 0.1
 	 * @var RevisionDiff
 	 */
 	protected $diff;
@@ -40,8 +39,6 @@ class DiffTable extends \ContextSource {
 	protected $secondRevisionType = 'new';
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param IContextSource $context
 	 * @param RevisionDiff $diff
 	 * @throws Exception
@@ -58,8 +55,6 @@ class DiffTable extends \ContextSource {
 
 	/**
 	 * Display the diff as a table.
-	 *
-	 * @since 0.1
 	 */
 	public function display() {
 		$out = $this->getOutput();

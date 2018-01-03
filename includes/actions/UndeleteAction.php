@@ -146,8 +146,6 @@ class UndeleteAction extends Action {
 	/**
 	 * Does the actual undeletion action.
 	 *
-	 * @since 0.1
-	 *
 	 * @param EPRevision $revision
 	 *
 	 * @return bool Success indicator
@@ -163,8 +161,6 @@ class UndeleteAction extends Action {
 
 	/**
 	 * Display the undeletion form for the provided PageObject.
-	 *
-	 * @since 0.1
 	 *
 	 * @param EPRevision $revision
 	 */
@@ -226,8 +222,6 @@ class UndeleteAction extends Action {
 
 	/**
 	 * Returns the page title.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */

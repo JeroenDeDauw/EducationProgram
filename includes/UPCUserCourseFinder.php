@@ -42,8 +42,6 @@ class UPCUserCourseFinder implements UserCourseFinder {
 	private $db;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param IDatabase $db
 	 */
 	public function __construct( IDatabase $db ) {
@@ -52,8 +50,6 @@ class UPCUserCourseFinder implements UserCourseFinder {
 
 	/**
 	 * @see UserCourseFinder::getCoursesForUsers
-	 *
-	 * @since 0.3
 	 *
 	 * @param int|int[] $userIds
 	 * @param int|int[] $roles

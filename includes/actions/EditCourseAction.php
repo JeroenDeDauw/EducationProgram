@@ -19,8 +19,6 @@ use IContextSource;
 class EditCourseAction extends EditAction {
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param Page $page
 	 * @param IContextSource $context
 	 */
@@ -134,8 +132,6 @@ class EditCourseAction extends EditAction {
 
 	/**
 	 * Parse a course title to name and term.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $titleText
 	 *
@@ -300,8 +296,6 @@ class EditCourseAction extends EditAction {
 	/**
 	 * Returns the description to use as default, based
 	 * on the courseDescPage and courseOrgDescPage settings.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $data
 	 *

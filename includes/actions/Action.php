@@ -17,7 +17,7 @@ abstract class Action extends \CachedAction {
 
 	/**
 	 * @see Action::$page
-	 * @since 0.1
+	 *
 	 * @var EducationPage
 	 */
 	protected $page;
@@ -25,8 +25,6 @@ abstract class Action extends \CachedAction {
 	/**
 	 * Display a warning that the page has been deleted together with the first
 	 * few items from its deletion log.
-	 *
-	 * @since 0.1
 	 */
 	public function displayDeletionLog() {
 		$out = $this->getOutput();
@@ -51,8 +49,6 @@ abstract class Action extends \CachedAction {
 	 *
 	 * Note: as of version 0.4 alpha, moving check for user rights out of here,
 	 * to the callers.
-	 *
-	 * @since 0.1
 	 */
 	public function displayUndeletionLink() {
 		$revisionCount = Revisions::singleton()->count( [
@@ -76,8 +72,6 @@ abstract class Action extends \CachedAction {
 	/**
 	 * Returns a prefixed message name.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string $name
 	 *
 	 * @return string
@@ -90,8 +84,6 @@ abstract class Action extends \CachedAction {
 
 	/**
 	 * Returns a salt based on the action and the page name.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */

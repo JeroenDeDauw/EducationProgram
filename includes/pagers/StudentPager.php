@@ -21,7 +21,6 @@ class StudentPager extends EPPager {
 	 * The real names will just hold the user name when no real name is set.
 	 * user id => array( user name, real name )
 	 *
-	 * @since 0.1
 	 * @var array
 	 */
 	protected $userNames = [];
@@ -30,7 +29,6 @@ class StudentPager extends EPPager {
 	 * List of user ids with the names of their associated courses.
 	 * user id => array( course name 0, ... )
 	 *
-	 * @since 0.1
 	 * @var array
 	 */
 	protected $courseTitles = [];

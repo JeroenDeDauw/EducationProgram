@@ -34,8 +34,6 @@ use EducationProgram\Store\CourseStore;
 class Extension {
 
 	/**
-	 * @since 0.3
-	 *
 	 * @var Settings
 	 */
 	protected $settings;
@@ -50,8 +48,6 @@ class Extension {
 	protected $notificationsMgr;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param Settings $settings
 	 */
 	public function __construct( Settings $settings ) {
@@ -59,8 +55,6 @@ class Extension {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @return ArticleStore
 	 */
 	public function newArticleStore() {
@@ -68,8 +62,6 @@ class Extension {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @return ArticleAdder
 	 */
 	public function newArticleAdder() {
@@ -77,8 +69,6 @@ class Extension {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @return EventStore
 	 */
 	public function newEventStore() {
@@ -86,8 +76,6 @@ class Extension {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @return CourseStore
 	 */
 	public function newCourseStore() {
@@ -95,8 +83,6 @@ class Extension {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @return Settings
 	 */
 	public function getSettings() {
@@ -131,7 +117,6 @@ class Extension {
 	 * This is evil and should not be used except in intermediate steps during
 	 * refactoring aimed at killing dependency pulling code.
 	 *
-	 * @since 0.3
 	 * @deprecated since 0.3
 	 *
 	 * @return Extension

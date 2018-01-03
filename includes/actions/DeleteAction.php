@@ -120,8 +120,6 @@ class DeleteAction extends Action {
 	/**
 	 * Does the actual deletion action.
 	 *
-	 * @since 0.1
-	 *
 	 * @param PageObject $object
 	 *
 	 * @return bool Success indicator
@@ -138,8 +136,6 @@ class DeleteAction extends Action {
 
 	/**
 	 * Display the deletion form for the provided PageObject.
-	 *
-	 * @since 0.1
 	 *
 	 * @param PageObject $object
 	 */
@@ -206,8 +202,6 @@ class DeleteAction extends Action {
 
 	/**
 	 * Returns the page title.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */

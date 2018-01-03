@@ -18,7 +18,6 @@ abstract class RevisionedObject extends ORMRow {
 	 * If the object should log changes.
 	 * Can be changed via disableLogging and enableLogging.
 	 *
-	 * @since 0.1
 	 * @var bool
 	 */
 	protected $log = true;
@@ -26,21 +25,17 @@ abstract class RevisionedObject extends ORMRow {
 	/**
 	 * If the object should store old revisions.
 	 *
-	 * @since 0.1
 	 * @var bool
 	 */
 	protected $storeRevisions = true;
 
 	/**
-	 * @since 0.1
 	 * @var RevisionAction|bool false
 	 */
 	protected $revAction = false;
 
 	/**
 	 * Sets the revision action.
-	 *
-	 * @since 0.1
 	 *
 	 * @param RevisionAction|bool $revAction false
 	 */
@@ -51,8 +46,6 @@ abstract class RevisionedObject extends ORMRow {
 	/**
 	 * Sets the value for the @see $storeRevisions field.
 	 *
-	 * @since 0.1
-	 *
 	 * @param bool $store
 	 */
 	public function setStoreRevisions( $store ) {
@@ -61,8 +54,6 @@ abstract class RevisionedObject extends ORMRow {
 
 	/**
 	 * Sets the value for the @see $log field.
-	 *
-	 * @since 0.1
 	 */
 	public function enableLogging() {
 		$this->log = true;
@@ -70,8 +61,6 @@ abstract class RevisionedObject extends ORMRow {
 
 	/**
 	 * Sets the value for the @see $log field.
-	 *
-	 * @since 0.1
 	 */
 	public function disableLogging() {
 		$this->log = false;
@@ -79,8 +68,6 @@ abstract class RevisionedObject extends ORMRow {
 
 	/**
 	 * Returns the info for the log entry or false if no entry should be created.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $subType
 	 *
@@ -92,8 +79,6 @@ abstract class RevisionedObject extends ORMRow {
 
 	/**
 	 * Store the current version of the object in the revisions table.
-	 *
-	 * @since 0.1
 	 *
 	 * @param RevisionedObject $object
 	 *
@@ -109,8 +94,6 @@ abstract class RevisionedObject extends ORMRow {
 
 	/**
 	 * Log an action.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $subType
 	 */
@@ -201,8 +184,6 @@ abstract class RevisionedObject extends ORMRow {
 	 * Gets called after an existing object was updated in the database.
 	 * Unless the class is in summary mode @see $this->inSummaryMode
 	 *
-	 * @since 0.1
-	 *
 	 * @param RevisionedObject $originalObject
 	 */
 	protected function onUpdated( RevisionedObject $originalObject ) {
@@ -236,8 +217,6 @@ abstract class RevisionedObject extends ORMRow {
 	/**
 	 * Do logging and revision storage after a removal.
 	 * @see ORMRow::onRemoved()
-	 *
-	 * @since 0.1
 	 */
 	protected function onRemoved() {
 		$this->storeRevision( $this );
@@ -253,8 +232,6 @@ abstract class RevisionedObject extends ORMRow {
 	 * Save the object using the provided revision action info for logging and revision storage.
 	 * PHP does not support method overloading, else this would be just "save" :/
 	 *
-	 * @since 0.1
-	 *
 	 * @param RevisionAction $revAction
 	 *
 	 * @return bool Success indicator
@@ -269,8 +246,6 @@ abstract class RevisionedObject extends ORMRow {
 	/**
 	 * Remove the object using the provided revision action info for logging and revision storage.
 	 * PHP does not support method overloading, else this would be just "remove" :/
-	 *
-	 * @since 0.1
 	 *
 	 * @param RevisionAction $revAction
 	 *
@@ -294,8 +269,6 @@ abstract class RevisionedObject extends ORMRow {
 	 * Get the revision with the provided id for this object.
 	 * Returns false if there is no revision with this id for this object.
 	 *
-	 * @since 0.1
-	 *
 	 * @param int $id
 	 *
 	 * @return EPRevision|bool false
@@ -312,8 +285,6 @@ abstract class RevisionedObject extends ORMRow {
 	/**
 	 * Returns the revisions of the object matching the provided conditions.
 	 * If you set the type or object_id fields, other revisions might be returned as well.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $conditions
 	 * @param array $options
@@ -350,8 +321,6 @@ abstract class RevisionedObject extends ORMRow {
 	 * Returns the most recently stored revision for this object
 	 * matching the provided contions or false if there is none.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array $conditions
 	 * @param array $options
 	 *
@@ -370,8 +339,6 @@ abstract class RevisionedObject extends ORMRow {
 	 * Undeletes ab object by inserting the current object.
 	 * Only call this method when the object does not exist in
 	 * it's database table and has the current version in the revision table.
-	 *
-	 * @since 0.1
 	 *
 	 * @param RevisionAction $revAction
 	 *
@@ -396,8 +363,6 @@ abstract class RevisionedObject extends ORMRow {
 	/**
 	 * Restore the object to the provided revisions state.
 	 *
-	 * @since 0.1
-	 *
 	 * @param EPRevision $revision
 	 * @param array|null $fields
 	 *
@@ -411,8 +376,6 @@ abstract class RevisionedObject extends ORMRow {
 
 	/**
 	 * Get a diff for the changes that will happen when restoring to the provided revision.
-	 *
-	 * @since 0.1
 	 *
 	 * @param EPRevision $revision
 	 * @param array|null $fields
@@ -457,8 +420,6 @@ abstract class RevisionedObject extends ORMRow {
 	 * At some point we might want to have more fine grained
 	 * reverts for text fields.
 	 *
-	 * @since 0.1
-	 *
 	 * @param EPRevision $revision
 	 * @param array|null $fields
 	 *
@@ -483,8 +444,6 @@ abstract class RevisionedObject extends ORMRow {
 	/**
 	 * Get a diff for the changes that will happen when undoing the provided revision.
 	 *
-	 * @since 0.1
-	 *
 	 * @param EPRevision $revision
 	 * @param array|null $fields
 	 *
@@ -498,7 +457,6 @@ abstract class RevisionedObject extends ORMRow {
 	/**
 	 * Set a field to the value of the corresponding field in the provided object.
 	 *
-	 * @since 0.1
 	 * @param string $fieldName
 	 * @param mixed $newValue
 	 */
@@ -508,8 +466,6 @@ abstract class RevisionedObject extends ORMRow {
 
 	/**
 	 * Retore the object to a revision with the provided id.
-	 *
-	 * @since 0.1
 	 *
 	 * @param int $revId
 	 * @param array|null $fields
@@ -523,8 +479,6 @@ abstract class RevisionedObject extends ORMRow {
 
 	/**
 	 * Undo the changes of the revision with the provided id to this object.
-	 *
-	 * @since 0.1
 	 *
 	 * @param int $revId
 	 * @param array|null $fields

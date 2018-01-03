@@ -21,7 +21,6 @@ use Html;
 abstract class ViewAction extends Action {
 
 	/**
-	 * @since 0.1
 	 * @var PageTable
 	 */
 	protected $table;
@@ -33,8 +32,6 @@ abstract class ViewAction extends Action {
 	protected $object = null;
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param Page $page
 	 * @param IContextSource $context
 	 * @param PageTable $table
@@ -140,8 +137,6 @@ abstract class ViewAction extends Action {
 	/**
 	 * Display a revision notice as subtitle.
 	 *
-	 * @since 0.1
-	 *
 	 * @param EPRevision $rev
 	 */
 	protected function displayRevisionNotice( EPRevision $rev ) {
@@ -174,8 +169,6 @@ abstract class ViewAction extends Action {
 	/**
 	 * Display the actual page.
 	 *
-	 * @since 0.1
-	 *
 	 * @param IORMRow $object
 	 *
 	 * @return string
@@ -186,8 +179,6 @@ abstract class ViewAction extends Action {
 
 	/**
 	 * Displays the navigation menu.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayNavigation() {
 		$menu = new Menu( $this->getContext() );
@@ -196,8 +187,6 @@ abstract class ViewAction extends Action {
 
 	/**
 	 * Display the summary data.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IORMRow $item
 	 * @param bool $collapsed
@@ -249,8 +238,6 @@ abstract class ViewAction extends Action {
 	/**
 	 * Gets the summary data.
 	 * Returned values must be escaped.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IORMRow $item
 	 *

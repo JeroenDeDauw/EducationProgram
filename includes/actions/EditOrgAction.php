@@ -19,8 +19,6 @@ use IContextSource;
 class EditOrgAction extends EditAction {
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param Page $page
 	 * @param IContextSource $context
 	 */
@@ -41,6 +39,7 @@ class EditOrgAction extends EditAction {
 	 * existing one.
 	 *
 	 * @see EditAction::getMessageKeyBase()
+	 *
 	 * @return string
 	 */
 	protected function getMessageKeyBase() {
@@ -109,8 +108,6 @@ class EditOrgAction extends EditAction {
 
 	/**
 	 * Returns true if the country value is valid or an error message if it's not.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $value
 	 * @param array $alldata

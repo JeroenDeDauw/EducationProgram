@@ -19,7 +19,7 @@ class OAPager extends EPPager {
 
 	/**
 	 * @see EPPager::$currentObject
-	 * @since 0.1
+	 *
 	 * @var RoleObject
 	 */
 	protected $currentObject;

@@ -21,7 +21,6 @@ class Org extends PageObject {
 	/**
 	 * Cached array of the linked Course objects.
 	 *
-	 * @since 0.1
 	 * @var Course[]|bool false
 	 */
 	protected $courses = false;
@@ -207,8 +206,6 @@ class Org extends PageObject {
 	 * Returns thr HTML for a control to add a new org to the provided context.
 	 * Additional arguments can be provided to set the default values for the control fields.
 	 *
-	 * @since 0.1
-	 *
 	 * @param IContextSource $context
 	 * @param array $args
 	 *
@@ -260,8 +257,6 @@ class Org extends PageObject {
 
 	/**
 	 * Returns the courses linked to this org.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array|string|null $fields
 	 *

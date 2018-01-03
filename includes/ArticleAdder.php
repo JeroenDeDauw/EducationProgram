@@ -32,15 +32,11 @@ namespace EducationProgram;
 class ArticleAdder {
 
 	/**
-	 * @since 0.3
-	 *
 	 * @var ArticleStore
 	 */
 	protected $articleStore;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param ArticleStore $articleStore
 	 */
 	public function __construct( ArticleStore $articleStore ) {
@@ -49,8 +45,6 @@ class ArticleAdder {
 
 	/**
 	 * Adds an EPArticle to the extension.
-	 *
-	 * @since 0.3
 	 *
 	 * @param \User $actionUser The user performing this action
 	 * @param int $courseId

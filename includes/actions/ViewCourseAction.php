@@ -22,8 +22,6 @@ use SpecialPage;
 class ViewCourseAction extends ViewAction {
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param Page $page
 	 * @param IContextSource $context
 	 */
@@ -40,8 +38,6 @@ class ViewCourseAction extends ViewAction {
 
 	/**
 	 * Displays the navigation menu.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayNavigation() {
 		$headerPage = Settings::get( 'courseHeaderPage' );
@@ -167,8 +163,6 @@ class ViewCourseAction extends ViewAction {
 	/**
 	 * Gets the summary data.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Course|IORMRow $course
 	 *
 	 * @return array
@@ -214,8 +208,6 @@ class ViewCourseAction extends ViewAction {
 	 * Returns a list with the users that the specified role for the provided course
 	 * or a message indicating there are none.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Course $course
 	 * @param string $roleName
 	 *
@@ -249,8 +241,6 @@ class ViewCourseAction extends ViewAction {
 	/**
 	 * Returns role a controls for the course if the
 	 * current user has the right permissions.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Course $course
 	 * @param string $roleName

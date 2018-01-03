@@ -15,17 +15,12 @@ namespace EducationProgram;
  */
 class SpecialCourses extends VerySpecialPage {
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'Courses' );
 	}
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string|null $subPage
 	 */
@@ -47,6 +42,7 @@ class SpecialCourses extends VerySpecialPage {
 
 	/**
 	 * @see SpecialCachedPage::getCacheKey
+	 *
 	 * @return array
 	 */
 	protected function getCacheKey() {

@@ -32,8 +32,6 @@ interface EventGrouper {
 	/**
 	 * Groups the events and returns them as a list of EventGroup.
 	 *
-	 * @since 0.3
-	 *
 	 * @param Event[] $events
 	 *
 	 * @return EventGroup[]

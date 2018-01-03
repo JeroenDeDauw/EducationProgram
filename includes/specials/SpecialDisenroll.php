@@ -18,17 +18,12 @@ use Xml;
  */
 class SpecialDisenroll extends VerySpecialPage {
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'Disenroll', '', false );
 	}
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $subPage
 	 */
@@ -91,8 +86,6 @@ class SpecialDisenroll extends VerySpecialPage {
 	/**
 	 * Show a link to the login page with appropriate returnto argument
 	 * when the user is not logged in.
-	 *
-	 * @since 0.1
 	 */
 	protected function showLoginLink() {
 		$this->getOutput()->addHTML( $this->getLinkRenderer()->makeKnownLink(
@@ -107,8 +100,6 @@ class SpecialDisenroll extends VerySpecialPage {
 
 	/**
 	 * Show the disenrollment form for the provdied course.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Course $course
 	 */
@@ -168,8 +159,6 @@ class SpecialDisenroll extends VerySpecialPage {
 
 	/**
 	 * Disenroll the user from the provided course.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Course $course
 	 */

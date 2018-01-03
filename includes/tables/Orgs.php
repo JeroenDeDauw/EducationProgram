@@ -27,7 +27,7 @@ class Orgs extends PageTable {
 
 	/**
 	 * @see ORMTable::getName()
-	 * @since 0.1
+	 *
 	 * @return string
 	 */
 	public function getName() {
@@ -36,7 +36,7 @@ class Orgs extends PageTable {
 
 	/**
 	 * @see ORMTable::getRowClass()
-	 * @since 0.1
+	 *
 	 * @return string
 	 */
 	public function getRowClass() {
@@ -45,7 +45,7 @@ class Orgs extends PageTable {
 
 	/**
 	 * @see ORMTable::getFields()
-	 * @since 0.1
+	 *
 	 * @return array
 	 */
 	public function getFields() {
@@ -71,7 +71,7 @@ class Orgs extends PageTable {
 
 	/**
 	 * @see ORMTable::getDefaults()
-	 * @since 0.1
+	 *
 	 * @return array
 	 */
 	public function getDefaults() {
@@ -112,7 +112,7 @@ class Orgs extends PageTable {
 
 	/**
 	 * @see ORMTable::getSummaryFields()
-	 * @since 0.1
+	 *
 	 * @return array
 	 */
 	public function getSummaryFields() {

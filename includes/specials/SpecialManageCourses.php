@@ -17,17 +17,12 @@ namespace EducationProgram;
  */
 class SpecialManageCourses extends VerySpecialPage {
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'ManageCourses' );
 	}
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $subPage
 	 */
@@ -64,8 +59,6 @@ class SpecialManageCourses extends VerySpecialPage {
 
 	/**
 	 * Displays the navigation menu.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayNavigation() {
 		$menu = new Menu( $this->getContext() );
@@ -78,8 +71,6 @@ class SpecialManageCourses extends VerySpecialPage {
 
 	/**
 	 * Display the courses relevant to the current user.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayCourses() {
 		$this->displayRoleAssociation( 'EducationProgram\Student' );
@@ -94,8 +85,6 @@ class SpecialManageCourses extends VerySpecialPage {
 	/**
 	 * Display the courses the user is enrolled in.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array $courses
 	 */
 	protected function displayEnrollment( array $courses ) {
@@ -109,8 +98,6 @@ class SpecialManageCourses extends VerySpecialPage {
 	/**
 	 * Display the courses the current user is associated with in the role
 	 * of which the class name is provided.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $class The name of the IRole implementing class
 	 */
@@ -212,8 +199,6 @@ class SpecialManageCourses extends VerySpecialPage {
 	/**
 	 * Display enrollment info for a single course.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Course $course
 	 */
 	protected function displayCourse( Course $course ) {
@@ -253,8 +238,6 @@ class SpecialManageCourses extends VerySpecialPage {
 	/**
 	 * Display enrollment info for a list of courses.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array $courses
 	 */
 	protected function displayCourseList( array $courses ) {
@@ -269,8 +252,6 @@ class SpecialManageCourses extends VerySpecialPage {
 
 	/**
 	 * Display a course pager with the provided courses.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $courses
 	 * @param string $class

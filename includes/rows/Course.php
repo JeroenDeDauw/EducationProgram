@@ -23,7 +23,6 @@ class Course extends PageObject {
 	/**
 	 * Field for caching the linked org.
 	 *
-	 * @since 0.1
 	 * @var Org|bool false
 	 */
 	protected $org = false;
@@ -31,7 +30,6 @@ class Course extends PageObject {
 	/**
 	 * Cached array of the linked Student objects.
 	 *
-	 * @since 0.1
 	 * @var Student[]|bool false
 	 */
 	protected $students = false;
@@ -39,7 +37,6 @@ class Course extends PageObject {
 	/**
 	 * Field for caching the instructors.
 	 *
-	 * @since 0.1
 	 * @var Instructor[]|bool false
 	 */
 	protected $instructors = false;
@@ -47,7 +44,6 @@ class Course extends PageObject {
 	/**
 	 * Field for caching the online ambassadors.
 	 *
-	 * @since 0.1
 	 * @var OA[]|bool false
 	 */
 	protected $oas = false;
@@ -55,7 +51,6 @@ class Course extends PageObject {
 	/**
 	 * Field for caching the campus ambassadors.
 	 *
-	 * @since 0.1
 	 * @var CA[]| bool false
 	 */
 	protected $cas = false;
@@ -79,8 +74,6 @@ class Course extends PageObject {
 	 * Returns a list of statuses a term can have.
 	 * Keys are messages, values are identifiers.
 	 *
-	 * @since 0.1
-	 *
 	 * @return array
 	 */
 	public static function getStatuses() {
@@ -93,8 +86,6 @@ class Course extends PageObject {
 
 	/**
 	 * Returns the message for the provided status identifier.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $status
 	 *
@@ -369,8 +360,6 @@ class Course extends PageObject {
 	/**
 	 * Returns the org associated with this term.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string|array|null $fields
 	 *
 	 * @return Org
@@ -388,8 +377,6 @@ class Course extends PageObject {
 	/**
 	 * Adds a control to add a term org to the provided context.
 	 * Additional arguments can be provided to set the default values for the control fields.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IContextSource $context
 	 * @param array $args
@@ -473,8 +460,6 @@ class Course extends PageObject {
 	 * Adds a control to add a new term to the provided context
 	 * or show a message if this is not possible for some reason.
 	 *
-	 * @since 0.1
-	 *
 	 * @param IContextSource $context
 	 * @param array $args
 	 *
@@ -491,8 +476,6 @@ class Course extends PageObject {
 	/**
 	 * Gets the amount of days left, rounded up to the nearest integer.
 	 *
-	 * @since 0.1
-	 *
 	 * @return int
 	 */
 	public function getDaysLeft() {
@@ -505,8 +488,6 @@ class Course extends PageObject {
 	/**
 	 * Gets the amount of days since term start, rounded up to the nearest integer.
 	 *
-	 * @since 0.1
-	 *
 	 * @return int
 	 */
 	public function getDaysPassed() {
@@ -516,8 +497,6 @@ class Course extends PageObject {
 
 	/**
 	 * Returns the status of the course.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */
@@ -536,8 +515,6 @@ class Course extends PageObject {
 	/**
 	 * Returns the students as a list of Student objects.
 	 *
-	 * @since 0.1
-	 *
 	 * @return Student[]
 	 */
 	public function getStudents() {
@@ -547,8 +524,6 @@ class Course extends PageObject {
 	/**
 	 * Returns the instructors as a list of Instructor objects.
 	 *
-	 * @since 0.1
-	 *
 	 * @return Instructor[]
 	 */
 	public function getInstructors() {
@@ -557,8 +532,6 @@ class Course extends PageObject {
 
 	/**
 	 * Returns the users that have the specified role.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $fieldName Name of the role field.
 	 * @param string $tableName Name of the table class in which this role is kept track of.
@@ -606,8 +579,6 @@ class Course extends PageObject {
 	/**
 	 * Returns the campus ambassadors as a list of CA objects.
 	 *
-	 * @since 0.1
-	 *
 	 * @return CA[]
 	 */
 	public function getCampusAmbassadors() {
@@ -628,8 +599,6 @@ class Course extends PageObject {
 	/**
 	 * Returns the online ambassadors as a list of OA objects.
 	 *
-	 * @since 0.1
-	 *
 	 * @return OA[]
 	 */
 	public function getOnlineAmbassadors() {
@@ -638,8 +607,6 @@ class Course extends PageObject {
 
 	/**
 	 * Returns the users that have a certain role as list of IRole objects.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $roleName
 	 *
@@ -722,8 +689,6 @@ class Course extends PageObject {
 	 * Adds a role for a number of users to this course,
 	 * by default also saving the course and only
 	 * logging the addition of the users/roles.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array|int $newUserIds
 	 * @param string $role
@@ -817,8 +782,6 @@ class Course extends PageObject {
 	 *
 	 * TODO: move into its own use case
 	 *
-	 * @since 0.1
-	 *
 	 * @param array|int $sadUsers
 	 * @param string $role
 	 * @param bool $save
@@ -901,8 +864,6 @@ class Course extends PageObject {
 
 	/**
 	 * Log a change of the instructors of the course.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $action
 	 * @param string $role

@@ -33,8 +33,6 @@ abstract class EducationPage extends ContextSource implements \Page {
 	 * Returns a list of actions this page can handle.
 	 * Array keys are action names, their values are the names of the handling Action classes.
 	 *
-	 * @since 0.1
-	 *
 	 * @return array
 	 */
 	abstract public function getActions();
@@ -42,14 +40,11 @@ abstract class EducationPage extends ContextSource implements \Page {
 	/**
 	 * Returns an instance of the PageTable class for the PageObject being handled.
 	 *
-	 * @since 0.1
-	 *
 	 * @return PageTable
 	 */
 	abstract public function getTable();
 
 	/**
-	 * @since 0.1
 	 * @var WikiPage
 	 */
 	protected $page;
@@ -61,8 +56,6 @@ abstract class EducationPage extends ContextSource implements \Page {
 	/**
 	 * Returns a new instance based on the namespace of the provided title,
 	 * or throws an exception if the namespace is not handled.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Title $title
 	 *

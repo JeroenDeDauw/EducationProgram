@@ -27,17 +27,12 @@ class SpecialMyCourses extends VerySpecialPage {
 	 */
 	protected $courses;
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'MyCourses' );
 	}
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $subPage
 	 */
@@ -73,8 +68,6 @@ class SpecialMyCourses extends VerySpecialPage {
 	/**
 	 * Gets the active courses the current user is associated with (in any role)
 	 * and stores them in the courses field.
-	 *
-	 * @since 0.1
 	 */
 	protected function fetchCourses() {
 		$now = wfGetDB( DB_REPLICA )->addQuotes( wfTimestampNow() );
@@ -92,8 +85,6 @@ class SpecialMyCourses extends VerySpecialPage {
 
 	/**
 	 * Display the did you know box.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayDidYouKnow() {
 		$this->addCachedHTML(
@@ -136,8 +127,6 @@ class SpecialMyCourses extends VerySpecialPage {
 
 	/**
 	 * Display the course activity timelines.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayTimelines() {
 		foreach ( $this->courses as $course ) {
@@ -151,8 +140,6 @@ class SpecialMyCourses extends VerySpecialPage {
 
 	/**
 	 * Returns the variables used to constructed the cache key in an array.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -171,8 +158,6 @@ class SpecialMyCourses extends VerySpecialPage {
 
 	/**
 	 * Displays the activity timeline for a single course.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Course $course
 	 */
@@ -225,8 +210,6 @@ class SpecialMyCourses extends VerySpecialPage {
 
 	/**
 	 * Display the enrollment sucecss message if needed.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayEnrollmentMessage() {
 		if ( $this->getRequest()->getCheck( 'enrolled' ) ) {
@@ -252,8 +235,6 @@ class SpecialMyCourses extends VerySpecialPage {
 
 	/**
 	 * Displays the navigation menu.
-	 *
-	 * @since 0.1
 	 */
 	protected function displayNavigation() {
 		$menu = new Menu( $this->getContext() );

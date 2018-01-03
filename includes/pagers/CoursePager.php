@@ -19,7 +19,6 @@ class CoursePager extends EPPager {
 	/**
 	 * When in read only mode, the pager should not show any course editing controls.
 	 *
-	 * @since 0.1
 	 * @var bool
 	 */
 	protected $readOnlyMode;
@@ -28,7 +27,6 @@ class CoursePager extends EPPager {
 	 * List of org names, looked up in batch before the rows are displayed.
 	 * org id => org name
 	 *
-	 * @since 0.1
 	 * @var array
 	 */
 	protected $orgNames;
@@ -48,8 +46,6 @@ class CoursePager extends EPPager {
 	/**
 	 * Returns the resource loader modules used by the pager.
 	 *
-	 * @since 0.1
-	 *
 	 * @return array
 	 */
 	public static function getModules() {
@@ -58,8 +54,6 @@ class CoursePager extends EPPager {
 
 	/**
 	 * Display a pager with terms.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IContextSource $context
 	 * @param array $conditions

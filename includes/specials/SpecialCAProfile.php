@@ -14,15 +14,13 @@ namespace EducationProgram;
  */
 class SpecialCAProfile extends SpecialAmbassadorProfile {
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'CampusAmbassadorProfile' );
 	}
 
 	/**
 	 * @see FormSpecialPage::getFormFields()
+	 *
 	 * @return array
 	 */
 	protected function getFormFields() {

@@ -86,8 +86,6 @@ final class Hooks {
 	 * Schema update to set up the needed database tables.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LoadExtensionSchemaUpdates
 	 *
-	 * @since 0.1
-	 *
 	 * @param DatabaseUpdater $updater
 	 */
 	public static function onSchemaUpdate( DatabaseUpdater $updater ) {
@@ -132,8 +130,6 @@ final class Hooks {
 	 * Called after the personal URLs have been set up, before they are shown.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
 	 *
-	 * @since 0.1
-	 *
 	 * @param array &$personal_urls
 	 * @param Title &$title
 	 */
@@ -160,8 +156,6 @@ final class Hooks {
 	/**
 	 * Adds the preferences of Education Program to the list of available ones.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
-	 *
-	 * @since 0.1
 	 *
 	 * @param User $user
 	 * @param array &$preferences
@@ -196,8 +190,6 @@ final class Hooks {
 	 * Called to determine the class to handle the article rendering, based on title.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleFromTitle
 	 *
-	 * @since 0.1
-	 *
 	 * @param Title &$title
 	 * @param \Article|null &$article
 	 */
@@ -211,8 +203,6 @@ final class Hooks {
 	 * For extensions adding their own namespaces or altering the defaults.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/CanonicalNamespaces
 	 *
-	 * @since 0.1
-	 *
 	 * @param array &$list
 	 */
 	public static function onCanonicalNamespaces( array &$list ) {
@@ -224,8 +214,6 @@ final class Hooks {
 	 * Alter the structured navigation links in SkinTemplates.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation
 	 *
-	 * @since 0.1
-	 *
 	 * @param SkinTemplate &$sktemplate
 	 * @param array &$links
 	 */
@@ -236,8 +224,6 @@ final class Hooks {
 	/**
 	 * Called on special pages after the special tab is added but before variants have been added.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation::SpecialPage
-	 *
-	 * @since 0.1
 	 *
 	 * @param SkinTemplate &$sktemplate
 	 * @param array &$links
@@ -269,8 +255,6 @@ final class Hooks {
 
 	/**
 	 * Display the tabs for a course or institution.
-	 *
-	 * @since 0.1
 	 *
 	 * @param SkinTemplate &$sktemplate
 	 * @param array &$links
@@ -366,8 +350,6 @@ final class Hooks {
 	 * so they don't all show up as redlinks.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/TitleIsAlwaysKnown
 	 *
-	 * @since 0.1
-	 *
 	 * @param Title $title
 	 * @param bool|null &$isKnown
 	 */
@@ -393,8 +375,6 @@ final class Hooks {
 	 * Allows canceling the move of one title to another.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AbortMove
 	 *
-	 * @since 0.1
-	 *
 	 * @param Title $oldTitle
 	 * @param Title $newTitle
 	 * @param User $user
@@ -419,8 +399,6 @@ final class Hooks {
 	 * Allows overriding if the pages in a certain namespace can be moved or not.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/NamespaceIsMovable
 	 *
-	 * @since 0.1
-	 *
 	 * @param int $index
 	 * @param bool &$movable
 	 */
@@ -433,8 +411,6 @@ final class Hooks {
 	/**
 	 * Called when a revision was inserted due to an edit.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/NewRevisionFromEditComplete
-	 *
-	 * @since 0.1
 	 *
 	 * @param WikiPage $wikiPage
 	 * @param Revision $rev

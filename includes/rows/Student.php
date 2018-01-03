@@ -19,8 +19,6 @@ class Student extends RoleObject {
 	/**
 	 * Display a pager with students.
 	 *
-	 * @since 0.1
-	 *
 	 * @param IContextSource $context
 	 * @param array $conditions
 	 *
@@ -42,7 +40,6 @@ class Student extends RoleObject {
 	}
 
 	/**
-	 * @since 0.1
 	 * @see IRole::getRoleName
 	 */
 	public function getRoleName() {
@@ -72,8 +69,6 @@ class Student extends RoleObject {
 	 * Returns the view link for the student.
 	 * These are the user page, contribs and student profile.
 	 *
-	 * @since 0.1
-	 *
 	 * @param IContextSource $context
 	 *
 	 * @return string
@@ -89,8 +84,6 @@ class Student extends RoleObject {
 	/**
 	 * Returns the view links for the student with provided user id and name.
 	 * These are the user page, contribs and student profile.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IContextSource $context
 	 * @param int $userId

@@ -14,9 +14,6 @@ namespace EducationProgram;
  */
 class SpecialOAProfile extends SpecialAmbassadorProfile {
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'OnlineAmbassadorProfile' );
 	}

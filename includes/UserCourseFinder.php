@@ -35,8 +35,6 @@ interface UserCourseFinder {
 	 * Returns the ids of the currently active courses the specified
 	 * user is enrolled in.
 	 *
-	 * @since 0.3
-	 *
 	 * @param int|int[] $userIds
 	 * @param int|int[] $roles
 	 *

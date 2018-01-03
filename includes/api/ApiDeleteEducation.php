@@ -20,8 +20,6 @@ class ApiDeleteEducation extends ApiBase {
 	/**
 	 * Maps class names to values for the type parameter.
 	 *
-	 * @since 0.1
-	 *
 	 * @var array
 	 */
 	protected static $typeMap = [
@@ -31,8 +29,6 @@ class ApiDeleteEducation extends ApiBase {
 
 	/**
 	 * Returns the type param value for a class name.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $className
 	 *
@@ -101,8 +97,6 @@ class ApiDeleteEducation extends ApiBase {
 
 	/**
 	 * Returns if the user is allowed to delete the specified object(s).
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $type
 	 * @param array $params

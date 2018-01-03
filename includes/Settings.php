@@ -31,15 +31,11 @@ namespace EducationProgram;
 class Settings {
 
 	/**
-	 * @since 0.3
-	 *
 	 * @var array
 	 */
 	protected $settings;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param array $settings
 	 */
 	public function __construct( array $settings ) {
@@ -49,8 +45,6 @@ class Settings {
 	/**
 	 * Returns the setting with the provided name.
 	 * The specified setting needs to exist.
-	 *
-	 * @since 0.3
 	 *
 	 * @param string $settingName
 	 *
@@ -63,7 +57,6 @@ class Settings {
 	/**
 	 * Gets the value of the specified setting.
 	 *
-	 * @since 0.1
 	 * @deprecated since 0.3, use non-global state
 	 *
 	 * @param string $settingName

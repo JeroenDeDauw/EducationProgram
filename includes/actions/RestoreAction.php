@@ -115,8 +115,6 @@ class RestoreAction extends Action {
 	/**
 	 * Does the actual restore action.
 	 *
-	 * @since 0.1
-	 *
 	 * @param PageObject $object
 	 * @param EPRevision $revision
 	 *
@@ -139,8 +137,6 @@ class RestoreAction extends Action {
 
 	/**
 	 * Display the restoration form for the provided PageObject.
-	 *
-	 * @since 0.1
 	 *
 	 * @param PageObject $object
 	 * @param EPRevision $revision
@@ -207,8 +203,6 @@ class RestoreAction extends Action {
 
 	/**
 	 * Returns the page title.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */

@@ -42,7 +42,6 @@ use Title;
 abstract class TimelineGroup {
 
 	/**
-	 * @since 0.1
 	 * @var Event[]
 	 */
 	protected $events;
@@ -67,8 +66,6 @@ abstract class TimelineGroup {
 	 * FIXME: put in factory/builder
 	 * FIXME: do not restrict component interface
 	 * FIXME: do not prevent control over component lifecycle
-	 *
-	 * @since 0.1
 	 *
 	 * @param EventGroup $group
 	 * @param OutputPage $outputPage
@@ -117,16 +114,12 @@ abstract class TimelineGroup {
 
 	/**
 	 * Display the event.
-	 *
-	 * @since 0.1
 	 */
 	public function display() {
 		$this->outputPage->addHTML( $this->getHTML() );
 	}
 
 	/**
-	 * @since 0.1
-	 *
 	 * @return Event[]
 	 */
 	public function getEvents() {
@@ -135,8 +128,6 @@ abstract class TimelineGroup {
 
 	/**
 	 * Builds and returns the HTML for the event.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */
@@ -156,8 +147,6 @@ abstract class TimelineGroup {
 	/**
 	 * Returns the HTML for the groups header.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	protected function getHeaderHTML() {
@@ -167,8 +156,6 @@ abstract class TimelineGroup {
 	/**
 	 * Returns HTML that holds the actual event list.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	protected function getClusterHTML() {
@@ -177,8 +164,6 @@ abstract class TimelineGroup {
 
 	/**
 	 * Returns the HTML tag attributes for the groups header element.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -191,8 +176,6 @@ abstract class TimelineGroup {
 	/**
 	 * Returns the HTML tag attributes for the groups events container element.
 	 *
-	 * @since 0.1
-	 *
 	 * @return array
 	 */
 	protected function getClusterAttributes() {
@@ -203,8 +186,6 @@ abstract class TimelineGroup {
 
 	/**
 	 * Returns the HTML representing a single event.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Event $event
 	 *
@@ -221,8 +202,6 @@ abstract class TimelineGroup {
 	/**
 	 * Returns the HTML tag attributes for the event container element.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Event $event
 	 *
 	 * @return array
@@ -235,8 +214,6 @@ abstract class TimelineGroup {
 
 	/**
 	 * Builds and returns the HTML for a single of the event segments.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Event $event
 	 *
@@ -270,8 +247,6 @@ class UnknownGroup extends TimelineGroup {
 	/**
 	 * Builds and returns the HTML for a single of the event segments.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Event $event
 	 *
 	 * @return string
@@ -303,8 +278,6 @@ class EditGroup extends TimelineGroup {
 
 	/**
 	 * Builds and returns the HTML for a single of the event segments.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Event $event
 	 *
@@ -350,8 +323,6 @@ class EditGroup extends TimelineGroup {
 
 	/**
 	 * Returns the HTML for the groups header.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */
@@ -445,8 +416,6 @@ class EnlistGroup extends TimelineGroup {
 
 	/**
 	 * Builds and returns the HTML for a single of the event segments.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Event $event
 	 *

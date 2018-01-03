@@ -22,7 +22,6 @@ class StudentActivityPager extends EPPager {
 	 * The real names will just hold the user name when no real name is set.
 	 * user id => array( user name, real name )
 	 *
-	 * @since 0.1
 	 * @var array
 	 */
 	protected $userNames = [];
@@ -31,7 +30,6 @@ class StudentActivityPager extends EPPager {
 	 * List of course ids mapped to their titles.
 	 * course id => course title
 	 *
-	 * @since 0.1
 	 * @var array
 	 */
 	protected $courseTitles = [];
@@ -40,7 +38,6 @@ class StudentActivityPager extends EPPager {
 	 * List of course ids pointing to the id of their org.
 	 * course id => org id
 	 *
-	 * @since 0.1
 	 * @var array
 	 */
 	protected $courseOrgs = [];
@@ -49,7 +46,6 @@ class StudentActivityPager extends EPPager {
 	 * List of org ids mapped with their associated names and countries.
 	 * org id => array( 'name' => org name, 'country' => country code )
 	 *
-	 * @since 0.1
 	 * @var array
 	 */
 	protected $orgData = [];

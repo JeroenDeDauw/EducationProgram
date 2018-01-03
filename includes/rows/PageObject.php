@@ -19,6 +19,7 @@ abstract class PageObject extends RevisionedObject {
 
 	/**
 	 * @see ORMRow::$table
+	 *
 	 * @var PageTable
 	 */
 	protected $table;
@@ -33,8 +34,6 @@ abstract class PageObject extends RevisionedObject {
 	/**
 	 * Returns the title of the page representing the object.
 	 *
-	 * @since 0.1
-	 *
 	 * @return Title
 	 */
 	public function getTitle() {
@@ -43,8 +42,6 @@ abstract class PageObject extends RevisionedObject {
 
 	/**
 	 * Gets a link to the page representing the object.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $action
 	 * @param string $html

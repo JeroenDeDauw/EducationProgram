@@ -59,8 +59,6 @@ class EditEventCreator {
 	 * Takes the information of a newly created revision and uses this to
 	 * create a list of education program events which is then returned.
 	 *
-	 * @since 0.3
-	 *
 	 * @param Page $article
 	 * @param Revision $rev
 	 * @param User $user
@@ -93,8 +91,6 @@ class EditEventCreator {
 
 	/**
 	 * Creates the actual edit events.
-	 *
-	 * @since 0.3
 	 *
 	 * @param Revision $revision
 	 * @param User $user
@@ -168,8 +164,6 @@ class EditEventCreator {
 	 * Updates the last activity of the student to be now.
 	 *
 	 * TODO: this should go into its own class
-	 *
-	 * @since 0.3
 	 *
 	 * @param int $namespace
 	 * @param User $user

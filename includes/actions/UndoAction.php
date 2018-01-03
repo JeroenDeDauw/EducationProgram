@@ -115,8 +115,6 @@ class UndoAction extends Action {
 	/**
 	 * Does the actual undo action.
 	 *
-	 * @since 0.1
-	 *
 	 * @param PageObject $object
 	 * @param EPRevision $revision
 	 *
@@ -139,8 +137,6 @@ class UndoAction extends Action {
 
 	/**
 	 * Display the undo revision form for the provided PageObject.
-	 *
-	 * @since 0.1
 	 *
 	 * @param PageObject $object
 	 * @param EPRevision $revision
@@ -207,8 +203,6 @@ class UndoAction extends Action {
 
 	/**
 	 * Returns the page title.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */

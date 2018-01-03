@@ -16,17 +16,12 @@ use Html;
  */
 class SpecialEducationProgram extends VerySpecialPage {
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'EducationProgram' );
 	}
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $subPage
 	 */
@@ -44,8 +39,6 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 	/**
 	 * Display a table with a basic summary of what the extension is handling.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */
@@ -120,8 +113,6 @@ class SpecialEducationProgram extends VerySpecialPage {
 	/**
 	 * Returns the amount of people that currently have a role for at least one course.
 	 * So users that have not enlisted for a single course are not counted.
-	 *
-	 * @since 0.1
 	 *
 	 * @param int $roleId
 	 *
@@ -209,8 +200,6 @@ class SpecialEducationProgram extends VerySpecialPage {
 	/**
 	 * Returns the HTML for the term table.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array[] $terms
 	 *
 	 * @return string
@@ -249,8 +238,6 @@ class SpecialEducationProgram extends VerySpecialPage {
 	 * Returns the term data.
 	 * It's an array. Element with key 'terms' contains an array with the terms.
 	 * Element with key 'bygender' contains gender breakdown data.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array[]
 	 */
@@ -311,8 +298,6 @@ class SpecialEducationProgram extends VerySpecialPage {
 	/**
 	 * Returns gender breakdowns for the provided lists of users.
 	 *
-	 * @since 0.1
-	 *
 	 * @param int[] $students
 	 * @param int[] $oas
 	 * @param int[] $cas
@@ -338,8 +323,6 @@ class SpecialEducationProgram extends VerySpecialPage {
 	/**
 	 * Returns a gender breakdown for the provided users and their associated genders.
 	 *
-	 * @since 0.1
-	 *
 	 * @param int[] $users User IDs
 	 * @param string[] $genders An array mapping user id to gender
 	 *
@@ -363,8 +346,6 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 	/**
 	 * Returns the genders for the provided user ids.
-	 *
-	 * @since 0.1
 	 *
 	 * @param int[] $userIds
 	 *
@@ -392,8 +373,6 @@ class SpecialEducationProgram extends VerySpecialPage {
 	/**
 	 * Returns the message text for the provided message key after the key gets prefixed.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	protected function msgTxt() {
@@ -404,8 +383,6 @@ class SpecialEducationProgram extends VerySpecialPage {
 
 	/**
 	 * Returns the prefixed version of the provided message key.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $key
 	 *

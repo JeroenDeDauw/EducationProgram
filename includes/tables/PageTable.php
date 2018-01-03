@@ -20,16 +20,12 @@ abstract class PageTable extends ORMTable {
 	/**
 	 * Returns the field use to identify this object, ie the part used as page title.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	abstract public function getIdentifierField();
 
 	/**
 	 * Returns the namespace in which objects of this type reside.
-	 *
-	 * @since 0.1
 	 *
 	 * @return int
 	 */
@@ -38,8 +34,6 @@ abstract class PageTable extends ORMTable {
 	/**
 	 * Returns the name of the fields that can be changed
 	 * when doing a revert or restoring to a previous revision.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -63,15 +57,11 @@ abstract class PageTable extends ORMTable {
 	/**
 	 * Returns the right needed to edit items in this table.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	abstract public function getEditRight();
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param string $identifier
 	 *
 	 * @return bool
@@ -82,8 +72,6 @@ abstract class PageTable extends ORMTable {
 
 	/**
 	 * Gets the object with the provided identifier or false if there is none.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $identifier
 	 * @param array|string|null $fields
@@ -113,8 +101,6 @@ abstract class PageTable extends ORMTable {
 
 	/**
 	 * Delete all objects matching the provided condirions.
-	 *
-	 * @since 0.1
 	 *
 	 * @param RevisionAction $revAction
 	 * @param array $conditions
@@ -146,8 +132,6 @@ abstract class PageTable extends ORMTable {
 	/**
 	 * Construct a new title for an object of this type with the provided identifier value.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string $identifierValue
 	 *
 	 * @return Title
@@ -162,8 +146,6 @@ abstract class PageTable extends ORMTable {
 	/**
 	 * Returns a link to the page representing the object of this type with the provided
 	 * identifier value. The returned string is escaped.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $identifierValue
 	 * @param string $action

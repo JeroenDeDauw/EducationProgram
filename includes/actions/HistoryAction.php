@@ -51,8 +51,6 @@ class HistoryAction extends Action {
 	/**
 	 * Returns the page title.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	protected function getPageTitle() {
@@ -64,8 +62,6 @@ class HistoryAction extends Action {
 
 	/**
 	 * Display a list with the passed revisions.
-	 *
-	 * @since 0.1
 	 *
 	 * @param PageObject $object
 	 */

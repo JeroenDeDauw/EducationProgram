@@ -34,22 +34,16 @@ use Wikimedia\Rdbms\IDatabase;
 class ArticleStore {
 
 	/**
-	 * @since 0.3
-	 *
 	 * @var string
 	 */
 	protected $tableName;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @var int
 	 */
 	protected $readConnectionId;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param string $tableName
 	 * @param int $readConnectionId
 	 */
@@ -59,8 +53,6 @@ class ArticleStore {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param int|null $articleId
 	 *
 	 * @return bool
@@ -82,8 +74,6 @@ class ArticleStore {
 	 * Attempt to isolate from MediaWiki global state access,
 	 * really ought to have a connection provider injected.
 	 *
-	 * @since 0.3
-	 *
 	 * @return IDatabase
 	 */
 	protected function getReadConnection() {
@@ -94,8 +84,6 @@ class ArticleStore {
 	 * Attempt to isolate from MediaWiki global state access,
 	 * really ought to have a connection provider injected.
 	 *
-	 * @since 0.3
-	 *
 	 * @return IDatabase
 	 */
 	protected function getWriteConnection() {
@@ -104,8 +92,6 @@ class ArticleStore {
 
 	/**
 	 * Save the article in the store.
-	 *
-	 * @since 0.3
 	 *
 	 * @param EPArticle $article
 	 *
@@ -131,8 +117,6 @@ class ArticleStore {
 	/**
 	 * Save the article in the store.
 	 *
-	 * @since 0.3
-	 *
 	 * @param EPArticle $article
 	 *
 	 * @return bool
@@ -154,8 +138,6 @@ class ArticleStore {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param EPArticle $article
 	 *
 	 * @return array
@@ -173,8 +155,6 @@ class ArticleStore {
 	/**
 	 * Returns the article with provided id
 	 * or null if there is no such article.
-	 *
-	 * @since 0.3
 	 *
 	 * @param int $articleId
 	 *
@@ -196,8 +176,6 @@ class ArticleStore {
 	/**
 	 * Constructs and returns a new EPArticle given a result row.
 	 *
-	 * @since 0.3
-	 *
 	 * @param object $row
 	 *
 	 * @return EPArticle
@@ -214,8 +192,6 @@ class ArticleStore {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @return string[]
 	 */
 	protected function getReadFields() {
@@ -233,8 +209,6 @@ class ArticleStore {
 	/**
 	 * Deletes the article with the provided id if there is such an article.
 	 *
-	 * @since 0.3
-	 *
 	 * @param int $articleId
 	 *
 	 * @return bool Success indicator
@@ -251,8 +225,6 @@ class ArticleStore {
 
 	/**
 	 * Returns if there is an article with provided data.
-	 *
-	 * @since 0.3
 	 *
 	 * @param int $courseId
 	 * @param int $userId
@@ -275,8 +247,6 @@ class ArticleStore {
 
 	/**
 	 * Deletes all articles that match the provided courses and users.
-	 *
-	 * @since 0.3
 	 *
 	 * @param int[]|int $courseIds
 	 * @param int[]|int $userIds
@@ -304,8 +274,6 @@ class ArticleStore {
 
 	/**
 	 * Returns all articles that match the provided courses and users.
-	 *
-	 * @since 0.3
 	 *
 	 * @param int[]|int $courseIds
 	 * @param int[]|int $userIds

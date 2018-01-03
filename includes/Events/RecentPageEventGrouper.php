@@ -37,8 +37,6 @@ class RecentPageEventGrouper implements EventGrouper {
 	/**
 	 * @see EventGrouper::groupEvents
 	 *
-	 * @since 0.3
-	 *
 	 * @param Event[] $events
 	 *
 	 * @return EventGroup[]

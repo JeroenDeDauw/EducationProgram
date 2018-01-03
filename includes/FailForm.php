@@ -20,21 +20,21 @@ class FailForm extends \HTMLForm {
 
 	/**
 	 * The query for the action URL.
-	 * @since 0.1
+	 *
 	 * @var array
 	 */
 	protected $query = [];
 
 	/**
 	 * Should the summary field be shown or not?
-	 * @since 0.1
+	 *
 	 * @var bool
 	 */
 	protected $showSummary = true;
 
 	/**
 	 * Should the minor edit checkbox be shown or not?
-	 * @since 0.1
+	 *
 	 * @var bool
 	 */
 	protected $showMinorEdit = true;
@@ -70,8 +70,6 @@ class FailForm extends \HTMLForm {
 	/**
 	 * Sets the query for the action URL.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array $query
 	 */
 	public function setQuery( array $query ) {
@@ -81,8 +79,6 @@ class FailForm extends \HTMLForm {
 	/**
 	 * Sets if the summary field be shown or not.
 	 *
-	 * @since 0.1
-	 *
 	 * @param bool $showSummary
 	 */
 	public function setShowSummary( $showSummary ) {
@@ -91,8 +87,6 @@ class FailForm extends \HTMLForm {
 
 	/**
 	 * Sets if the minor edit checkbox be shown or not.
-	 *
-	 * @since 0.1
 	 *
 	 * @param bool $showMinorEdit
 	 */

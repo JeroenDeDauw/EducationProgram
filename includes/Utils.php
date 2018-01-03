@@ -23,8 +23,6 @@ class Utils {
 	 * Create a log entry using the provided info.
 	 * Takes care about the logging interface changes in MediaWiki 1.19.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array $info
 	 */
 	public static function log( array $info ) {
@@ -51,8 +49,6 @@ class Utils {
 	 * Returns a list of country names that can be used by
 	 * a select input localized in the lang of which the code is provided.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string $langCode
 	 *
 	 * @return array
@@ -68,8 +64,6 @@ class Utils {
 	 * Returns a list of language names that can be used by
 	 * a select input localized in the lang of which the code is provided.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string $langCode
 	 *
 	 * @return array
@@ -84,8 +78,6 @@ class Utils {
 	/**
 	 * Returns the array but with each key postfixed by the value and the value replaced by
 	 * the original key.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $list
 	 *
@@ -106,8 +98,6 @@ class Utils {
 
 	/**
 	 * Returns the tool links for this ambassador.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IRole $role
 	 * @param IContextSource $context
@@ -153,8 +143,6 @@ class Utils {
 	/**
 	 * Returns tool links for the provided user details plus any additional links.
 	 *
-	 * @since 0.1
-	 *
 	 * @param int $userId
 	 * @param string $userName
 	 * @param IContextSource $context
@@ -189,8 +177,6 @@ class Utils {
 	 * Displays any epsuccess or epfail message and then clears the session value so it does not
 	 * get displayed again. Should typically be called before anything else is outputted.
 	 *
-	 * @since 0.1
-	 *
 	 * @param IContextSource $context
 	 */
 	public static function displayResult( IContextSource $context ) {
@@ -217,8 +203,6 @@ class Utils {
 	/**
 	 * Gets the content of the article with the provided page name,
 	 * or an empty string when there is no such article.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $pageName
 	 *

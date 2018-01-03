@@ -25,8 +25,6 @@ class DYKBox extends \ContextSource {
 	protected $specificCategory;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @param string $mainCategory
 	 * @param string|bool $specificCategory
 	 * @param IContextSource|null $context
@@ -44,8 +42,6 @@ class DYKBox extends \ContextSource {
 
 	/**
 	 * Returns the HTML for the did you know box.
-	 *
-	 * @since 0.3
 	 *
 	 * @return string
 	 */
@@ -74,8 +70,6 @@ class DYKBox extends \ContextSource {
 	/**
 	 * Returns the resource modules needed by the did you know box.
 	 *
-	 * @since 0.3
-	 *
 	 * @return array
 	 */
 	public static function getModules() {
@@ -86,8 +80,6 @@ class DYKBox extends \ContextSource {
 
 	/**
 	 * Displays the did you know box.
-	 *
-	 * @since 0.3
 	 */
 	public function display() {
 		$this->getOutput()->addHTML( $this->getHTML() );
@@ -96,8 +88,6 @@ class DYKBox extends \ContextSource {
 
 	/**
 	 * Returns the content for the article with provided title.
-	 *
-	 * @since 0.3
 	 *
 	 * @param Title $title
 	 *
@@ -121,8 +111,6 @@ class DYKBox extends \ContextSource {
 
 	/**
 	 * Returns the title for the article to get content from or false if there is none.
-	 *
-	 * @since 0.3
 	 *
 	 * @return Title|bool
 	 */
@@ -148,8 +136,6 @@ class DYKBox extends \ContextSource {
 	 * NOTE: this is only usable for small categories since the query becomes
 	 * expensive for big categories. So do not use for categories with potentially
 	 * hundreds of pages or more.
-	 *
-	 * @since 0.3
 	 *
 	 * @param string $categoryName
 	 *

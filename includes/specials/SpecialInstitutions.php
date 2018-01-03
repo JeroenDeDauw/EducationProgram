@@ -15,17 +15,12 @@ namespace EducationProgram;
  */
 class SpecialInstitutions extends VerySpecialPage {
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'Institutions' );
 	}
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string|null $subPage
 	 */

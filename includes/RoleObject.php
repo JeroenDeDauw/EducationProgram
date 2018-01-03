@@ -20,7 +20,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 	/**
 	 * Field for caching the linked user.
 	 *
-	 * @since 0.1
 	 * @var User|bool false
 	 */
 	protected $user = false;
@@ -28,15 +27,12 @@ abstract class RoleObject extends ORMRow implements IRole {
 	/**
 	 * Cached array of the linked Course objects.
 	 *
-	 * @since 0.1
 	 * @var Course[]|bool false
 	 */
 	protected $courses = false;
 
 	/**
 	 * Create a new role object from a user id.
-	 *
-	 * @since 0.1
 	 *
 	 * @param int $userId
 	 * @param bool $load If the object should be loaded from the db if it already exists
@@ -70,8 +66,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 	/**
 	 * Create a new instructor object from a User object.
 	 *
-	 * @since 0.1
-	 *
 	 * @param User $user
 	 * @param bool $load If the object should be loaded from the db if it already exists
 	 * @param null|array|string $fields Fields to load
@@ -84,8 +78,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 
 	/**
 	 * Returns the user.
-	 *
-	 * @since 0.1
 	 *
 	 * @return User
 	 */
@@ -100,8 +92,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 	/**
 	 * Returns the name of the user, possibly using their real name when available.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	public function getName() {
@@ -111,8 +101,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 
 	/**
 	 * Returns the tool links for this ambassador.
-	 *
-	 * @since 0.1
 	 *
 	 * @param IContextSource $context
 	 * @param Course|null $course
@@ -126,8 +114,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 	/**
 	 * Retruns the user link for this ambassador, using their real name when available.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	public function getUserLink() {
@@ -140,8 +126,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 
 	/**
 	 * Associate the user with the provided courses.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $courses
 	 * @param RevisionAction|null $revAction
@@ -192,8 +176,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 * Returns the courses this student is enrolled in.
 	 * Caches the result when no conditions are provided and all fields are selected.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string|array|null $fields
 	 * @param array $conditions
 	 *
@@ -219,8 +201,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 
 	/**
 	 * Returns if the student has any course matching the provided conditions.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $conditions
 	 *
@@ -249,8 +229,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 	/**
 	 * Returns the courses this campus ambassador is associated with.
 	 *
-	 * @since 0.1
-	 *
 	 * @param string|array|null $fields
 	 * @param array $conditions
 	 *
@@ -268,8 +246,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 	/**
 	 * Returns the role ID for the object by looking it up
 	 * in a map using it's name.
-	 *
-	 * @since 0.1
 	 *
 	 * @return int Part of EP_ enum.
 	 */
@@ -291,8 +267,6 @@ abstract class RoleObject extends ORMRow implements IRole {
 	 * even when not loaded yet (a new query will be done),
 	 * so that it's not possible to update an existing user
 	 * with a wrong user ID.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */

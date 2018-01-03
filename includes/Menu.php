@@ -24,14 +24,11 @@ class Menu extends \ContextSource {
 	/**
 	 * Function called before the HTML is build that allows altering the menu items.
 	 *
-	 * @since 0.1
 	 * @var callable|null
 	 */
 	protected $itemFunction = null;
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param IContextSource $context
 	 */
 	public function __construct( IContextSource $context ) {
@@ -41,8 +38,6 @@ class Menu extends \ContextSource {
 	/**
 	 * Sets a function called before the HTML is build that allows altering the menu items.
 	 *
-	 * @since 0.1
-	 *
 	 * @param callable $itemFunction
 	 */
 	public function setItemFunction( $itemFunction ) {
@@ -51,8 +46,6 @@ class Menu extends \ContextSource {
 
 	/**
 	 * Builds and returns the HTML for the menu.
-	 *
-	 * @since 0.1
 	 *
 	 * @return string
 	 */
@@ -80,8 +73,6 @@ class Menu extends \ContextSource {
 
 	/**
 	 * Displays the menu.
-	 *
-	 * @since 0.1
 	 */
 	public function display() {
 		$this->getOutput()->addHTML( $this->getHTML() );
@@ -89,8 +80,6 @@ class Menu extends \ContextSource {
 
 	/**
 	 * Returns the default menu items.
-	 *
-	 * @since 0.1
 	 *
 	 * @return Title[]
 	 */

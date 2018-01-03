@@ -97,8 +97,6 @@ class ImportWEPData extends \Maintenance {
 	/**
 	 * Insert the orgs.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array &$orgs Org names as keys. Values get set to the id after insertion.
 	 */
 	protected function insertOrgs( array &$orgs ) {
@@ -184,8 +182,6 @@ class ImportWEPData extends \Maintenance {
 	 * Create user account if none matches the name yet.
 	 * Create student profile if none matches the user yet.
 	 * Associate with courses.
-	 *
-	 * @since 0.1
 	 *
 	 * @param array $students Keys are names, values are arrays with course names
 	 * @param array $courseIds Maps course names to ids

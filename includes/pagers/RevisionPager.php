@@ -19,13 +19,12 @@ use Html;
 class RevisionPager extends \ReverseChronologicalPager {
 	/**
 	 * Context in which this pager is being shown.
-	 * @since 0.1
+	 *
 	 * @var IContextSource
 	 */
 	protected $context;
 
 	/**
-	 * @since 0.1
 	 * @var PageTable
 	 */
 	protected $table;
@@ -62,7 +61,6 @@ class RevisionPager extends \ReverseChronologicalPager {
 
 	/**
 	 * @see parent::getStartBody
-	 * @since 0.1
 	 */
 	function getStartBody() {
 		return '<ul>';
@@ -163,7 +161,6 @@ class RevisionPager extends \ReverseChronologicalPager {
 
 	/**
 	 * @see parent::getEndBody
-	 * @since 0.1
 	 */
 	function getEndBody() {
 		return '</ul>';

@@ -20,8 +20,6 @@ use Html;
 class ViewOrgAction extends ViewAction {
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param Page $page
 	 * @param IContextSource $context
 	 */
@@ -53,6 +51,7 @@ class ViewOrgAction extends ViewAction {
 
 	/**
 	 * @see ViewAction::getPageHTML()
+	 *
 	 * @param IORMRow $org
 	 * @return string
 	 */
@@ -74,8 +73,6 @@ class ViewOrgAction extends ViewAction {
 
 	/**
 	 * Gets the summary data.
-	 *
-	 * @since 0.1
 	 *
 	 * @param Org|IORMRow $org
 	 *

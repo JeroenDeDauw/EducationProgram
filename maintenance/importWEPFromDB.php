@@ -133,8 +133,6 @@ class ImportWEPFromDB extends \Maintenance {
 	/**
 	 * Insert the orgs.
 	 *
-	 * @since 0.1
-	 *
 	 * @param ResultWrapper $orgs
 	 */
 	public function insertOrgs( ResultWrapper $orgs ) {
@@ -293,8 +291,6 @@ class ImportWEPFromDB extends \Maintenance {
 	 * Create user account if none matches the name yet.
 	 * Create student profile if none matches the user yet.
 	 * Associate with courses.
-	 *
-	 * @since 0.1
 	 *
 	 * @param ResultWrapper $students
 	 */

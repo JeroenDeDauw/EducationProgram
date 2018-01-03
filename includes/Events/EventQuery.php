@@ -67,8 +67,6 @@ class EventQuery {
 	/**
 	 * Sets the ids of the courses to which the events should be relevant.
 	 *
-	 * @since 0.3
-	 *
 	 * @param int|int[] $courseIds
 	 * @throws InvalidArgumentException
 	 */
@@ -87,8 +85,6 @@ class EventQuery {
 	/**
 	 * Sets a time limit all events should be older or newer then,
 	 * depending on the provided comparator.
-	 *
-	 * @since 0.3
 	 *
 	 * @param string $time TS_MW
 	 * @param int $comparator
@@ -111,8 +107,6 @@ class EventQuery {
 	/**
 	 * Sets the query limit.
 	 *
-	 * @since 0.3
-	 *
 	 * @param int $limit
 	 *
 	 * @throws InvalidArgumentException
@@ -132,8 +126,6 @@ class EventQuery {
 	/**
 	 * Sets the query sort order.
 	 *
-	 * @since 0.3
-	 *
 	 * @param int $order
 	 *
 	 * @throws InvalidArgumentException
@@ -149,8 +141,6 @@ class EventQuery {
 	/**
 	 * Gets the ids of the courses to which the events should be relevant.
 	 *
-	 * @since 0.3
-	 *
 	 * @return int[]
 	 */
 	public function getCourseIds() {
@@ -161,8 +151,6 @@ class EventQuery {
 	 * Returns the time limit.
 	 * Returned as string in TS_MW format or null if there is no such limit.
 	 *
-	 * @since 0.3
-	 *
 	 * @return string|null
 	 */
 	public function getTimeLimit() {
@@ -171,8 +159,6 @@ class EventQuery {
 
 	/**
 	 * Returns the time limit comparator.
-	 *
-	 * @since 0.3
 	 *
 	 * @return int|null
 	 */
@@ -183,8 +169,6 @@ class EventQuery {
 	/**
 	 * Returns the query row limit.
 	 *
-	 * @since 0.3
-	 *
 	 * @return int|null
 	 */
 	public function getRowLimit() {
@@ -193,8 +177,6 @@ class EventQuery {
 
 	/**
 	 * Returns the query sort order.
-	 *
-	 * @since 0.3
 	 *
 	 * @return int|null
 	 */

@@ -20,7 +20,7 @@ class Students extends ORMTable {
 
 	/**
 	 * @see ORMTable::getName()
-	 * @since 0.1
+	 *
 	 * @return string
 	 */
 	public function getName() {
@@ -29,7 +29,7 @@ class Students extends ORMTable {
 
 	/**
 	 * @see ORMTable::getRowClass()
-	 * @since 0.1
+	 *
 	 * @return string
 	 */
 	public function getRowClass() {
@@ -38,7 +38,7 @@ class Students extends ORMTable {
 
 	/**
 	 * @see ORMTable::getFields()
-	 * @since 0.1
+	 *
 	 * @return array
 	 */
 	public function getFields() {
@@ -57,7 +57,7 @@ class Students extends ORMTable {
 
 	/**
 	 * @see ORMTable::getSummaryFields()
-	 * @since 0.1
+	 *
 	 * @return array
 	 */
 	public function getSummaryFields() {

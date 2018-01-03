@@ -22,8 +22,6 @@ class LogFormatter extends \LogFormatter {
 	/**
 	 * @see LogFormatter::makePageLink()
 	 *
-	 * @since 0.1
-	 *
 	 * This is overridden to change the link text to only include the name of the object,
 	 * rather then the full name of it's page.
 	 *

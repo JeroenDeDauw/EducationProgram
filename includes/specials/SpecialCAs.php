@@ -16,17 +16,12 @@ use SpecialPage;
  */
 class SpecialCAs extends VerySpecialPage {
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		parent::__construct( 'CampusAmbassadors' );
 	}
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string|null $subPage
 	 */

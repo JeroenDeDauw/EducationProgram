@@ -19,7 +19,6 @@ class EPRevision extends ORMRow {
 	/**
 	 * Cached user object for this revision.
 	 *
-	 * @since 0.1
 	 * @var User|bool false
 	 */
 	protected $user = false;
@@ -33,8 +32,6 @@ class EPRevision extends ORMRow {
 
 	/**
 	 * Return the object as it was at this revision.
-	 *
-	 * @since 0,1
 	 *
 	 * @return RevisionedObject
 	 */
@@ -62,8 +59,6 @@ class EPRevision extends ORMRow {
 	 * Returns the the object stored in the revision with the provided id,
 	 * or false if there is no matching object.
 	 *
-	 * @since 0.1
-	 *
 	 * @param int $revId
 	 * @param int|null $objectId
 	 *
@@ -90,8 +85,6 @@ class EPRevision extends ORMRow {
 	/**
 	 * Returns the user that authored this revision.
 	 *
-	 * @since 0.1
-	 *
 	 * @return User
 	 */
 	public function getUser() {
@@ -111,8 +104,6 @@ class EPRevision extends ORMRow {
 	 * Return the previous revision, ie the most recent revision of the object of this revsion
 	 * that's older then this revion. If there is none, false is returned.
 	 *
-	 * @since 0.1
-	 *
 	 * @return EPRevision|bool false
 	 */
 	public function getPreviousRevision() {
@@ -123,8 +114,6 @@ class EPRevision extends ORMRow {
 
 	/**
 	 * Returns if this is the latest revision for the object contained by the revision.
-	 *
-	 * @since 0.1
 	 *
 	 * @return bool
 	 */

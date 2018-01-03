@@ -25,7 +25,6 @@ class RevisionAction {
 	protected $time = false;
 
 	/**
-	 * @since 0.1
 	 * @return bool
 	 */
 	public function isMinor() {
@@ -33,7 +32,6 @@ class RevisionAction {
 	}
 
 	/**
-	 * @since 0.1
 	 * @return bool
 	 */
 	public function isDelete() {
@@ -41,7 +39,6 @@ class RevisionAction {
 	}
 
 	/**
-	 * @since 0.1
 	 * @return string
 	 */
 	public function getComment() {
@@ -49,7 +46,6 @@ class RevisionAction {
 	}
 
 	/**
-	 * @since 0.1
 	 * @return User
 	 */
 	public function getUser() {
@@ -57,7 +53,6 @@ class RevisionAction {
 	}
 
 	/**
-	 * @since 0.1
 	 * @return string
 	 */
 	public function getTime() {
@@ -65,7 +60,6 @@ class RevisionAction {
 	}
 
 	/**
-	 * @since 0.1
 	 * @param User $user
 	 */
 	public function setUser( User $user ) {
@@ -73,7 +67,6 @@ class RevisionAction {
 	}
 
 	/**
-	 * @since 0.1
 	 * @param string $comment
 	 */
 	public function setComment( $comment ) {
@@ -81,7 +74,6 @@ class RevisionAction {
 	}
 
 	/**
-	 * @since 0.1
 	 * @param bool $isDelete
 	 */
 	public function setDelete( $isDelete ) {
@@ -89,7 +81,6 @@ class RevisionAction {
 	}
 
 	/**
-	 * @since 0.1
 	 * @param bool $isMinor
 	 */
 	public function setMinor( $isMinor ) {
@@ -97,7 +88,6 @@ class RevisionAction {
 	}
 
 	/**
-	 * @since 0.1
 	 * @param string $time
 	 */
 	public function setTime( $time ) {

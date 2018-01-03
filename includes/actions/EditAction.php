@@ -24,7 +24,6 @@ abstract class EditAction extends Action {
 	/**
 	 * Instance of the object being edited or created.
 	 *
-	 * @since 0.1
 	 * @var PageObject|bool false
 	 */
 	protected $item = false;
@@ -32,20 +31,16 @@ abstract class EditAction extends Action {
 	/**
 	 * If the action is in insert mode rather then edit mode.
 	 *
-	 * @since 0.1
 	 * @var bool|null
 	 */
 	protected $isNew = null;
 
 	/**
-	 * @since 0.1
 	 * @var PageTable
 	 */
 	protected $table;
 
 	/**
-	 * @since 0.1
-	 *
 	 * @param Page $page
 	 * @param IContextSource $context
 	 * @param PageTable|IORMTable $table
@@ -81,8 +76,6 @@ abstract class EditAction extends Action {
 	/**
 	 * Returns the page title.
 	 *
-	 * @since 0.1
-	 *
 	 * @return string
 	 */
 	protected function getPageTitle() {
@@ -111,8 +104,6 @@ abstract class EditAction extends Action {
 
 	/**
 	 * Display the form and set the item field, or redirect the user.
-	 *
-	 * @since 0.1
 	 */
 	protected function showContent() {
 		$out = $this->getOutput();
@@ -154,8 +145,6 @@ abstract class EditAction extends Action {
 	/**
 	 * Show a message in a warning box.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Message $message
 	 */
 	protected function showWarning( Message $message ) {
@@ -167,8 +156,6 @@ abstract class EditAction extends Action {
 
 	/**
 	 * Returns if the page should work in insertion mode rather then modification mode.
-	 *
-	 * @since 0.1
 	 *
 	 * @return bool
 	 */
@@ -188,8 +175,6 @@ abstract class EditAction extends Action {
 
 	/**
 	 * Show the form.
-	 *
-	 * @since 0.1
 	 */
 	protected function showForm() {
 		$form = $this->getForm();
@@ -208,8 +193,6 @@ abstract class EditAction extends Action {
 	 * Returns the data to use as condition for selecting the object,
 	 * or in case nothing matches the selection, the data to initialize
 	 * it with. This is typically an identifier such as name or id.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -230,8 +213,6 @@ abstract class EditAction extends Action {
 	/**
 	 * Get the query conditions to obtain the item based on the page title.
 	 *
-	 * @since 0.1
-	 *
 	 * @return array
 	 */
 	protected function getTitleConditions() {
@@ -249,8 +230,6 @@ abstract class EditAction extends Action {
 
 	/**
 	 * @see FormSpecialPage::getForm()
-	 *
-	 * @since 0.1
 	 *
 	 * @return HTMLForm
 	 */
@@ -322,8 +301,6 @@ abstract class EditAction extends Action {
 	 * Populates the form fields with the data of the item
 	 * and prefixes their names.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array $fields
 	 *
 	 * @return array
@@ -356,8 +333,6 @@ abstract class EditAction extends Action {
 	/**
 	 * Gets the default value for a field from the item.
 	 *
-	 * @since 0.1
-	 *
 	 * @param PageObject $item
 	 * @param string $name
 	 *
@@ -369,8 +344,6 @@ abstract class EditAction extends Action {
 
 	/**
 	 * Gets called after the form is saved.
-	 *
-	 * @since 0.1
 	 */
 	public function onSuccess() {
 		$this->getOutput()->redirect( $this->getReturnToTitle( true )->getLocalURL() );
@@ -379,8 +352,6 @@ abstract class EditAction extends Action {
 	/**
 	 * Returns the title to return to after the form has been submitted,
 	 * or when form use is aborted for some other reason.
-	 *
-	 * @since 0.1
 	 *
 	 * @param bool $addedItem
 	 *
@@ -399,8 +370,6 @@ abstract class EditAction extends Action {
 	}
 
 	/**
-	 * @since 0.1
-	 *
 	 * @return Title
 	 */
 	protected function getIdentifierFromRequestArgs() {
@@ -495,8 +464,6 @@ abstract class EditAction extends Action {
 	/**
 	 * Gets called for evey unknown submitted value, so they can be dealt with if needed.
 	 *
-	 * @since 0.1
-	 *
 	 * @param IORMRow $item
 	 * @param string $name
 	 * @param string $value This is a string, since it comes from request data, but might be a
@@ -508,8 +475,6 @@ abstract class EditAction extends Action {
 
 	/**
 	 * Gets called for evey known submitted value, so they can be dealt with if needed.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $name
 	 * @param string $value This is a string, since it comes from request data, but might be a

@@ -20,20 +20,15 @@ use SpecialPage;
 class SpecialEnroll extends VerySpecialPage {
 
 	/**
-	 * @since 0.1
 	 * @var Course
 	 */
 	protected $course;
 
 	/**
-	 * @since 0.1
 	 * @var string|bool false
 	 */
 	protected $token = false;
 
-	/**
-	 * @since 0.1
-	 */
 	public function __construct() {
 		// We can not demand ep-enroll here already, since the user might first need to login.
 		parent::__construct( 'Enroll', '', false );
@@ -41,8 +36,6 @@ class SpecialEnroll extends VerySpecialPage {
 
 	/**
 	 * Main method.
-	 *
-	 * @since 0.1
 	 *
 	 * @param string $subPage
 	 * @throws UserBlockedError
@@ -108,8 +101,6 @@ class SpecialEnroll extends VerySpecialPage {
 	 * Shows the actual enrollment view.
 	 * Should only be called after everything checks out, ie the user can enroll in the course.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Course $course
 	 */
 	protected function showEnrollmentView( Course $course ) {
@@ -142,8 +133,6 @@ class SpecialEnroll extends VerySpecialPage {
 
 	/**
 	 * Show an input for a token.
-	 *
-	 * @since 0.1
 	 */
 	protected function showTokenInput() {
 		$out = $this->getOutput();
@@ -177,8 +166,6 @@ class SpecialEnroll extends VerySpecialPage {
 	/**
 	 * Set the page title.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Course $course
 	 */
 	protected function setPageTitle( Course $course ) {
@@ -191,8 +178,6 @@ class SpecialEnroll extends VerySpecialPage {
 
 	/**
 	 * Show links to signup.
-	 *
-	 * @since 0.1
 	 */
 	protected function showSignupLink() {
 		$out = $this->getOutput();
@@ -235,8 +220,6 @@ class SpecialEnroll extends VerySpecialPage {
 	/**
 	 * Just enroll the user in the course.
 	 *
-	 * @since 0.1
-	 *
 	 * @param Course $course
 	 *
 	 * @return bool Success indicator
@@ -259,8 +242,6 @@ class SpecialEnroll extends VerySpecialPage {
 	/**
 	 * Create and display the enrollment form.
 	 *
-	 * @since 0.1
-	 *
 	 * @param array $formFields
 	 */
 	protected function showEnrollmentForm( array $formFields ) {
@@ -279,8 +260,6 @@ class SpecialEnroll extends VerySpecialPage {
 
 	/**
 	 * Returns the definitions for the fields of the signup form.
-	 *
-	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -373,8 +352,6 @@ class SpecialEnroll extends VerySpecialPage {
 
 	/**
 	 * Gets called after the form is saved.
-	 *
-	 * @since 0.1
 	 */
 	public function onSuccess() {
 		$this->getOutput()->redirect(
