@@ -3,7 +3,7 @@
 namespace EducationProgram\Events;
 
 use InvalidArgumentException;
-use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * Service via which EducationProgram events can be saved and queried.
@@ -66,7 +66,7 @@ class EventStore {
 	/**
 	 * @since 0.3
 	 *
-	 * @return Database
+	 * @return IDatabase
 	 */
 	private function getReadConnection() {
 		return wfGetDB( $this->readConnectionId );
@@ -75,7 +75,7 @@ class EventStore {
 	/**
 	 * @since 0.3
 	 *
-	 * @return Database
+	 * @return IDatabase
 	 */
 	private function getWriteConnection() {
 		return wfGetDB( DB_MASTER );

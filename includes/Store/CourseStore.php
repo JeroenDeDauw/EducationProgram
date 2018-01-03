@@ -6,7 +6,7 @@ use EducationProgram\Course;
 use EducationProgram\CourseNotFoundException;
 use EducationProgram\CourseTitleNotFoundException;
 use EducationProgram\Courses;
-use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * This program is free software; you can redistribute it and/or modify
@@ -40,11 +40,11 @@ class CourseStore {
 	private $tableName;
 
 	/**
-	 * @var Database
+	 * @var IDatabase
 	 */
 	private $readDatabase;
 
-	public function __construct( $tableName, Database $readDatabase ) {
+	public function __construct( $tableName, IDatabase $readDatabase ) {
 		$this->readDatabase = $readDatabase;
 		$this->tableName = $tableName;
 	}

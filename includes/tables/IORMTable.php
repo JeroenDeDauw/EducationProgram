@@ -2,8 +2,8 @@
 
 namespace EducationProgram;
 
-use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\DBQueryError;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LoadBalancer;
 use Wikimedia\Rdbms\ResultWrapper;
 
@@ -105,7 +105,7 @@ interface IORMTable {
 	 * Selects the specified fields of the records matching the provided
 	 * conditions and returns them as DBDataObject. Field names get prefixed.
 	 *
-	 * @see Database::select
+	 * @see IDatabase::select
 	 *
 	 * @since 1.20
 	 *
@@ -255,7 +255,7 @@ interface IORMTable {
 	 * Condition field names get prefixed.
 	 *
 	 * Note that this can be expensive on large tables.
-	 * In such cases you might want to use Database::estimateRowCount instead.
+	 * In such cases you might want to use IDatabase::estimateRowCount instead.
 	 *
 	 * @since 1.20
 	 *
@@ -347,7 +347,7 @@ interface IORMTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return Database The database object
+	 * @return IDatabase The database object
 	 */
 	public function getReadDbConnection();
 
@@ -359,7 +359,7 @@ interface IORMTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return Database The database object
+	 * @return IDatabase The database object
 	 */
 	public function getWriteDbConnection();
 
@@ -380,11 +380,11 @@ interface IORMTable {
 	 *
 	 * @see LoadBalancer::reuseConnection
 	 *
-	 * @param Database $db
+	 * @param IDatabase $db
 	 *
 	 * @since 1.20
 	 */
-	public function releaseConnection( Database $db );
+	public function releaseConnection( IDatabase $db );
 
 	/**
 	 * Update the records matching the provided conditions by

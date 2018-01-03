@@ -173,8 +173,8 @@ class RevisionPager extends \ReverseChronologicalPager {
 	 * This function should be overridden to provide all parameters
 	 * needed for the main paged query. It returns an associative
 	 * array with the following elements:
-	 * 	tables => Table(s) for passing to Database::select()
-	 * 	fields => Field(s) for passing to Database::select(), may be *
+	 * 	tables => Table(s) for passing to IDatabase::select()
+	 * 	fields => Field(s) for passing to IDatabase::select(), may be *
 	 * 	conds => WHERE conditions
 	 * 	options => option array
 	 * 	join_conds => JOIN conditions

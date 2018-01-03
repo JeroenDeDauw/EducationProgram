@@ -2,8 +2,8 @@
 
 namespace EducationProgram;
 
-use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\DBQueryError;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ResultWrapper;
 
 /**
@@ -469,7 +469,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 * Condition field names get prefixed.
 	 *
 	 * Note that this can be expensive on large tables.
-	 * In such cases you might want to use Database::estimateRowCount instead.
+	 * In such cases you might want to use IDatabase::estimateRowCount instead.
 	 *
 	 * @since 1.20
 	 *
@@ -506,7 +506,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			$this->getName(),
 			$conditions === [] ? '*' : $this->getPrefixedValues( $conditions ),
 			is_null( $functionName ) ? __METHOD__ : $functionName
-		) !== false; // Database::delete does not always return true for success as documented...
+		) !== false; // IDatabase::delete does not always return true for success as documented...
 
 		$this->releaseConnection( $dbw );
 
@@ -632,7 +632,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return Database The database object
+	 * @return IDatabase The database object
 	 */
 	public function getReadDbConnection() {
 		return $this->getConnection( $this->getReadDb(), [] );
@@ -646,7 +646,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 *
 	 * @since 1.20
 	 *
-	 * @return Database The database object
+	 * @return IDatabase The database object
 	 */
 	public function getWriteDbConnection() {
 		return $this->getConnection( DB_MASTER, [] );
@@ -658,12 +658,12 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 *
 	 * @see LoadBalancer::reuseConnection
 	 *
-	 * @param Database $db
+	 * @param IDatabase $db
 	 *
 	 * @since 1.20
 	 */
 	// @codingStandardsIgnoreStart Suppress "useless method overriding" sniffer warning
-	public function releaseConnection( Database $db ) {
+	public function releaseConnection( IDatabase $db ) {
 		parent::releaseConnection( $db ); // just make it public
 	}
 	// @codingStandardsIgnoreEnd
@@ -688,7 +688,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			$this->getPrefixedValues( $values ),
 			$this->getPrefixedValues( $conditions ),
 			__METHOD__
-		) !== false; // Database::update does not always return true for success as documented...
+		) !== false; // IDatabase::update does not always return true for success as documented...
 
 		$this->releaseConnection( $dbw );
 
@@ -1020,7 +1020,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 
 		$this->releaseConnection( $dbw );
 
-		// Database::update does not always return true for success as documented...
+		// IDatabase::update does not always return true for success as documented...
 		return $success !== false;
 	}
 
@@ -1045,7 +1045,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			$options
 		);
 
-		// Database::insert does not always return true for success as documented...
+		// IDatabase::insert does not always return true for success as documented...
 		$success = $success !== false;
 
 		if ( $success ) {
@@ -1107,7 +1107,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			is_null( $functionName ) ? __METHOD__ : $functionName
 		);
 
-		// Database::delete does not always return true for success as documented...
+		// IDatabase::delete does not always return true for success as documented...
 		return $success !== false;
 	}
 
@@ -1144,7 +1144,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			[ "$fullField=$fullField" . ( $isNegative ? '-' : '+' ) . $absoluteAmount ],
 			$this->getPrefixedValues( $conditions ),
 			__METHOD__
-		) !== false; // Database::update does not always return true for success as documented...
+		) !== false; // IDatabase::update does not always return true for success as documented...
 
 		$this->releaseConnection( $dbw );
 
