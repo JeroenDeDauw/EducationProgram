@@ -15,7 +15,8 @@
 			"جواد",
 			"Alirezaaa",
 			"درفش کاویانی",
-			"Huji"
+			"Huji",
+			"Ladsgroup"
 		]
 	},
 	"educationprogram-desc": "امکانات برنامه‌های آموزشی برای افزودن رابط‌های کاربری متنوع برای مدیریت دوره‌ها و عملکردهای آموزشی دیگر",
@@ -479,7 +480,7 @@
 	"orgpage-epundo-undo-button": "واگردانی ویرایش",
 	"orgpage-epundo-cancel-button": "انصراف",
 	"orgpage-epundo-summary-value": "واگردانی نسخهٔ انجام‌شده در $3، $1 توسط $2.",
-	"orgpage-epundo-undid": "واگردانی موفق نسخهٔ نهاد $1.",
+	"orgpage-epundo-undid": "نسخهٔ نهاد $1 واگردانی شد.",
 	"orgpage-epundo-undo-failed": "شکست در وارگدانی نسخهٔ نهاد $1.",
 	"coursepage-epundo-title": "واگردانی ویرایش دورهٔ «$1»",
 	"coursepage-epundo-text": "شما در حال واگردانی یک نسخهٔ دورهٔ $1 هستید.",
