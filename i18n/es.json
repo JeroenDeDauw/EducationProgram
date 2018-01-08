@@ -729,6 +729,7 @@
 	"notification-header-ep-online-add-notification": "Te añadieron como {{GENDER:$2|voluntario|voluntaria}} en línea en '''$3'''.",
 	"notification-header-ep-student-add-notification": "Te añadieron a '''$3'''.{{GENDER:$2|}}",
 	"apihelp-addstudents-description": "Añadir varios estudiantes a un curso.",
+	"apihelp-addstudents-summary": "Añadir varios estudiantes a un curso.",
 	"apihelp-addstudents-param-studentusernames": "Los nombres de usuario de los estudiantes para añadirlos al curso.",
 	"apihelp-addstudents-param-courseid": "El identificador del curso al que se deben añadir/eliminar los estudiantes.",
 	"apihelp-addstudents-example-1": "Añadir tres estudiantes a un curso",
