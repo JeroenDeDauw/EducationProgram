@@ -492,7 +492,7 @@
 	"orgpage-epundo-undo-failed": "No se ha podido deshacer la revisión de la institución $1.",
 	"orgpage-epcompare-title": "Comparar revisiones de la institución «$1»",
 	"orgpage-epcompare-none": "No se puede comparar esta versión con la actual.",
-	"coursepage-epundo-title": "Deshacer revisión del curso \"$1\"",
+	"coursepage-epundo-title": "Deshacer revisión del curso «$1»",
 	"coursepage-epundo-text": "Estás a punto de deshacer una revisión única del curso $1.",
 	"coursepage-epundo-summary": "Motivo:",
 	"coursepage-epundo-undo-button": "Deshacer revisión",
