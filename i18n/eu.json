@@ -6,7 +6,8 @@
 			"පසිඳු කාවින්ද",
 			"An13sa",
 			"Sator",
-			"Theklan"
+			"Theklan",
+			"Mikel Ibaiba"
 		]
 	},
 	"ep-item-summary": "Laburpena",
@@ -208,7 +209,7 @@
 	"ep-articles-sandboxes": "proba orriak",
 	"ep-articles-remstudent": "ikastarotik ezabatu",
 	"ep-articles-remreviewer-self": "Kendu zure burua $1 ikuskatzaile gisa",
-	"ep-articles-remreviewer": "kendu ikuskatzaile gisa",
+	"ep-articles-remreviewer": "kendu {{GENDER:$1|berrikusketatzaile}} gisa",
 	"ep-articles-remarticle": "Artikulua ezabatu",
 	"ep-articles-addarticle-text": "Gehitu artikulu bat:",
 	"ep-articles-addarticle-button": "Gehitu artikulua",
