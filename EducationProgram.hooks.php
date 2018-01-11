@@ -366,7 +366,7 @@ final class Hooks {
 	 * @param bool|null &$isKnown
 	 */
 	public static function onTitleIsAlwaysKnown( Title $title, &$isKnown ) {
-		self::doesOrgOrCourseExists( $title, $isKnown );
+		self::doesOrgOrCourseExist( $title, $isKnown );
 	}
 
 	public static function onMovePageIsValidMove(
@@ -707,7 +707,7 @@ final class Hooks {
 	 * @param bool &$exists
 	 */
 	public static function onTitleExists( Title $title, &$exists ) {
-		self::doesOrgOrCourseExists( $title, $exists );
+		self::doesOrgOrCourseExist( $title, $exists );
 	}
 
 	/**
@@ -717,7 +717,7 @@ final class Hooks {
 	 * @param Title $title
 	 * @param boolean $exists
 	 */
-	private static function doesOrgOrCourseExists( Title $title, &$exists ) {
+	private static function doesOrgOrCourseExist( Title $title, &$exists ) {
 		if ( $title->getNamespace() == EP_NS ) {
 			if ( Utils::isCourse( $title ) ) {
 				$class = Courses::class;
