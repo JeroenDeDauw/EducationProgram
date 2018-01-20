@@ -351,7 +351,7 @@
 	"ep-course-edit-end": "结束日期",
 	"ep-course-edit-token": "注册标记",
 	"ep-course-help-token": "可选。如果填写，学生需要提供此密钥才能参加。这会阻止非学生登记。",
-	"ep-course-edit-description": "网页文本",
+	"ep-course-edit-description": "页面文本",
 	"ep-course-edit-name-format": "$1（$2）",
 	"ep-course-edit-title": "页面标题",
 	"ep-course-help-title": "课程页面的标题。按照惯例这应该紧跟括号中的课程名称。",

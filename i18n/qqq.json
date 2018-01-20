@@ -21,7 +21,8 @@
 			"Umherirrender",
 			"J. 'mach' wust",
 			"Aursani",
-			"Macofe"
+			"Macofe",
+			"Mar(c)"
 		]
 	},
 	"educationprogram-desc": "{{desc|name=Education Program|url=https://www.mediawiki.org/wiki/Extension:Education_Program}}",
@@ -720,8 +721,8 @@
 	"ep-user-roles-message-rolename-instructor": "The instructor role, for use in a list of roles the user has. Parameters:\n* $1 the username (for grammatical gender)",
 	"ep-user-roles-message-rolename-online": "The online volunteer role, for use in a list of roles the user has. Parameters:\n* $1 the username (for grammatical gender)",
 	"ep-user-roles-message-rolename-campus": "The campus volunteer role, for use in a list of roles the user has. Parameters:\n* $1 the username (for grammatical gender)",
-	"echo-category-title-education-program": "Title of notifications category in preferences.\n{{Related|Echo-category-title}}\n{{Identical|Education program}}",
-	"ep-echo-pref-tooltip": "Tooltip for notifications category in preferences.\n{{Related|Echo-pref-tooltip}}",
+	"echo-category-title-education-program": "{{doc-echo-category-title|tooltip=Ep-echo-pref-tooltip}}\n{{Identical|Education program}}",
+	"ep-echo-pref-tooltip": "{{doc-echo-pref-tooltip|title=Echo-category-title-education-program}}",
 	"ep-course-talk-link-text-view-message": "Text for primary link in course talk notification.\n{{Identical|View message}}",
 	"ep-course-talk-link-text-view-changes": "Text for secondary link in course talk notification.\n{{Identical|View changes}}",
 	"ep-role-add-link-text-view-course": "Text for primary link to view course",

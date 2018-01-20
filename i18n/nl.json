@@ -709,7 +709,7 @@
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|een online cursusvrijwilliger}}",
 	"ep-user-roles-message-rolename-campus": "een {{GENDER:$1|campusvrijwilliger|campusvrijwilligster}}",
 	"echo-category-title-education-program": "Educatieprogramma",
-	"ep-echo-pref-tooltip": "Informeer mij over gebeurtenissen met betrekking tot cursussen waar ik bij betrokken ben.",
+	"ep-echo-pref-tooltip": "Informeer mij over gebeurtenissen rond cursussen waarbij ik betrokken ben.",
 	"ep-course-talk-link-text-view-message": "Bericht bekijken",
 	"ep-course-talk-link-text-view-changes": "Wijzigingen bekijken",
 	"ep-role-add-link-text-view-course": "Cursus weergeven",
