@@ -522,7 +522,7 @@
 	"ep-enroll-no-id": "Морате прецизирати курс на који желите да се укључите. Види [[Special:Courses|списак курсева]].",
 	"ep-enroll-invalid-token": "Ваш жетон је неважећи.",
 	"ep-enroll-legend": "Упиши ме",
-	"ep-enroll-header": "Да бисте се уписали на курс, потребно је да попуните овај формулар и кликнете на  \"{{int:educationprogram-org-submit}}\" дугме. \nНакон тога, бићете уписани.",
+	"ep-enroll-header": "Да бисте се уписали на курс, потребно је да попуните овај образац и кликнете на „{{int:educationprogram-org-submit}}” дугме. \nНакон тога, бићете уписани.",
 	"ep-enroll-gender": "Пол (необавезно)",
 	"ep-enroll-realname": "Право име (обавезно)",
 	"ep-enroll-realname-optional": "Право име (необавезно)",
