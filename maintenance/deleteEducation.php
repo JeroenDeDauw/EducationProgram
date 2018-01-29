@@ -24,6 +24,7 @@ class DeleteEducation extends Maintenance {
 		$this->mDescription = 'Drop the Wikipedia Education Program tables';
 
 		parent::__construct();
+		$this->requireExtension( 'Education Program' );
 	}
 
 	public function execute() {

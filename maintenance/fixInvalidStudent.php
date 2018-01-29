@@ -41,6 +41,7 @@ class FixInvalidStudent extends \Maintenance {
 
 		$this->addOption( 'courseId', 'ID of the course to repair', false, true );
 		$this->addOption( 'dryRun', 'Go through the moves but don\'t really do anything', false );
+		$this->requireExtension( 'Education Program' );
 	}
 
 	public function execute() {
