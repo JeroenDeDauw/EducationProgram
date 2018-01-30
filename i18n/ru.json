@@ -24,7 +24,8 @@
 			"Gamliel Fishkin",
 			"Facenapalm",
 			"Av6",
-			"ToJack"
+			"ToJack",
+			"Movses"
 		]
 	},
 	"educationprogram-desc": "Способствует образовательным программам путем добавления различных интерфейсов управления курсами, учреждениями и различными ролями пользователей.",
@@ -742,7 +743,7 @@
 	"apihelp-enlist-description": "Запись или удаление участника в качестве инструктора или волонтёра курса.",
 	"apihelp-enlist-summary": "Запись или удаление участника в качестве инструктора или волонтёра курса.",
 	"apihelp-enlist-param-subaction": "Указывает, что вы хотите делать с инструктором или волонтёром.",
-	"apihelp-enlist-param-role": "Управление ролью. «Instructor» для инструктора, «online» для онлайн-волонтёра и «campus» для оффлайн-волонтёра.",
+	"apihelp-enlist-param-role": "Управление ролью. «Instructor» для инструктора, «online» для онлайн-волонтёра и «campus» для офлайн-волонтёра.",
 	"apihelp-enlist-param-username": "Имя участника для связи или удаления.",
 	"apihelp-enlist-param-userid": "Идентификатор участника для связи или удаления.",
 	"apihelp-enlist-param-courseid": "Идентификатор курса.",
