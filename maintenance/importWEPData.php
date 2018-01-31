@@ -29,6 +29,7 @@ class ImportWEPData extends \Maintenance {
 		$this->addOption( 'file', 'File to read from.', true );
 
 		parent::__construct();
+		$this->requireExtension( 'Education Program' );
 	}
 
 	public function execute() {

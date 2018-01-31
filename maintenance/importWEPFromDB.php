@@ -29,6 +29,7 @@ class ImportWEPFromDB extends \Maintenance {
 		$this->mDescription = 'Import Wikipedia Education Program data';
 
 		parent::__construct();
+		$this->requireExtension( 'Education Program' );
 	}
 
 	protected function tableName( $table, $incMw = false ) {
