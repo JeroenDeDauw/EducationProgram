@@ -36,11 +36,11 @@ final class Hooks {
 		global $wgEPSettings, $wgExtensionAssetsPath, $wgScriptPath;
 
 		$epResourceDir = $wgExtensionAssetsPath === false
-			? $wgScriptPath . '/extensions'
+			? $wgScriptPath . '/extensions/EducationProgram/resources'
 			: $wgExtensionAssetsPath;
 
 		$wgEPSettings['resourceDir'] = $epResourceDir;
-		$wgEPSettings['imageDir'] = $epResourceDir . 'images/';
+		$wgEPSettings['imageDir'] = $epResourceDir . '/images/';
 	}
 
 	/**
