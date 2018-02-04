@@ -33,6 +33,8 @@ use EducationProgram\Events\RecentPageEventGrouper;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Events\RecentPageEventGrouper
  */
 class RecentPageEventGrouperTest extends \PHPUnit_Framework_TestCase {
 

@@ -32,6 +32,8 @@ use EducationProgram\EPArticle;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\EPArticle
  */
 class EPArticleTest extends \PHPUnit_Framework_TestCase {
 

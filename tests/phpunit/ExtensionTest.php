@@ -29,6 +29,8 @@ use EducationProgram\Settings;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Extension
  */
 class ExtensionTest extends \PHPUnit_Framework_TestCase {
 

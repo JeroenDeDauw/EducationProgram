@@ -31,6 +31,8 @@ use EducationProgram\Settings;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Settings
  */
 class SettingsTest extends \MediaWikiTestCase {
 

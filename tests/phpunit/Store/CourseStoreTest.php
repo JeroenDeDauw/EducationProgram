@@ -30,6 +30,8 @@ use EducationProgram\Store\CourseStore;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Store\CourseStore
  */
 class CourseStoreTest extends \PHPUnit_Framework_TestCase {
 

@@ -31,6 +31,8 @@ use EducationProgram\Events\EventQuery;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Events\EventQuery
  */
 class EventQueryTest extends \PHPUnit_Framework_TestCase {
 

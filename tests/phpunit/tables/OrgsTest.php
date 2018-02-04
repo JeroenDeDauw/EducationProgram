@@ -23,6 +23,8 @@ use EducationProgram\Orgs;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Orgs
  */
 class OrgsTest extends \MediaWikiTestCase {
 

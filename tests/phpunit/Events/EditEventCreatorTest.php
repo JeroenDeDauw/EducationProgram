@@ -40,6 +40,8 @@ use WikiPage;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Events\EditEventCreator
  */
 class EditEventCreatorTest extends \PHPUnit_Framework_TestCase {
 

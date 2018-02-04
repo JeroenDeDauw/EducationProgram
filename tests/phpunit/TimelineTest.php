@@ -33,6 +33,8 @@ use OutputPage;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Events\Timeline
  */
 class TimelineTest extends \MediaWikiTestCase {
 

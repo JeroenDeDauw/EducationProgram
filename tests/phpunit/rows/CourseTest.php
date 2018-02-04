@@ -16,6 +16,8 @@ use EducationProgram\Course;
  * @group Database
  *
  * @author Andrew Green <agreen at wikimedia dot org>
+ *
+ * @covers \EducationProgram\Course
  */
 class CourseTest extends PageObjectTest {
 
@@ -28,7 +30,7 @@ class CourseTest extends PageObjectTest {
 	 * @return string
 	 */
 	protected function getRowClass() {
-		return "\EducationProgram\Course";
+		return Course::class;
 	}
 
 	/**
