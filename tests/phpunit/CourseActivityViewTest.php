@@ -30,6 +30,8 @@ use EducationProgram\Courses;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\CourseActivityView
  */
 class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
 

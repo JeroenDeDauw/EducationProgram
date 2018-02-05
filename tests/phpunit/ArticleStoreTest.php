@@ -33,6 +33,8 @@ use EducationProgram\EPArticle;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\ArticleStore
  */
 class ArticleStoreTest extends \MediaWikiTestCase {
 

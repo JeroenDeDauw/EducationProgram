@@ -34,6 +34,8 @@ use EducationProgram\Events\Event;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Events\EventStore
  */
 class EventStoreTest extends \MediaWikiTestCase {
 

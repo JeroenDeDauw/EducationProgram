@@ -33,6 +33,8 @@ use EducationProgram\Events\EventGroup;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Events\EventGroup
  */
 class EventGroupTest extends \PHPUnit_Framework_TestCase {
 

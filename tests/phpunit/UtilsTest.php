@@ -15,6 +15,8 @@ use EducationProgram\Utils;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ *
+ * @covers \EducationProgram\Utils
  */
 class UtilsTest extends \MediaWikiTestCase {
 
