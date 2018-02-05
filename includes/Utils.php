@@ -309,6 +309,6 @@ class Utils {
 	 */
 	private static function getStrFromTitleOrStr( $title ) {
 		return $title instanceof Title ?
-			$title = $title->getFullText() : $title;
+			$title->getFullText() : $title;
 	}
 }

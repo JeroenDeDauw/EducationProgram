@@ -161,7 +161,7 @@ class CourseStore {
 		$fields['ca_count'] = (int)$fields['ca_count'];
 
 		return new Course(
-			$courseTable = Courses::singleton(),
+			Courses::singleton(),
 			$fields
 		);
 	}
