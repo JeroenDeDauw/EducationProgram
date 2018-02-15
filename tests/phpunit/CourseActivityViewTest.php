@@ -33,7 +33,7 @@ use EducationProgram\Courses;
  *
  * @covers \EducationProgram\CourseActivityView
  */
-class CourseActivityViewTest extends \PHPUnit_Framework_TestCase {
+class CourseActivityViewTest extends \PHPUnit\Framework\TestCase {
 
 	public function testDisplayActivity() {
 		$outputPage = $this->getMockBuilder( 'OutputPage' )

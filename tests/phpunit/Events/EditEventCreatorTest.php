@@ -43,7 +43,7 @@ use WikiPage;
  *
  * @covers \EducationProgram\Events\EditEventCreator
  */
-class EditEventCreatorTest extends \PHPUnit_Framework_TestCase {
+class EditEventCreatorTest extends \PHPUnit\Framework\TestCase {
 
 	public function getEventsForEditProvider() {
 		$argLists = [];

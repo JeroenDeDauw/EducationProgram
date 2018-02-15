@@ -36,7 +36,7 @@ use EducationProgram\Events\RecentPageEventGrouper;
  *
  * @covers \EducationProgram\Events\RecentPageEventGrouper
  */
-class RecentPageEventGrouperTest extends \PHPUnit_Framework_TestCase {
+class RecentPageEventGrouperTest extends \PHPUnit\Framework\TestCase {
 
 	public function testGroupEventsWithEmptyArray() {
 		$grouper = new RecentPageEventGrouper();

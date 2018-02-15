@@ -36,7 +36,7 @@ use EducationProgram\Events\EventGroup;
  *
  * @covers \EducationProgram\Events\EventGroup
  */
-class EventGroupTest extends \PHPUnit_Framework_TestCase {
+class EventGroupTest extends \PHPUnit\Framework\TestCase {
 
 	public function eventsProvider() {
 		return [

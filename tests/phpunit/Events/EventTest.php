@@ -34,7 +34,7 @@ use EducationProgram\Events\Event;
  *
  * @covers \EducationProgram\Events\Event
  */
-class EventTest extends \PHPUnit_Framework_TestCase {
+class EventTest extends \PHPUnit\Framework\TestCase {
 
 	public function constructorProvider() {
 		$argLists = [];

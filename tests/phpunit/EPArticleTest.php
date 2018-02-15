@@ -35,7 +35,7 @@ use EducationProgram\EPArticle;
  *
  * @covers \EducationProgram\EPArticle
  */
-class EPArticleTest extends \PHPUnit_Framework_TestCase {
+class EPArticleTest extends \PHPUnit\Framework\TestCase {
 
 	public function constructorProvider() {
 		$argLists = [];

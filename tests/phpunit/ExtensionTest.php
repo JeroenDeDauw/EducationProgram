@@ -32,7 +32,7 @@ use EducationProgram\Settings;
  *
  * @covers \EducationProgram\Extension
  */
-class ExtensionTest extends \PHPUnit_Framework_TestCase {
+class ExtensionTest extends \PHPUnit\Framework\TestCase {
 
 	public function testConstructWithNoSettings() {
 		new Extension( new Settings( [] ) );

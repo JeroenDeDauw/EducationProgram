@@ -34,7 +34,7 @@ use EducationProgram\Events\EventQuery;
  *
  * @covers \EducationProgram\Events\EventQuery
  */
-class EventQueryTest extends \PHPUnit_Framework_TestCase {
+class EventQueryTest extends \PHPUnit\Framework\TestCase {
 
 	public function setCoursesProvider() {
 		$argLists = [];

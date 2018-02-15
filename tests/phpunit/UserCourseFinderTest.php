@@ -33,7 +33,7 @@ use EducationProgram\UserCourseFinder;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class UserCourseFinderTest extends \PHPUnit_Framework_TestCase {
+abstract class UserCourseFinderTest extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * @return UserCourseFinder[]

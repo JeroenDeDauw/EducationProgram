@@ -33,7 +33,7 @@ use EducationProgram\Store\CourseStore;
  *
  * @covers \EducationProgram\Store\CourseStore
  */
-class CourseStoreTest extends \PHPUnit_Framework_TestCase {
+class CourseStoreTest extends \PHPUnit\Framework\TestCase {
 
 	public function testGetCourseById() {
 		$store = $this->newMockStoreForRowSelect();
