@@ -128,8 +128,8 @@ class ImportWEPData extends \Maintenance {
 	/**
 	 * Insert the courses.
 	 *
-	 * @param array $courses
-	 * @param array $orgs
+	 * @param string[] $courses Associative array, mapping course names to org names
+	 * @param int[] $orgs Associative array, mapping org names to org ids
 	 *
 	 * @return array Inserted courses. keys are names, values are ids
 	 */

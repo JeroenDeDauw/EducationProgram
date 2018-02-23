@@ -274,7 +274,6 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 			$options
 		);
 
-		/* @var \Exception $error */
 		$error = null;
 
 		if ( $result === false ) {

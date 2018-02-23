@@ -329,9 +329,6 @@ class EditGroup extends TimelineGroup {
 	protected function getHeaderHTML() {
 		$userIds = [];
 
-		/**
-		 * @var Event $event
-		 */
 		foreach ( $this->events as $event ) {
 			$userIds[] = $event->getUserId();
 		}

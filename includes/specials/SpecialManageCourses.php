@@ -85,7 +85,7 @@ class SpecialManageCourses extends VerySpecialPage {
 	/**
 	 * Display the courses the user is enrolled in.
 	 *
-	 * @param array $courses
+	 * @param Course[] $courses
 	 */
 	protected function displayEnrollment( array $courses ) {
 		if ( count( $courses ) == 1 ) {
@@ -155,14 +155,11 @@ class SpecialManageCourses extends VerySpecialPage {
 	/**
 	 * Display a list of courses, each as a h3 section with the student/article table in it.
 	 *
-	 * @param array $courses
+	 * @param Course[] $courses
 	 */
 	protected function displayCourseTables( array $courses ) {
 		$out = $this->getOutput();
 
-		/**
-		 * @var Course $course
-		 */
 		foreach ( $courses as  $course ) {
 			$out->addElement( 'h3', [], $course->getField( 'name' ) );
 
@@ -238,12 +235,9 @@ class SpecialManageCourses extends VerySpecialPage {
 	/**
 	 * Display enrollment info for a list of courses.
 	 *
-	 * @param array $courses
+	 * @param Course[] $courses
 	 */
 	protected function displayCourseList( array $courses ) {
-		/**
-		 * @var Course $course
-		 */
 		foreach ( $courses as $course ) {
 			$this->getOutput()->addElement( 'h3', [], $course->getField( 'name' ) );
 			$this->displayCourse( $course );
@@ -253,7 +247,7 @@ class SpecialManageCourses extends VerySpecialPage {
 	/**
 	 * Display a course pager with the provided courses.
 	 *
-	 * @param array $courses
+	 * @param Course[] $courses
 	 * @param string $class
 	 */
 	protected function displayCoursePager( array $courses, $class ) {
