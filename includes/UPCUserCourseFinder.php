@@ -37,8 +37,6 @@ use Wikimedia\Rdbms\IDatabase;
 class UPCUserCourseFinder implements UserCourseFinder {
 
 	/**
-	 * @since 0.3
-	 *
 	 * @var IDatabase
 	 */
 	private $db;

@@ -33,8 +33,6 @@ class NotificationsManager {
 	 * An associative array. Keys are string keys that designate notification
 	 * types. Values are instances of notification type classes (implementing INotificationType).
 	 *
-	 * @since 0.4 alpha
-	 *
 	 * @var INotificationType[]
 	 */
 	private $typesByKey = [];

@@ -302,8 +302,6 @@ class Utils {
 	 * Turn a Title or a string into a string. If it's a title, we get its
 	 * full text.
 	 *
-	 * @since 0.4 alpha
-	 *
 	 * @param string|Title $title
 	 * @return string
 	 */
