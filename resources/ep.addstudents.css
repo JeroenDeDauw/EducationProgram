@@ -125,14 +125,14 @@
 	padding: 0.4em;
 }
 
-#ep-addstudent-msg [data-role='remove'] {
+#ep-addstudent-msg [ data-role='remove' ] {
 	margin-left: 8px;
 	cursor: pointer;
 	float: right;
 	font-size: 1.3em;
 }
 
-#ep-addstudent-msg [data-role='remove']:hover {
+#ep-addstudent-msg [ data-role='remove' ]:hover {
 	text-decoration: underline;
 }
 
