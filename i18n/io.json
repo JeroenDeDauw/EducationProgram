@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joao Xavier"
+		]
+	},
+	"ep-nav-students": "Listo pri lernanti",
+	"right-ep-remarticle": "Desasociar artikli del lernanti",
+	"special-students": "Lernanti",
+	"ep-educationprogram-students": "Quanto di lernanti",
+	"ep-educationprogram-gender-students": "Lernanti",
+	"eporgpager-header-student-count": "Lernanti",
+	"epcoursepager-header-student-count": "Lernanti",
+	"vieworgaction-summary-students": "Quanto di lernanti",
+	"ep-course-students": "Lernanti",
+	"viewcourseaction-summary-students": "Quanto di lernanti"
+}
