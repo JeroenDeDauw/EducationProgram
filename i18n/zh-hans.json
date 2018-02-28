@@ -470,7 +470,7 @@
 	"orgpage-eprestore-summary-value": "回复机构至由$2于$1 $3做出的版本",
 	"orgpage-eprestore-restored": "已恢复机构$1。",
 	"orgpage-eprestore-restore-failed": "恢复机构$1失败。",
-	"coursepage-eprestore-title": "回复课程“$1”",
+	"coursepage-eprestore-title": "恢复课程“$1”",
 	"coursepage-eprestore-text": "您正准备将课程$1恢复至上一个版本。",
 	"coursepage-eprestore-summary": "原因：",
 	"coursepage-eprestore-restore-button": "还原版本",
