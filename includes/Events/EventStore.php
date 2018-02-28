@@ -39,15 +39,11 @@ use Wikimedia\Rdbms\IDatabase;
 class EventStore {
 
 	/**
-	 * @since 0.3
-	 *
 	 * @var string
 	 */
 	private $tableName;
 
 	/**
-	 * @since 0.3
-	 *
 	 * @var int
 	 */
 	private $readConnectionId;
@@ -64,8 +60,6 @@ class EventStore {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @return IDatabase
 	 */
 	private function getReadConnection() {
@@ -73,8 +67,6 @@ class EventStore {
 	}
 
 	/**
-	 * @since 0.3
-	 *
 	 * @return IDatabase
 	 */
 	private function getWriteConnection() {
@@ -127,8 +119,6 @@ class EventStore {
 
 	/**
 	 * Constructs and returns an Event object given a result row from the events table.
-	 *
-	 * @since 0.3
 	 *
 	 * @param object $resultRow
 	 *
