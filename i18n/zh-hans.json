@@ -511,7 +511,7 @@
 	"orgpage-epundelete-title": "恢复删除的机构“$1”。",
 	"orgpage-epundelete-text": "您将要取消删除机构$1。",
 	"orgpage-epundelete-summary": "原因：",
-	"orgpage-epundelete-undelete-button": "撤消删除机构",
+	"orgpage-epundelete-undelete-button": "取消删除机构",
 	"orgpage-epundelete-cancel-button": "取消",
 	"orgpage-epundelete-undeleted": "已还原机构$1。",
 	"orgpage-epundelete-undo-failed": "取消删除机构$1失败。",
