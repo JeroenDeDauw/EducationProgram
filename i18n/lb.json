@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Les Meloures"
 		]
 	},
 	"ep-item-summary": "Resumé",
@@ -246,7 +247,7 @@
 	"ep-addstudents-instructions": "Tippt d'Benotzernimm vun de Studenten déi Dir dobäisetze wëllt. Dréckt Enter no jiddwerengem, oder klickt op de Menü dee gewise gëtt. Dir kënnt och eng Lëscht vu Benotzernimm dra kopéieren.\n\nKlickt \"{{int:ep-addstudents-btn}}\" wann Dir fäerdeg sidd.",
 	"ep-addstudents-url-instructions": "Studente kënne sech och selwer dobäisetzen andeem si dëse Link an hirem Internetbrowser opmaachen:",
 	"ep-addstudents-invalid-users": "{{PLURAL:$1|Dëse|Dës}} {{GENDER:$2|Benotzer}} gëtt et net: $2.",
-	"ep-addstudents-btn": "Dobäisetzen",
+	"ep-addstudents-btn": "Derbäisetzen",
 	"ep-addstudents-success": "Dir hutt {{PLURAL:$1|{{GENDER:$2|ee Student|eng Studentin}}|$1 Studenten}} an dëse Cours dobäigesat.",
 	"ep-addstudents-alreadyenrolled": "{{PLURAL:$1|{{GENDER:$3|Dëse Student|Dës Studentin|Dëse Student}} gouf net dobäigesat, well {{GENDER:$3|hie|hat|hie}} schonn am Cours war|Dës Studente goufen net dobäigsat well si schonn am Cours waren}}: $2.",
 	"ep-addstudents-servercallerror": "Beim Dobäisetze vu Studenten ass dëse Feeler geschitt: $1.",
@@ -419,7 +420,7 @@
 	"ep-instructor-close-button": "Zoumaachen",
 	"ep-instructor-remove-retry": "Nach eng Kéier probéieren",
 	"ep-instructor-cancel-button": "Ofbriechen",
-	"ep-instructor-adding": "Dobäisetzen...",
+	"ep-instructor-adding": "Derbäisetzen...",
 	"ep-instructor-addition-invalid-user": "Et gëtt kee Benotzer mam Numm $1, dofir gouf kee bei de Cours $2 dobäigesat.",
 	"ep-instructor-add-close-button": "Zoumaachen",
 	"ep-instructor-add-retry": "Nach eng Kéier probéieren",
@@ -431,7 +432,7 @@
 	"ep-online-close-button": "Zoumaachen",
 	"ep-online-remove-retry": "Nach eng Kéier probéieren",
 	"ep-online-cancel-button": "Ofbriechen",
-	"ep-online-adding": "Dobäisetzen...",
+	"ep-online-adding": "Derbäisetzen...",
 	"ep-online-addition-invalid-user": "Et gëtt kee Benotzer mam Numm $1, dofir gouf kee bei de Cours $2 dobäigesat.",
 	"ep-online-add-close-button": "Zoumaachen",
 	"ep-online-add-retry": "Nach eng Kéier probéieren",
@@ -442,7 +443,7 @@
 	"ep-campus-close-button": "Zoumaachen",
 	"ep-campus-remove-retry": "Nach eng Kéier probéieren",
 	"ep-campus-cancel-button": "Ofbriechen",
-	"ep-campus-adding": "Dobäisetzen...",
+	"ep-campus-adding": "Derbäisetzen...",
 	"ep-campus-add-close-button": "Zoumaachen",
 	"ep-campus-add-retry": "Nach eng Kéier probéieren",
 	"ep-campus-add-cancel-button": "Ofbriechen",
