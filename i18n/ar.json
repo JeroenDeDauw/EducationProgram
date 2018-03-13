@@ -748,5 +748,15 @@
 	"apihelp-liststudents-param-courseids": "معرفات الدورات.",
 	"apihelp-liststudents-param-prop": "أية خاصية يتم الحصول عليها لكل طالب:\n; اسم المستخدم: اسم المستخدم للطالب.\n;معرف: معرف المستخدم للطالب.",
 	"apihelp-liststudents-param-group": "إذا تم منحه، فسيجمع الاستعلام الطلاب حسب الدورة التدريبية.",
-	"apihelp-liststudents-param-csv": "إذا تم منحه، فسيعرض الاستعلام أسماء المستخدمين بصيغة CSV، وسيعرض المقالات المعينة لهؤلاء الطلاب."
+	"apihelp-liststudents-param-csv": "إذا تم منحه، فسيعرض الاستعلام أسماء المستخدمين بصيغة CSV، وسيعرض المقالات المعينة لهؤلاء الطلاب.",
+	"apihelp-liststudents-example-1": "أدرج الطلاب في الدورة 3",
+	"apihelp-liststudents-example-2": "قم بإدراج الطلاب في الدورات 3 و4 و5 و6، مجمعين حسب الدورة، بصيغة CSV",
+	"apihelp-liststudents-example-3": "قم بإدراج الطلاب في الدورات 3 و4 و5 و6، مجمعين حسب الدورة، بصيغة CSV",
+	"apihelp-refresheducation-description": "إعادة بناء البيانات الموجزة لأهداف برنامج التعليم.",
+	"apihelp-refresheducation-summary": "إعادة بناء البيانات الموجزة لأهداف برنامج التعليم.",
+	"apihelp-refresheducation-param-ids": "معرفات الكائنات للتحديث.",
+	"apihelp-refresheducation-param-type": "نوع كائن للتحديث.",
+	"apihelp-refresheducation-example-1": "تحديث الدورة 42",
+	"apihelp-refresheducation-example-2": "تحديث الطلاب 2 و4",
+	"apierror-educationprogram-overlimit": "تجاوز طلب البحث الحد بالدورة $1، حاول مرة أخرى بعدد أقل من الدورات."
 }
