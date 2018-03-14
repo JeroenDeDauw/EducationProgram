@@ -10,7 +10,8 @@
 			"Srdjan m",
 			"Сербијана",
 			"Obsuser",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
 	"educationprogram-desc": "Олакшава образовне програме додавањем разних интерфејса за управљање курсевима, институцијама и различитим образовним улогама корисника.",
@@ -216,7 +217,7 @@
 	"ep-pager-go": "Иди",
 	"ep-pager-withselected": "Са изабраним",
 	"ep-pager-delete-selected": "Обриши",
-	"ep-revision-undo": "опозови",
+	"ep-revision-undo": "поништи",
 	"ep-revision-restore": "врати",
 	"ep-revision-compare": "упореди са тренутном ревизијом",
 	"eporgpager-header-name": "Име",
