@@ -52,11 +52,7 @@ class ApiDeleteEducation extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		if ( !$this->userIsAllowed( $params['type'], $params ) || $this->getUser()->isBlocked() ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-permissiondenied-generic', 'permissiondenied' );
-			} else {
-				$this->dieUsageMsg( [ 'badaccess-groups' ] );
-			}
+			$this->dieWithError( 'apierror-permissiondenied-generic', 'permissiondenied' );
 		}
 
 		// If we're deleting institutions, we'll do some extra checks
