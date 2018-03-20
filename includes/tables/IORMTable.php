@@ -447,30 +447,6 @@ interface IORMTable {
 	public function getPrefixedField( $field );
 
 	/**
-	 * Takes an array of field names with prefix and returns the unprefixed equivalent.
-	 *
-	 * @since 1.20
-	 * @deprecated since 1.25, will be removed
-	 *
-	 * @param string[] $fieldNames
-	 *
-	 * @return string[]
-	 */
-	public function unprefixFieldNames( array $fieldNames );
-
-	/**
-	 * Takes a field name with prefix and returns the unprefixed equivalent.
-	 *
-	 * @since 1.20
-	 * @deprecated since 1.25, will be removed
-	 *
-	 * @param string $fieldName
-	 *
-	 * @return string
-	 */
-	public function unprefixFieldName( $fieldName );
-
-	/**
 	 * Get an array with fields from a database result,
 	 * that can be fed directly to the constructor or
 	 * to setFields.

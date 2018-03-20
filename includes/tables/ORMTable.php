@@ -786,22 +786,6 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	/**
 	 * Takes an array of field names with prefix and returns the unprefixed equivalent.
 	 *
-	 * @since 1.20
-	 * @deprecated since 1.25, will be removed
-	 *
-	 * @param string[] $fieldNames
-	 *
-	 * @return string[]
-	 */
-	public function unprefixFieldNames( array $fieldNames ) {
-		wfDeprecated( __METHOD__, '1.25' );
-
-		return $this->stripFieldPrefix( $fieldNames );
-	}
-
-	/**
-	 * Takes an array of field names with prefix and returns the unprefixed equivalent.
-	 *
 	 * @param string[] $fieldNames
 	 *
 	 * @return string[]
@@ -812,22 +796,6 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 		return array_map( function ( $fieldName ) use ( $start ) {
 			return substr( $fieldName, $start );
 		}, $fieldNames );
-	}
-
-	/**
-	 * Takes a field name with prefix and returns the unprefixed equivalent.
-	 *
-	 * @since 1.20
-	 * @deprecated since 1.25, will be removed
-	 *
-	 * @param string $fieldName
-	 *
-	 * @return string
-	 */
-	public function unprefixFieldName( $fieldName ) {
-		wfDeprecated( __METHOD__, '1.25' );
-
-		return substr( $fieldName, strlen( $this->fieldPrefix ) );
 	}
 
 	/**
