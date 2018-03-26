@@ -27,11 +27,7 @@ class ApiAddStudents extends ApiBase {
 		// get the course, die if the course id is invalid
 		$course = Courses::singleton()->selectRow( null, [ 'id' => $params['courseid'] ] );
 		if ( $course === false ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-badparameter', 'courseid' ], 'invalid-course' );
-			} else {
-				$this->dieUsage( 'Invalid course id', 'invalid-course' );
-			}
+			$this->dieWithError( [ 'apierror-badparameter', 'courseid' ], 'invalid-course' );
 		}
 
 		$user = $this->getUser();
@@ -40,11 +36,7 @@ class ApiAddStudents extends ApiBase {
 		if ( !$user->isAllowed( 'ep-addstudent' )
 			&& !RoleObject::isInRoleObjArray( $user->getId(), $course->getAllNonStudentRoleObjs() )
 		) {
-			if ( is_callable( [ $this, 'checkUserRightsAny' ] ) ) {
-				$this->checkUserRightsAny( 'ep-addstudent' );
-			} else {
-				$this->dieUsage( 'User is not authorized to perform this action', 'no-rights' );
-			}
+			$this->checkUserRightsAny( 'ep-addstudent' );
 		}
 
 		// check the usernames sent, get user ids
@@ -101,11 +93,7 @@ class ApiAddStudents extends ApiBase {
 			// we might get 0 if no users were added due to all of them
 			// already being enrolled.
 			if ( $enlistmentResult === false || $enlistmentResult != count( $addedUserIds ) ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( 'apierror-unknownerror-nocode', 'internal-error' );
-				} else {
-					$this->dieUsage( 'Somthing bad happened.', 'internal-error' );
-				}
+				$this->dieWithError( 'apierror-unknownerror-nocode', 'internal-error' );
 			} else {
 				$r->addValue( null, 'success', true );
 
