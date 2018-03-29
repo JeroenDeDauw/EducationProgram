@@ -14,7 +14,7 @@ use Message;
  *
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class LogFormatter extends \LogFormatter {
@@ -58,7 +58,7 @@ class LogFormatter extends \LogFormatter {
  *
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class RoleChangeFormatter extends LogFormatter {
@@ -88,7 +88,7 @@ class RoleChangeFormatter extends LogFormatter {
  *
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ArticleFormatter extends LogFormatter {

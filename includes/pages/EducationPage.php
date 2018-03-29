@@ -19,7 +19,7 @@ use Exception;
  * @ingroup EducationProgram
  * @ingroup Page
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class EducationPage extends ContextSource implements \Page {

@@ -13,7 +13,7 @@ use EducationProgram\Utils;
  * @group EducationProgram
  * @group Database
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  *
  * @covers \EducationProgram\Utils

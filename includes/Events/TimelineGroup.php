@@ -36,7 +36,7 @@ use Title;
  *
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class TimelineGroup {
@@ -239,7 +239,7 @@ abstract class TimelineGroup {
  *
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class UnknownGroup extends TimelineGroup {
@@ -271,7 +271,7 @@ class UnknownGroup extends TimelineGroup {
  *
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EditGroup extends TimelineGroup {
@@ -409,7 +409,7 @@ class EditGroup extends TimelineGroup {
  *
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class EnlistGroup extends TimelineGroup {

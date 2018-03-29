@@ -16,7 +16,7 @@ use Html;
  *
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Andrew Green < agreen at wikimedia dot org >
  */
 class UserRolesMessage {

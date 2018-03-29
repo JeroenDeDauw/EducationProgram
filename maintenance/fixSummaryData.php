@@ -15,7 +15,7 @@
  * @file fixSummaryData.php
  * @ingroup EducationProgram
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Andrew Green <andrew.green.df@gmail.com>
  */
 

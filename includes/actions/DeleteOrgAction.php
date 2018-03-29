@@ -10,7 +10,7 @@ namespace EducationProgram;
  * @ingroup EducationProgram
  * @ingroup Action
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Andrew Green < agreen@wikimedia.org >
  */
 class DeleteOrgAction extends DeleteAction {

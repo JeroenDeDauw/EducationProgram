@@ -14,7 +14,7 @@ use User;
  * @ingroup EducationProgram
  * @ingroup API
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Sage Ross <sage@ragesoss.com>
  */
 class ApiListStudents extends ApiBase {

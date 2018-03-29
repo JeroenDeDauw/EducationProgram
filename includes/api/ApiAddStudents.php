@@ -13,7 +13,7 @@ use User;
  * @ingroup EducationProgram
  * @ingroup API
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Andrew Green <andrew.green.df@gmail.com>
  */
 class ApiAddStudents extends ApiBase {

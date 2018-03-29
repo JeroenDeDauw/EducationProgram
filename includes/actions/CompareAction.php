@@ -12,7 +12,7 @@ use Linker;
  * @ingroup EducationProgram
  * @ingroup Action
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Sage Ross < ragesoss@gmail.com >
  */
 class CompareAction extends Action {
