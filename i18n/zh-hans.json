@@ -225,7 +225,7 @@
 	"ep-courses-addorgfirst": "学院还没有。您必须[[Special:Institutions|添加学院]]才可以创建任何课程。",
 	"ep-students-noresults": "没有学生可列出。",
 	"ep-pager-showonly": "只显示项",
-	"ep-pager-clear": "清除筛选器",
+	"ep-pager-clear": "清除过滤器",
 	"ep-pager-go": "提交",
 	"ep-pager-withselected": "与选定的",
 	"ep-pager-delete-selected": "删除",
