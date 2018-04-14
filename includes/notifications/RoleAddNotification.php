@@ -9,7 +9,7 @@ namespace EducationProgram;
  *
  * @ingroup EducationProgram
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author JJ Liu < jie dot squared at gmail dot com >
  */
 abstract class RoleAddNotification implements INotificationType {

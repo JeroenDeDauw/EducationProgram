@@ -29,7 +29,7 @@ use PHPUnit4And6Compat;
  * @group EducationProgram
  * @group CourseStoreTest
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  *
  * @covers \EducationProgram\Store\CourseStore

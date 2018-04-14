@@ -24,7 +24,7 @@ namespace EducationProgram\Events;
  *
  * @ingroup EducationProgram
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class Event {

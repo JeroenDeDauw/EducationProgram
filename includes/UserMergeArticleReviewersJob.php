@@ -29,7 +29,7 @@ use Title;
  * @file
  * @ingroup EducationProgram
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Andrew Green <agreen@wikimedia.org>
  */
 class UserMergeArticleReviewersJob extends Job {

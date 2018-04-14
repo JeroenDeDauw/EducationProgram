@@ -30,7 +30,7 @@ namespace EducationProgram;
  * @file ORMRow.php
  * @ingroup ORM
  *
- * @license GNU GPL v2 or later
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ORMRow implements IORMRow {

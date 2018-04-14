@@ -10,7 +10,7 @@ use Linker;
  *
  * @ingroup EducationProgram
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Andrew Green andrew.green.df@gmail.com
  */
 class ErrorPageErrorWithSelflink extends \ErrorPageError {

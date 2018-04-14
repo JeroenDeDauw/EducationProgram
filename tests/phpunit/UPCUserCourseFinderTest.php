@@ -31,7 +31,7 @@ use EducationProgram\UPCUserCourseFinder;
  * @group EducationProgram
  * @group Database
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  *
  * @covers \EducationProgram\UPCUserCourseFinder

@@ -31,7 +31,7 @@ use Wikimedia\Rdbms\ResultWrapper;
  * @file
  * @ingroup ORM
  *
- * @license GNU GPL v2 or later
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 
