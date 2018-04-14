@@ -6,7 +6,8 @@
 			"Sfyrakis",
 			"ZaDiak",
 			"Protnet",
-			"Stam.nikos"
+			"Stam.nikos",
+			"Nikosgranturismogt"
 		]
 	},
 	"educationprogram-desc": "Διευκολύνει εκπαιδευτικά προγράμματα με την προσθήκη διάφορων διεπαφών για τη διαχείριση μαθημάτων, ιδρυμάτων και των διάφορων εκπαιδευτικών ρόλων χρήστη.",
@@ -472,8 +473,8 @@
 	"ep-disenroll-button": "Αποχώρηση",
 	"ep-disenroll-summary": "Γιατί είστε αποχωρείτε;",
 	"ep-disenroll-cancel": "Ακύρωση",
-	"ep-disenroll-success": "{{GENDER:$1|Έχετε}} επιτυχώς {{GENDER:$1|αποχωρήσει}} από αυτό το μάθημα!",
-	"ep-mycourses-enrolled": "Έχετε εγγραφεί επιτυχώς στο $1 στο $2.",
+	"ep-disenroll-success": "{{GENDER:$1|Έχετε}} {{GENDER:$1|αποχωρήσει}} από αυτό το μάθημα!",
+	"ep-mycourses-enrolled": "Έχετε {{GENDER:|εγγραφεί}} στο $1 στο $2.",
 	"ep-mycourses-not-enrolled": "Δεν είστε εγγεγραμμένος σε κάθε μάθημα. Δείτε τον [[Special:Courses|κατάλογο μαθημάτων]].",
 	"ep-mycourses-no-such-course": "Δεν είστε εγγεγραμμένος σε κανένα μάθημα με το όνομα \"$1\". Τα μαθήματα που θα είστε εγγεγραμμένοι παρατίθενται παρακάτω.",
 	"ep-mycourses-nocourses-epstudent": "Δεν είστε εγγεγραμμένος σε οποιοδήποτε [[Special:Courses|μάθημα]].",
