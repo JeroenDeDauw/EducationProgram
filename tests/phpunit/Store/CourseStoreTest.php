@@ -4,6 +4,7 @@ namespace EducationProgram\Tests\Store;
 
 use EducationProgram\Course;
 use EducationProgram\Store\CourseStore;
+use PHPUnit4And6Compat;
 
 /**
  * This program is free software; you can redistribute it and/or modify
@@ -34,6 +35,7 @@ use EducationProgram\Store\CourseStore;
  * @covers \EducationProgram\Store\CourseStore
  */
 class CourseStoreTest extends \PHPUnit\Framework\TestCase {
+	use PHPUnit4And6Compat;
 
 	public function testGetCourseById() {
 		$store = $this->newMockStoreForRowSelect();

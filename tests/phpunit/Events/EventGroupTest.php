@@ -4,6 +4,7 @@ namespace EducationProgram\Tests\Events;
 
 use EducationProgram\Events\Event;
 use EducationProgram\Events\EventGroup;
+use PHPUnit4And6Compat;
 
 /**
  * Unit tests for the EducationProgram\Events\EventGroup class.
@@ -37,6 +38,7 @@ use EducationProgram\Events\EventGroup;
  * @covers \EducationProgram\Events\EventGroup
  */
 class EventGroupTest extends \PHPUnit\Framework\TestCase {
+	use PHPUnit4And6Compat;
 
 	public function eventsProvider() {
 		return [

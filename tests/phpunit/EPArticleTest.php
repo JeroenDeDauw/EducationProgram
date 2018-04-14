@@ -283,17 +283,16 @@ class EPArticleTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testLogAdditionNonExistingPage() {
-		$course = $this->getMock( Course::class );
+		$course = $this->getMockBuilder( Course::class )->getMock();
 
 		$course->expects( $this->any() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( \Title::newFromText( 'Foobar' ) ) );
 
-		$article = $this->getMock(
-			EPArticle::class,
-			[ 'getCourse', 'getUser' ],
-			[ 1, 2, 3, 0, 'sdncjsdhbfkdhbgsfxdfg', [] ]
-		);
+		$article = $this->getMockBuilder( EPArticle::class )
+			->setConstructorArgs( [ 1, 2, 3, 0, 'sdncjsdhbfkdhbgsfxdfg', [] ] )
+			->setMethods( [ 'getCourse', 'getUser' ] )
+			->getMock();
 
 		$article->expects( $this->any() )
 			->method( 'getCourse' )

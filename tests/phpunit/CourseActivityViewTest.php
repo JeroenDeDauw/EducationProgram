@@ -41,7 +41,7 @@ class CourseActivityViewTest extends \PHPUnit\Framework\TestCase {
 
 		$outputPage->expects( $this->atLeastOnce() )->method( 'addHTML' );
 
-		$language = $this->getMock( 'Language' );
+		$language = $this->getMockBuilder( 'Language' )->getMock();
 
 		$eventStore = $this->getMockBuilder( 'EducationProgram\Events\EventStore' )
 			->disableOriginalConstructor()->getMock();
