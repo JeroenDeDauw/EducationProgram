@@ -4,5 +4,23 @@
 			"គីមស៊្រុន"
 		]
 	},
+	"ep-pager-clear": "ជម្រះតម្រង",
+	"ep-pager-go": "ទៅ",
+	"ep-pager-delete-selected": "លុបចោល",
+	"ep-revision-undo": "មិនធ្វើវិញ",
+	"ep-revision-restore": "ស្ដារឡើងវិញ",
+	"ep-revision-compare": "ប្រៀបធៀបជាមួយកំណែបច្ចុប្បន្ន",
+	"eporgpager-header-name": "ឈ្មោះ",
+	"eporgpager-header-city": "ទីក្រុង",
+	"eporgpager-header-country": "ប្រទេស​",
+	"eporgpager-filter-country": "ប្រទេស​",
+	"eporgpager-header-student-count": "សិស្ស",
+	"eporgpager-header-active": "សកម្ម",
+	"eporgpager-yes": "បាទ/ចាស៎",
+	"eporgpager-no": "ទេ",
+	"ep-pager-cancel-button-org": "បោះបង់",
+	"ep-pager-retry-button-org": "ព្យាយាមម្ដងទៀត",
+	"ep-pager-summary-message-org": "ចំណារពន្យល់៖",
+	"epcoursepager-header-name": "ឈ្មោះ",
 	"ep-enroll-signup-and-enroll": "បង្កើតគណនីថ្មីរួចចុះឈ្មោះ"
 }
