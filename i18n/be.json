@@ -2,14 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"Artificial123",
-			"Дзяніс Тутэйшы"
+			"Дзяніс Тутэйшы",
+			"Artsiom91"
 		]
 	},
 	"ep-revision-compare": "параўнаць з цяперашняй версіяй",
+	"ep-delete-org-has-courses-close-dialog": "Закрыць",
 	"coursepage-eprestore-none": "Гэты перагляд не можа быць адноўлены.",
 	"coursepage-epcompare-none": "Такі перагляд не можа быць параўнаны з цяперашнім.",
 	"orgpage-epcompare-title": "Параўнаць з \"$1\"",
 	"orgpage-epcompare-none": "Такі перагляд не можа быць параўнаны з цяперашнім.",
+	"ep-instructor-close-button": "Закрыць",
+	"ep-instructor-add-close-button": "Закрыць",
+	"ep-online-close-button": "Закрыць",
+	"ep-online-add-close-button": "Закрыць",
+	"ep-campus-close-button": "Закрыць",
+	"ep-campus-add-close-button": "Закрыць",
 	"ep-diff-previous": "← Папярэдн. версія",
 	"ep-diff-current": "Актуальная версія",
 	"ep-timeline-users-edit-talk": "{{PLURAL:$5|{{GENDER:$6|$1 пакінуў|$1 пакінула}}|$1 пакінулі}} {{PLURAL:$4|1=паведамленне|$4 паведамленні|$4 паведамленняў}} на '''[[$2|старонцы размоў]]''' '''[[$3]]'''.",
