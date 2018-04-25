@@ -15,7 +15,8 @@
 			"Wiki13",
 			"Esketti",
 			"Mainframe98",
-			"Mar(c)"
+			"Mar(c)",
+			"Ooswesthoesbes"
 		]
 	},
 	"educationprogram-desc": "Faciliteert onderwijsprogramma's door verschillende interfaces toe te voegen om cursussen, organisaties en verschillende onderwijsrollen te kunnen beheren",
@@ -31,7 +32,7 @@
 	"ep-err-course-exists-title": "Fout: cursus bestaat al",
 	"ep-err-course-exists-text": "U probeert de cursus $1 aan te maken, maar deze bestaat al.",
 	"ep-err-org-exists-title": "Fout: organisatie bestaat al",
-	"ep-err-org-exists-text": "U probeert de organistatie $1 te maken, maar deze bestaat al.",
+	"ep-err-org-exists-text": "U probeert de organisatie $1 te maken, maar deze bestaat al.",
 	"ep-didyouknow-header": "Wist u dat...?",
 	"ep-tab-view": "Lezen",
 	"ep-tab-edit": "Bewerken",
