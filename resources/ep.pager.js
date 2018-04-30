@@ -217,7 +217,7 @@
 						}
 					} ).fail( function() {
 						onFail( args.type );
-						alert( window.gM( 'ep-pager-delete-selected-fail', ids.length ) );
+						alert( mw.msg( 'ep-pager-delete-selected-fail', ids.length ) );
 					} );
 				} );
 			}

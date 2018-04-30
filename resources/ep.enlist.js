@@ -259,7 +259,7 @@
 			// Give grep a chance to find the usages:
 			// ep-instructor-add-self-text, ep-online-add-self-text, ep-campus-add-self-text,
 			// ep-instructor-add-text, ep-online-add-text, ep-campus-add-text
-			this.$dialog.append( $( '<p>' ).text( gM(
+			this.$dialog.append( $( '<p>' ).text( mw.msg(
 				this.selfMode ? 'ep-' + role + '-add-self-text' : 'ep-' + role + '-add-text',
 				this.courseName,
 				this.getName()
