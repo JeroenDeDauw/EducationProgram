@@ -236,7 +236,7 @@
 	"ep-diff-new": "Nova valoro",
 	"ep-timeline-ago": "antaŭ $1",
 	"ep-timeline-cutoff": "$1 ...",
-	"ep-user-roles-message-additional": "{{GENDER:$1|Li|Ŝi|Ĝi}} ankaŭ estas $2.",
+	"ep-user-roles-message-additional": "{{GENDER:$1|La uzanto}} ankaŭ estas $2.",
 	"echo-category-title-education-program": "Eduka programo",
 	"ep-echo-pref-tooltip": "Sciigi al mi pri eventoj rilataj al partoprenataj de mi kursoj de eduka programo."
 }
