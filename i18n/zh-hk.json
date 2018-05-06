@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"group-eponline-member": "{{GENDER:$1|課程線上義工}}",
+	"epstudentpager-header-user-id": "用戶名稱",
+	"epcapager-header-user-id": "用戶名稱",
+	"epoapager-header-user-id": "用戶名稱",
+	"specialstudent-summary-user": "用戶名稱",
+	"ep-instructor-name-input": "用戶名稱：",
+	"ep-online-name-input": "用戶名稱：",
+	"ep-campus-name-input": "用戶名稱：",
+	"ep-timeline-users-edit-user-self": "$1 已編輯{{GENDER:$6|他|她|他們}}的'''[[$2|用戶頁面]]'''。"
+}
