@@ -166,7 +166,7 @@
 
 			$cantDel = $selectedCheckboxes.closest( 'tr[data-no-del-text]' );
 			if ($cantDel.length > 0) {
-				$( '<div>' ).html( $cantDel.first().attr( 'data-no-del-text' ) )
+				$( '<div>' ).text( $cantDel.first().attr( 'data-no-del-text' ) )
 					.dialog( {
 						buttons: [ {
 							text: ep.msg( 'ep-delete-org-has-courses-close-dialog' ),
