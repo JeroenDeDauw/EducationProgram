@@ -705,6 +705,7 @@
 	"ep-course-talk-link-text-view-message": "메시지 보이기",
 	"ep-course-talk-link-text-view-changes": "차이 보기",
 	"ep-role-add-link-text-view-course": "과정 보기",
+	"notification-header-ep-student-add-notification": "당신은 '''$3'''에 {{GENDER:$2|추가}}되었습니다.",
 	"apihelp-addstudents-description": "다수의 학생을 과정에 추가합니다.",
 	"apihelp-addstudents-summary": "다수의 학생을 과정에 추가합니다.",
 	"apihelp-addstudents-param-studentusernames": "과정에 등록할 학생의 이름들입니다."

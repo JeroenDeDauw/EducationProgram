@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Purodha"
+			"Purodha",
+			"Matěj Suchánek"
 		]
 	},
 	"educationprogram-desc": "Hellef Projramme för de Ußbeldong un Liehre enzebränge un beed doför en Aanzahl Schnetschtälle för Korse Ojannisazjuhne un de ongerscheidlijje Rolle för Metmaacher derbei ze verwallde.",
@@ -26,7 +27,7 @@
 	"logentry-institution-remove": "{{GENDER:#$2|Dä|Dat|Dä Metmaacher|De|Dat}} $1 hät di Ojannisazjuhn „$3“ eruß jenumme",
 	"logentry-institution-update": "{{GENDER:#$2|Dä|Dat|Dä Metmaacher|De|Dat}} $1 hät di Ojannisazjuhn „$3“ verändert",
 	"logentry-institution-undelete": "{{GENDER:#$2|Dä|Dat|Dä Metmaacher|De|Dat}} $1 hät di Ojannisazjuhn „$3“ wider opjenumme",
-	"logentry-course-add": "{{GENDER:$:2|Dä|Dat|Dä Metmaacher|De|Dat}} $1 hät dä Kochß „$3“ aanjelaat",
+	"logentry-course-add": "{{GENDER:$2|Dä|Dat|Dä Metmaacher|De|Dat}} $1 hät dä Kochß „$3“ aanjelaat",
 	"prefs-education": "Ußbeldong un Liehre",
 	"specialpages-group-education": "Ußbeldong un Liehre",
 	"special-institutions": "Ojannisazjuhne",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"McDutchie",
-			"Shirayuki"
+			"Shirayuki",
+			"Matěj Suchánek"
 		]
 	},
 	"educationprogram-desc": "Facilita programmas educative per adder varie interfacies pro gerer cursos, institutiones e le varie rolos de usator de education.",
@@ -544,7 +545,7 @@
 	"ep-instructor-adding": "Adde...",
 	"ep-instructor-addition-success": "$1 ha essite addite como {{GENDER:$1|instructor|instructrice}} pro le curso $2!",
 	"ep-instructor-addition-self-success": "Tu ha essite addite como {{GENDER:$1|instructor|instructrice}} pro le curso $2!",
-	"ep-instructor-addition-null": "$1 ha jam essite addite como {{GENDER:$!|instructor|instructrice}} pro le curso $2.",
+	"ep-instructor-addition-null": "$1 ha jam essite addite como {{GENDER:$1|instructor|instructrice}} pro le curso $2.",
 	"ep-instructor-addition-invalid-user": "Il non ha un usator con le nomine $1, dunque nemo ha essite addite al curso $2",
 	"ep-instructor-add-close-button": "Clauder",
 	"ep-instructor-add-retry": "Reprobar",
@@ -570,7 +571,7 @@
 	"ep-online-adding": "Adde...",
 	"ep-online-addition-success": "$1 ha essite addite como {{GENDER:$1|voluntario|voluntaria}} in linea pro le curso $2!",
 	"ep-online-addition-self-success": "Tu ha essite addite como {{GENDER:$1|voluntario|voluntaria}} in linea pro le curso $2!",
-	"ep-online-addition-null": "$1 ha jam essite addite como {{GENDER:$!|voluntario|voluntaria}} in linea pro le curso $2.",
+	"ep-online-addition-null": "$1 ha jam essite addite como {{GENDER:$1|voluntario|voluntaria}} in linea pro le curso $2.",
 	"ep-online-addition-invalid-user": "Il non ha un usator con le nomine $1, dunque nemo ha essite addite al curso $2",
 	"ep-online-add-close-button": "Clauder",
 	"ep-online-add-retry": "Reprobar",
@@ -596,7 +597,7 @@
 	"ep-campus-adding": "Adde...",
 	"ep-campus-addition-success": "$1 ha essite addite como {{GENDER:$1|voluntario|voluntaria}} de campus pro le curso $2!",
 	"ep-campus-addition-self-success": "Tu ha essite addite como {{GENDER:$1|voluntario|voluntaria}} de campus pro le curso $2!",
-	"ep-campus-addition-null": "$1 ha jam essite addite como {{GENDER:$!|voluntario|voluntaria}} de campus pro le curso $2.",
+	"ep-campus-addition-null": "$1 ha jam essite addite como {{GENDER:$1|voluntario|voluntaria}} de campus pro le curso $2.",
 	"ep-campus-addition-invalid-user": "Il non ha un usator con le nomine $1, dunque nemo ha essite addite al curso $2",
 	"ep-campus-add-close-button": "Clauder",
 	"ep-campus-add-retry": "Reprobar",
