@@ -41,7 +41,7 @@ class RoleAdd extends \EchoEventPresentationModel {
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
 
-		$truncatedCourseName = $this->language->embedBidi( $this->language->truncate(
+		$truncatedCourseName = $this->language->embedBidi( $this->language->truncateForVisual(
 			$this->getCourseName(),
 			self::PAGE_NAME_RECOMMENDED_LENGTH,
 			'...',
