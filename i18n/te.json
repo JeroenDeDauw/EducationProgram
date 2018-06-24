@@ -3,7 +3,8 @@
 		"authors": [
 			"Chaduvari",
 			"Ravichandra",
-			"Veeven"
+			"Veeven",
+			"Matěj Suchánek"
 		]
 	},
 	"educationprogram-desc": "విద్యాకార్యక్రమాలకు చెందిన కోర్సులు, సంస్థలు, వివిధ వాడుకరి పాత్రలు వగైరాలను నిర్వహించేందుకు వీలు కలుగజేస్తుంది.",
@@ -567,7 +568,7 @@
 	"ep-instructor-add-title": "ఈ కోర్సుకు ఓ బోధకుని చేర్చడం",
 	"ep-instructor-add-self-title": "ఈ కోర్సులో {{GENDER:$1|బోధకులు}} కండి",
 	"ep-instructor-add-button": "బోధకుని చేర్చు",
-	"ep-instructor-add-self-button": "{{GENDER:$1బోధకులు}} కండి",
+	"ep-instructor-add-self-button": "{{GENDER:$1|బోధకులు}} కండి",
 	"ep-instructor-add-text": "కోర్సు $1 కు ఓ బోధకుణ్ణి చేరుస్తున్నారు. బోధకుని వాడుకరిపేరు ఇచ్చి, వారిని ఎందుకు చేరుస్తున్నారో క్లుప్తంగా రాయండి.",
 	"ep-instructor-add-self-text": "మిమ్మల్ని మీరు కోర్సు $1 లో {{GENDER:$2|బోధకునిగా}} చేర్చుకుంటున్నారు. అలా ఎందుకు చేస్తున్నారో క్లుప్తంగా వివరించండి.",
 	"ep-instructor-add-cancel-button": "రద్దుచేయి",

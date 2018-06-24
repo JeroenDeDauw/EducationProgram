@@ -3,7 +3,8 @@
 		"authors": [
 			"Robby",
 			"Soued031",
-			"Les Meloures"
+			"Les Meloures",
+			"Matěj Suchánek"
 		]
 	},
 	"ep-item-summary": "Resumé",
@@ -406,7 +407,7 @@
 	"ep-disenroll-summary": "Firwat mellt Dir Iech of?",
 	"ep-disenroll-cancel": "Ofbriechen",
 	"ep-disenroll-fail": "Et ass eppes schif gaang - Dir konnt net aus dësem Cours ofgemellt ginn.",
-	"ep-disenroll-success": "{{GENDER:$1|Dir}} sidd elo net méi an dësem Cours {{GENDER:$1ageschriwwen}}!",
+	"ep-disenroll-success": "{{GENDER:$1|Dir}} sidd elo net méi an dësem Cours {{GENDER:$1|ageschriwwen}}!",
 	"ep-disenroll-returntolink": "Zréck bei de [[Education_Program:$2|Cours $1]].",
 	"ep-mycourses-enrolled": "Dir sidd elo am Cours $1 vu(n) $2 {{GENDER:|ageschriwwen}}.",
 	"ep-mycourses-not-enrolled": "Dir sidd a kengem Cours ageschriwwen. Kuckt d'[[Special:Courses|Lëscht vun de Coursen]].",
