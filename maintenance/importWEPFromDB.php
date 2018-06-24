@@ -15,7 +15,7 @@
 
 namespace EducationProgram;
 
-use Wikimedia\Rdbms\ResultWrapper;
+use Wikimedia\Rdbms\IResultWrapper;
 
 $basePath = getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' )
@@ -133,9 +133,9 @@ class ImportWEPFromDB extends \Maintenance {
 	/**
 	 * Insert the orgs.
 	 *
-	 * @param ResultWrapper $orgs
+	 * @param IResultWrapper $orgs
 	 */
-	public function insertOrgs( ResultWrapper $orgs ) {
+	public function insertOrgs( IResultWrapper $orgs ) {
 		$revAction = new RevisionAction();
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
@@ -197,9 +197,9 @@ class ImportWEPFromDB extends \Maintenance {
 	/**
 	 * Insert the courses.
 	 *
-	 * @param ResultWrapper $courses
+	 * @param IResultWrapper $courses
 	 */
-	public function insertCourses( ResultWrapper $courses ) {
+	public function insertCourses( IResultWrapper $courses ) {
 		$revAction = new RevisionAction();
 		$revAction->setUser( $GLOBALS['wgUser'] );
 		$revAction->setComment( 'Import' );
@@ -292,9 +292,9 @@ class ImportWEPFromDB extends \Maintenance {
 	 * Create student profile if none matches the user yet.
 	 * Associate with courses.
 	 *
-	 * @param ResultWrapper $students
+	 * @param IResultWrapper $students
 	 */
-	public function insertStudents( ResultWrapper $students ) {
+	public function insertStudents( IResultWrapper $students ) {
 		foreach ( $students as $student ) {
 			$name = $student->student_username;
 
