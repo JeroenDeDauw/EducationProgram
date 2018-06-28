@@ -4,7 +4,7 @@ namespace EducationProgram;
 
 use Wikimedia\Rdbms\DBQueryError;
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\ResultWrapper;
+use Wikimedia\Rdbms\IResultWrapper;
 
 /**
  * Abstract base class for representing a single database table.
@@ -252,7 +252,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 * @param array $conditions
 	 * @param array $options
 	 * @param null|string $functionName
-	 * @return ResultWrapper
+	 * @return IResultWrapper
 	 * @throws \Exception
 	 * @throws \MWException
 	 */
@@ -383,7 +383,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	 * @param array $options
 	 * @param string|null $functionName
 	 *
-	 * @return \stdClass
+	 * @return \stdClass|bool
 	 */
 	public function rawSelectRow( array $fields, array $conditions = [],
 		array $options = [], $functionName = null

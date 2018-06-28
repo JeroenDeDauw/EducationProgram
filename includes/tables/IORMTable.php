@@ -5,7 +5,7 @@ namespace EducationProgram;
 use Wikimedia\Rdbms\DBQueryError;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LoadBalancer;
-use Wikimedia\Rdbms\ResultWrapper;
+use Wikimedia\Rdbms\IResultWrapper;
 
 /**
  * Interface for objects representing a single database table.
@@ -146,7 +146,7 @@ interface IORMTable {
 	 * @param array $options
 	 * @param null|string $functionName
 	 *
-	 * @return ResultWrapper
+	 * @return IResultWrapper
 	 * @throws DBQueryError If the query failed (even if the database was in ignoreErrors mode)
 	 */
 	public function rawSelect( $fields = null, array $conditions = [],
@@ -204,7 +204,7 @@ interface IORMTable {
 	 * @param array $options
 	 * @param string|null $functionName
 	 *
-	 * @return ResultWrapper
+	 * @return \stdClass|bool
 	 */
 	public function rawSelectRow( array $fields, array $conditions = [],
 		array $options = [], $functionName = null );
