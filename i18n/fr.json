@@ -30,7 +30,8 @@
 			"Wladek92",
 			"J. 'mach' wust",
 			"Orlodrim",
-			"AntonierCH"
+			"AntonierCH",
+			"Reptilien.19831209BE1"
 		]
 	},
 	"educationprogram-desc": "Facilite les programmes éducatifs en ajoutant différentes interfaces pour gérer les cours, les institutions et les différents rôles des acteurs d'un programme éducatif.",
@@ -724,7 +725,7 @@
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|un bénévole en ligne|une bénévole en ligne}}",
 	"ep-user-roles-message-rolename-campus": "{{GENDER:$1|un bénévole de campus|une bénévole de campus}}",
 	"echo-category-title-education-program": "Programme éducatif",
-	"ep-echo-pref-tooltip": "Me prévenir des événements liés aux ours du Programme éducatif dans lesquels je suis impliqué.",
+	"ep-echo-pref-tooltip": "Me prévenir des événements liés aux cours du Programme éducatif dans lesquels je suis impliqué.",
 	"ep-course-talk-link-text-view-message": "Afficher le message",
 	"ep-course-talk-link-text-view-changes": "Afficher les modifications",
 	"ep-role-add-link-text-view-course": "Afficher le cours",
