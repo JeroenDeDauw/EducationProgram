@@ -103,7 +103,7 @@
 	"logentry-eparticle-review": "$1 је {{GENDER:$2|додао|додала}} себе као прегледача на чланак $3 {{GENDER:$6|који}} уређује $5 у оквиру курса $4",
 	"logentry-eparticle-unreview": "$1 је {{GENDER:$2|уклонио|уклонила}} себе као прегледача са чланка $3 {{GENDER:$6|који}} уређује $5 у оквиру курса $4",
 	"prefs-education": "Образовање",
-	"ep-prefs-showtoplink": "Прикажи везу ка [[Special:MyCourses|мојим курсевима]] на врху сваке странице.",
+	"ep-prefs-showtoplink": "Веза ка [[Special:MyCourses|мојим курсевима]] на врху сваке странице.",
 	"ep-prefs-bulkdelorgs": "Прикажи дугме за масовно брисање [[Special:Institutions|установа]].",
 	"ep-prefs-bulkdelcourses": "Прикажи дугме за масовно брисање [[Special:Courses|курсева]].",
 	"right-ep-org": "управљање установама образовног програма",
