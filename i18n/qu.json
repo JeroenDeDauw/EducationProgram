@@ -4,6 +4,9 @@
 			"AlimanRuna"
 		]
 	},
+	"right-ep-bulkdelcourses": "Yachanakunata tawqa qulluy",
+	"action-ep-bulkdelorgs": "wallpachaykunata tawqa qulluy",
+	"action-ep-bulkdelcourses": "yachanakunata tawqa qulluy",
 	"ep-course-edit-start": "Qallariy p'unchaw",
 	"ep-timeline-remaining": "$1 {{PLURAL:$1|aswan}}",
 	"ep-timeline-ago": "$1 ñaqha",
