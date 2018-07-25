@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mehtab ahmed"
+			"Mehtab ahmed",
+			"Tweety"
 		]
 	},
+	"ep-didyouknow-header": "ڇا توهان ڄاڻو ٿا ... ؟",
 	"ep-tab-view": "پڙھو",
 	"tooltip-ep-form-save": "سانڍيو",
 	"eporgpager-header-active": "سرگرم",
