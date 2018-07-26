@@ -92,6 +92,7 @@ class SpecialStudentActivity extends VerySpecialPage {
 	 * @return string
 	 */
 	public function displayStudentMeter( array $conds, $duration ) {
+		global $wgExtensionAssetsPath;
 		$studentCount = Students::singleton()->count( $conds );
 
 		if ( $studentCount < 10 ) {
@@ -107,7 +108,8 @@ class SpecialStudentActivity extends VerySpecialPage {
 		)->escaped();
 
 		return \Html::element( 'img', [
-			'src' => Settings::get( 'imageDir' ) . 'student-o-meter_morethan-' . $image . '.png',
+			'src' => $wgExtensionAssetsPath .
+				'/EducationProgram/resources/images/student-o-meter_morethan-' . $image . '.png',
 			'alt' => $message,
 			'title' => $message,
 			'class' => 'studentometer'
