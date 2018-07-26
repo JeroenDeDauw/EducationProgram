@@ -32,15 +32,6 @@ final class Hooks {
 		define( 'EP_INSTRUCTOR', 1 );   // Instructors
 		define( 'EP_OA', 2 );           // Online volunteers
 		define( 'EP_CA', 3 );           // Campus volunteers
-
-		global $wgEPSettings, $wgExtensionAssetsPath, $wgScriptPath;
-
-		$epResourceDir = $wgExtensionAssetsPath === false
-			? $wgScriptPath . '/extensions/EducationProgram/resources'
-			: $wgExtensionAssetsPath;
-
-		$wgEPSettings['resourceDir'] = $epResourceDir;
-		$wgEPSettings['imageDir'] = $epResourceDir . '/images/';
 	}
 
 	/**
