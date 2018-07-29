@@ -35,9 +35,6 @@ class ImportWEPData extends \Maintenance {
 	public function execute() {
 		die( 'Not meant to be run in production.' );
 
-		global $basePath;
-		require_once $basePath . '/extensions/EducationProgram/EducationProgram.php';
-
 		$text = file_get_contents( $this->getOption( 'file' ) );
 
 		if ( $text === false ) {

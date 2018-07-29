@@ -19,9 +19,9 @@ class NotificationsManager {
 
 	/**
 	 * The string key for this notification category. Must coordinate with
-	 * message key 'echo-category-title-{CATEGORY}' in EducationProgram.i18n.php
+	 * message key 'echo-category-title-{CATEGORY}' in i18n/…
 	 * and the default user options 'echo-subscriptions-web-education-program'
-	 * and 'echo-subscriptions-email-education-program' in EducationProgram.php.
+	 * and 'echo-subscriptions-email-education-program' in extension.json
 	 *
 	 * @since 0.4 alpha
 	 *

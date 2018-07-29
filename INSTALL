@@ -38,7 +38,7 @@ Once you have downloaded the code, place the ''EducationProgram'' directory with
 'extensions' directory. Then add the following code to your [[Manual:LocalSettings.php|LocalSettings.php]] file:
 
 # Education Program
-require_once( "$IP/extensions/EducationProgram/EducationProgram.php" );
+wfLoadExtension( 'EducationProgram' );
 
 == Configuration ==
 

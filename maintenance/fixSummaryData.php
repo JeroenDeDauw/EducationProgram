@@ -34,10 +34,6 @@ class FixSummaryData extends \Maintenance {
 	}
 
 	public function execute() {
-		global $basePath;
-
-		require_once $basePath . '/extensions/EducationProgram/EducationProgram.php';
-
 		// rebuild summary fields for all institutions
 		Orgs::singleton()->updateSummaryFields();
 
