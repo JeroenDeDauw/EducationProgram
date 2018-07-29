@@ -333,7 +333,7 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 		}
 
 		if ( $collapse ) {
-			if ( count( $fields ) === 1 ) {
+			if ( is_string( $fields ) || count( $fields ) === 1 ) {
 				$objects = array_map( 'array_shift', $objects );
 			} elseif ( count( $fields ) === 2 ) {
 				$o = [];
