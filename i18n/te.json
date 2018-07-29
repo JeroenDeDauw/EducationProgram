@@ -534,7 +534,7 @@
 	"ep-disenroll-success": "మిమ్మల్ని ఈ కోర్సు నుండి విరమింప జేసాం!",
 	"ep-disenroll-returntolink": "తిరిగి [[Education_Program:$2|కోర్సు $1 కి]].",
 	"ep-mycourses-enrolled": "మీరు $2 లోని $1 లో చేరారు.",
-	"ep-mycourses-not-enrolled": "మీరు ఏ కోర్సులోనూ చేరలేదు. [[Special:Courses|కోర్సుల జాబితా]] చూడండి.",
+	"ep-mycourses-not-enrolled": "మీరు ఏ కోర్సులోనూ {{GENDER:|చేరలేదు}}. [[Special:Courses|కోర్సుల జాబితా]] చూడండి.",
 	"ep-mycourses-no-such-course": "మీరు \"$1\" అనే పేరుగల కోర్సులో చేరలేదు. మీరు చేరిన కోర్సుల జాబితా కింద ఇచ్చాం.",
 	"ep-mycourses-nocourses-epstudent": "మీరు ఏ [[Special:Courses|కోర్సుల]] లోనూ చేరలేదు.",
 	"ep-mycourses-login-first": "మీ కోర్సులను చూడాలంటే ముందు మీరు లాగినవ్వాలి.",
