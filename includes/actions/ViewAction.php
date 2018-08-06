@@ -33,7 +33,7 @@ abstract class ViewAction extends Action {
 
 	/**
 	 * @param Page $page
-	 * @param IContextSource $context
+	 * @param IContextSource|null $context
 	 * @param PageTable $table
 	 */
 	public function __construct( Page $page, IContextSource $context = null, PageTable $table ) {
@@ -190,7 +190,7 @@ abstract class ViewAction extends Action {
 	 *
 	 * @param IORMRow $item
 	 * @param bool $collapsed
-	 * @param array $summaryData
+	 * @param array|null $summaryData
 	 *
 	 * @return string
 	 */

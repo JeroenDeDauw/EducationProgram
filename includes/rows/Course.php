@@ -233,8 +233,8 @@ class Course extends PageObject {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param int $org_id
-	 * @param array $fields
+	 * @param int|null $org_id
+	 * @param array|null $fields
 	 */
 	protected function updateOrgSummaryFields( $org_id=null, $fields=null ) {
 		if ( is_null( $org_id ) ) {
@@ -264,7 +264,7 @@ class Course extends PageObject {
 	 *
 	 * @since 0.4 alpha
 	 *
-	 * @param array $userIdsAndRoles An array of associative arrays with data on
+	 * @param array|null $userIdsAndRoles An array of associative arrays with data on
 	 *   users and roles to add; each inner array has two keys: user_id and
 	 *   role.
 	 */
@@ -694,7 +694,7 @@ class Course extends PageObject {
 	 * @param string $role
 	 * @param bool $save
 	 * @param RevisionAction|null $revAction
-	 * @param array &$addedUserIds Reference to an array, for info sending
+	 * @param array|null &$addedUserIds Reference to an array, for info sending
 	 *    a list of the ids of users that were actually enlisted. (That is,
 	 *    $newUserIds minus any that were already enlisted in this role.)
 	 *
@@ -922,7 +922,7 @@ class Course extends PageObject {
 	 * @since 0.2
 	 *
 	 * @param string $action
-	 * @param string $html
+	 * @param string|null $html
 	 * @param array $customAttribs
 	 * @param array $query
 	 *

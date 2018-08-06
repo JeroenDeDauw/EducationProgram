@@ -55,7 +55,7 @@ interface IORMRow {
 	 * @since 1.20
 	 *
 	 * @param string $name
-	 * @param mixed $default
+	 * @param mixed|null $default
 	 *
 	 * @throws \MWException
 	 * @return mixed

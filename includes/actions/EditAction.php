@@ -42,7 +42,7 @@ abstract class EditAction extends Action {
 
 	/**
 	 * @param Page $page
-	 * @param IContextSource $context
+	 * @param IContextSource|null $context
 	 * @param PageTable|IORMTable $table
 	 */
 	public function __construct( Page $page, IContextSource $context = null, PageTable $table ) {

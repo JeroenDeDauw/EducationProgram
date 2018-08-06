@@ -23,7 +23,7 @@ class ViewCourseAction extends ViewAction {
 
 	/**
 	 * @param Page $page
-	 * @param IContextSource $context
+	 * @param IContextSource|null $context
 	 */
 	public function __construct( Page $page, IContextSource $context = null ) {
 		parent::__construct( $page, $context, Courses::singleton() );

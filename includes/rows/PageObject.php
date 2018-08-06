@@ -44,7 +44,7 @@ abstract class PageObject extends RevisionedObject {
 	 * Gets a link to the page representing the object.
 	 *
 	 * @param string $action
-	 * @param string $html
+	 * @param string|null $html
 	 * @param array $customAttribs
 	 * @param array $query
 	 *

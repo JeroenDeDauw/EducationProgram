@@ -116,7 +116,7 @@ abstract class VerySpecialPage extends \SpecialCachedPage {
 	 *
 	 * @param IORMRow $item
 	 * @param bool $collapsed
-	 * @param array $summaryData
+	 * @param array|null $summaryData
 	 *
 	 * @return string
 	 */

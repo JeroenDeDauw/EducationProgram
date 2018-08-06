@@ -232,7 +232,7 @@ class ApiListStudents extends ApiBase {
 	 * @param string $propName
 	 * @param ApiResult $results
 	 * @param int[]|int $courseIds A list of one or more course IDs
-	 * @param int $courseIndex
+	 * @param int|null $courseIndex
 	 * @param ArticleStore $articleStore
 	 */
 	protected function outputCSVofStudentProperties(
@@ -337,8 +337,8 @@ class ApiListStudents extends ApiBase {
 	 * @param array $studentsList
 	 * @param string $propName
 	 * @param \ApiResult $results
-	 * @param int $courseId
-	 * @param int $courseIndex
+	 * @param int|null $courseId
+	 * @param int|null $courseIndex
 	 * @param ArticleStore $articleStore
 	 */
 	protected function outputListOfStudentProperties(
@@ -462,7 +462,7 @@ class ApiListStudents extends ApiBase {
 	 * @param int[]|int $courseIds A list of one or more course IDs
 	 * @param array $studentsList A set of student users
 	 * @param \ApiResult $results
-	 * @param int $courseIndex
+	 * @param int|null $courseIndex
 	 * @param ArticleStore $articleStore
 	 */
 	protected function outputCSVListofArticles(
@@ -639,7 +639,7 @@ class ApiListStudents extends ApiBase {
 	 *
 	 * @param int $courseIndex
 	 * @param string $userLabel
-	 * @param int $userIndex
+	 * @param int|null $userIndex
 	 * @return array
 	 */
 	protected function userPath( $courseIndex, $userLabel, $userIndex = null ) {
