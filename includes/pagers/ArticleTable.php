@@ -74,7 +74,7 @@ class ArticleTable extends EPPager {
 	 * @param array $conds
 	 * @param int[]|int $courseIds
 	 * @param int[]|null $userIds
-	 * @param Course $course The course object or these articles. Should be sent
+	 * @param Course|null $course The course object or these articles. Should be sent
 	 *   when the table is for only one course.
 	 */
 	public function __construct(

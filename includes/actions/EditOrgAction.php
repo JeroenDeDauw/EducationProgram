@@ -20,7 +20,7 @@ class EditOrgAction extends EditAction {
 
 	/**
 	 * @param Page $page
-	 * @param IContextSource $context
+	 * @param IContextSource|null $context
 	 */
 	public function __construct( Page $page, IContextSource $context = null ) {
 		parent::__construct( $page, $context, Orgs::singleton() );
@@ -110,7 +110,7 @@ class EditOrgAction extends EditAction {
 	 * Returns true if the country value is valid or an error message if it's not.
 	 *
 	 * @param string $value
-	 * @param array $alldata
+	 * @param array|null $alldata
 	 *
 	 * @return string|bool true
 	 */

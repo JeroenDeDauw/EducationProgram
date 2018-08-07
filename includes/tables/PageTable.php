@@ -149,7 +149,7 @@ abstract class PageTable extends ORMTable {
 	 *
 	 * @param string $identifierValue
 	 * @param string $action
-	 * @param string $html
+	 * @param string|null $html
 	 * @param array $customAttribs
 	 * @param array $query
 	 *

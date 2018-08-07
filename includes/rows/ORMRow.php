@@ -146,7 +146,7 @@ class ORMRow implements IORMRow {
 	 * @since 1.20
 	 *
 	 * @param string $name Field name
-	 * @param mixed $default Default value to return when none is found
+	 * @param mixed|null $default Default value to return when none is found
 	 * (default: null)
 	 *
 	 * @throws \MWException

@@ -25,7 +25,7 @@ class LogFormatter extends \LogFormatter {
 	 * This is overridden to change the link text to only include the name of the object,
 	 * rather then the full name of it's page.
 	 *
-	 * @param Title $title
+	 * @param Title|null $title
 	 * @param array $parameters
 	 * @param string|null $html Linktext of the link as raw html
 	 *
