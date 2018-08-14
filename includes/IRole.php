@@ -32,8 +32,6 @@ interface IRole {
 	public function getName();
 
 	/**
-	 * Retruns the user link.
-	 *
 	 * @return string
 	 */
 	public function getUserLink();

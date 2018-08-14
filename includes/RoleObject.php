@@ -112,7 +112,7 @@ abstract class RoleObject extends ORMRow implements IRole {
 	}
 
 	/**
-	 * Retruns the user link for this ambassador, using their real name when available.
+	 * Returns the user link for this ambassador, using their real name when available.
 	 *
 	 * @return string
 	 */
