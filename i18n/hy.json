@@ -5,7 +5,8 @@
 			"Vadgt",
 			"Դավիթ Սարոյան",
 			"Armenoid",
-			"Aram1985"
+			"Aram1985",
+			"23artashes"
 		]
 	},
 	"educationprogram-desc": "Օժանդակում է կրթական ծրագրերին, ավելացնելով դասընթացները, ուսումնական հաստատությունները և մասնակիցների կրթական դերերը կարգավորող միջերես:",
@@ -229,7 +230,7 @@
 	"ep-pager-confirm-delete-org": "{{PLURAL:$1|Հաստատել ուսումնական հաստատության ջնջումը|Հաստատել ուսումնական հաստատությունների ջնջումը}}",
 	"ep-pager-retry-button-org": "Կրկնել",
 	"ep-pager-summary-message-org": "Ամփոփում՝",
-	"ep-pager-confirm-message-org": "Դուք պատրաստվում եք ջնջել $1 ուսումնական հաստատություները",
+	"ep-pager-confirm-message-org": "Դուք պատրաստվում եք ջնջել $1 ուսումնական հաստատությունները",
 	"ep-pager-confirm-message-org-many": "Դուք պատրաստվում եք հեռացնել $1 ուսումնական հաստատությունները",
 	"epcoursepager-header-name": "Անվանում",
 	"epcoursepager-header-term": "Կիսամյակ",
