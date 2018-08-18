@@ -60,13 +60,8 @@ class ApiDeleteEducation extends ApiBase {
 				$deletionHelper = new OrgDeletionHelper( $org, $this );
 
 				if ( !$deletionHelper->checkRestrictions() ) {
-					if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-						$this->dieWithError( $deletionHelper->getCantDeleteMsg(),
-							'org_deletion_restriction' );
-					} else {
-						$this->dieUsage( $deletionHelper->getCantDeleteMsgPlain(),
-							'org_deletion_restriction' );
-					}
+					$this->dieWithError( $deletionHelper->getCantDeleteMsg(),
+						'org_deletion_restriction' );
 				}
 			}
 		}

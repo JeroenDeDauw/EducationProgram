@@ -32,11 +32,7 @@ class ApiRefreshEducation extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		if ( $this->getUser()->isBlocked() ) {
-			if ( is_callable( [ $this, 'dieBlocked' ] ) ) {
-				$this->dieBlocked( $this->getUser()->getBlock() );
-			} else {
-				$this->dieUsageMsg( [ 'badaccess-groups' ] );
-			}
+			$this->dieBlocked( $this->getUser()->getBlock() );
 		}
 
 		$c = self::$typeMap[$params['type']];

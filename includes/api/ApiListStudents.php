@@ -48,13 +48,9 @@ class ApiListStudents extends ApiBase {
 			$course = Courses::singleton()->selectRow(
 				null, [ 'id' => $courseId ] );
 			if ( $course === false ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError(
-						[ 'apierror-badparameter', 'courseids' ], 'invalid-course'
-					);
-				} else {
-					$this->dieUsage( 'Invalid course id', 'invalid-course' );
-				}
+				$this->dieWithError(
+					[ 'apierror-badparameter', 'courseids' ], 'invalid-course'
+				);
 			}
 
 			// Get the user objects for students in this course,
@@ -64,15 +60,9 @@ class ApiListStudents extends ApiBase {
 
 			// Check that we're not building too large of a query.
 			if ( count( $allStudents ) > ApiBase::LIMIT_BIG2 ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError(
-						[ 'apierror-educationprogram-overlimit', $courseId ], 'over-query-limit'
-					);
-				} else {
-					$this->dieUsage( 'Query exceeded limit with course '
-						. $courseId
-						. '. Try again with fewer courses.', 'over-query-limit' );
-				}
+				$this->dieWithError(
+					[ 'apierror-educationprogram-overlimit', $courseId ], 'over-query-limit'
+				);
 			}
 
 			// If the 'group' parameter is given, get details for
