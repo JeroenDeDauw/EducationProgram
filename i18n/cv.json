@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chuvash2014"
+			"Chuvash2014",
+			"Chuvash"
 		]
 	},
 	"ep-educationprogram-male": "Арçын",
@@ -11,6 +12,7 @@
 	"epstudentpager-header-user-id": "Усă куракан ят",
 	"epstudentpager-header-id": "Id",
 	"epstudentpager-header-student": "Студент",
+	"ep-viewcourseactivityaction-nosuchcourse": "Курсĕ тупăнмарĕ!",
 	"ep-instructor-name-input": "Усăкуракан ят:",
 	"ep-campus-name-input": "Усăкуракан ят:"
 }
