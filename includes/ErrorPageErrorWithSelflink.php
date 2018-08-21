@@ -66,7 +66,7 @@ class ErrorPageErrorWithSelflink extends \ErrorPageError {
 
 		// create the output; see ErrorPageError and OutputPage::showErrorPage()
 		$wgOut->prepareErrorPage( $titleAsMessageObj );
-		$wgOut->addHTML( $msgAsMessageObj->plain() );
+		$wgOut->addHTML( $msgAsMessageObj->parseAsBlock() );
 		$wgOut->returnToMain();
 		$wgOut->output();
 	}
