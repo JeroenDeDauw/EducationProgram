@@ -29,6 +29,7 @@ namespace EducationProgram\Tests;
  *
  * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ * @coversNothing
  */
 class SpecialsTest extends \MediaWikiTestCase {
 
