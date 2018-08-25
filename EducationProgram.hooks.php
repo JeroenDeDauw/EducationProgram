@@ -38,9 +38,9 @@ final class Hooks {
 	 * @param \ResourceLoader &$resourceLoader
 	 */
 	public static function onResourceLoaderRegisterModules( \ResourceLoader &$resourceLoader ) {
-		$extraDependancies = [];
+		$extraDependencies = [];
 		if ( \ExtensionRegistry::getInstance()->isLoaded( 'WikiEditor' ) ) {
-			$extraDependancies[] = 'ext.wikiEditor.toolbar';
+			$extraDependencies[] = 'ext.wikiEditor.toolbar';
 		}
 		$moduleTemplate = [
 			'localBasePath' => __DIR__ . '/resources',
@@ -56,7 +56,7 @@ final class Hooks {
 				],
 				'dependencies' => [
 						'jquery.ui.button',
-					] + $extraDependancies
+					] + $extraDependencies
 			],
 			'ep.ambprofile' => $moduleTemplate + [
 				'scripts' => [
@@ -68,7 +68,7 @@ final class Hooks {
 				'dependencies' => [
 						'jquery.ui.button',
 						'ep.imageinput',
-					] + $extraDependancies
+					] + $extraDependencies
 			]
 		] );
 	}
