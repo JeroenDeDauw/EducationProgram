@@ -105,7 +105,7 @@ class SpecialStudentActivity extends VerySpecialPage {
 			'ep-studentactivity-count',
 			$studentCount,
 			$this->getLanguage()->formatDuration( $duration, [ 'hours' ] )
-		)->escaped();
+		)->text();
 
 		return \Html::element( 'img', [
 			'src' => $wgExtensionAssetsPath .

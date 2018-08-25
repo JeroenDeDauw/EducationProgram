@@ -65,7 +65,7 @@ abstract class Action extends \CachedAction {
 					[],
 					[ 'action' => 'epundelete' ]
 				) )
-			)->text() );
+			)->escaped() );
 		}
 	}
 
