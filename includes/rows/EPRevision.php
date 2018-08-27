@@ -56,7 +56,7 @@ class EPRevision extends ORMRow {
 	}
 
 	/**
-	 * Returns the the object stored in the revision with the provided id,
+	 * Returns the object stored in the revision with the provided id,
 	 * or false if there is no matching object.
 	 *
 	 * @param int $revId

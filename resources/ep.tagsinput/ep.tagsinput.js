@@ -5,7 +5,7 @@
  *
  * @license MIT
  *
- * Included in the the Education Program MediaWiki extension.
+ * Included in the Education Program MediaWiki extension.
  * @see https://www.mediawiki.org/wiki/Extension:Education_Program
  *
  * Changes from upstream:
