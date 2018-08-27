@@ -1,17 +1,42 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"Dr Lotus Black"
 		]
 	},
 	"ep-item-summary": "အကျဉ်းချုပ်",
 	"ep-form-summary": "အကျဉ်းချုပ်:",
+	"ep-tab-delete": "ဖျက်ပါ",
+	"ep-pager-delete-selected": "ဖျက်ပါ",
+	"ep-pager-cancel-button-org": "မလုပ်တော့ပါ",
 	"ep-pager-summary-message-org": "အကျဉ်းချုပ်:",
+	"ep-pager-cancel-button-course": "မလုပ်တော့ပါ",
 	"ep-pager-summary-message-course": "အကျဉ်းချုပ်:",
+	"ep-articletable-addreviwer-cancel": "မလုပ်တော့ပါ",
+	"ep-articletable-remreviwer-cancel": "မလုပ်တော့ပါ",
+	"ep-articletable-remstudent-cancel": "မလုပ်တော့ပါ",
+	"ep-articletable-remarticle-cancel": "မလုပ်တော့ပါ",
+	"ep-course-edit-title": "စာမျက်နှာ ခေါင်းစဉ်",
 	"ep-instructor-summary": "အကျဉ်းချုပ်:",
 	"ep-online-summary": "အကျဉ်းချုပ်:",
 	"ep-campus-summary": "အကျဉ်းချုပ်:",
+	"coursepage-delete-cancel-button": "မလုပ်တော့ပါ",
+	"orgpage-delete-cancel-button": "မလုပ်တော့ပါ",
+	"orgpage-eprestore-cancel-button": "မလုပ်တော့ပါ",
+	"coursepage-eprestore-cancel-button": "မလုပ်တော့ပါ",
+	"orgpage-epundo-cancel-button": "မလုပ်တော့ပါ",
+	"coursepage-epundo-cancel-button": "မလုပ်တော့ပါ",
+	"coursepage-epundelete-cancel-button": "မလုပ်တော့ပါ",
+	"orgpage-epundelete-cancel-button": "မလုပ်တော့ပါ",
+	"ep-disenroll-cancel": "မလုပ်တော့ပါ",
+	"ep-instructor-cancel-button": "မလုပ်တော့ပါ",
+	"ep-instructor-add-cancel-button": "မလုပ်တော့ပါ",
 	"ep-instructor-summary-input": "အကျဉ်းချုပ်:",
+	"ep-online-cancel-button": "မလုပ်တော့ပါ",
+	"ep-online-add-cancel-button": "မလုပ်တော့ပါ",
 	"ep-online-summary-input": "အကျဉ်းချုပ်:",
+	"ep-campus-cancel-button": "မလုပ်တော့ပါ",
+	"ep-campus-add-cancel-button": "မလုပ်တော့ပါ",
 	"ep-campus-summary-input": "အကျဉ်းချုပ်:"
 }
