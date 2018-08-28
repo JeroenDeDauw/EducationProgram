@@ -11,7 +11,8 @@
 			"Сербијана",
 			"Obsuser",
 			"Acamicamacaraca",
-			"BadDog"
+			"BadDog",
+			"Zoranzoki21"
 		]
 	},
 	"educationprogram-desc": "Олакшава образовне програме додавањем разних интерфејса за управљање курсевима, институцијама и различитим образовним улогама корисника.",
@@ -78,8 +79,8 @@
 	"logentry-course-remove": "$1 је {{GENDER:$2|уклонио|уклонила}} курс $3",
 	"logentry-course-update": "$1 је {{GENDER:$2|допунио|допунила}} курс $3",
 	"logentry-course-undelete": "$1 је {{GENDER:$2|вратио|вратила}} курс $3",
-	"logentry-instructor-add": "$1 је {{GENDER:$2|додао|додала}} {{PLURAL:$4|наставника|следеће наставнике}} $5 на курс $3",
-	"logentry-instructor-remove": "$1 је {{GENDER:$2|уклонио|уклонила}} {{PLURAL:$4|наставника|следеће наставнике}} $5 са курса $3",
+	"logentry-instructor-add": "$1 је {{GENDER:$2|додао|додала}} {{PLURAL:$4|{{GENDER:$5|наставника|следеће наставнике}}}} $5 на курс $3",
+	"logentry-instructor-remove": "$1 је {{GENDER:$2|уклонио|уклонила}} {{PLURAL:$4|{{GENDER:$5|следеће наставнике}}}} $5 са курса $3",
 	"logentry-instructor-selfadd": "$1 је {{GENDER:$2|додао|додала}} себе као {{GENDER:$2|наставника|наставницу}} на курс $3",
 	"logentry-instructor-selfremove": "$1 је {{GENDER:$2|уклонио|уклонила}} себе као {{GENDER:$2|наставника|наставницу}} са курса $3",
 	"logentry-online-add": "$1 је {{GENDER:$2|додао|додала}} {{PLURAL:$4|онлајн волонтера|онлајн волонтере}} $5 на курс $3",
