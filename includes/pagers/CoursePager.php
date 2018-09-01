@@ -128,7 +128,7 @@ class CoursePager extends EPPager {
 				$orgId = $this->currentObject->getField( 'org_id' );
 
 				if ( array_key_exists( $orgId, $this->orgNames ) ) {
-					$value = $this->table->getLinkFor(
+					$retValue = $this->table->getLinkFor(
 						$this->currentObject->getField( 'title' ),
 						'view',
 						htmlspecialchars( $value )
@@ -137,36 +137,37 @@ class CoursePager extends EPPager {
 				break;
 			case 'org_id':
 				if ( array_key_exists( $value, $this->orgNames ) ) {
-					$value = Orgs::singleton()->getLinkFor( $this->orgNames[$value] );
+					$retValue = Orgs::singleton()->getLinkFor( $this->orgNames[$value] );
 				} else {
+					$retValue = '';
 					wfWarn( 'Org id not in $this->orgNames in ' . __METHOD__ );
 				}
 				break;
 			case 'term':
-				$value = htmlspecialchars( $value );
+				$retValue = htmlspecialchars( $value );
 				break;
 			case 'lang':
 				$langs = \Language::fetchLanguageNames( $this->getLanguage()->getCode() );
 				if ( array_key_exists( $value, $langs ) ) {
-					$value = htmlspecialchars( $langs[$value] );
+					$retValue = htmlspecialchars( $langs[$value] );
 				} else {
-					$value = '<i>' . htmlspecialchars( $this->getMsg( 'invalid-lang' ) ) . '</i>';
+					$retValue = '<i>' . htmlspecialchars( $this->getMsg( 'invalid-lang' ) ) . '</i>';
 				}
 
 				break;
 			case 'start': case 'end':
-				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
+				$retValue = htmlspecialchars( $this->getLanguage()->date( $value ) );
 				break;
 			case '_status':
-				$value = htmlspecialchars( Course::getStatusMessage(
+				$retValue = htmlspecialchars( Course::getStatusMessage(
 					$this->currentObject->getStatus() ) );
 				break;
 			case 'student_count':
-				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
+				$retValue = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
 				break;
 		}
 
-		return $value;
+		return $retValue;
 	}
 
 	/**

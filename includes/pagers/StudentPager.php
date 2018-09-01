@@ -81,23 +81,24 @@ class StudentPager extends EPPager {
 					list( $userName, $realName ) = $this->userNames[$value];
 					$displayName = Settings::get( 'useStudentRealNames' ) ? $realName : $userName;
 
-					$value = \Linker::userLink( $value, $userName, $displayName )
+					$retValue = \Linker::userLink( $value, $userName, $displayName )
 						. Student::getViewLinksFor( $this->getContext(), $value, $userName );
 				} else {
 					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );
 				}
 				break;
 			case 'first_enroll': case 'last_active':
-				$value = htmlspecialchars( $this->getLanguage()->date( $value ) );
+				$retValue = htmlspecialchars( $this->getLanguage()->date( $value ) );
 				break;
 			case 'active_enroll':
-				$value = $this->msg( $value === '1' ? 'epstudentpager-yes' : 'epstudentpager-no' )->escaped();
+				$msgKey = $value === '1' ? 'epstudentpager-yes' : 'epstudentpager-no';
+				$retValue = $this->msg( $msgKey )->escaped();
 				break;
 			case '_courses_current':
 				$userId = $this->currentObject->getField( 'user_id' );
 
 				if ( array_key_exists( $userId, $this->courseTitles ) ) {
-					$value = $this->getLanguage()->pipeList( array_map(
+					$retValue = $this->getLanguage()->pipeList( array_map(
 						function ( $courseTitle ) {
 							$titleParts = explode( '/', $courseTitle, 2 );
 							return Courses::singleton()->getLinkFor(
@@ -112,7 +113,7 @@ class StudentPager extends EPPager {
 				break;
 		}
 
-		return $value;
+		return $retValue;
 	}
 
 	/**

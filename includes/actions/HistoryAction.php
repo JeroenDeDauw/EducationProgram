@@ -80,6 +80,11 @@ class HistoryAction extends Action {
 		$month       = $request->getInt( 'month' );
 		$tagFilter   = $request->getVal( 'tagfilter' );
 		$tagSelector = \ChangeTags::buildTagFilterSelector( $tagFilter );
+		if ( $tagSelector ) {
+			$tagSelectorHtml = "{$tagSelector[0]}&#160;{$tagSelector[1]}&#160;";
+		} else {
+			$tagSelectorHtml = '';
+		}
 
 		/**
 		 * Option to show only revisions that have been (partially) hidden via RevisionDelete
@@ -94,14 +99,14 @@ class HistoryAction extends Action {
 		$out->addHTML(
 			"<form action=\"$action\" method=\"get\" id=\"mw-history-searchform\">" .
 				Xml::fieldset(
-					$this->msg( 'history-fieldset-title' )->text(),
+					$this->msg( 'history-fieldset-title' )->escaped(),
 					false,
 					[ 'id' => 'mw-history-search' ]
 				) .
 				Html::hidden( 'title', $this->getTitle()->getPrefixedDBkey() ) . "\n" .
 				Html::hidden( 'action', 'history' ) . "\n" .
 				Xml::dateMenu( $year, $month ) . '&#160;' .
-				( $tagSelector ? ( implode( '&#160;', $tagSelector ) . '&#160;' ) : '' ) .
+				$tagSelectorHtml .
 				$checkDeleted .
 				Xml::submitButton( $this->msg( 'allpagessubmit' )->text() ) . "\n" .
 				'</fieldset></form>'

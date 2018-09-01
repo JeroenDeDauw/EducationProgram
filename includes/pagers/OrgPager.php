@@ -103,20 +103,20 @@ class OrgPager extends EPPager {
 	public function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
 			case 'name':
-				$value = Orgs::singleton()->getLinkFor( $value );
+				$retValue = Orgs::singleton()->getLinkFor( $value );
 				break;
 			case 'country':
 				$countries = array_flip( Utils::getCountryOptions( $this->getLanguage()->getCode() ) );
-				$value = htmlspecialchars( $countries[$value] );
+				$retValue = htmlspecialchars( $countries[$value] );
 				break;
-			case 'course_count': case 'student_count':
-				$rawValue = $value;
-				$value = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
+			case 'course_count':
+			case 'student_count':
+				$retValue = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
 
-				if ( $rawValue > 0 && $name === 'course_count' ) {
-					$value = Linker::linkKnown(
+				if ( $value > 0 && $name === 'course_count' ) {
+					$retValue = Linker::linkKnown(
 						SpecialPage::getTitleFor( 'Courses' ),
-						$value,
+						$retValue,
 						[],
 						[ 'org_id' => $this->currentObject->getId() ]
 					);
@@ -139,12 +139,12 @@ class OrgPager extends EPPager {
 				// from a deprecated field that is not updated correctly.)
 				// See: https://www.mediawiki.org/wiki/Wikipedia_Education_Program/Database_Analysis_Notes
 				// and https://gerrit.wikimedia.org/r/#/c/109631/6
-				$value = $this->msg( $this->currentObject->isActive() ?
+				$retValue = $this->msg( $this->currentObject->isActive() ?
 						'eporgpager-yes' : 'eporgpager-no' )->escaped();
 				break;
 		}
 
-		return $value;
+		return $retValue;
 	}
 
 	/**

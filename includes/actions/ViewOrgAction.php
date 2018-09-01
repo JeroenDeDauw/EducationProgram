@@ -81,23 +81,21 @@ class ViewOrgAction extends ViewAction {
 	protected function getSummaryData( IORMRow $org ) {
 		$stats = [];
 
-		$stats['name'] = $org->getField( 'name' );
-		$stats['city'] = $org->getField( 'city' );
+		$stats['name'] = htmlspecialchars( $org->getField( 'name' ) );
+		$stats['city'] = htmlspecialchars( $org->getField( 'city' ) );
 
 		$countries = \CountryNames::getNames( $this->getLanguage()->getCode() );
-		$stats['country'] = $countries[$org->getField( 'country' )];
+		$stats['country'] = htmlspecialchars( $countries[$org->getField( 'country' )] );
 
 		$status_msg = $org->isActive() ?
 			'ep-institution-active' : 'ep-institution-inactive';
 
 		$stats['status'] = $this->msg( $status_msg )->escaped();
 
-		$stats['courses'] = $this->getLanguage()->formatNum( $org->getField( 'course_count' ) );
-		$stats['students'] = $this->getLanguage()->formatNum( $org->getField( 'student_count' ) );
-
-		foreach ( $stats as &$stat ) {
-			$stat = htmlspecialchars( $stat );
-		}
+		$stats['courses'] = htmlspecialchars( $this->getLanguage()->formatNum(
+			$org->getField( 'course_count' ) ) );
+		$stats['students'] = htmlspecialchars( $this->getLanguage()->formatNum(
+			$org->getField( 'student_count' ) ) );
 
 		if ( $org->getField( 'course_count' ) > 0 ) {
 			$stats['courses'] = \Linker::linkKnown(

@@ -95,21 +95,21 @@ class StudentActivityPager extends EPPager {
 					list( $userName, $realName ) = $this->userNames[$value];
 					$displayName = Settings::get( 'useStudentRealNames' ) ? $realName : $userName;
 
-					$value = Linker::userLink( $value, $userName, $displayName )
+					$retValue = Linker::userLink( $value, $userName, $displayName )
 						. Student::getViewLinksFor( $this->getContext(), $value, $userName );
 				} else {
-					$value = '';
+					$retValue = '';
 					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );
 				}
 				break;
 			case 'last_active':
-				$value = htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
+				$retValue = htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
 				break;
 			case 'last_course':
 				if ( array_key_exists( $value, $this->courseTitles ) ) {
-					$value = Courses::singleton()->getLinkFor( $this->courseTitles[$value] );
+					$retValue = Courses::singleton()->getLinkFor( $this->courseTitles[$value] );
 				} else {
-					$value = '';
+					$retValue = '';
 					wfWarn( 'Course id not in $this->courseTitles in ' . __METHOD__ );
 				}
 				break;
@@ -120,20 +120,20 @@ class StudentActivityPager extends EPPager {
 					$orgId = $this->courseOrgs[$courseId];
 
 					if ( array_key_exists( $orgId, $this->orgData ) ) {
-						$value = $this->orgData[$orgId]['flag'];
-						$value .= Orgs::singleton()->getLinkFor( $this->orgData[$orgId]['name'] );
+						$retValue = $this->orgData[$orgId]['flag'];
+						$retValue .= Orgs::singleton()->getLinkFor( $this->orgData[$orgId]['name'] );
 					} else {
-						$value = '';
+						$retValue = '';
 						wfWarn( 'Org id not in $this->orgNames in ' . __METHOD__ );
 					}
 				} else {
-					$value = '';
+					$retValue = '';
 					wfWarn( 'Course id not in $this->courseOrgs in ' . __METHOD__ );
 				}
 				break;
 		}
 
-		return $value;
+		return $retValue;
 	}
 
 	/**

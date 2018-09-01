@@ -369,13 +369,15 @@ class ArticleTable extends EPPager {
 		$hasValidTitle = $title !== null;
 		$titleText = $hasValidTitle ? $title->getFullText() : $article->getPageTitle();
 
-		$html = htmlspecialchars( $titleText );
+		$escapedTitle = htmlspecialchars( $titleText );
 
 		if ( $hasValidTitle ) {
 			$html = Linker::link(
 				$title,
-				$html
+				$escapedTitle
 			);
+		} else {
+			$html = $escapedTitle;
 		}
 
 		$attr = [
