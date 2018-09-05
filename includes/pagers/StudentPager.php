@@ -85,6 +85,7 @@ class StudentPager extends EPPager {
 						. Student::getViewLinksFor( $this->getContext(), $value, $userName );
 				} else {
 					wfWarn( 'User id not in $this->userNames in ' . __METHOD__ );
+					$retValue = htmlspecialchars( $value );
 				}
 				break;
 			case 'first_enroll': case 'last_active':
@@ -109,6 +110,8 @@ class StudentPager extends EPPager {
 						},
 						$this->courseTitles[$userId]
 					) );
+				} else {
+					$retValue = htmlspecialchars( $value );
 				}
 				break;
 		}
