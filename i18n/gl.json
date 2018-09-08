@@ -99,7 +99,7 @@
 	"prefs-education": "Educación",
 	"ep-prefs-showtoplink": "Amosar unha ligazón [[Special:MyCourses|aos seus cursos]] na parte superior de cada páxina.",
 	"ep-prefs-bulkdelorgs": "Amosar un control de borrado en masa para as [[Special:Institutions|institucións]].",
-	"ep-prefs-bulkdelcourses": "Mostrar un control de borrado en masa para os [[Special:Courses|cursos]].",
+	"ep-prefs-bulkdelcourses": "Amosar un control de borrado en masa para os [[Special:Courses|cursos]].",
 	"right-ep-org": "Administrar as institucións do programa educativo",
 	"right-ep-course": "Administrar os cursos do programa educativo",
 	"right-ep-token": "Ver os pases de inscrición no programa educativo",
