@@ -3,6 +3,7 @@
 namespace EducationProgram;
 
 use IContextSource;
+use InvalidArgumentException;
 use Linker;
 use SpecialPage;
 
@@ -103,12 +104,12 @@ class OrgPager extends EPPager {
 	public function getFormattedValue( $name, $value ) {
 		switch ( $name ) {
 			case 'name':
-				$retValue = Orgs::singleton()->getLinkFor( $value );
-				break;
+				return Orgs::singleton()->getLinkFor( $value );
+
 			case 'country':
 				$countries = array_flip( Utils::getCountryOptions( $this->getLanguage()->getCode() ) );
-				$retValue = htmlspecialchars( $countries[$value] );
-				break;
+				return htmlspecialchars( $countries[$value] );
+
 			case 'course_count':
 			case 'student_count':
 				$retValue = htmlspecialchars( $this->getLanguage()->formatNum( $value ) );
@@ -122,7 +123,8 @@ class OrgPager extends EPPager {
 					);
 				}
 
-				break;
+				return $retValue;
+
 			case 'active':
 				// @todo FIXME: Add full text of all used message keys here for grepping
 				// and transparancy purposes.
@@ -139,12 +141,11 @@ class OrgPager extends EPPager {
 				// from a deprecated field that is not updated correctly.)
 				// See: https://www.mediawiki.org/wiki/Wikipedia_Education_Program/Database_Analysis_Notes
 				// and https://gerrit.wikimedia.org/r/#/c/109631/6
-				$retValue = $this->msg( $this->currentObject->isActive() ?
+				return $this->msg( $this->currentObject->isActive() ?
 						'eporgpager-yes' : 'eporgpager-no' )->escaped();
-				break;
 		}
 
-		return $retValue;
+		throw new InvalidArgumentException( "Unexpected value name: $name" );
 	}
 
 	/**
