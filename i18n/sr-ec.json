@@ -478,7 +478,7 @@
 	"orgpage-epundo-undid": "Опозване су измене на установи $1.",
 	"orgpage-epundo-undo-failed": "Не могу да опозовем измену установе $1.",
 	"orgpage-epcompare-title": "Упореди измене на установи \"$1\".",
-	"orgpage-epcompare-none": "Ова измена не може да буде упоређена са актуелном.",
+	"orgpage-epcompare-none": "Ова измена не може да буде упоређена са тренутном.",
 	"coursepage-epundo-title": "Опозивање измене курса „$1“",
 	"coursepage-epundo-text": "На путу сте да вратите измену на курсу $1.",
 	"coursepage-epundo-summary": "Разлог:",
