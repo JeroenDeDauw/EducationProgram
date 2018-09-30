@@ -411,7 +411,8 @@ final class Hooks {
 	public static function onNewRevisionFromEditComplete(
 		WikiPage $wikiPage, Revision $rev, $baseID, User $user
 	) {
-		\DeferredUpdates::addCallableUpdate( function () use ( $wikiPage, $rev, $user ) {
+		$fname = __METHOD__;
+		\DeferredUpdates::addCallableUpdate( function () use ( $wikiPage, $rev, $user, $fname ) {
 			$dbw = wfGetDB( DB_MASTER );
 
 			// TODO: properly inject dependencies
@@ -422,11 +423,11 @@ final class Hooks {
 			if ( $events ) {
 				$eventStore = new EventStore( 'ep_events' );
 
-				$dbw->startAtomic( __METHOD__ );
+				$dbw->startAtomic( $fname );
 				foreach ( $events as $event ) {
 					$eventStore->insertEvent( $event );
 				}
-				$dbw->endAtomic( __METHOD__ );
+				$dbw->endAtomic( $fname );
 			}
 		} );
 	}
