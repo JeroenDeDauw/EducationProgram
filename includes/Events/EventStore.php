@@ -158,11 +158,9 @@ class EventStore {
 			'event_info' => serialize( $event->getInfo() )
 		];
 
-		return $db->insert(
-			$this->tableName,
-			$fields,
-			__METHOD__
-		) !== false;
+		$db->insert( $this->tableName, $fields, __METHOD__ );
+
+		return true;
 	}
 
 }

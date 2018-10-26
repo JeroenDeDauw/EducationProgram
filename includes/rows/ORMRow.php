@@ -406,23 +406,18 @@ class ORMRow implements IORMRow {
 	protected function insert( $functionName = null, array $options = null ) {
 		$dbw = $this->table->getWriteDbConnection();
 
-		$success = $dbw->insert(
+		$dbw->insert(
 			$this->table->getName(),
 			$this->getWriteValues(),
 			is_null( $functionName ) ? __METHOD__ : $functionName,
 			$options
 		);
 
-		// IDatabase::insert does not always return true for success as documented...
-		$success = $success !== false;
-
-		if ( $success ) {
-			$this->setField( 'id', $dbw->insertId() );
-		}
+		$this->setField( 'id', $dbw->insertId() );
 
 		$this->table->releaseConnection( $dbw );
 
-		return $success;
+		return true;
 	}
 
 	/**

@@ -1005,23 +1005,18 @@ class ORMTable extends \DBAccessBase implements IORMTable {
 	public function insertRow( IORMRow $row, $functionName = null, array $options = null ) {
 		$dbw = $this->getWriteDbConnection();
 
-		$success = $dbw->insert(
+		$dbw->insert(
 			$this->getName(),
 			$this->getWriteValues( $row ),
 			is_null( $functionName ) ? __METHOD__ : $functionName,
 			$options
 		);
 
-		// IDatabase::insert does not always return true for success as documented...
-		$success = $success !== false;
-
-		if ( $success ) {
-			$row->setField( 'id', $dbw->insertId() );
-		}
+		$row->setField( 'id', $dbw->insertId() );
 
 		$this->releaseConnection( $dbw );
 
-		return $success;
+		return true;
 	}
 
 	/**
