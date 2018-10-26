@@ -127,14 +127,14 @@ class ArticleStore {
 			throw new InvalidArgumentException( 'Cannot update an article that has no id' );
 		}
 
-		$success = $this->getWriteConnection()->update(
+		$this->getWriteConnection()->update(
 			$this->tableName,
 			$this->getWriteFields( $article ),
 			[ 'article_id' => $article->getId() ],
 			__METHOD__
 		) !== false;
 
-		return $success;
+		return true;
 	}
 
 	/**
