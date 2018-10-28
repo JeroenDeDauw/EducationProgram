@@ -214,13 +214,15 @@ class ArticleStore {
 	 * @return bool Success indicator
 	 */
 	public function deleteArticle( $articleId ) {
-		return $this->getWriteConnection()->delete(
+		$this->getWriteConnection()->delete(
 			$this->tableName,
 			[
 				 'article_id' => $articleId
 			],
 			__METHOD__
-		) !== false;
+		);
+
+		return true;
 	}
 
 	/**
@@ -262,14 +264,16 @@ class ArticleStore {
 			throw new InvalidArgumentException( '$courseIds and $userIds cannot be empty' );
 		}
 
-		return $this->getWriteConnection()->delete(
+		$this->getWriteConnection()->delete(
 			$this->tableName,
 			[
 				'article_course_id' => $courseIds,
 				'article_user_id' => $userIds,
 			],
 			__METHOD__
-		) !== false;
+		);
+
+		return true;
 	}
 
 	/**
