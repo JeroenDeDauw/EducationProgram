@@ -151,7 +151,7 @@ class RevisionPager extends \ReverseChronologicalPager {
 		// Display the links for available actions for the revision.
 		if ( !empty( $actionLinks ) ) {
 			$html .= '&#160;.&#160;.&#160;';
-			$html .= '(' .  $this->getLanguage()->pipeList( $actionLinks ) . ')';
+			$html .= '(' . $this->getLanguage()->pipeList( $actionLinks ) . ')';
 		}
 
 		$this->rowNr++;

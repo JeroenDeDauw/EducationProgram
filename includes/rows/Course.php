@@ -236,7 +236,7 @@ class Course extends PageObject {
 	 * @param int|null $org_id
 	 * @param array|null $fields
 	 */
-	protected function updateOrgSummaryFields( $org_id=null, $fields=null ) {
+	protected function updateOrgSummaryFields( $org_id = null, $fields = null ) {
 		if ( is_null( $org_id ) ) {
 			$org_id = $this->getField( 'org_id' );
 		}
@@ -268,7 +268,7 @@ class Course extends PageObject {
 	 *   users and roles to add; each inner array has two keys: user_id and
 	 *   role.
 	 */
-	protected function upcAdd( $userIdsAndRoles=null ) {
+	protected function upcAdd( $userIdsAndRoles = null ) {
 		// if no param, build the data from this course's user fields
 		if ( is_null( $userIdsAndRoles ) ) {
 			$userIdsAndRoles = [];

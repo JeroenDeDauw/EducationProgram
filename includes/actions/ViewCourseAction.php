@@ -347,7 +347,7 @@ class ViewCourseAction extends ViewAction {
 				],
 				$expandMsg
 			)
-			.']';
+			. ']';
 
 		// close div for headline and expand/collapse link
 		$html .= Html::closeElement( 'div' );
