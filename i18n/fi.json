@@ -11,7 +11,8 @@
 			"VezonThunder",
 			"Stryn",
 			"McSalama",
-			"Susannaanas"
+			"Susannaanas",
+			"Valtlait"
 		]
 	},
 	"educationprogram-desc": "Helpottaa koulutusohjelmia lisäämällä eri käyttöliittymiä kurssien, laitosten ja eri koulutuksellisten käyttäjäroolien hallintaan.",
@@ -266,11 +267,11 @@
 	"ep-online-summary": "Yhteenveto:",
 	"ep-campus-summary": "Yhteenveto:",
 	"coursepage-delete-summary": "Syy:",
-	"coursepage-delete-title": "Poista kurssi \"$1\"",
+	"coursepage-delete-title": "Poista kurssi ”$1”",
 	"coursepage-delete-cancel-button": "Peruuta",
 	"coursepage-delete-delete-button": "Poista kurssi",
 	"orgpage-delete-summary": "Syy",
-	"orgpage-delete-title": "Poista laitos \"$1\"",
+	"orgpage-delete-title": "Poista laitos ”$1”",
 	"orgpage-delete-cancel-button": "Peruuta",
 	"orgpage-delete-delete-button": "Poista laitos",
 	"ep-delete-org-has-courses-close-dialog": "Sulje",
