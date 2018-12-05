@@ -195,6 +195,10 @@ class UserRolesMessage {
 			foreach ( $mainRoleCourses as $course ) {
 				$title = $course->getTitle();
 
+				if ( !$title->canHaveTalkPage() ) {
+					throw new \Exception( 'Course "' . $course->getName() . '" can\'t have a talk page!' );
+				}
+
 				$msg = $this->out->msg(
 					'ep-user-roles-message-course-link-for-list',
 					$title->getFullText(),
