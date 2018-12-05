@@ -390,8 +390,8 @@
 				"ep.api.js"
 			],
 			"dependencies": [
-				"mediawiki.user",
-				"ep.core"
+				"ep.core",
+				"user.tokens"
 			]
 		},
 		"ep.pager": {
@@ -403,8 +403,8 @@
 			],
 			"dependencies": [
 				"ep.api",
-				"mediawiki.jqueryMsg",
-				"jquery.ui.dialog"
+				"jquery.ui.dialog",
+				"mediawiki.jqueryMsg"
 			],
 			"messages": [
 				"ep-pager-confirm-delete",
@@ -461,9 +461,9 @@
 				"ep.combobox.css"
 			],
 			"dependencies": [
+				"jquery.ui.autocomplete",
 				"jquery.ui.core",
-				"jquery.ui.widget",
-				"jquery.ui.autocomplete"
+				"jquery.ui.widget"
 			]
 		},
 		"ep.disenroll": {
@@ -491,10 +491,11 @@
 				"ep.articletable.css"
 			],
 			"dependencies": [
+				"ep.core",
+				"jquery.ui.autocomplete",
 				"jquery.ui.button",
 				"jquery.ui.dialog",
-				"jquery.ui.autocomplete",
-				"ep.core"
+				"mediawiki.user"
 			],
 			"messages": [
 				"ep-articletable-addreviwer-title",
@@ -544,11 +545,11 @@
 				"ep.enlist.js"
 			],
 			"dependencies": [
-				"mediawiki.user",
+				"jquery.ui.autocomplete",
 				"jquery.ui.dialog",
-				"ep.core",
 				"ep.api",
-				"jquery.ui.autocomplete"
+				"ep.core",
+				"mediawiki.user"
 			],
 			"messages": [
 				"ep-instructor-remove-title",
@@ -655,10 +656,12 @@
 				"ep.addstudents.css"
 			],
 			"dependencies": [
-				"jquery.ui.core",
 				"ep.tagsinput",
-				"mediawiki.user",
-				"mediawiki.Uri"
+				"jquery.ui.core",
+				"mediawiki.api",
+				"mediawiki.Uri",
+				"mediawiki.util",
+				"user.tokens"
 			],
 			"messages": [
 				"collapsible-expand",
