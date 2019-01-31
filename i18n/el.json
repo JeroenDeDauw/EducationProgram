@@ -540,5 +540,6 @@
 	"ep-user-roles-message-main-campus": "{{GENDER:$2|O|H}} [[$1|$2]] είναι επί τόπου {{GENDER:$2|εθελοντής|εθελόντρια}} {{PLURAL:$4|στο|στα}} $3.",
 	"ep-user-roles-message-additional": "{{GENDER:$1|Είναι}} επίσης $2.",
 	"ep-user-roles-message-rolename-student": "{{GENDER:$1|σπουδαστής|σπουδάστρια}}",
-	"ep-user-roles-message-rolename-online": "{{GENDER:$1|διαδικτυακό εθελοντής|διαδικτυακή εθελόντρια}}"
+	"ep-user-roles-message-rolename-online": "{{GENDER:$1|διαδικτυακό εθελοντής|διαδικτυακή εθελόντρια}}",
+	"echo-category-title-education-program": "Πρόγραμμα Εκπαίδευσης"
 }
