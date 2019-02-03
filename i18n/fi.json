@@ -12,7 +12,8 @@
 			"Stryn",
 			"McSalama",
 			"Susannaanas",
-			"Valtlait"
+			"Valtlait",
+			"Pyscowicz"
 		]
 	},
 	"educationprogram-desc": "Helpottaa koulutusohjelmia lisäämällä eri käyttöliittymiä kurssien, laitosten ja eri koulutuksellisten käyttäjäroolien hallintaan.",
@@ -45,7 +46,7 @@
 	"tooltip-ep-minor": "Merkitsee tämän pieneksi muutokseksi",
 	"ep-nav-orgs": "Laitosten luettelo",
 	"ep-nav-courses": "Kurssilista",
-	"ep-nav-mycourses": "Sinun kurssisi",
+	"ep-nav-mycourses": "Omat kurssit",
 	"ep-nav-students": "Opiskelijalista",
 	"ep-nav-mentors": "Vapaaehtoisten luettelo",
 	"ep-nav-cas": "Kampusvapaaehtoiset",
