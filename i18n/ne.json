@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"NehalDaveND",
-			"राम प्रसाद जोशी"
+			"राम प्रसाद जोशी",
+			"पर्वत सुबेदी"
 		]
 	},
 	"ep-item-summary": "सारांश",
@@ -12,7 +13,7 @@
 	"ep-tab-create": "सृजना गर्ने",
 	"ep-tab-history": "इतिहास हेर्ने",
 	"ep-tab-delete": "हटाउने",
-	"tooltip-ep-form-save": "संग्रह गर्ने",
+	"tooltip-ep-form-save": "सङ्ग्रह गर्ने",
 	"prefs-education": "शिक्षा",
 	"specialpages-group-education": "शिक्षा",
 	"special-institutions": "संस्था",
