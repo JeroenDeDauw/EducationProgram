@@ -4,17 +4,25 @@
 			"Mirzali"
 		]
 	},
+	"ep-pager-cancel-button-org": "Bıtexelne",
+	"ep-pager-cancel-button-course": "Bıtexelne",
 	"ep-articletable-addreviwer-cancel": "Bıtexelne",
 	"ep-articletable-remreviwer-cancel": "Bıtexelne",
 	"ep-articletable-remstudent-cancel": "Bıtexelne",
 	"ep-articletable-remarticle-cancel": "Bıtexelne",
 	"coursepage-delete-cancel-button": "Bıtexelne",
+	"orgpage-delete-cancel-button": "Bıtexelne",
+	"orgpage-eprestore-cancel-button": "Bıtexelne",
 	"coursepage-eprestore-cancel-button": "Bıtexelne",
+	"orgpage-epundo-cancel-button": "Bıtexelne",
 	"coursepage-epundo-cancel-button": "Bıtexelne",
 	"coursepage-epundelete-cancel-button": "Bıtexelne",
+	"orgpage-epundelete-cancel-button": "Bıtexelne",
 	"ep-disenroll-cancel": "Bıtexelne",
 	"ep-instructor-cancel-button": "Bıtexelne",
 	"ep-instructor-add-cancel-button": "Bıtexelne",
+	"ep-online-cancel-button": "Bıtexelne",
+	"ep-online-add-cancel-button": "Bıtexelne",
 	"ep-campus-cancel-button": "Bıtexelne",
 	"ep-campus-add-cancel-button": "Bıtexelne"
 }
