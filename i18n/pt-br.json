@@ -17,7 +17,8 @@
 			"Araceletorres",
 			"Felipe L. Ewald",
 			"MokaAkashiyaPT",
-			"Athena in Wonderland"
+			"Athena in Wonderland",
+			"Fitoschido"
 		]
 	},
 	"educationprogram-desc": "Facilita programas educacionais ao adicionar várias interfaces para gestão de cursos, instituições e os diferentes papeis que assumem os participantes de um projeto educacional",
@@ -706,7 +707,7 @@
 	"ep-user-roles-message-main-many-instructor": "[[$1|$2]] é {{GENDER:$2|instrutor|instrutora}} em $3 {{PLURAL:$3|curso|cursos}}.",
 	"ep-user-roles-message-main-many-online": "[[$1|$2]] é {{GENDER:$2|voluntário|voluntária}} online em $3 {{PLURAL:$3|curso|cursos}}.",
 	"ep-user-roles-message-main-many-campus": "[[$1|$2]] é {{GENDER:$2|voluntário|voluntária}} de campus em $3 {{PLURAL:$3|curso|cursos}}.",
-	"ep-user-roles-message-additional": "{{GENDER:$1|Ele também é|Ela também é|Eles também são}} $2.",
+	"ep-user-roles-message-additional": "{{GENDER:$1|Ele também é|Ela também é|Também é}} $2.",
 	"ep-user-roles-message-rolename-student": "{{GENDER:$1|estudante}}",
 	"ep-user-roles-message-rolename-instructor": "{{GENDER:$1|instrutor|instrutora}}",
 	"ep-user-roles-message-rolename-online": "{{GENDER:$1|voluntário|voluntária}} online",
