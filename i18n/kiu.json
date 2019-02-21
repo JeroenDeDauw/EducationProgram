@@ -4,12 +4,21 @@
 			"Mirzali"
 		]
 	},
+	"eporgpager-yes": "Heya",
+	"eporgpager-no": "Nê",
 	"ep-pager-cancel-button-org": "Bıtexelne",
 	"ep-pager-cancel-button-course": "Bıtexelne",
+	"epstudentpager-header-user-id": "Namê karberi",
+	"epstudentpager-yes": "Heya",
+	"epstudentpager-no": "Nê",
 	"ep-articletable-addreviwer-cancel": "Bıtexelne",
 	"ep-articletable-remreviwer-cancel": "Bıtexelne",
 	"ep-articletable-remstudent-cancel": "Bıtexelne",
 	"ep-articletable-remarticle-cancel": "Bıtexelne",
+	"epcapager-header-user-id": "Namê karberi",
+	"epcapager-header-bio": "Profil",
+	"epoapager-header-user-id": "Namê karberi",
+	"epoapager-header-bio": "Profil",
 	"coursepage-delete-cancel-button": "Bıtexelne",
 	"orgpage-delete-cancel-button": "Bıtexelne",
 	"orgpage-eprestore-cancel-button": "Bıtexelne",
@@ -18,11 +27,15 @@
 	"coursepage-epundo-cancel-button": "Bıtexelne",
 	"coursepage-epundelete-cancel-button": "Bıtexelne",
 	"orgpage-epundelete-cancel-button": "Bıtexelne",
+	"specialstudent-summary-user": "Namê karberi",
 	"ep-disenroll-cancel": "Bıtexelne",
 	"ep-instructor-cancel-button": "Bıtexelne",
 	"ep-instructor-add-cancel-button": "Bıtexelne",
+	"ep-instructor-name-input": "Namê karberi:",
 	"ep-online-cancel-button": "Bıtexelne",
 	"ep-online-add-cancel-button": "Bıtexelne",
+	"ep-online-name-input": "Namê karberi:",
 	"ep-campus-cancel-button": "Bıtexelne",
-	"ep-campus-add-cancel-button": "Bıtexelne"
+	"ep-campus-add-cancel-button": "Bıtexelne",
+	"ep-campus-name-input": "Namê karberi:"
 }
